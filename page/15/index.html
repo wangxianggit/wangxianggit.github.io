@@ -67,6 +67,80 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-shell_file_exist" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/shell_file_exist/" class="article-date">
+  <time datetime="2019-05-09T16:20:16.000Z" itemprop="datePublished">2019-05-10</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/learning/">learning</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/shell_file_exist/">shell判断文件是否存在</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+
+        <h2 id="shell判断文件的存在​"><a href="#shell判断文件的存在​" class="headerlink" title="shell判断文件的存在​"></a>shell判断文件的存在​</h2><ul>
+<li><p>一般判断使用if语句，格式如下：</p>
+<ul>
+<li><pre><code>if [ -f &quot;~/file/filename&quot; ];then
+echo &quot;file exist&quot;
+else
+echo &quot;file doesn&#39;t exist&quot;
+fi</code></pre>
+</li>
+</ul>
+</li>
+<li><p>改变参数-f可以用于判断不同类型的文件或对象，常用参数：</p>
+<ul>
+<li>-e 判断对象是否存在</li>
+<li>-d 判断对象是否存在，并且为目录</li>
+<li>-f 判断对象是否存在，并且为常规文件</li>
+<li>-L 判断对象是否存在，并且为符号链接</li>
+<li>-h 判断对象是否存在，并且为软链接</li>
+<li>-s 判断对象是否存在，并且长度不为0</li>
+<li>-r 判断对象是否存在，并且可读</li>
+<li>-w 判断对象是否存在，并且可写</li>
+<li>-x 判断对象是否存在，并且可执行</li>
+<li>-O 判断对象是否存在，并且属于当前用户</li>
+<li>-G 判断对象是否存在，并且属于当前用户组</li>
+<li>-nt 判断file1是否比file2新  [ “/file/file1”-nt “/file/file2”]</li>
+<li>-ot 判断file1是否比file2旧  [ “/file/file1” -ot “/file/file2” ]</li>
+</ul>
+</li>
+</ul>
+<hr>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wangxianggit.github.io/shell_file_exist/" data-id="ckjv2tty200gxt0dna7xp5ohv" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Shell/" rel="tag">Shell</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-shell_read_line" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/shell_read_line/" class="article-date">
@@ -403,114 +477,6 @@ echo $&#123;#name&#125; #计算变量长度
 
 
   
-    <article id="post-shell_variable_substitution" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/shell_variable_substitution/" class="article-date">
-  <time datetime="2019-05-09T08:01:32.000Z" itemprop="datePublished">2019-05-09</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/learning/">learning</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/shell_variable_substitution/">shell变量删除替换</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-
-        <h2 id="shell变量定义规则"><a href="#shell变量定义规则" class="headerlink" title="shell变量定义规则"></a>shell变量定义规则</h2><ul>
-<li>命名只能使用英文字母，数字和下划线，首个字符不能以数字开头。</li>
-<li>中间不能有空格，可以使用下划线（_）。</li>
-<li>不能使用标点符号。</li>
-<li>不能使用bash里的关键字（可用help命令查看保留关键字）。​ </li>
-</ul>
-<ul>
-<li>变量与变量内容以一个等号=来连结，等号两边不能直接接空格符</li>
-<li>变量内容若有空格符可使用双引号”或单引号’将变量内容结合起来，但双引号内的特殊字符如 $ 等，可以保有原本的特性，单引号内的特殊字符则仅为一般字符 (纯文本)</li>
-<li>可用跳脱字符\将特殊符号(如 [Enter], $, , 空格符, 等)变成一般字符</li>
-<li>若该变量为扩增变量内容时，则可用”$变量”或${变量} 累加内容：<code>PATH=&quot;$PATH&quot;:/home/bin</code></li>
-<li>若该变量需要在其他子程序运行，则需要以 export 来使变量变成环境变量：<code>export PATH</code></li>
-<li>通常大写字符为系统默认变量，自行配置变量可以使用小写字符</li>
-<li>.取消变量的方法为使用 unset ：<code>unset var</code></li>
-<li>变量的显示和重定向可用：echo</li>
-<li>只读变量用readonly命令声明：<code>readonly var</code></li>
-</ul>
-<h2 id="变量的删除替换"><a href="#变量的删除替换" class="headerlink" title="变量的删除替换"></a>变量的删除替换</h2><table>
-<thead>
-<tr>
-<th>变量配置方式</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>${变量#关键词}</td>
-<td>若变量内容从头开始的数据符合『关键词』，则将符合的最短数据删除</td>
-</tr>
-<tr>
-<td>${变量##关键词}</td>
-<td>若变量内容从头开始的数据符合『关键词』，则将符合的最长数据删除</td>
-</tr>
-<tr>
-<td>${变量%关键词}</td>
-<td>若变量内容从尾向前的数据符合『关键词』，则将符合的最短数据删除</td>
-</tr>
-<tr>
-<td>${变量%%关键词}</td>
-<td>若变量内容从尾向前的数据符合『关键词』，则将符合的最长数据删除</td>
-</tr>
-<tr>
-<td>${变量/旧字符串/新字符串}</td>
-<td>若变量内容符合『旧字符串』则『第一个旧字符串会被新字符串取代』</td>
-</tr>
-<tr>
-<td>${变量//旧字符串/新字符串}</td>
-<td>若变量内容符合『旧字符串』则『全部的旧字符串会被新字符串取代』</td>
-</tr>
-</tbody></table>
-<ul>
-<li><p>变量删除示例：</p>
-<ul>
-<li><pre><code>path=&quot;/usr/bin:/usr/local/bin:/usr/local/sbin&quot;
-echo $&#123;path#/*usr/bin:&#125; //将第一个目录删除，*号是通配符
-echo $&#123;path#/*:&#125; //同样删除第一个目录
-echo $&#123;path##/*:&#125; //保留最后一个目录
-echo $&#123;path#/*usr/local/bin:&#125;//同样保留最后一个目录
-echo $&#123;path%%:*sbin&#125;//保留第一个目录
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 变量替换示例：</span><br><span class="line"></span><br><span class="line">  * ~~~</span><br><span class="line">    path=<span class="string">&quot;/usr/bin:/usr/local/bin:/usr/local/sbin&quot;</span></span><br><span class="line">    echo <span class="variable">$&#123;path/usr/USR&#125;</span><span class="regexp">//</span>第一个usr变成大写</span><br><span class="line">    echo <span class="variable">$&#123;path//usr/USR&#125;</span><span class="regexp">//</span>所有usr变成大写</span><br></pre></td></tr></table></figure></code></pre>
-</li>
-</ul>
-</li>
-</ul>
-<hr>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/shell_variable_substitution/" data-id="ckjv2tty400h9t0dnfp9degq1" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Shell/" rel="tag">Shell</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
@@ -563,7 +529,7 @@ echo $&#123;path%%:*sbin&#125;//保留第一个目录
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Algorithm/" style="font-size: 11.33px;">Algorithm</a> <a href="/tags/Altium-Designer/" style="font-size: 14.67px;">Altium Designer</a> <a href="/tags/Apache/" style="font-size: 11.33px;">Apache</a> <a href="/tags/BeautifulSoup/" style="font-size: 10px;">BeautifulSoup</a> <a href="/tags/C/" style="font-size: 15.33px;">C</a> <a href="/tags/C/" style="font-size: 18.67px;">C++</a> <a href="/tags/Centos7/" style="font-size: 17.33px;">Centos7</a> <a href="/tags/Cython/" style="font-size: 10px;">Cython</a> <a href="/tags/Electronic/" style="font-size: 13.33px;">Electronic</a> <a href="/tags/English/" style="font-size: 12px;">English</a> <a href="/tags/Geant4/" style="font-size: 10.67px;">Geant4</a> <a href="/tags/Hardware/" style="font-size: 10px;">Hardware</a> <a href="/tags/Hexo/" style="font-size: 14px;">Hexo</a> <a href="/tags/Image/" style="font-size: 12px;">Image</a> <a href="/tags/Jupyter/" style="font-size: 10px;">Jupyter</a> <a href="/tags/Linux/" style="font-size: 19.33px;">Linux</a> <a href="/tags/Markdown/" style="font-size: 16px;">Markdown</a> <a href="/tags/Mongodb/" style="font-size: 10px;">Mongodb</a> <a href="/tags/Nuclear-Physics/" style="font-size: 11.33px;">Nuclear Physics</a> <a href="/tags/Open/" style="font-size: 10px;">Open</a> <a href="/tags/Opencv/" style="font-size: 10.67px;">Opencv</a> <a href="/tags/Program/" style="font-size: 18px;">Program</a> <a href="/tags/PyPI/" style="font-size: 10px;">PyPI</a> <a href="/tags/Py-Crawler/" style="font-size: 10.67px;">Py_Crawler</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/Random/" style="font-size: 10px;">Random</a> <a href="/tags/Resource/" style="font-size: 10.67px;">Resource</a> <a href="/tags/Root/" style="font-size: 10.67px;">Root</a> <a href="/tags/Scipy/" style="font-size: 10px;">Scipy</a> <a href="/tags/Shell/" style="font-size: 16px;">Shell</a> <a href="/tags/Solidwork/" style="font-size: 10.67px;">Solidwork</a> <a href="/tags/TTree/" style="font-size: 10px;">TTree</a> <a href="/tags/Tensorflow/" style="font-size: 15.33px;">Tensorflow</a> <a href="/tags/Thread/" style="font-size: 10px;">Thread</a> <a href="/tags/Urllib2/" style="font-size: 10px;">Urllib2</a> <a href="/tags/Virtual-memory/" style="font-size: 10px;">Virtual memory</a> <a href="/tags/cmake/" style="font-size: 12.67px;">cmake</a> <a href="/tags/cmd/" style="font-size: 10.67px;">cmd</a> <a href="/tags/data-structure/" style="font-size: 10.67px;">data structure</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/hexo/" style="font-size: 10.67px;">hexo</a> <a href="/tags/htop/" style="font-size: 10px;">htop</a> <a href="/tags/keras/" style="font-size: 10.67px;">keras</a> <a href="/tags/latex/" style="font-size: 14.67px;">latex</a> <a href="/tags/os/" style="font-size: 10px;">os</a> <a href="/tags/qt/" style="font-size: 10px;">qt</a> <a href="/tags/requests/" style="font-size: 10px;">requests</a> <a href="/tags/sk-learn/" style="font-size: 10px;">sk-learn</a> <a href="/tags/ssh/" style="font-size: 12.67px;">ssh</a> <a href="/tags/statistic/" style="font-size: 10px;">statistic</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/windows/" style="font-size: 16.67px;">windows</a> <a href="/tags/yolo%EF%BC%8CC/" style="font-size: 10px;">yolo，C</a>
+      <a href="/tags/Algorithm/" style="font-size: 11.33px;">Algorithm</a> <a href="/tags/Altium-Designer/" style="font-size: 14.67px;">Altium Designer</a> <a href="/tags/Apache/" style="font-size: 11.33px;">Apache</a> <a href="/tags/BeautifulSoup/" style="font-size: 10px;">BeautifulSoup</a> <a href="/tags/C/" style="font-size: 15.33px;">C</a> <a href="/tags/C/" style="font-size: 18.67px;">C++</a> <a href="/tags/Centos7/" style="font-size: 17.33px;">Centos7</a> <a href="/tags/Cython/" style="font-size: 10px;">Cython</a> <a href="/tags/Electronic/" style="font-size: 13.33px;">Electronic</a> <a href="/tags/English/" style="font-size: 12px;">English</a> <a href="/tags/Geant4/" style="font-size: 10.67px;">Geant4</a> <a href="/tags/Hardware/" style="font-size: 10px;">Hardware</a> <a href="/tags/Hexo/" style="font-size: 14px;">Hexo</a> <a href="/tags/Image/" style="font-size: 12px;">Image</a> <a href="/tags/Jupyter/" style="font-size: 10px;">Jupyter</a> <a href="/tags/Linux/" style="font-size: 19.33px;">Linux</a> <a href="/tags/Markdown/" style="font-size: 16px;">Markdown</a> <a href="/tags/Mongodb/" style="font-size: 10px;">Mongodb</a> <a href="/tags/Nuclear-Physics/" style="font-size: 11.33px;">Nuclear Physics</a> <a href="/tags/Open/" style="font-size: 10px;">Open</a> <a href="/tags/Opencv/" style="font-size: 10.67px;">Opencv</a> <a href="/tags/Program/" style="font-size: 18px;">Program</a> <a href="/tags/PyPI/" style="font-size: 10px;">PyPI</a> <a href="/tags/Py-Crawler/" style="font-size: 10.67px;">Py_Crawler</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/Random/" style="font-size: 10px;">Random</a> <a href="/tags/Resource/" style="font-size: 10.67px;">Resource</a> <a href="/tags/Root/" style="font-size: 10.67px;">Root</a> <a href="/tags/Scipy/" style="font-size: 10px;">Scipy</a> <a href="/tags/Shell/" style="font-size: 16px;">Shell</a> <a href="/tags/Solidwork/" style="font-size: 10.67px;">Solidwork</a> <a href="/tags/TTree/" style="font-size: 10px;">TTree</a> <a href="/tags/Tensorflow/" style="font-size: 15.33px;">Tensorflow</a> <a href="/tags/Thread/" style="font-size: 10px;">Thread</a> <a href="/tags/Urllib2/" style="font-size: 10px;">Urllib2</a> <a href="/tags/Virtual-memory/" style="font-size: 10px;">Virtual memory</a> <a href="/tags/cmake/" style="font-size: 12.67px;">cmake</a> <a href="/tags/cmd/" style="font-size: 10.67px;">cmd</a> <a href="/tags/data-structure/" style="font-size: 10.67px;">data structure</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/hexo/" style="font-size: 11.33px;">hexo</a> <a href="/tags/htop/" style="font-size: 10px;">htop</a> <a href="/tags/keras/" style="font-size: 10.67px;">keras</a> <a href="/tags/latex/" style="font-size: 14.67px;">latex</a> <a href="/tags/os/" style="font-size: 10px;">os</a> <a href="/tags/qt/" style="font-size: 10px;">qt</a> <a href="/tags/requests/" style="font-size: 10px;">requests</a> <a href="/tags/sk-learn/" style="font-size: 10px;">sk-learn</a> <a href="/tags/ssh/" style="font-size: 12.67px;">ssh</a> <a href="/tags/statistic/" style="font-size: 10px;">statistic</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/windows/" style="font-size: 16.67px;">windows</a> <a href="/tags/yolo%EF%BC%8CC/" style="font-size: 10px;">yolo，C</a>
     </div>
   </div>
 
@@ -589,6 +555,10 @@ echo $&#123;path%%:*sbin&#125;//保留第一个目录
           </li>
         
           <li>
+            <a href="/hexo_ERROR_Deployer_not_found_git/">hexo部署错误Deployer not found git</a>
+          </li>
+        
+          <li>
             <a href="/nodejs_windows_install/">windows下安装nodejs及环境变量设置</a>
           </li>
         
@@ -598,10 +568,6 @@ echo $&#123;path%%:*sbin&#125;//保留第一个目录
         
           <li>
             <a href="/Endnote_download_tutorial/">EndnoteX9下载及新手教程</a>
-          </li>
-        
-          <li>
-            <a href="/centos7_opencv_install/">Centso7下安装opencv</a>
           </li>
         
       </ul>

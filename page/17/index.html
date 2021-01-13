@@ -67,6 +67,70 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Linux_find" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/Linux_find/" class="article-date">
+  <time datetime="2019-05-04T08:54:03.000Z" itemprop="datePublished">2019-05-04</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/learning/">learning</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/Linux_find/">Linux find命令</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+
+        <h2 id="Linux-find命令"><a href="#Linux-find命令" class="headerlink" title="Linux find命令"></a>Linux find命令</h2><ul>
+<li>​find命令可以搜索指定目录下的文件。 </li>
+</ul>
+<ul>
+<li><p>语法：<code>find   path   -option [expression]  </code></p>
+</li>
+<li><p>其中path表示要搜索的目录，option表示查找参数</p>
+</li>
+<li><p>实例：</p>
+<ul>
+<li><pre><code>find //查找当前目录下的所有文件
+find ./ -name &quot;a.txt&quot; //查找当前目录下名称为a.txt的文件
+find ./ -maxdepth 2 -name &quot;a.txt&quot;//限制深度为2查找
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="string">*</span> <span class="string">常用参数：</span></span><br><span class="line"></span><br><span class="line">  <span class="string">*</span> <span class="string">~~~</span></span><br><span class="line">    <span class="string">-mount,</span> <span class="string">-xdev</span> <span class="string">:</span> <span class="string">只检查和指定目录在同一个文件系统下的文件，避免列出其它文件系统中的文件</span></span><br><span class="line"></span><br><span class="line">    <span class="string">-amin</span> <span class="attr">n :</span> <span class="string">在过去</span> <span class="string">n</span> <span class="string">分钟内被读取过</span></span><br><span class="line"></span><br><span class="line">    <span class="string">-anewer</span> <span class="attr">file :</span> <span class="string">比文件</span> <span class="string">file</span> <span class="string">更晚被读取过的文件</span></span><br><span class="line"></span><br><span class="line">    <span class="string">-atime</span> <span class="attr">n :</span> <span class="string">在过去n天内被读取过的文件</span></span><br><span class="line"></span><br><span class="line">    <span class="string">-cmin</span> <span class="attr">n :</span> <span class="string">在过去</span> <span class="string">n</span> <span class="string">分钟内被修改过</span></span><br><span class="line"></span><br><span class="line">    <span class="string">-cnewer</span> <span class="string">file</span> <span class="string">:比文件</span> <span class="string">file</span> <span class="string">更新的文件</span></span><br><span class="line"></span><br><span class="line">    <span class="string">-ctime</span> <span class="attr">n :</span> <span class="string">在过去n天内被修改过的文件</span></span><br><span class="line"></span><br><span class="line">    <span class="string">-empty</span> <span class="string">:</span> <span class="string">空的文件-gid</span> <span class="attr">n or -group name :</span> <span class="string">gid</span> <span class="string">是</span> <span class="string">n</span> <span class="string">或是</span> <span class="string">group</span> <span class="string">名称是</span> <span class="string">name</span></span><br><span class="line"></span><br><span class="line">    <span class="string">-ipath</span> <span class="string">p,</span> <span class="string">-path</span> <span class="attr">p :</span> <span class="string">路径名称符合</span> <span class="string">p</span> <span class="string">的文件，ipath</span> <span class="string">会忽略大小写</span></span><br><span class="line"></span><br><span class="line">    <span class="string">-name</span> <span class="string">name,</span> <span class="string">-iname</span> <span class="attr">name :</span> <span class="string">文件名称符合</span> <span class="string">name</span> <span class="string">的文件。iname</span> <span class="string">会忽略大小写</span></span><br><span class="line"></span><br><span class="line">    <span class="string">-size</span> <span class="attr">n :</span> <span class="string">文件大小</span> <span class="string">是</span> <span class="string">n</span> <span class="string">单位，b</span> <span class="string">代表</span> <span class="number">512</span> <span class="string">位元组的区块，c</span> <span class="string">表示字元数，k</span> <span class="string">表示</span> <span class="string">kilo</span> <span class="string">bytes，w</span> <span class="string">是二个位元组。-type</span> <span class="attr">c :</span> <span class="string">文件类型是</span> <span class="string">c</span> <span class="string">的文件。</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">d:</span> <span class="string">目录</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">c:</span> <span class="string">字型装置文件</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">b:</span> <span class="string">区块装置文件</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">p:</span> <span class="string">具名贮列</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">f:</span> <span class="string">一般文件</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">l:</span> <span class="string">符号连结</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">s:</span> <span class="string">socket</span></span><br></pre></td></tr></table></figure>
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wangxianggit.github.io/Linux_find/" data-id="ckjv2ttux0040t0dn65juepgl" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Shell/" rel="tag">Shell</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-Linux_grep" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/Linux_grep/" class="article-date">
@@ -387,64 +451,6 @@ window.mainloop()</code></pre>
 
 
   
-    <article id="post-httpd_error_library" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/httpd_error_library/" class="article-date">
-  <time datetime="2019-04-27T14:13:57.000Z" itemprop="datePublished">2019-04-27</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/learning/">learning</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/httpd_error_library/">Centos7安装apache错误</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-
-        <ul>
-<li><p>centos7安装apache即httpd出现错误提示：</p>
-<ul>
-<li>~~~<br>missing requires of liberation-fonts<br>missing requires of libappindicator3.so.1()(64bit)<figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">* 提示显示缺少google_chrome依赖的两个库，安装如下：</span></span><br><span class="line"></span><br><span class="line"><span class="comment">* 安装libappindicator3.so.1()(64bit)</span></span><br><span class="line"></span><br><span class="line">  * ~~~</span><br><span class="line">    yum install epel-release             (the <span class="string">&quot;extras&quot;</span> must be enabled)</span><br><span class="line">    yum install libappindicator-gtk3</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-<li><p>安装liberation-fonts </p>
-<ul>
-<li><pre><code>yum install liberation-fonts</code></pre>
-</li>
-</ul>
-</li>
-</ul>
-<hr>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/httpd_error_library/" data-id="ckjv2ttxf00e0t0dnd6g5744w" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Apache/" rel="tag">Apache</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Centos7/" rel="tag">Centos7</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
@@ -497,7 +503,7 @@ window.mainloop()</code></pre>
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Algorithm/" style="font-size: 11.33px;">Algorithm</a> <a href="/tags/Altium-Designer/" style="font-size: 14.67px;">Altium Designer</a> <a href="/tags/Apache/" style="font-size: 11.33px;">Apache</a> <a href="/tags/BeautifulSoup/" style="font-size: 10px;">BeautifulSoup</a> <a href="/tags/C/" style="font-size: 15.33px;">C</a> <a href="/tags/C/" style="font-size: 18.67px;">C++</a> <a href="/tags/Centos7/" style="font-size: 17.33px;">Centos7</a> <a href="/tags/Cython/" style="font-size: 10px;">Cython</a> <a href="/tags/Electronic/" style="font-size: 13.33px;">Electronic</a> <a href="/tags/English/" style="font-size: 12px;">English</a> <a href="/tags/Geant4/" style="font-size: 10.67px;">Geant4</a> <a href="/tags/Hardware/" style="font-size: 10px;">Hardware</a> <a href="/tags/Hexo/" style="font-size: 14px;">Hexo</a> <a href="/tags/Image/" style="font-size: 12px;">Image</a> <a href="/tags/Jupyter/" style="font-size: 10px;">Jupyter</a> <a href="/tags/Linux/" style="font-size: 19.33px;">Linux</a> <a href="/tags/Markdown/" style="font-size: 16px;">Markdown</a> <a href="/tags/Mongodb/" style="font-size: 10px;">Mongodb</a> <a href="/tags/Nuclear-Physics/" style="font-size: 11.33px;">Nuclear Physics</a> <a href="/tags/Open/" style="font-size: 10px;">Open</a> <a href="/tags/Opencv/" style="font-size: 10.67px;">Opencv</a> <a href="/tags/Program/" style="font-size: 18px;">Program</a> <a href="/tags/PyPI/" style="font-size: 10px;">PyPI</a> <a href="/tags/Py-Crawler/" style="font-size: 10.67px;">Py_Crawler</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/Random/" style="font-size: 10px;">Random</a> <a href="/tags/Resource/" style="font-size: 10.67px;">Resource</a> <a href="/tags/Root/" style="font-size: 10.67px;">Root</a> <a href="/tags/Scipy/" style="font-size: 10px;">Scipy</a> <a href="/tags/Shell/" style="font-size: 16px;">Shell</a> <a href="/tags/Solidwork/" style="font-size: 10.67px;">Solidwork</a> <a href="/tags/TTree/" style="font-size: 10px;">TTree</a> <a href="/tags/Tensorflow/" style="font-size: 15.33px;">Tensorflow</a> <a href="/tags/Thread/" style="font-size: 10px;">Thread</a> <a href="/tags/Urllib2/" style="font-size: 10px;">Urllib2</a> <a href="/tags/Virtual-memory/" style="font-size: 10px;">Virtual memory</a> <a href="/tags/cmake/" style="font-size: 12.67px;">cmake</a> <a href="/tags/cmd/" style="font-size: 10.67px;">cmd</a> <a href="/tags/data-structure/" style="font-size: 10.67px;">data structure</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/hexo/" style="font-size: 10.67px;">hexo</a> <a href="/tags/htop/" style="font-size: 10px;">htop</a> <a href="/tags/keras/" style="font-size: 10.67px;">keras</a> <a href="/tags/latex/" style="font-size: 14.67px;">latex</a> <a href="/tags/os/" style="font-size: 10px;">os</a> <a href="/tags/qt/" style="font-size: 10px;">qt</a> <a href="/tags/requests/" style="font-size: 10px;">requests</a> <a href="/tags/sk-learn/" style="font-size: 10px;">sk-learn</a> <a href="/tags/ssh/" style="font-size: 12.67px;">ssh</a> <a href="/tags/statistic/" style="font-size: 10px;">statistic</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/windows/" style="font-size: 16.67px;">windows</a> <a href="/tags/yolo%EF%BC%8CC/" style="font-size: 10px;">yolo，C</a>
+      <a href="/tags/Algorithm/" style="font-size: 11.33px;">Algorithm</a> <a href="/tags/Altium-Designer/" style="font-size: 14.67px;">Altium Designer</a> <a href="/tags/Apache/" style="font-size: 11.33px;">Apache</a> <a href="/tags/BeautifulSoup/" style="font-size: 10px;">BeautifulSoup</a> <a href="/tags/C/" style="font-size: 15.33px;">C</a> <a href="/tags/C/" style="font-size: 18.67px;">C++</a> <a href="/tags/Centos7/" style="font-size: 17.33px;">Centos7</a> <a href="/tags/Cython/" style="font-size: 10px;">Cython</a> <a href="/tags/Electronic/" style="font-size: 13.33px;">Electronic</a> <a href="/tags/English/" style="font-size: 12px;">English</a> <a href="/tags/Geant4/" style="font-size: 10.67px;">Geant4</a> <a href="/tags/Hardware/" style="font-size: 10px;">Hardware</a> <a href="/tags/Hexo/" style="font-size: 14px;">Hexo</a> <a href="/tags/Image/" style="font-size: 12px;">Image</a> <a href="/tags/Jupyter/" style="font-size: 10px;">Jupyter</a> <a href="/tags/Linux/" style="font-size: 19.33px;">Linux</a> <a href="/tags/Markdown/" style="font-size: 16px;">Markdown</a> <a href="/tags/Mongodb/" style="font-size: 10px;">Mongodb</a> <a href="/tags/Nuclear-Physics/" style="font-size: 11.33px;">Nuclear Physics</a> <a href="/tags/Open/" style="font-size: 10px;">Open</a> <a href="/tags/Opencv/" style="font-size: 10.67px;">Opencv</a> <a href="/tags/Program/" style="font-size: 18px;">Program</a> <a href="/tags/PyPI/" style="font-size: 10px;">PyPI</a> <a href="/tags/Py-Crawler/" style="font-size: 10.67px;">Py_Crawler</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/Random/" style="font-size: 10px;">Random</a> <a href="/tags/Resource/" style="font-size: 10.67px;">Resource</a> <a href="/tags/Root/" style="font-size: 10.67px;">Root</a> <a href="/tags/Scipy/" style="font-size: 10px;">Scipy</a> <a href="/tags/Shell/" style="font-size: 16px;">Shell</a> <a href="/tags/Solidwork/" style="font-size: 10.67px;">Solidwork</a> <a href="/tags/TTree/" style="font-size: 10px;">TTree</a> <a href="/tags/Tensorflow/" style="font-size: 15.33px;">Tensorflow</a> <a href="/tags/Thread/" style="font-size: 10px;">Thread</a> <a href="/tags/Urllib2/" style="font-size: 10px;">Urllib2</a> <a href="/tags/Virtual-memory/" style="font-size: 10px;">Virtual memory</a> <a href="/tags/cmake/" style="font-size: 12.67px;">cmake</a> <a href="/tags/cmd/" style="font-size: 10.67px;">cmd</a> <a href="/tags/data-structure/" style="font-size: 10.67px;">data structure</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/hexo/" style="font-size: 11.33px;">hexo</a> <a href="/tags/htop/" style="font-size: 10px;">htop</a> <a href="/tags/keras/" style="font-size: 10.67px;">keras</a> <a href="/tags/latex/" style="font-size: 14.67px;">latex</a> <a href="/tags/os/" style="font-size: 10px;">os</a> <a href="/tags/qt/" style="font-size: 10px;">qt</a> <a href="/tags/requests/" style="font-size: 10px;">requests</a> <a href="/tags/sk-learn/" style="font-size: 10px;">sk-learn</a> <a href="/tags/ssh/" style="font-size: 12.67px;">ssh</a> <a href="/tags/statistic/" style="font-size: 10px;">statistic</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/windows/" style="font-size: 16.67px;">windows</a> <a href="/tags/yolo%EF%BC%8CC/" style="font-size: 10px;">yolo，C</a>
     </div>
   </div>
 
@@ -523,6 +529,10 @@ window.mainloop()</code></pre>
           </li>
         
           <li>
+            <a href="/hexo_ERROR_Deployer_not_found_git/">hexo部署错误Deployer not found git</a>
+          </li>
+        
+          <li>
             <a href="/nodejs_windows_install/">windows下安装nodejs及环境变量设置</a>
           </li>
         
@@ -532,10 +542,6 @@ window.mainloop()</code></pre>
         
           <li>
             <a href="/Endnote_download_tutorial/">EndnoteX9下载及新手教程</a>
-          </li>
-        
-          <li>
-            <a href="/centos7_opencv_install/">Centso7下安装opencv</a>
           </li>
         
       </ul>
