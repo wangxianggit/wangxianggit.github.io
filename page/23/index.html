@@ -67,10 +67,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-C++_keyword_const" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-vi_usuage" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/C++_keyword_const/" class="article-date">
-  <time datetime="2019-03-06T13:12:53.000Z" itemprop="datePublished">2019-03-06</time>
+    <a href="/vi_usuage/" class="article-date">
+  <time datetime="2019-03-15T12:15:12.000Z" itemprop="datePublished">2019-03-15</time>
 </a>
     
   <div class="article-category">
@@ -85,7 +85,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/C++_keyword_const/">C/C++关键字const</a>
+      <a class="article-title" href="/vi_usuage/">vi简明使用方法</a>
     </h1>
   
 
@@ -95,41 +95,161 @@
       
 	  <!-- Table of Contents -->
 
-        <h2 id="C-C-关键字const"><a href="#C-C-关键字const" class="headerlink" title="C/C++ 关键字const"></a>C/C++ 关键字const</h2><ul>
-<li>const关键字用于修饰变量使之具有不能被修改的属性。</li>
+        <h2 id="vi工作模式"><a href="#vi工作模式" class="headerlink" title="vi工作模式"></a>vi工作模式</h2><ul>
+<li>​ 正常模式：可以使用快捷键命令，或按:输入命令行。</li>
+<li>插入模式：可以输入文本，在正常模式下，按i、a、o等都可以进入插入模式。</li>
+<li>可视模式：正常模式下按v可以进入可视模式， 在可视模式下，移动光标可以选择文本。按V进入可视行模式， 总是整行整行的选中。ctrl+v进入可视块模式，可以整列整列的选中。</li>
+<li>替换模式：正常模式下，按R进入。</li>
 </ul>
-<h3 id="修饰局部变量"><a href="#修饰局部变量" class="headerlink" title="修饰局部变量"></a>修饰局部变量</h3><ul>
-<li><p>修饰局部变量使用方法</p>
+<h2 id="内建文档说明"><a href="#内建文档说明" class="headerlink" title="内建文档说明"></a>内建文档说明</h2><ul>
+<li><p>在终端中输入一下命令可以阅读内建文档说明：</p>
 <ul>
-<li>~~~<br>const int a = 10;<br>or<br>int const b = 20;<figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  * 用<span class="keyword">const</span>修饰变量时，一定要给变量初始化，初始化之后不能改变。</span><br><span class="line"></span><br><span class="line">  * C++中经<span class="keyword">const</span>修饰的变量，若没有进行变量初始化，编译报错，C中会出现警告。</span><br><span class="line"></span><br><span class="line"><span class="meta">### 修饰指针</span></span><br><span class="line"></span><br><span class="line">* <span class="keyword">const</span>修饰指针后，指针所指向的内容是常量，不可被修改，例如：</span><br><span class="line"></span><br><span class="line">  * ```</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">int</span> * p　＝　＆c;</span><br><span class="line">    or</span><br><span class="line">    <span class="keyword">int</span> <span class="keyword">const</span> * p　＝　＆c;</span><br><span class="line">    ```</span><br><span class="line"></span><br><span class="line">* 常量指针不能通过这个指针改变变量的值，但是可以通过其他的引用来改变变量的值。例：</span><br><span class="line"></span><br><span class="line">  * ~~~</span><br><span class="line">    <span class="keyword">int</span> a=<span class="number">2</span>;</span><br><span class="line">    <span class="keyword">int</span> c = <span class="number">5</span>;</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">int</span> *n = &amp;a;</span><br><span class="line">    a = <span class="number">100</span>;</span><br><span class="line">    a = c;</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-<li><p>常量指针指向的值不能改变，但是指针本身可以改变，即常量指针可以指向其他的地址。</p>
-</li>
-<li><p>指针常量是指指针本身是个常量，不能在指向其他的地址，即其指向的地址不能改变。</p>
+<li><pre><code>vimtutor:英文说明
+vimtutor zh:中文说明</code></pre>
 </li>
 </ul>
-<h3 id="修饰引用"><a href="#修饰引用" class="headerlink" title="修饰引用"></a>修饰引用</h3><ul>
-<li>~~~<br>int a = 1;<br>int const &amp;a = b;<br>const int &amp;a = b;<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 两种定义方式等价</span><br><span class="line"></span><br><span class="line"><span class="meta">### 在函数中的使用</span></span><br><span class="line"></span><br><span class="line">* ~~~</span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">StrCopy</span>(<span class="params"><span class="built_in">char</span> *strdes, <span class="keyword">const</span> <span class="built_in">char</span> *strsrc</span>)</span>;<span class="comment">//防止修改指针指向的内容</span></span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">swap</span> (<span class="params"> <span class="built_in">int</span> * <span class="keyword">const</span> p1 , <span class="built_in">int</span> * <span class="keyword">const</span> p2 </span>)  <span class="comment">//防止修改指针指向的地址</span></span></span><br></pre></td></tr></table></figure></li>
-<li>如果给以“指针传递”方式的函数返回值加 const 修饰，那么函数返回值（即指针）的内容不能被修改，该返回值只能被赋给加const 修饰的同类型指针。</li>
+</li>
 </ul>
-<h3 id="const常量和宏常量的区别"><a href="#const常量和宏常量的区别" class="headerlink" title="const常量和宏常量的区别"></a>const常量和宏常量的区别</h3><ul>
-<li>const常量有数据类型，而宏常量没有数据类型。编译器可以对前者进行类型安全检查，而对后者只进行字符替换，没有类型安全检查，并且在字符替换时可能会产生意料不到的错误（边际效应）。</li>
-<li>const定义常量从汇编的角度来看，只是给出了对应的内存地址，而不是象#define一样给出的是立即数，所以，const定义的常量在程序运行过程中只有一份拷贝，而#define定义的常量在内存中有若干个拷贝。</li>
-<li>宏定义是一个“编译时”概念，在预处理阶段展开，不能对宏定义进行调试，生命周期结束于编译时期。const常量是一个“运行时”概念，在程序运行时使用，类似于一个只读数据。</li>
-<li>编译器通常不为普通const常量分配存储空间，而是将它们保存在符号表中，这使得它成为一个编译期间的常量，没有了存储与读内存的操作，使得它的效率也很高</li>
-<li>const修饰符可以防止意外的修改，增强程序的健壮性。</li>
-<li>宏定义不能作为参数传递给函数；const常量可以在函数的参数列表中出现。</li>
+<h2 id="vi启动方式"><a href="#vi启动方式" class="headerlink" title="vi启动方式"></a>vi启动方式</h2><ul>
+<li>vim -c cmd file: 在打开文件前，先执行指定的命令；</li>
+<li>vim -r file: 恢复上次异常退出的文件；</li>
+<li>vim -R file: 以只读的方式打开文件，但可以强制保存；</li>
+<li>vim -M file: 以只读的方式打开文件，不可以强制保存；</li>
+<li>vim -y num file: 将编辑窗口的大小设为num行；</li>
+<li>vim + file: 从文件的末尾开始；</li>
+<li>vim +num file: 从第num行开始；</li>
+<li>vim +/string file: 打开file，并将光标停留在第一个找到的string上。</li>
+<li>vim –remote file: 用已有的vim进程打开指定的文件。 如果你不想启用多个vim会话，这个很有用。但要注意， 如果你用vim，会寻找名叫VIM的服务器；如果你已经有一个gvim在运行了， 你可以用gvim –remote file在已有的gvim中打开文件。</li>
+</ul>
+<h2 id="文档操作"><a href="#文档操作" class="headerlink" title="文档操作"></a>文档操作</h2><ul>
+<li>:f filename – 改变编辑的文件名，这时再保存相当于另存为。</li>
+<li>gf – 打开以光标所在字符串为文件名的文件。</li>
+<li>:w – 保存修改。</li>
+<li>:n1,n2w filename – 选择性保存从某n1行到另n2行的内容。</li>
+<li>:wq – 保存并退出。</li>
+<li>ZZ – 保存并退出。</li>
+<li>:x – 保存并退出。</li>
+<li>:q[uit] ——退出当前窗口。(CTRL-W q或CTRL-W CTRL-Q)</li>
+<li>:saveas newfilename – 另存为</li>
+<li>:e file –关闭当前编辑的文件，并开启新的文件。 如果对当前文件的修改未保存，vi会警告。</li>
+<li>:e! file –放弃对当前文件的修改，编辑新的文件。</li>
+<li>:e+file – 开始新的文件，并从文件尾开始编辑。</li>
+<li>:e+n file – 开始新的文件，并从第n行开始编辑。</li>
+<li>:enew –编译一个未命名的新文档。(CTRL-W n)</li>
+<li>:e – 重新加载当前文档。</li>
+<li>:e! – 重新加载当前文档，并丢弃已做的改动。</li>
+<li>:e#或ctrl+^ – 回到刚才编辑的文件，很实用。</li>
+<li>:f或ctrl+g – 显示文档名，是否修改，和光标位置。</li>
+<li>:Sex – 水平分割一个窗口，浏览文件系统；</li>
+<li>:Vex – 垂直分割一个窗口，浏览文件系统；</li>
+</ul>
+<h2 id="光标移动-normal模式下"><a href="#光标移动-normal模式下" class="headerlink" title="光标移动(normal模式下)"></a>光标移动(normal模式下)</h2><ul>
+<li>0: 移动到行首。</li>
+<li>g0: 移到光标所在屏幕行行首。</li>
+<li>^: 移动到本行第一个非空白字符。</li>
+<li>g^: 同 ^ ，但是移动到当前屏幕行第一个非空字符处。</li>
+<li>$: 移动到行尾。</li>
+<li>g$: 移动光标所在屏幕行行尾。</li>
+<li>n|: 把光标移到递n列上。</li>
+<li>nG: 到文件第n行。</li>
+<li>:n<cr> 移动到第n行。</li>
+<li>:$<cr> 移动到最后一行。</li>
+<li>H: 把光标移到屏幕最顶端一行。</li>
+<li>M: 把光标移到屏幕中间一行。</li>
+<li>L: 把光标移到屏幕最底端一行。</li>
+<li>gg: 到文件头部。</li>
+<li>G: 到文件尾部。</li>
+</ul>
+<h2 id="配合n使用的光标移动-normal模式下"><a href="#配合n使用的光标移动-normal模式下" class="headerlink" title="配合n使用的光标移动(normal模式下)"></a>配合n使用的光标移动(normal模式下)</h2><ul>
+<li><code>配合n使用时在命令前键入n，则该命令的效果翻n倍</code></li>
+<li>h或退格: 左移一个字符；</li>
+<li>l或空格: 右移一个字符；</li>
+<li>j: 下移一行；</li>
+<li>k: 上移一行；</li>
+<li>gj: 移动到一段内的下一行；</li>
+<li>gk: 移动到一段内的上一行；</li>
+<li>+或Enter: 把光标移至下一行第一个非空白字符。</li>
+<li>-: 把光标移至上一行第一个非空白字符。</li>
+<li>w: 前移一个单词，光标停在下一个单词开头；</li>
+<li>W: 移动下一个单词开头，但忽略一些标点；</li>
+<li>e: 前移一个单词，光标停在下一个单词末尾；</li>
+<li>E: 移动到下一个单词末尾，如果词尾有标点，则移动到标点；</li>
+<li>b: 后移一个单词，光标停在上一个单词开头；</li>
+<li>B: 移动到上一个单词开头，忽略一些标点；</li>
+<li>ge: 后移一个单词，光标停在上一个单词末尾；</li>
+<li>gE: 同 ge ，不过‘单词’包含单词相邻的标点。</li>
+<li>(: 前移1句。</li>
+<li>): 后移1句。</li>
+<li>{: 前移1段。</li>
+<li>}: 后移1段。</li>
+<li>fc: 把光标移到同一行的下一个c字符处</li>
+<li>Fc: 把光标移到同一行的上一个c字符处</li>
+<li>tc: 把光标移到同一行的下一个c字符前</li>
+<li>Tc: 把光标移到同一行的上一个c字符后</li>
+<li>;: 配合f &amp; t使用，重复一次</li>
+<li>,: 配合f &amp; t使用，反向重复一次</li>
+</ul>
+<h2 id="翻屏"><a href="#翻屏" class="headerlink" title="翻屏"></a>翻屏</h2><ul>
+<li>ctrl+f: 下翻一屏。</li>
+<li>ctrl+b: 上翻一屏。</li>
+<li>ctrl+d: 下翻半屏。</li>
+<li>ctrl+u: 上翻半屏。</li>
+<li>ctrl+e: 向下滚动一行。</li>
+<li>ctrl+y: 向上滚动一行。</li>
+<li>n%: 到文件n%的位置。</li>
+</ul>
+<h2 id="复制和粘贴"><a href="#复制和粘贴" class="headerlink" title="复制和粘贴"></a>复制和粘贴</h2><ul>
+<li>[n]x: 剪切光标右边n个字符，相当于d[n]l。</li>
+<li>[n]X: 剪切光标左边n个字符，相当于d[n]h。</li>
+<li>y: 复制在可视模式下选中的文本。</li>
+<li>yy or Y: 复制整行文本。</li>
+<li>y[n]w: 复制一(n)个词。</li>
+<li>y[n]l: 复制光标右边1(n)个字符。</li>
+<li>y[n]h: 复制光标左边1(n)个字符。</li>
+<li>y$: 从光标当前位置复制到行尾。</li>
+<li>y0: 从光标当前位置复制到行首。</li>
+<li>:m,ny<cr> 复制m行到n行的内容。</li>
+<li>y1G或ygg: 复制光标以上的所有行。</li>
+<li>yG: 复制光标以下的所有行。</li>
+<li>yaw和yas：复制一个词和复制一个句子，即使光标不在词首和句首也没关系。</li>
+<li>d: 删除（剪切）在可视模式下选中的文本。</li>
+<li>d$ or D: 删除（剪切）当前位置到行尾的内容。</li>
+<li>d[n]w: 删除（剪切）1(n)个单词</li>
+<li>d[n]l: 删除（剪切）光标右边1(n)个字符。</li>
+<li>d[n]h: 删除（剪切）光标左边1(n)个字符。</li>
+<li>d0: 删除（剪切）当前位置到行首的内容</li>
+<li>[n] dd: 删除（剪切）1(n)行。</li>
+<li>:m,nd<cr> 剪切m行到n行的内容。</li>
+<li>d1G或dgg: 剪切光标以上的所有行。</li>
+<li>dG: 剪切光标以下的所有行。</li>
+<li>daw和das：剪切一个词和剪切一个句子，即使光标不在词首和句首也没关系。</li>
+<li>d/f<cr>：这是一个比较高级的组合命令，它将删除当前位置 到下一个f之间的内容。</li>
+<li>p: 在光标之后粘贴。</li>
+<li>P: 在光标之前粘贴。</li>
+</ul>
+<h2 id="查找与替换"><a href="#查找与替换" class="headerlink" title="查找与替换"></a>查找与替换</h2><ul>
+<li>/something: 在后面的文本中查找something。</li>
+<li>?something: 在前面的文本中查找something。</li>
+<li>/pattern/+number: 将光标停在包含pattern的行后面第number行上。</li>
+<li>/pattern/-number: 将光标停在包含pattern的行前面第number行上。</li>
+<li>n: 向后查找下一个。</li>
+<li>N: 向前查找下一个。</li>
+<li>:s/old/new - 用new替换当前行第一个old。</li>
+<li>:s/old/new/g - 用new替换当前行所有的old。</li>
+<li>:n1,n2s/old/new/g - 用new替换文件n1行到n2行所有的old。</li>
+<li>:%s/old/new/g - 用new替换文件中所有的old。</li>
+<li>:%s/^/xxx/g - 在每一行的行首插入xxx，^表示行首。</li>
+<li>:%s/$/xxx/g - 在每一行的行尾插入xxx，$表示行尾。</li>
 </ul>
 <hr>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/C++_keyword_const/" data-id="ckjv2ttu60014t0dnds6r1i71" class="article-share-link">Share</a>
+      <a data-url="http://wangxianggit.github.io/vi_usuage/" data-id="ckjv2ttyi00ipt0dnaw6c7ko0" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C++</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vi/" rel="tag">vi</a></li></ul>
 
     </footer>
   </div>
@@ -138,10 +258,10 @@
 
 
   
-    <article id="post-C++_prestatement" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-windows_ctex_insert_eps_problem" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/C++_prestatement/" class="article-date">
-  <time datetime="2019-03-06T11:49:09.000Z" itemprop="datePublished">2019-03-06</time>
+    <a href="/windows_ctex_insert_eps_problem/" class="article-date">
+  <time datetime="2019-03-12T05:07:18.000Z" itemprop="datePublished">2019-03-12</time>
 </a>
     
   <div class="article-category">
@@ -156,7 +276,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/C++_prestatement/">C++使用前置声明</a>
+      <a class="article-title" href="/windows_ctex_insert_eps_problem/">windows下使用ctex不能插入eps图片问题</a>
     </h1>
   
 
@@ -166,29 +286,32 @@
       
 	  <!-- Table of Contents -->
 
-        <h2 id="C-前置声明​"><a href="#C-前置声明​" class="headerlink" title="C++前置声明​"></a>C++前置声明​</h2><ul>
-<li><p>使用前置声明可以解决在两个或多个头文件的互相包含问题。</p>
-</li>
-<li><p>例如在头文件a.h和头文件b.h的内容分别如下：</p>
+        <p>​ </p>
+<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><ul>
+<li><p>在ctex执行编译插入eps图片时报错提示不能识别eps文件：</p>
 <ul>
-<li>~~~<br>//a.h<br>#include “b.h”<br>class A<br>{<br>….<br>private:  <pre><code>B b;  </code></pre>
-};<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">  <span class="comment">//b.h  </span></span><br><span class="line">  <span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&quot;a.h&quot;</span>  </span></span><br><span class="line">  <span class="class"><span class="keyword">class</span> <span class="title">B</span>  </span></span><br><span class="line"><span class="class">  &#123;</span>  </span><br><span class="line">  ....  </span><br><span class="line">  <span class="keyword">private</span>:  </span><br><span class="line">      A a;  </span><br><span class="line">  &#125;;</span><br><span class="line">  ​~~~</span><br><span class="line"></span><br><span class="line">* 一旦编译在a.h中会出现未定义类B的问题，因此使用前置声明，在a.h头文件加入声明类B的代码即可：</span><br><span class="line"></span><br><span class="line">* ~~~</span><br><span class="line">  <span class="comment">//a.h   </span></span><br><span class="line">  <span class="comment">//#include &quot;b.h&quot;  </span></span><br><span class="line">  <span class="class"><span class="keyword">class</span> <span class="title">B</span>;</span>   </span><br><span class="line">  <span class="class"><span class="keyword">class</span> <span class="title">A</span>   </span></span><br><span class="line"><span class="class">  &#123;</span>  </span><br><span class="line">   ....   </span><br><span class="line">  <span class="keyword">private</span>:  </span><br><span class="line">   B b;   </span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure></li>
+<li><pre><code>!LaTex Error:Unknown graphics extension:.eps</code></pre>
+</li>
 </ul>
 </li>
-<li><p>在这里加入前置声明不需要重新编译头文件a.h，但需要重新编译类B。</p>
+<li><p>原因在于刚安装好的ctex默认使用pdflatex编译，而pdflatex只能支持pdf、jpg、jpeg、png共4中格式的图片。</p>
 </li>
-<li><p>使用前置声明也可以减少类A的大小，上面只是声明了类B的指针而不是整个头文件，因此代码量大大缩小。</p>
-</li>
+</ul>
+<h2 id="xelatex和pdflatex区别"><a href="#xelatex和pdflatex区别" class="headerlink" title="xelatex和pdflatex区别"></a>xelatex和pdflatex区别</h2><ul>
+<li>两者都是XeTex程序中的命令，用于编译LaTex格式写的tex文件</li>
+<li>pdfLatex是版本较老，对Unicode支持不好，因此对中文的显示支持不好；不支持操作系统的truetype字体.tty，因此只能使用type1字体。</li>
+<li>pdfLatex支持宏包比较多尤其是老的宏包</li>
+<li>xelatex是新的编译命令，内建支持Unicode，对中文支持很好，可以调用操作系统的tty字体，但是对一些老宏包支持不好。</li>
 </ul>
 <hr>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/C++_prestatement/" data-id="ckjv2ttu8001bt0dng7r937f0" class="article-share-link">Share</a>
+      <a data-url="http://wangxianggit.github.io/windows_ctex_insert_eps_problem/" data-id="ckjv2ttym00j6t0dn17t3hur6" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C++</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/latex/" rel="tag">latex</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/windows/" rel="tag">windows</a></li></ul>
 
     </footer>
   </div>
@@ -197,14 +320,14 @@
 
 
   
-    <article id="post-C++_code_writting_standard" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Python_file_operation_open" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/C++_code_writting_standard/" class="article-date">
-  <time datetime="2019-03-06T11:05:11.000Z" itemprop="datePublished">2019-03-06</time>
+    <a href="/Python_file_operation_open/" class="article-date">
+  <time datetime="2019-03-12T02:59:38.000Z" itemprop="datePublished">2019-03-12</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/learning/">learning</a>
+    <a class="article-category-link" href="/categories/Python/">Python</a>
   </div>
 
   </div>
@@ -215,7 +338,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/C++_code_writting_standard/">c++代码书写规范</a>
+      <a class="article-title" href="/Python_file_operation_open/">python文件操作open</a>
     </h1>
   
 
@@ -225,118 +348,58 @@
       
 	  <!-- Table of Contents -->
 
-        <h2 id="C-代码书写规范"><a href="#C-代码书写规范" class="headerlink" title="C++代码书写规范"></a>C++代码书写规范</h2><h3 id="头文件保护"><a href="#头文件保护" class="headerlink" title="头文件保护"></a>头文件保护</h3><ul>
-<li><p>使用#define进行头文件保护，为保证唯一性头文件保护的命名可以基于项目代码路径，例如对于头文件Main\Src\File.h，可以设置如下保护：</p>
+        <h2 id="Python文件对象"><a href="#Python文件对象" class="headerlink" title="Python文件对象"></a>Python文件对象</h2><ul>
+<li>Python的文件对象提供了丰富的函数用于访问磁盘文件以及其他类型的抽象文件。</li>
+<li>Python中内建函数open()和file()具有相同功能，可以替换。</li>
+</ul>
+<h2 id="Open对象函数"><a href="#Open对象函数" class="headerlink" title="Open对象函数"></a>Open对象函数</h2><ul>
+<li><p>创建文件对象</p>
 <ul>
-<li><pre><code>#ifndefine         MAIN_SRC_FILE_H
-
-#define            MAIN_SRC_FILE_H
-
-…
-
-#endif
-<figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 使用前置声明减少头文件的所要包含的文件数量，也就减少了需要重新编译文件的几率。</span><br><span class="line"></span><br><span class="line">  * 例如如果只在头文件里面使用其他文件中定义的类时，如果只是使用类的声明而不是具体定义，应该是用前置声明代替包含整个文件，使用前置声明class SomeClass;不使用头文件的包含<span class="meta">#<span class="meta-keyword">include</span> <span class="string">&quot;SomeClass&quot;</span></span></span><br><span class="line"></span><br><span class="line">* 头文件的包含顺序：C库、C++库、其他库.h、项目内的.h</span><br><span class="line"></span><br><span class="line">  * 如果次文件是cpp文件，那么要首先包含其对应的头文件，然后再按前述顺序。</span><br><span class="line"></span><br><span class="line">  * 每个层级用[空行](https:<span class="comment">//www.baidu.com/s?wd=%E7%A9%BA%E8%A1%8C&amp;tn=24004469_oem_dg&amp;rsv_dl=gh_pl_sl_csd)分隔，同一层级的文件顺序按英文字母先后顺序排列。</span></span><br><span class="line"></span><br><span class="line">  * 示例代码</span><br><span class="line"></span><br><span class="line">  * ~~~</span><br><span class="line">    <span class="meta">#<span class="meta-keyword">include</span>“MyFile.h”  (如果次文件是cpp文件，首先包含自己的头文件)</span></span><br><span class="line"></span><br><span class="line">    <span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line">    <span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"></span><br><span class="line">    <span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line">    <span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line">    <span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"></span><br><span class="line">    <span class="meta">#<span class="meta-keyword">include</span>“lib/Alpha.h”</span></span><br><span class="line">    <span class="meta">#<span class="meta-keyword">include</span>“lib/Beta.h”</span></span><br><span class="line">    <span class="meta">#<span class="meta-keyword">include</span>“other/zoo.h”</span></span><br><span class="line"></span><br><span class="line">    <span class="meta">#<span class="meta-keyword">include</span>“bar.h”</span></span><br><span class="line">    <span class="meta">#<span class="meta-keyword">include</span>“foo.h”</span></span><br></pre></td></tr></table></figure>
-### 作用域</code></pre>
-</li>
+<li>~~~<br>file=open(“file”,’option’)<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">* <span class="selector-tag">option</span>参数：</span><br><span class="line"></span><br><span class="line">  * ~~~</span><br><span class="line">    文件模式   操作</span><br><span class="line">    <span class="selector-tag">r</span>  以只读方式打开</span><br><span class="line">    <span class="selector-tag">rU</span> 或 <span class="selector-tag">Ua</span> 以读方式打开, 同时提供通用换行符支持 (PEP <span class="number">278</span>)</span><br><span class="line">    <span class="selector-tag">w</span>  以写方式打开 (必要时清空)</span><br><span class="line">    <span class="selector-tag">a</span>  以追加模式打开 (从 EOF 开始, 必要时创建新文件)</span><br><span class="line">    <span class="selector-tag">r</span>+ 以读写模式打开</span><br><span class="line">    <span class="selector-tag">w</span>+ 以读写模式打开 (参见 w )</span><br><span class="line">    <span class="selector-tag">a</span>+ 以读写模式打开 (参见 a )</span><br><span class="line">    <span class="selector-tag">rb</span> 以二进制读模式打开</span><br><span class="line">    <span class="selector-tag">wb</span> 以二进制写模式打开 (参见 w )</span><br><span class="line">    <span class="selector-tag">ab</span> 以二进制追加模式打开 (参见 a )</span><br><span class="line">    <span class="selector-tag">rb</span>+ 以二进制读写模式打开 (参见 r+ )</span><br><span class="line">    <span class="selector-tag">wb</span>+ 以二进制读写模式打开 (参见 w+ )</span><br><span class="line">    <span class="selector-tag">ab</span>+ 以二进制读写模式打开 (参见 a+ )</span><br><span class="line">    <span class="selector-tag">x</span>    如果文件存在报错，不存在则创建</span><br></pre></td></tr></table></figure></li>
 </ul>
 </li>
-<li><p>尽量不要使用全局变量，全局变量起的作用往往仅是一个静态变量。</p>
-</li>
-<li><p>如果非要使用全局变量，考虑使用单例模式代替。</p>
-</li>
-<li><p>多线程中使用的全局变量，不要使用class类型（包括STL容器），避免class内部的实现非线程安全而导致bug。</p>
-</li>
-</ul>
-<h3 id="类"><a href="#类" class="headerlink" title="类"></a>类</h3><ul>
-<li><p>声明顺序按照以下规则：</p>
+<li><p>示例代码：</p>
 <ul>
-<li><p>成员先后顺序：typedef、enum、常量、构造析构函数、成员函数，成员变量。</p>
-</li>
-<li><p>域先后顺序：public、protected、private。</p>
-</li>
-<li><p>例：</p>
-</li>
-<li><p>~~~<br>Class MyClass<br>{<br>public:</p>
-<pre><code>     voidFoo();</code></pre>
-<p>protected:</p>
-<pre><code>     voidBar();</code></pre>
-<p>private:</p>
-<pre><code>     voidFunc();</code></pre>
-<p>}</p>
-<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 构造函数只负责简单的初始化功能，如果需要进行有意义的初始化，请使用<span class="constructor">Init()</span>函数；严禁在构造函数中调用虚函数。</span><br><span class="line"></span><br><span class="line">* 仅需要拷贝一个对象时才定义拷贝构造函数，否则明确在<span class="keyword">private</span>域中使用声明DISALLOW_COPY_AND_ASSIGN，避免编译器隐式声明的拷贝构造函数导致的不确定行为。如下：</span><br><span class="line"></span><br><span class="line"><span class="operator">  * </span>~~~</span><br><span class="line">    <span class="keyword">private</span>:</span><br><span class="line"></span><br><span class="line">    <span class="constructor">DISALLOW_COPY_AND_ASSIGN(MyClass)</span>;</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-<li><p>只有数据时，使用结构体，否则使用类。</p>
-</li>
-<li><p>尽量使用组合代替继承。</p>
-<ul>
-<li>如果类中有一个virtual函数，则析构函数必须声明为virtual。</li>
-<li>所有继承必须为public，<a target="_blank" rel="noopener" href="https://www.baidu.com/s?wd=%E7%A7%81%E6%9C%89%E7%BB%A7%E6%89%BF&tn=24004469_oem_dg&rsv_dl=gh_pl_sl_csd">私有继承</a>使用其它实现方式替代。</li>
-</ul>
-</li>
-<li><p>尽量避免使用多重继承，除非是COM。</p>
-</li>
-<li><p>尽量使用const修饰变量。    </p>
-</li>
-</ul>
-<h3 id="注释的使用"><a href="#注释的使用" class="headerlink" title="注释的使用"></a>注释的使用</h3><ul>
-<li><p>头文件的注释格式如下：</p>
-<ul>
-<li><p>~~~<br>/<strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>****</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></p>
-<ul>
-<li><p>@description:</p>
-</li>
-<li><p>@author:      name of author</p>
-</li>
-<li><p>@date:        2018.11.10</p>
-</li>
-<li><p>@last modified author: </p>
-</li>
-<li><p>@last modified date:</p>
-</li>
-<li><p>@ copyright “the company” 2018 -</p>
-</li>
-<li><p><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>****</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong>/</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 声明类之前需要使用类注释，说明此类的使用用途及注意事项</span><br><span class="line"></span><br><span class="line">  * ~~~</span><br><span class="line">    <span class="regexp">//</span> description:</span><br><span class="line"></span><br><span class="line">    <span class="regexp">//</span> <span class="keyword">function</span> of class:</span><br><span class="line"></span><br><span class="line">    <span class="regexp">//</span> attention:</span><br><span class="line"></span><br><span class="line">    class Browser&#123;&#125;;</span><br></pre></td></tr></table></figure></li>
-</ul>
+<li><pre><code>f = open(&#39;/etc/motd&#39;) # 以读方式打开
+f = open(&#39;test&#39;, &#39;w&#39;) # 以写方式打开
+f = open(&#39;data&#39;, &#39;r+&#39;) # 以读写方式打开
+f = open(&#39;io.sys&#39;, &#39;rb&#39;) # 以二进制读模式打开
+<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">## 文件对象的内建方法</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+file.close() 关闭文件
+file.fileno() 返回文件的描述符(file descriptor ,FD, 整数值)
+file.flush() 刷新文件的内部缓冲区
+file.isatty() 判断 file 是否是一个类 tty 设备
+file.nexta() 返回文件的下一行(类似于 file.readline() ), 或在没有其它行时
+引发 StopIteration 异常
+file.read(size=-1) 从文件读取 size 个字节, 当未给定 size 或给定负值的时候, 读
+取剩余的所有字节, 然后作为字符串返回.如果打开模式无b,则read按字符读取，否则按字节读取
+file.readline(size=-1) 从文件中读取并返回一行(包括行结束符), 或返回最大 size
+file=open(&#39;test&#39;,&#39;ab&#39;)
+file.write(bytes(&#39;hehe&#39;,encoding=&#39;utf-8&#39;)) 向文件写入字符串  (会覆盖原有数据，坑
+file.close() 关闭文件
+file.tell获取当前指针的位置
+file.read()如果打开模式无b,则read按字符读取，否则按字节读取
+file.fileno文件描述符
+file.truncat 截断数据，清除文件指针之后的数据
+file.seek(off, whence=0) 在文件中移动文件指针, 从 whence ( 0 代表文件其始, 1代表当前位置, 2 代表文件末尾)偏移 off 字节,不论是否有中文，都以字节为单位
+file.truncate(size=file.tell()) 截取文件到最大 size 字节, 默认为当前文件位置
+file.writelines(seq) 向文件写入字符串序列 seq ; seq 应该是一个返回字符串的
+可迭代对象
+file.readlines(sizhint=0) 读取文件的所有行并作为一个列表返回(包含所有的行结束
+符);</code></pre>
 </li>
 </ul>
 </li>
-<li><p>函数注释，重要或难理解的函数，需要在函数声明前加上注释。</p>
-</li>
-<li><p>对于很难理解、重要、实现精彩的部分必须加上注释。</p>
-</li>
-<li><p>对于那些来不及实现、暂未实现、需要去实现的地方加上TODO注释。</p>
-</li>
-<li><p>~~~<br>// TODO: Fly to the moon.</p>
-<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 编码风格</span><br><span class="line"></span><br><span class="line">* ~~~</span><br><span class="line">  尽量不要使用缩写，严禁使用不明单词的缩写。</span><br><span class="line"></span><br><span class="line">  类名：大写字母开头，每个单词首字母大写。</span><br><span class="line"></span><br><span class="line">  函数名：大写字母开头，每个单词首字母大写</span><br><span class="line"></span><br><span class="line">  变量名：首字母（通常为前缀）小写</span><br></pre></td></tr></table></figure></li>
-<li><p>变量前缀为小写，根据变量类型加如short/int/size_t..，加n，如int nVal =1;</p>
-</li>
-<li><p>使用空格代替table，在VS里将table设置成4个空格，每个级别进行4个空格的缩进。</p>
-</li>
-<li><p>花括号另起一行使用。</p>
-</li>
-<li><p>条件、循环、开关等语句，关键字后加空格再使用，例如If ();</p>
-</li>
-</ul>
-<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><ul>
-<li>new/delete等堆操作，必须成对出现，尽量遵从谁分配谁释放的原则。</li>
-<li>AddRef()/Release()必须成对出现，尽量遵从谁分配谁释放的原则。</li>
-<li><strong>指针、句柄使用完释放后必须设置成NULL。</strong></li>
-<li><strong>函数功能要单一，避免耦合多功能，严禁CreateAndNavigate这种函数。</strong></li>
-<li><strong>指针的空值比较使用NULL，而不是0。</strong></li>
-<li><strong>浮点数的零值比较严禁使用== 0。</strong></li>
 </ul>
 <hr>
-<p>2019/03/06</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/C++_code_writting_standard/" data-id="ckjv2ttu50010t0dneei16roo" class="article-share-link">Share</a>
+      <a data-url="http://wangxianggit.github.io/Python_file_operation_open/" data-id="ckjv2ttw7008ht0dn3rpsdajd" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C++</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Open/" rel="tag">Open</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
 
     </footer>
   </div>
@@ -345,14 +408,14 @@
 
 
   
-    <article id="post-Altium_pad_via" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Python_module_os" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/Altium_pad_via/" class="article-date">
-  <time datetime="2019-03-04T13:05:49.000Z" itemprop="datePublished">2019-03-04</time>
+    <a href="/Python_module_os/" class="article-date">
+  <time datetime="2019-03-12T02:44:12.000Z" itemprop="datePublished">2019-03-12</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/Altium/">Altium</a>
+    <a class="article-category-link" href="/categories/Python/">Python</a>
   </div>
 
   </div>
@@ -363,7 +426,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/Altium_pad_via/">Altium焊盘pad和过孔via区别</a>
+      <a class="article-title" href="/Python_module_os/">Python模块os</a>
     </h1>
   
 
@@ -373,24 +436,53 @@
       
 	  <!-- Table of Contents -->
 
-        <h2 id="Altium焊盘和过孔"><a href="#Altium焊盘和过孔" class="headerlink" title="Altium焊盘和过孔"></a>Altium焊盘和过孔</h2><ul>
-<li>图形外观上左边是焊盘Pad，右边是过孔Via<ul>
-<li><img src="Altium_pad_via/pit1.jpg"></li>
+        <h2 id="Python模块os"><a href="#Python模块os" class="headerlink" title="Python模块os"></a>Python模块os</h2><ul>
+<li>参考链接：<a target="_blank" rel="noopener" href="https://docs.python.org/3/library/os.html">https://docs.python.org/3/library/os.html</a></li>
 </ul>
+<ul>
+<li>os模块提供操作系统的用户接口，可以方便使用操作系统依赖的功能。</li>
+</ul>
+<h2 id="os模块常用函数"><a href="#os模块常用函数" class="headerlink" title="os模块常用函数"></a>os模块常用函数</h2><ul>
+<li><pre><code>os.mkdir(name):创建目录
+os.rmdir(name):删除目录
+os.listdir():返回指定目录下的所有文件和目录名
+os.remove(file):删除一个文件
+os.stat（file）:获得文件属性
+os.chmod(file):修改文件权限和时间戳
+os.sep:取代操作系统特定的路径分隔符
+os.name:指示你正在使用的工作平台。比如对于Windows，它是&#39;nt&#39;，而对于Linux/Unix用户，它是&#39;posix&#39;。
+os.getcwd:得到当前工作目录，即当前python脚本工作的目录路径。
+os.getenv()和os.putenv:分别用来读取和设置环境变量
+os.removedirs（r“c：\python”）:删除多个目录
+os.system():运行shell命令
+os.exit():终止当前进程
+os.getcwd():获得当前工作目录
+os.curdir:返回当前目录
+os.chdir(dirname):改变工作目录
+os.path.isdir(name):判断name是不是目录，不是目录就返回false
+os.path.isfile(name):判断name这个文件是否存在，不存在返回false
+os.path.exists(name):判断是否存在文件或目录name
+os.path.getsize(name):或得文件大小，如果name是目录返回0L
+os.path.abspath(name):获得绝对路径
+os.path.isabs():判断是否为绝对路径
+os.path.normpath(path):规范path字符串形式
+os.path.split(name):分割文件名与目录（事实上，如果你完全使用目录，它也会将最后一个目录作为文件名而分离，同时它不会判断文件或目录是否存在）
+os.path.splitext():分离文件名和扩展名
+os.path.join(path,name):连接目录与文件名或目录
+os.path.basename(path):返回文件名
+os.path.dirname(path):返回文件路径
+os.mknod(&quot;text.txt&quot;)：创建空文件</code></pre>
 </li>
-<li>焊盘也称为插件孔，用于放置与连接插件；过孔用于上下两层之间的连接，常用在多层Multi-Layer。</li>
-<li>Pad就是PCB上面可以使用焊锡的那些裸露出来的铜面。它有不穿孔和穿孔两类，不穿孔的，就是我们常用的贴封装器件的引脚放置的地方，就是不穿孔的Pad；穿孔的，上面可以使用焊锡焊接插针，比如我们常用的插针的孔，就是穿孔的Pad，上图中左边的就是穿孔的Pad。</li>
-<li>Pad可以设置大小、形状有Top Paste和Bottom Paste，可以涂焊锡。</li>
 </ul>
 <hr>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/Altium_pad_via/" data-id="ckjv2ttu1000ot0dn5txf5yiw" class="article-share-link">Share</a>
+      <a data-url="http://wangxianggit.github.io/Python_module_os/" data-id="ckjv2ttwj009zt0dn7hv6238x" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Altium-Designer/" rel="tag">Altium Designer</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Electronic/" rel="tag">Electronic</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/os/" rel="tag">os</a></li></ul>
 
     </footer>
   </div>
@@ -399,14 +491,14 @@
 
 
   
-    <article id="post-Altium_designer_ways_copper_deposition" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Python_internal_function" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/Altium_designer_ways_copper_deposition/" class="article-date">
-  <time datetime="2019-03-04T12:35:11.000Z" itemprop="datePublished">2019-03-04</time>
+    <a href="/Python_internal_function/" class="article-date">
+  <time datetime="2019-03-12T02:40:43.000Z" itemprop="datePublished">2019-03-12</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/Altium/">Altium</a>
+    <a class="article-category-link" href="/categories/Python/">Python</a>
   </div>
 
   </div>
@@ -417,7 +509,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/Altium_designer_ways_copper_deposition/">Altium_designer中三种不同覆铜方式</a>
+      <a class="article-title" href="/Python_internal_function/">Python内置函数</a>
     </h1>
   
 
@@ -427,37 +519,126 @@
       
 	  <!-- Table of Contents -->
 
-        <h2 id="Altium-不同覆铜方式"><a href="#Altium-不同覆铜方式" class="headerlink" title="Altium 不同覆铜方式"></a>Altium 不同覆铜方式</h2><ul>
-<li>三种覆铜方式：Fill,Polygon pour和Solid region，三种不同的覆铜方式分别完成不同的功能。</li>
-<li>Fill即在一个区域内直接用铜皮覆盖，且不区分是否存在焊盘或过孔。<ul>
-<li>因此在Fill填充的区域如果存在网络，线路或过孔等都将连接在一起，不正确的使用容易造成短路。</li>
-<li>Fill填充的区域面积一般比较小，同时Fill的区域只能是矩形不可随意绘制图形。</li>
-<li>Fill在布线前完成。</li>
+        <h2 id="Python内置函数"><a href="#Python内置函数" class="headerlink" title="Python内置函数"></a>Python内置函数</h2><ul>
+<li>参考链接：<a target="_blank" rel="noopener" href="https://docs.python.org/3/library/functions.html#open">https://docs.python.org/3/library/functions.html#open</a></li>
 </ul>
-</li>
-<li>Polygon pour即铺铜也称为灌铜，作用和Fill相近但有以下区分<ul>
-<li>灌铜可以主动区分过孔和网络，如果过孔与焊点不属于同一个网络，灌铜将根据设置好的规则将它们分开并保持安全距离。</li>
-<li>灌铜的目的是提高电路的抗干扰能力、减小辐射干扰、高频PCB电路板常常选用。</li>
-<li>灌铜功能可以自动删除死铜，在铺铜时，点击Tools-Preferences，在PCB Editor 栏的Interactive Routing 处选Push Obstacle （遇到不同网络的走线时推挤其它的走线，Ignore Obstacle为穿过）模式并选中Automatically Remove Loops（自动删除多余的走线）。</li>
-</ul>
-</li>
-<li>Solid region即在在覆铜区域内整片覆盖成一个整体铜膜。<ul>
-<li>覆铜区域内不允许存在其它网络的焊盘 过孔 铜膜走线，否则会造成短路。</li>
-<li>实心覆铜可以绘制任意形状，也可以由其它图形转换而来，为了能绘出任意图形的实心覆铜，可以先在PCB板的顶部丝印层top overly，用划线工具画出任意形状的图形，随后框选它，然后点击菜单tools—-convert—-create region from selected primitives—-创建实心覆铜区域。</li>
-<li>实心覆铜常用于创建任意形状的焊盘、铜膜走线、插接件、连接件、在制作PCB封装时经常使用。</li>
-</ul>
-</li>
-</ul>
-<hr>
-<p>2019/03/04</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th>Built-in Functions</th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a target="_blank" rel="noopener" href="https://docs.python.org/3/library/functions.html#abs"><code>abs()</code></a></td>
+<td><a target="_blank" rel="noopener" href="https://docs.python.org/3/library/functions.html#delattr"><code>delattr()</code></a></td>
+<td><a target="_blank" rel="noopener" href="https://docs.python.org/3/library/functions.html#hash"><code>hash()</code></a></td>
+<td><a target="_blank" rel="noopener" href="https://docs.python.org/3/library/functions.html#func-memoryview"><code>memoryview()</code></a></td>
+<td><a target="_blank" rel="noopener" href="https://docs.python.org/3/library/functions.html#func-set"><code>set()</code></a></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://docs.python.org/3/library/functions.html#all"><code>all()</code></a></td>
+<td><a target="_blank" rel="noopener" href="https://docs.python.org/3/library/functions.html#func-dict"><code>dict()</code></a></td>
+<td><a target="_blank" rel="noopener" href="https://docs.python.org/3/library/functions.html#help"><code>help()</code></a></td>
+<td><a target="_blank" rel="noopener" href="https://docs.python.org/3/library/functions.html#min"><code>min()</code></a></td>
+<td><a target="_blank" rel="noopener" href="https://docs.python.org/3/library/functions.html#setattr"><code>setattr()</code></a></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://docs.python.org/3/library/functions.html#any"><code>any()</code></a></td>
+<td><a target="_blank" rel="noopener" href="https://docs.python.org/3/library/functions.html#dir"><code>dir()</code></a></td>
+<td><a target="_blank" rel="noopener" href="https://docs.python.org/3/library/functions.html#hex"><code>hex()</code></a></td>
+<td><a target="_blank" rel="noopener" href="https://docs.python.org/3/library/functions.html#next"><code>next()</code></a></td>
+<td><a target="_blank" rel="noopener" href="https://docs.python.org/3/library/functions.html#slice"><code>slice()</code></a></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://docs.python.org/3/library/functions.html#ascii"><code>ascii()</code></a></td>
+<td><a target="_blank" rel="noopener" href="https://docs.python.org/3/library/functions.html#divmod"><code>divmod()</code></a></td>
+<td><a target="_blank" rel="noopener" href="https://docs.python.org/3/library/functions.html#id"><code>id()</code></a></td>
+<td><a target="_blank" rel="noopener" href="https://docs.python.org/3/library/functions.html#object"><code>object()</code></a></td>
+<td><a target="_blank" rel="noopener" href="https://docs.python.org/3/library/functions.html#sorted"><code>sorted()</code></a></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://docs.python.org/3/library/functions.html#bin"><code>bin()</code></a></td>
+<td><a target="_blank" rel="noopener" href="https://docs.python.org/3/library/functions.html#enumerate"><code>enumerate()</code></a></td>
+<td><a target="_blank" rel="noopener" href="https://docs.python.org/3/library/functions.html#input"><code>input()</code></a></td>
+<td><a target="_blank" rel="noopener" href="https://docs.python.org/3/library/functions.html#oct"><code>oct()</code></a></td>
+<td><a target="_blank" rel="noopener" href="https://docs.python.org/3/library/functions.html#staticmethod"><code>staticmethod()</code></a></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://docs.python.org/3/library/functions.html#bool"><code>bool()</code></a></td>
+<td><a target="_blank" rel="noopener" href="https://docs.python.org/3/library/functions.html#eval"><code>eval()</code></a></td>
+<td><a target="_blank" rel="noopener" href="https://docs.python.org/3/library/functions.html#int"><code>int()</code></a></td>
+<td><a target="_blank" rel="noopener" href="https://docs.python.org/3/library/functions.html#open"><code>open()</code></a></td>
+<td><a target="_blank" rel="noopener" href="https://docs.python.org/3/library/functions.html#func-str"><code>str()</code></a></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://docs.python.org/3/library/functions.html#breakpoint"><code>breakpoint()</code></a></td>
+<td><a target="_blank" rel="noopener" href="https://docs.python.org/3/library/functions.html#exec"><code>exec()</code></a></td>
+<td><a target="_blank" rel="noopener" href="https://docs.python.org/3/library/functions.html#isinstance"><code>isinstance()</code></a></td>
+<td><a target="_blank" rel="noopener" href="https://docs.python.org/3/library/functions.html#ord"><code>ord()</code></a></td>
+<td><a target="_blank" rel="noopener" href="https://docs.python.org/3/library/functions.html#sum"><code>sum()</code></a></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://docs.python.org/3/library/functions.html#func-bytearray"><code>bytearray()</code></a></td>
+<td><a target="_blank" rel="noopener" href="https://docs.python.org/3/library/functions.html#filter"><code>filter()</code></a></td>
+<td><a target="_blank" rel="noopener" href="https://docs.python.org/3/library/functions.html#issubclass"><code>issubclass()</code></a></td>
+<td><a target="_blank" rel="noopener" href="https://docs.python.org/3/library/functions.html#pow"><code>pow()</code></a></td>
+<td><a target="_blank" rel="noopener" href="https://docs.python.org/3/library/functions.html#super"><code>super()</code></a></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://docs.python.org/3/library/functions.html#func-bytes"><code>bytes()</code></a></td>
+<td><a target="_blank" rel="noopener" href="https://docs.python.org/3/library/functions.html#float"><code>float()</code></a></td>
+<td><a target="_blank" rel="noopener" href="https://docs.python.org/3/library/functions.html#iter"><code>iter()</code></a></td>
+<td><a target="_blank" rel="noopener" href="https://docs.python.org/3/library/functions.html#print"><code>print()</code></a></td>
+<td><a target="_blank" rel="noopener" href="https://docs.python.org/3/library/functions.html#func-tuple"><code>tuple()</code></a></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://docs.python.org/3/library/functions.html#callable"><code>callable()</code></a></td>
+<td><a target="_blank" rel="noopener" href="https://docs.python.org/3/library/functions.html#format"><code>format()</code></a></td>
+<td><a target="_blank" rel="noopener" href="https://docs.python.org/3/library/functions.html#len"><code>len()</code></a></td>
+<td><a target="_blank" rel="noopener" href="https://docs.python.org/3/library/functions.html#property"><code>property()</code></a></td>
+<td><a target="_blank" rel="noopener" href="https://docs.python.org/3/library/functions.html#type"><code>type()</code></a></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://docs.python.org/3/library/functions.html#chr"><code>chr()</code></a></td>
+<td><a target="_blank" rel="noopener" href="https://docs.python.org/3/library/functions.html#func-frozenset"><code>frozenset()</code></a></td>
+<td><a target="_blank" rel="noopener" href="https://docs.python.org/3/library/functions.html#func-list"><code>list()</code></a></td>
+<td><a target="_blank" rel="noopener" href="https://docs.python.org/3/library/functions.html#func-range"><code>range()</code></a></td>
+<td><a target="_blank" rel="noopener" href="https://docs.python.org/3/library/functions.html#vars"><code>vars()</code></a></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://docs.python.org/3/library/functions.html#classmethod"><code>classmethod()</code></a></td>
+<td><a target="_blank" rel="noopener" href="https://docs.python.org/3/library/functions.html#getattr"><code>getattr()</code></a></td>
+<td><a target="_blank" rel="noopener" href="https://docs.python.org/3/library/functions.html#locals"><code>locals()</code></a></td>
+<td><a target="_blank" rel="noopener" href="https://docs.python.org/3/library/functions.html#repr"><code>repr()</code></a></td>
+<td><a target="_blank" rel="noopener" href="https://docs.python.org/3/library/functions.html#zip"><code>zip()</code></a></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://docs.python.org/3/library/functions.html#compile"><code>compile()</code></a></td>
+<td><a target="_blank" rel="noopener" href="https://docs.python.org/3/library/functions.html#globals"><code>globals()</code></a></td>
+<td><a target="_blank" rel="noopener" href="https://docs.python.org/3/library/functions.html#map"><code>map()</code></a></td>
+<td><a target="_blank" rel="noopener" href="https://docs.python.org/3/library/functions.html#reversed"><code>reversed()</code></a></td>
+<td><a target="_blank" rel="noopener" href="https://docs.python.org/3/library/functions.html#__import__"><code>__import__()</code></a></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://docs.python.org/3/library/functions.html#complex"><code>complex()</code></a></td>
+<td><a target="_blank" rel="noopener" href="https://docs.python.org/3/library/functions.html#hasattr"><code>hasattr()</code></a></td>
+<td><a target="_blank" rel="noopener" href="https://docs.python.org/3/library/functions.html#max"><code>max()</code></a></td>
+<td><a target="_blank" rel="noopener" href="https://docs.python.org/3/library/functions.html#round"><code>round()</code></a></td>
+<td></td>
+</tr>
+</tbody></table>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/Altium_designer_ways_copper_deposition/" data-id="ckjv2ttu0000mt0dnf8tq58jj" class="article-share-link">Share</a>
+      <a data-url="http://wangxianggit.github.io/Python_internal_function/" data-id="ckjv2ttwa008st0dng39mf2dt" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Altium-Designer/" rel="tag">Altium Designer</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Electronic/" rel="tag">Electronic</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
 
     </footer>
   </div>
@@ -470,7 +651,7 @@
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/page/22/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/21/">21</a><a class="page-number" href="/page/22/">22</a><span class="page-number current">23</span><a class="page-number" href="/page/24/">24</a><a class="page-number" href="/page/25/">25</a><span class="space">&hellip;</span><a class="page-number" href="/page/38/">38</a><a class="extend next" rel="next" href="/page/24/">Next &amp;raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/22/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/21/">21</a><a class="page-number" href="/page/22/">22</a><span class="page-number current">23</span><a class="page-number" href="/page/24/">24</a><a class="page-number" href="/page/25/">25</a><span class="space">&hellip;</span><a class="page-number" href="/page/41/">41</a><a class="extend next" rel="next" href="/page/24/">Next &amp;raquo;</a>
   </nav>
 
 </section>
@@ -508,7 +689,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithm/" rel="tag">Algorithm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Altium-Designer/" rel="tag">Altium Designer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Apache/" rel="tag">Apache</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BeautifulSoup/" rel="tag">BeautifulSoup</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Centos7/" rel="tag">Centos7</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cython/" rel="tag">Cython</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Electronic/" rel="tag">Electronic</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/English/" rel="tag">English</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Geant4/" rel="tag">Geant4</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hardware/" rel="tag">Hardware</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Image/" rel="tag">Image</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jupyter/" rel="tag">Jupyter</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nuclear-Physics/" rel="tag">Nuclear Physics</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Open/" rel="tag">Open</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Program/" rel="tag">Program</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PyPI/" rel="tag">PyPI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Py-Crawler/" rel="tag">Py_Crawler</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Random/" rel="tag">Random</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Resource/" rel="tag">Resource</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Root/" rel="tag">Root</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Scipy/" rel="tag">Scipy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Shell/" rel="tag">Shell</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Solidwork/" rel="tag">Solidwork</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TTree/" rel="tag">TTree</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tensorflow/" rel="tag">Tensorflow</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Thread/" rel="tag">Thread</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Urllib2/" rel="tag">Urllib2</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Virtual-memory/" rel="tag">Virtual memory</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cmake/" rel="tag">cmake</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cmd/" rel="tag">cmd</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/data-structure/" rel="tag">data structure</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/htop/" rel="tag">htop</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/keras/" rel="tag">keras</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/latex/" rel="tag">latex</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/os/" rel="tag">os</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/qt/" rel="tag">qt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/requests/" rel="tag">requests</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sk-learn/" rel="tag">sk-learn</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh/" rel="tag">ssh</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/statistic/" rel="tag">statistic</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vi/" rel="tag">vi</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/windows/" rel="tag">windows</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithm/" rel="tag">Algorithm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Altium-Designer/" rel="tag">Altium Designer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Apache/" rel="tag">Apache</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BeautifulSoup/" rel="tag">BeautifulSoup</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Centos7/" rel="tag">Centos7</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cython/" rel="tag">Cython</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Electronic/" rel="tag">Electronic</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/English/" rel="tag">English</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Geant4/" rel="tag">Geant4</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hardware/" rel="tag">Hardware</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Image/" rel="tag">Image</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jupyter/" rel="tag">Jupyter</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mongodb/" rel="tag">Mongodb</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nuclear-Physics/" rel="tag">Nuclear Physics</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Open/" rel="tag">Open</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Opencv/" rel="tag">Opencv</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Program/" rel="tag">Program</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PyPI/" rel="tag">PyPI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Py-Crawler/" rel="tag">Py_Crawler</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Random/" rel="tag">Random</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Resource/" rel="tag">Resource</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Root/" rel="tag">Root</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Scipy/" rel="tag">Scipy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Shell/" rel="tag">Shell</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Solidwork/" rel="tag">Solidwork</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TTree/" rel="tag">TTree</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tensorflow/" rel="tag">Tensorflow</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Thread/" rel="tag">Thread</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Urllib2/" rel="tag">Urllib2</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Virtual-memory/" rel="tag">Virtual memory</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cmake/" rel="tag">cmake</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cmd/" rel="tag">cmd</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/data-structure/" rel="tag">data structure</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/htop/" rel="tag">htop</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/keras/" rel="tag">keras</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/latex/" rel="tag">latex</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/os/" rel="tag">os</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/qt/" rel="tag">qt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/requests/" rel="tag">requests</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sk-learn/" rel="tag">sk-learn</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh/" rel="tag">ssh</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/statistic/" rel="tag">statistic</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vi/" rel="tag">vi</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/windows/" rel="tag">windows</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/yolo%EF%BC%8CC/" rel="tag">yolo，C</a></li></ul>
     </div>
   </div>
 
@@ -518,7 +699,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Algorithm/" style="font-size: 11.33px;">Algorithm</a> <a href="/tags/Altium-Designer/" style="font-size: 14.67px;">Altium Designer</a> <a href="/tags/Apache/" style="font-size: 11.33px;">Apache</a> <a href="/tags/BeautifulSoup/" style="font-size: 10px;">BeautifulSoup</a> <a href="/tags/C/" style="font-size: 15.33px;">C</a> <a href="/tags/C/" style="font-size: 18.67px;">C++</a> <a href="/tags/Centos7/" style="font-size: 17.33px;">Centos7</a> <a href="/tags/Cython/" style="font-size: 10px;">Cython</a> <a href="/tags/Electronic/" style="font-size: 13.33px;">Electronic</a> <a href="/tags/English/" style="font-size: 12px;">English</a> <a href="/tags/Geant4/" style="font-size: 10.67px;">Geant4</a> <a href="/tags/Hardware/" style="font-size: 10px;">Hardware</a> <a href="/tags/Hexo/" style="font-size: 14px;">Hexo</a> <a href="/tags/Image/" style="font-size: 10px;">Image</a> <a href="/tags/Jupyter/" style="font-size: 10px;">Jupyter</a> <a href="/tags/Linux/" style="font-size: 19.33px;">Linux</a> <a href="/tags/Markdown/" style="font-size: 16px;">Markdown</a> <a href="/tags/Nuclear-Physics/" style="font-size: 11.33px;">Nuclear Physics</a> <a href="/tags/Open/" style="font-size: 10px;">Open</a> <a href="/tags/Program/" style="font-size: 18px;">Program</a> <a href="/tags/PyPI/" style="font-size: 10px;">PyPI</a> <a href="/tags/Py-Crawler/" style="font-size: 10.67px;">Py_Crawler</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/Random/" style="font-size: 10px;">Random</a> <a href="/tags/Resource/" style="font-size: 10.67px;">Resource</a> <a href="/tags/Root/" style="font-size: 10.67px;">Root</a> <a href="/tags/Scipy/" style="font-size: 10px;">Scipy</a> <a href="/tags/Shell/" style="font-size: 16px;">Shell</a> <a href="/tags/Solidwork/" style="font-size: 10.67px;">Solidwork</a> <a href="/tags/TTree/" style="font-size: 10px;">TTree</a> <a href="/tags/Tensorflow/" style="font-size: 15.33px;">Tensorflow</a> <a href="/tags/Thread/" style="font-size: 10px;">Thread</a> <a href="/tags/Urllib2/" style="font-size: 10px;">Urllib2</a> <a href="/tags/Virtual-memory/" style="font-size: 10px;">Virtual memory</a> <a href="/tags/cmake/" style="font-size: 12.67px;">cmake</a> <a href="/tags/cmd/" style="font-size: 10.67px;">cmd</a> <a href="/tags/data-structure/" style="font-size: 10.67px;">data structure</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/htop/" style="font-size: 10px;">htop</a> <a href="/tags/keras/" style="font-size: 10.67px;">keras</a> <a href="/tags/latex/" style="font-size: 14.67px;">latex</a> <a href="/tags/os/" style="font-size: 10px;">os</a> <a href="/tags/qt/" style="font-size: 10px;">qt</a> <a href="/tags/requests/" style="font-size: 10px;">requests</a> <a href="/tags/sk-learn/" style="font-size: 10px;">sk-learn</a> <a href="/tags/ssh/" style="font-size: 12.67px;">ssh</a> <a href="/tags/statistic/" style="font-size: 10px;">statistic</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/windows/" style="font-size: 16.67px;">windows</a>
+      <a href="/tags/Algorithm/" style="font-size: 11.33px;">Algorithm</a> <a href="/tags/Altium-Designer/" style="font-size: 14.67px;">Altium Designer</a> <a href="/tags/Apache/" style="font-size: 11.33px;">Apache</a> <a href="/tags/BeautifulSoup/" style="font-size: 10px;">BeautifulSoup</a> <a href="/tags/C/" style="font-size: 15.33px;">C</a> <a href="/tags/C/" style="font-size: 18.67px;">C++</a> <a href="/tags/Centos7/" style="font-size: 17.33px;">Centos7</a> <a href="/tags/Cython/" style="font-size: 10px;">Cython</a> <a href="/tags/Electronic/" style="font-size: 13.33px;">Electronic</a> <a href="/tags/English/" style="font-size: 12px;">English</a> <a href="/tags/Geant4/" style="font-size: 10.67px;">Geant4</a> <a href="/tags/Hardware/" style="font-size: 10px;">Hardware</a> <a href="/tags/Hexo/" style="font-size: 14px;">Hexo</a> <a href="/tags/Image/" style="font-size: 12px;">Image</a> <a href="/tags/Jupyter/" style="font-size: 10px;">Jupyter</a> <a href="/tags/Linux/" style="font-size: 19.33px;">Linux</a> <a href="/tags/Markdown/" style="font-size: 16px;">Markdown</a> <a href="/tags/Mongodb/" style="font-size: 10px;">Mongodb</a> <a href="/tags/Nuclear-Physics/" style="font-size: 11.33px;">Nuclear Physics</a> <a href="/tags/Open/" style="font-size: 10px;">Open</a> <a href="/tags/Opencv/" style="font-size: 10.67px;">Opencv</a> <a href="/tags/Program/" style="font-size: 18px;">Program</a> <a href="/tags/PyPI/" style="font-size: 10px;">PyPI</a> <a href="/tags/Py-Crawler/" style="font-size: 10.67px;">Py_Crawler</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/Random/" style="font-size: 10px;">Random</a> <a href="/tags/Resource/" style="font-size: 10.67px;">Resource</a> <a href="/tags/Root/" style="font-size: 10.67px;">Root</a> <a href="/tags/Scipy/" style="font-size: 10px;">Scipy</a> <a href="/tags/Shell/" style="font-size: 16px;">Shell</a> <a href="/tags/Solidwork/" style="font-size: 10.67px;">Solidwork</a> <a href="/tags/TTree/" style="font-size: 10px;">TTree</a> <a href="/tags/Tensorflow/" style="font-size: 15.33px;">Tensorflow</a> <a href="/tags/Thread/" style="font-size: 10px;">Thread</a> <a href="/tags/Urllib2/" style="font-size: 10px;">Urllib2</a> <a href="/tags/Virtual-memory/" style="font-size: 10px;">Virtual memory</a> <a href="/tags/cmake/" style="font-size: 12.67px;">cmake</a> <a href="/tags/cmd/" style="font-size: 10.67px;">cmd</a> <a href="/tags/data-structure/" style="font-size: 10.67px;">data structure</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/htop/" style="font-size: 10px;">htop</a> <a href="/tags/keras/" style="font-size: 10.67px;">keras</a> <a href="/tags/latex/" style="font-size: 14.67px;">latex</a> <a href="/tags/os/" style="font-size: 10px;">os</a> <a href="/tags/qt/" style="font-size: 10px;">qt</a> <a href="/tags/requests/" style="font-size: 10px;">requests</a> <a href="/tags/sk-learn/" style="font-size: 10px;">sk-learn</a> <a href="/tags/ssh/" style="font-size: 12.67px;">ssh</a> <a href="/tags/statistic/" style="font-size: 10px;">statistic</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/windows/" style="font-size: 16.67px;">windows</a> <a href="/tags/yolo%EF%BC%8CC/" style="font-size: 10px;">yolo，C</a>
     </div>
   </div>
 
@@ -527,7 +708,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li></ul>
     </div>
   </div>
 
@@ -540,23 +721,23 @@
       <ul>
         
           <li>
-            <a href="/winedt_break/">Winedt注册表破解</a>
+            <a href="/nodejs_windows_install/">windows下安装nodejs及环境变量设置</a>
           </li>
         
           <li>
-            <a href="/latex_content_dot/">latex生成目录条目加点</a>
+            <a href="/Centos7_mongodb_install/">Centos7安装Mongodb</a>
           </li>
         
           <li>
-            <a href="/latex_figure_prefix/">latex论文用图修改前缀</a>
+            <a href="/Endnote_download_tutorial/">EndnoteX9下载及新手教程</a>
           </li>
         
           <li>
-            <a href="/yum_unblock/">linux yum进程占用问题</a>
+            <a href="/centos7_opencv_install/">Centso7下安装opencv</a>
           </li>
         
           <li>
-            <a href="/linux_googlechrome/">linux安装谷歌浏览器</a>
+            <a href="/anaconda_democrate_source/">anaconda安装库使用国内源</a>
           </li>
         
       </ul>

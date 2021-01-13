@@ -67,14 +67,14 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-list_dif" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-centos7_ssh" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/list_dif/" class="article-date">
-  <time datetime="2019-09-22T13:15:14.000Z" itemprop="datePublished">2019-09-22</time>
+    <a href="/centos7_ssh/" class="article-date">
+  <time datetime="2019-12-06T10:11:35.000Z" itemprop="datePublished">2019-12-06</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/Python/">Python</a>
+    <a class="article-category-link" href="/categories/learning/">learning</a>
   </div>
 
   </div>
@@ -85,7 +85,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/list_dif/">两个list间的比较</a>
+      <a class="article-title" href="/centos7_ssh/">Centos7 ssh常用命令</a>
     </h1>
   
 
@@ -95,101 +95,26 @@
       
 	  <!-- Table of Contents -->
 
-        <h3 id="list间​差集"><a href="#list间​差集" class="headerlink" title="list间​差集"></a>list间​差集</h3><ul>
-<li><p>转化成set进行比较</p>
+        <h2 id="Centos7-ssh常用命令"><a href="#Centos7-ssh常用命令" class="headerlink" title="Centos7 ssh常用命令"></a>Centos7 ssh常用命令</h2><ul>
+<li><p>安装程序包：yum install -y openssh-server</p>
 </li>
-<li><pre><code>listA = [&#39;zhangsan&#39;, &#39;lisi&#39;, &#39;wangwu&#39;]
-listB = [&#39;zhangsan&#39;, &#39;lisi&#39;, &#39;zhaoliu&#39;]
-
-差集
-set(listA).difference(set(listB))
-set(listB).difference(set(listA))
-
-交集
-set(listA).intersection(set(listB))
-
-并集
-set(listA).union(set(listB))
-<figure class="highlight gml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 使用循环迭代比较</span><br><span class="line"></span><br><span class="line">* ~~~</span><br><span class="line">  a = [<span class="symbol">x</span> <span class="keyword">for</span> <span class="symbol">x</span> in listA <span class="keyword">if</span> <span class="symbol">x</span> in listB] #两个列表表都存在</span><br><span class="line">  b = [<span class="symbol">y</span> <span class="keyword">for</span> <span class="symbol">y</span> in (listA + listB) <span class="keyword">if</span> <span class="symbol">y</span> <span class="keyword">not</span> in a] #两个列表中的不同元素</span><br></pre></td></tr></table></figure></code></pre>
-</li>
-</ul>
-<hr>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/list_dif/" data-id="ckjv2ttxq00fct0dn4f8i0e5q" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-np_array_asarray" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/np_array_asarray/" class="article-date">
-  <time datetime="2019-09-22T10:21:07.000Z" itemprop="datePublished">2019-09-22</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Python/">Python</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/np_array_asarray/">np.array&amp;np.asarray</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-
-        <h3 id="函数np-array和np-asarray"><a href="#函数np-array和np-asarray" class="headerlink" title="函数np.array和np.asarray"></a>函数np.array和np.asarray</h3><ul>
-<li><p>两个函数都可以把结构数据转成ndarray类型</p>
-</li>
-<li><p>区别：当数据源是ndarray时，array仍会copy出一个副本，占用新的内存，asarray不会。</p>
-</li>
-<li><p>示例代码：</p>
+<li><p>启动ssh服务：</p>
 <ul>
-<li><pre><code>import numpy as np  
-
-arr1=np.ones((3,3))  
-arr2=np.array(arr1)  
-arr3=np.asarray(arr1)  
-arr1[1]=2  
-print (&#39;arr1:\n&#39;,arr1  )
-print (&#39;arr2:\n&#39;,arr2  )
-print (&#39;arr3:\n&#39;,arr3  )
-out:
-arr1:
- [[1. 1. 1.]
- [2. 2. 2.]
- [1. 1. 1.]]
-arr2:
- [[1. 1. 1.]
- [1. 1. 1.]
- [1. 1. 1.]]
-arr3:
- [[1. 1. 1.]
- [2. 2. 2.]
- [1. 1. 1.]]
-</code></pre>
+<li><p>启动：systemctl start sshd</p>
+</li>
+<li><p>重启：systemctl restart sshd</p>
+</li>
+<li><p>开机启动: systemctl enable sshd</p>
+</li>
+<li><p>开启防火墙:</p>
+</li>
+<li><pre><code>firewall-cmd --add-service=ftp/tcp --permanent
+firewall-cmd --add-service=http/tcp --permanent
+firewall-cmd --reload</code></pre>
 </li>
 </ul>
+</li>
+<li><p>启动ssh命令需要在root权限下运行。</p>
 </li>
 </ul>
 <hr>
@@ -197,10 +122,10 @@ arr3:
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/np_array_asarray/" data-id="ckjv2ttxr00fgt0dn4jdo7psq" class="article-share-link">Share</a>
+      <a data-url="http://wangxianggit.github.io/centos7_ssh/" data-id="ckjv2ttx100bzt0dnh2qk3e7c" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Centos7/" rel="tag">Centos7</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ssh/" rel="tag">ssh</a></li></ul>
 
     </footer>
   </div>
@@ -209,14 +134,14 @@ arr3:
 
 
   
-    <article id="post-array_reshape" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-cmake_print" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/array_reshape/" class="article-date">
-  <time datetime="2019-09-20T06:05:17.000Z" itemprop="datePublished">2019-09-20</time>
+    <a href="/cmake_print/" class="article-date">
+  <time datetime="2019-12-06T06:34:27.000Z" itemprop="datePublished">2019-12-06</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/Python/">Python</a>
+    <a class="article-category-link" href="/categories/learning/">learning</a>
   </div>
 
   </div>
@@ -227,7 +152,7 @@ arr3:
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/array_reshape/">array.reshape(-1)</a>
+      <a class="article-title" href="/cmake_print/">cmake打印乘法表</a>
     </h1>
   
 
@@ -237,127 +162,22 @@ arr3:
       
 	  <!-- Table of Contents -->
 
-        <h3 id="np-array函数reshape-1"><a href="#np-array函数reshape-1" class="headerlink" title="np.array函数reshape(-1)"></a>np.array函数reshape(-1)</h3><ul>
-<li><p>function：平铺所有元素值</p>
-</li>
-<li><pre><code>z = np.array([[1, 2, 3],
-          [5, 6, 7],
-          [9, 10, 11],
-          [13, 14, 15]])
-z.reshape(-1)
-out: array([ 1,  2,  3,  5,  6,  7,  9, 10, 11, 13, 14, 15])
-<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* reshape(<span class="number">-1</span>,<span class="number">1</span>)垂直平铺所有元素值</span><br><span class="line"></span><br><span class="line">* ~~~</span><br><span class="line">  z.reshape(<span class="number">-1</span>,<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">  <span class="keyword">out</span>:</span><br><span class="line">  <span class="built_in">array</span>([[ <span class="number">1</span>],</span><br><span class="line"><span class="string">         [ 2]</span>,</span><br><span class="line"><span class="string">         [ 3]</span>,</span><br><span class="line"><span class="string">         [ 5]</span>,</span><br><span class="line"><span class="string">         [ 6]</span>,</span><br><span class="line"><span class="string">         [ 7]</span>,</span><br><span class="line"><span class="string">         [ 9]</span>,</span><br><span class="line"><span class="string">         [10]</span>,</span><br><span class="line"><span class="string">         [11]</span>,</span><br><span class="line"><span class="string">         [13]</span>,</span><br><span class="line"><span class="string">         [14]</span>,</span><br><span class="line"><span class="string">         [15]</span>])</span><br></pre></td></tr></table></figure></code></pre>
-</li>
-</ul>
-<hr>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/array_reshape/" data-id="ckjv2ttwx00bit0dn0yfsfvxn" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-tf_eval" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/tf_eval/" class="article-date">
-  <time datetime="2019-09-18T01:25:33.000Z" itemprop="datePublished">2019-09-18</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Python/">Python</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/tf_eval/">tf.eval函数</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-
-        <h3 id="tf-eval"><a href="#tf-eval" class="headerlink" title="tf.eval"></a>tf.eval</h3><ul>
-<li><p>用于在tensorflow中显示地输出变量的值。</p>
-</li>
-<li><pre><code>In [38]: ta = tf.zeros((2,2))
-
-In [40]: print(ta)
-Tensor(&quot;zeros_1:0&quot;, shape=(2, 2), dtype=float32)
-
-In [41]: print(ta.eval())[[ 0.  0.]
-[ 0. 0.]]</code></pre>
-</li>
-</ul>
-<hr>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/tf_eval/" data-id="ckjv2ttyg00igt0dneuo0edi2" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Tensorflow/" rel="tag">Tensorflow</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-tf.global_variables_initializer" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/tf.global_variables_initializer/" class="article-date">
-  <time datetime="2019-09-18T01:22:37.000Z" itemprop="datePublished">2019-09-18</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Python/">Python</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/tf.global_variables_initializer/">tf.global_variables_initializer</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-
-        <h3 id="tf-global-variables-initializer"><a href="#tf-global-variables-initializer" class="headerlink" title="tf.global_variables_initializer"></a>tf.global_variables_initializer</h3><ul>
-<li><p>函数用于初始化模型的参数：</p>
+        <h3 id="cmake打印乘法表"><a href="#cmake打印乘法表" class="headerlink" title="cmake打印乘法表"></a>cmake打印乘法表</h3><ul>
+<li><p>CMakeLists.txt 文件代码：</p>
 <ul>
-<li><pre><code>init = tf.initialize_all_variables()
-sess = tf.Session()
-sess.run(init)
-<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 有选择地初始化部分变量，使用 tf.initialize<span class="constructor">_variables()</span>：</span><br><span class="line"></span><br><span class="line"><span class="operator">  * </span>~~~</span><br><span class="line">    init_new_vars_op = tf.initialize<span class="constructor">_variables([<span class="params">v_6</span>, <span class="params">v_7</span>, <span class="params">v_8</span>])</span></span><br><span class="line">    sess.run(init_new_vars_op)</span><br></pre></td></tr></table></figure></code></pre>
+<li><pre><code>cmake_minimum_required(VERSION 2.8.11) 
+project(test) 
+foreach(i RANGE 1 9) 
+    set(exp &quot;&quot;) 
+    foreach(j RANGE 1 $&#123;i&#125;) 
+        math(EXPR value &quot;$&#123;j&#125; * $&#123;i&#125;&quot;) 
+        string(APPEND exp &quot;$&#123;j&#125;&quot; &quot;*&quot;) 
+        string(APPEND exp &quot;$&#123;i&#125;&quot; &quot;=&quot;) 
+        string(APPEND exp &quot;$&#123;value&#125;&quot; &quot; &quot;) 
+    endforeach() 
+    message($&#123;exp&#125;)
+endforeach()
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 主要运用 <span class="keyword">foreach</span>()、string()、<span class="builtin-name">set</span>()、message() 命令。</span><br><span class="line"></span><br><span class="line">* 在当前目录运行 `cmake .`命令。</span><br><span class="line"></span><br><span class="line">* 终端打印结果如下：</span><br><span class="line"></span><br><span class="line">  * ~~~</span><br><span class="line">    1<span class="number">*1</span>=1 </span><br><span class="line">    1<span class="number">*2</span>=2 2<span class="number">*2</span>=4 </span><br><span class="line">    1<span class="number">*3</span>=3 2<span class="number">*3</span>=6 3<span class="number">*3</span>=9 </span><br><span class="line">    1<span class="number">*4</span>=4 2<span class="number">*4</span>=8 3<span class="number">*4</span>=12 4<span class="number">*4</span>=16 </span><br><span class="line">    1<span class="number">*5</span>=5 2<span class="number">*5</span>=10 3<span class="number">*5</span>=15 4<span class="number">*5</span>=20 5<span class="number">*5</span>=25 </span><br><span class="line">    1<span class="number">*6</span>=6 2<span class="number">*6</span>=12 3<span class="number">*6</span>=18 4<span class="number">*6</span>=24 5<span class="number">*6</span>=30 6<span class="number">*6</span>=36 </span><br><span class="line">    1<span class="number">*7</span>=7 2<span class="number">*7</span>=14 3<span class="number">*7</span>=21 4<span class="number">*7</span>=28 5<span class="number">*7</span>=35 6<span class="number">*7</span>=42 7<span class="number">*7</span>=49 </span><br><span class="line">    1<span class="number">*8</span>=8 2<span class="number">*8</span>=16 3<span class="number">*8</span>=24 4<span class="number">*8</span>=32 5<span class="number">*8</span>=40 6<span class="number">*8</span>=48 7<span class="number">*8</span>=56 8<span class="number">*8</span>=64 </span><br><span class="line">    1<span class="number">*9</span>=9 2<span class="number">*9</span>=18 3<span class="number">*9</span>=27 4<span class="number">*9</span>=36 5<span class="number">*9</span>=45 6<span class="number">*9</span>=54 7<span class="number">*9</span>=63 8<span class="number">*9</span>=72 9<span class="number">*9</span>=81 </span><br><span class="line">    -- Configuring done </span><br><span class="line">    -- Generating done</span><br></pre></td></tr></table></figure></code></pre>
 </li>
 </ul>
 </li>
@@ -367,10 +187,313 @@ sess.run(init)
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/tf.global_variables_initializer/" data-id="ckjv2ttyc00hyt0dn9koc1o3o" class="article-share-link">Share</a>
+      <a data-url="http://wangxianggit.github.io/cmake_print/" data-id="ckjv2ttx600cnt0dn2ye9cuyx" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Tensorflow/" rel="tag">Tensorflow</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cmake/" rel="tag">cmake</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-cmake_basic_gramma" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/cmake_basic_gramma/" class="article-date">
+  <time datetime="2019-12-06T06:07:33.000Z" itemprop="datePublished">2019-12-06</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/learning/">learning</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/cmake_basic_gramma/">cmake基础语法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+
+        <h2 id="cmake基础语法"><a href="#cmake基础语法" class="headerlink" title="cmake基础语法"></a>cmake基础语法</h2><ul>
+<li><p>cmake中的命令：COMMAND()</p>
+<ul>
+<li>CMake 构建过程的操作基本使用各种的命令完成</li>
+<li>示例：project(test),add_executable(hello hello.cpp)</li>
+</ul>
+</li>
+<li><p>条件判断 if()/endif()</p>
+<ul>
+<li><p>~~~<br>if(<condition>) </p>
+<commands> 
+elseif(<condition>) # optional block, can be repeated 
+<commands> 
+else() # optional block 
+<commands> 
+endif()
+<figure class="highlight gauss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  * <span class="keyword">if</span>() 和 <span class="keyword">endif</span>() 配对使用</span><br><span class="line"></span><br><span class="line">* 循环判断  <span class="built_in">foreach</span>()/<span class="keyword">while</span>()</span><br><span class="line"></span><br><span class="line">  * ~~~</span><br><span class="line">    <span class="built_in">foreach</span>(&lt;loop_var&gt; &lt;items&gt;)</span><br><span class="line">      &lt;commands&gt;</span><br><span class="line">    <span class="built_in">endforeach</span>()</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span>(&lt;condition&gt;)</span><br><span class="line">      &lt;commands&gt;</span><br><span class="line">    <span class="built_in">endwhile</span>()</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">break</span>() <span class="meta">#block</span></span><br><span class="line">    <span class="keyword">continue</span>() <span class="meta">#skip</span></span><br><span class="line">    <span class="keyword">return</span>()</span><br></pre></td></tr></table></figure></li>
+<li><p>items 是一个 list，里面的元素用分号 ; 或者空格分割开来</p>
+</li>
+<li><p>例如：<code>foreach(index A B C D)</code>或<code>foreach(index RANGE 9)</code></p>
+</li>
+</ul>
+<h3 id="设置变量-set-unset"><a href="#设置变量-set-unset" class="headerlink" title="设置变量 set()/unset()"></a>设置变量 set()/unset()</h3><ul>
+<li>CMake 的变量可以分为 普通变量、系统环境变量。</li>
+<li>set() 命令可以设置普通变量、系统环境变量、和缓存。</li>
+<li>设置普通的变量，将 value 的值赋值给 variable，后面的参数是可选的，代表有效域:<code>set(&lt;variable&gt; &lt;value&gt;... [PARENT_SCOPE])</code></li>
+<li>设置系统环境变量:<code>set(&lt;variable&gt; &lt;value&gt;... CACHE &lt;type&gt; &lt;docstring&gt; [FORCE])</code></li>
+<li>访问变量<code>$&#123;variable&#125;</code></li>
+</ul>
+<h3 id="cmake的list结构"><a href="#cmake的list结构" class="headerlink" title="cmake的list结构"></a>cmake的list结构</h3><ul>
+<li><pre><code>Reading 
+list(LENGTH &lt;list&gt; &lt;out-var&gt;) 
+list(GET &lt;list&gt; &lt;element index&gt; [&lt;index&gt; ...] &lt;out-var&gt;) 
+list(JOIN &lt;list&gt; &lt;glue&gt; &lt;out-var&gt;) 
+list(SUBLIST &lt;list&gt; &lt;begin&gt; &lt;length&gt; &lt;out-var&gt;) 
+
+Search 
+list(FIND &lt;list&gt; &lt;value&gt; &lt;out-var&gt;) 
+
+Modification 
+list(APPEND &lt;list&gt; [&lt;element&gt;...]) 
+list(FILTER &lt;list&gt; &#123;INCLUDE | EXCLUDE&#125; REGEX &lt;regex&gt;) 
+list(INSERT &lt;list&gt; &lt;index&gt; [&lt;element&gt;...]) 
+list(REMOVE_ITEM &lt;list&gt; &lt;value&gt;...) 
+list(REMOVE_AT &lt;list&gt; &lt;index&gt;...) 
+list(REMOVE_DUPLICATES &lt;list&gt;) 
+list(TRANSFORM &lt;list&gt; &lt;ACTION&gt; [...]) 
+
+Ordering 
+list(REVERSE &lt;list&gt;) 
+list(SORT &lt;list&gt; [...])
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### cmake读写文件：</span><br><span class="line"></span><br><span class="line">* ~~~</span><br><span class="line">  Reading </span><br><span class="line">  <span class="keyword">file</span>(READ <span class="symbol">&lt;filename&gt;</span> <span class="symbol">&lt;out-var&gt;</span> [...]) </span><br><span class="line">  <span class="keyword">file</span>(STRINGS <span class="symbol">&lt;filename&gt;</span> <span class="symbol">&lt;out-var&gt;</span> [...]) </span><br><span class="line">  <span class="keyword">file</span>(<span class="symbol">&lt;HASH&gt;</span> <span class="symbol">&lt;filename&gt;</span> <span class="symbol">&lt;out-var&gt;</span>) </span><br><span class="line">  <span class="keyword">file</span>(TIMESTAMP <span class="symbol">&lt;filename&gt;</span> <span class="symbol">&lt;out-var&gt;</span> [...]) </span><br><span class="line">  </span><br><span class="line">  Writing </span><br><span class="line">  <span class="keyword">file</span>(&#123;WRITE | APPEND&#125; <span class="symbol">&lt;filename&gt;</span> <span class="symbol">&lt;content&gt;</span>...) </span><br><span class="line">  <span class="keyword">file</span>(&#123;TOUCH | TOUCH_NOCREATE&#125; [<span class="symbol">&lt;file&gt;</span>...]) </span><br><span class="line">  <span class="keyword">file</span>(GENERATE OUTPUT <span class="symbol">&lt;output-file&gt;</span> [...]) Filesystem </span><br><span class="line">  <span class="keyword">file</span>(&#123;GLOB | GLOB_RECURSE&#125; <span class="symbol">&lt;out-var&gt;</span> [...] [<span class="symbol">&lt;globbing-expr&gt;</span>...]) <span class="keyword">file</span>(RENAME <span class="symbol">&lt;oldname&gt;</span> <span class="symbol">&lt;newname&gt;</span>) </span><br><span class="line">  <span class="keyword">file</span>(&#123;REMOVE | REMOVE_RECURSE &#125; [<span class="symbol">&lt;files&gt;</span>...]) </span><br><span class="line">  <span class="keyword">file</span>(MAKE_DIRECTORY [<span class="symbol">&lt;dir&gt;</span>...]) </span><br><span class="line">  <span class="keyword">file</span>(&#123;COPY | INSTALL&#125; <span class="symbol">&lt;file&gt;</span>... DESTINATION <span class="symbol">&lt;dir&gt;</span> [...]) </span><br><span class="line">  <span class="keyword">file</span>(SIZE <span class="symbol">&lt;filename&gt;</span> <span class="symbol">&lt;out-var&gt;</span>) </span><br><span class="line">  <span class="keyword">file</span>(READ_SYMLINK <span class="symbol">&lt;linkname&gt;</span> <span class="symbol">&lt;out-var&gt;</span>) </span><br><span class="line">  <span class="keyword">file</span>(CREATE_LINK <span class="symbol">&lt;original&gt;</span> <span class="symbol">&lt;linkname&gt;</span> [...]) </span><br><span class="line">  </span><br><span class="line">  Path Conversion </span><br><span class="line">  <span class="keyword">file</span>(RELATIVE_PATH <span class="symbol">&lt;out-var&gt;</span> <span class="symbol">&lt;directory&gt;</span> <span class="symbol">&lt;file&gt;</span>) </span><br><span class="line">  <span class="keyword">file</span>(&#123;TO_CMAKE_PATH | TO_NATIVE_PATH&#125; <span class="symbol">&lt;path&gt;</span> <span class="symbol">&lt;out-var&gt;</span>) </span><br><span class="line">  </span><br><span class="line">  Transfer </span><br><span class="line">  <span class="keyword">file</span>(DOWNLOAD <span class="symbol">&lt;url&gt;</span> <span class="symbol">&lt;file&gt;</span> [...]) </span><br><span class="line">  <span class="keyword">file</span>(UPLOAD <span class="symbol">&lt;file&gt;</span> <span class="symbol">&lt;url&gt;</span> [...]) </span><br><span class="line">  </span><br><span class="line">  Locking </span><br><span class="line">  <span class="keyword">file</span>(LOCK <span class="symbol">&lt;path&gt;</span> [...])</span><br></pre></td></tr></table></figure>
+### 字符串操作</code></pre>
+</li>
+<li><pre><code>Search and Replace 
+string(FIND &lt;string&gt; &lt;substring&gt; &lt;out-var&gt; [...]) 
+string(REPLACE &lt;match-string&gt; &lt;replace-string&gt; &lt;out-var&gt; &lt;input&gt;...) 
+
+Regular Expressions 
+string(REGEX MATCH &lt;match-regex&gt; &lt;out-var&gt; &lt;input&gt;...) 
+string(REGEX MATCHALL &lt;match-regex&gt; &lt;out-var&gt; &lt;input&gt;...) 
+string(REGEX REPLACE &lt;match-regex&gt; &lt;replace-expr&gt; &lt;out-var&gt; &lt;input&gt;...) 
+
+Manipulation 
+string(APPEND &lt;string-var&gt; [&lt;input&gt;...]) 
+string(PREPEND &lt;string-var&gt; [&lt;input&gt;...]) 
+string(CONCAT &lt;out-var&gt; [&lt;input&gt;...]) 
+string(JOIN &lt;glue&gt; &lt;out-var&gt; [&lt;input&gt;...]) 
+string(TOLOWER &lt;string1&gt; &lt;out-var&gt;) 
+string(TOUPPER &lt;string1&gt; &lt;out-var&gt;) 
+string(LENGTH &lt;string&gt; &lt;out-var&gt;) 
+string(SUBSTRING &lt;string&gt; &lt;begin&gt; &lt;length&gt; &lt;out-var&gt;) 
+string(STRIP &lt;string&gt; &lt;out-var&gt;) 
+string(GENEX_STRIP &lt;string&gt; &lt;out-var&gt;) 
+
+Comparison 
+string(COMPARE &lt;op&gt; &lt;string1&gt; &lt;string2&gt; &lt;out-var&gt;) 
+
+Hashing 
+string(&lt;HASH&gt; &lt;out-var&gt; &lt;input&gt;) 
+
+Generation 
+string(ASCII &lt;number&gt;... &lt;out-var&gt;) 
+string(CONFIGURE &lt;string1&gt; &lt;out-var&gt; [...]) 
+string(MAKE_C_IDENTIFIER &lt;string&gt; &lt;out-var&gt;) 
+string(RANDOM [&lt;option&gt;...] &lt;out-var&gt;) 
+string(TIMESTAMP &lt;out-var&gt; [&lt;format string&gt;] [UTC]) 
+string(UUID &lt;out-var&gt; ...)</code></pre>
+</li>
+</ul>
+<h3 id="终端打印信息"><a href="#终端打印信息" class="headerlink" title="终端打印信息"></a>终端打印信息</h3><ul>
+<li><code>message([&lt;mode&gt;] &quot;message to display&quot; ...)</code></li>
+<li>支持的类型有：<ul>
+<li>none</li>
+<li>STATUS</li>
+<li>WARNING</li>
+<li>AUTHOR_WARNING</li>
+<li>SEND_ERROR</li>
+<li>FATAL_ERROR</li>
+<li>DEPRECATION</li>
+</ul>
+</li>
+</ul>
+<h3 id="数学运算"><a href="#数学运算" class="headerlink" title="数学运算"></a>数学运算</h3><ul>
+<li><code>math(EXPR &lt;variable&gt; &quot;&lt;expression&gt;&quot; [OUTPUT_FORMAT &lt;format&gt;])</code></li>
+<li>计算数学表达是 experssion，然后将结果保存在 variable 中，后面是指定的格式为 10 进制还是 16 进制。</li>
+</ul>
+</li>
+</ul>
+<hr>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wangxianggit.github.io/cmake_basic_gramma/" data-id="ckjv2ttx300c9t0dnf7fi50k5" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cmake/" rel="tag">cmake</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-cmake_order" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/cmake_order/" class="article-date">
+  <time datetime="2019-12-06T05:44:45.000Z" itemprop="datePublished">2019-12-06</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/learning/">learning</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/cmake_order/">cmake常见概念</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+
+        <h2 id="cmake常见概念"><a href="#cmake常见概念" class="headerlink" title="cmake常见概念"></a>cmake常见概念</h2><h3 id="target"><a href="#target" class="headerlink" title="target"></a>target</h3><ul>
+<li><p>target:cmake 的主要工作大多是为了操作各种各样的 target</p>
+</li>
+<li><p>cmake 把二进制可执行文件和库都称为 target。</p>
+</li>
+<li><p>target 就是指 cmake 要编译的目标</p>
+</li>
+<li><p>可执行文件：<code>add_executable()</code>指定了可执行文件，它是 unix 上 a.out 之类的文件和 windows 平台 .exe 文件</p>
+</li>
+</ul>
+<h3 id="库"><a href="#库" class="headerlink" title="库"></a>库</h3><ul>
+<li><p>动态库和静态库都使用 add_library()命令生成，也就是 unix 平台上的 .so 和 .a 文件，window 上的 .DLL 文件等等。</p>
+</li>
+<li><p>add_library()默认生成 .a 文件，如果要生成 .so 文件用</p>
+</li>
+<li><p>add_library(test SHARED test.cpp)这样的形式，要指定 SHARED 模型，才会生成 libtest.so 文件。<br>默认的效果等同于</p>
+</li>
+<li><p>add_library(test STATIC test.cpp)生成的是 libtest.a 文件。</p>
+</li>
+<li><p><code>link_libraries(hello test)</code>cmake 通过 link_libraries() 命令指定了目标间的依赖关系，代码中 hello 是可执行文件，test 是库。</p>
+</li>
+</ul>
+<h3 id="指定头文件"><a href="#指定头文件" class="headerlink" title="指定头文件"></a>指定头文件</h3><ul>
+<li><code>include_directories()</code>指定了编译系统的头文件地址</li>
+</ul>
+<hr>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wangxianggit.github.io/cmake_order/" data-id="ckjv2ttx400cgt0dngzny4c0w" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cmake/" rel="tag">cmake</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-cmake_compile_static" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/cmake_compile_static/" class="article-date">
+  <time datetime="2019-12-06T05:34:27.000Z" itemprop="datePublished">2019-12-06</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/learning/">learning</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/cmake_compile_static/">cmake编译静态链接库</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+
+        <h2 id="cmake编译静态链接库"><a href="#cmake编译静态链接库" class="headerlink" title="cmake编译静态链接库"></a>cmake编译静态链接库</h2><ul>
+<li><p>例如 hello.cpp 需要调用一个 so 中的 接口api，so 库是由 源文件world.cpp 编译生成。</p>
+</li>
+<li><p>各个文件内容如下：</p>
+</li>
+<li><p>world.h 的代码，它位于工程中 <code>./include</code>文件夹：</p>
+<ul>
+<li><p>~~~<br>#ifndef <strong>WORLD_H__<br>#define __WORLD_H</strong></p>
+<p>void say_hello();</p>
+<p>#endif</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* world.cpp 的代码:</span><br><span class="line"></span><br><span class="line">  * ~~~</span><br><span class="line">    <span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt; </span></span></span><br><span class="line">    <span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&quot;include/world.h&quot;</span> v</span></span><br><span class="line">    <span class="function">oid <span class="title">say_hello</span><span class="params">()</span> </span></span><br><span class="line"><span class="function">    </span>&#123; </span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;I\&#x27;m cmake, welcome&quot;</span> &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>; &#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>hello.cpp的代码:</p>
+<ul>
+<li><p>~~~<br>#include <iostream><br>#include “include/world.h”<br>using namespace std;<br>int main(int argc,char** argv)<br>{<br>cout &lt;&lt; “Hello for cmake!” &lt;&lt; endl;<br>say_hello();<br>return 0;<br>}</p>
+<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* <span class="module-access"><span class="module"><span class="identifier">CMakeLists</span>.</span></span>txt 文件可以写成：</span><br><span class="line"></span><br><span class="line"><span class="operator">  * </span>~~~</span><br><span class="line">    cmake<span class="constructor">_minimum_required(VERSION 2.8.11)</span> </span><br><span class="line">    project(HELLO) </span><br><span class="line">    <span class="keyword">include</span><span class="constructor">_directories(<span class="string">&quot;include&quot;</span>)</span> </span><br><span class="line">    add<span class="constructor">_library(<span class="params">world</span> <span class="params">world</span>.<span class="params">cpp</span>)</span> </span><br><span class="line">    add<span class="constructor">_executable(<span class="params">hello</span> <span class="params">hello</span>.<span class="params">cpp</span>)</span> </span><br><span class="line">    target<span class="constructor">_link_libraries(<span class="params">hello</span> <span class="params">world</span>)</span></span><br></pre></td></tr></table></figure></li>
+<li><p>include_directories()这句代码指定了头文件地址</p>
+</li>
+<li><p>add_library()的作用是生成库文件，默认是 .a 的文件，也就是静态库</p>
+</li>
+<li><p>target_lingk_libraries()就是为可执行文件 hello 链接 libworld.a 这个库。</p>
+</li>
+</ul>
+</li>
+<li><p>执行 <code>cmake .</code>操作可以看到会正常生成 MakeFile 文件。</p>
+</li>
+<li><p>执行make命令可以生成相应目标文件。</p>
+</li>
+<li><p>目录下生成了两个文件 libworld.a 和 hello，即静态链接和目标文件。</p>
+</li>
+<li><p>cmake执行顺序为：指定头文件路径，指定动态库或者是静态库的路径，然后链接。</p>
+</li>
+</ul>
+<hr>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wangxianggit.github.io/cmake_compile_static/" data-id="ckjv2ttx400cdt0dnf0pg3w6h" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cmake/" rel="tag">cmake</a></li></ul>
 
     </footer>
   </div>
@@ -383,7 +506,7 @@ sess.run(init)
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/page/5/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/38/">38</a><a class="extend next" rel="next" href="/page/7/">Next &amp;raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/5/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/41/">41</a><a class="extend next" rel="next" href="/page/7/">Next &amp;raquo;</a>
   </nav>
 
 </section>
@@ -421,7 +544,7 @@ sess.run(init)
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithm/" rel="tag">Algorithm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Altium-Designer/" rel="tag">Altium Designer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Apache/" rel="tag">Apache</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BeautifulSoup/" rel="tag">BeautifulSoup</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Centos7/" rel="tag">Centos7</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cython/" rel="tag">Cython</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Electronic/" rel="tag">Electronic</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/English/" rel="tag">English</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Geant4/" rel="tag">Geant4</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hardware/" rel="tag">Hardware</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Image/" rel="tag">Image</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jupyter/" rel="tag">Jupyter</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nuclear-Physics/" rel="tag">Nuclear Physics</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Open/" rel="tag">Open</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Program/" rel="tag">Program</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PyPI/" rel="tag">PyPI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Py-Crawler/" rel="tag">Py_Crawler</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Random/" rel="tag">Random</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Resource/" rel="tag">Resource</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Root/" rel="tag">Root</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Scipy/" rel="tag">Scipy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Shell/" rel="tag">Shell</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Solidwork/" rel="tag">Solidwork</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TTree/" rel="tag">TTree</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tensorflow/" rel="tag">Tensorflow</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Thread/" rel="tag">Thread</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Urllib2/" rel="tag">Urllib2</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Virtual-memory/" rel="tag">Virtual memory</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cmake/" rel="tag">cmake</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cmd/" rel="tag">cmd</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/data-structure/" rel="tag">data structure</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/htop/" rel="tag">htop</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/keras/" rel="tag">keras</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/latex/" rel="tag">latex</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/os/" rel="tag">os</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/qt/" rel="tag">qt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/requests/" rel="tag">requests</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sk-learn/" rel="tag">sk-learn</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh/" rel="tag">ssh</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/statistic/" rel="tag">statistic</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vi/" rel="tag">vi</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/windows/" rel="tag">windows</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithm/" rel="tag">Algorithm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Altium-Designer/" rel="tag">Altium Designer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Apache/" rel="tag">Apache</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BeautifulSoup/" rel="tag">BeautifulSoup</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Centos7/" rel="tag">Centos7</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cython/" rel="tag">Cython</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Electronic/" rel="tag">Electronic</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/English/" rel="tag">English</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Geant4/" rel="tag">Geant4</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hardware/" rel="tag">Hardware</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Image/" rel="tag">Image</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jupyter/" rel="tag">Jupyter</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mongodb/" rel="tag">Mongodb</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nuclear-Physics/" rel="tag">Nuclear Physics</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Open/" rel="tag">Open</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Opencv/" rel="tag">Opencv</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Program/" rel="tag">Program</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PyPI/" rel="tag">PyPI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Py-Crawler/" rel="tag">Py_Crawler</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Random/" rel="tag">Random</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Resource/" rel="tag">Resource</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Root/" rel="tag">Root</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Scipy/" rel="tag">Scipy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Shell/" rel="tag">Shell</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Solidwork/" rel="tag">Solidwork</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TTree/" rel="tag">TTree</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tensorflow/" rel="tag">Tensorflow</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Thread/" rel="tag">Thread</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Urllib2/" rel="tag">Urllib2</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Virtual-memory/" rel="tag">Virtual memory</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cmake/" rel="tag">cmake</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cmd/" rel="tag">cmd</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/data-structure/" rel="tag">data structure</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/htop/" rel="tag">htop</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/keras/" rel="tag">keras</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/latex/" rel="tag">latex</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/os/" rel="tag">os</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/qt/" rel="tag">qt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/requests/" rel="tag">requests</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sk-learn/" rel="tag">sk-learn</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh/" rel="tag">ssh</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/statistic/" rel="tag">statistic</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vi/" rel="tag">vi</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/windows/" rel="tag">windows</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/yolo%EF%BC%8CC/" rel="tag">yolo，C</a></li></ul>
     </div>
   </div>
 
@@ -431,7 +554,7 @@ sess.run(init)
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Algorithm/" style="font-size: 11.33px;">Algorithm</a> <a href="/tags/Altium-Designer/" style="font-size: 14.67px;">Altium Designer</a> <a href="/tags/Apache/" style="font-size: 11.33px;">Apache</a> <a href="/tags/BeautifulSoup/" style="font-size: 10px;">BeautifulSoup</a> <a href="/tags/C/" style="font-size: 15.33px;">C</a> <a href="/tags/C/" style="font-size: 18.67px;">C++</a> <a href="/tags/Centos7/" style="font-size: 17.33px;">Centos7</a> <a href="/tags/Cython/" style="font-size: 10px;">Cython</a> <a href="/tags/Electronic/" style="font-size: 13.33px;">Electronic</a> <a href="/tags/English/" style="font-size: 12px;">English</a> <a href="/tags/Geant4/" style="font-size: 10.67px;">Geant4</a> <a href="/tags/Hardware/" style="font-size: 10px;">Hardware</a> <a href="/tags/Hexo/" style="font-size: 14px;">Hexo</a> <a href="/tags/Image/" style="font-size: 10px;">Image</a> <a href="/tags/Jupyter/" style="font-size: 10px;">Jupyter</a> <a href="/tags/Linux/" style="font-size: 19.33px;">Linux</a> <a href="/tags/Markdown/" style="font-size: 16px;">Markdown</a> <a href="/tags/Nuclear-Physics/" style="font-size: 11.33px;">Nuclear Physics</a> <a href="/tags/Open/" style="font-size: 10px;">Open</a> <a href="/tags/Program/" style="font-size: 18px;">Program</a> <a href="/tags/PyPI/" style="font-size: 10px;">PyPI</a> <a href="/tags/Py-Crawler/" style="font-size: 10.67px;">Py_Crawler</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/Random/" style="font-size: 10px;">Random</a> <a href="/tags/Resource/" style="font-size: 10.67px;">Resource</a> <a href="/tags/Root/" style="font-size: 10.67px;">Root</a> <a href="/tags/Scipy/" style="font-size: 10px;">Scipy</a> <a href="/tags/Shell/" style="font-size: 16px;">Shell</a> <a href="/tags/Solidwork/" style="font-size: 10.67px;">Solidwork</a> <a href="/tags/TTree/" style="font-size: 10px;">TTree</a> <a href="/tags/Tensorflow/" style="font-size: 15.33px;">Tensorflow</a> <a href="/tags/Thread/" style="font-size: 10px;">Thread</a> <a href="/tags/Urllib2/" style="font-size: 10px;">Urllib2</a> <a href="/tags/Virtual-memory/" style="font-size: 10px;">Virtual memory</a> <a href="/tags/cmake/" style="font-size: 12.67px;">cmake</a> <a href="/tags/cmd/" style="font-size: 10.67px;">cmd</a> <a href="/tags/data-structure/" style="font-size: 10.67px;">data structure</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/htop/" style="font-size: 10px;">htop</a> <a href="/tags/keras/" style="font-size: 10.67px;">keras</a> <a href="/tags/latex/" style="font-size: 14.67px;">latex</a> <a href="/tags/os/" style="font-size: 10px;">os</a> <a href="/tags/qt/" style="font-size: 10px;">qt</a> <a href="/tags/requests/" style="font-size: 10px;">requests</a> <a href="/tags/sk-learn/" style="font-size: 10px;">sk-learn</a> <a href="/tags/ssh/" style="font-size: 12.67px;">ssh</a> <a href="/tags/statistic/" style="font-size: 10px;">statistic</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/windows/" style="font-size: 16.67px;">windows</a>
+      <a href="/tags/Algorithm/" style="font-size: 11.33px;">Algorithm</a> <a href="/tags/Altium-Designer/" style="font-size: 14.67px;">Altium Designer</a> <a href="/tags/Apache/" style="font-size: 11.33px;">Apache</a> <a href="/tags/BeautifulSoup/" style="font-size: 10px;">BeautifulSoup</a> <a href="/tags/C/" style="font-size: 15.33px;">C</a> <a href="/tags/C/" style="font-size: 18.67px;">C++</a> <a href="/tags/Centos7/" style="font-size: 17.33px;">Centos7</a> <a href="/tags/Cython/" style="font-size: 10px;">Cython</a> <a href="/tags/Electronic/" style="font-size: 13.33px;">Electronic</a> <a href="/tags/English/" style="font-size: 12px;">English</a> <a href="/tags/Geant4/" style="font-size: 10.67px;">Geant4</a> <a href="/tags/Hardware/" style="font-size: 10px;">Hardware</a> <a href="/tags/Hexo/" style="font-size: 14px;">Hexo</a> <a href="/tags/Image/" style="font-size: 12px;">Image</a> <a href="/tags/Jupyter/" style="font-size: 10px;">Jupyter</a> <a href="/tags/Linux/" style="font-size: 19.33px;">Linux</a> <a href="/tags/Markdown/" style="font-size: 16px;">Markdown</a> <a href="/tags/Mongodb/" style="font-size: 10px;">Mongodb</a> <a href="/tags/Nuclear-Physics/" style="font-size: 11.33px;">Nuclear Physics</a> <a href="/tags/Open/" style="font-size: 10px;">Open</a> <a href="/tags/Opencv/" style="font-size: 10.67px;">Opencv</a> <a href="/tags/Program/" style="font-size: 18px;">Program</a> <a href="/tags/PyPI/" style="font-size: 10px;">PyPI</a> <a href="/tags/Py-Crawler/" style="font-size: 10.67px;">Py_Crawler</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/Random/" style="font-size: 10px;">Random</a> <a href="/tags/Resource/" style="font-size: 10.67px;">Resource</a> <a href="/tags/Root/" style="font-size: 10.67px;">Root</a> <a href="/tags/Scipy/" style="font-size: 10px;">Scipy</a> <a href="/tags/Shell/" style="font-size: 16px;">Shell</a> <a href="/tags/Solidwork/" style="font-size: 10.67px;">Solidwork</a> <a href="/tags/TTree/" style="font-size: 10px;">TTree</a> <a href="/tags/Tensorflow/" style="font-size: 15.33px;">Tensorflow</a> <a href="/tags/Thread/" style="font-size: 10px;">Thread</a> <a href="/tags/Urllib2/" style="font-size: 10px;">Urllib2</a> <a href="/tags/Virtual-memory/" style="font-size: 10px;">Virtual memory</a> <a href="/tags/cmake/" style="font-size: 12.67px;">cmake</a> <a href="/tags/cmd/" style="font-size: 10.67px;">cmd</a> <a href="/tags/data-structure/" style="font-size: 10.67px;">data structure</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/htop/" style="font-size: 10px;">htop</a> <a href="/tags/keras/" style="font-size: 10.67px;">keras</a> <a href="/tags/latex/" style="font-size: 14.67px;">latex</a> <a href="/tags/os/" style="font-size: 10px;">os</a> <a href="/tags/qt/" style="font-size: 10px;">qt</a> <a href="/tags/requests/" style="font-size: 10px;">requests</a> <a href="/tags/sk-learn/" style="font-size: 10px;">sk-learn</a> <a href="/tags/ssh/" style="font-size: 12.67px;">ssh</a> <a href="/tags/statistic/" style="font-size: 10px;">statistic</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/windows/" style="font-size: 16.67px;">windows</a> <a href="/tags/yolo%EF%BC%8CC/" style="font-size: 10px;">yolo，C</a>
     </div>
   </div>
 
@@ -440,7 +563,7 @@ sess.run(init)
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li></ul>
     </div>
   </div>
 
@@ -453,23 +576,23 @@ sess.run(init)
       <ul>
         
           <li>
-            <a href="/winedt_break/">Winedt注册表破解</a>
+            <a href="/nodejs_windows_install/">windows下安装nodejs及环境变量设置</a>
           </li>
         
           <li>
-            <a href="/latex_content_dot/">latex生成目录条目加点</a>
+            <a href="/Centos7_mongodb_install/">Centos7安装Mongodb</a>
           </li>
         
           <li>
-            <a href="/latex_figure_prefix/">latex论文用图修改前缀</a>
+            <a href="/Endnote_download_tutorial/">EndnoteX9下载及新手教程</a>
           </li>
         
           <li>
-            <a href="/yum_unblock/">linux yum进程占用问题</a>
+            <a href="/centos7_opencv_install/">Centso7下安装opencv</a>
           </li>
         
           <li>
-            <a href="/linux_googlechrome/">linux安装谷歌浏览器</a>
+            <a href="/anaconda_democrate_source/">anaconda安装库使用国内源</a>
           </li>
         
       </ul>

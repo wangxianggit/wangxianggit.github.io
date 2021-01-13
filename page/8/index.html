@@ -67,10 +67,72 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-Python_tf_unstack" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-new_alloc" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/Python_tf_unstack/" class="article-date">
-  <time datetime="2019-09-14T15:35:31.000Z" itemprop="datePublished">2019-09-14</time>
+    <a href="/new_alloc/" class="article-date">
+  <time datetime="2019-10-01T09:28:11.000Z" itemprop="datePublished">2019-10-01</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/learning/">learning</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/new_alloc/">C++动态分配内存new</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+
+        <h2 id="new动态内存分配"><a href="#new动态内存分配" class="headerlink" title="new动态内存分配"></a>new动态内存分配</h2><ul>
+<li><p>作用：动态分配内存并调用相应类的构造函数</p>
+</li>
+<li><p>变量申请：Type* pointer = new Type;</p>
+</li>
+<li><p>数组申请：Type* pointer = new Type[N];</p>
+</li>
+<li><p>~~~<br>int * var;<br>var = new int [10];</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 动态分配内存示例：</span><br><span class="line"></span><br><span class="line">  * ~~~</span><br><span class="line">    <span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">int</span>* p = <span class="keyword">new</span> <span class="keyword">int</span>;</span><br><span class="line">        *p = <span class="number">5</span>;</span><br><span class="line">        *p = *p + <span class="number">10</span>;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;p = %p\n&quot;</span>, p);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;*p = %d\n&quot;</span>, *p);</span><br><span class="line">        <span class="keyword">delete</span> p;</span><br><span class="line">        p = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">10</span>];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;<span class="number">10</span>; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            p[i] = i + <span class="number">1</span>;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;p[%d] = %d\n&quot;</span>, i, p[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">delete</span>[] p;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>和malloc函数区别：</p>
+<ul>
+<li>new关键字是C++定义的关键字，malloc是C提供的库函数</li>
+<li>new以类型为单位进行内存分配，malloc以字节为单位</li>
+<li>new在申请但各类型变量可以初始化，malloc不能</li>
+</ul>
+</li>
+</ul>
+<hr>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wangxianggit.github.io/new_alloc/" data-id="ckjv2ttxp00f9t0dn7xkq9j0x" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C++</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-tf.initialize_all_variables()andtf.global_variables_initializer()" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/tf.initialize_all_variables()andtf.global_variables_initializer()/" class="article-date">
+  <time datetime="2019-09-28T06:43:40.000Z" itemprop="datePublished">2019-09-28</time>
 </a>
     
   <div class="article-category">
@@ -85,7 +147,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/Python_tf_unstack/">tf.unstack &amp;&amp; tf.stack</a>
+      <a class="article-title" href="/tf.initialize_all_variables()andtf.global_variables_initializer()/">tf.initialize_all_variables()和tf.global_variables_initializer()</a>
     </h1>
   
 
@@ -95,39 +157,31 @@
       
 	  <!-- Table of Contents -->
 
-        <h2 id="tf函数unstack和stack"><a href="#tf函数unstack和stack" class="headerlink" title="tf函数unstack和stack"></a>tf函数unstack和stack</h2><ul>
-<li><p>数组合并函数tf.stack</p>
-<ul>
-<li><p>函数：stack(value,num=None,axis=0,name=’stack’ )</p>
+        <h3 id="tf-initialize-all-variables-和tf-global-variables-initializer"><a href="#tf-initialize-all-variables-和tf-global-variables-initializer" class="headerlink" title="tf.initialize_all_variables()和tf.global_variables_initializer()"></a>tf.initialize_all_variables()和tf.global_variables_initializer()</h3><ul>
+<li><p>tf.global_variables_initializer() 是 tf.initialize_all_variables()的升级版</p>
 </li>
-<li><p>value：代表需要分解的矩阵变量（其实就是一个多维数组，一般为二维）；</p>
-</li>
-<li><p>axis：指明对矩阵的哪个维度进行合并。</p>
-</li>
-<li><p>示例代码：</p>
-</li>
-<li><pre><code>import tensorflow as tf
-a = tf.constant([1, 2, 3])
-b = tf.constant([4, 5, 6])
-c = tf.stack( [a,b], axis=0)
-with tf.Session() as sess:
-    print(sess.run(c))
+<li><pre><code>变量初始化
 
-output：
-[[1 2 3]
- [4 5 6]]
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 矩阵分解函数tf.unstack</span><br><span class="line"></span><br><span class="line">  * 函数：unstack(value,<span class="attribute">num</span>=None,axis=0,name=&#x27;unstack&#x27; )</span><br><span class="line"></span><br><span class="line">  * value：代表需要分解的矩阵变量（其实就是一个多维数组，一般为二维）；</span><br><span class="line"></span><br><span class="line">  * axis：指明对矩阵的哪个维度进行分解。</span><br><span class="line"></span><br><span class="line">  * 示例代码：</span><br><span class="line"></span><br><span class="line">  * ~~~</span><br><span class="line">    import tensorflow as tf</span><br><span class="line">    c = tf.constant([[1, 2, 3],</span><br><span class="line">     [4, 5, 6]])</span><br><span class="line">    d = tf.unstack(c, <span class="attribute">axis</span>=0)</span><br><span class="line">    e = tf.unstack(c, <span class="attribute">axis</span>=1)</span><br><span class="line">    with tf.Session() as sess:</span><br><span class="line">    	<span class="builtin-name">print</span>(sess.<span class="builtin-name">run</span>(d))</span><br><span class="line">    	<span class="builtin-name">print</span>(sess.<span class="builtin-name">run</span>(e))</span><br><span class="line">    	</span><br><span class="line">    output：</span><br><span class="line">    [array([1, 2, 3]), array([4, 5, 6])]</span><br><span class="line">    [array([1, 4]), array([2, 5]), array([3, 6])]</span><br></pre></td></tr></table></figure></code></pre>
+变量初始化的标准形式：
+
+init = tf.global_variables_initializer()
+
+sess = tf.Session()
+
+sess.run(init)
+
+当然也可简写为：
+
+tf.Session().run(tf.initialize_all_variables())
+<figure class="highlight pf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 变量的更新</span><br><span class="line"></span><br><span class="line">  * ~~~</span><br><span class="line">    <span class="keyword">state</span> = tf.Variable(<span class="number">1</span>, name=&#x27;counter&#x27;)</span><br><span class="line"></span><br><span class="line">    add_one = tf.add(<span class="keyword">state</span>, tf.constant(<span class="number">1</span>))</span><br><span class="line"></span><br><span class="line">    update = tf.assign(<span class="keyword">state</span>, add_one)</span><br><span class="line"></span><br><span class="line">    with tf.Session() as sess:</span><br><span class="line"></span><br><span class="line">            sess.run(tf.gloabl_variables_initializer())</span><br><span class="line"></span><br><span class="line">            sess.run(<span class="keyword">state</span>)</span><br><span class="line"></span><br><span class="line">            <span class="keyword">for</span> _ <span class="keyword">in</span> range(<span class="number">3</span>):</span><br><span class="line"></span><br><span class="line">                sess.run(update)</span><br><span class="line"></span><br><span class="line">                print(sess.run(<span class="keyword">state</span>))</span><br></pre></td></tr></table></figure></code></pre>
 </li>
 </ul>
 <hr>
-<p>​</p>
-</li>
-</ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/Python_tf_unstack/" data-id="ckjv2ttwq00aqt0dngbzw8vk6" class="article-share-link">Share</a>
+      <a data-url="http://wangxianggit.github.io/tf.initialize_all_variables()andtf.global_variables_initializer()/" data-id="ckjv2ttyd00i4t0dn3qm88eg1" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Tensorflow/" rel="tag">Tensorflow</a></li></ul>
@@ -139,10 +193,10 @@ output：
 
 
   
-    <article id="post-python_copy_deepcopy" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-tf.nn.rnn_cell.MultiRNNCell" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/python_copy_deepcopy/" class="article-date">
-  <time datetime="2019-09-14T02:19:17.000Z" itemprop="datePublished">2019-09-14</time>
+    <a href="/tf.nn.rnn_cell.MultiRNNCell/" class="article-date">
+  <time datetime="2019-09-23T07:42:33.000Z" itemprop="datePublished">2019-09-23</time>
 </a>
     
   <div class="article-category">
@@ -157,7 +211,7 @@ output：
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/python_copy_deepcopy/">Python中shallowcopy和deepcopy区别</a>
+      <a class="article-title" href="/tf.nn.rnn_cell.MultiRNNCell/">tf.nn.rnn_cell.MultiRNNCell</a>
     </h1>
   
 
@@ -167,46 +221,30 @@ output：
       
 	  <!-- Table of Contents -->
 
-        <h3 id="两种拷贝方法"><a href="#两种拷贝方法" class="headerlink" title="两种拷贝方法"></a>两种拷贝方法</h3><ul>
-<li><p>shallowcopy直接由等号完成，新对象指向要拷贝对象的地址，即只拷贝了引用地址。</p>
+        <h3 id="tf-nn-rnn-cell-MultiRNNCell"><a href="#tf-nn-rnn-cell-MultiRNNCell" class="headerlink" title="tf.nn.rnn_cell.MultiRNNCell"></a>tf.nn.rnn_cell.MultiRNNCell</h3><ul>
+<li><p>RNN cell composed sequentially of multiple simple cells.</p>
 </li>
-<li><p>deepcopy由copy.deepcopy()完成，即将这个对象的所有内容遍历拷贝过来了，相当和原对象没关系，修改原来对象的值该值不会发生改变。</p>
+<li><pre><code>__init__(
+    cells,
+    state_is_tuple=True
+)</code></pre>
 </li>
-<li><p>shallowcopy</p>
+<li><p>Args:</p>
 <ul>
-<li><pre><code>1.使用=复制不可变对象值，以及复制以后修改其值后的变化。
-val1 = 1000
-val2 = val1
-print(&quot;val1 is :&#123;0&#125;,val2 is :&#123;1&#125;&quot;.format(val1,val2))#val1 is :1000,val2 is :1000
-print(id(val1),id(val2))  #34052192 34052192
-#修改val1的值，尽管val2指向val1.但因为val1是不可变类型，修改其值，会重新给新值分配内存，然后指向他。
-val1 += 1
-print(val1,id(val1),val2,id(val2)) #1001 10131616 1000 10131568  值不一样，内存地址也不一样
-
-2.使用=复制可变对象值，以及复制以后修改其值后的变化。
-ls1 =[1,2,3,4]
-ls2 = ls1
-print(id(ls1),id(ls2)) #43702792 43702792 直接使用=复制变量，内存地址一样，值也一样。
-print(ls1,ls2) #[1, 2, 3, 4] [1, 2, 3, 4]直接使用=复制变量，内存地址一样，值也一样。
-#修改可变对的值,因为其值可变，所以只需要在原内存地址上修改即可。
-ls1.append(5)
-print(id(ls1),id(ls2)) #可变对象修改其值，内存引用不变
-print(ls1,ls2) #[1, 2, 3, 4, 5] [1, 2, 3, 4, 5] 因为两个变量的内存指向一样，所以值也一样。
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* copy.deepcopy()</span><br><span class="line"></span><br><span class="line">  * ~~~</span><br><span class="line">    <span class="number">1.</span>copy.deepcopy()拷贝不可变对象的值，以及复制以后修改其值后的变化。</span><br><span class="line">    val1 = <span class="number">1000</span></span><br><span class="line">    val2 = copy.deepcopy(val1)</span><br><span class="line">    print(<span class="string">&quot;val1 is :&#123;0&#125;,val2 is :&#123;1&#125;&quot;</span>.<span class="built_in">format</span>(val1,val2))<span class="comment">#val1 is :1000,val2 is :1000</span></span><br><span class="line">    print(<span class="built_in">id</span>(val1),<span class="built_in">id</span>(val2))  <span class="comment">#33717408 33717408 对于不可变对象，深度拷贝内存地址没有修改。</span></span><br><span class="line">     </span><br><span class="line">    val1 += <span class="number">1</span></span><br><span class="line">    print(val1,<span class="built_in">id</span>(val1),val2,<span class="built_in">id</span>(val2)) <span class="comment">#1001 33717904 1000 33717408</span></span><br><span class="line">     </span><br><span class="line">    <span class="number">2.</span>使用copy.deepcopy()复制可变对象的值，以及复制以后修改其值后的变化。</span><br><span class="line">    ls1 =[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]</span><br><span class="line">    ls2 = copy.deepcopy(ls1)</span><br><span class="line">    print(<span class="built_in">id</span>(ls1),<span class="built_in">id</span>(ls2)) <span class="comment">#34628472 34628712 注意对于可变对象深度拷贝后内存地址都修改了。</span></span><br><span class="line">    print(ls1,ls2) <span class="comment">#[1, 2, 3, 4] [1, 2, 3, 4]</span></span><br><span class="line">    ls1.append(<span class="number">5</span>)</span><br><span class="line">    print(<span class="built_in">id</span>(ls1),<span class="built_in">id</span>(ls2)) <span class="comment">#34628472 34628712</span></span><br></pre></td></tr></table></figure></code></pre>
+<li><strong>cells</strong>: list of RNNCells that will be composed in this order.</li>
+<li><strong>state_is_tuple</strong>: If True, accepted and returned states are n-tuples, where <code>n = len(cells)</code>. If False, the states are all concatenated along the column axis. This latter behavior will soon be deprecated.</li>
+</ul>
 </li>
 </ul>
 <hr>
-<p>​</p>
-</li>
-</ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/python_copy_deepcopy/" data-id="ckjv2ttxw00g5t0dn7znf9oj8" class="article-share-link">Share</a>
+      <a data-url="http://wangxianggit.github.io/tf.nn.rnn_cell.MultiRNNCell/" data-id="ckjv2ttyf00iat0dnf4de2s6n" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Tensorflow/" rel="tag">Tensorflow</a></li></ul>
 
     </footer>
   </div>
@@ -215,10 +253,10 @@ print(ls1,ls2) #[1, 2, 3, 4, 5] [1, 2, 3, 4, 5] 因为两个变量的内存指�
 
 
   
-    <article id="post-numpy_unpackbits" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-tf.nn.rnn_cell.BasicLSTMCell" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/numpy_unpackbits/" class="article-date">
-  <time datetime="2019-09-13T17:41:03.000Z" itemprop="datePublished">2019-09-14</time>
+    <a href="/tf.nn.rnn_cell.BasicLSTMCell/" class="article-date">
+  <time datetime="2019-09-23T05:37:16.000Z" itemprop="datePublished">2019-09-23</time>
 </a>
     
   <div class="article-category">
@@ -233,7 +271,7 @@ print(ls1,ls2) #[1, 2, 3, 4, 5] [1, 2, 3, 4, 5] 因为两个变量的内存指�
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/numpy_unpackbits/">numpy函数unpackbits</a>
+      <a class="article-title" href="/tf.nn.rnn_cell.BasicLSTMCell/">tf.nn.rnn_cell.BasicLSTMCell</a>
     </h1>
   
 
@@ -243,35 +281,48 @@ print(ls1,ls2) #[1, 2, 3, 4, 5] [1, 2, 3, 4, 5] 因为两个变量的内存指�
       
 	  <!-- Table of Contents -->
 
-        <h2 id="numpy函数unpackbits"><a href="#numpy函数unpackbits" class="headerlink" title="numpy函数unpackbits"></a>numpy函数unpackbits</h2><ul>
-<li><p>unpackbits函数把整数转化成对应的二进制数。</p>
+        <h3 id="tf-nn-rnn-cell-BasicLSTMCell"><a href="#tf-nn-rnn-cell-BasicLSTMCell" class="headerlink" title="tf.nn.rnn_cell.BasicLSTMCell"></a>tf.nn.rnn_cell.BasicLSTMCell</h3><ul>
+<li><p>link：<a target="_blank" rel="noopener" href="https://tensorflow.google.cn/api_docs/python/tf/nn/rnn_cell/BasicLSTMCell">https://tensorflow.google.cn/api_docs/python/tf/nn/rnn_cell/BasicLSTMCell</a></p>
 </li>
-<li><pre><code>int2binary = &#123;&#125; #整数到其二进制表示的映射
-binary = np.unpackbits(
-    np.array([range(10)],dtype=np.uint8).T,axis=1)
-for i in range(10):
-    int2binary[i] = binary[i]
-print(int2binary)
-
-output:
-&#123;0: array([0, 0, 0, 0, 0, 0, 0, 0], dtype=uint8), 1: array([0, 0, 0, 0, 0, 0, 0, 1],
-dtype=uint8), 2: array([0, 0, 0, 0, 0, 0, 1, 0], dtype=uint8), 3: array([0, 0, 0, 0, 0, 0,
-1, 1], dtype=uint8), 4: array([0, 0, 0, 0, 0, 1, 0, 0], dtype=uint8), 5: array([0, 0, 0, 0,
-0, 1, 0, 1], dtype=uint8), 6: array([0, 0, 0, 0, 0, 1, 1, 0], dtype=uint8), 7: array([0, 0,
-0, 0, 0, 1, 1, 1], dtype=uint8), 8: array([0, 0, 0, 0, 1, 0, 0, 0], dtype=uint8), 9:
-array([0, 0, 0, 0, 1, 0, 0, 1], dtype=uint8)&#125;</code></pre>
-<hr>
-<p>​</p>
+<li><p>Basic LSTM recurrent network cell.</p>
+</li>
+<li><p>The implementation is based on: <a target="_blank" rel="noopener" href="http://arxiv.org/abs/1409.2329">http://arxiv.org/abs/1409.2329</a>.</p>
+</li>
+<li><p> Forget_bias (default: 1) add to the biases of the forget gate in order to reduce the scale of forgetting in the beginning of the training.</p>
+</li>
+<li><pre><code>__init__(
+    num_units,
+    forget_bias=1.0,
+    state_is_tuple=True,
+    activation=None,
+    reuse=None,
+    name=None,
+    dtype=None,
+    **kwargs
+)</code></pre>
+</li>
+<li><p>Args:</p>
+<ul>
+<li><strong>num_units</strong>: int, The number of units in the LSTM cell.</li>
+<li><strong>forget_bias</strong>: float, The bias added to forget gates (see above). Must set to <code>0.0</code> manually when restoring from CudnnLSTM-trained checkpoints.</li>
+<li><strong>state_is_tuple</strong>: If True, accepted and returned states are 2-tuples of the <code>c_state</code> and <code>m_state</code>. If False, they are concatenated along the column axis. The latter behavior will soon be deprecated.</li>
+<li><strong>activation</strong>: Activation function of the inner states. Default: <code>tanh</code>. It could also be string that is within Keras activation function names.</li>
+<li><strong>reuse</strong>: (optional) Python boolean describing whether to reuse variables in an existing scope. If not <code>True</code>, and the existing scope already has the given variables, an error is raised.</li>
+<li><strong>name</strong>: String, the name of the layer. Layers with the same name will share weights, but to avoid mistakes we require reuse=True in such cases.</li>
+<li><strong>dtype</strong>: Default dtype of the layer (default of <code>None</code> means use the type of the first input). Required when <code>build</code> is called before <code>call</code>.</li>
+<li><strong><em>\</em>kwargs</strong>: Dict, keyword named properties for common layer attributes, like <code>trainable</code> etc when constructing the cell from configs of get_config(). When restoring from CudnnLSTM-trained checkpoints, must use <code>CudnnCompatibleLSTMCell</code> instead.</li>
+</ul>
 </li>
 </ul>
+<hr>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/numpy_unpackbits/" data-id="ckjv2ttxs00fpt0dn5n7cf5et" class="article-share-link">Share</a>
+      <a data-url="http://wangxianggit.github.io/tf.nn.rnn_cell.BasicLSTMCell/" data-id="ckjv2ttyd00i1t0dn8dag25sz" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Tensorflow/" rel="tag">Tensorflow</a></li></ul>
 
     </footer>
   </div>
@@ -280,10 +331,10 @@ array([0, 0, 0, 0, 1, 0, 0, 1], dtype=uint8)&#125;</code></pre>
 
 
   
-    <article id="post-Python_talib_install" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-tf.nn.rnn_cell.DropoutWrapper" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/Python_talib_install/" class="article-date">
-  <time datetime="2019-09-09T14:57:23.000Z" itemprop="datePublished">2019-09-09</time>
+    <a href="/tf.nn.rnn_cell.DropoutWrapper/" class="article-date">
+  <time datetime="2019-09-23T05:03:22.000Z" itemprop="datePublished">2019-09-23</time>
 </a>
     
   <div class="article-category">
@@ -298,7 +349,7 @@ array([0, 0, 0, 0, 1, 0, 0, 1], dtype=uint8)&#125;</code></pre>
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/Python_talib_install/">Python库talib的安装</a>
+      <a class="article-title" href="/tf.nn.rnn_cell.DropoutWrapper/">tf.nn.rnn_cell.DropoutWrapper</a>
     </h1>
   
 
@@ -308,26 +359,28 @@ array([0, 0, 0, 0, 1, 0, 0, 1], dtype=uint8)&#125;</code></pre>
       
 	  <!-- Table of Contents -->
 
-        <ul>
-<li><p>​ TaLib官网：<a target="_blank" rel="noopener" href="https://www.lizenghai.com/goto/?url=http://ta-lib.org/">http://ta-lib.org/</a></p>
+        <h3 id="tf-nn-rnn-cell-DropoutWrapper"><a href="#tf-nn-rnn-cell-DropoutWrapper" class="headerlink" title="tf.nn.rnn_cell.DropoutWrapper"></a>tf.nn.rnn_cell.DropoutWrapper</h3><ul>
+<li><p>link:<a target="_blank" rel="noopener" href="https://tensorflow.google.cn/api_docs/python/tf/nn/rnn_cell/DropoutWrapper?hl=zh-cn">https://tensorflow.google.cn/api_docs/python/tf/nn/rnn_cell/DropoutWrapper?hl=zh-cn</a></p>
 </li>
-<li><p>Python wrapper for TA-Lib：<a target="_blank" rel="noopener" href="https://www.lizenghai.com/goto/?url=http://mrjbq7.github.io/ta-lib/doc_index.html">http://mrjbq7.github.io/ta-lib/doc_index.html</a></p>
+<li><p>Operator adding dropout to inputs and outputs of the given cell.</p>
 </li>
-<li><p>pip安装talib时常常会出现如下错误：</p>
+<li><pre><code>__init__(
+    *args,
+    **kwargs
+)</code></pre>
+</li>
+<li><p>Args:</p>
 <ul>
-<li><pre><code>error: Microsoft Visual C++ 14.0 is required. Get it with “Microsoft Visual C++ Build Tools”: https://visualstudio.microsoft.com/downloads/</code></pre>
-</li>
+<li><strong>cell</strong>: an RNNCell, a projection to output_size is added to it.</li>
+<li><strong>input_keep_prob</strong>: unit Tensor or float between 0 and 1, input keep probability; if it is constant and 1, no input dropout will be added.</li>
+<li><strong>output_keep_prob</strong>: unit Tensor or float between 0 and 1, output keep probability; if it is constant and 1, no output dropout will be added.</li>
+<li><strong>state_keep_prob</strong>: unit Tensor or float between 0 and 1, output keep probability; if it is constant and 1, no output dropout will be added. State dropout is performed on the outgoing states of the cell. <strong>Note</strong> the state components to which dropout is applied when <code>state_keep_prob</code> is in <code>(0, 1)</code> are also determined by the argument <code>dropout_state_filter_visitor</code> (e.g. by default dropout is never applied to the <code>c</code> component of an <code>LSTMStateTuple</code>).</li>
+<li><strong>variational_recurrent</strong>: Python bool. If <code>True</code>, then the same dropout pattern is applied across all time steps per run call. If this parameter is set, <code>input_size</code> <strong>must</strong> be provided.</li>
+<li><strong>input_size</strong>: (optional) (possibly nested tuple of) <code>TensorShape</code> objects containing the depth(s) of the input tensors expected to be passed in to the <code>DropoutWrapper</code>. Required and used <strong>iff</strong><code>variational_recurrent = True</code> and <code>input_keep_prob &lt; 1</code>.</li>
+<li><strong>dtype</strong>: (optional) The <code>dtype</code> of the input, state, and output tensors. Required and used <strong>iff</strong><code>variational_recurrent = True</code>.</li>
+<li><strong>seed</strong>: (optional) integer, the randomness seed.</li>
+<li><strong>dropout_state_filter_visitor</strong>: (optional), default: (see below). Function that takes any hierarchical level of the state and returns a scalar or depth=1 structure of Python booleans describing which terms in the state should be dropped out. In addition, if the function returns <code>True</code>, dropout is applied across this sublevel. If the function returns <code>False</code>, dropout is not applied across this entire sublevel. Default behavior: perform dropout on all terms except the memory (<code>c</code>) state of <code>LSTMCellState</code> objects, and don’t try to apply dropout to <code>TensorArray</code> objects: <code>def dropout_state_filter_visitor(s): if isinstance(s, LSTMCellState): # Never perform dropout on the c state. return LSTMCellState(c=False, h=True) elif isinstance(s, TensorArray): return False return True</code></li>
 </ul>
-</li>
-<li><p>如果安装visual C++14.0往往安装包很大，安装起来很麻烦。</p>
-</li>
-<li><p>因此可以用手动安装的方法：</p>
-<ul>
-<li>手动下载对应的whl文件，下载地址：<a target="_blank" rel="noopener" href="https://www.lizenghai.com/goto/?url=https://www.lfd.uci.edu/~gohlke/pythonlibs/">https://www.lfd.uci.edu/~gohlke/pythonlibs/</a></li>
-<li>进入下载目录使用pip install filename.whl 安装</li>
-</ul>
-</li>
-<li><p>命令行界面出现成功安装的提示就可以使用。</p>
 </li>
 </ul>
 <hr>
@@ -335,64 +388,10 @@ array([0, 0, 0, 0, 1, 0, 0, 1], dtype=uint8)&#125;</code></pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/Python_talib_install/" data-id="ckjv2ttwq00att0dn3gkec28l" class="article-share-link">Share</a>
+      <a data-url="http://wangxianggit.github.io/tf.nn.rnn_cell.DropoutWrapper/" data-id="ckjv2ttye00i7t0dna0016vqz" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-hdf5_set_WRITEABLE_flag_True" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/hdf5_set_WRITEABLE_flag_True/" class="article-date">
-  <time datetime="2019-06-20T13:38:12.000Z" itemprop="datePublished">2019-06-20</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Python/">Python</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/hdf5_set_WRITEABLE_flag_True/">Hdf数据读取错误：cannot set WRITEABLE flag to True</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-
-        <h2 id="Hdf数据读取错误：cannot-set-WRITEABLE-flag-to-True"><a href="#Hdf数据读取错误：cannot-set-WRITEABLE-flag-to-True" class="headerlink" title="Hdf数据读取错误：cannot set WRITEABLE flag to True"></a>Hdf数据读取错误：cannot set WRITEABLE flag to True</h2><ul>
-<li>python中使用hdf5读取文件时报错：cannot set WRITEABLE flag to True of this array</li>
-<li>原因是numpy版本与pytables的最新版本不兼容，若numpy版本时1.16则版本太高。</li>
-<li>把numpy版本降到1.15即可：<ul>
-<li><code>python -m pip install numpy==1.15</code></li>
-</ul>
-</li>
-<li>另外不仅出现在hdf数据读取会出现这样错误，其他类似报错也只需要把numpy版本降低即可。</li>
-</ul>
-<hr>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/hdf5_set_WRITEABLE_flag_True/" data-id="ckjv2ttxd00dmt0dna3mgcdq3" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/data-structure/" rel="tag">data structure</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Tensorflow/" rel="tag">Tensorflow</a></li></ul>
 
     </footer>
   </div>
@@ -405,7 +404,7 @@ array([0, 0, 0, 0, 1, 0, 0, 1], dtype=uint8)&#125;</code></pre>
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/page/7/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/38/">38</a><a class="extend next" rel="next" href="/page/9/">Next &amp;raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/7/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/41/">41</a><a class="extend next" rel="next" href="/page/9/">Next &amp;raquo;</a>
   </nav>
 
 </section>
@@ -443,7 +442,7 @@ array([0, 0, 0, 0, 1, 0, 0, 1], dtype=uint8)&#125;</code></pre>
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithm/" rel="tag">Algorithm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Altium-Designer/" rel="tag">Altium Designer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Apache/" rel="tag">Apache</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BeautifulSoup/" rel="tag">BeautifulSoup</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Centos7/" rel="tag">Centos7</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cython/" rel="tag">Cython</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Electronic/" rel="tag">Electronic</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/English/" rel="tag">English</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Geant4/" rel="tag">Geant4</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hardware/" rel="tag">Hardware</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Image/" rel="tag">Image</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jupyter/" rel="tag">Jupyter</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nuclear-Physics/" rel="tag">Nuclear Physics</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Open/" rel="tag">Open</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Program/" rel="tag">Program</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PyPI/" rel="tag">PyPI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Py-Crawler/" rel="tag">Py_Crawler</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Random/" rel="tag">Random</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Resource/" rel="tag">Resource</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Root/" rel="tag">Root</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Scipy/" rel="tag">Scipy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Shell/" rel="tag">Shell</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Solidwork/" rel="tag">Solidwork</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TTree/" rel="tag">TTree</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tensorflow/" rel="tag">Tensorflow</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Thread/" rel="tag">Thread</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Urllib2/" rel="tag">Urllib2</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Virtual-memory/" rel="tag">Virtual memory</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cmake/" rel="tag">cmake</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cmd/" rel="tag">cmd</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/data-structure/" rel="tag">data structure</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/htop/" rel="tag">htop</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/keras/" rel="tag">keras</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/latex/" rel="tag">latex</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/os/" rel="tag">os</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/qt/" rel="tag">qt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/requests/" rel="tag">requests</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sk-learn/" rel="tag">sk-learn</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh/" rel="tag">ssh</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/statistic/" rel="tag">statistic</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vi/" rel="tag">vi</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/windows/" rel="tag">windows</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithm/" rel="tag">Algorithm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Altium-Designer/" rel="tag">Altium Designer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Apache/" rel="tag">Apache</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BeautifulSoup/" rel="tag">BeautifulSoup</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Centos7/" rel="tag">Centos7</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cython/" rel="tag">Cython</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Electronic/" rel="tag">Electronic</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/English/" rel="tag">English</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Geant4/" rel="tag">Geant4</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hardware/" rel="tag">Hardware</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Image/" rel="tag">Image</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jupyter/" rel="tag">Jupyter</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mongodb/" rel="tag">Mongodb</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nuclear-Physics/" rel="tag">Nuclear Physics</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Open/" rel="tag">Open</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Opencv/" rel="tag">Opencv</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Program/" rel="tag">Program</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PyPI/" rel="tag">PyPI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Py-Crawler/" rel="tag">Py_Crawler</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Random/" rel="tag">Random</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Resource/" rel="tag">Resource</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Root/" rel="tag">Root</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Scipy/" rel="tag">Scipy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Shell/" rel="tag">Shell</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Solidwork/" rel="tag">Solidwork</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TTree/" rel="tag">TTree</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tensorflow/" rel="tag">Tensorflow</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Thread/" rel="tag">Thread</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Urllib2/" rel="tag">Urllib2</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Virtual-memory/" rel="tag">Virtual memory</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cmake/" rel="tag">cmake</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cmd/" rel="tag">cmd</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/data-structure/" rel="tag">data structure</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/htop/" rel="tag">htop</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/keras/" rel="tag">keras</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/latex/" rel="tag">latex</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/os/" rel="tag">os</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/qt/" rel="tag">qt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/requests/" rel="tag">requests</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sk-learn/" rel="tag">sk-learn</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh/" rel="tag">ssh</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/statistic/" rel="tag">statistic</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vi/" rel="tag">vi</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/windows/" rel="tag">windows</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/yolo%EF%BC%8CC/" rel="tag">yolo，C</a></li></ul>
     </div>
   </div>
 
@@ -453,7 +452,7 @@ array([0, 0, 0, 0, 1, 0, 0, 1], dtype=uint8)&#125;</code></pre>
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Algorithm/" style="font-size: 11.33px;">Algorithm</a> <a href="/tags/Altium-Designer/" style="font-size: 14.67px;">Altium Designer</a> <a href="/tags/Apache/" style="font-size: 11.33px;">Apache</a> <a href="/tags/BeautifulSoup/" style="font-size: 10px;">BeautifulSoup</a> <a href="/tags/C/" style="font-size: 15.33px;">C</a> <a href="/tags/C/" style="font-size: 18.67px;">C++</a> <a href="/tags/Centos7/" style="font-size: 17.33px;">Centos7</a> <a href="/tags/Cython/" style="font-size: 10px;">Cython</a> <a href="/tags/Electronic/" style="font-size: 13.33px;">Electronic</a> <a href="/tags/English/" style="font-size: 12px;">English</a> <a href="/tags/Geant4/" style="font-size: 10.67px;">Geant4</a> <a href="/tags/Hardware/" style="font-size: 10px;">Hardware</a> <a href="/tags/Hexo/" style="font-size: 14px;">Hexo</a> <a href="/tags/Image/" style="font-size: 10px;">Image</a> <a href="/tags/Jupyter/" style="font-size: 10px;">Jupyter</a> <a href="/tags/Linux/" style="font-size: 19.33px;">Linux</a> <a href="/tags/Markdown/" style="font-size: 16px;">Markdown</a> <a href="/tags/Nuclear-Physics/" style="font-size: 11.33px;">Nuclear Physics</a> <a href="/tags/Open/" style="font-size: 10px;">Open</a> <a href="/tags/Program/" style="font-size: 18px;">Program</a> <a href="/tags/PyPI/" style="font-size: 10px;">PyPI</a> <a href="/tags/Py-Crawler/" style="font-size: 10.67px;">Py_Crawler</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/Random/" style="font-size: 10px;">Random</a> <a href="/tags/Resource/" style="font-size: 10.67px;">Resource</a> <a href="/tags/Root/" style="font-size: 10.67px;">Root</a> <a href="/tags/Scipy/" style="font-size: 10px;">Scipy</a> <a href="/tags/Shell/" style="font-size: 16px;">Shell</a> <a href="/tags/Solidwork/" style="font-size: 10.67px;">Solidwork</a> <a href="/tags/TTree/" style="font-size: 10px;">TTree</a> <a href="/tags/Tensorflow/" style="font-size: 15.33px;">Tensorflow</a> <a href="/tags/Thread/" style="font-size: 10px;">Thread</a> <a href="/tags/Urllib2/" style="font-size: 10px;">Urllib2</a> <a href="/tags/Virtual-memory/" style="font-size: 10px;">Virtual memory</a> <a href="/tags/cmake/" style="font-size: 12.67px;">cmake</a> <a href="/tags/cmd/" style="font-size: 10.67px;">cmd</a> <a href="/tags/data-structure/" style="font-size: 10.67px;">data structure</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/htop/" style="font-size: 10px;">htop</a> <a href="/tags/keras/" style="font-size: 10.67px;">keras</a> <a href="/tags/latex/" style="font-size: 14.67px;">latex</a> <a href="/tags/os/" style="font-size: 10px;">os</a> <a href="/tags/qt/" style="font-size: 10px;">qt</a> <a href="/tags/requests/" style="font-size: 10px;">requests</a> <a href="/tags/sk-learn/" style="font-size: 10px;">sk-learn</a> <a href="/tags/ssh/" style="font-size: 12.67px;">ssh</a> <a href="/tags/statistic/" style="font-size: 10px;">statistic</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/windows/" style="font-size: 16.67px;">windows</a>
+      <a href="/tags/Algorithm/" style="font-size: 11.33px;">Algorithm</a> <a href="/tags/Altium-Designer/" style="font-size: 14.67px;">Altium Designer</a> <a href="/tags/Apache/" style="font-size: 11.33px;">Apache</a> <a href="/tags/BeautifulSoup/" style="font-size: 10px;">BeautifulSoup</a> <a href="/tags/C/" style="font-size: 15.33px;">C</a> <a href="/tags/C/" style="font-size: 18.67px;">C++</a> <a href="/tags/Centos7/" style="font-size: 17.33px;">Centos7</a> <a href="/tags/Cython/" style="font-size: 10px;">Cython</a> <a href="/tags/Electronic/" style="font-size: 13.33px;">Electronic</a> <a href="/tags/English/" style="font-size: 12px;">English</a> <a href="/tags/Geant4/" style="font-size: 10.67px;">Geant4</a> <a href="/tags/Hardware/" style="font-size: 10px;">Hardware</a> <a href="/tags/Hexo/" style="font-size: 14px;">Hexo</a> <a href="/tags/Image/" style="font-size: 12px;">Image</a> <a href="/tags/Jupyter/" style="font-size: 10px;">Jupyter</a> <a href="/tags/Linux/" style="font-size: 19.33px;">Linux</a> <a href="/tags/Markdown/" style="font-size: 16px;">Markdown</a> <a href="/tags/Mongodb/" style="font-size: 10px;">Mongodb</a> <a href="/tags/Nuclear-Physics/" style="font-size: 11.33px;">Nuclear Physics</a> <a href="/tags/Open/" style="font-size: 10px;">Open</a> <a href="/tags/Opencv/" style="font-size: 10.67px;">Opencv</a> <a href="/tags/Program/" style="font-size: 18px;">Program</a> <a href="/tags/PyPI/" style="font-size: 10px;">PyPI</a> <a href="/tags/Py-Crawler/" style="font-size: 10.67px;">Py_Crawler</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/Random/" style="font-size: 10px;">Random</a> <a href="/tags/Resource/" style="font-size: 10.67px;">Resource</a> <a href="/tags/Root/" style="font-size: 10.67px;">Root</a> <a href="/tags/Scipy/" style="font-size: 10px;">Scipy</a> <a href="/tags/Shell/" style="font-size: 16px;">Shell</a> <a href="/tags/Solidwork/" style="font-size: 10.67px;">Solidwork</a> <a href="/tags/TTree/" style="font-size: 10px;">TTree</a> <a href="/tags/Tensorflow/" style="font-size: 15.33px;">Tensorflow</a> <a href="/tags/Thread/" style="font-size: 10px;">Thread</a> <a href="/tags/Urllib2/" style="font-size: 10px;">Urllib2</a> <a href="/tags/Virtual-memory/" style="font-size: 10px;">Virtual memory</a> <a href="/tags/cmake/" style="font-size: 12.67px;">cmake</a> <a href="/tags/cmd/" style="font-size: 10.67px;">cmd</a> <a href="/tags/data-structure/" style="font-size: 10.67px;">data structure</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/htop/" style="font-size: 10px;">htop</a> <a href="/tags/keras/" style="font-size: 10.67px;">keras</a> <a href="/tags/latex/" style="font-size: 14.67px;">latex</a> <a href="/tags/os/" style="font-size: 10px;">os</a> <a href="/tags/qt/" style="font-size: 10px;">qt</a> <a href="/tags/requests/" style="font-size: 10px;">requests</a> <a href="/tags/sk-learn/" style="font-size: 10px;">sk-learn</a> <a href="/tags/ssh/" style="font-size: 12.67px;">ssh</a> <a href="/tags/statistic/" style="font-size: 10px;">statistic</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/windows/" style="font-size: 16.67px;">windows</a> <a href="/tags/yolo%EF%BC%8CC/" style="font-size: 10px;">yolo，C</a>
     </div>
   </div>
 
@@ -462,7 +461,7 @@ array([0, 0, 0, 0, 1, 0, 0, 1], dtype=uint8)&#125;</code></pre>
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li></ul>
     </div>
   </div>
 
@@ -475,23 +474,23 @@ array([0, 0, 0, 0, 1, 0, 0, 1], dtype=uint8)&#125;</code></pre>
       <ul>
         
           <li>
-            <a href="/winedt_break/">Winedt注册表破解</a>
+            <a href="/nodejs_windows_install/">windows下安装nodejs及环境变量设置</a>
           </li>
         
           <li>
-            <a href="/latex_content_dot/">latex生成目录条目加点</a>
+            <a href="/Centos7_mongodb_install/">Centos7安装Mongodb</a>
           </li>
         
           <li>
-            <a href="/latex_figure_prefix/">latex论文用图修改前缀</a>
+            <a href="/Endnote_download_tutorial/">EndnoteX9下载及新手教程</a>
           </li>
         
           <li>
-            <a href="/yum_unblock/">linux yum进程占用问题</a>
+            <a href="/centos7_opencv_install/">Centso7下安装opencv</a>
           </li>
         
           <li>
-            <a href="/linux_googlechrome/">linux安装谷歌浏览器</a>
+            <a href="/anaconda_democrate_source/">anaconda安装库使用国内源</a>
           </li>
         
       </ul>

@@ -67,69 +67,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-root_notebook" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-windows_install_tensorflow" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/root_notebook/" class="article-date">
-  <time datetime="2019-12-21T09:44:32.000Z" itemprop="datePublished">2019-12-21</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/learning/">learning</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/root_notebook/">root install notebook</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-
-        <h2 id="root-install-notebook"><a href="#root-install-notebook" class="headerlink" title="root install notebook"></a>root install notebook</h2><ul>
-<li><p>link：<a target="_blank" rel="noopener" href="https://root.cern.ch/how/how-create-rootbook">https://root.cern.ch/how/how-create-rootbook</a></p>
-</li>
-<li><p>ROOT 6.07 Onwards：</p>
-<ul>
-<li><p>~~~</p>
-<h1 id="Install-dependencies"><a href="#Install-dependencies" class="headerlink" title="Install dependencies"></a>Install dependencies</h1><p>sudo pip install jupyter metakernel zmq</p>
-<h1 id="Launch-ROOT-notebook"><a href="#Launch-ROOT-notebook" class="headerlink" title="Launch ROOT notebook"></a>Launch ROOT notebook</h1><p>root –notebook</p>
-<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* ROOT <span class="number">6.05</span>/<span class="number">02</span></span><br><span class="line"></span><br><span class="line">  * ~~~</span><br><span class="line">    <span class="comment"># Install IPython notebook 3.2</span></span><br><span class="line">    sudo pip install -Iv ipython[notebook]==<span class="number">3.2</span><span class="number">.0</span></span><br><span class="line">     </span><br><span class="line">    <span class="comment"># Launch ROOT notebook</span></span><br><span class="line">    root <span class="comment">--notebook</span></span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-<li><p>more detail refer to the link above.</p>
-</li>
-</ul>
-<hr>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/root_notebook/" data-id="ckjv2ttxz00gkt0dn3lro5l8d" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Root/" rel="tag">Root</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-np_cnp_r" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/np_cnp_r/" class="article-date">
-  <time datetime="2019-12-15T15:35:08.000Z" itemprop="datePublished">2019-12-15</time>
+    <a href="/windows_install_tensorflow/" class="article-date">
+  <time datetime="2020-07-29T09:58:23.000Z" itemprop="datePublished">2020-07-29</time>
 </a>
     
   <div class="article-category">
@@ -144,7 +85,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/np_cnp_r/">numpy函数np._c和np._r</a>
+      <a class="article-title" href="/windows_install_tensorflow/">windows下安装tensorflow</a>
     </h1>
   
 
@@ -154,39 +95,21 @@
       
 	  <!-- Table of Contents -->
 
-        <h3 id="函数解析np-c-和np-r"><a href="#函数解析np-c-和np-r" class="headerlink" title="函数解析np.c_和np.r_"></a>函数解析np.c_和np.r_</h3><ul>
-<li><p>np.r_:按列连接两个矩阵，两矩阵上下相加，要求列数相等。</p>
-</li>
-<li><p>np.c_:按行连接两个矩阵，两矩阵左右相加，要求行数相等。</p>
-</li>
-<li><p>示例代码：</p>
+        <ul>
+<li><p>使用pip安装tensorflow：</p>
 <ul>
-<li><pre><code>np.C_
-a = np.array([[1, 2, 3],[7,8,9]])
-b=np.array([[4,5,6],[1,2,3]])
-a
-Out[4]: 
-array([[1, 2, 3],
-       [7, 8, 9]])
-b
-Out[5]: 
-array([[4, 5, 6],
-       [1, 2, 3]])
-c=np.c_[a,b]
-c
-Out[7]: 
-array([[1, 2, 3, 4, 5, 6],
-       [7, 8, 9, 1, 2, 3]])
-d= np.array([7,8,9])
-e=np.array([1, 2, 3])
-f=np.c_[d,e]
-f
-Out[12]: 
-array([[7, 1],
-       [8, 2],
-       [9, 3]])
-<figure class="highlight inform7"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* ~~~</span><br><span class="line">  np.r_</span><br><span class="line">  a = np.array(<span class="comment">[<span class="comment">[1, 2, 3]</span>,<span class="comment">[7,8,9]</span>]</span>)</span><br><span class="line">  b=np.array(<span class="comment">[<span class="comment">[4,5,6]</span>,<span class="comment">[1,2,3]</span>]</span>)</span><br><span class="line">  d= np.array(<span class="comment">[7,8,9]</span>)</span><br><span class="line">  e=np.array(<span class="comment">[1, 2, 3]</span>)</span><br><span class="line">  g=np.r_<span class="comment">[a,b]</span></span><br><span class="line">  g</span><br><span class="line">  Out<span class="comment">[14]</span>: </span><br><span class="line">  array(<span class="comment">[<span class="comment">[1, 2, 3]</span>,</span></span><br><span class="line"><span class="comment">         <span class="comment">[7, 8, 9]</span>,</span></span><br><span class="line"><span class="comment">         <span class="comment">[4, 5, 6]</span>,</span></span><br><span class="line"><span class="comment">         <span class="comment">[1, 2, 3]</span>]</span>)</span><br><span class="line">  h=np.r_<span class="comment">[d,e]</span></span><br><span class="line">  h</span><br><span class="line">  Out<span class="comment">[16]</span>: array(<span class="comment">[7, 8, 9, 1, 2, 3]</span>)</span><br></pre></td></tr></table></figure>
-</code></pre>
+<li><code>cpu版本</code>：<code>pip install --ignore-installed --upgrade tensorflow</code></li>
+<li><code>gpu版本</code>：<code>pip install --ignore-installed --upgrade tensorflow-gpu</code></li>
+<li>使用国内镜像：pip install tensorflow==2.0.0 -i <a target="_blank" rel="noopener" href="https://pypi.tuna.tsinghua.edu.cn/simple">https://pypi.tuna.tsinghua.edu.cn/simple</a></li>
+</ul>
+</li>
+<li><p>测试代码：</p>
+<ul>
+<li><pre><code>#TensorFlow使用图(Graph)来表示计算任务；并使用会话(Session)来执行图，通过Session.close()来关闭会话（这是一种显式关闭会话的方式）。会话方式有显式和隐式会话之分。
+import tensorflow as tf
+hello = tf.constant(&#39;Hello, TensorFlow!&#39;)  #初始化一个TensorFlow的常量
+sess = tf.Session()  #启动一个会话
+print(sess.run(hello))  </code></pre>
 </li>
 </ul>
 </li>
@@ -196,7 +119,7 @@ array([[7, 1],
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/np_cnp_r/" data-id="ckjv2ttxr00fjt0dn6msh7cbz" class="article-share-link">Share</a>
+      <a data-url="http://wangxianggit.github.io/windows_install_tensorflow/" data-id="ckjv2ttyo00jft0dn1cuph76o" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Tensorflow/" rel="tag">Tensorflow</a></li></ul>
@@ -208,14 +131,14 @@ array([[7, 1],
 
 
   
-    <article id="post-centos7_wifiadapter_not_found" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Python_pdb_debug" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/centos7_wifiadapter_not_found/" class="article-date">
-  <time datetime="2019-12-13T10:47:08.000Z" itemprop="datePublished">2019-12-13</time>
+    <a href="/Python_pdb_debug/" class="article-date">
+  <time datetime="2020-07-26T10:44:29.000Z" itemprop="datePublished">2020-07-26</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/learning/">learning</a>
+    <a class="article-category-link" href="/categories/Python/">Python</a>
   </div>
 
   </div>
@@ -226,7 +149,7 @@ array([[7, 1],
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/centos7_wifiadapter_not_found/">Centos7 error：no wifi-adapter found</a>
+      <a class="article-title" href="/Python_pdb_debug/">Python pdb调试命令</a>
     </h1>
   
 
@@ -237,17 +160,37 @@ array([[7, 1],
 	  <!-- Table of Contents -->
 
         <ul>
-<li><p>新安装的centos7和window10双系统，开机打开无线网络出现错误：</p>
-<ul>
-<li><code>no wifi-adapter found</code></li>
-</ul>
+<li><p>ENTER (重复上次命令)</p>
 </li>
-<li><p>解决方法,管理员权限下输入以下命令：</p>
-<ul>
-<li><pre><code>rfkill unblock all
-rfkill list
-modprobe -r ideapad_laptop</code></pre>
+<li><p>c (继续)直到遇到下一个断点</p>
 </li>
+<li><p>l (查找当前位于哪里)</p>
+</li>
+<li><p>s (进入子程序,如果当前有一个函数调用，那么 s 会进入被调用的函数体)</p>
+</li>
+<li><p>n(ext) 让程序运行下一行，如果当前语句有一个函数调用，用 n 是不会进入被调用的函数体中的</p>
+</li>
+<li><p>r (运行直到子程序结束)</p>
+</li>
+<li><p>!&lt;python 命令&gt;执行shell命令</p>
+</li>
+<li><p>h (帮助)</p>
+</li>
+<li><p>a(rgs) 打印当前函数的参数</p>
+</li>
+<li><p>j(ump) 让程序跳转到指定的行数</p>
+</li>
+<li><p>l(ist) 可以列出当前将要运行的代码块</p>
+</li>
+<li><p>p(rint) 最有用的命令之一，打印某个变量</p>
+</li>
+<li><p>q(uit) 退出调试</p>
+</li>
+<li><p>r(eturn) 继续执行，直到函数体返回</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">pdb</span>单步执行太麻烦了，所以一般<span class="keyword">import</span> pdb 之后，直接在代码里需要调试的地方放一个pdb.set_trace()，就可以设置一个断点， 程序会在pdb.set_trace()暂停并进入pdb调试环境，可以用pdb 变量名查看变量，或者c继续运行：</span><br><span class="line"><span class="keyword">import</span> pdb</span><br><span class="line"></span><br><span class="line"><span class="title">s</span> = &#x27;<span class="number">10</span>&#x27;</span><br><span class="line"><span class="title">n</span> = int(s)</span><br><span class="line"><span class="title">pdb</span>.set_trace() #运行到这里会自动暂停</span><br><span class="line"><span class="title">print</span>(<span class="number">10</span>/n)</span><br></pre></td></tr></table></figure></li>
+<li><p>使用ipdb可以显示彩色环境，安装如下：</p>
+<ul>
+<li>pip install ipdb -i <a target="_blank" rel="noopener" href="https://pypi.tuna.tsinghua.edu.cn/simple">https://pypi.tuna.tsinghua.edu.cn/simple</a></li>
 </ul>
 </li>
 </ul>
@@ -256,10 +199,10 @@ modprobe -r ideapad_laptop</code></pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/centos7_wifiadapter_not_found/" data-id="ckjv2ttx200c6t0dng14p39ua" class="article-share-link">Share</a>
+      <a data-url="http://wangxianggit.github.io/Python_pdb_debug/" data-id="ckjv2ydvk000ldgdn5t0vh7w9" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Centos7/" rel="tag">Centos7</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
 
     </footer>
   </div>
@@ -268,10 +211,10 @@ modprobe -r ideapad_laptop</code></pre>
 
 
   
-    <article id="post-Centos_imagesite" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-windows_cmd_string_match" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/Centos_imagesite/" class="article-date">
-  <time datetime="2019-12-13T01:43:41.000Z" itemprop="datePublished">2019-12-13</time>
+    <a href="/windows_cmd_string_match/" class="article-date">
+  <time datetime="2020-07-16T15:32:41.000Z" itemprop="datePublished">2020-07-16</time>
 </a>
     
   <div class="article-category">
@@ -286,108 +229,7 @@ modprobe -r ideapad_laptop</code></pre>
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/Centos_imagesite/">centos镜像下载地址</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-
-        <h3 id="开源网站镜像"><a href="#开源网站镜像" class="headerlink" title="开源网站镜像"></a>开源网站镜像</h3><p><code>搜狐开源镜像站：http:``//mirrors``.sohu.com/</code></p>
-<p><code>网易开源镜像站：http:``//mirrors``.163.com/</code></p>
-<p><code>开源中国：http:``//mirrors``.oschina.net/</code></p>
-<p><code>首都在线科技股份有限公司：http:``//mirrors``.yun-idc.com/</code></p>
-<p><code>阿里云开源镜像：http:``//mirrors``.aliyun.com/</code></p>
-<p><code>LUPA：http:``//mirror``.lupaworld.com/</code></p>
-<p><code>常州贝特康姆软件技术有限公司(原cn99）：http:``//centos``.bitcomm.cn/</code></p>
-<h3 id="大学校园镜像"><a href="#大学校园镜像" class="headerlink" title="大学校园镜像"></a>大学校园镜像</h3><p><code>中山大学镜像：http:``//mirror``.sysu.edu.cn/</code></p>
-<p><code>山东理工大学：http:``//mirrors``.sdutlinux.org/</code></p>
-<p><code>哈尔滨工业大学：http:``//run``.hit.edu.cn/</code></p>
-<p><code>中国地质大学：http:``//cugbteam``.org/</code></p>
-<p><code>大连理工大学：http:``//mirror``.dlut.edu.cn/</code></p>
-<p><code>西南林业大学 http:``//cs3``.swfu.edu.cn``/cs3guide``.html</code></p>
-<p><code>北京化工大学（仅教育网可以访问），包含 CentOS 镜像：http:``//ubuntu``.buct.edu.cn/</code></p>
-<p><code>天津大学：http:``//mirror``.tju.edu.cn/</code></p>
-<p><code>西南大学：http:``//linux``.swu.edu.cn``/swudownload/Distributions/</code></p>
-<p><code>青岛大学：http:``//mirror``.qdu.edu.cn/</code></p>
-<p><code>南京师范大学：http:``//mirrors``.njnu.edu.cn/</code></p>
-<p><code>大连东软信息学院： http:``//mirrors``.neusoft.edu.cn/</code></p>
-<p><code>浙江大学：http:``//mirrors``.zju.edu.cn/</code></p>
-<p><code>兰州大学：http:``//mirror``.lzu.edu.cn/</code></p>
-<p><code>厦门大学：http:``//mirrors``.xmu.edu.cn/</code></p>
-<p><code>北京理工大学：</code></p>
-<p><code>http:``//mirror``.bit.edu.cn (IPv4 only)</code></p>
-<p><code>http:``//mirror``.bit6.edu.cn (IPv6 only)</code></p>
-<p><code>北京交通大学：</code></p>
-<p><code>http:``//mirror``.bjtu.edu.cn (IPv4 only)</code></p>
-<p><code>http:``//mirror6``.bjtu.edu.cn (IPv6 only)</code></p>
-<p><code>http:``//debian``.bjtu.edu.cn (IPv4+IPv6)</code></p>
-<p><code>上海交通大学：</code></p>
-<p><code>http:``//ftp``.sjtu.edu.cn/ (IPv4 only)</code></p>
-<p><code>http:``//ftp6``.sjtu.edu.cn (IPv6 only)</code></p>
-<p><code>清华大学：</code></p>
-<p><code>http:``//mirrors``.tuna.tsinghua.edu.cn/ (IPv4+IPv6)</code></p>
-<p><code>http:``//mirrors``.6.tuna.tsinghua.edu.cn/ (IPv6 only)</code></p>
-<p><code>http:``//mirrors``.4.tuna.tsinghua.edu.cn/ (IPv4 only)</code></p>
-<p><code>中国科学技术大学：</code></p>
-<p><code>http:``//mirrors``.ustc.edu.cn/ (IPv4+IPv6)</code></p>
-<p><code>http:``//mirrors4``.ustc.edu.cn/</code></p>
-<p><code>http:``//mirrors6``.ustc.edu.cn/</code></p>
-<p><code>东北大学：</code></p>
-<p><code>http:``//mirror``.neu.edu.cn/ (IPv4 only)</code></p>
-<p><code>http:``//mirror``.neu6.edu.cn/ (IPv6 only)</code></p>
-<p><code>华中科技大学：</code></p>
-<p><code>http:``//mirrors``.hust.edu.cn/</code></p>
-<p><code>http:``//mirrors``.hustunique.com/</code></p>
-<p><code>电子科技大学：http:``//ubuntu``.uestc.edu.cn/</code></p>
-<p><code>电子科大凝聚工作室(Raspbian单一系统镜像) http:``//raspbian``.cnssuestc.org/</code></p>
-<p><code>电子科大星辰工作室(少数小众发布版镜像) http:``//mirrors``.stuhome.net/</code></p>
-<h3 id="PyPi-镜像"><a href="#PyPi-镜像" class="headerlink" title="PyPi 镜像"></a>PyPi 镜像</h3><p><code>豆瓣：http:``//pypi``.douban.com/</code></p>
-<p><code>山东理工大学：http:``//pypi``.sdutlinux.org/</code></p>
-<p><code>中山大学：http:``//mirror``.sysu.edu.cn``/pypi/</code></p>
-<p><code>V2EX：http:``//pypi``.v2ex.com``/simple/</code></p>
-<h3 id="RubyGems-镜像"><a href="#RubyGems-镜像" class="headerlink" title="RubyGems 镜像"></a>RubyGems 镜像</h3><p><code>中山大学：http:``//mirror``.sysu.edu.cn``/rubygems/</code></p>
-<p><code>山东理工大学：http:``//ruby``.sdutlinux.org/</code></p>
-<p><code>淘宝网：http:``//ruby``.taobao.org/</code></p>
-<hr>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/Centos_imagesite/" data-id="ckjv2ttug0023t0dn8t4ecsl3" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Centos7/" rel="tag">Centos7</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-sshd no hostkeys available" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/sshd%20no%20hostkeys%20available/" class="article-date">
-  <time datetime="2019-12-06T10:24:37.000Z" itemprop="datePublished">2019-12-06</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/learning/">learning</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/sshd%20no%20hostkeys%20available/">ssh启动错误：no hostkeys available— exiting</a>
+      <a class="article-title" href="/windows_cmd_string_match/">windows cmd命令匹配文本中的字符串</a>
     </h1>
   
 
@@ -398,25 +240,15 @@ modprobe -r ideapad_laptop</code></pre>
 	  <!-- Table of Contents -->
 
         <ul>
-<li><p>ssh服务启动不了，查看出现错误原因：</p>
-<ul>
-<li> <code>/usr/sbin/sshd -T</code></li>
-<li> 若输出错误存在问题：no hostkeys available— exiting，则错误原因是ssh密钥出现问题。</li>
-</ul>
+<li><p>findstr是Window系统自带的命令，用于匹配文本中的字符串，其用途和用法类似Linux下的grep命令。</p>
 </li>
-<li><p>root权限下，重新生成密钥：</p>
+<li><p>使用方法：</p>
 <ul>
-<li>ssh-keygen -t dsa -f /etc/ssh/ssh_host_dsa_key</li>
-<li>ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key</li>
-</ul>
+<li><pre><code>findstr [/b] [/e][/l][/r][/s][/i][/x][/v][/n][/m][/o][/p][/offline][/g:file][/f:file][/c:string][/d:dirlist][/a:ColorAttribute][strings][[Drive:][Path] FileName [...]]
+<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  * 参数的使用方法在cmd中使用命令findstr /?可以详细打印出来。</span><br><span class="line"></span><br><span class="line">* 应用举例：</span><br><span class="line"></span><br><span class="line">  * ~~~</span><br><span class="line">    1，在当前目录及所有子目录下的所有文件中查找<span class="string">&quot;test&quot;</span>这个字符串，*.*表示所有类型的文件。</span><br><span class="line">    findstr <span class="string">/s</span> <span class="string">/i</span> <span class="string">&quot;test&quot;</span> *.* </span><br><span class="line"></span><br><span class="line">    2、查找带有空格的字符串</span><br><span class="line">    findstr <span class="string">/s</span> <span class="string">/i</span> <span class="string">/d</span>:<span class="string">&quot;find bak&quot;</span> *.* </span><br><span class="line"></span><br><span class="line">    3、指定路径查找字符串<span class="string">&quot;test&quot;</span></span><br><span class="line">    findstr <span class="string">/s</span> <span class="string">/i</span> <span class="string">/c</span>:<span class="string">&quot;test&quot;</span> C:\tmp\*<span class="string">.txt</span></span><br></pre></td></tr></table></figure>
+</code></pre>
 </li>
-<li><p>修改密钥权限：</p>
-<ul>
-<li>chmod 600 /etc/ssh/ssh_host_dsa_key</li>
-<li>chmod 600 /etc/ssh/ssh_host_rsa_key</li>
 </ul>
-</li>
-<li><p>重启ssh服务即可。</p>
 </li>
 </ul>
 <hr>
@@ -424,10 +256,138 @@ modprobe -r ideapad_laptop</code></pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/sshd%20no%20hostkeys%20available/" data-id="ckjv2ttya00hst0dn9ipx9uqm" class="article-share-link">Share</a>
+      <a data-url="http://wangxianggit.github.io/windows_cmd_string_match/" data-id="ckjv2ydvn000xdgdn3sasekk7" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Centos7/" rel="tag">Centos7</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ssh/" rel="tag">ssh</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/windows/" rel="tag">windows</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-yolov4_tag_chinese" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/yolov4_tag_chinese/" class="article-date">
+  <time datetime="2020-07-15T14:36:53.000Z" itemprop="datePublished">2020-07-15</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/learning/">learning</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/yolov4_tag_chinese/">yolov4标签中文显示</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+
+        <ul>
+<li>yolov2标签中文显示参考链接：<a target="_blank" rel="noopener" href="https://github.com/PaulChongPeng/darknet/commit/798fe7cc4176d452a83d63eb261d6129e397a521#diff-d63433b66e54cd65ded01be20041119cR238">https://github.com/PaulChongPeng/darknet/commit/798fe7cc4176d452a83d63eb261d6129e397a521#diff-d63433b66e54cd65ded01be20041119cR238</a></li>
+<li>代码入口解析参考链接：<a target="_blank" rel="noopener" href="https://blog.csdn.net/hrsstudy/article/details/61671886">https://blog.csdn.net/hrsstudy/article/details/61671886</a></li>
+<li>yolov4从v3版本改进，其中标签显示入口函数为：draw_detection_v3()，代码显示部分在该函数进行修改。</li>
+<li>上面修改的是测试图片时显示中文标签，如果要在视频测试时显示中文标签需要修改image_opencv.cpp文件中draw_detections_cv_v3()函数，该函数最后调用cv::putText()方法即是显示标签的地方。将该处修改为显示中文标签的函数即可。</li>
+</ul>
+<hr>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wangxianggit.github.io/yolov4_tag_chinese/" data-id="ckjv2ydvp0012dgdn6ljl7w03" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/yolo%EF%BC%8CC/" rel="tag">yolo，C</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Opencv_lib_zhong" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/Opencv_lib_zhong/" class="article-date">
+  <time datetime="2020-07-15T14:29:33.000Z" itemprop="datePublished">2020-07-15</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/learning/">learning</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/Opencv_lib_zhong/">Opencv库添加中文支持</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+
+        <ul>
+<li><p>操作环境：windows 10，opencv3.40</p>
+</li>
+<li><p>opencv默认不支持中文输入，需要添加以下代码并调用：</p>
+</li>
+<li><p>putText.h:</p>
+<ul>
+<li><p>~~~<br>#ifndef PUTTEXT_H_<br>#define PUTTEXT_H_</p>
+<p>#include &lt;windows.h&gt;<br>#include <string><br>#include &lt;opencv2/opencv.hpp&gt;</p>
+<p>using namespace cv;</p>
+<p>void GetStringSize(HDC hDC, const char* str, int* w, int* h);<br>void putTextZH(Mat &amp;dst, const char* str, Point org, Scalar color, int fontSize,</p>
+<pre><code>const char *fn = &quot;Arial&quot;, bool italic = false, bool underline = false);</code></pre>
+<p>#endif // PUTTEXT_H_</p>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  * ​</span><br><span class="line"></span><br><span class="line">* putText.cpp:</span><br><span class="line"></span><br><span class="line">  * ~~~</span><br><span class="line">    <span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&quot;putText.h&quot;</span></span></span><br><span class="line">     </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">GetStringSize</span><span class="params">(HDC hDC, <span class="keyword">const</span> <span class="keyword">char</span>* str, <span class="keyword">int</span>* w, <span class="keyword">int</span>* h)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        SIZE <span class="built_in">size</span>;</span><br><span class="line">        GetTextExtentPoint32A(hDC, str, <span class="built_in">strlen</span>(str), &amp;<span class="built_in">size</span>);</span><br><span class="line">        <span class="keyword">if</span> (w != <span class="number">0</span>) *w = <span class="built_in">size</span>.cx;</span><br><span class="line">        <span class="keyword">if</span> (h != <span class="number">0</span>) *h = <span class="built_in">size</span>.cy;</span><br><span class="line">    &#125;</span><br><span class="line">     </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">putTextZH</span><span class="params">(Mat &amp;dst, <span class="keyword">const</span> <span class="keyword">char</span>* str, Point org, Scalar color, <span class="keyword">int</span> fontSize, <span class="keyword">const</span> <span class="keyword">char</span>* fn, <span class="keyword">bool</span> italic, <span class="keyword">bool</span> underline)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        CV_Assert(dst.data != <span class="number">0</span> &amp;&amp; (dst.channels() == <span class="number">1</span> || dst.channels() == <span class="number">3</span>));</span><br><span class="line">     </span><br><span class="line">        <span class="keyword">int</span> x, y, r, b;</span><br><span class="line">        <span class="keyword">if</span> (org.x &gt; dst.cols || org.y &gt; dst.rows) <span class="keyword">return</span>;</span><br><span class="line">        x = org.x &lt; <span class="number">0</span> ? -org.x : <span class="number">0</span>;</span><br><span class="line">        y = org.y &lt; <span class="number">0</span> ? -org.y : <span class="number">0</span>;</span><br><span class="line">     </span><br><span class="line">        LOGFONTA lf;</span><br><span class="line">        lf.lfHeight = -fontSize;</span><br><span class="line">        lf.lfWidth = <span class="number">0</span>;</span><br><span class="line">        lf.lfEscapement = <span class="number">0</span>;</span><br><span class="line">        lf.lfOrientation = <span class="number">0</span>;</span><br><span class="line">        lf.lfWeight = <span class="number">5</span>;</span><br><span class="line">        lf.lfItalic = italic;   <span class="comment">//斜体</span></span><br><span class="line">        lf.lfUnderline = underline; <span class="comment">//下划线</span></span><br><span class="line">        lf.lfStrikeOut = <span class="number">0</span>;</span><br><span class="line">        lf.lfCharSet = DEFAULT_CHARSET;</span><br><span class="line">        lf.lfOutPrecision = <span class="number">0</span>;</span><br><span class="line">        lf.lfClipPrecision = <span class="number">0</span>;</span><br><span class="line">        lf.lfQuality = PROOF_QUALITY;</span><br><span class="line">        lf.lfPitchAndFamily = <span class="number">0</span>;</span><br><span class="line">        strcpy_s(lf.lfFaceName, fn);</span><br><span class="line">     </span><br><span class="line">        HFONT hf = CreateFontIndirectA(&amp;lf);</span><br><span class="line">        HDC hDC = CreateCompatibleDC(<span class="number">0</span>);</span><br><span class="line">        HFONT hOldFont = (HFONT)SelectObject(hDC, hf);</span><br><span class="line">     </span><br><span class="line">        <span class="keyword">int</span> strBaseW = <span class="number">0</span>, strBaseH = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> singleRow = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">char</span> buf[<span class="number">1</span> &lt;&lt; <span class="number">12</span>];</span><br><span class="line">        strcpy_s(buf, str);</span><br><span class="line">        <span class="keyword">char</span> *bufT[<span class="number">1</span> &lt;&lt; <span class="number">12</span>];  <span class="comment">// 这个用于分隔字符串后剩余的字符，可能会超出。</span></span><br><span class="line">        <span class="comment">//处理多行</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> nnh = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">int</span> cw, ch;</span><br><span class="line">     </span><br><span class="line">            <span class="keyword">const</span> <span class="keyword">char</span>* ln = strtok_s(buf, <span class="string">&quot;\n&quot;</span>,bufT);</span><br><span class="line">            <span class="keyword">while</span> (ln != <span class="number">0</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                GetStringSize(hDC, ln, &amp;cw, &amp;ch);</span><br><span class="line">                strBaseW = <span class="built_in">max</span>(strBaseW, cw);</span><br><span class="line">                strBaseH = <span class="built_in">max</span>(strBaseH, ch);</span><br><span class="line">     </span><br><span class="line">                ln = strtok_s(<span class="number">0</span>, <span class="string">&quot;\n&quot;</span>,bufT);</span><br><span class="line">                nnh++;</span><br><span class="line">            &#125;</span><br><span class="line">            singleRow = strBaseH;</span><br><span class="line">            strBaseH *= nnh;</span><br><span class="line">        &#125;</span><br><span class="line">     </span><br><span class="line">        <span class="keyword">if</span> (org.x + strBaseW &lt; <span class="number">0</span> || org.y + strBaseH &lt; <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            SelectObject(hDC, hOldFont);</span><br><span class="line">            DeleteObject(hf);</span><br><span class="line">            DeleteObject(hDC);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">     </span><br><span class="line">        r = org.x + strBaseW &gt; dst.cols ? dst.cols - org.x - <span class="number">1</span> : strBaseW - <span class="number">1</span>;</span><br><span class="line">        b = org.y + strBaseH &gt; dst.rows ? dst.rows - org.y - <span class="number">1</span> : strBaseH - <span class="number">1</span>;</span><br><span class="line">        org.x = org.x &lt; <span class="number">0</span> ? <span class="number">0</span> : org.x;</span><br><span class="line">        org.y = org.y &lt; <span class="number">0</span> ? <span class="number">0</span> : org.y;</span><br><span class="line">     </span><br><span class="line">        BITMAPINFO bmp = &#123; <span class="number">0</span> &#125;;</span><br><span class="line">        BITMAPINFOHEADER&amp; bih = bmp.bmiHeader;</span><br><span class="line">        <span class="keyword">int</span> strDrawLineStep = strBaseW * <span class="number">3</span> % <span class="number">4</span> == <span class="number">0</span> ? strBaseW * <span class="number">3</span> : (strBaseW * <span class="number">3</span> + <span class="number">4</span> - ((strBaseW * <span class="number">3</span>) % <span class="number">4</span>));</span><br><span class="line">     </span><br><span class="line">        bih.biSize = <span class="keyword">sizeof</span>(BITMAPINFOHEADER);</span><br><span class="line">        bih.biWidth = strBaseW;</span><br><span class="line">        bih.biHeight = strBaseH;</span><br><span class="line">        bih.biPlanes = <span class="number">1</span>;</span><br><span class="line">        bih.biBitCount = <span class="number">24</span>;</span><br><span class="line">        bih.biCompression = BI_RGB;</span><br><span class="line">        bih.biSizeImage = strBaseH * strDrawLineStep;</span><br><span class="line">        bih.biClrUsed = <span class="number">0</span>;</span><br><span class="line">        bih.biClrImportant = <span class="number">0</span>;</span><br><span class="line">     </span><br><span class="line">        <span class="keyword">void</span>* pDibData = <span class="number">0</span>;</span><br><span class="line">        HBITMAP hBmp = CreateDIBSection(hDC, &amp;bmp, DIB_RGB_COLORS, &amp;pDibData, <span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">     </span><br><span class="line">        CV_Assert(pDibData != <span class="number">0</span>);</span><br><span class="line">        HBITMAP hOldBmp = (HBITMAP)SelectObject(hDC, hBmp);</span><br><span class="line">     </span><br><span class="line">        <span class="comment">//color.val[2], color.val[1], color.val[0]</span></span><br><span class="line">        SetTextColor(hDC, RGB(<span class="number">255</span>, <span class="number">255</span>, <span class="number">255</span>));</span><br><span class="line">        SetBkColor(hDC, <span class="number">0</span>);</span><br><span class="line">        <span class="comment">//SetStretchBltMode(hDC, COLORONCOLOR);</span></span><br><span class="line">     </span><br><span class="line">        strcpy_s(buf, str);</span><br><span class="line">        <span class="keyword">const</span> <span class="keyword">char</span>* ln = strtok_s(buf, <span class="string">&quot;\n&quot;</span>,bufT);</span><br><span class="line">        <span class="keyword">int</span> outTextY = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (ln != <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            TextOutA(hDC, <span class="number">0</span>, outTextY, ln, <span class="built_in">strlen</span>(ln));</span><br><span class="line">            outTextY += singleRow;</span><br><span class="line">            ln = strtok_s(<span class="number">0</span>, <span class="string">&quot;\n&quot;</span>,bufT);</span><br><span class="line">        &#125;</span><br><span class="line">        uchar* dstData = (uchar*)dst.data;</span><br><span class="line">        <span class="keyword">int</span> dstStep = dst.<span class="built_in">step</span> / <span class="keyword">sizeof</span>(dstData[<span class="number">0</span>]);</span><br><span class="line">        <span class="keyword">unsigned</span> <span class="keyword">char</span>* pImg = (<span class="keyword">unsigned</span> <span class="keyword">char</span>*)dst.data + org.x * dst.channels() + org.y * dstStep;</span><br><span class="line">        <span class="keyword">unsigned</span> <span class="keyword">char</span>* pStr = (<span class="keyword">unsigned</span> <span class="keyword">char</span>*)pDibData + x * <span class="number">3</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> tty = y; tty &lt;= b; ++tty)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">unsigned</span> <span class="keyword">char</span>* subImg = pImg + (tty - y) * dstStep;</span><br><span class="line">            <span class="keyword">unsigned</span> <span class="keyword">char</span>* subStr = pStr + (strBaseH - tty - <span class="number">1</span>) * strDrawLineStep;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> ttx = x; ttx &lt;= r; ++ttx)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> n = <span class="number">0</span>; n &lt; dst.channels(); ++n)&#123;</span><br><span class="line">                    <span class="keyword">double</span> vtxt = subStr[n] / <span class="number">255.0</span>;</span><br><span class="line">                    <span class="keyword">int</span> cvv = vtxt * color.val[n] + (<span class="number">1</span> - vtxt) * subImg[n];</span><br><span class="line">                    subImg[n] = cvv &gt; <span class="number">255</span> ? <span class="number">255</span> : (cvv &lt; <span class="number">0</span> ? <span class="number">0</span> : cvv);</span><br><span class="line">                &#125;</span><br><span class="line">     </span><br><span class="line">                subStr += <span class="number">3</span>;</span><br><span class="line">                subImg += dst.channels();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">     </span><br><span class="line">        SelectObject(hDC, hOldBmp);</span><br><span class="line">        SelectObject(hDC, hOldFont);</span><br><span class="line">        DeleteObject(hf);</span><br><span class="line">        DeleteObject(hBmp);</span><br><span class="line">        DeleteDC(hDC);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>调用：</p>
+<ul>
+<li><pre><code>#include &quot;putText.h&quot;
+
+void main()
+&#123;
+    Mat img(150,600,CV_8UC3,Scalar(255,255,255));//初始化图像
+    putTextZH(img, &quot;测试&quot;, Point(30, 30), Scalar(0, 0, 0), 50, &quot;宋体&quot;);
+    imwrite(&quot;test.png&quot;, img);
+    imshow(&quot;&quot;, img);
+    waitKey(0);
+&#125;</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wangxianggit.github.io/Opencv_lib_zhong/" data-id="ckjv2ydvg000bdgdn7sz74vj6" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Image/" rel="tag">Image</a></li></ul>
 
     </footer>
   </div>
@@ -440,7 +400,7 @@ modprobe -r ideapad_laptop</code></pre>
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/38/">38</a><a class="extend next" rel="next" href="/page/3/">Next &amp;raquo;</a>
+    <a class="extend prev" rel="prev" href="/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/41/">41</a><a class="extend next" rel="next" href="/page/3/">Next &amp;raquo;</a>
   </nav>
 
 </section>
@@ -478,7 +438,7 @@ modprobe -r ideapad_laptop</code></pre>
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithm/" rel="tag">Algorithm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Altium-Designer/" rel="tag">Altium Designer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Apache/" rel="tag">Apache</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BeautifulSoup/" rel="tag">BeautifulSoup</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Centos7/" rel="tag">Centos7</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cython/" rel="tag">Cython</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Electronic/" rel="tag">Electronic</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/English/" rel="tag">English</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Geant4/" rel="tag">Geant4</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hardware/" rel="tag">Hardware</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Image/" rel="tag">Image</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jupyter/" rel="tag">Jupyter</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nuclear-Physics/" rel="tag">Nuclear Physics</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Open/" rel="tag">Open</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Program/" rel="tag">Program</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PyPI/" rel="tag">PyPI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Py-Crawler/" rel="tag">Py_Crawler</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Random/" rel="tag">Random</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Resource/" rel="tag">Resource</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Root/" rel="tag">Root</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Scipy/" rel="tag">Scipy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Shell/" rel="tag">Shell</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Solidwork/" rel="tag">Solidwork</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TTree/" rel="tag">TTree</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tensorflow/" rel="tag">Tensorflow</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Thread/" rel="tag">Thread</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Urllib2/" rel="tag">Urllib2</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Virtual-memory/" rel="tag">Virtual memory</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cmake/" rel="tag">cmake</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cmd/" rel="tag">cmd</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/data-structure/" rel="tag">data structure</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/htop/" rel="tag">htop</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/keras/" rel="tag">keras</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/latex/" rel="tag">latex</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/os/" rel="tag">os</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/qt/" rel="tag">qt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/requests/" rel="tag">requests</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sk-learn/" rel="tag">sk-learn</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh/" rel="tag">ssh</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/statistic/" rel="tag">statistic</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vi/" rel="tag">vi</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/windows/" rel="tag">windows</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithm/" rel="tag">Algorithm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Altium-Designer/" rel="tag">Altium Designer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Apache/" rel="tag">Apache</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BeautifulSoup/" rel="tag">BeautifulSoup</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Centos7/" rel="tag">Centos7</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cython/" rel="tag">Cython</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Electronic/" rel="tag">Electronic</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/English/" rel="tag">English</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Geant4/" rel="tag">Geant4</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hardware/" rel="tag">Hardware</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Image/" rel="tag">Image</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jupyter/" rel="tag">Jupyter</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mongodb/" rel="tag">Mongodb</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nuclear-Physics/" rel="tag">Nuclear Physics</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Open/" rel="tag">Open</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Opencv/" rel="tag">Opencv</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Program/" rel="tag">Program</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PyPI/" rel="tag">PyPI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Py-Crawler/" rel="tag">Py_Crawler</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Random/" rel="tag">Random</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Resource/" rel="tag">Resource</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Root/" rel="tag">Root</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Scipy/" rel="tag">Scipy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Shell/" rel="tag">Shell</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Solidwork/" rel="tag">Solidwork</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TTree/" rel="tag">TTree</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tensorflow/" rel="tag">Tensorflow</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Thread/" rel="tag">Thread</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Urllib2/" rel="tag">Urllib2</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Virtual-memory/" rel="tag">Virtual memory</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cmake/" rel="tag">cmake</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cmd/" rel="tag">cmd</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/data-structure/" rel="tag">data structure</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/htop/" rel="tag">htop</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/keras/" rel="tag">keras</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/latex/" rel="tag">latex</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/os/" rel="tag">os</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/qt/" rel="tag">qt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/requests/" rel="tag">requests</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sk-learn/" rel="tag">sk-learn</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh/" rel="tag">ssh</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/statistic/" rel="tag">statistic</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vi/" rel="tag">vi</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/windows/" rel="tag">windows</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/yolo%EF%BC%8CC/" rel="tag">yolo，C</a></li></ul>
     </div>
   </div>
 
@@ -488,7 +448,7 @@ modprobe -r ideapad_laptop</code></pre>
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Algorithm/" style="font-size: 11.33px;">Algorithm</a> <a href="/tags/Altium-Designer/" style="font-size: 14.67px;">Altium Designer</a> <a href="/tags/Apache/" style="font-size: 11.33px;">Apache</a> <a href="/tags/BeautifulSoup/" style="font-size: 10px;">BeautifulSoup</a> <a href="/tags/C/" style="font-size: 15.33px;">C</a> <a href="/tags/C/" style="font-size: 18.67px;">C++</a> <a href="/tags/Centos7/" style="font-size: 17.33px;">Centos7</a> <a href="/tags/Cython/" style="font-size: 10px;">Cython</a> <a href="/tags/Electronic/" style="font-size: 13.33px;">Electronic</a> <a href="/tags/English/" style="font-size: 12px;">English</a> <a href="/tags/Geant4/" style="font-size: 10.67px;">Geant4</a> <a href="/tags/Hardware/" style="font-size: 10px;">Hardware</a> <a href="/tags/Hexo/" style="font-size: 14px;">Hexo</a> <a href="/tags/Image/" style="font-size: 10px;">Image</a> <a href="/tags/Jupyter/" style="font-size: 10px;">Jupyter</a> <a href="/tags/Linux/" style="font-size: 19.33px;">Linux</a> <a href="/tags/Markdown/" style="font-size: 16px;">Markdown</a> <a href="/tags/Nuclear-Physics/" style="font-size: 11.33px;">Nuclear Physics</a> <a href="/tags/Open/" style="font-size: 10px;">Open</a> <a href="/tags/Program/" style="font-size: 18px;">Program</a> <a href="/tags/PyPI/" style="font-size: 10px;">PyPI</a> <a href="/tags/Py-Crawler/" style="font-size: 10.67px;">Py_Crawler</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/Random/" style="font-size: 10px;">Random</a> <a href="/tags/Resource/" style="font-size: 10.67px;">Resource</a> <a href="/tags/Root/" style="font-size: 10.67px;">Root</a> <a href="/tags/Scipy/" style="font-size: 10px;">Scipy</a> <a href="/tags/Shell/" style="font-size: 16px;">Shell</a> <a href="/tags/Solidwork/" style="font-size: 10.67px;">Solidwork</a> <a href="/tags/TTree/" style="font-size: 10px;">TTree</a> <a href="/tags/Tensorflow/" style="font-size: 15.33px;">Tensorflow</a> <a href="/tags/Thread/" style="font-size: 10px;">Thread</a> <a href="/tags/Urllib2/" style="font-size: 10px;">Urllib2</a> <a href="/tags/Virtual-memory/" style="font-size: 10px;">Virtual memory</a> <a href="/tags/cmake/" style="font-size: 12.67px;">cmake</a> <a href="/tags/cmd/" style="font-size: 10.67px;">cmd</a> <a href="/tags/data-structure/" style="font-size: 10.67px;">data structure</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/htop/" style="font-size: 10px;">htop</a> <a href="/tags/keras/" style="font-size: 10.67px;">keras</a> <a href="/tags/latex/" style="font-size: 14.67px;">latex</a> <a href="/tags/os/" style="font-size: 10px;">os</a> <a href="/tags/qt/" style="font-size: 10px;">qt</a> <a href="/tags/requests/" style="font-size: 10px;">requests</a> <a href="/tags/sk-learn/" style="font-size: 10px;">sk-learn</a> <a href="/tags/ssh/" style="font-size: 12.67px;">ssh</a> <a href="/tags/statistic/" style="font-size: 10px;">statistic</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/windows/" style="font-size: 16.67px;">windows</a>
+      <a href="/tags/Algorithm/" style="font-size: 11.33px;">Algorithm</a> <a href="/tags/Altium-Designer/" style="font-size: 14.67px;">Altium Designer</a> <a href="/tags/Apache/" style="font-size: 11.33px;">Apache</a> <a href="/tags/BeautifulSoup/" style="font-size: 10px;">BeautifulSoup</a> <a href="/tags/C/" style="font-size: 15.33px;">C</a> <a href="/tags/C/" style="font-size: 18.67px;">C++</a> <a href="/tags/Centos7/" style="font-size: 17.33px;">Centos7</a> <a href="/tags/Cython/" style="font-size: 10px;">Cython</a> <a href="/tags/Electronic/" style="font-size: 13.33px;">Electronic</a> <a href="/tags/English/" style="font-size: 12px;">English</a> <a href="/tags/Geant4/" style="font-size: 10.67px;">Geant4</a> <a href="/tags/Hardware/" style="font-size: 10px;">Hardware</a> <a href="/tags/Hexo/" style="font-size: 14px;">Hexo</a> <a href="/tags/Image/" style="font-size: 12px;">Image</a> <a href="/tags/Jupyter/" style="font-size: 10px;">Jupyter</a> <a href="/tags/Linux/" style="font-size: 19.33px;">Linux</a> <a href="/tags/Markdown/" style="font-size: 16px;">Markdown</a> <a href="/tags/Mongodb/" style="font-size: 10px;">Mongodb</a> <a href="/tags/Nuclear-Physics/" style="font-size: 11.33px;">Nuclear Physics</a> <a href="/tags/Open/" style="font-size: 10px;">Open</a> <a href="/tags/Opencv/" style="font-size: 10.67px;">Opencv</a> <a href="/tags/Program/" style="font-size: 18px;">Program</a> <a href="/tags/PyPI/" style="font-size: 10px;">PyPI</a> <a href="/tags/Py-Crawler/" style="font-size: 10.67px;">Py_Crawler</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/Random/" style="font-size: 10px;">Random</a> <a href="/tags/Resource/" style="font-size: 10.67px;">Resource</a> <a href="/tags/Root/" style="font-size: 10.67px;">Root</a> <a href="/tags/Scipy/" style="font-size: 10px;">Scipy</a> <a href="/tags/Shell/" style="font-size: 16px;">Shell</a> <a href="/tags/Solidwork/" style="font-size: 10.67px;">Solidwork</a> <a href="/tags/TTree/" style="font-size: 10px;">TTree</a> <a href="/tags/Tensorflow/" style="font-size: 15.33px;">Tensorflow</a> <a href="/tags/Thread/" style="font-size: 10px;">Thread</a> <a href="/tags/Urllib2/" style="font-size: 10px;">Urllib2</a> <a href="/tags/Virtual-memory/" style="font-size: 10px;">Virtual memory</a> <a href="/tags/cmake/" style="font-size: 12.67px;">cmake</a> <a href="/tags/cmd/" style="font-size: 10.67px;">cmd</a> <a href="/tags/data-structure/" style="font-size: 10.67px;">data structure</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/htop/" style="font-size: 10px;">htop</a> <a href="/tags/keras/" style="font-size: 10.67px;">keras</a> <a href="/tags/latex/" style="font-size: 14.67px;">latex</a> <a href="/tags/os/" style="font-size: 10px;">os</a> <a href="/tags/qt/" style="font-size: 10px;">qt</a> <a href="/tags/requests/" style="font-size: 10px;">requests</a> <a href="/tags/sk-learn/" style="font-size: 10px;">sk-learn</a> <a href="/tags/ssh/" style="font-size: 12.67px;">ssh</a> <a href="/tags/statistic/" style="font-size: 10px;">statistic</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/windows/" style="font-size: 16.67px;">windows</a> <a href="/tags/yolo%EF%BC%8CC/" style="font-size: 10px;">yolo，C</a>
     </div>
   </div>
 
@@ -497,7 +457,7 @@ modprobe -r ideapad_laptop</code></pre>
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li></ul>
     </div>
   </div>
 
@@ -510,23 +470,23 @@ modprobe -r ideapad_laptop</code></pre>
       <ul>
         
           <li>
-            <a href="/winedt_break/">Winedt注册表破解</a>
+            <a href="/nodejs_windows_install/">windows下安装nodejs及环境变量设置</a>
           </li>
         
           <li>
-            <a href="/latex_content_dot/">latex生成目录条目加点</a>
+            <a href="/Centos7_mongodb_install/">Centos7安装Mongodb</a>
           </li>
         
           <li>
-            <a href="/latex_figure_prefix/">latex论文用图修改前缀</a>
+            <a href="/Endnote_download_tutorial/">EndnoteX9下载及新手教程</a>
           </li>
         
           <li>
-            <a href="/yum_unblock/">linux yum进程占用问题</a>
+            <a href="/centos7_opencv_install/">Centso7下安装opencv</a>
           </li>
         
           <li>
-            <a href="/linux_googlechrome/">linux安装谷歌浏览器</a>
+            <a href="/anaconda_democrate_source/">anaconda安装库使用国内源</a>
           </li>
         
       </ul>

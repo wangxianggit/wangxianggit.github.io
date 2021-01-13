@@ -67,14 +67,14 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-git_error_warning LF will be replaced by CRLF" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-python_crawler" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/git_error_warning%20LF%20will%20be%20replaced%20by%20CRLF/" class="article-date">
-  <time datetime="2019-02-16T08:08:19.000Z" itemprop="datePublished">2019-02-16</time>
+    <a href="/python_crawler/" class="article-date">
+  <time datetime="2019-02-26T13:52:23.000Z" itemprop="datePublished">2019-02-26</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/git/">git</a>
+    <a class="article-category-link" href="/categories/Py-Crawler/">Py_Crawler</a>
   </div>
 
   </div>
@@ -85,7 +85,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/git_error_warning%20LF%20will%20be%20replaced%20by%20CRLF/">git提示warning LF will be replaced by CRLF解决方法</a>
+      <a class="article-title" href="/python_crawler/">python爬虫综述</a>
     </h1>
   
 
@@ -95,26 +95,24 @@
       
 	  <!-- Table of Contents -->
 
-        <ul>
-<li><p>​ windows下使用命令：</p>
-<ul>
-<li>~~~<br>git add .<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 出现错误提示：</span><br><span class="line"></span><br><span class="line">* ~~~</span><br><span class="line">  warning: LF will be replaced <span class="keyword">by</span> <span class="literal">CRLF</span> <span class="keyword">in</span> .gitignore.</span><br><span class="line">  The <span class="built_in">file</span> will have its original <span class="built_in">line</span> endings <span class="keyword">in</span> your working <span class="built_in">directory</span>.</span><br></pre></td></tr></table></figure></li>
+        <h2 id="什么是爬虫"><a href="#什么是爬虫" class="headerlink" title="什么是爬虫"></a>什么是爬虫</h2><ul>
+<li>​ 网络爬虫又称网页蜘蛛，网络机器人，或在FOAF社区称为网络追逐者，是一种按照一定的规则，自动的抓取万维网信息的程序或者脚本。</li>
 </ul>
-</li>
-<li><p>原因：</p>
-<ul>
-<li>CRLF – Carriage-Return Line-Feed 回车换行，即回车(CR, ASCII 13, \r) 换行(LF, ASCII 10, \n)。</li>
-<li>这两个ACSII字符不会在屏幕有任何输出，但在Windows中广泛使用来标识一行的结束，而在Linux/UNIX系统中只有换行符。</li>
-<li>也就是说在windows中的换行符为 CRLF， 而在linux下的换行符为：LF</li>
-<li>使用git来生成一个rails工程后，文件中的换行符为LF， 当执行git add .时，系统提示：LF 将被转换成 CRLF</li>
+<h2 id="浏览网页过程"><a href="#浏览网页过程" class="headerlink" title="浏览网页过程"></a>浏览网页过程</h2><ul>
+<li>浏览网页的过程是用户输入网址之后，经过DNS服务器，找到服务器主机，向服务器发出一个请求，服务器经过解析之后，发送给用户的浏览器 HTML、JS、CSS 等文件，浏览器解析出来，便可以看到网页丰富的内容。</li>
+<li>因此，用户看到的网页实质是由 HTML 代码构成的，爬虫爬来的便是这些内容，通过分析和过滤这些 HTML 代码，实现对图片、文字等资源的获取。</li>
 </ul>
+<h2 id="URL的含义"><a href="#URL的含义" class="headerlink" title="URL的含义"></a>URL的含义</h2><ul>
+<li><p>URL，即统一资源定位符，也就是我们说的网址，统一资源定位符是对可以从互联网上得到的资源的位置和访问方法的一种简洁的表示，是互联网上标准资源的地址。</p>
 </li>
-<li><p>设置禁用自动转换来消除警告提示：</p>
-<ul>
-<li><pre><code>rm -rf .git
-git config --global core.autocrlf false//禁用自动换行</code></pre>
+<li><p>互联网上的每个文件都有一个唯一的URL，它包含的信息指出文件的位置以及浏览器应该怎么处理它。</p>
 </li>
-</ul>
+<li><pre><code>URL的格式由三部分组成：
+第一部分是协议(或称为服务方式)。
+第二部分是存有该资源的主机IP地址(有时也包括端口号)。
+第三部分是主机资源的具体地址，如目录和文件名等。</code></pre>
+</li>
+<li><p>爬虫爬取数据时必须要有一个目标的URL才可以获取数据，因此，它是爬虫获取数据的基本依据，准确理解它的含义对爬虫学习有很大帮助。</p>
 </li>
 </ul>
 <hr>
@@ -122,10 +120,10 @@ git config --global core.autocrlf false//禁用自动换行</code></pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/git_error_warning%20LF%20will%20be%20replaced%20by%20CRLF/" data-id="ckjv2ttxa00dct0dnca6j5mcp" class="article-share-link">Share</a>
+      <a data-url="http://wangxianggit.github.io/python_crawler/" data-id="ckjv2ttxw00g8t0dn6jh0dpqr" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/windows/" rel="tag">windows</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Py-Crawler/" rel="tag">Py_Crawler</a></li></ul>
 
     </footer>
   </div>
@@ -134,126 +132,10 @@ git config --global core.autocrlf false//禁用自动换行</code></pre>
 
 
   
-    <article id="post-git_upload_remote_from_localization" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Python_library_BeautifulSoup" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/git_upload_remote_from_localization/" class="article-date">
-  <time datetime="2019-02-16T07:38:57.000Z" itemprop="datePublished">2019-02-16</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/git/">git</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/git_upload_remote_from_localization/">git将本地目录提交至远程仓库</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-
-        <ul>
-<li><p>​ 进入需要提交的文件夹，使用git init命令把目录变成git可以管理的仓库。</p>
-</li>
-<li><p>把文件添加到版本库中，使用git add . 命令添加到暂存区里面去，后面的点表示当前文件夹下的所有文件：</p>
-<ul>
-<li>~~~<br>git add .<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* <span class="keyword">commit</span>到主分支，使用git <span class="keyword">commit</span>命令将暂存区的改动提交到本地的版本库，每次使用git <span class="keyword">commit</span> 命令我们都会在本地版本库生成一个<span class="number">40</span>位的哈希值，这个哈希值也叫<span class="keyword">commit</span>-id，<span class="keyword">commit</span>-id在版本回退的时候是非常有用的，它相当于一个快照,可以在未来的任何时候通过与git <span class="keyword">reset</span>的组合命令回到这里。</span><br><span class="line"></span><br><span class="line">  * ~~~</span><br><span class="line">    git <span class="keyword">commit</span> -m &quot;message&quot; </span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-<li><p>将本地仓库添加到远程仓库</p>
-<ul>
-<li>~~~<br>git remote add origin <a href="mailto:&#103;&#105;&#116;&#64;&#x67;&#x69;&#116;&#x68;&#117;&#98;&#x2e;&#99;&#x6f;&#109;">&#103;&#105;&#116;&#64;&#x67;&#x69;&#116;&#x68;&#117;&#98;&#x2e;&#99;&#x6f;&#109;</a>:yourname/仓库名.git  <figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 提交远程仓库</span><br><span class="line"></span><br><span class="line">  * ~~~</span><br><span class="line">    git push -u origin <span class="keyword">master</span> <span class="title"></span></span><br></pre></td></tr></table></figure></li>
-<li>如果报错，最后添加-f参数：git push -u origin master  -f</li>
-</ul>
-</li>
-</ul>
-<hr>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/git_upload_remote_from_localization/" data-id="ckjv2ttxb00dft0dnf4pz9sji" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/" rel="tag">git</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-git_error_remote origin already exists" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/git_error_remote%20origin%20already%20exists/" class="article-date">
-  <time datetime="2019-02-16T06:21:35.000Z" itemprop="datePublished">2019-02-16</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/git/">git</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/git_error_remote%20origin%20already%20exists/">git提示remote origin already exists错误解决方法</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-
-        <ul>
-<li><p>使用命令git remote add origin <a target="_blank" rel="noopener" href="https://github.com/wangxianggit/Python_Bayes.git%E6%B7%BB%E5%8A%A0%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E5%90%8E%E5%87%BA%E7%8E%B0%E6%8F%90%E7%A4%BA%E9%94%99%E8%AF%AF%EF%BC%9A">https://github.com/wangxianggit/Python_Bayes.git添加远程仓库后出现提示错误：</a></p>
-<ul>
-<li>~~~<br>fatal: remote origin already exists<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 对于origin这个词，想了解更多信息可以在git终端输入:git remote</span><br><span class="line"></span><br><span class="line">  * ~~~</span><br><span class="line">    $ git remote</span><br><span class="line">    origin</span><br><span class="line">    $ git remote show origin</span><br><span class="line">    * remote origin</span><br><span class="line">      Fetch URL: https:<span class="regexp">//gi</span>thub.com<span class="regexp">/wangxianggit/</span>Python_Bayes.git</span><br><span class="line">      Push  URL: https:<span class="regexp">//gi</span>thub.com<span class="regexp">/wangxianggit/</span>Python_Bayes.git</span><br><span class="line">      HEAD branch: master</span><br><span class="line">      Remote branch:</span><br><span class="line">        master new (<span class="keyword">next</span> fetch will store <span class="keyword">in</span> remotes/origin)</span><br></pre></td></tr></table></figure></li>
-<li>即origin是默认的远程仓库名称，如果重复提交就会提示远程仓库已经存在，所以要先删除已经提交的远程仓库。</li>
-</ul>
-</li>
-<li><p>终端输入git remote rm origin，再重新提交远程仓库就可以了。</p>
-<p>​</p>
-</li>
-</ul>
-<hr>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/git_error_remote%20origin%20already%20exists/" data-id="ckjv2ttxa00d8t0dnhx462awq" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/" rel="tag">git</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Python_random_number" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/Python_random_number/" class="article-date">
-  <time datetime="2019-02-10T00:53:11.000Z" itemprop="datePublished">2019-02-10</time>
+    <a href="/Python_library_BeautifulSoup/" class="article-date">
+  <time datetime="2019-02-23T14:12:19.000Z" itemprop="datePublished">2019-02-23</time>
 </a>
     
   <div class="article-category">
@@ -268,7 +150,162 @@ git config --global core.autocrlf false//禁用自动换行</code></pre>
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/Python_random_number/">Python使用随机数</a>
+      <a class="article-title" href="/Python_library_BeautifulSoup/">Python库BeautifulSoup使用</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+
+        <h2 id="BeautifulSoup概述"><a href="#BeautifulSoup概述" class="headerlink" title="BeautifulSoup概述"></a>BeautifulSoup概述</h2><ul>
+<li><p>BeautifulSoup模块用于从HTML文本中提取我们想要的数据，参考网站：<a target="_blank" rel="noopener" href="https://beautifulsoup.readthedocs.io/zh_CN/latest/">https://beautifulsoup.readthedocs.io/zh_CN/latest/</a></p>
+</li>
+<li><p>BeautifulSoup 有多个版本，这里选择版本BeautifulSoup4。</p>
+</li>
+<li><p>模块安装，在命令行终端下使用命令：</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">conda install beautifulsoup4 <span class="regexp">//</span>前提安装了anaconda</span><br><span class="line">或使用pip命令</span><br><span class="line">pip install beautifulsoup4 </span><br></pre></td></tr></table></figure></li>
+<li><p>lxml是一个解析器，BeautifulSoup可以使用它来解析HTML，然后提取内容，模块安装</p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda <span class="keyword">install</span> lxml</span><br></pre></td></tr></table></figure>
+<ul>
+<li>如果不安装lxml，则BeautifulSoup会使用Python内置的解析器对文档进行解析。之所以使用lxml，是因为它速度快。</li>
+</ul>
+</li>
+<li><p>不同文档解析器对比如下：</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>解析器</th>
+<th>使用方法</th>
+<th>优势</th>
+<th>劣势</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Python标准库</td>
+<td>BeautifulSoup(markup,”html.parser”)</td>
+<td>Python的内置标准库  执行速度适  中文档容错能力强</td>
+<td>Python 2.7.3 or 3.2.2)前 的版本中文档容错能力差</td>
+</tr>
+<tr>
+<td>lxml HTML 解析器</td>
+<td>BeautifulSoup(markup,”lxml”)</td>
+<td>速度快  文档容错能力强</td>
+<td>需要安装C语言库</td>
+</tr>
+<tr>
+<td>lxml XML 解析器</td>
+<td>BeautifulSoup(markup,[“lxml-xml”]) BeautifulSoup(markup,”xml”)</td>
+<td>速度快  唯一支持XML的解析器</td>
+<td>需要安装C语言库</td>
+</tr>
+<tr>
+<td>html5lib</td>
+<td>BeautifulSoup(markup,”html5lib”)</td>
+<td>最好的容错性  以浏览器的方式解析文档  生成HTML5格式的文档</td>
+<td>速度慢，不依赖外部扩展</td>
+</tr>
+</tbody></table>
+<h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><h3 id="BeautifulSoup对象类型"><a href="#BeautifulSoup对象类型" class="headerlink" title="BeautifulSoup对象类型"></a>BeautifulSoup对象类型</h3><ul>
+<li>BeautifulSoup将复杂HTML文档转换成一个复杂的树形结构，每个节点都是Python对象。</li>
+<li>所有对象可以归纳为4种类型: Tag , NavigableString , BeautifulSoup , Comment 。</li>
+</ul>
+<h3 id="Tag"><a href="#Tag" class="headerlink" title="Tag"></a>Tag</h3><ul>
+<li><p>Python中的Tag和HTML或XML中的标签一样。</p>
+</li>
+<li><p>使用find()方法返回的类型就是Tag，用find_all()返回的是多个Tag对象的集合，在Python中可以用for循环遍历。</p>
+</li>
+<li><p>返回Tag后，可以提取该对象中包含的信息。</p>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">tag</span>.name /提取标签名字</span><br><span class="line"><span class="keyword">tag</span>[&#x27;<span class="keyword">attribute</span>&#x27;] /提取标签的属性</span><br></pre></td></tr></table></figure>
+<ul>
+<li>示例代码：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">from bs4 import BeautifulSoup</span><br><span class="line"></span><br><span class="line">html_doc = <span class="string">&quot;&quot;</span><span class="string">&quot;</span></span><br><span class="line"><span class="string">&lt;html&gt;&lt;head&gt;&lt;title&gt;The Dormouse&#x27;s story&lt;/title&gt;&lt;/head&gt;</span></span><br><span class="line"><span class="string">&lt;body&gt;</span></span><br><span class="line"><span class="string">&lt;p class=&quot;</span>title<span class="string">&quot;&gt;&lt;b&gt;The Dormouse&#x27;s story&lt;/b&gt;&lt;/p&gt;</span></span><br><span class="line"><span class="string">&lt;p class=&quot;</span>story<span class="string">&quot;&gt;Once upon a time there were three little sisters; and their names were</span></span><br><span class="line"><span class="string">&lt;a href=&quot;</span>http://example.com/elsie<span class="string">&quot; class=&quot;</span>sister<span class="string">&quot; id=&quot;</span>link1<span class="string">&quot;&gt;Elsie&lt;/a&gt;,</span></span><br><span class="line"><span class="string">&lt;a href=&quot;</span>http://example.com/lacie<span class="string">&quot; class=&quot;</span>sister<span class="string">&quot; id=&quot;</span>link2<span class="string">&quot;&gt;Lacie&lt;/a&gt; and</span></span><br><span class="line"><span class="string">&lt;a href=&quot;</span>http://example.com/tillie<span class="string">&quot; class=&quot;</span>sister<span class="string">&quot; id=&quot;</span>link3<span class="string">&quot;&gt;Tillie&lt;/a&gt;;</span></span><br><span class="line"><span class="string">and they lived at the bottom of a well.&lt;/p&gt;</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">&lt;p class=&quot;</span>story<span class="string">&quot;&gt;...&lt;/p&gt;</span></span><br><span class="line"><span class="string">&quot;</span><span class="string">&quot;&quot;</span></span><br><span class="line">soup = BeautifulSoup(html_doc, <span class="string">&#x27;lxml&#x27;</span>)  <span class="comment">#声明BeautifulSoup对象</span></span><br><span class="line">find = soup.find(<span class="string">&#x27;p&#x27;</span>)  <span class="comment">#使用find方法查到第一个p标签</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;find&#x27;s return type is &quot;</span>, <span class="built_in">type</span>(find))  <span class="comment">#输出返回值类型</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;find&#x27;s content is&quot;</span>, find)  <span class="comment">#输出find获取的值</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;find&#x27;s Tag Name is &quot;</span>, find.name)  <span class="comment">#输出标签的名字</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;find&#x27;s Attribute(class) is &quot;</span>, find[<span class="string">&#x27;class&#x27;</span>])  <span class="comment">#输出标签的class属性值</span></span><br></pre></td></tr></table></figure>
+<h3 id="NavigableString"><a href="#NavigableString" class="headerlink" title="NavigableString"></a>NavigableString</h3></li>
+</ul>
+</li>
+<li><p>NavigableString即是标签中的文本内容，获取方式如下：</p>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">tag</span>.<span class="keyword">string</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>上面例子中使用上面获取之后得到的文本内容为：The Dormouse’s story</li>
+</ul>
+</li>
+</ul>
+<h3 id="BeautifulSoup"><a href="#BeautifulSoup" class="headerlink" title="BeautifulSoup"></a>BeautifulSoup</h3><ul>
+<li>BeautifulSoup对象表示一个文档的全部内容。</li>
+<li>可以支持遍历文档树和搜索文档树。</li>
+<li>例如上面例子中的soup对象即为BeautifulSoup对象。</li>
+</ul>
+<h3 id="Comment"><a href="#Comment" class="headerlink" title="Comment"></a>Comment</h3><ul>
+<li><p>该对象即为HTML或XML文档中的注释。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">markup = &quot;<span class="tag">&lt;<span class="name">b</span>&gt;</span><span class="comment">&lt;!--Hey, buddy. Want to buy a used parser?--&gt;</span><span class="tag">&lt;/<span class="name">b</span>&gt;</span>&quot;</span><br><span class="line">soup = BeautifulSoup(markup)</span><br><span class="line">comment = soup.b.string</span><br><span class="line">type(comment)</span><br><span class="line">\# <span class="tag">&lt;<span class="name">class</span> &#x27;<span class="attr">bs4.element.Comment</span>&#x27;&gt;</span></span><br></pre></td></tr></table></figure></li>
+<li><p>该类对象可以用来获取注释的内容，获取方法为：comment.string</p>
+</li>
+<li><p>可以用于判断该类型是否是一个注释</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> bs4</span><br><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> <span class="built_in">type</span>(SomeString) == bs4.element.Comment:</span><br><span class="line">    print(<span class="string">&#x27;该字符是注释&#x27;</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    print(<span class="string">&#x27;该字符不是注释&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="BeautifulSopu遍历法"><a href="#BeautifulSopu遍历法" class="headerlink" title="BeautifulSopu遍历法"></a>BeautifulSopu遍历法</h2></li>
+</ul>
+<h3 id="节点和标签名"><a href="#节点和标签名" class="headerlink" title="节点和标签名"></a>节点和标签名</h3><ul>
+<li><p>可以使用子节点、父节点及标签名的方式遍历：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">soup.head <span class="comment">#查找head标签</span></span><br><span class="line">soup.p <span class="comment">#查找第一个p标签</span></span><br><span class="line"></span><br><span class="line">\<span class="comment">#对标签的直接子节点进行循环</span></span><br><span class="line">title_tag=soup.find(<span class="string">&#x27;p&#x27;</span>)</span><br><span class="line"><span class="keyword">for</span> child <span class="keyword">in</span> title_tag.children:</span><br><span class="line">    print(child)</span><br><span class="line"></span><br><span class="line">soup.parent <span class="comment">#父节点</span></span><br><span class="line"></span><br><span class="line">\<span class="comment"># 所有父节点</span></span><br><span class="line"><span class="keyword">for</span> parent <span class="keyword">in</span> link.parents:</span><br><span class="line">    <span class="keyword">if</span> parent <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">        print(parent)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        print(parent.name)</span><br><span class="line"></span><br><span class="line">\<span class="comment"># 兄弟节点</span></span><br><span class="line">sibling_soup.b.next_sibling <span class="comment">#后面的兄弟节点</span></span><br><span class="line">sibling_soup.c.previous_sibling <span class="comment">#前面的兄弟节点</span></span><br><span class="line"></span><br><span class="line">\<span class="comment">#所有兄弟节点</span></span><br><span class="line"><span class="keyword">for</span> sibling <span class="keyword">in</span> soup.a.next_siblings:</span><br><span class="line">    print(<span class="built_in">repr</span>(sibling))</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> sibling <span class="keyword">in</span> soup.find(<span class="built_in">id</span>=<span class="string">&quot;link3&quot;</span>).previous_siblings:</span><br><span class="line">    print(<span class="built_in">repr</span>(sibling))</span><br></pre></td></tr></table></figure>
+<h3 id="搜索文档树"><a href="#搜索文档树" class="headerlink" title="搜索文档树"></a>搜索文档树</h3></li>
+<li><p>常用的方法为find()和find_all(),其他的搜索方法有find_parent() 和 find_parents()、 find_next_sibling() 和 find_next_siblings() 、find_all_next() 和 find_next()、find_all_previous() 和 find_previous() 等。</p>
+</li>
+<li><p>find_all():搜索当前tag的所有tag子节点，并判断是否符合过滤器的条件。</p>
+<ul>
+<li>返回值类型是bs4.element.ResultSet</li>
+<li>完整的语法：<code>find_all(name,attrs,recursive,string,**kwargs)</code></li>
+<li>示例代码<figure class="highlight fsharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">     soup.find_all(<span class="string">&quot;title&quot;</span>)</span><br><span class="line">     # <span class="meta">[&lt;title&gt;The Dormouse&#x27;s story&lt;/title&gt;]</span></span><br><span class="line">     #</span><br><span class="line">     soup.find_all(<span class="string">&quot;p&quot;</span>, <span class="string">&quot;title&quot;</span>)</span><br><span class="line">        # <span class="meta">[&lt;p class=&quot;title&quot;&gt;&lt;b&gt;The Dormouse&#x27;s story&lt;/b&gt;&lt;/p&gt;]</span></span><br><span class="line">     # </span><br><span class="line">     soup.find_all(<span class="string">&quot;a&quot;</span>)</span><br><span class="line">     # <span class="meta">[&lt;a class=&quot;sister&quot; href=&quot;http://example.com/elsie&quot; id=&quot;link1&quot;&gt;Elsie&lt;/a&gt;,</span></span><br><span class="line"><span class="meta">     #  &lt;a class=&quot;sister&quot; href=&quot;http://example.com/lacie&quot; id=&quot;link2&quot;&gt;Lacie&lt;/a&gt;,</span></span><br><span class="line"><span class="meta">     #  &lt;a class=&quot;sister&quot; href=&quot;http://example.com/tillie&quot; id=&quot;link3&quot;&gt;Tillie&lt;/a&gt;]</span></span><br><span class="line">     #</span><br><span class="line">     soup.find_all(id=<span class="string">&quot;link2&quot;</span>)</span><br><span class="line">     # <span class="meta">[&lt;a class=&quot;sister&quot; href=&quot;http://example.com/lacie&quot; id=&quot;link2&quot;&gt;Lacie&lt;/a&gt;]</span></span><br><span class="line">     #</span><br><span class="line">     import re</span><br><span class="line">     soup.find(string=re.compile(<span class="string">&quot;sisters&quot;</span>))</span><br><span class="line">     # u&#x27;Once upon a time there were three little sisters; <span class="keyword">and</span> their names were\n&#x27;</span><br><span class="line">     </span><br><span class="line">name 参数：可以查找所有名字为 name 的tag。</span><br><span class="line">attr 参数：就是tag里的属性。</span><br><span class="line">string 参数：搜索文档中字符串的内容。</span><br><span class="line">recursive 参数： 调用tag的 find_all() 方法时，Beautiful Soup会检索当前tag的所有子孙节点。如果只想搜索tag的直接子节点，可以使用参数 recursive=False 。</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>find():和find_all()类似，只是返回第一个值，返回类型为bs4.element.Tag。</p>
+</li>
+<li><p>完整语法为：<code>find(name,attrs,recursive,string,**kwargs)</code></p>
+</li>
+<li><p>示例代码</p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">soup.find(<span class="string">&#x27;title&#x27;</span>)</span><br><span class="line">\# &lt;title&gt;The Dormous<span class="string">e&#x27;s story&lt;/title&gt;</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">soup.find(&quot;head&quot;).find(&quot;title&quot;)</span></span><br><span class="line"><span class="string">\# &lt;title&gt;The Dormouse&#x27;</span>s story&lt;/title&gt;</span><br></pre></td></tr></table></figure></li>
+<li><p>以上代码在python3下运行，其他函数参看官方文档。</p>
+</li>
+</ul>
+<hr>
+<p>2019.2.23</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wangxianggit.github.io/Python_library_BeautifulSoup/" data-id="ckjv2ttwg009ht0dnabzs84qh" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BeautifulSoup/" rel="tag">BeautifulSoup</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Markdown_add_table" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/Markdown_add_table/" class="article-date">
+  <time datetime="2019-02-23T10:47:41.000Z" itemprop="datePublished">2019-02-23</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/learning/">learning</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/Markdown_add_table/">Markdown插入表格</a>
     </h1>
   
 
@@ -279,43 +316,58 @@ git config --global core.autocrlf false//禁用自动换行</code></pre>
 	  <!-- Table of Contents -->
 
         <ul>
-<li><p>使用random模块：</p>
+<li><p>​ 默认情况下Markdown 插入的表格，单元格中的内容默认左对齐。</p>
+</li>
+<li><p>普通表格markdown代码：</p>
 <ul>
-<li><p>random.random: 生成0到1浮点随机数。</p>
-</li>
-<li><p>random.uniform(a,b):产生a到b间的随机浮点数，如果a &gt; b，则生成的随机数n: a &lt;n &lt;b。如果 a &lt;b， 则 b &lt;n &lt;a。</p>
-</li>
-<li><p>random.randint(a,b):生成a到b间的随机整数。</p>
-</li>
-<li><p>random.randrange(start,stop,step):在指定递增的数列中随机生成随机数。例：random.randrange(10, 100, 2)，结果相当于从[10, 12, 14, 16, … 96, 98]序列中获取一个随机数。</p>
-</li>
-<li><p>random.choice(sequence):从序列中获取一个随机元素，参数sequence表示一个有序类型。例：</p>
-<ul>
-<li><p>```<br>print(random.choice(“Learning Python”))</p>
-<p>print(random.choice([“JGood”, “is”, “a”, “handsome”, “boy”])) </p>
-<p>print(random.choice((“Tuple”, “List”, “Dict”)))  </p>
-<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- <span class="built_in">random</span>.shuffle:用于将一个列表中的元素打乱</span><br><span class="line"></span><br><span class="line">  - ```</span><br><span class="line">    p = [<span class="string">&quot;Python&quot;</span>, <span class="string">&quot;is&quot;</span>, <span class="string">&quot;powerful&quot;</span>, <span class="string">&quot;simple&quot;</span>, <span class="string">&quot;and so on...&quot;</span>]  </span><br><span class="line">    <span class="built_in">random</span>.shuffle(p)  </span><br><span class="line">    <span class="built_in">print</span>(p)</span><br><span class="line"></span><br><span class="line">    &gt;&gt;&gt;[<span class="string">&#x27;and so on...&#x27;</span>, <span class="string">&#x27;is&#x27;</span>, <span class="string">&#x27;powerful&#x27;</span>, <span class="string">&#x27;simple&#x27;</span>, <span class="string">&#x27;Python&#x27;</span>]</span><br></pre></td></tr></table></figure></li>
+<li>```<table>
+<thead>
+<tr>
+<th>一个普通标题</th>
+<th>一个普通标题</th>
+<th>一个普通标题</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>短文本</td>
+<td>中等文本</td>
+<td>稍微长一点的文本</td>
+</tr>
+<tr>
+<td>稍微长一点的文本</td>
+<td>短文本</td>
+<td>中等文本</td>
+</tr>
+</tbody></table>
+<figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  <span class="symbol">*</span> 显示效果</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"> 一个普通标题     |<span class="string"> 一个普通标题 </span>|<span class="string"> 一个普通标题     </span></span><br><span class="line"><span class="string"> ---- </span>|<span class="string"> ---- </span>|<span class="string"> ---- </span>|</span><br><span class="line"> 短文本           |<span class="string"> 中等文本     </span>|<span class="string"> 稍微长一点的文本 </span></span><br><span class="line"><span class="string"> 稍微长一点的文本 </span>|<span class="string"> 短文本       </span>|<span class="string"> 中等文本         </span></span><br><span class="line"></span><br><span class="line"><span class="string">* 表格的语句上一行必须为空行，不然表格不生效。</span></span><br><span class="line"></span><br><span class="line"><span class="string">* 表格内容对齐：</span></span><br><span class="line"></span><br><span class="line"><span class="string">  * ```</span></span><br><span class="line"><span class="string">    </span>|<span class="string"> 左对齐标题 </span>|<span class="string"> 右对齐标题 </span>|<span class="string"> 居中对齐标题 </span>|</span><br><span class="line">    |<span class="string"> :----</span>|<span class="string"> ----: </span>|<span class="string"> :----: </span>|</span><br><span class="line">    |<span class="string"> 短文本 </span>|<span class="string"> 中等文本 </span>|<span class="string"> 稍微长一点的文本 </span>|</span><br><span class="line">    |<span class="string"> 稍微长一点的文本 </span>|<span class="string"> 短文本 </span>|<span class="string"> 中等文本 </span>|</span><br></pre></td></tr></table></figure></li>
+<li>显示效果</li>
 </ul>
 </li>
-<li><p>random.sample(sequence,k):从指定序列中随机获取指定长度的片断</p>
-<ul>
-<li>```<br>list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]<br>slice = random.sample(list, 5)  #select five elememt<br>print(slice)<br>print(list)#original list<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- ```</span><br><span class="line">  <span class="built_in">random</span> <span class="keyword">integer</span>：</span><br><span class="line">  &gt;&gt;&gt; import <span class="built_in">random</span></span><br><span class="line">  &gt;&gt;&gt; <span class="built_in">random</span>.randint(<span class="number">0</span>,<span class="number">99</span>)</span><br><span class="line">  <span class="number">21</span></span><br><span class="line"></span><br><span class="line">  <span class="built_in">random</span> even <span class="built_in">number</span> below <span class="number">101</span>：</span><br><span class="line">  &gt;&gt;&gt; import <span class="built_in">random</span></span><br><span class="line">  &gt;&gt;&gt; <span class="built_in">random</span>.randrange(<span class="number">0</span>, <span class="number">101</span>, <span class="number">2</span>)</span><br><span class="line">  <span class="number">42</span></span><br><span class="line"></span><br><span class="line">  <span class="built_in">random</span> float：</span><br><span class="line">  &gt;&gt;&gt; import <span class="built_in">random</span></span><br><span class="line">  &gt;&gt;&gt; <span class="built_in">random</span>.<span class="built_in">random</span>() </span><br><span class="line">  <span class="number">0.85415370477785668</span></span><br><span class="line">  &gt;&gt;&gt; <span class="built_in">random</span>.uniform(<span class="number">1</span>, <span class="number">10</span>)</span><br><span class="line">  <span class="number">5.4221167969800881</span></span><br><span class="line"></span><br><span class="line">  <span class="built_in">random</span> <span class="keyword">char</span>：</span><br><span class="line">  &gt;&gt;&gt; import <span class="built_in">random</span></span><br><span class="line">  &gt;&gt;&gt; <span class="built_in">random</span>.choice(<span class="string">&#x27;abcdefg&amp;#%^*f&#x27;</span>)</span><br><span class="line">  <span class="string">&#x27;d&#x27;</span></span><br><span class="line"></span><br><span class="line">  <span class="built_in">random</span> slice <span class="keyword">of</span> <span class="keyword">a</span> sequence</span><br><span class="line">  &gt;&gt;&gt; import <span class="built_in">random</span></span><br><span class="line">  <span class="built_in">random</span>.sample(<span class="string">&#x27;abcdefghij&#x27;</span>,<span class="number">3</span>) </span><br><span class="line">  [<span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;d&#x27;</span>, <span class="string">&#x27;b&#x27;</span>]</span><br><span class="line"></span><br><span class="line">  <span class="built_in">random</span> slice <span class="keyword">of</span> <span class="keyword">a</span> sequence</span><br><span class="line">  &gt;&gt;&gt; import <span class="built_in">random</span></span><br><span class="line">  &gt;&gt;&gt; import <span class="keyword">string</span></span><br><span class="line">  &gt;&gt;&gt; <span class="keyword">string</span>.join(<span class="built_in">random</span>.sample([<span class="string">&#x27;a&#x27;</span>,<span class="string">&#x27;b&#x27;</span>,<span class="string">&#x27;c&#x27;</span>,<span class="string">&#x27;d&#x27;</span>,<span class="string">&#x27;e&#x27;</span>,<span class="string">&#x27;f&#x27;</span>,<span class="string">&#x27;g&#x27;</span>,<span class="string">&#x27;h&#x27;</span>,<span class="string">&#x27;i&#x27;</span>,<span class="string">&#x27;j&#x27;</span>], <span class="number">3</span>)).r</span><br><span class="line">  eplace(<span class="string">&quot; &quot;</span>,<span class="string">&quot;&quot;</span>)</span><br><span class="line">  <span class="string">&#x27;fih&#x27;</span></span><br><span class="line"></span><br><span class="line">  <span class="built_in">random</span> <span class="keyword">string</span>：</span><br><span class="line">  &gt;&gt;&gt; import <span class="built_in">random</span></span><br><span class="line">  &gt;&gt;&gt; <span class="built_in">random</span>.choice ( [<span class="string">&#x27;apple&#x27;</span>, <span class="string">&#x27;pear&#x27;</span>, <span class="string">&#x27;peach&#x27;</span>, <span class="string">&#x27;orange&#x27;</span>, <span class="string">&#x27;lemon&#x27;</span>] )</span><br><span class="line">  <span class="string">&#x27;lemon&#x27;</span></span><br><span class="line"></span><br><span class="line">  disorder <span class="keyword">the</span> sequence：</span><br><span class="line">  &gt;&gt;&gt; import <span class="built_in">random</span></span><br><span class="line">  &gt;&gt;&gt; <span class="keyword">items</span> = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>]</span><br><span class="line">  &gt;&gt;&gt; <span class="built_in">random</span>.shuffle(<span class="keyword">items</span>)</span><br><span class="line">  &gt;&gt;&gt; <span class="keyword">items</span></span><br><span class="line">  [<span class="number">3</span>, <span class="number">2</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">4</span>, <span class="number">1</span>]</span><br></pre></td></tr></table></figure></li>
 </ul>
-</li>
-</ul>
-</li>
-<li><p>使用numpy.random</p>
+<table>
+<thead>
+<tr>
+<th align="left">左对齐标题</th>
+<th align="right">右对齐标题</th>
+<th align="center">居中对齐标题</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">短文本</td>
+<td align="right">中等文本</td>
+<td align="center">稍微长一点的文本</td>
+</tr>
+<tr>
+<td align="left">稍微长一点的文本</td>
+<td align="right">短文本</td>
+<td align="center">中等文本</td>
+</tr>
+</tbody></table>
 <ul>
-<li><p>np.random.rand:随机生成0-1之间浮点数，有参数时返回相应长度的一维或多维随机浮点数数组：</p>
-<ul>
-<li><pre><code>import numpy as np
-&gt;&gt;&gt;  np.random.rand(10)
-array([ 0.56911206,  0.99777291,  0.18943144,  0.19387287,  0.75090637,
-        0.18692814,  0.69804514,  0.48808425,  0.79440667,  0.66959075])
-<figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- <span class="built_in">np</span>.<span class="built_in">random</span>.randn:返回正态分布随机数，有参数时返回相应长度一维或多维数组</span><br><span class="line"></span><br><span class="line">- <span class="built_in">np</span>.<span class="built_in">random</span>.randint(low[, high, size]) :返回随机的整数，位于半开区间 [low, high)</span><br><span class="line"></span><br><span class="line">- random_integers(low[, high, size]) :返回随机的整数，位于闭区间 [low, high]</span><br><span class="line"></span><br><span class="line">- <span class="built_in">np</span>.<span class="built_in">random</span>.shuffle(x) 打乱序列顺序；<span class="built_in">np</span>.<span class="built_in">random</span>.<span class="built_in">permutation</span>(x)返回一个随机排列</span><br><span class="line"></span><br><span class="line">  - ```</span><br><span class="line">    &gt;&gt;&gt; arr = <span class="built_in">np</span>.arange(<span class="number">10</span>)</span><br><span class="line">    &gt;&gt;&gt; <span class="built_in">np</span>.<span class="built_in">random</span>.shuffle(arr)</span><br><span class="line">    &gt;&gt;&gt; arr</span><br><span class="line">    [<span class="number">1</span> <span class="number">7</span> <span class="number">5</span> <span class="number">2</span> <span class="number">9</span> <span class="number">4</span> <span class="number">3</span> <span class="number">6</span> <span class="number">0</span> <span class="number">8</span>]</span><br><span class="line"></span><br><span class="line">    &gt;&gt;&gt;&gt; <span class="built_in">np</span>.<span class="built_in">random</span>.<span class="built_in">permutation</span>(<span class="number">10</span>)</span><br><span class="line">    <span class="built_in">array</span>([<span class="number">1</span>, <span class="number">7</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">0</span>, <span class="number">9</span>, <span class="number">2</span>, <span class="number">5</span>, <span class="number">8</span>, <span class="number">6</span>])</span><br></pre></td></tr></table></figure></code></pre>
-</li>
-</ul>
-</li>
+<li>额外说明：<ul>
+<li>|、-、:之间的空格被忽略，内容和|间的空格被忽略。</li>
+<li>每行第一个|和最后一个|可省略，-的数量至少一个。</li>
+<li>对齐方式由以下代码控制： -:表示内容和标题栏居右对齐，:-表示内容和标题栏居左对齐，:-:表示内容和标题栏居中对齐。</li>
 </ul>
 </li>
 </ul>
@@ -324,10 +376,10 @@ array([ 0.56911206,  0.99777291,  0.18943144,  0.19387287,  0.75090637,
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/Python_random_number/" data-id="ckjv2ttwk00a2t0dn2we17uwb" class="article-share-link">Share</a>
+      <a data-url="http://wangxianggit.github.io/Markdown_add_table/" data-id="ckjv2ttuz004at0dncihp7tx7" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Program/" rel="tag">Program</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li></ul>
 
     </footer>
   </div>
@@ -336,10 +388,136 @@ array([ 0.56911206,  0.99777291,  0.18943144,  0.19387287,  0.75090637,
 
 
   
-    <article id="post-Python_pandas.io.data_modified" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Markdown_grammer" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/Python_pandas.io.data_modified/" class="article-date">
-  <time datetime="2019-02-10T00:32:42.000Z" itemprop="datePublished">2019-02-10</time>
+    <a href="/Markdown_grammer/" class="article-date">
+  <time datetime="2019-02-23T10:31:37.000Z" itemprop="datePublished">2019-02-23</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/learning/">learning</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/Markdown_grammer/">Markdown grammar</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+
+        <h2 id="Markdown-grammar"><a href="#Markdown-grammar" class="headerlink" title="Markdown grammar"></a>Markdown grammar</h2><h3 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h3><ul>
+<li>类Setext：任何数量的等号和减号（+ -）</li>
+<li>类atx形式：1到6个#号表示对应1到6阶标题，也可以添加作为对称效果，后面需要一个空格</li>
+</ul>
+<h3 id="区块引用"><a href="#区块引用" class="headerlink" title="区块引用"></a>区块引用</h3><ul>
+<li>标记区块引用类似email中用&gt;的引用方式。</li>
+<li>区块引用的嵌套：根据层次加上不同数量的&gt;:</li>
+</ul>
+<blockquote>
+<p>This is the first level of quoting</p>
+<blockquote>
+<p>This is the nested blockquote</p>
+</blockquote>
+</blockquote>
+<ul>
+<li>区块引用内可以使用其他的Markdown语法，包括标题、列表、代码区块等</li>
+</ul>
+<blockquote>
+<h5 id="This-is-the-first-block"><a href="#This-is-the-first-block" class="headerlink" title="This is the first block"></a>This is the first block</h5><ol>
+<li><p>This is the second block</p>
+</li>
+<li><p>This is the third block</p>
+<p>return shell_exec(“echo $input |  $markdown_script”)</p>
+</li>
+</ol>
+</blockquote>
+<h3 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h3><ul>
+<li>无序列表使用星号、加号或减号作为列表标记。</li>
+<li>有序列表受用数字接着一个英文句点。</li>
+</ul>
+<h3 id="代码区块"><a href="#代码区块" class="headerlink" title="代码区块"></a>代码区块</h3><ul>
+<li><p>简单缩进4个空格或是一个制表符</p>
+</li>
+<li><p>Here is an example of AppleScript:</p>
+<p>tell application “Foo”</p>
+<p>​    beep</p>
+<p>end tell</p>
+</li>
+</ul>
+<h3 id="分隔线"><a href="#分隔线" class="headerlink" title="分隔线"></a>分隔线</h3><ul>
+<li>在一行中用三个以上的星号、减号、底线来建立一个分隔线，行内可以插入空格。</li>
+</ul>
+<h3 id="区段元素"><a href="#区段元素" class="headerlink" title="区段元素"></a>区段元素</h3><ul>
+<li>行内式链接在方括号后面紧接着圆括号并插入网址链接：</li>
+</ul>
+<blockquote>
+<p>This is [an example](<a target="_blank" rel="noopener" href="http://example.com/&quot;title&quot;">http://example.com/&quot;title&quot;</a>) inline link</p>
+</blockquote>
+<ul>
+<li>参考式的链接在链接文字的括号后面再加上另一个方括号，而在第二个方括号里面要填入用以辨识链接的标记：</li>
+</ul>
+<blockquote>
+<p>This is [an example][id] reference-style link. </p>
+<p>在文字的任意处把标记的连接内容定义出来：[id]:<a target="_blank" rel="noopener" href="http://example.com/&quot;title&quot;">http://example.com/&quot;title&quot;</a></p>
+<p>链接标签可以有字母、数字、空白和标点符号但是并不区分大小写</p>
+</blockquote>
+<ul>
+<li>隐式链接标记中链接标记等同于链接文字，只要在链接文字后面加上一个空的方括号：</li>
+</ul>
+<blockquote>
+<p>[Google][] 定义连接内容：[Google]:<a target="_blank" rel="noopener" href="http://google.com/">http://google.com</a></p>
+<p>I get 10 times more traffic from [Google]<a target="_blank" rel="noopener" href="http://google.com/" title="Google">1</a> than from [Yahoo]<a target="_blank" rel="noopener" href="http://search.yahoo.com/" title="Yahoo Search">2</a> or [MSN]<a target="_blank" rel="noopener" href="http://search.msn.com/" title="MSN Search">3</a>.</p>
+</blockquote>
+<h3 id="强调"><a href="#强调" class="headerlink" title="强调"></a>强调</h3><ul>
+<li>Markdown使用星号和底线作为标记强调字词的符号，使用一个或两个符号包围的字词表示不用程度的强调。</li>
+</ul>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><ul>
+<li>标记小段行内代码用反引号包围起来 <code>Use the printf() function </code></li>
+<li>代码区段内含有反引号，可以用多个反引号来开启和结束代码区段。</li>
+<li>以三个反引号开头得到一个代码区段。</li>
+</ul>
+<h3 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h3><ul>
+<li><p>行内式的图片语法为</p>
+<ul>
+<li>~~~<br>![Alt text](/path to/img.jpg)<figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 参考式的图片语法为</span><br><span class="line"></span><br><span class="line">  * ~~~</span><br><span class="line">    ![Alt <span class="type">text</span>]<span class="built_in">[id</span>] <span class="built_in">[id</span>]:<span class="built_in"> path</span> <span class="keyword">to</span>/img.jpg <span class="string">&quot;optional title&quot;</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>目前，Markdown无法指定图片的高度和宽度，如果需要可以使用普通的&lt;img&gt;标签</p>
+</li>
+</ul>
+<hr>
+<p>2019/2/23</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wangxianggit.github.io/Markdown_grammer/" data-id="ckjv2ttv0004ct0dnfabqapf4" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Python_library_requests" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/Python_library_requests/" class="article-date">
+  <time datetime="2019-02-19T16:22:23.000Z" itemprop="datePublished">2019-02-20</time>
 </a>
     
   <div class="article-category">
@@ -354,7 +532,7 @@ array([ 0.56911206,  0.99777291,  0.18943144,  0.19387287,  0.75090637,
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/Python_pandas.io.data_modified/">Python中pandas.io.data模块迁移</a>
+      <a class="article-title" href="/Python_library_requests/">Python库requests使用方法</a>
     </h1>
   
 
@@ -365,17 +543,25 @@ array([ 0.56911206,  0.99777291,  0.18943144,  0.19387287,  0.75090637,
 	  <!-- Table of Contents -->
 
         <ul>
-<li><p>在python3中原pandas.io.data模块迁移到了pandas_datareader.data模块下。</p>
-</li>
-<li><p>模块安装：</p>
+<li><p>​ requests第三方库安装：</p>
 <ul>
-<li>~~~<br>pip install pandas-datareader<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 使用命令<span class="selector-tag">pip</span> <span class="selector-tag">list</span>可以查看已经安装的<span class="selector-tag">pyhton</span>包：</span><br><span class="line"></span><br><span class="line">  * ~~~</span><br><span class="line">    <span class="selector-tag">odo</span> (<span class="number">0.5</span>.<span class="number">1</span>)</span><br><span class="line">    <span class="selector-tag">olefile</span> (<span class="number">0.44</span>)</span><br><span class="line">    <span class="selector-tag">openpyxl</span> (<span class="number">2.4</span>.<span class="number">8</span>)</span><br><span class="line">    <span class="selector-tag">packaging</span> (<span class="number">16.8</span>)</span><br><span class="line">    <span class="selector-tag">pandas</span> (<span class="number">0.20</span>.<span class="number">3</span>)</span><br><span class="line">    <span class="selector-tag">pandas-datareader</span> (<span class="number">0.7</span>.<span class="number">0</span>)</span><br><span class="line">    <span class="selector-tag">pandocfilters</span> (<span class="number">1.4</span>.<span class="number">2</span>)</span><br><span class="line">    <span class="selector-tag">partd</span> (<span class="number">0.3</span>.<span class="number">8</span>)</span><br><span class="line">    <span class="selector-tag">path</span><span class="selector-class">.py</span> (<span class="number">10.3</span>.<span class="number">1</span>)</span><br><span class="line">    <span class="selector-tag">pathlib2</span> (<span class="number">2.3</span>.<span class="number">0</span>)</span><br><span class="line">    <span class="selector-tag">patsy</span> (<span class="number">0.4</span>.<span class="number">1</span>)</span><br><span class="line">    <span class="selector-tag">pep8</span> (<span class="number">1.7</span>.<span class="number">0</span>)</span><br><span class="line">    <span class="selector-tag">pexpect</span> (<span class="number">4.2</span>.<span class="number">1</span>)</span><br><span class="line">    <span class="selector-tag">pickleshare</span> (<span class="number">0.7</span>.<span class="number">4</span>)</span><br><span class="line">    <span class="selector-tag">Pillow</span> (<span class="number">4.2</span>.<span class="number">1</span>)</span><br></pre></td></tr></table></figure></li>
-<li>可见pandas-datareader已经包含在安装列表里面</li>
+<li><p>~~~<br>pip install requests<br>安装完成后导入模块：<br>import requests</p>
+<figure class="highlight gauss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  * 相比于urllib，requests使用起来更加简洁</span><br><span class="line"></span><br><span class="line">* requests.get()用于请求目标网站，返回类型是HTTPresponse:</span><br><span class="line"></span><br><span class="line">  * ~~~</span><br><span class="line">    import requests</span><br><span class="line"></span><br><span class="line">    response = requests.get(&#x27;http:<span class="comment">//www.baidu.com&#x27;)</span></span><br><span class="line">    <span class="keyword">print</span>(response.status_code)  <span class="meta"># 打印状态码</span></span><br><span class="line">    <span class="keyword">print</span>(response.url)          <span class="meta"># 打印请求url</span></span><br><span class="line">    <span class="keyword">print</span>(response.headers)      <span class="meta"># 打印头信息</span></span><br><span class="line">    <span class="keyword">print</span>(response.cookies)      <span class="meta"># 打印cookie信息</span></span><br><span class="line">    <span class="keyword">print</span>(response.text)  <span class="meta">#以文本形式打印网页源码</span></span><br><span class="line">    <span class="keyword">print</span>(response.content) <span class="meta">#以字节流形式打印</span></span><br><span class="line"></span><br><span class="line">    输出：</span><br><span class="line">    状态码：<span class="number">200</span></span><br><span class="line">    url:http:<span class="comment">//www.baidu.com/</span></span><br></pre></td></tr></table></figure></li>
+<li><p>get还可以传递参数：</p>
+<ul>
+<li>~~~<br>payload = {‘key1’: ‘value1’, ‘key2’: ‘value2’}<br>r = requests.get(“<a target="_blank" rel="noopener" href="http://httpbin.org/get&quot;">http://httpbin.org/get&quot;</a>, params=payload)<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">    * 上面代码向服务器发送的请求中包含了两个参数<span class="selector-tag">key1</span>和<span class="selector-tag">key2</span>，以及两个参数的值。实际上它构造成了如下网址<span class="selector-pseudo">:http</span>:<span class="comment">//httpbin.org/get?key1=value1&amp;key2=value2</span></span><br><span class="line"></span><br><span class="line">* 各种请求方式，以<span class="selector-tag">http</span>:<span class="comment">//httpbin.org网站为例：</span></span><br><span class="line"></span><br><span class="line">  * ~~~</span><br><span class="line">    <span class="selector-tag">import</span> <span class="selector-tag">requests</span></span><br><span class="line"></span><br><span class="line">    <span class="selector-tag">requests</span><span class="selector-class">.get</span>(<span class="string">&#x27;http://httpbin.org/get&#x27;</span>)</span><br><span class="line">    <span class="selector-tag">requests</span><span class="selector-class">.post</span>(<span class="string">&#x27;http://httpbin.org/post&#x27;</span>)</span><br><span class="line">    <span class="selector-tag">requests</span><span class="selector-class">.put</span>(<span class="string">&#x27;http://httpbin.org/put&#x27;</span>)</span><br><span class="line">    <span class="selector-tag">requests</span><span class="selector-class">.delete</span>(<span class="string">&#x27;http://httpbin.org/delete&#x27;</span>)</span><br><span class="line">    <span class="selector-tag">requests</span><span class="selector-class">.head</span>(<span class="string">&#x27;http://httpbin.org/get&#x27;</span>)</span><br><span class="line">    <span class="selector-tag">requests</span><span class="selector-class">.options</span>(<span class="string">&#x27;http://httpbin.org/get&#x27;</span>)</span><br></pre></td></tr></table></figure></li>
 </ul>
 </li>
-<li><p>在python命令行中导入相应包：import pandas_datareader.data  as web</p>
+<li><p>POST请求用来提交表单数据，即填写一堆输入框，然后提交，有参数的POST请求如下：</p>
+<ul>
+<li><pre><code>payload = &#123;&#39;key1&#39;: &#39;value1&#39;, &#39;key2&#39;: &#39;value2&#39;&#125;
+r = requests.post(&quot;http://httpbin.org/post&quot;, data=payload)</code></pre>
 </li>
-<li><p>安装时是‘pandas-datareader’，导入时是‘pandas_datareader’.</p>
+</ul>
+</li>
+<li><p>put请求、delete请求、head请求、option请求等类似，可以参考官方网站：<a target="_blank" rel="noopener" href="http://www.python-requests.org/en/master/">http://www.python-requests.org/en/master/</a></p>
+</li>
+</ul>
 </li>
 </ul>
 <hr>
@@ -383,10 +569,10 @@ array([ 0.56911206,  0.99777291,  0.18943144,  0.19387287,  0.75090637,
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/Python_pandas.io.data_modified/" data-id="ckjv2ttwl00a6t0dn7grf7xrm" class="article-share-link">Share</a>
+      <a data-url="http://wangxianggit.github.io/Python_library_requests/" data-id="ckjv2ttwi009st0dn79h0cw3u" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Program/" rel="tag">Program</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/requests/" rel="tag">requests</a></li></ul>
 
     </footer>
   </div>
@@ -399,7 +585,7 @@ array([ 0.56911206,  0.99777291,  0.18943144,  0.19387287,  0.75090637,
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/page/27/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/26/">26</a><a class="page-number" href="/page/27/">27</a><span class="page-number current">28</span><a class="page-number" href="/page/29/">29</a><a class="page-number" href="/page/30/">30</a><span class="space">&hellip;</span><a class="page-number" href="/page/38/">38</a><a class="extend next" rel="next" href="/page/29/">Next &amp;raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/27/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/26/">26</a><a class="page-number" href="/page/27/">27</a><span class="page-number current">28</span><a class="page-number" href="/page/29/">29</a><a class="page-number" href="/page/30/">30</a><span class="space">&hellip;</span><a class="page-number" href="/page/41/">41</a><a class="extend next" rel="next" href="/page/29/">Next &amp;raquo;</a>
   </nav>
 
 </section>
@@ -437,7 +623,7 @@ array([ 0.56911206,  0.99777291,  0.18943144,  0.19387287,  0.75090637,
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithm/" rel="tag">Algorithm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Altium-Designer/" rel="tag">Altium Designer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Apache/" rel="tag">Apache</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BeautifulSoup/" rel="tag">BeautifulSoup</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Centos7/" rel="tag">Centos7</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cython/" rel="tag">Cython</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Electronic/" rel="tag">Electronic</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/English/" rel="tag">English</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Geant4/" rel="tag">Geant4</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hardware/" rel="tag">Hardware</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Image/" rel="tag">Image</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jupyter/" rel="tag">Jupyter</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nuclear-Physics/" rel="tag">Nuclear Physics</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Open/" rel="tag">Open</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Program/" rel="tag">Program</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PyPI/" rel="tag">PyPI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Py-Crawler/" rel="tag">Py_Crawler</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Random/" rel="tag">Random</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Resource/" rel="tag">Resource</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Root/" rel="tag">Root</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Scipy/" rel="tag">Scipy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Shell/" rel="tag">Shell</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Solidwork/" rel="tag">Solidwork</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TTree/" rel="tag">TTree</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tensorflow/" rel="tag">Tensorflow</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Thread/" rel="tag">Thread</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Urllib2/" rel="tag">Urllib2</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Virtual-memory/" rel="tag">Virtual memory</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cmake/" rel="tag">cmake</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cmd/" rel="tag">cmd</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/data-structure/" rel="tag">data structure</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/htop/" rel="tag">htop</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/keras/" rel="tag">keras</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/latex/" rel="tag">latex</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/os/" rel="tag">os</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/qt/" rel="tag">qt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/requests/" rel="tag">requests</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sk-learn/" rel="tag">sk-learn</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh/" rel="tag">ssh</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/statistic/" rel="tag">statistic</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vi/" rel="tag">vi</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/windows/" rel="tag">windows</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithm/" rel="tag">Algorithm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Altium-Designer/" rel="tag">Altium Designer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Apache/" rel="tag">Apache</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BeautifulSoup/" rel="tag">BeautifulSoup</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Centos7/" rel="tag">Centos7</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cython/" rel="tag">Cython</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Electronic/" rel="tag">Electronic</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/English/" rel="tag">English</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Geant4/" rel="tag">Geant4</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hardware/" rel="tag">Hardware</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Image/" rel="tag">Image</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jupyter/" rel="tag">Jupyter</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mongodb/" rel="tag">Mongodb</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nuclear-Physics/" rel="tag">Nuclear Physics</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Open/" rel="tag">Open</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Opencv/" rel="tag">Opencv</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Program/" rel="tag">Program</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PyPI/" rel="tag">PyPI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Py-Crawler/" rel="tag">Py_Crawler</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Random/" rel="tag">Random</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Resource/" rel="tag">Resource</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Root/" rel="tag">Root</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Scipy/" rel="tag">Scipy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Shell/" rel="tag">Shell</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Solidwork/" rel="tag">Solidwork</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TTree/" rel="tag">TTree</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tensorflow/" rel="tag">Tensorflow</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Thread/" rel="tag">Thread</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Urllib2/" rel="tag">Urllib2</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Virtual-memory/" rel="tag">Virtual memory</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cmake/" rel="tag">cmake</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cmd/" rel="tag">cmd</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/data-structure/" rel="tag">data structure</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/htop/" rel="tag">htop</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/keras/" rel="tag">keras</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/latex/" rel="tag">latex</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/os/" rel="tag">os</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/qt/" rel="tag">qt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/requests/" rel="tag">requests</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sk-learn/" rel="tag">sk-learn</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh/" rel="tag">ssh</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/statistic/" rel="tag">statistic</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vi/" rel="tag">vi</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/windows/" rel="tag">windows</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/yolo%EF%BC%8CC/" rel="tag">yolo，C</a></li></ul>
     </div>
   </div>
 
@@ -447,7 +633,7 @@ array([ 0.56911206,  0.99777291,  0.18943144,  0.19387287,  0.75090637,
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Algorithm/" style="font-size: 11.33px;">Algorithm</a> <a href="/tags/Altium-Designer/" style="font-size: 14.67px;">Altium Designer</a> <a href="/tags/Apache/" style="font-size: 11.33px;">Apache</a> <a href="/tags/BeautifulSoup/" style="font-size: 10px;">BeautifulSoup</a> <a href="/tags/C/" style="font-size: 15.33px;">C</a> <a href="/tags/C/" style="font-size: 18.67px;">C++</a> <a href="/tags/Centos7/" style="font-size: 17.33px;">Centos7</a> <a href="/tags/Cython/" style="font-size: 10px;">Cython</a> <a href="/tags/Electronic/" style="font-size: 13.33px;">Electronic</a> <a href="/tags/English/" style="font-size: 12px;">English</a> <a href="/tags/Geant4/" style="font-size: 10.67px;">Geant4</a> <a href="/tags/Hardware/" style="font-size: 10px;">Hardware</a> <a href="/tags/Hexo/" style="font-size: 14px;">Hexo</a> <a href="/tags/Image/" style="font-size: 10px;">Image</a> <a href="/tags/Jupyter/" style="font-size: 10px;">Jupyter</a> <a href="/tags/Linux/" style="font-size: 19.33px;">Linux</a> <a href="/tags/Markdown/" style="font-size: 16px;">Markdown</a> <a href="/tags/Nuclear-Physics/" style="font-size: 11.33px;">Nuclear Physics</a> <a href="/tags/Open/" style="font-size: 10px;">Open</a> <a href="/tags/Program/" style="font-size: 18px;">Program</a> <a href="/tags/PyPI/" style="font-size: 10px;">PyPI</a> <a href="/tags/Py-Crawler/" style="font-size: 10.67px;">Py_Crawler</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/Random/" style="font-size: 10px;">Random</a> <a href="/tags/Resource/" style="font-size: 10.67px;">Resource</a> <a href="/tags/Root/" style="font-size: 10.67px;">Root</a> <a href="/tags/Scipy/" style="font-size: 10px;">Scipy</a> <a href="/tags/Shell/" style="font-size: 16px;">Shell</a> <a href="/tags/Solidwork/" style="font-size: 10.67px;">Solidwork</a> <a href="/tags/TTree/" style="font-size: 10px;">TTree</a> <a href="/tags/Tensorflow/" style="font-size: 15.33px;">Tensorflow</a> <a href="/tags/Thread/" style="font-size: 10px;">Thread</a> <a href="/tags/Urllib2/" style="font-size: 10px;">Urllib2</a> <a href="/tags/Virtual-memory/" style="font-size: 10px;">Virtual memory</a> <a href="/tags/cmake/" style="font-size: 12.67px;">cmake</a> <a href="/tags/cmd/" style="font-size: 10.67px;">cmd</a> <a href="/tags/data-structure/" style="font-size: 10.67px;">data structure</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/htop/" style="font-size: 10px;">htop</a> <a href="/tags/keras/" style="font-size: 10.67px;">keras</a> <a href="/tags/latex/" style="font-size: 14.67px;">latex</a> <a href="/tags/os/" style="font-size: 10px;">os</a> <a href="/tags/qt/" style="font-size: 10px;">qt</a> <a href="/tags/requests/" style="font-size: 10px;">requests</a> <a href="/tags/sk-learn/" style="font-size: 10px;">sk-learn</a> <a href="/tags/ssh/" style="font-size: 12.67px;">ssh</a> <a href="/tags/statistic/" style="font-size: 10px;">statistic</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/windows/" style="font-size: 16.67px;">windows</a>
+      <a href="/tags/Algorithm/" style="font-size: 11.33px;">Algorithm</a> <a href="/tags/Altium-Designer/" style="font-size: 14.67px;">Altium Designer</a> <a href="/tags/Apache/" style="font-size: 11.33px;">Apache</a> <a href="/tags/BeautifulSoup/" style="font-size: 10px;">BeautifulSoup</a> <a href="/tags/C/" style="font-size: 15.33px;">C</a> <a href="/tags/C/" style="font-size: 18.67px;">C++</a> <a href="/tags/Centos7/" style="font-size: 17.33px;">Centos7</a> <a href="/tags/Cython/" style="font-size: 10px;">Cython</a> <a href="/tags/Electronic/" style="font-size: 13.33px;">Electronic</a> <a href="/tags/English/" style="font-size: 12px;">English</a> <a href="/tags/Geant4/" style="font-size: 10.67px;">Geant4</a> <a href="/tags/Hardware/" style="font-size: 10px;">Hardware</a> <a href="/tags/Hexo/" style="font-size: 14px;">Hexo</a> <a href="/tags/Image/" style="font-size: 12px;">Image</a> <a href="/tags/Jupyter/" style="font-size: 10px;">Jupyter</a> <a href="/tags/Linux/" style="font-size: 19.33px;">Linux</a> <a href="/tags/Markdown/" style="font-size: 16px;">Markdown</a> <a href="/tags/Mongodb/" style="font-size: 10px;">Mongodb</a> <a href="/tags/Nuclear-Physics/" style="font-size: 11.33px;">Nuclear Physics</a> <a href="/tags/Open/" style="font-size: 10px;">Open</a> <a href="/tags/Opencv/" style="font-size: 10.67px;">Opencv</a> <a href="/tags/Program/" style="font-size: 18px;">Program</a> <a href="/tags/PyPI/" style="font-size: 10px;">PyPI</a> <a href="/tags/Py-Crawler/" style="font-size: 10.67px;">Py_Crawler</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/Random/" style="font-size: 10px;">Random</a> <a href="/tags/Resource/" style="font-size: 10.67px;">Resource</a> <a href="/tags/Root/" style="font-size: 10.67px;">Root</a> <a href="/tags/Scipy/" style="font-size: 10px;">Scipy</a> <a href="/tags/Shell/" style="font-size: 16px;">Shell</a> <a href="/tags/Solidwork/" style="font-size: 10.67px;">Solidwork</a> <a href="/tags/TTree/" style="font-size: 10px;">TTree</a> <a href="/tags/Tensorflow/" style="font-size: 15.33px;">Tensorflow</a> <a href="/tags/Thread/" style="font-size: 10px;">Thread</a> <a href="/tags/Urllib2/" style="font-size: 10px;">Urllib2</a> <a href="/tags/Virtual-memory/" style="font-size: 10px;">Virtual memory</a> <a href="/tags/cmake/" style="font-size: 12.67px;">cmake</a> <a href="/tags/cmd/" style="font-size: 10.67px;">cmd</a> <a href="/tags/data-structure/" style="font-size: 10.67px;">data structure</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/htop/" style="font-size: 10px;">htop</a> <a href="/tags/keras/" style="font-size: 10.67px;">keras</a> <a href="/tags/latex/" style="font-size: 14.67px;">latex</a> <a href="/tags/os/" style="font-size: 10px;">os</a> <a href="/tags/qt/" style="font-size: 10px;">qt</a> <a href="/tags/requests/" style="font-size: 10px;">requests</a> <a href="/tags/sk-learn/" style="font-size: 10px;">sk-learn</a> <a href="/tags/ssh/" style="font-size: 12.67px;">ssh</a> <a href="/tags/statistic/" style="font-size: 10px;">statistic</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/windows/" style="font-size: 16.67px;">windows</a> <a href="/tags/yolo%EF%BC%8CC/" style="font-size: 10px;">yolo，C</a>
     </div>
   </div>
 
@@ -456,7 +642,7 @@ array([ 0.56911206,  0.99777291,  0.18943144,  0.19387287,  0.75090637,
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li></ul>
     </div>
   </div>
 
@@ -469,23 +655,23 @@ array([ 0.56911206,  0.99777291,  0.18943144,  0.19387287,  0.75090637,
       <ul>
         
           <li>
-            <a href="/winedt_break/">Winedt注册表破解</a>
+            <a href="/nodejs_windows_install/">windows下安装nodejs及环境变量设置</a>
           </li>
         
           <li>
-            <a href="/latex_content_dot/">latex生成目录条目加点</a>
+            <a href="/Centos7_mongodb_install/">Centos7安装Mongodb</a>
           </li>
         
           <li>
-            <a href="/latex_figure_prefix/">latex论文用图修改前缀</a>
+            <a href="/Endnote_download_tutorial/">EndnoteX9下载及新手教程</a>
           </li>
         
           <li>
-            <a href="/yum_unblock/">linux yum进程占用问题</a>
+            <a href="/centos7_opencv_install/">Centso7下安装opencv</a>
           </li>
         
           <li>
-            <a href="/linux_googlechrome/">linux安装谷歌浏览器</a>
+            <a href="/anaconda_democrate_source/">anaconda安装库使用国内源</a>
           </li>
         
       </ul>

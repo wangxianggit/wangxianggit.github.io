@@ -67,14 +67,14 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-copy_massive_file_harddisk" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Python_getitem_slice" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/copy_massive_file_harddisk/" class="article-date">
-  <time datetime="2019-01-18T03:38:52.000Z" itemprop="datePublished">2019-01-18</time>
+    <a href="/Python_getitem_slice/" class="article-date">
+  <time datetime="2019-01-31T13:21:30.000Z" itemprop="datePublished">2019-01-31</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/learning/">learning</a>
+    <a class="article-category-link" href="/categories/Python/">Python</a>
   </div>
 
   </div>
@@ -85,7 +85,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/copy_massive_file_harddisk/">拷贝大文件到硬盘</a>
+      <a class="article-title" href="/Python_getitem_slice/">Python特殊函数__getitem__切片功能</a>
     </h1>
   
 
@@ -96,21 +96,34 @@
 	  <!-- Table of Contents -->
 
         <ul>
-<li><p>​ 一般磁盘文件格式默认为FAT32，这个格式不能移动超过4G的文件。</p>
+<li><p>​ __getitem__函数传入参数可以是int也可以是切片对象</p>
 </li>
-<li><p>若移动大于4G的文件，修改文件格式为NTFS</p>
+<li><p>若传入的是切片对象，则函数相应输出切片对象</p>
+</li>
+<li><p>以费波拉契函数为例分别判断函数输入int和slice对象时的情形</p>
 <ul>
-<li><p>windows下进入cmd，输入命令</p>
-<figure class="highlight dos"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">convert</span> C:/<span class="built_in">fs</span>:ntfs C为要修改的磁盘盘符</span><br></pre></td></tr></table></figure></li>
-<li><p>修改后的硬盘文件格式为NTFS</p>
-</li>
+<li>~~~<br>class Fib(object):<pre><code>def __getitem__(self, n):
+    if isinstance(n, int):
+        a, b = 1, 1
+        for x in range(n):
+            a, b = b, a + b
+        return a
+    if isinstance(n, slice):
+        start = n.start
+        stop = n.stop
+        a, b = 1, 1
+        L = []
+        for x in range(stop):
+            if x &gt;= start:
+                L.append(a)
+            a, b = b, a + b
+        return L</code></pre>
+<figure class="highlight inform7"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* ~~~</span><br><span class="line">  &gt;&gt;&gt;f=Fib()</span><br><span class="line">  &gt;&gt;&gt;f<span class="comment">[0:5]</span></span><br><span class="line">  <span class="comment">[1,1,2,3,5]</span></span><br></pre></td></tr></table></figure></li>
 </ul>
 </li>
-<li><p>手动修改中，需要进行格式化，不足的地方是硬盘文件丢失</p>
-<ul>
-<li>在格式化选项中，手动修改文件系统为NTFS，默认为FAT32</li>
-<li>格式化后的文件系统格式为NTFS</li>
-</ul>
+<li><p>与之对应的是__setitem__()方法，把对象视作list或dict来对集合赋值。</p>
+</li>
+<li><p>__delitem__()方法，用于删除某个元素。</p>
 </li>
 </ul>
 <hr>
@@ -118,10 +131,10 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/copy_massive_file_harddisk/" data-id="ckjv2ttx700cut0dn1d1a4e2z" class="article-share-link">Share</a>
+      <a data-url="http://wangxianggit.github.io/Python_getitem_slice/" data-id="ckjv2ttw8008ot0dncnbv8fsf" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/data-structure/" rel="tag">data structure</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/windows/" rel="tag">windows</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Program/" rel="tag">Program</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
 
     </footer>
   </div>
@@ -130,14 +143,14 @@
 
 
   
-    <article id="post-Centos_windows_twosystem_boot_repaire" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Python_getitem" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/Centos_windows_twosystem_boot_repaire/" class="article-date">
-  <time datetime="2019-01-18T02:36:23.000Z" itemprop="datePublished">2019-01-18</time>
+    <a href="/Python_getitem/" class="article-date">
+  <time datetime="2019-01-31T13:07:10.000Z" itemprop="datePublished">2019-01-31</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/learning/">learning</a>
+    <a class="article-category-link" href="/categories/Python/">Python</a>
   </div>
 
   </div>
@@ -148,7 +161,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/Centos_windows_twosystem_boot_repaire/">Centos和windows双系统引导修复</a>
+      <a class="article-title" href="/Python_getitem/">Python特殊函数__getitem__()</a>
     </h1>
   
 
@@ -159,27 +172,22 @@
 	  <!-- Table of Contents -->
 
         <ul>
-<li><p>​ 若开机找不到已经安装的centos7，修复引导的办法是：</p>
+<li><p>​ 对对象按照下标取出元素，使用特殊函数__getitem__()</p>
+</li>
+<li><p>以斐波那契数列作为对象，实现用下标得到相应类的实例：</p>
 <ul>
-<li><p>用centos iso 制作启动u盘进入到安装centos的界面，开机选择的时候不要选择安装centos,而是选择troubleshooting疑难解答选项，然后回车选择rescue a centos system。</p>
-</li>
-<li><p>进入到下一个界面，按tab键选择continue (一定要选），然后选择ok. 进入命令行界面，输入</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chroot <span class="regexp">/mnt/</span>sysimage</span><br></pre></td></tr></table></figure></li>
-<li><p>接着安装grub2</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="regexp">/sbin/g</span>rub2-install <span class="regexp">/dev/</span>sda</span><br></pre></td></tr></table></figure></li>
-<li><p>安装成功重启系统，centos引导恢复。</p>
-</li>
-</ul>
-</li>
-<li><p>若安装windows和centos7双系统，先安装windows后再安装centos7，重启后windows看不到，修复办法：</p>
-<ul>
-<li><p>安装ntfs-3g,命令：yum install ntfs-3g, 使centos能识别出windows所在的分区。</p>
-</li>
-<li><p>在root用户下执行命令</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grub2-mkconfig -o <span class="regexp">/boot/g</span>rub2/grub.cfg</span><br></pre></td></tr></table></figure></li>
-<li><p>grub.cfg为grub的配置文件, 系统自动找到windows 系统与centos7系统的引导项，并加入到了grub.cfg菜单中。</p>
-</li>
-<li><p>重启后启动菜单同时出现windows和centos7选项。</p>
+<li><pre><code>class Fab(object):
+    def __init__(self):
+           self.a, self.b = 1, 1
+
+    def __getitem__(self, n):
+        for x in range(n):
+            self.a, self.b = self.b, self.a + self.b
+        return self.a
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* ~~~</span><br><span class="line"><span class="meta">  &gt;</span><span class="bash">&gt;&gt;f=Fab()</span></span><br><span class="line"><span class="meta">  &gt;</span><span class="bash">&gt;&gt;f[2]</span></span><br><span class="line">  2</span><br><span class="line"><span class="meta">  &gt;</span><span class="bash">&gt;&gt;f[10]</span></span><br><span class="line">  89</span><br></pre></td></tr></table></figure>
+
+
+</code></pre>
 </li>
 </ul>
 </li>
@@ -189,10 +197,10 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/Centos_windows_twosystem_boot_repaire/" data-id="ckjv2ttug0025t0dn89dr9oiu" class="article-share-link">Share</a>
+      <a data-url="http://wangxianggit.github.io/Python_getitem/" data-id="ckjv2ttw8008lt0dn4c98ewih" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Centos7/" rel="tag">Centos7</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/windows/" rel="tag">windows</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Program/" rel="tag">Program</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
 
     </footer>
   </div>
@@ -201,14 +209,14 @@
 
 
   
-    <article id="post-Centos_version" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Python_iter" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/Centos_version/" class="article-date">
-  <time datetime="2019-01-18T02:17:17.000Z" itemprop="datePublished">2019-01-18</time>
+    <a href="/Python_iter/" class="article-date">
+  <time datetime="2019-01-31T11:28:12.000Z" itemprop="datePublished">2019-01-31</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/learning/">learning</a>
+    <a class="article-category-link" href="/categories/Python/">Python</a>
   </div>
 
   </div>
@@ -219,7 +227,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/Centos_version/">查看CentOS版本信息</a>
+      <a class="article-title" href="/Python_iter/">Python特殊函数__iter__()</a>
     </h1>
   
 
@@ -230,24 +238,26 @@
 	  <!-- Table of Contents -->
 
         <ul>
-<li>​ cat /etc/issue 查看版本<ul>
-<li>etc  初期etc的英文名字缩写为etcetera ，后来大家更习惯称为 Editable Text Configuration。ETC为系统配置文件目录，该目录包含系统启动脚本、启动配置文件、用户登陆配置文件、网络配置文件、httpd 配置文件、IPSec 配置文件和其他文件等。</li>
-</ul>
+<li><p>​ 循环调用一个类需要使用特殊函数方法__iter__(), 改方法返回一个迭代对象。</p>
 </li>
-<li>cat /etc/centos-release 查看CentOS版本</li>
-<li>cat /proc/version<ul>
-<li>proc 为process的缩写，里面存放与内核相关的文件。</li>
-<li>显示结果：<br>    Linux version 2.6.32-504.12.2.el6.x86_64 (<a href="mailto:&#x6d;&#111;&#x63;&#107;&#98;&#117;&#105;&#x6c;&#100;&#x40;&#99;&#x36;&#98;&#57;&#46;&#98;&#x73;&#x79;&#115;&#46;&#100;&#101;&#118;&#x2e;&#99;&#101;&#110;&#x74;&#111;&#x73;&#x2e;&#x6f;&#114;&#x67;">&#x6d;&#111;&#x63;&#107;&#98;&#117;&#105;&#x6c;&#100;&#x40;&#99;&#x36;&#98;&#57;&#46;&#98;&#x73;&#x79;&#115;&#46;&#100;&#101;&#118;&#x2e;&#99;&#101;&#110;&#x74;&#111;&#x73;&#x2e;&#x6f;&#114;&#x67;</a>) (gcc version 4.4.7 20120313 (Red Hat 4.4.7-11) (GCC) ) #1 SMP Wed Mar 11 22:03:14 UTC 2015  </li>
-<li>我们可以看到该系统使用的是Linux 2.6.32 内核的64为操作系统。GCC 为GUN 编译器集合，采用4.4.5版本。</li>
-</ul>
+<li><p>在一个循环中会不断调用迭代对象的next()方法得到循环的下一个值。</p>
 </li>
-<li>uname -a <ul>
-<li>显示中：Linux 主机192-168-14-166 ， Linux 版本2.6.32-504.12.2.el6.x86_64 64位</li>
-</ul>
+<li><p>循环终止于抛出异常StopIteration()类的出现。</p>
 </li>
-<li>uname -r<ul>
-<li>显示结果：2.6.32-504.12.2.el6.x86_64</li>
-<li>分析结果：Linux 版本2.6.32-504.12.2.el6.x86_64 64位</li>
+<li><p>StopIteration是一个类，抛出异常时，会自动有一个中间环节，就是生成StopIteration的一个对象。</p>
+<ul>
+<li>~~~<br>raise StopIteration()<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 以斐波那契数列作为一个类，用<span class="keyword">for</span>循环进行迭代：</span><br><span class="line"></span><br><span class="line">  * ~~~</span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Fab</span>(<span class="params"><span class="built_in">object</span></span>):</span></span><br><span class="line">    	<span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self,<span class="built_in">max</span></span>):</span></span><br><span class="line">    		self.<span class="built_in">max</span> = <span class="built_in">max</span></span><br><span class="line">    		self.n,self.a,self.b = <span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span></span><br><span class="line">    	<span class="function"><span class="keyword">def</span> <span class="title">__iter__</span>(<span class="params">self</span>):</span></span><br><span class="line">    		<span class="keyword">return</span> self</span><br><span class="line">    	<span class="function"><span class="keyword">def</span> <span class="title">__next__</span>(<span class="params">self</span>):</span></span><br><span class="line">    		<span class="keyword">if</span> self.n&lt;self.<span class="built_in">max</span>:</span><br><span class="line">    			r = self.b</span><br><span class="line">    			self.a ,self.b = self.b ,self.a+self.b</span><br><span class="line">    			self.n = self.n+<span class="number">1</span></span><br><span class="line">    			<span class="keyword">return</span> r</span><br><span class="line">    		<span class="keyword">raise</span> StopIteration</span><br></pre></td></tr></table></figure></li>
+<li><pre><code>&gt;&gt;&gt; for n in Fab(10):
+...     print(n)
+...
+1
+1
+2
+3
+5
+...
+55</code></pre>
+</li>
 </ul>
 </li>
 </ul>
@@ -256,10 +266,10 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/Centos_version/" data-id="ckjv2ttuf001zt0dn58smhabb" class="article-share-link">Share</a>
+      <a data-url="http://wangxianggit.github.io/Python_iter/" data-id="ckjv2ttwc0092t0dnhlus5lnq" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Centos7/" rel="tag">Centos7</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Program/" rel="tag">Program</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
 
     </footer>
   </div>
@@ -268,14 +278,14 @@
 
 
   
-    <article id="post-solidwork_project_plot_show_annotation" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Python_special_class" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/solidwork_project_plot_show_annotation/" class="article-date">
-  <time datetime="2018-12-16T07:33:39.000Z" itemprop="datePublished">2018-12-16</time>
+    <a href="/Python_special_class/" class="article-date">
+  <time datetime="2019-01-31T10:41:03.000Z" itemprop="datePublished">2019-01-31</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/learning/">learning</a>
+    <a class="article-category-link" href="/categories/Python/">Python</a>
   </div>
 
   </div>
@@ -286,7 +296,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/solidwork_project_plot_show_annotation/">solidwork工程图显示和隐藏注解</a>
+      <a class="article-title" href="/Python_special_class/">Python定制类</a>
     </h1>
   
 
@@ -297,47 +307,43 @@
 	  <!-- Table of Contents -->
 
         <ul>
-<li>参考链接：<a target="_blank" rel="noopener" href="http://help.solidworks.com/">http://help.solidworks.com</a></li>
-</ul>
-<h3 id="隐藏-显示注解"><a href="#隐藏-显示注解" class="headerlink" title="隐藏/显示注解"></a>隐藏/显示注解</h3><p>隐藏/显示注解允许您在工程图中切换单个注解或表格的显示状态。</p>
+<li><p>python中 __xxx__ 形式的变量或函数名在程序上有特殊用途。</p>
+</li>
+<li><p>__slot__用于指定类可以添加的属性。</p>
+</li>
+<li><p>__len__()用于返回类成员变量的长度。</p>
+</li>
+<li><p>__str__()自定义方式返回类对象的名称，例：</p>
 <ul>
-<li>如果您隐藏一注解，它仍存在于视图中。因此，如果您再次输入注解，它不会恢复。</li>
-<li>如果您删除一注解，当您再次输入注解时，它会恢复（如果它没有出现在另一视图中）。</li>
+<li><p>~~~<br>class Student(object):</p>
+<pre><code> def __init__(self, name):
+     self.name = name
+ def __str__(self):
+     return &#39;Student object (name: %s)&#39; % self.name</code></pre>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>print(Student(‘Tom’))<br>Student object (name: Tom)</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  * 在<span class="built_in">print</span>函数执行后，python自动调用函数\__str__(),返回自定类的名称</span><br><span class="line"></span><br><span class="line">* 另外一种情况是直接输入变量不用<span class="built_in">print</span>，打印出来的实例名称也可以自己定制，即用函数\__repr__()函数指定，例：</span><br><span class="line"></span><br><span class="line">  * ~~~</span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Student</span>(<span class="params"><span class="built_in">object</span></span>):</span></span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self, name</span>):</span></span><br><span class="line">            self.name = name</span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">__str__</span>(<span class="params">self</span>):</span></span><br><span class="line">            <span class="keyword">return</span> <span class="string">&#x27;Student object (name=%s)&#x27;</span> % self.name</span><br><span class="line">        __repr__ = __str__</span><br><span class="line">        </span><br><span class="line">    &gt;&gt;&gt; s=Student(<span class="string">&#x27;Tom&#x27;</span>)</span><br><span class="line">    Student <span class="built_in">object</span> (name: Tom)</span><br></pre></td></tr></table></figure></li>
+<li><p>这里输入对象名称后python调用函数__repr__，输出实例名称。</p>
+</li>
 </ul>
-<hr>
-<h3 id="显示尺寸名称"><a href="#显示尺寸名称" class="headerlink" title="显示尺寸名称"></a>显示尺寸名称</h3><p>欲显示尺寸名称：</p>
-<p>单击视图 &gt; 隐藏/显示 &gt; 尺寸名称 或隐藏/显示项目 <img src="http://help.solidworks.com/2016/Chinese-simplified/SolidWorks/sldworks/sum1450372805989.image"> &gt; 查看尺寸名称 <img src="http://help.solidworks.com/2016/Chinese-simplified/SolidWorks/sldworks/ena1450448842249.image">（前导视图工具栏）。</p>
-<hr>
-<h3 id="隐藏或显示注解"><a href="#隐藏或显示注解" class="headerlink" title="隐藏或显示注解"></a>隐藏或显示注解</h3><p>欲隐藏或显示注解：</p>
-<ol>
-<li><p>单击注解工具栏上的 隐藏/显示注解 <img src="http://help.solidworks.com/2016/Chinese-simplified/SolidWorks/sldworks/zom1450447334509.image">，或单击视图 &gt; 隐藏/显示 &gt; 注解。</p>
-<p>指针变为 <img src="http://help.solidworks.com/2016/Chinese-simplified/SolidWorks/sldworks/fao1450449637736.image">。</p>
 </li>
-<li><p>选择您想显示或隐藏的注解。</p>
-<table>
-<thead>
-<tr>
-<th>单击一注解以隐藏：</th>
-<th>单击一注解以显示：</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><img src="http://help.solidworks.com/2016/Chinese-simplified/SolidWorks/sldworks/eql1450450570309.image"></td>
-<td><img src="http://help.solidworks.com/2016/Chinese-simplified/SolidWorks/sldworks/mdu1450450570757.image"></td>
-</tr>
-</tbody></table>
-<p>如果您没有使用视图 &gt; 隐藏/显示 &gt; 注解，您可用右键单击一注解然后单击 隐藏 来隐藏注解。</p>
+<li><p>另外python中还有其他定制类如__iter__ , __getitem__等等。</p>
 </li>
-</ol>
+</ul>
 <hr>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/solidwork_project_plot_show_annotation/" data-id="ckjv2tty800hjt0dnbwykaon3" class="article-share-link">Share</a>
+      <a data-url="http://wangxianggit.github.io/Python_special_class/" data-id="ckjv2ttwl00a9t0dncqug6er2" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Solidwork/" rel="tag">Solidwork</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/windows/" rel="tag">windows</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Program/" rel="tag">Program</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
 
     </footer>
   </div>
@@ -346,14 +352,14 @@
 
 
   
-    <article id="post-hexo_editor_formula" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Python_len" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/hexo_editor_formula/" class="article-date">
-  <time datetime="2018-12-02T03:22:25.000Z" itemprop="datePublished">2018-12-02</time>
+    <a href="/Python_len/" class="article-date">
+  <time datetime="2019-01-31T10:32:51.000Z" itemprop="datePublished">2019-01-31</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/learning/">learning</a>
+    <a class="article-category-link" href="/categories/Python/">Python</a>
   </div>
 
   </div>
@@ -364,7 +370,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/hexo_editor_formula/">hexo公式编辑</a>
+      <a class="article-title" href="/Python_len/">Python特殊函数__len__</a>
     </h1>
   
 
@@ -374,33 +380,31 @@
       
 	  <!-- Table of Contents -->
 
-        <h3 id="hexo公式编辑"><a href="#hexo公式编辑" class="headerlink" title="hexo公式编辑"></a>hexo公式编辑</h3><ul>
-<li><p>公式编辑示例</p>
-</li>
-<li><pre><code> $$ 
-   f(n)=\begin&#123;cases&#125;
-   n/2, &amp; \text&#123;$ x&lt;=2 $&#125;\\
-   3n+1, &amp; \text&#123;$ x&gt;2 $&#125;
-   \end&#123;cases&#125;
- $$</code></pre>
-</li>
-<li><p>显示结果</p>
-<p> ​<br> $$<br> f(n)=\begin{cases}<br> n/2, &amp; \text{如果$ x&lt;=2 $}\<br> 3n+1, &amp; \text{如果$ x&gt;2 $}<br> \end{cases}<br> $$</p>
+        <ul>
+<li><p>​ Python特殊函数__len()__使函数len()能够作用于类中的变量，例：</p>
+<ul>
+<li><pre><code>class Namespace(object):
+
+    def __init__(self, *args):
+        self.names = args
+
+    def __len__(self):
+        return len(self.names)
+
+s = Namespace(&#39;jia&#39;, &#39;tim&#39;)
+print( len(s) )</code></pre>
 </li>
 </ul>
-<ul>
-<li>$$lim_{1\to+\infty}P(|\frac{1}{n}\sum_i^nX_i-\mu|&lt;\epsilon)=1, i=1,…,n$$  </li>
-<li>$lim_{1\to+\infty}P(|\frac{1}{n}\sum_i^nX_i-\mu|&lt;\epsilon)=1, i=1,…,n$</li>
-<li>$lim_{1\to+\infty}P(|\frac{1}{n}\sum_i^nX_i-\mu|&lt;\epsilon)=1, i=1,…,n$</li>
+</li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/hexo_editor_formula/" data-id="ckjv2ttxd00dqt0dn02i19urw" class="article-share-link">Share</a>
+      <a data-url="http://wangxianggit.github.io/Python_len/" data-id="ckjv2ttwf009et0dnhhdo33ld" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/latex/" rel="tag">latex</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Program/" rel="tag">Program</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
 
     </footer>
   </div>
@@ -413,7 +417,7 @@
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/page/32/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/31/">31</a><a class="page-number" href="/page/32/">32</a><span class="page-number current">33</span><a class="page-number" href="/page/34/">34</a><a class="page-number" href="/page/35/">35</a><span class="space">&hellip;</span><a class="page-number" href="/page/38/">38</a><a class="extend next" rel="next" href="/page/34/">Next &amp;raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/32/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/31/">31</a><a class="page-number" href="/page/32/">32</a><span class="page-number current">33</span><a class="page-number" href="/page/34/">34</a><a class="page-number" href="/page/35/">35</a><span class="space">&hellip;</span><a class="page-number" href="/page/41/">41</a><a class="extend next" rel="next" href="/page/34/">Next &amp;raquo;</a>
   </nav>
 
 </section>
@@ -451,7 +455,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithm/" rel="tag">Algorithm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Altium-Designer/" rel="tag">Altium Designer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Apache/" rel="tag">Apache</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BeautifulSoup/" rel="tag">BeautifulSoup</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Centos7/" rel="tag">Centos7</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cython/" rel="tag">Cython</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Electronic/" rel="tag">Electronic</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/English/" rel="tag">English</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Geant4/" rel="tag">Geant4</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hardware/" rel="tag">Hardware</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Image/" rel="tag">Image</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jupyter/" rel="tag">Jupyter</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nuclear-Physics/" rel="tag">Nuclear Physics</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Open/" rel="tag">Open</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Program/" rel="tag">Program</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PyPI/" rel="tag">PyPI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Py-Crawler/" rel="tag">Py_Crawler</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Random/" rel="tag">Random</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Resource/" rel="tag">Resource</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Root/" rel="tag">Root</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Scipy/" rel="tag">Scipy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Shell/" rel="tag">Shell</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Solidwork/" rel="tag">Solidwork</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TTree/" rel="tag">TTree</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tensorflow/" rel="tag">Tensorflow</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Thread/" rel="tag">Thread</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Urllib2/" rel="tag">Urllib2</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Virtual-memory/" rel="tag">Virtual memory</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cmake/" rel="tag">cmake</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cmd/" rel="tag">cmd</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/data-structure/" rel="tag">data structure</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/htop/" rel="tag">htop</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/keras/" rel="tag">keras</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/latex/" rel="tag">latex</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/os/" rel="tag">os</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/qt/" rel="tag">qt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/requests/" rel="tag">requests</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sk-learn/" rel="tag">sk-learn</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh/" rel="tag">ssh</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/statistic/" rel="tag">statistic</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vi/" rel="tag">vi</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/windows/" rel="tag">windows</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithm/" rel="tag">Algorithm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Altium-Designer/" rel="tag">Altium Designer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Apache/" rel="tag">Apache</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BeautifulSoup/" rel="tag">BeautifulSoup</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Centos7/" rel="tag">Centos7</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cython/" rel="tag">Cython</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Electronic/" rel="tag">Electronic</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/English/" rel="tag">English</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Geant4/" rel="tag">Geant4</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hardware/" rel="tag">Hardware</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Image/" rel="tag">Image</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jupyter/" rel="tag">Jupyter</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mongodb/" rel="tag">Mongodb</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nuclear-Physics/" rel="tag">Nuclear Physics</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Open/" rel="tag">Open</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Opencv/" rel="tag">Opencv</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Program/" rel="tag">Program</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PyPI/" rel="tag">PyPI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Py-Crawler/" rel="tag">Py_Crawler</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Random/" rel="tag">Random</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Resource/" rel="tag">Resource</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Root/" rel="tag">Root</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Scipy/" rel="tag">Scipy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Shell/" rel="tag">Shell</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Solidwork/" rel="tag">Solidwork</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TTree/" rel="tag">TTree</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tensorflow/" rel="tag">Tensorflow</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Thread/" rel="tag">Thread</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Urllib2/" rel="tag">Urllib2</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Virtual-memory/" rel="tag">Virtual memory</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cmake/" rel="tag">cmake</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cmd/" rel="tag">cmd</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/data-structure/" rel="tag">data structure</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/htop/" rel="tag">htop</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/keras/" rel="tag">keras</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/latex/" rel="tag">latex</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/os/" rel="tag">os</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/qt/" rel="tag">qt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/requests/" rel="tag">requests</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sk-learn/" rel="tag">sk-learn</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh/" rel="tag">ssh</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/statistic/" rel="tag">statistic</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vi/" rel="tag">vi</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/windows/" rel="tag">windows</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/yolo%EF%BC%8CC/" rel="tag">yolo，C</a></li></ul>
     </div>
   </div>
 
@@ -461,7 +465,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Algorithm/" style="font-size: 11.33px;">Algorithm</a> <a href="/tags/Altium-Designer/" style="font-size: 14.67px;">Altium Designer</a> <a href="/tags/Apache/" style="font-size: 11.33px;">Apache</a> <a href="/tags/BeautifulSoup/" style="font-size: 10px;">BeautifulSoup</a> <a href="/tags/C/" style="font-size: 15.33px;">C</a> <a href="/tags/C/" style="font-size: 18.67px;">C++</a> <a href="/tags/Centos7/" style="font-size: 17.33px;">Centos7</a> <a href="/tags/Cython/" style="font-size: 10px;">Cython</a> <a href="/tags/Electronic/" style="font-size: 13.33px;">Electronic</a> <a href="/tags/English/" style="font-size: 12px;">English</a> <a href="/tags/Geant4/" style="font-size: 10.67px;">Geant4</a> <a href="/tags/Hardware/" style="font-size: 10px;">Hardware</a> <a href="/tags/Hexo/" style="font-size: 14px;">Hexo</a> <a href="/tags/Image/" style="font-size: 10px;">Image</a> <a href="/tags/Jupyter/" style="font-size: 10px;">Jupyter</a> <a href="/tags/Linux/" style="font-size: 19.33px;">Linux</a> <a href="/tags/Markdown/" style="font-size: 16px;">Markdown</a> <a href="/tags/Nuclear-Physics/" style="font-size: 11.33px;">Nuclear Physics</a> <a href="/tags/Open/" style="font-size: 10px;">Open</a> <a href="/tags/Program/" style="font-size: 18px;">Program</a> <a href="/tags/PyPI/" style="font-size: 10px;">PyPI</a> <a href="/tags/Py-Crawler/" style="font-size: 10.67px;">Py_Crawler</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/Random/" style="font-size: 10px;">Random</a> <a href="/tags/Resource/" style="font-size: 10.67px;">Resource</a> <a href="/tags/Root/" style="font-size: 10.67px;">Root</a> <a href="/tags/Scipy/" style="font-size: 10px;">Scipy</a> <a href="/tags/Shell/" style="font-size: 16px;">Shell</a> <a href="/tags/Solidwork/" style="font-size: 10.67px;">Solidwork</a> <a href="/tags/TTree/" style="font-size: 10px;">TTree</a> <a href="/tags/Tensorflow/" style="font-size: 15.33px;">Tensorflow</a> <a href="/tags/Thread/" style="font-size: 10px;">Thread</a> <a href="/tags/Urllib2/" style="font-size: 10px;">Urllib2</a> <a href="/tags/Virtual-memory/" style="font-size: 10px;">Virtual memory</a> <a href="/tags/cmake/" style="font-size: 12.67px;">cmake</a> <a href="/tags/cmd/" style="font-size: 10.67px;">cmd</a> <a href="/tags/data-structure/" style="font-size: 10.67px;">data structure</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/htop/" style="font-size: 10px;">htop</a> <a href="/tags/keras/" style="font-size: 10.67px;">keras</a> <a href="/tags/latex/" style="font-size: 14.67px;">latex</a> <a href="/tags/os/" style="font-size: 10px;">os</a> <a href="/tags/qt/" style="font-size: 10px;">qt</a> <a href="/tags/requests/" style="font-size: 10px;">requests</a> <a href="/tags/sk-learn/" style="font-size: 10px;">sk-learn</a> <a href="/tags/ssh/" style="font-size: 12.67px;">ssh</a> <a href="/tags/statistic/" style="font-size: 10px;">statistic</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/windows/" style="font-size: 16.67px;">windows</a>
+      <a href="/tags/Algorithm/" style="font-size: 11.33px;">Algorithm</a> <a href="/tags/Altium-Designer/" style="font-size: 14.67px;">Altium Designer</a> <a href="/tags/Apache/" style="font-size: 11.33px;">Apache</a> <a href="/tags/BeautifulSoup/" style="font-size: 10px;">BeautifulSoup</a> <a href="/tags/C/" style="font-size: 15.33px;">C</a> <a href="/tags/C/" style="font-size: 18.67px;">C++</a> <a href="/tags/Centos7/" style="font-size: 17.33px;">Centos7</a> <a href="/tags/Cython/" style="font-size: 10px;">Cython</a> <a href="/tags/Electronic/" style="font-size: 13.33px;">Electronic</a> <a href="/tags/English/" style="font-size: 12px;">English</a> <a href="/tags/Geant4/" style="font-size: 10.67px;">Geant4</a> <a href="/tags/Hardware/" style="font-size: 10px;">Hardware</a> <a href="/tags/Hexo/" style="font-size: 14px;">Hexo</a> <a href="/tags/Image/" style="font-size: 12px;">Image</a> <a href="/tags/Jupyter/" style="font-size: 10px;">Jupyter</a> <a href="/tags/Linux/" style="font-size: 19.33px;">Linux</a> <a href="/tags/Markdown/" style="font-size: 16px;">Markdown</a> <a href="/tags/Mongodb/" style="font-size: 10px;">Mongodb</a> <a href="/tags/Nuclear-Physics/" style="font-size: 11.33px;">Nuclear Physics</a> <a href="/tags/Open/" style="font-size: 10px;">Open</a> <a href="/tags/Opencv/" style="font-size: 10.67px;">Opencv</a> <a href="/tags/Program/" style="font-size: 18px;">Program</a> <a href="/tags/PyPI/" style="font-size: 10px;">PyPI</a> <a href="/tags/Py-Crawler/" style="font-size: 10.67px;">Py_Crawler</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/Random/" style="font-size: 10px;">Random</a> <a href="/tags/Resource/" style="font-size: 10.67px;">Resource</a> <a href="/tags/Root/" style="font-size: 10.67px;">Root</a> <a href="/tags/Scipy/" style="font-size: 10px;">Scipy</a> <a href="/tags/Shell/" style="font-size: 16px;">Shell</a> <a href="/tags/Solidwork/" style="font-size: 10.67px;">Solidwork</a> <a href="/tags/TTree/" style="font-size: 10px;">TTree</a> <a href="/tags/Tensorflow/" style="font-size: 15.33px;">Tensorflow</a> <a href="/tags/Thread/" style="font-size: 10px;">Thread</a> <a href="/tags/Urllib2/" style="font-size: 10px;">Urllib2</a> <a href="/tags/Virtual-memory/" style="font-size: 10px;">Virtual memory</a> <a href="/tags/cmake/" style="font-size: 12.67px;">cmake</a> <a href="/tags/cmd/" style="font-size: 10.67px;">cmd</a> <a href="/tags/data-structure/" style="font-size: 10.67px;">data structure</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/htop/" style="font-size: 10px;">htop</a> <a href="/tags/keras/" style="font-size: 10.67px;">keras</a> <a href="/tags/latex/" style="font-size: 14.67px;">latex</a> <a href="/tags/os/" style="font-size: 10px;">os</a> <a href="/tags/qt/" style="font-size: 10px;">qt</a> <a href="/tags/requests/" style="font-size: 10px;">requests</a> <a href="/tags/sk-learn/" style="font-size: 10px;">sk-learn</a> <a href="/tags/ssh/" style="font-size: 12.67px;">ssh</a> <a href="/tags/statistic/" style="font-size: 10px;">statistic</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/windows/" style="font-size: 16.67px;">windows</a> <a href="/tags/yolo%EF%BC%8CC/" style="font-size: 10px;">yolo，C</a>
     </div>
   </div>
 
@@ -470,7 +474,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li></ul>
     </div>
   </div>
 
@@ -483,23 +487,23 @@
       <ul>
         
           <li>
-            <a href="/winedt_break/">Winedt注册表破解</a>
+            <a href="/nodejs_windows_install/">windows下安装nodejs及环境变量设置</a>
           </li>
         
           <li>
-            <a href="/latex_content_dot/">latex生成目录条目加点</a>
+            <a href="/Centos7_mongodb_install/">Centos7安装Mongodb</a>
           </li>
         
           <li>
-            <a href="/latex_figure_prefix/">latex论文用图修改前缀</a>
+            <a href="/Endnote_download_tutorial/">EndnoteX9下载及新手教程</a>
           </li>
         
           <li>
-            <a href="/yum_unblock/">linux yum进程占用问题</a>
+            <a href="/centos7_opencv_install/">Centso7下安装opencv</a>
           </li>
         
           <li>
-            <a href="/linux_googlechrome/">linux安装谷歌浏览器</a>
+            <a href="/anaconda_democrate_source/">anaconda安装库使用国内源</a>
           </li>
         
       </ul>

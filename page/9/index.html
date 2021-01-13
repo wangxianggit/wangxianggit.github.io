@@ -67,213 +67,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-ssh_config" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-list_dif" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/ssh_config/" class="article-date">
-  <time datetime="2019-06-06T01:51:42.000Z" itemprop="datePublished">2019-06-06</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/learning/">learning</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/ssh_config/">ssh服务配置</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-
-        <h2 id="ssh服务配置"><a href="#ssh服务配置" class="headerlink" title="ssh服务配置"></a>ssh服务配置</h2><ul>
-<li><p>备份配置文件：<code>cp /etc/ssh/sshd_config /etc/ssh/sshd_config.bak</code></p>
-</li>
-<li><p>我们通过看配置文件发现ssh服务的默认端口是22，很多时候我们的服务器被黑不是被人针对了，而是对方在扫一个网段中开启22端口的机器，而机器密码又是很简单。</p>
-</li>
-<li><p>把默认端口改了，这样就不容易被人扫出来。</p>
-</li>
-<li><p>修改默认端口：</p>
-<ul>
-<li>~~~<br>#Port 22<br>Port 9527<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">  * 我们把默认端口改为9527</span></span><br><span class="line"></span><br><span class="line"><span class="comment">  * 注意改的这个端口一定不能占用别的服务的默认端口，以免别的服务启动不起来</span></span><br><span class="line"></span><br><span class="line"><span class="comment">* 禁止root登陆：</span></span><br><span class="line"></span><br><span class="line"><span class="comment">  * root在我们系统中是一个特殊的存在，他是系统管理员，也就意味着他在系统中可以为所欲为，所以它也是我们要特别关注的对象</span></span><br><span class="line"></span><br><span class="line"><span class="comment">  * ~~~</span></span><br><span class="line">    #PermitRootLogin yes</span><br><span class="line">    PermitRootLogin <span class="keyword">no</span></span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-<li><p>限制ssh监听的ip</p>
-<ul>
-<li><p>这个适用于服务器有多个IP，这样我们就可以只监听内网IP，这样就只能用在同一个局域网的机器去连接，而我们只需要让在同一个服务器的另一台机器监听在外网，这样就可以实现在外网也访问服务器了，方法如下</p>
-</li>
-<li><pre><code>#ListenAddress 0.0.0.0
-#ListenAddress ::
-ListenAddress [ip]
-<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">  * 此时只能通过设定的ip连接</span></span><br><span class="line"></span><br><span class="line"><span class="comment">* 禁止使用密码登陆</span></span><br><span class="line"></span><br><span class="line"><span class="comment">  * 使用key认证登录的，这是一种比较安全的登录方式，所以为了提高安全性我们可以通过这种方式来登录服务器。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">  * 修改一下配置文件：</span></span><br><span class="line"></span><br><span class="line"><span class="comment">    * ~~~</span></span><br><span class="line">      #PasswordAuthentication yes</span><br><span class="line">      PasswordAuthentication <span class="keyword">no</span></span><br></pre></td></tr></table></figure></code></pre>
-</li>
-</ul>
-</li>
-</ul>
-<hr>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/ssh_config/" data-id="ckjv2tty700hft0dn3vloc16z" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ssh/" rel="tag">ssh</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-ssh_service_introduction" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/ssh_service_introduction/" class="article-date">
-  <time datetime="2019-06-06T01:10:33.000Z" itemprop="datePublished">2019-06-06</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/learning/">learning</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/ssh_service_introduction/">SSH服务详解</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-
-        <h2 id="ssh服务详解"><a href="#ssh服务详解" class="headerlink" title="ssh服务详解"></a>ssh服务详解</h2><ul>
-<li>传统上的网络服务程序如ftp、pop、telnet等存在不安全因素：在网络上用明文传送口令和数据，很容易受到其他人的攻击，即安全验证方式很容易受到“中间人(man-in-the-middle)”的修改。</li>
-<li>SSH 为 Secure Shell 的缩写，由 IETF 的网络小组（Network Working Group）所制定；</li>
-<li>SSH 为建立在应用层基础上的安全协议。</li>
-<li>SSH 是目前较可靠，专为远程登录会话和其他网络服务提供安全性的协议。利用 SSH 协议可以有效防止远程管理过程中的信息泄露问题。</li>
-<li>SSH是标准的网络协议，可用于大多数UNIX操作系统，能够实现字符界面的远程登录管理，它默认使用22号端口，采用密文的形式在网络中传输数据，相对于通过明文传输的Telnet，具有更高的安全性。</li>
-</ul>
-<h2 id="两种认证方式"><a href="#两种认证方式" class="headerlink" title="两种认证方式"></a>两种认证方式</h2><ul>
-<li>SSH提供了口令和密钥两种用户验证方式，这两者都是通过密文传输数据的。</li>
-<li>口令用户验证方式传输的是用户的账户名和密码，这要求输入的密码具有足够的复杂度才能具有更高的安全性。</li>
-<li>而基于密钥的安全验证必须为用户自己创建一对密钥，并把共有的密钥放在需要访问的服务器上。</li>
-<li>当需要连接到SSH服务器上时，客户端软件就会向服务器发出请求，请求使用客户端的密钥进行安全验证。</li>
-<li>服务器收到请求之后，先在该用户的根目录下寻找共有密钥，然后把它和发送过来的公有密钥进行比较。</li>
-<li>如果两个密钥一致，服务器就用公有的密钥加密“质询”，并把它发送给客户端软件。</li>
-<li>客户端收到质询之后，就可以用本地的私人密钥解密再把它发送给服务器。这种方式是相当安全的。</li>
-</ul>
-<h2 id="SSH服务认证"><a href="#SSH服务认证" class="headerlink" title="SSH服务认证"></a>SSH服务认证</h2><ul>
-<li><p>基于口令认证：</p>
-<ul>
-<li>基于口令的安全验证的方式就是大家现在一直在用的，只要知道服务器的SSH连接帐号和口令(当然也要知道对应服务器的 IP及开放的 SSH端口，默认为22 ),就可以通过 ssh客户端登录到这台远程主机。</li>
-<li><code>ssh [ip]</code>后根据提示输入账户和密码即可。</li>
-<li>此时，联机过程中所有传输的数据都是加密的。</li>
-</ul>
-</li>
-<li><p>基于密钥认证：</p>
-<ul>
-<li><p>首先在客户端生成一对密钥：<code>ssh-keygen -t dsa</code></p>
-</li>
-<li><p>~~~<br>Generating public/private dsa key pair.<br>Enter file in which to save the key (/home/wangxiang/.ssh/id_dsa):<br>Enter passphrase (empty for no passphrase):<br>Enter same passphrase again:<br>Your identification has been saved in /home/wangxiang/.ssh/id_dsa.<br>Your public key has been saved in /home/wangxiang/.ssh/id_dsa.pub.<br>The key fingerprint is:<br>SHA256:Z/49qQZUeJp0DwbP8xdAEVTYXP6fWkHHxYrrgN3chzg <a href="mailto:&#119;&#x61;&#x6e;&#x67;&#120;&#x69;&#x61;&#110;&#103;&#x40;&#108;&#111;&#x63;&#97;&#x6c;&#x68;&#111;&#x73;&#116;&#46;&#108;&#x6f;&#x63;&#97;&#x6c;&#100;&#x6f;&#109;&#x61;&#x69;&#x6e;">&#119;&#x61;&#x6e;&#x67;&#120;&#x69;&#x61;&#110;&#103;&#x40;&#108;&#111;&#x63;&#97;&#x6c;&#x68;&#111;&#x73;&#116;&#46;&#108;&#x6f;&#x63;&#97;&#x6c;&#100;&#x6f;&#109;&#x61;&#x69;&#x6e;</a><br>The key’s randomart image is:<br>+—[DSA 1024]—-+<br>|          .oo<em>Bo+|<br>|          oo</em>..=o|<br>|         . B++ ++|<br>|          + .o+ +|<br>|        S+oo +.oo|<br>|        .++ E o.=|<br>|          .+ . =.|<br>|           .o.=  |<br>|           .oo.. |<br>+—-[SHA256]—–+</p>
-<figure class="highlight tap"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 将客户端的公钥传到服务器端：</span><br><span class="line"></span><br><span class="line">* ~~~</span><br><span class="line">  [wangxiang@localhost ~]$ cd .ssh/</span><br><span class="line">  [wangxiang@localhost .ssh]$ ll</span><br><span class="line">  total 20</span><br><span class="line">  -rw-------.<span class="number"> 1 </span>wangxiang wangxiang <span class="number"> 668 </span>Jun <span class="number"> 6 </span>09:25 id_dsa</span><br><span class="line">  -rw-r--r--.<span class="number"> 1 </span>wangxiang wangxiang <span class="number"> 621 </span>Jun <span class="number"> 6 </span>09:25 id_dsa.pub</span><br><span class="line">  -rw-------.<span class="number"> 1 </span>wangxiang wangxiang<span class="number"> 1675 </span>Apr<span class="number"> 26 </span>17:53 id_rsa</span><br><span class="line">  -rw-r--r--.<span class="number"> 1 </span>wangxiang wangxiang <span class="number"> 397 </span>Apr<span class="number"> 26 </span>17:53 id_rsa.pub</span><br><span class="line">  -rw-r--r--.<span class="number"> 1 </span>wangxiang wangxiang<span class="number"> 1212 </span>May<span class="number"> 16 </span>12:57 known_hosts</span><br></pre></td></tr></table></figure></li>
-<li><p>此后可以实现免密登陆。</p>
-</li>
-</ul>
-</li>
-</ul>
-<hr>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/ssh_service_introduction/" data-id="ckjv2tty900hmt0dnhldi6e88" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ssh/" rel="tag">ssh</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-ssh_show_image" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/ssh_show_image/" class="article-date">
-  <time datetime="2019-06-06T00:57:20.000Z" itemprop="datePublished">2019-06-06</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/learning/">learning</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/ssh_show_image/">Linux ssh显示图形界面</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-
-        <h2 id="Linux-ssh显示图形界面"><a href="#Linux-ssh显示图形界面" class="headerlink" title="Linux ssh显示图形界面"></a>Linux ssh显示图形界面</h2><ul>
-<li>在图形机上开启SSH服务的图形界面显示：<ul>
-<li>修改配置文件：/etc/ssh/sshd_config</li>
-<li><code>X11Forwarding yes</code>不同发行版可能不一样，参看配置文件中的注释部分</li>
-</ul>
-</li>
-<li>当ssh远程登陆时加上-X选项：<code>ssh -X [IP]</code></li>
-<li>启动程序远程登陆可以开启图形界面显示。</li>
-</ul>
-<hr>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/ssh_show_image/" data-id="ckjv2ttya00hpt0dn9r9j1nay" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ssh/" rel="tag">ssh</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-cython_usage1" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/cython_usage1/" class="article-date">
-  <time datetime="2019-06-04T12:57:27.000Z" itemprop="datePublished">2019-06-04</time>
+    <a href="/list_dif/" class="article-date">
+  <time datetime="2019-09-22T13:15:14.000Z" itemprop="datePublished">2019-09-22</time>
 </a>
     
   <div class="article-category">
@@ -288,7 +85,7 @@ ListenAddress [ip]
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/cython_usage1/">Cython用于编译Python脚本</a>
+      <a class="article-title" href="/list_dif/">两个list间的比较</a>
     </h1>
   
 
@@ -298,36 +95,22 @@ ListenAddress [ip]
       
 	  <!-- Table of Contents -->
 
-        <h2 id="Cython用于编译Python脚本"><a href="#Cython用于编译Python脚本" class="headerlink" title="Cython用于编译Python脚本"></a>Cython用于编译Python脚本</h2><ul>
-<li><p>网站：<a target="_blank" rel="noopener" href="https://cython.org/">https://cython.org</a></p>
+        <h3 id="list间​差集"><a href="#list间​差集" class="headerlink" title="list间​差集"></a>list间​差集</h3><ul>
+<li><p>转化成set进行比较</p>
 </li>
-<li><p>Python脚本也可以通过编译来加速运行，使用cython可以达到这个效果。</p>
-</li>
-<li><p>Cython安装：</p>
-<ul>
-<li><p><code>pip install Cython</code></p>
-</li>
-<li><p>或在官方网站上下载源码包安装</p>
-</li>
-<li><p>~~~<br>tar -xvzf Cython-xxx.tar.gz<br>cd Cython-xxx<br>python setup.py install</p>
-<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">## Cython编译方法</span><br><span class="line"></span><br><span class="line">* 新建一个.cyx文件，文件内容为: `print <span class="string">&quot;Hello world!&quot;</span>`</span><br><span class="line"></span><br><span class="line">* 然后新建一个setup.py文件，内容如下：</span><br><span class="line"></span><br><span class="line">  * ~~~</span><br><span class="line">    <span class="keyword">from</span> distutils.core <span class="keyword">import</span> setup</span><br><span class="line">    <span class="keyword">from</span> Cython.Build <span class="keyword">import</span> cythonize</span><br><span class="line">         </span><br><span class="line">    setup(</span><br><span class="line">       ext_modules=cythonize(<span class="string">&quot;hello.pyx&quot;</span>)</span><br><span class="line">    )</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-<li><p>在命令行下编译:<code>python setup.py build_ext --inplace</code></p>
-</li>
-<li><p>完成后在目录下多出.c和.so文件，这里，c文件就是cython将我们的pyx文件解析成一个c文件件，不依赖与平台，而后面的so或者pyd文件，则是将c文件进行编译后的一个文件，依赖于平台。</p>
-</li>
-<li><p>so文件或者pyd文件就可以像普通的python文件一样，被import。</p>
-</li>
-<li><p>除了编译，另外一种简单高效的使用方式是在python前加上以下内容：</p>
-<ul>
-<li><pre><code>import pyximport
-pyximport.install()
-import hello</code></pre>
-</li>
-<li><p>这里相当于cython默认帮我们编译好直接调用</p>
-</li>
-</ul>
+<li><pre><code>listA = [&#39;zhangsan&#39;, &#39;lisi&#39;, &#39;wangwu&#39;]
+listB = [&#39;zhangsan&#39;, &#39;lisi&#39;, &#39;zhaoliu&#39;]
+
+差集
+set(listA).difference(set(listB))
+set(listB).difference(set(listA))
+
+交集
+set(listA).intersection(set(listB))
+
+并集
+set(listA).union(set(listB))
+<figure class="highlight gml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 使用循环迭代比较</span><br><span class="line"></span><br><span class="line">* ~~~</span><br><span class="line">  a = [<span class="symbol">x</span> <span class="keyword">for</span> <span class="symbol">x</span> in listA <span class="keyword">if</span> <span class="symbol">x</span> in listB] #两个列表表都存在</span><br><span class="line">  b = [<span class="symbol">y</span> <span class="keyword">for</span> <span class="symbol">y</span> in (listA + listB) <span class="keyword">if</span> <span class="symbol">y</span> <span class="keyword">not</span> in a] #两个列表中的不同元素</span><br></pre></td></tr></table></figure></code></pre>
 </li>
 </ul>
 <hr>
@@ -335,10 +118,10 @@ import hello</code></pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/cython_usage1/" data-id="ckjv2ttx800cyt0dn3re954wk" class="article-share-link">Share</a>
+      <a data-url="http://wangxianggit.github.io/list_dif/" data-id="ckjv2ttxq00fct0dn4f8i0e5q" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Cython/" rel="tag">Cython</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
 
     </footer>
   </div>
@@ -347,14 +130,14 @@ import hello</code></pre>
 
 
   
-    <article id="post-Collection_interests" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-np_array_asarray" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/Collection_interests/" class="article-date">
-  <time datetime="2019-06-03T03:05:32.000Z" itemprop="datePublished">2019-06-03</time>
+    <a href="/np_array_asarray/" class="article-date">
+  <time datetime="2019-09-22T10:21:07.000Z" itemprop="datePublished">2019-09-22</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/learning/">learning</a>
+    <a class="article-category-link" href="/categories/Python/">Python</a>
   </div>
 
   </div>
@@ -365,7 +148,7 @@ import hello</code></pre>
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/Collection_interests/">新趣集</a>
+      <a class="article-title" href="/np_array_asarray/">np.array&amp;np.asarray</a>
     </h1>
   
 
@@ -375,17 +158,219 @@ import hello</code></pre>
       
 	  <!-- Table of Contents -->
 
-        <h2 id="新趣集，一个新的产品发现社区"><a href="#新趣集，一个新的产品发现社区" class="headerlink" title="新趣集，一个新的产品发现社区"></a>新趣集，一个新的产品发现社区</h2><ul>
-<li>链接：<a target="_blank" rel="noopener" href="https://xinquji.com/">https://xinquji.com</a></li>
+        <h3 id="函数np-array和np-asarray"><a href="#函数np-array和np-asarray" class="headerlink" title="函数np.array和np.asarray"></a>函数np.array和np.asarray</h3><ul>
+<li><p>两个函数都可以把结构数据转成ndarray类型</p>
+</li>
+<li><p>区别：当数据源是ndarray时，array仍会copy出一个副本，占用新的内存，asarray不会。</p>
+</li>
+<li><p>示例代码：</p>
+<ul>
+<li><pre><code>import numpy as np  
+
+arr1=np.ones((3,3))  
+arr2=np.array(arr1)  
+arr3=np.asarray(arr1)  
+arr1[1]=2  
+print (&#39;arr1:\n&#39;,arr1  )
+print (&#39;arr2:\n&#39;,arr2  )
+print (&#39;arr3:\n&#39;,arr3  )
+out:
+arr1:
+ [[1. 1. 1.]
+ [2. 2. 2.]
+ [1. 1. 1.]]
+arr2:
+ [[1. 1. 1.]
+ [1. 1. 1.]
+ [1. 1. 1.]]
+arr3:
+ [[1. 1. 1.]
+ [2. 2. 2.]
+ [1. 1. 1.]]
+</code></pre>
+</li>
 </ul>
+</li>
+</ul>
+<hr>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/Collection_interests/" data-id="ckjv2ttuh0027t0dn1uevdf3s" class="article-share-link">Share</a>
+      <a data-url="http://wangxianggit.github.io/np_array_asarray/" data-id="ckjv2ttxr00fgt0dn4jdo7psq" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Resource/" rel="tag">Resource</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-array_reshape" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/array_reshape/" class="article-date">
+  <time datetime="2019-09-20T06:05:17.000Z" itemprop="datePublished">2019-09-20</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Python/">Python</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/array_reshape/">array.reshape(-1)</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+
+        <h3 id="np-array函数reshape-1"><a href="#np-array函数reshape-1" class="headerlink" title="np.array函数reshape(-1)"></a>np.array函数reshape(-1)</h3><ul>
+<li><p>function：平铺所有元素值</p>
+</li>
+<li><pre><code>z = np.array([[1, 2, 3],
+          [5, 6, 7],
+          [9, 10, 11],
+          [13, 14, 15]])
+z.reshape(-1)
+out: array([ 1,  2,  3,  5,  6,  7,  9, 10, 11, 13, 14, 15])
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* reshape(<span class="number">-1</span>,<span class="number">1</span>)垂直平铺所有元素值</span><br><span class="line"></span><br><span class="line">* ~~~</span><br><span class="line">  z.reshape(<span class="number">-1</span>,<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">  <span class="keyword">out</span>:</span><br><span class="line">  <span class="built_in">array</span>([[ <span class="number">1</span>],</span><br><span class="line"><span class="string">         [ 2]</span>,</span><br><span class="line"><span class="string">         [ 3]</span>,</span><br><span class="line"><span class="string">         [ 5]</span>,</span><br><span class="line"><span class="string">         [ 6]</span>,</span><br><span class="line"><span class="string">         [ 7]</span>,</span><br><span class="line"><span class="string">         [ 9]</span>,</span><br><span class="line"><span class="string">         [10]</span>,</span><br><span class="line"><span class="string">         [11]</span>,</span><br><span class="line"><span class="string">         [13]</span>,</span><br><span class="line"><span class="string">         [14]</span>,</span><br><span class="line"><span class="string">         [15]</span>])</span><br></pre></td></tr></table></figure></code></pre>
+</li>
+</ul>
+<hr>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wangxianggit.github.io/array_reshape/" data-id="ckjv2ttwx00bit0dn0yfsfvxn" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-tf_eval" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/tf_eval/" class="article-date">
+  <time datetime="2019-09-18T01:25:33.000Z" itemprop="datePublished">2019-09-18</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Python/">Python</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/tf_eval/">tf.eval函数</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+
+        <h3 id="tf-eval"><a href="#tf-eval" class="headerlink" title="tf.eval"></a>tf.eval</h3><ul>
+<li><p>用于在tensorflow中显示地输出变量的值。</p>
+</li>
+<li><pre><code>In [38]: ta = tf.zeros((2,2))
+
+In [40]: print(ta)
+Tensor(&quot;zeros_1:0&quot;, shape=(2, 2), dtype=float32)
+
+In [41]: print(ta.eval())[[ 0.  0.]
+[ 0. 0.]]</code></pre>
+</li>
+</ul>
+<hr>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wangxianggit.github.io/tf_eval/" data-id="ckjv2ttyg00igt0dneuo0edi2" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Tensorflow/" rel="tag">Tensorflow</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-tf.global_variables_initializer" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/tf.global_variables_initializer/" class="article-date">
+  <time datetime="2019-09-18T01:22:37.000Z" itemprop="datePublished">2019-09-18</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Python/">Python</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/tf.global_variables_initializer/">tf.global_variables_initializer</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+
+        <h3 id="tf-global-variables-initializer"><a href="#tf-global-variables-initializer" class="headerlink" title="tf.global_variables_initializer"></a>tf.global_variables_initializer</h3><ul>
+<li><p>函数用于初始化模型的参数：</p>
+<ul>
+<li><pre><code>init = tf.initialize_all_variables()
+sess = tf.Session()
+sess.run(init)
+<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 有选择地初始化部分变量，使用 tf.initialize<span class="constructor">_variables()</span>：</span><br><span class="line"></span><br><span class="line"><span class="operator">  * </span>~~~</span><br><span class="line">    init_new_vars_op = tf.initialize<span class="constructor">_variables([<span class="params">v_6</span>, <span class="params">v_7</span>, <span class="params">v_8</span>])</span></span><br><span class="line">    sess.run(init_new_vars_op)</span><br></pre></td></tr></table></figure></code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wangxianggit.github.io/tf.global_variables_initializer/" data-id="ckjv2ttyc00hyt0dn9koc1o3o" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Tensorflow/" rel="tag">Tensorflow</a></li></ul>
 
     </footer>
   </div>
@@ -398,7 +383,7 @@ import hello</code></pre>
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/page/8/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><span class="space">&hellip;</span><a class="page-number" href="/page/38/">38</a><a class="extend next" rel="next" href="/page/10/">Next &amp;raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/8/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><span class="space">&hellip;</span><a class="page-number" href="/page/41/">41</a><a class="extend next" rel="next" href="/page/10/">Next &amp;raquo;</a>
   </nav>
 
 </section>
@@ -436,7 +421,7 @@ import hello</code></pre>
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithm/" rel="tag">Algorithm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Altium-Designer/" rel="tag">Altium Designer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Apache/" rel="tag">Apache</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BeautifulSoup/" rel="tag">BeautifulSoup</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Centos7/" rel="tag">Centos7</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cython/" rel="tag">Cython</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Electronic/" rel="tag">Electronic</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/English/" rel="tag">English</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Geant4/" rel="tag">Geant4</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hardware/" rel="tag">Hardware</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Image/" rel="tag">Image</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jupyter/" rel="tag">Jupyter</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nuclear-Physics/" rel="tag">Nuclear Physics</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Open/" rel="tag">Open</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Program/" rel="tag">Program</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PyPI/" rel="tag">PyPI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Py-Crawler/" rel="tag">Py_Crawler</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Random/" rel="tag">Random</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Resource/" rel="tag">Resource</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Root/" rel="tag">Root</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Scipy/" rel="tag">Scipy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Shell/" rel="tag">Shell</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Solidwork/" rel="tag">Solidwork</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TTree/" rel="tag">TTree</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tensorflow/" rel="tag">Tensorflow</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Thread/" rel="tag">Thread</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Urllib2/" rel="tag">Urllib2</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Virtual-memory/" rel="tag">Virtual memory</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cmake/" rel="tag">cmake</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cmd/" rel="tag">cmd</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/data-structure/" rel="tag">data structure</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/htop/" rel="tag">htop</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/keras/" rel="tag">keras</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/latex/" rel="tag">latex</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/os/" rel="tag">os</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/qt/" rel="tag">qt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/requests/" rel="tag">requests</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sk-learn/" rel="tag">sk-learn</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh/" rel="tag">ssh</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/statistic/" rel="tag">statistic</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vi/" rel="tag">vi</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/windows/" rel="tag">windows</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithm/" rel="tag">Algorithm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Altium-Designer/" rel="tag">Altium Designer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Apache/" rel="tag">Apache</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BeautifulSoup/" rel="tag">BeautifulSoup</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Centos7/" rel="tag">Centos7</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cython/" rel="tag">Cython</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Electronic/" rel="tag">Electronic</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/English/" rel="tag">English</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Geant4/" rel="tag">Geant4</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hardware/" rel="tag">Hardware</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Image/" rel="tag">Image</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jupyter/" rel="tag">Jupyter</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mongodb/" rel="tag">Mongodb</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nuclear-Physics/" rel="tag">Nuclear Physics</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Open/" rel="tag">Open</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Opencv/" rel="tag">Opencv</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Program/" rel="tag">Program</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PyPI/" rel="tag">PyPI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Py-Crawler/" rel="tag">Py_Crawler</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Random/" rel="tag">Random</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Resource/" rel="tag">Resource</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Root/" rel="tag">Root</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Scipy/" rel="tag">Scipy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Shell/" rel="tag">Shell</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Solidwork/" rel="tag">Solidwork</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TTree/" rel="tag">TTree</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tensorflow/" rel="tag">Tensorflow</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Thread/" rel="tag">Thread</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Urllib2/" rel="tag">Urllib2</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Virtual-memory/" rel="tag">Virtual memory</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cmake/" rel="tag">cmake</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cmd/" rel="tag">cmd</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/data-structure/" rel="tag">data structure</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/htop/" rel="tag">htop</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/keras/" rel="tag">keras</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/latex/" rel="tag">latex</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/os/" rel="tag">os</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/qt/" rel="tag">qt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/requests/" rel="tag">requests</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sk-learn/" rel="tag">sk-learn</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh/" rel="tag">ssh</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/statistic/" rel="tag">statistic</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vi/" rel="tag">vi</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/windows/" rel="tag">windows</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/yolo%EF%BC%8CC/" rel="tag">yolo，C</a></li></ul>
     </div>
   </div>
 
@@ -446,7 +431,7 @@ import hello</code></pre>
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Algorithm/" style="font-size: 11.33px;">Algorithm</a> <a href="/tags/Altium-Designer/" style="font-size: 14.67px;">Altium Designer</a> <a href="/tags/Apache/" style="font-size: 11.33px;">Apache</a> <a href="/tags/BeautifulSoup/" style="font-size: 10px;">BeautifulSoup</a> <a href="/tags/C/" style="font-size: 15.33px;">C</a> <a href="/tags/C/" style="font-size: 18.67px;">C++</a> <a href="/tags/Centos7/" style="font-size: 17.33px;">Centos7</a> <a href="/tags/Cython/" style="font-size: 10px;">Cython</a> <a href="/tags/Electronic/" style="font-size: 13.33px;">Electronic</a> <a href="/tags/English/" style="font-size: 12px;">English</a> <a href="/tags/Geant4/" style="font-size: 10.67px;">Geant4</a> <a href="/tags/Hardware/" style="font-size: 10px;">Hardware</a> <a href="/tags/Hexo/" style="font-size: 14px;">Hexo</a> <a href="/tags/Image/" style="font-size: 10px;">Image</a> <a href="/tags/Jupyter/" style="font-size: 10px;">Jupyter</a> <a href="/tags/Linux/" style="font-size: 19.33px;">Linux</a> <a href="/tags/Markdown/" style="font-size: 16px;">Markdown</a> <a href="/tags/Nuclear-Physics/" style="font-size: 11.33px;">Nuclear Physics</a> <a href="/tags/Open/" style="font-size: 10px;">Open</a> <a href="/tags/Program/" style="font-size: 18px;">Program</a> <a href="/tags/PyPI/" style="font-size: 10px;">PyPI</a> <a href="/tags/Py-Crawler/" style="font-size: 10.67px;">Py_Crawler</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/Random/" style="font-size: 10px;">Random</a> <a href="/tags/Resource/" style="font-size: 10.67px;">Resource</a> <a href="/tags/Root/" style="font-size: 10.67px;">Root</a> <a href="/tags/Scipy/" style="font-size: 10px;">Scipy</a> <a href="/tags/Shell/" style="font-size: 16px;">Shell</a> <a href="/tags/Solidwork/" style="font-size: 10.67px;">Solidwork</a> <a href="/tags/TTree/" style="font-size: 10px;">TTree</a> <a href="/tags/Tensorflow/" style="font-size: 15.33px;">Tensorflow</a> <a href="/tags/Thread/" style="font-size: 10px;">Thread</a> <a href="/tags/Urllib2/" style="font-size: 10px;">Urllib2</a> <a href="/tags/Virtual-memory/" style="font-size: 10px;">Virtual memory</a> <a href="/tags/cmake/" style="font-size: 12.67px;">cmake</a> <a href="/tags/cmd/" style="font-size: 10.67px;">cmd</a> <a href="/tags/data-structure/" style="font-size: 10.67px;">data structure</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/htop/" style="font-size: 10px;">htop</a> <a href="/tags/keras/" style="font-size: 10.67px;">keras</a> <a href="/tags/latex/" style="font-size: 14.67px;">latex</a> <a href="/tags/os/" style="font-size: 10px;">os</a> <a href="/tags/qt/" style="font-size: 10px;">qt</a> <a href="/tags/requests/" style="font-size: 10px;">requests</a> <a href="/tags/sk-learn/" style="font-size: 10px;">sk-learn</a> <a href="/tags/ssh/" style="font-size: 12.67px;">ssh</a> <a href="/tags/statistic/" style="font-size: 10px;">statistic</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/windows/" style="font-size: 16.67px;">windows</a>
+      <a href="/tags/Algorithm/" style="font-size: 11.33px;">Algorithm</a> <a href="/tags/Altium-Designer/" style="font-size: 14.67px;">Altium Designer</a> <a href="/tags/Apache/" style="font-size: 11.33px;">Apache</a> <a href="/tags/BeautifulSoup/" style="font-size: 10px;">BeautifulSoup</a> <a href="/tags/C/" style="font-size: 15.33px;">C</a> <a href="/tags/C/" style="font-size: 18.67px;">C++</a> <a href="/tags/Centos7/" style="font-size: 17.33px;">Centos7</a> <a href="/tags/Cython/" style="font-size: 10px;">Cython</a> <a href="/tags/Electronic/" style="font-size: 13.33px;">Electronic</a> <a href="/tags/English/" style="font-size: 12px;">English</a> <a href="/tags/Geant4/" style="font-size: 10.67px;">Geant4</a> <a href="/tags/Hardware/" style="font-size: 10px;">Hardware</a> <a href="/tags/Hexo/" style="font-size: 14px;">Hexo</a> <a href="/tags/Image/" style="font-size: 12px;">Image</a> <a href="/tags/Jupyter/" style="font-size: 10px;">Jupyter</a> <a href="/tags/Linux/" style="font-size: 19.33px;">Linux</a> <a href="/tags/Markdown/" style="font-size: 16px;">Markdown</a> <a href="/tags/Mongodb/" style="font-size: 10px;">Mongodb</a> <a href="/tags/Nuclear-Physics/" style="font-size: 11.33px;">Nuclear Physics</a> <a href="/tags/Open/" style="font-size: 10px;">Open</a> <a href="/tags/Opencv/" style="font-size: 10.67px;">Opencv</a> <a href="/tags/Program/" style="font-size: 18px;">Program</a> <a href="/tags/PyPI/" style="font-size: 10px;">PyPI</a> <a href="/tags/Py-Crawler/" style="font-size: 10.67px;">Py_Crawler</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/Random/" style="font-size: 10px;">Random</a> <a href="/tags/Resource/" style="font-size: 10.67px;">Resource</a> <a href="/tags/Root/" style="font-size: 10.67px;">Root</a> <a href="/tags/Scipy/" style="font-size: 10px;">Scipy</a> <a href="/tags/Shell/" style="font-size: 16px;">Shell</a> <a href="/tags/Solidwork/" style="font-size: 10.67px;">Solidwork</a> <a href="/tags/TTree/" style="font-size: 10px;">TTree</a> <a href="/tags/Tensorflow/" style="font-size: 15.33px;">Tensorflow</a> <a href="/tags/Thread/" style="font-size: 10px;">Thread</a> <a href="/tags/Urllib2/" style="font-size: 10px;">Urllib2</a> <a href="/tags/Virtual-memory/" style="font-size: 10px;">Virtual memory</a> <a href="/tags/cmake/" style="font-size: 12.67px;">cmake</a> <a href="/tags/cmd/" style="font-size: 10.67px;">cmd</a> <a href="/tags/data-structure/" style="font-size: 10.67px;">data structure</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/htop/" style="font-size: 10px;">htop</a> <a href="/tags/keras/" style="font-size: 10.67px;">keras</a> <a href="/tags/latex/" style="font-size: 14.67px;">latex</a> <a href="/tags/os/" style="font-size: 10px;">os</a> <a href="/tags/qt/" style="font-size: 10px;">qt</a> <a href="/tags/requests/" style="font-size: 10px;">requests</a> <a href="/tags/sk-learn/" style="font-size: 10px;">sk-learn</a> <a href="/tags/ssh/" style="font-size: 12.67px;">ssh</a> <a href="/tags/statistic/" style="font-size: 10px;">statistic</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/windows/" style="font-size: 16.67px;">windows</a> <a href="/tags/yolo%EF%BC%8CC/" style="font-size: 10px;">yolo，C</a>
     </div>
   </div>
 
@@ -455,7 +440,7 @@ import hello</code></pre>
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li></ul>
     </div>
   </div>
 
@@ -468,23 +453,23 @@ import hello</code></pre>
       <ul>
         
           <li>
-            <a href="/winedt_break/">Winedt注册表破解</a>
+            <a href="/nodejs_windows_install/">windows下安装nodejs及环境变量设置</a>
           </li>
         
           <li>
-            <a href="/latex_content_dot/">latex生成目录条目加点</a>
+            <a href="/Centos7_mongodb_install/">Centos7安装Mongodb</a>
           </li>
         
           <li>
-            <a href="/latex_figure_prefix/">latex论文用图修改前缀</a>
+            <a href="/Endnote_download_tutorial/">EndnoteX9下载及新手教程</a>
           </li>
         
           <li>
-            <a href="/yum_unblock/">linux yum进程占用问题</a>
+            <a href="/centos7_opencv_install/">Centso7下安装opencv</a>
           </li>
         
           <li>
-            <a href="/linux_googlechrome/">linux安装谷歌浏览器</a>
+            <a href="/anaconda_democrate_source/">anaconda安装库使用国内源</a>
           </li>
         
       </ul>

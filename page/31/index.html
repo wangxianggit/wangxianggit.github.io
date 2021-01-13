@@ -67,129 +67,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-Python_len" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-git_upload_remote_from_localization" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/Python_len/" class="article-date">
-  <time datetime="2019-01-31T10:32:51.000Z" itemprop="datePublished">2019-01-31</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Python/">Python</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/Python_len/">Python特殊函数__len__</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-
-        <ul>
-<li><p>​ Python特殊函数__len()__使函数len()能够作用于类中的变量，例：</p>
-<ul>
-<li><pre><code>class Namespace(object):
-
-    def __init__(self, *args):
-        self.names = args
-
-    def __len__(self):
-        return len(self.names)
-
-s = Namespace(&#39;jia&#39;, &#39;tim&#39;)
-print( len(s) )</code></pre>
-</li>
-</ul>
-</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/Python_len/" data-id="ckjv2ttwf009et0dnhhdo33ld" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Program/" rel="tag">Program</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Python_slot" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/Python_slot/" class="article-date">
-  <time datetime="2019-01-31T09:30:22.000Z" itemprop="datePublished">2019-01-31</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Python/">Python</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/Python_slot/">Python __slot__变量</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-
-        <ul>
-<li><p>​ Python可以在定义类中添加特殊变量 __slot__ 来限制该类可以添加的属性，例：</p>
-<ul>
-<li><p>~~~<br>class Student(object):</p>
-<pre><code> __slots__ = (&#39;name&#39;, &#39;age&#39;) # 定义允许绑定的属性名称</code></pre>
-<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 类中绑定两个变量<span class="type">name</span>和age，其他额外定义的变量则不起作用。</span><br><span class="line"></span><br><span class="line">* ~~~</span><br><span class="line">  s = Student() # 创建新的实例</span><br><span class="line">  s.name = <span class="string">&#x27;Michael&#x27;</span> # 绑定属性<span class="string">&#x27;name&#x27;</span></span><br><span class="line">  s.age = <span class="number">25</span> # 绑定属性<span class="string">&#x27;age&#x27;</span></span><br><span class="line">  s.score = <span class="number">99</span> # 绑定属性<span class="string">&#x27;score&#x27;</span></span><br><span class="line">  Traceback (most recent <span class="keyword">call</span> last):</span><br><span class="line">    File &quot;&lt;stdin&gt;&quot;, <span class="type">line</span> <span class="number">1</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">  AttributeError: <span class="string">&#x27;Student&#x27;</span> <span class="keyword">object</span> has <span class="keyword">no</span> <span class="keyword">attribute</span> <span class="string">&#x27;score&#x27;</span></span><br></pre></td></tr></table></figure></li>
-<li><p>由于score没有被放到__slots__中，所以不能绑定score属性，试图绑定score将得到AttributeError的错误。</p>
-</li>
-<li><p>__slot__定义的属性仅对当前的类起作用，对继承的子类不起作用。</p>
-</li>
-</ul>
-</li>
-</ul>
-<hr>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/Python_slot/" data-id="ckjv2ttwo00akt0dn29gv7me0" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Program/" rel="tag">Program</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-git_pull_upload_problem" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/git_pull_upload_problem/" class="article-date">
-  <time datetime="2019-01-29T12:46:05.000Z" itemprop="datePublished">2019-01-29</time>
+    <a href="/git_upload_remote_from_localization/" class="article-date">
+  <time datetime="2019-02-16T07:38:57.000Z" itemprop="datePublished">2019-02-16</time>
 </a>
     
   <div class="article-category">
@@ -204,7 +85,7 @@ print( len(s) )</code></pre>
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/git_pull_upload_problem/">git pull上传问题</a>
+      <a class="article-title" href="/git_upload_remote_from_localization/">git将本地目录提交至远程仓库</a>
     </h1>
   
 
@@ -215,18 +96,17 @@ print( len(s) )</code></pre>
 	  <!-- Table of Contents -->
 
         <ul>
-<li><p>windows下使用git终端上传文件，执行命令git push -u origin master后出现如下错误：</p>
-<ul>
-<li><pre><code>To https://github.com/wangxianggit/PythonDSP.git
- ! [rejected]        master -&gt; master (non-fast-forward)
-error: failed to push some refs to &#39;https://github.com/wangxianggit/PythonDSP.git&#39;
-hint: Updates were rejected because a pushed branch tip is behind its remote
-hint: counterpart. Check out this branch and integrate the remote changes
-hint: (e.g. &#39;git pull ...&#39;) before pushing again.
-hint: See the &#39;Note about fast-forwards&#39; in &#39;git push --help&#39; for details.
-<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="bullet">* </span>原因：github上的版本里有readme文件和本地版本冲突</span><br><span class="line"></span><br><span class="line"><span class="bullet">* </span>使用强制覆盖命令解决冲突：</span><br><span class="line"></span><br><span class="line"><span class="bullet">* </span>~~~</span><br><span class="line"><span class="code">  git push -u origin master -f </span></span><br></pre></td></tr></table></figure>
-</code></pre>
+<li><p>​ 进入需要提交的文件夹，使用git init命令把目录变成git可以管理的仓库。</p>
 </li>
+<li><p>把文件添加到版本库中，使用git add . 命令添加到暂存区里面去，后面的点表示当前文件夹下的所有文件：</p>
+<ul>
+<li>~~~<br>git add .<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* <span class="keyword">commit</span>到主分支，使用git <span class="keyword">commit</span>命令将暂存区的改动提交到本地的版本库，每次使用git <span class="keyword">commit</span> 命令我们都会在本地版本库生成一个<span class="number">40</span>位的哈希值，这个哈希值也叫<span class="keyword">commit</span>-id，<span class="keyword">commit</span>-id在版本回退的时候是非常有用的，它相当于一个快照,可以在未来的任何时候通过与git <span class="keyword">reset</span>的组合命令回到这里。</span><br><span class="line"></span><br><span class="line">  * ~~~</span><br><span class="line">    git <span class="keyword">commit</span> -m &quot;message&quot; </span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>将本地仓库添加到远程仓库</p>
+<ul>
+<li>~~~<br>git remote add origin <a href="mailto:&#103;&#105;&#116;&#64;&#x67;&#x69;&#116;&#x68;&#117;&#98;&#x2e;&#99;&#x6f;&#109;">&#103;&#105;&#116;&#64;&#x67;&#x69;&#116;&#x68;&#117;&#98;&#x2e;&#99;&#x6f;&#109;</a>:yourname/仓库名.git  <figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 提交远程仓库</span><br><span class="line"></span><br><span class="line">  * ~~~</span><br><span class="line">    git push -u origin <span class="keyword">master</span> <span class="title"></span></span><br></pre></td></tr></table></figure></li>
+<li>如果报错，最后添加-f参数：git push -u origin master  -f</li>
 </ul>
 </li>
 </ul>
@@ -235,10 +115,10 @@ hint: See the &#39;Note about fast-forwards&#39; in &#39;git push --help&#39; fo
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/git_pull_upload_problem/" data-id="ckjv2ttxc00djt0dnfbkmdawg" class="article-share-link">Share</a>
+      <a data-url="http://wangxianggit.github.io/git_upload_remote_from_localization/" data-id="ckjv2ttxb00dft0dnf4pz9sji" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/windows/" rel="tag">windows</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/" rel="tag">git</a></li></ul>
 
     </footer>
   </div>
@@ -247,14 +127,14 @@ hint: See the &#39;Note about fast-forwards&#39; in &#39;git push --help&#39; fo
 
 
   
-    <article id="post-python3.6_autoinstall_script" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-git_error_remote origin already exists" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/python3.6_autoinstall_script/" class="article-date">
-  <time datetime="2019-01-29T09:52:11.000Z" itemprop="datePublished">2019-01-29</time>
+    <a href="/git_error_remote%20origin%20already%20exists/" class="article-date">
+  <time datetime="2019-02-16T06:21:35.000Z" itemprop="datePublished">2019-02-16</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/learning/">learning</a>
+    <a class="article-category-link" href="/categories/git/">git</a>
   </div>
 
   </div>
@@ -265,7 +145,7 @@ hint: See the &#39;Note about fast-forwards&#39; in &#39;git push --help&#39; fo
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/python3.6_autoinstall_script/">python3.6自动安装脚本</a>
+      <a class="article-title" href="/git_error_remote%20origin%20already%20exists/">git提示remote origin already exists错误解决方法</a>
     </h1>
   
 
@@ -276,28 +156,14 @@ hint: See the &#39;Note about fast-forwards&#39; in &#39;git push --help&#39; fo
 	  <!-- Table of Contents -->
 
         <ul>
-<li><p>​ linux版本要求：CentOS，Scientific Linux</p>
-</li>
-<li><p>自动安装脚本</p>
+<li><p>使用命令git remote add origin <a target="_blank" rel="noopener" href="https://github.com/wangxianggit/Python_Bayes.git%E6%B7%BB%E5%8A%A0%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E5%90%8E%E5%87%BA%E7%8E%B0%E6%8F%90%E7%A4%BA%E9%94%99%E8%AF%AF%EF%BC%9A">https://github.com/wangxianggit/Python_Bayes.git添加远程仓库后出现提示错误：</a></p>
 <ul>
-<li><pre><code>#!/bin/bash
-yum -y install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel db4-devel libpcap-devel xz-devel
-mkdir -p /usr/local/python3
-cd /mnt
-wget https://www.python.org/ftp/python/3.6.1/Python-3.6.1.tgz
-tar -zxvf Python-3.6.1.tgz
-cd Python-3.6.1
-./configure --prefix=/usr/local/python3
-make &amp;&amp; make install
-ln -s /usr/local/python3/bin/python3 /usr/bin/python3
-echo &quot;PATH=$PATH:/usr/local/python3/bin&quot;  &gt;&gt;~/.bashrc
-echo &quot;export PATH &quot; &gt;&gt;~/.bashrc
-source ~/.bashrc
-python3 -V</code></pre>
-</li>
-<li><p>环境变量可以设置在~/.bashrc或/etc/profile</p>
-</li>
+<li>~~~<br>fatal: remote origin already exists<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 对于origin这个词，想了解更多信息可以在git终端输入:git remote</span><br><span class="line"></span><br><span class="line">  * ~~~</span><br><span class="line">    $ git remote</span><br><span class="line">    origin</span><br><span class="line">    $ git remote show origin</span><br><span class="line">    * remote origin</span><br><span class="line">      Fetch URL: https:<span class="regexp">//gi</span>thub.com<span class="regexp">/wangxianggit/</span>Python_Bayes.git</span><br><span class="line">      Push  URL: https:<span class="regexp">//gi</span>thub.com<span class="regexp">/wangxianggit/</span>Python_Bayes.git</span><br><span class="line">      HEAD branch: master</span><br><span class="line">      Remote branch:</span><br><span class="line">        master new (<span class="keyword">next</span> fetch will store <span class="keyword">in</span> remotes/origin)</span><br></pre></td></tr></table></figure></li>
+<li>即origin是默认的远程仓库名称，如果重复提交就会提示远程仓库已经存在，所以要先删除已经提交的远程仓库。</li>
 </ul>
+</li>
+<li><p>终端输入git remote rm origin，再重新提交远程仓库就可以了。</p>
+<p>​</p>
 </li>
 </ul>
 <hr>
@@ -305,10 +171,10 @@ python3 -V</code></pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/python3.6_autoinstall_script/" data-id="ckjv2ttxv00g2t0dn2dh1hc2a" class="article-share-link">Share</a>
+      <a data-url="http://wangxianggit.github.io/git_error_remote%20origin%20already%20exists/" data-id="ckjv2ttxa00d8t0dnhx462awq" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Centos7/" rel="tag">Centos7</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/" rel="tag">git</a></li></ul>
 
     </footer>
   </div>
@@ -317,14 +183,14 @@ python3 -V</code></pre>
 
 
   
-    <article id="post-PyPI_source_domestic" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Python_random_number" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/PyPI_source_domestic/" class="article-date">
-  <time datetime="2019-01-29T05:29:14.000Z" itemprop="datePublished">2019-01-29</time>
+    <a href="/Python_random_number/" class="article-date">
+  <time datetime="2019-02-10T00:53:11.000Z" itemprop="datePublished">2019-02-10</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/learning/">learning</a>
+    <a class="article-category-link" href="/categories/Python/">Python</a>
   </div>
 
   </div>
@@ -335,7 +201,7 @@ python3 -V</code></pre>
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/PyPI_source_domestic/">PyPI使用国内源</a>
+      <a class="article-title" href="/Python_random_number/">Python使用随机数</a>
     </h1>
   
 
@@ -346,22 +212,42 @@ python3 -V</code></pre>
 	  <!-- Table of Contents -->
 
         <ul>
-<li><p>​ 国内主要的pip源有：</p>
+<li><p>使用random模块：</p>
 <ul>
-<li>阿里云 <a target="_blank" rel="noopener" href="http://mirrors.aliyun.com/pypi/simple/">http://mirrors.aliyun.com/pypi/simple/</a></li>
-<li>中国科技大学 <a target="_blank" rel="noopener" href="https://pypi.mirrors.ustc.edu.cn/simple/%20">https://pypi.mirrors.ustc.edu.cn/simple/ </a></li>
-<li>豆瓣(douban) <a target="_blank" rel="noopener" href="http://pypi.douban.com/simple/">http://pypi.douban.com/simple/</a> </li>
-<li>清华大学 <a target="_blank" rel="noopener" href="https://pypi.tuna.tsinghua.edu.cn/simple/">https://pypi.tuna.tsinghua.edu.cn/simple/</a></li>
-<li>中国科学技术大学 <a target="_blank" rel="noopener" href="http://pypi.mirrors.ustc.edu.cn/simple/">http://pypi.mirrors.ustc.edu.cn/simple/</a></li>
+<li><p>random.random: 生成0到1浮点随机数。</p>
+</li>
+<li><p>random.uniform(a,b):产生a到b间的随机浮点数，如果a &gt; b，则生成的随机数n: a &lt;n &lt;b。如果 a &lt;b， 则 b &lt;n &lt;a。</p>
+</li>
+<li><p>random.randint(a,b):生成a到b间的随机整数。</p>
+</li>
+<li><p>random.randrange(start,stop,step):在指定递增的数列中随机生成随机数。例：random.randrange(10, 100, 2)，结果相当于从[10, 12, 14, 16, … 96, 98]序列中获取一个随机数。</p>
+</li>
+<li><p>random.choice(sequence):从序列中获取一个随机元素，参数sequence表示一个有序类型。例：</p>
+<ul>
+<li><p>```<br>print(random.choice(“Learning Python”))</p>
+<p>print(random.choice([“JGood”, “is”, “a”, “handsome”, “boy”])) </p>
+<p>print(random.choice((“Tuple”, “List”, “Dict”)))  </p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- <span class="built_in">random</span>.shuffle:用于将一个列表中的元素打乱</span><br><span class="line"></span><br><span class="line">  - ```</span><br><span class="line">    p = [<span class="string">&quot;Python&quot;</span>, <span class="string">&quot;is&quot;</span>, <span class="string">&quot;powerful&quot;</span>, <span class="string">&quot;simple&quot;</span>, <span class="string">&quot;and so on...&quot;</span>]  </span><br><span class="line">    <span class="built_in">random</span>.shuffle(p)  </span><br><span class="line">    <span class="built_in">print</span>(p)</span><br><span class="line"></span><br><span class="line">    &gt;&gt;&gt;[<span class="string">&#x27;and so on...&#x27;</span>, <span class="string">&#x27;is&#x27;</span>, <span class="string">&#x27;powerful&#x27;</span>, <span class="string">&#x27;simple&#x27;</span>, <span class="string">&#x27;Python&#x27;</span>]</span><br></pre></td></tr></table></figure></li>
 </ul>
 </li>
-<li><p>使用方法：最后加参数-i和指定的url，如：</p>
+<li><p>random.sample(sequence,k):从指定序列中随机获取指定长度的片断</p>
 <ul>
-<li><pre><code>pip install web.py -i http://pypi.douban.com/simple
-或避免报错
-pip install web.py -i http://pypi.douban.com/simple --trusted-host pypi.douban.com
-<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 配置默认源</span><br><span class="line"></span><br><span class="line">  * linux下修改配置文件~/.pip/pip.conf</span><br><span class="line"></span><br><span class="line">  * windows下修改配置文件%HOMEPATH%\pip\pip.ini</span><br><span class="line"></span><br><span class="line">  * 修改内容如下：</span><br><span class="line"></span><br><span class="line">  * ~~~</span><br><span class="line">    [<span class="keyword">global</span>]</span><br><span class="line">    <span class="keyword">index</span>-url = http://pypi.douban.com/simple</span><br><span class="line">    [install]</span><br><span class="line">    <span class="keyword">trusted</span>-host=pypi.douban.com</span><br></pre></td></tr></table></figure>
-</code></pre>
+<li>```<br>list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]<br>slice = random.sample(list, 5)  #select five elememt<br>print(slice)<br>print(list)#original list<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- ```</span><br><span class="line">  <span class="built_in">random</span> <span class="keyword">integer</span>：</span><br><span class="line">  &gt;&gt;&gt; import <span class="built_in">random</span></span><br><span class="line">  &gt;&gt;&gt; <span class="built_in">random</span>.randint(<span class="number">0</span>,<span class="number">99</span>)</span><br><span class="line">  <span class="number">21</span></span><br><span class="line"></span><br><span class="line">  <span class="built_in">random</span> even <span class="built_in">number</span> below <span class="number">101</span>：</span><br><span class="line">  &gt;&gt;&gt; import <span class="built_in">random</span></span><br><span class="line">  &gt;&gt;&gt; <span class="built_in">random</span>.randrange(<span class="number">0</span>, <span class="number">101</span>, <span class="number">2</span>)</span><br><span class="line">  <span class="number">42</span></span><br><span class="line"></span><br><span class="line">  <span class="built_in">random</span> float：</span><br><span class="line">  &gt;&gt;&gt; import <span class="built_in">random</span></span><br><span class="line">  &gt;&gt;&gt; <span class="built_in">random</span>.<span class="built_in">random</span>() </span><br><span class="line">  <span class="number">0.85415370477785668</span></span><br><span class="line">  &gt;&gt;&gt; <span class="built_in">random</span>.uniform(<span class="number">1</span>, <span class="number">10</span>)</span><br><span class="line">  <span class="number">5.4221167969800881</span></span><br><span class="line"></span><br><span class="line">  <span class="built_in">random</span> <span class="keyword">char</span>：</span><br><span class="line">  &gt;&gt;&gt; import <span class="built_in">random</span></span><br><span class="line">  &gt;&gt;&gt; <span class="built_in">random</span>.choice(<span class="string">&#x27;abcdefg&amp;#%^*f&#x27;</span>)</span><br><span class="line">  <span class="string">&#x27;d&#x27;</span></span><br><span class="line"></span><br><span class="line">  <span class="built_in">random</span> slice <span class="keyword">of</span> <span class="keyword">a</span> sequence</span><br><span class="line">  &gt;&gt;&gt; import <span class="built_in">random</span></span><br><span class="line">  <span class="built_in">random</span>.sample(<span class="string">&#x27;abcdefghij&#x27;</span>,<span class="number">3</span>) </span><br><span class="line">  [<span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;d&#x27;</span>, <span class="string">&#x27;b&#x27;</span>]</span><br><span class="line"></span><br><span class="line">  <span class="built_in">random</span> slice <span class="keyword">of</span> <span class="keyword">a</span> sequence</span><br><span class="line">  &gt;&gt;&gt; import <span class="built_in">random</span></span><br><span class="line">  &gt;&gt;&gt; import <span class="keyword">string</span></span><br><span class="line">  &gt;&gt;&gt; <span class="keyword">string</span>.join(<span class="built_in">random</span>.sample([<span class="string">&#x27;a&#x27;</span>,<span class="string">&#x27;b&#x27;</span>,<span class="string">&#x27;c&#x27;</span>,<span class="string">&#x27;d&#x27;</span>,<span class="string">&#x27;e&#x27;</span>,<span class="string">&#x27;f&#x27;</span>,<span class="string">&#x27;g&#x27;</span>,<span class="string">&#x27;h&#x27;</span>,<span class="string">&#x27;i&#x27;</span>,<span class="string">&#x27;j&#x27;</span>], <span class="number">3</span>)).r</span><br><span class="line">  eplace(<span class="string">&quot; &quot;</span>,<span class="string">&quot;&quot;</span>)</span><br><span class="line">  <span class="string">&#x27;fih&#x27;</span></span><br><span class="line"></span><br><span class="line">  <span class="built_in">random</span> <span class="keyword">string</span>：</span><br><span class="line">  &gt;&gt;&gt; import <span class="built_in">random</span></span><br><span class="line">  &gt;&gt;&gt; <span class="built_in">random</span>.choice ( [<span class="string">&#x27;apple&#x27;</span>, <span class="string">&#x27;pear&#x27;</span>, <span class="string">&#x27;peach&#x27;</span>, <span class="string">&#x27;orange&#x27;</span>, <span class="string">&#x27;lemon&#x27;</span>] )</span><br><span class="line">  <span class="string">&#x27;lemon&#x27;</span></span><br><span class="line"></span><br><span class="line">  disorder <span class="keyword">the</span> sequence：</span><br><span class="line">  &gt;&gt;&gt; import <span class="built_in">random</span></span><br><span class="line">  &gt;&gt;&gt; <span class="keyword">items</span> = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>]</span><br><span class="line">  &gt;&gt;&gt; <span class="built_in">random</span>.shuffle(<span class="keyword">items</span>)</span><br><span class="line">  &gt;&gt;&gt; <span class="keyword">items</span></span><br><span class="line">  [<span class="number">3</span>, <span class="number">2</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">4</span>, <span class="number">1</span>]</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>使用numpy.random</p>
+<ul>
+<li><p>np.random.rand:随机生成0-1之间浮点数，有参数时返回相应长度的一维或多维随机浮点数数组：</p>
+<ul>
+<li><pre><code>import numpy as np
+&gt;&gt;&gt;  np.random.rand(10)
+array([ 0.56911206,  0.99777291,  0.18943144,  0.19387287,  0.75090637,
+        0.18692814,  0.69804514,  0.48808425,  0.79440667,  0.66959075])
+<figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- <span class="built_in">np</span>.<span class="built_in">random</span>.randn:返回正态分布随机数，有参数时返回相应长度一维或多维数组</span><br><span class="line"></span><br><span class="line">- <span class="built_in">np</span>.<span class="built_in">random</span>.randint(low[, high, size]) :返回随机的整数，位于半开区间 [low, high)</span><br><span class="line"></span><br><span class="line">- random_integers(low[, high, size]) :返回随机的整数，位于闭区间 [low, high]</span><br><span class="line"></span><br><span class="line">- <span class="built_in">np</span>.<span class="built_in">random</span>.shuffle(x) 打乱序列顺序；<span class="built_in">np</span>.<span class="built_in">random</span>.<span class="built_in">permutation</span>(x)返回一个随机排列</span><br><span class="line"></span><br><span class="line">  - ```</span><br><span class="line">    &gt;&gt;&gt; arr = <span class="built_in">np</span>.arange(<span class="number">10</span>)</span><br><span class="line">    &gt;&gt;&gt; <span class="built_in">np</span>.<span class="built_in">random</span>.shuffle(arr)</span><br><span class="line">    &gt;&gt;&gt; arr</span><br><span class="line">    [<span class="number">1</span> <span class="number">7</span> <span class="number">5</span> <span class="number">2</span> <span class="number">9</span> <span class="number">4</span> <span class="number">3</span> <span class="number">6</span> <span class="number">0</span> <span class="number">8</span>]</span><br><span class="line"></span><br><span class="line">    &gt;&gt;&gt;&gt; <span class="built_in">np</span>.<span class="built_in">random</span>.<span class="built_in">permutation</span>(<span class="number">10</span>)</span><br><span class="line">    <span class="built_in">array</span>([<span class="number">1</span>, <span class="number">7</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">0</span>, <span class="number">9</span>, <span class="number">2</span>, <span class="number">5</span>, <span class="number">8</span>, <span class="number">6</span>])</span><br></pre></td></tr></table></figure></code></pre>
+</li>
+</ul>
 </li>
 </ul>
 </li>
@@ -371,10 +257,159 @@ pip install web.py -i http://pypi.douban.com/simple --trusted-host pypi.douban.c
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/PyPI_source_domestic/" data-id="ckjv2ttvz007lt0dnfwu78xmo" class="article-share-link">Share</a>
+      <a data-url="http://wangxianggit.github.io/Python_random_number/" data-id="ckjv2ttwk00a2t0dn2we17uwb" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PyPI/" rel="tag">PyPI</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Program/" rel="tag">Program</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Python_pandas.io.data_modified" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/Python_pandas.io.data_modified/" class="article-date">
+  <time datetime="2019-02-10T00:32:42.000Z" itemprop="datePublished">2019-02-10</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Python/">Python</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/Python_pandas.io.data_modified/">Python中pandas.io.data模块迁移</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+
+        <ul>
+<li><p>在python3中原pandas.io.data模块迁移到了pandas_datareader.data模块下。</p>
+</li>
+<li><p>模块安装：</p>
+<ul>
+<li>~~~<br>pip install pandas-datareader<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 使用命令<span class="selector-tag">pip</span> <span class="selector-tag">list</span>可以查看已经安装的<span class="selector-tag">pyhton</span>包：</span><br><span class="line"></span><br><span class="line">  * ~~~</span><br><span class="line">    <span class="selector-tag">odo</span> (<span class="number">0.5</span>.<span class="number">1</span>)</span><br><span class="line">    <span class="selector-tag">olefile</span> (<span class="number">0.44</span>)</span><br><span class="line">    <span class="selector-tag">openpyxl</span> (<span class="number">2.4</span>.<span class="number">8</span>)</span><br><span class="line">    <span class="selector-tag">packaging</span> (<span class="number">16.8</span>)</span><br><span class="line">    <span class="selector-tag">pandas</span> (<span class="number">0.20</span>.<span class="number">3</span>)</span><br><span class="line">    <span class="selector-tag">pandas-datareader</span> (<span class="number">0.7</span>.<span class="number">0</span>)</span><br><span class="line">    <span class="selector-tag">pandocfilters</span> (<span class="number">1.4</span>.<span class="number">2</span>)</span><br><span class="line">    <span class="selector-tag">partd</span> (<span class="number">0.3</span>.<span class="number">8</span>)</span><br><span class="line">    <span class="selector-tag">path</span><span class="selector-class">.py</span> (<span class="number">10.3</span>.<span class="number">1</span>)</span><br><span class="line">    <span class="selector-tag">pathlib2</span> (<span class="number">2.3</span>.<span class="number">0</span>)</span><br><span class="line">    <span class="selector-tag">patsy</span> (<span class="number">0.4</span>.<span class="number">1</span>)</span><br><span class="line">    <span class="selector-tag">pep8</span> (<span class="number">1.7</span>.<span class="number">0</span>)</span><br><span class="line">    <span class="selector-tag">pexpect</span> (<span class="number">4.2</span>.<span class="number">1</span>)</span><br><span class="line">    <span class="selector-tag">pickleshare</span> (<span class="number">0.7</span>.<span class="number">4</span>)</span><br><span class="line">    <span class="selector-tag">Pillow</span> (<span class="number">4.2</span>.<span class="number">1</span>)</span><br></pre></td></tr></table></figure></li>
+<li>可见pandas-datareader已经包含在安装列表里面</li>
+</ul>
+</li>
+<li><p>在python命令行中导入相应包：import pandas_datareader.data  as web</p>
+</li>
+<li><p>安装时是‘pandas-datareader’，导入时是‘pandas_datareader’.</p>
+</li>
+</ul>
+<hr>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wangxianggit.github.io/Python_pandas.io.data_modified/" data-id="ckjv2ttwl00a6t0dn7grf7xrm" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Program/" rel="tag">Program</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Python_code_indent" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/Python_code_indent/" class="article-date">
+  <time datetime="2019-02-10T00:31:33.000Z" itemprop="datePublished">2019-02-10</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Python/">Python</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/Python_code_indent/">Python代码缩进</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+
+        <ul>
+<li><p>Python程序的基本组成：逻辑行和缩进</p>
+<ul>
+<li>Python的一个逻辑行即一条语句，可以包括一个或多个物理行。</li>
+<li>每个物理行的结尾可以是注释或换行符，注释部分以#号开头，Python解释其在执行这部分代码时自动忽略这部分代码。</li>
+</ul>
+</li>
+<li><p>空行</p>
+<ul>
+<li>若一行代码只包含注释或空格，即为空行。</li>
+<li>在交互式解释其中如果要终止一段代码需要以回车输入一个空行，这个也算是一个物理行，它不带任何空格或注释。</li>
+</ul>
+</li>
+<li><p>一个逻辑行跨行的表示</p>
+<ul>
+<li>符号&#39;\‘将两个相邻的物理行连接成一个逻辑行，这种情况下前面的行不能包括注释。</li>
+<li>各种括号可以跨越多个物理行，如{},[],()等。</li>
+<li>三重引号字符串常量也可以跨越多行。</li>
+</ul>
+</li>
+<li><p>Python代码缩进</p>
+<ul>
+<li><p>缩进是Python表示语句块的唯一方法。</p>
+</li>
+<li><p>同一个语句块中必须使用相同的缩进。</p>
+</li>
+<li><p>源文件的第一行不需要使用缩进。</p>
+</li>
+<li><pre><code>#!/usr/bin/python3
+
+for num in range(5,20):
+    for i in range(2,num):
+        if num%i==0:
+            j=num/i
+            print(num)
+            break
+    else:
+        print(f&#39;&#123;num&#125; a prime number!&#39;)</code></pre>
+</li>
+<li><p>标准Python分格中每个缩进级别使用4个空格，不使用Tab制表符</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>参考：《Python技术手册》</p>
+<hr>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wangxianggit.github.io/Python_code_indent/" data-id="ckjv2ttw5008at0dn7yfa6vjf" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Program/" rel="tag">Program</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
 
     </footer>
   </div>
@@ -387,7 +422,7 @@ pip install web.py -i http://pypi.douban.com/simple --trusted-host pypi.douban.c
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/page/30/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/29/">29</a><a class="page-number" href="/page/30/">30</a><span class="page-number current">31</span><a class="page-number" href="/page/32/">32</a><a class="page-number" href="/page/33/">33</a><span class="space">&hellip;</span><a class="page-number" href="/page/38/">38</a><a class="extend next" rel="next" href="/page/32/">Next &amp;raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/30/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/29/">29</a><a class="page-number" href="/page/30/">30</a><span class="page-number current">31</span><a class="page-number" href="/page/32/">32</a><a class="page-number" href="/page/33/">33</a><span class="space">&hellip;</span><a class="page-number" href="/page/41/">41</a><a class="extend next" rel="next" href="/page/32/">Next &amp;raquo;</a>
   </nav>
 
 </section>
@@ -425,7 +460,7 @@ pip install web.py -i http://pypi.douban.com/simple --trusted-host pypi.douban.c
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithm/" rel="tag">Algorithm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Altium-Designer/" rel="tag">Altium Designer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Apache/" rel="tag">Apache</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BeautifulSoup/" rel="tag">BeautifulSoup</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Centos7/" rel="tag">Centos7</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cython/" rel="tag">Cython</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Electronic/" rel="tag">Electronic</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/English/" rel="tag">English</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Geant4/" rel="tag">Geant4</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hardware/" rel="tag">Hardware</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Image/" rel="tag">Image</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jupyter/" rel="tag">Jupyter</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nuclear-Physics/" rel="tag">Nuclear Physics</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Open/" rel="tag">Open</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Program/" rel="tag">Program</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PyPI/" rel="tag">PyPI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Py-Crawler/" rel="tag">Py_Crawler</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Random/" rel="tag">Random</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Resource/" rel="tag">Resource</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Root/" rel="tag">Root</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Scipy/" rel="tag">Scipy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Shell/" rel="tag">Shell</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Solidwork/" rel="tag">Solidwork</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TTree/" rel="tag">TTree</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tensorflow/" rel="tag">Tensorflow</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Thread/" rel="tag">Thread</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Urllib2/" rel="tag">Urllib2</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Virtual-memory/" rel="tag">Virtual memory</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cmake/" rel="tag">cmake</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cmd/" rel="tag">cmd</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/data-structure/" rel="tag">data structure</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/htop/" rel="tag">htop</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/keras/" rel="tag">keras</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/latex/" rel="tag">latex</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/os/" rel="tag">os</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/qt/" rel="tag">qt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/requests/" rel="tag">requests</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sk-learn/" rel="tag">sk-learn</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh/" rel="tag">ssh</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/statistic/" rel="tag">statistic</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vi/" rel="tag">vi</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/windows/" rel="tag">windows</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithm/" rel="tag">Algorithm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Altium-Designer/" rel="tag">Altium Designer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Apache/" rel="tag">Apache</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BeautifulSoup/" rel="tag">BeautifulSoup</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Centos7/" rel="tag">Centos7</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cython/" rel="tag">Cython</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Electronic/" rel="tag">Electronic</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/English/" rel="tag">English</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Geant4/" rel="tag">Geant4</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hardware/" rel="tag">Hardware</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Image/" rel="tag">Image</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jupyter/" rel="tag">Jupyter</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mongodb/" rel="tag">Mongodb</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nuclear-Physics/" rel="tag">Nuclear Physics</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Open/" rel="tag">Open</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Opencv/" rel="tag">Opencv</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Program/" rel="tag">Program</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PyPI/" rel="tag">PyPI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Py-Crawler/" rel="tag">Py_Crawler</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Random/" rel="tag">Random</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Resource/" rel="tag">Resource</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Root/" rel="tag">Root</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Scipy/" rel="tag">Scipy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Shell/" rel="tag">Shell</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Solidwork/" rel="tag">Solidwork</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TTree/" rel="tag">TTree</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tensorflow/" rel="tag">Tensorflow</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Thread/" rel="tag">Thread</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Urllib2/" rel="tag">Urllib2</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Virtual-memory/" rel="tag">Virtual memory</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cmake/" rel="tag">cmake</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cmd/" rel="tag">cmd</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/data-structure/" rel="tag">data structure</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/htop/" rel="tag">htop</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/keras/" rel="tag">keras</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/latex/" rel="tag">latex</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/os/" rel="tag">os</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/qt/" rel="tag">qt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/requests/" rel="tag">requests</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sk-learn/" rel="tag">sk-learn</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh/" rel="tag">ssh</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/statistic/" rel="tag">statistic</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vi/" rel="tag">vi</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/windows/" rel="tag">windows</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/yolo%EF%BC%8CC/" rel="tag">yolo，C</a></li></ul>
     </div>
   </div>
 
@@ -435,7 +470,7 @@ pip install web.py -i http://pypi.douban.com/simple --trusted-host pypi.douban.c
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Algorithm/" style="font-size: 11.33px;">Algorithm</a> <a href="/tags/Altium-Designer/" style="font-size: 14.67px;">Altium Designer</a> <a href="/tags/Apache/" style="font-size: 11.33px;">Apache</a> <a href="/tags/BeautifulSoup/" style="font-size: 10px;">BeautifulSoup</a> <a href="/tags/C/" style="font-size: 15.33px;">C</a> <a href="/tags/C/" style="font-size: 18.67px;">C++</a> <a href="/tags/Centos7/" style="font-size: 17.33px;">Centos7</a> <a href="/tags/Cython/" style="font-size: 10px;">Cython</a> <a href="/tags/Electronic/" style="font-size: 13.33px;">Electronic</a> <a href="/tags/English/" style="font-size: 12px;">English</a> <a href="/tags/Geant4/" style="font-size: 10.67px;">Geant4</a> <a href="/tags/Hardware/" style="font-size: 10px;">Hardware</a> <a href="/tags/Hexo/" style="font-size: 14px;">Hexo</a> <a href="/tags/Image/" style="font-size: 10px;">Image</a> <a href="/tags/Jupyter/" style="font-size: 10px;">Jupyter</a> <a href="/tags/Linux/" style="font-size: 19.33px;">Linux</a> <a href="/tags/Markdown/" style="font-size: 16px;">Markdown</a> <a href="/tags/Nuclear-Physics/" style="font-size: 11.33px;">Nuclear Physics</a> <a href="/tags/Open/" style="font-size: 10px;">Open</a> <a href="/tags/Program/" style="font-size: 18px;">Program</a> <a href="/tags/PyPI/" style="font-size: 10px;">PyPI</a> <a href="/tags/Py-Crawler/" style="font-size: 10.67px;">Py_Crawler</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/Random/" style="font-size: 10px;">Random</a> <a href="/tags/Resource/" style="font-size: 10.67px;">Resource</a> <a href="/tags/Root/" style="font-size: 10.67px;">Root</a> <a href="/tags/Scipy/" style="font-size: 10px;">Scipy</a> <a href="/tags/Shell/" style="font-size: 16px;">Shell</a> <a href="/tags/Solidwork/" style="font-size: 10.67px;">Solidwork</a> <a href="/tags/TTree/" style="font-size: 10px;">TTree</a> <a href="/tags/Tensorflow/" style="font-size: 15.33px;">Tensorflow</a> <a href="/tags/Thread/" style="font-size: 10px;">Thread</a> <a href="/tags/Urllib2/" style="font-size: 10px;">Urllib2</a> <a href="/tags/Virtual-memory/" style="font-size: 10px;">Virtual memory</a> <a href="/tags/cmake/" style="font-size: 12.67px;">cmake</a> <a href="/tags/cmd/" style="font-size: 10.67px;">cmd</a> <a href="/tags/data-structure/" style="font-size: 10.67px;">data structure</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/htop/" style="font-size: 10px;">htop</a> <a href="/tags/keras/" style="font-size: 10.67px;">keras</a> <a href="/tags/latex/" style="font-size: 14.67px;">latex</a> <a href="/tags/os/" style="font-size: 10px;">os</a> <a href="/tags/qt/" style="font-size: 10px;">qt</a> <a href="/tags/requests/" style="font-size: 10px;">requests</a> <a href="/tags/sk-learn/" style="font-size: 10px;">sk-learn</a> <a href="/tags/ssh/" style="font-size: 12.67px;">ssh</a> <a href="/tags/statistic/" style="font-size: 10px;">statistic</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/windows/" style="font-size: 16.67px;">windows</a>
+      <a href="/tags/Algorithm/" style="font-size: 11.33px;">Algorithm</a> <a href="/tags/Altium-Designer/" style="font-size: 14.67px;">Altium Designer</a> <a href="/tags/Apache/" style="font-size: 11.33px;">Apache</a> <a href="/tags/BeautifulSoup/" style="font-size: 10px;">BeautifulSoup</a> <a href="/tags/C/" style="font-size: 15.33px;">C</a> <a href="/tags/C/" style="font-size: 18.67px;">C++</a> <a href="/tags/Centos7/" style="font-size: 17.33px;">Centos7</a> <a href="/tags/Cython/" style="font-size: 10px;">Cython</a> <a href="/tags/Electronic/" style="font-size: 13.33px;">Electronic</a> <a href="/tags/English/" style="font-size: 12px;">English</a> <a href="/tags/Geant4/" style="font-size: 10.67px;">Geant4</a> <a href="/tags/Hardware/" style="font-size: 10px;">Hardware</a> <a href="/tags/Hexo/" style="font-size: 14px;">Hexo</a> <a href="/tags/Image/" style="font-size: 12px;">Image</a> <a href="/tags/Jupyter/" style="font-size: 10px;">Jupyter</a> <a href="/tags/Linux/" style="font-size: 19.33px;">Linux</a> <a href="/tags/Markdown/" style="font-size: 16px;">Markdown</a> <a href="/tags/Mongodb/" style="font-size: 10px;">Mongodb</a> <a href="/tags/Nuclear-Physics/" style="font-size: 11.33px;">Nuclear Physics</a> <a href="/tags/Open/" style="font-size: 10px;">Open</a> <a href="/tags/Opencv/" style="font-size: 10.67px;">Opencv</a> <a href="/tags/Program/" style="font-size: 18px;">Program</a> <a href="/tags/PyPI/" style="font-size: 10px;">PyPI</a> <a href="/tags/Py-Crawler/" style="font-size: 10.67px;">Py_Crawler</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/Random/" style="font-size: 10px;">Random</a> <a href="/tags/Resource/" style="font-size: 10.67px;">Resource</a> <a href="/tags/Root/" style="font-size: 10.67px;">Root</a> <a href="/tags/Scipy/" style="font-size: 10px;">Scipy</a> <a href="/tags/Shell/" style="font-size: 16px;">Shell</a> <a href="/tags/Solidwork/" style="font-size: 10.67px;">Solidwork</a> <a href="/tags/TTree/" style="font-size: 10px;">TTree</a> <a href="/tags/Tensorflow/" style="font-size: 15.33px;">Tensorflow</a> <a href="/tags/Thread/" style="font-size: 10px;">Thread</a> <a href="/tags/Urllib2/" style="font-size: 10px;">Urllib2</a> <a href="/tags/Virtual-memory/" style="font-size: 10px;">Virtual memory</a> <a href="/tags/cmake/" style="font-size: 12.67px;">cmake</a> <a href="/tags/cmd/" style="font-size: 10.67px;">cmd</a> <a href="/tags/data-structure/" style="font-size: 10.67px;">data structure</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/htop/" style="font-size: 10px;">htop</a> <a href="/tags/keras/" style="font-size: 10.67px;">keras</a> <a href="/tags/latex/" style="font-size: 14.67px;">latex</a> <a href="/tags/os/" style="font-size: 10px;">os</a> <a href="/tags/qt/" style="font-size: 10px;">qt</a> <a href="/tags/requests/" style="font-size: 10px;">requests</a> <a href="/tags/sk-learn/" style="font-size: 10px;">sk-learn</a> <a href="/tags/ssh/" style="font-size: 12.67px;">ssh</a> <a href="/tags/statistic/" style="font-size: 10px;">statistic</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/windows/" style="font-size: 16.67px;">windows</a> <a href="/tags/yolo%EF%BC%8CC/" style="font-size: 10px;">yolo，C</a>
     </div>
   </div>
 
@@ -444,7 +479,7 @@ pip install web.py -i http://pypi.douban.com/simple --trusted-host pypi.douban.c
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li></ul>
     </div>
   </div>
 
@@ -457,23 +492,23 @@ pip install web.py -i http://pypi.douban.com/simple --trusted-host pypi.douban.c
       <ul>
         
           <li>
-            <a href="/winedt_break/">Winedt注册表破解</a>
+            <a href="/nodejs_windows_install/">windows下安装nodejs及环境变量设置</a>
           </li>
         
           <li>
-            <a href="/latex_content_dot/">latex生成目录条目加点</a>
+            <a href="/Centos7_mongodb_install/">Centos7安装Mongodb</a>
           </li>
         
           <li>
-            <a href="/latex_figure_prefix/">latex论文用图修改前缀</a>
+            <a href="/Endnote_download_tutorial/">EndnoteX9下载及新手教程</a>
           </li>
         
           <li>
-            <a href="/yum_unblock/">linux yum进程占用问题</a>
+            <a href="/centos7_opencv_install/">Centso7下安装opencv</a>
           </li>
         
           <li>
-            <a href="/linux_googlechrome/">linux安装谷歌浏览器</a>
+            <a href="/anaconda_democrate_source/">anaconda安装库使用国内源</a>
           </li>
         
       </ul>

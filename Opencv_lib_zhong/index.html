@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Opencv库添加中文支持 | Wangxiang&#39;s blog website</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="操作环境：windows 10，opencv3.40  opencv默认不支持中文输入，需要添加以下代码并调用：  putText.h:  ~~~#ifndef PUTTEXT_H_#define PUTTEXT_H_ #include &lt;windows.h&gt;#include #include &lt;opencv2&#x2F;opencv.hpp&gt; using namespace cv">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Opencv库添加中文支持">
+<meta property="og:url" content="http://wangxianggit.github.io/Opencv_lib_zhong/index.html">
+<meta property="og:site_name" content="Wangxiang&#39;s blog website">
+<meta property="og:description" content="操作环境：windows 10，opencv3.40  opencv默认不支持中文输入，需要添加以下代码并调用：  putText.h:  ~~~#ifndef PUTTEXT_H_#define PUTTEXT_H_ #include &lt;windows.h&gt;#include #include &lt;opencv2&#x2F;opencv.hpp&gt; using namespace cv">
+<meta property="og:locale">
+<meta property="article:published_time" content="2020-07-15T14:29:33.000Z">
+<meta property="article:modified_time" content="2020-07-15T14:34:49.336Z">
+<meta property="article:author" content="wangxiang">
+<meta property="article:tag" content="Image">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Wangxiang&#39;s blog website" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Wangxiang&#39;s blog website</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://wangxianggit.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Opencv_lib_zhong" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/Opencv_lib_zhong/" class="article-date">
+  <time datetime="2020-07-15T14:29:33.000Z" itemprop="datePublished">2020-07-15</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/learning/">learning</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Opencv库添加中文支持
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">article content</strong>
+    
+  </div>
+
+        <ul>
+<li><p>操作环境：windows 10，opencv3.40</p>
+</li>
+<li><p>opencv默认不支持中文输入，需要添加以下代码并调用：</p>
+</li>
+<li><p>putText.h:</p>
+<ul>
+<li><p>~~~<br>#ifndef PUTTEXT_H_<br>#define PUTTEXT_H_</p>
+<p>#include &lt;windows.h&gt;<br>#include <string><br>#include &lt;opencv2/opencv.hpp&gt;</p>
+<p>using namespace cv;</p>
+<p>void GetStringSize(HDC hDC, const char* str, int* w, int* h);<br>void putTextZH(Mat &amp;dst, const char* str, Point org, Scalar color, int fontSize,</p>
+<pre><code>const char *fn = &quot;Arial&quot;, bool italic = false, bool underline = false);</code></pre>
+<p>#endif // PUTTEXT_H_</p>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  * ​</span><br><span class="line"></span><br><span class="line">* putText.cpp:</span><br><span class="line"></span><br><span class="line">  * ~~~</span><br><span class="line">    <span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&quot;putText.h&quot;</span></span></span><br><span class="line">     </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">GetStringSize</span><span class="params">(HDC hDC, <span class="keyword">const</span> <span class="keyword">char</span>* str, <span class="keyword">int</span>* w, <span class="keyword">int</span>* h)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        SIZE <span class="built_in">size</span>;</span><br><span class="line">        GetTextExtentPoint32A(hDC, str, <span class="built_in">strlen</span>(str), &amp;<span class="built_in">size</span>);</span><br><span class="line">        <span class="keyword">if</span> (w != <span class="number">0</span>) *w = <span class="built_in">size</span>.cx;</span><br><span class="line">        <span class="keyword">if</span> (h != <span class="number">0</span>) *h = <span class="built_in">size</span>.cy;</span><br><span class="line">    &#125;</span><br><span class="line">     </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">putTextZH</span><span class="params">(Mat &amp;dst, <span class="keyword">const</span> <span class="keyword">char</span>* str, Point org, Scalar color, <span class="keyword">int</span> fontSize, <span class="keyword">const</span> <span class="keyword">char</span>* fn, <span class="keyword">bool</span> italic, <span class="keyword">bool</span> underline)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        CV_Assert(dst.data != <span class="number">0</span> &amp;&amp; (dst.channels() == <span class="number">1</span> || dst.channels() == <span class="number">3</span>));</span><br><span class="line">     </span><br><span class="line">        <span class="keyword">int</span> x, y, r, b;</span><br><span class="line">        <span class="keyword">if</span> (org.x &gt; dst.cols || org.y &gt; dst.rows) <span class="keyword">return</span>;</span><br><span class="line">        x = org.x &lt; <span class="number">0</span> ? -org.x : <span class="number">0</span>;</span><br><span class="line">        y = org.y &lt; <span class="number">0</span> ? -org.y : <span class="number">0</span>;</span><br><span class="line">     </span><br><span class="line">        LOGFONTA lf;</span><br><span class="line">        lf.lfHeight = -fontSize;</span><br><span class="line">        lf.lfWidth = <span class="number">0</span>;</span><br><span class="line">        lf.lfEscapement = <span class="number">0</span>;</span><br><span class="line">        lf.lfOrientation = <span class="number">0</span>;</span><br><span class="line">        lf.lfWeight = <span class="number">5</span>;</span><br><span class="line">        lf.lfItalic = italic;   <span class="comment">//斜体</span></span><br><span class="line">        lf.lfUnderline = underline; <span class="comment">//下划线</span></span><br><span class="line">        lf.lfStrikeOut = <span class="number">0</span>;</span><br><span class="line">        lf.lfCharSet = DEFAULT_CHARSET;</span><br><span class="line">        lf.lfOutPrecision = <span class="number">0</span>;</span><br><span class="line">        lf.lfClipPrecision = <span class="number">0</span>;</span><br><span class="line">        lf.lfQuality = PROOF_QUALITY;</span><br><span class="line">        lf.lfPitchAndFamily = <span class="number">0</span>;</span><br><span class="line">        strcpy_s(lf.lfFaceName, fn);</span><br><span class="line">     </span><br><span class="line">        HFONT hf = CreateFontIndirectA(&amp;lf);</span><br><span class="line">        HDC hDC = CreateCompatibleDC(<span class="number">0</span>);</span><br><span class="line">        HFONT hOldFont = (HFONT)SelectObject(hDC, hf);</span><br><span class="line">     </span><br><span class="line">        <span class="keyword">int</span> strBaseW = <span class="number">0</span>, strBaseH = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> singleRow = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">char</span> buf[<span class="number">1</span> &lt;&lt; <span class="number">12</span>];</span><br><span class="line">        strcpy_s(buf, str);</span><br><span class="line">        <span class="keyword">char</span> *bufT[<span class="number">1</span> &lt;&lt; <span class="number">12</span>];  <span class="comment">// 这个用于分隔字符串后剩余的字符，可能会超出。</span></span><br><span class="line">        <span class="comment">//处理多行</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> nnh = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">int</span> cw, ch;</span><br><span class="line">     </span><br><span class="line">            <span class="keyword">const</span> <span class="keyword">char</span>* ln = strtok_s(buf, <span class="string">&quot;\n&quot;</span>,bufT);</span><br><span class="line">            <span class="keyword">while</span> (ln != <span class="number">0</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                GetStringSize(hDC, ln, &amp;cw, &amp;ch);</span><br><span class="line">                strBaseW = <span class="built_in">max</span>(strBaseW, cw);</span><br><span class="line">                strBaseH = <span class="built_in">max</span>(strBaseH, ch);</span><br><span class="line">     </span><br><span class="line">                ln = strtok_s(<span class="number">0</span>, <span class="string">&quot;\n&quot;</span>,bufT);</span><br><span class="line">                nnh++;</span><br><span class="line">            &#125;</span><br><span class="line">            singleRow = strBaseH;</span><br><span class="line">            strBaseH *= nnh;</span><br><span class="line">        &#125;</span><br><span class="line">     </span><br><span class="line">        <span class="keyword">if</span> (org.x + strBaseW &lt; <span class="number">0</span> || org.y + strBaseH &lt; <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            SelectObject(hDC, hOldFont);</span><br><span class="line">            DeleteObject(hf);</span><br><span class="line">            DeleteObject(hDC);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">     </span><br><span class="line">        r = org.x + strBaseW &gt; dst.cols ? dst.cols - org.x - <span class="number">1</span> : strBaseW - <span class="number">1</span>;</span><br><span class="line">        b = org.y + strBaseH &gt; dst.rows ? dst.rows - org.y - <span class="number">1</span> : strBaseH - <span class="number">1</span>;</span><br><span class="line">        org.x = org.x &lt; <span class="number">0</span> ? <span class="number">0</span> : org.x;</span><br><span class="line">        org.y = org.y &lt; <span class="number">0</span> ? <span class="number">0</span> : org.y;</span><br><span class="line">     </span><br><span class="line">        BITMAPINFO bmp = &#123; <span class="number">0</span> &#125;;</span><br><span class="line">        BITMAPINFOHEADER&amp; bih = bmp.bmiHeader;</span><br><span class="line">        <span class="keyword">int</span> strDrawLineStep = strBaseW * <span class="number">3</span> % <span class="number">4</span> == <span class="number">0</span> ? strBaseW * <span class="number">3</span> : (strBaseW * <span class="number">3</span> + <span class="number">4</span> - ((strBaseW * <span class="number">3</span>) % <span class="number">4</span>));</span><br><span class="line">     </span><br><span class="line">        bih.biSize = <span class="keyword">sizeof</span>(BITMAPINFOHEADER);</span><br><span class="line">        bih.biWidth = strBaseW;</span><br><span class="line">        bih.biHeight = strBaseH;</span><br><span class="line">        bih.biPlanes = <span class="number">1</span>;</span><br><span class="line">        bih.biBitCount = <span class="number">24</span>;</span><br><span class="line">        bih.biCompression = BI_RGB;</span><br><span class="line">        bih.biSizeImage = strBaseH * strDrawLineStep;</span><br><span class="line">        bih.biClrUsed = <span class="number">0</span>;</span><br><span class="line">        bih.biClrImportant = <span class="number">0</span>;</span><br><span class="line">     </span><br><span class="line">        <span class="keyword">void</span>* pDibData = <span class="number">0</span>;</span><br><span class="line">        HBITMAP hBmp = CreateDIBSection(hDC, &amp;bmp, DIB_RGB_COLORS, &amp;pDibData, <span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">     </span><br><span class="line">        CV_Assert(pDibData != <span class="number">0</span>);</span><br><span class="line">        HBITMAP hOldBmp = (HBITMAP)SelectObject(hDC, hBmp);</span><br><span class="line">     </span><br><span class="line">        <span class="comment">//color.val[2], color.val[1], color.val[0]</span></span><br><span class="line">        SetTextColor(hDC, RGB(<span class="number">255</span>, <span class="number">255</span>, <span class="number">255</span>));</span><br><span class="line">        SetBkColor(hDC, <span class="number">0</span>);</span><br><span class="line">        <span class="comment">//SetStretchBltMode(hDC, COLORONCOLOR);</span></span><br><span class="line">     </span><br><span class="line">        strcpy_s(buf, str);</span><br><span class="line">        <span class="keyword">const</span> <span class="keyword">char</span>* ln = strtok_s(buf, <span class="string">&quot;\n&quot;</span>,bufT);</span><br><span class="line">        <span class="keyword">int</span> outTextY = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (ln != <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            TextOutA(hDC, <span class="number">0</span>, outTextY, ln, <span class="built_in">strlen</span>(ln));</span><br><span class="line">            outTextY += singleRow;</span><br><span class="line">            ln = strtok_s(<span class="number">0</span>, <span class="string">&quot;\n&quot;</span>,bufT);</span><br><span class="line">        &#125;</span><br><span class="line">        uchar* dstData = (uchar*)dst.data;</span><br><span class="line">        <span class="keyword">int</span> dstStep = dst.<span class="built_in">step</span> / <span class="keyword">sizeof</span>(dstData[<span class="number">0</span>]);</span><br><span class="line">        <span class="keyword">unsigned</span> <span class="keyword">char</span>* pImg = (<span class="keyword">unsigned</span> <span class="keyword">char</span>*)dst.data + org.x * dst.channels() + org.y * dstStep;</span><br><span class="line">        <span class="keyword">unsigned</span> <span class="keyword">char</span>* pStr = (<span class="keyword">unsigned</span> <span class="keyword">char</span>*)pDibData + x * <span class="number">3</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> tty = y; tty &lt;= b; ++tty)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">unsigned</span> <span class="keyword">char</span>* subImg = pImg + (tty - y) * dstStep;</span><br><span class="line">            <span class="keyword">unsigned</span> <span class="keyword">char</span>* subStr = pStr + (strBaseH - tty - <span class="number">1</span>) * strDrawLineStep;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> ttx = x; ttx &lt;= r; ++ttx)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> n = <span class="number">0</span>; n &lt; dst.channels(); ++n)&#123;</span><br><span class="line">                    <span class="keyword">double</span> vtxt = subStr[n] / <span class="number">255.0</span>;</span><br><span class="line">                    <span class="keyword">int</span> cvv = vtxt * color.val[n] + (<span class="number">1</span> - vtxt) * subImg[n];</span><br><span class="line">                    subImg[n] = cvv &gt; <span class="number">255</span> ? <span class="number">255</span> : (cvv &lt; <span class="number">0</span> ? <span class="number">0</span> : cvv);</span><br><span class="line">                &#125;</span><br><span class="line">     </span><br><span class="line">                subStr += <span class="number">3</span>;</span><br><span class="line">                subImg += dst.channels();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">     </span><br><span class="line">        SelectObject(hDC, hOldBmp);</span><br><span class="line">        SelectObject(hDC, hOldFont);</span><br><span class="line">        DeleteObject(hf);</span><br><span class="line">        DeleteObject(hBmp);</span><br><span class="line">        DeleteDC(hDC);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>调用：</p>
+<ul>
+<li><pre><code>#include &quot;putText.h&quot;
+
+void main()
+&#123;
+    Mat img(150,600,CV_8UC3,Scalar(255,255,255));//初始化图像
+    putTextZH(img, &quot;测试&quot;, Point(30, 30), Scalar(0, 0, 0), 50, &quot;宋体&quot;);
+    imwrite(&quot;test.png&quot;, img);
+    imshow(&quot;&quot;, img);
+    waitKey(0);
+&#125;</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wangxianggit.github.io/Opencv_lib_zhong/" data-id="ckjv2ydvg000bdgdn7sz74vj6" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Image/" rel="tag">Image</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/yolov4_tag_chinese/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          yolov4标签中文显示
+        
+      </div>
+    </a>
+  
+  
+    <a href="/ImageMagick_create_font_image/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">使用ImageMagick生成字体图像</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+
+  <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+  
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">links</h3>
+    <div class="widget">
+      <li><a href="https://wangxianggit.github.io/About%20me/" title="wangxiang's Blog">Contact with me</a></li>
+      <li><a target="_blank" rel="noopener" href="https://github.com/wangxianggit" title="wangxiang's Blog">Github.com</a></li>
+	  <li><a target="_blank" rel="noopener" href="http://www.lzu.edu.cn" title="wangxiang's Blog">Lanzhou University</a></li>
+	  <li><a target="_blank" rel="noopener" href="https://www.pku.edu.cn" title="wangxiang's Blog">Peking University</a></li>
+	  <li><a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/" title="wangxiang's Blog">清华大学开源软件镜像站</a></li>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/">Algorithm</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Altium/">Altium</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Py-Crawler/">Py_Crawler</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/learning/">learning</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithm/" rel="tag">Algorithm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Altium-Designer/" rel="tag">Altium Designer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Apache/" rel="tag">Apache</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BeautifulSoup/" rel="tag">BeautifulSoup</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Centos7/" rel="tag">Centos7</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cython/" rel="tag">Cython</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Electronic/" rel="tag">Electronic</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/English/" rel="tag">English</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Geant4/" rel="tag">Geant4</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hardware/" rel="tag">Hardware</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Image/" rel="tag">Image</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jupyter/" rel="tag">Jupyter</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mongodb/" rel="tag">Mongodb</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nuclear-Physics/" rel="tag">Nuclear Physics</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Open/" rel="tag">Open</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Opencv/" rel="tag">Opencv</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Program/" rel="tag">Program</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PyPI/" rel="tag">PyPI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Py-Crawler/" rel="tag">Py_Crawler</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Random/" rel="tag">Random</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Resource/" rel="tag">Resource</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Root/" rel="tag">Root</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Scipy/" rel="tag">Scipy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Shell/" rel="tag">Shell</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Solidwork/" rel="tag">Solidwork</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TTree/" rel="tag">TTree</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tensorflow/" rel="tag">Tensorflow</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Thread/" rel="tag">Thread</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Urllib2/" rel="tag">Urllib2</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Virtual-memory/" rel="tag">Virtual memory</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cmake/" rel="tag">cmake</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cmd/" rel="tag">cmd</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/data-structure/" rel="tag">data structure</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/htop/" rel="tag">htop</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/keras/" rel="tag">keras</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/latex/" rel="tag">latex</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/os/" rel="tag">os</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/qt/" rel="tag">qt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/requests/" rel="tag">requests</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sk-learn/" rel="tag">sk-learn</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh/" rel="tag">ssh</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/statistic/" rel="tag">statistic</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vi/" rel="tag">vi</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/windows/" rel="tag">windows</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/yolo%EF%BC%8CC/" rel="tag">yolo，C</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Algorithm/" style="font-size: 11.33px;">Algorithm</a> <a href="/tags/Altium-Designer/" style="font-size: 14.67px;">Altium Designer</a> <a href="/tags/Apache/" style="font-size: 11.33px;">Apache</a> <a href="/tags/BeautifulSoup/" style="font-size: 10px;">BeautifulSoup</a> <a href="/tags/C/" style="font-size: 15.33px;">C</a> <a href="/tags/C/" style="font-size: 18.67px;">C++</a> <a href="/tags/Centos7/" style="font-size: 17.33px;">Centos7</a> <a href="/tags/Cython/" style="font-size: 10px;">Cython</a> <a href="/tags/Electronic/" style="font-size: 13.33px;">Electronic</a> <a href="/tags/English/" style="font-size: 12px;">English</a> <a href="/tags/Geant4/" style="font-size: 10.67px;">Geant4</a> <a href="/tags/Hardware/" style="font-size: 10px;">Hardware</a> <a href="/tags/Hexo/" style="font-size: 14px;">Hexo</a> <a href="/tags/Image/" style="font-size: 12px;">Image</a> <a href="/tags/Jupyter/" style="font-size: 10px;">Jupyter</a> <a href="/tags/Linux/" style="font-size: 19.33px;">Linux</a> <a href="/tags/Markdown/" style="font-size: 16px;">Markdown</a> <a href="/tags/Mongodb/" style="font-size: 10px;">Mongodb</a> <a href="/tags/Nuclear-Physics/" style="font-size: 11.33px;">Nuclear Physics</a> <a href="/tags/Open/" style="font-size: 10px;">Open</a> <a href="/tags/Opencv/" style="font-size: 10.67px;">Opencv</a> <a href="/tags/Program/" style="font-size: 18px;">Program</a> <a href="/tags/PyPI/" style="font-size: 10px;">PyPI</a> <a href="/tags/Py-Crawler/" style="font-size: 10.67px;">Py_Crawler</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/Random/" style="font-size: 10px;">Random</a> <a href="/tags/Resource/" style="font-size: 10.67px;">Resource</a> <a href="/tags/Root/" style="font-size: 10.67px;">Root</a> <a href="/tags/Scipy/" style="font-size: 10px;">Scipy</a> <a href="/tags/Shell/" style="font-size: 16px;">Shell</a> <a href="/tags/Solidwork/" style="font-size: 10.67px;">Solidwork</a> <a href="/tags/TTree/" style="font-size: 10px;">TTree</a> <a href="/tags/Tensorflow/" style="font-size: 15.33px;">Tensorflow</a> <a href="/tags/Thread/" style="font-size: 10px;">Thread</a> <a href="/tags/Urllib2/" style="font-size: 10px;">Urllib2</a> <a href="/tags/Virtual-memory/" style="font-size: 10px;">Virtual memory</a> <a href="/tags/cmake/" style="font-size: 12.67px;">cmake</a> <a href="/tags/cmd/" style="font-size: 10.67px;">cmd</a> <a href="/tags/data-structure/" style="font-size: 10.67px;">data structure</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/htop/" style="font-size: 10px;">htop</a> <a href="/tags/keras/" style="font-size: 10.67px;">keras</a> <a href="/tags/latex/" style="font-size: 14.67px;">latex</a> <a href="/tags/os/" style="font-size: 10px;">os</a> <a href="/tags/qt/" style="font-size: 10px;">qt</a> <a href="/tags/requests/" style="font-size: 10px;">requests</a> <a href="/tags/sk-learn/" style="font-size: 10px;">sk-learn</a> <a href="/tags/ssh/" style="font-size: 12.67px;">ssh</a> <a href="/tags/statistic/" style="font-size: 10px;">statistic</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/windows/" style="font-size: 16.67px;">windows</a> <a href="/tags/yolo%EF%BC%8CC/" style="font-size: 10px;">yolo，C</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/nodejs_windows_install/">windows下安装nodejs及环境变量设置</a>
+          </li>
+        
+          <li>
+            <a href="/Centos7_mongodb_install/">Centos7安装Mongodb</a>
+          </li>
+        
+          <li>
+            <a href="/Endnote_download_tutorial/">EndnoteX9下载及新手教程</a>
+          </li>
+        
+          <li>
+            <a href="/centos7_opencv_install/">Centso7下安装opencv</a>
+          </li>
+        
+          <li>
+            <a href="/anaconda_democrate_source/">anaconda安装库使用国内源</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+  </script>
+  
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2021 wangxiang<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

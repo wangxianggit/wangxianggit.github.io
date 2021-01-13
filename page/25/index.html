@@ -67,299 +67,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-Python_library_Urllib2" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Compiler_g++_usuage" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/Python_library_Urllib2/" class="article-date">
-  <time datetime="2019-02-26T14:17:17.000Z" itemprop="datePublished">2019-02-26</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Py-Crawler/">Py_Crawler</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/Python_library_Urllib2/">Python3库Urllib2迁移</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-
-        <ul>
-<li><p>​ Python3.x中urllib2被拆分成了urllib.request和urllib.error两个包，因此直接导入urllib2会报错，使用pip或 conda安装urllib2也会出现找不到包的情况。</p>
-</li>
-<li><p>导入相应包使用代码：<code>import urllib.request 和import urllib.error</code></p>
-</li>
-<li><p>代码中使用相应函数代码：<code>urllib2.xxx修改为urllib.request.xxx</code></p>
-</li>
-<li><p>示例代码：</p>
-</li>
-<li><pre><code>##download webpage
-import urllib.request
-import urllib.error
-
-def download(url):
-    print(&#39;Downloading:&#39;,url)
-    try:
-        html=urllib.request.urlopen(url).read()
-    except urllib.error as e:
-        print(&#39;download error:&#39;,e.reason)
-        html=None
-    return html
-download(&#39;http://example.webscraping.com/&#39;)</code></pre>
-</li>
-</ul>
-<hr>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/Python_library_Urllib2/" data-id="ckjv2ttwg009kt0dn5kgu5ltr" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Py-Crawler/" rel="tag">Py_Crawler</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Urllib2/" rel="tag">Urllib2</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-python_crawler" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/python_crawler/" class="article-date">
-  <time datetime="2019-02-26T13:52:23.000Z" itemprop="datePublished">2019-02-26</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Py-Crawler/">Py_Crawler</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/python_crawler/">python爬虫综述</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-
-        <h2 id="什么是爬虫"><a href="#什么是爬虫" class="headerlink" title="什么是爬虫"></a>什么是爬虫</h2><ul>
-<li>​ 网络爬虫又称网页蜘蛛，网络机器人，或在FOAF社区称为网络追逐者，是一种按照一定的规则，自动的抓取万维网信息的程序或者脚本。</li>
-</ul>
-<h2 id="浏览网页过程"><a href="#浏览网页过程" class="headerlink" title="浏览网页过程"></a>浏览网页过程</h2><ul>
-<li>浏览网页的过程是用户输入网址之后，经过DNS服务器，找到服务器主机，向服务器发出一个请求，服务器经过解析之后，发送给用户的浏览器 HTML、JS、CSS 等文件，浏览器解析出来，便可以看到网页丰富的内容。</li>
-<li>因此，用户看到的网页实质是由 HTML 代码构成的，爬虫爬来的便是这些内容，通过分析和过滤这些 HTML 代码，实现对图片、文字等资源的获取。</li>
-</ul>
-<h2 id="URL的含义"><a href="#URL的含义" class="headerlink" title="URL的含义"></a>URL的含义</h2><ul>
-<li><p>URL，即统一资源定位符，也就是我们说的网址，统一资源定位符是对可以从互联网上得到的资源的位置和访问方法的一种简洁的表示，是互联网上标准资源的地址。</p>
-</li>
-<li><p>互联网上的每个文件都有一个唯一的URL，它包含的信息指出文件的位置以及浏览器应该怎么处理它。</p>
-</li>
-<li><pre><code>URL的格式由三部分组成：
-第一部分是协议(或称为服务方式)。
-第二部分是存有该资源的主机IP地址(有时也包括端口号)。
-第三部分是主机资源的具体地址，如目录和文件名等。</code></pre>
-</li>
-<li><p>爬虫爬取数据时必须要有一个目标的URL才可以获取数据，因此，它是爬虫获取数据的基本依据，准确理解它的含义对爬虫学习有很大帮助。</p>
-</li>
-</ul>
-<hr>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/python_crawler/" data-id="ckjv2ttxw00g8t0dn6jh0dpqr" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Py-Crawler/" rel="tag">Py_Crawler</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Python_library_BeautifulSoup" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/Python_library_BeautifulSoup/" class="article-date">
-  <time datetime="2019-02-23T14:12:19.000Z" itemprop="datePublished">2019-02-23</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Python/">Python</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/Python_library_BeautifulSoup/">Python库BeautifulSoup使用</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-
-        <h2 id="BeautifulSoup概述"><a href="#BeautifulSoup概述" class="headerlink" title="BeautifulSoup概述"></a>BeautifulSoup概述</h2><ul>
-<li><p>BeautifulSoup模块用于从HTML文本中提取我们想要的数据，参考网站：<a target="_blank" rel="noopener" href="https://beautifulsoup.readthedocs.io/zh_CN/latest/">https://beautifulsoup.readthedocs.io/zh_CN/latest/</a></p>
-</li>
-<li><p>BeautifulSoup 有多个版本，这里选择版本BeautifulSoup4。</p>
-</li>
-<li><p>模块安装，在命令行终端下使用命令：</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">conda install beautifulsoup4 <span class="regexp">//</span>前提安装了anaconda</span><br><span class="line">或使用pip命令</span><br><span class="line">pip install beautifulsoup4 </span><br></pre></td></tr></table></figure></li>
-<li><p>lxml是一个解析器，BeautifulSoup可以使用它来解析HTML，然后提取内容，模块安装</p>
-<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda <span class="keyword">install</span> lxml</span><br></pre></td></tr></table></figure>
-<ul>
-<li>如果不安装lxml，则BeautifulSoup会使用Python内置的解析器对文档进行解析。之所以使用lxml，是因为它速度快。</li>
-</ul>
-</li>
-<li><p>不同文档解析器对比如下：</p>
-</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>解析器</th>
-<th>使用方法</th>
-<th>优势</th>
-<th>劣势</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Python标准库</td>
-<td>BeautifulSoup(markup,”html.parser”)</td>
-<td>Python的内置标准库  执行速度适  中文档容错能力强</td>
-<td>Python 2.7.3 or 3.2.2)前 的版本中文档容错能力差</td>
-</tr>
-<tr>
-<td>lxml HTML 解析器</td>
-<td>BeautifulSoup(markup,”lxml”)</td>
-<td>速度快  文档容错能力强</td>
-<td>需要安装C语言库</td>
-</tr>
-<tr>
-<td>lxml XML 解析器</td>
-<td>BeautifulSoup(markup,[“lxml-xml”]) BeautifulSoup(markup,”xml”)</td>
-<td>速度快  唯一支持XML的解析器</td>
-<td>需要安装C语言库</td>
-</tr>
-<tr>
-<td>html5lib</td>
-<td>BeautifulSoup(markup,”html5lib”)</td>
-<td>最好的容错性  以浏览器的方式解析文档  生成HTML5格式的文档</td>
-<td>速度慢，不依赖外部扩展</td>
-</tr>
-</tbody></table>
-<h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><h3 id="BeautifulSoup对象类型"><a href="#BeautifulSoup对象类型" class="headerlink" title="BeautifulSoup对象类型"></a>BeautifulSoup对象类型</h3><ul>
-<li>BeautifulSoup将复杂HTML文档转换成一个复杂的树形结构，每个节点都是Python对象。</li>
-<li>所有对象可以归纳为4种类型: Tag , NavigableString , BeautifulSoup , Comment 。</li>
-</ul>
-<h3 id="Tag"><a href="#Tag" class="headerlink" title="Tag"></a>Tag</h3><ul>
-<li><p>Python中的Tag和HTML或XML中的标签一样。</p>
-</li>
-<li><p>使用find()方法返回的类型就是Tag，用find_all()返回的是多个Tag对象的集合，在Python中可以用for循环遍历。</p>
-</li>
-<li><p>返回Tag后，可以提取该对象中包含的信息。</p>
-<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">tag</span>.name /提取标签名字</span><br><span class="line"><span class="keyword">tag</span>[&#x27;<span class="keyword">attribute</span>&#x27;] /提取标签的属性</span><br></pre></td></tr></table></figure>
-<ul>
-<li>示例代码：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">from bs4 import BeautifulSoup</span><br><span class="line"></span><br><span class="line">html_doc = <span class="string">&quot;&quot;</span><span class="string">&quot;</span></span><br><span class="line"><span class="string">&lt;html&gt;&lt;head&gt;&lt;title&gt;The Dormouse&#x27;s story&lt;/title&gt;&lt;/head&gt;</span></span><br><span class="line"><span class="string">&lt;body&gt;</span></span><br><span class="line"><span class="string">&lt;p class=&quot;</span>title<span class="string">&quot;&gt;&lt;b&gt;The Dormouse&#x27;s story&lt;/b&gt;&lt;/p&gt;</span></span><br><span class="line"><span class="string">&lt;p class=&quot;</span>story<span class="string">&quot;&gt;Once upon a time there were three little sisters; and their names were</span></span><br><span class="line"><span class="string">&lt;a href=&quot;</span>http://example.com/elsie<span class="string">&quot; class=&quot;</span>sister<span class="string">&quot; id=&quot;</span>link1<span class="string">&quot;&gt;Elsie&lt;/a&gt;,</span></span><br><span class="line"><span class="string">&lt;a href=&quot;</span>http://example.com/lacie<span class="string">&quot; class=&quot;</span>sister<span class="string">&quot; id=&quot;</span>link2<span class="string">&quot;&gt;Lacie&lt;/a&gt; and</span></span><br><span class="line"><span class="string">&lt;a href=&quot;</span>http://example.com/tillie<span class="string">&quot; class=&quot;</span>sister<span class="string">&quot; id=&quot;</span>link3<span class="string">&quot;&gt;Tillie&lt;/a&gt;;</span></span><br><span class="line"><span class="string">and they lived at the bottom of a well.&lt;/p&gt;</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">&lt;p class=&quot;</span>story<span class="string">&quot;&gt;...&lt;/p&gt;</span></span><br><span class="line"><span class="string">&quot;</span><span class="string">&quot;&quot;</span></span><br><span class="line">soup = BeautifulSoup(html_doc, <span class="string">&#x27;lxml&#x27;</span>)  <span class="comment">#声明BeautifulSoup对象</span></span><br><span class="line">find = soup.find(<span class="string">&#x27;p&#x27;</span>)  <span class="comment">#使用find方法查到第一个p标签</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;find&#x27;s return type is &quot;</span>, <span class="built_in">type</span>(find))  <span class="comment">#输出返回值类型</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;find&#x27;s content is&quot;</span>, find)  <span class="comment">#输出find获取的值</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;find&#x27;s Tag Name is &quot;</span>, find.name)  <span class="comment">#输出标签的名字</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;find&#x27;s Attribute(class) is &quot;</span>, find[<span class="string">&#x27;class&#x27;</span>])  <span class="comment">#输出标签的class属性值</span></span><br></pre></td></tr></table></figure>
-<h3 id="NavigableString"><a href="#NavigableString" class="headerlink" title="NavigableString"></a>NavigableString</h3></li>
-</ul>
-</li>
-<li><p>NavigableString即是标签中的文本内容，获取方式如下：</p>
-<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">tag</span>.<span class="keyword">string</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>上面例子中使用上面获取之后得到的文本内容为：The Dormouse’s story</li>
-</ul>
-</li>
-</ul>
-<h3 id="BeautifulSoup"><a href="#BeautifulSoup" class="headerlink" title="BeautifulSoup"></a>BeautifulSoup</h3><ul>
-<li>BeautifulSoup对象表示一个文档的全部内容。</li>
-<li>可以支持遍历文档树和搜索文档树。</li>
-<li>例如上面例子中的soup对象即为BeautifulSoup对象。</li>
-</ul>
-<h3 id="Comment"><a href="#Comment" class="headerlink" title="Comment"></a>Comment</h3><ul>
-<li><p>该对象即为HTML或XML文档中的注释。</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">markup = &quot;<span class="tag">&lt;<span class="name">b</span>&gt;</span><span class="comment">&lt;!--Hey, buddy. Want to buy a used parser?--&gt;</span><span class="tag">&lt;/<span class="name">b</span>&gt;</span>&quot;</span><br><span class="line">soup = BeautifulSoup(markup)</span><br><span class="line">comment = soup.b.string</span><br><span class="line">type(comment)</span><br><span class="line">\# <span class="tag">&lt;<span class="name">class</span> &#x27;<span class="attr">bs4.element.Comment</span>&#x27;&gt;</span></span><br></pre></td></tr></table></figure></li>
-<li><p>该类对象可以用来获取注释的内容，获取方法为：comment.string</p>
-</li>
-<li><p>可以用于判断该类型是否是一个注释</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> bs4</span><br><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> <span class="built_in">type</span>(SomeString) == bs4.element.Comment:</span><br><span class="line">    print(<span class="string">&#x27;该字符是注释&#x27;</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    print(<span class="string">&#x27;该字符不是注释&#x27;</span>)</span><br></pre></td></tr></table></figure>
-<h2 id="BeautifulSopu遍历法"><a href="#BeautifulSopu遍历法" class="headerlink" title="BeautifulSopu遍历法"></a>BeautifulSopu遍历法</h2></li>
-</ul>
-<h3 id="节点和标签名"><a href="#节点和标签名" class="headerlink" title="节点和标签名"></a>节点和标签名</h3><ul>
-<li><p>可以使用子节点、父节点及标签名的方式遍历：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">soup.head <span class="comment">#查找head标签</span></span><br><span class="line">soup.p <span class="comment">#查找第一个p标签</span></span><br><span class="line"></span><br><span class="line">\<span class="comment">#对标签的直接子节点进行循环</span></span><br><span class="line">title_tag=soup.find(<span class="string">&#x27;p&#x27;</span>)</span><br><span class="line"><span class="keyword">for</span> child <span class="keyword">in</span> title_tag.children:</span><br><span class="line">    print(child)</span><br><span class="line"></span><br><span class="line">soup.parent <span class="comment">#父节点</span></span><br><span class="line"></span><br><span class="line">\<span class="comment"># 所有父节点</span></span><br><span class="line"><span class="keyword">for</span> parent <span class="keyword">in</span> link.parents:</span><br><span class="line">    <span class="keyword">if</span> parent <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">        print(parent)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        print(parent.name)</span><br><span class="line"></span><br><span class="line">\<span class="comment"># 兄弟节点</span></span><br><span class="line">sibling_soup.b.next_sibling <span class="comment">#后面的兄弟节点</span></span><br><span class="line">sibling_soup.c.previous_sibling <span class="comment">#前面的兄弟节点</span></span><br><span class="line"></span><br><span class="line">\<span class="comment">#所有兄弟节点</span></span><br><span class="line"><span class="keyword">for</span> sibling <span class="keyword">in</span> soup.a.next_siblings:</span><br><span class="line">    print(<span class="built_in">repr</span>(sibling))</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> sibling <span class="keyword">in</span> soup.find(<span class="built_in">id</span>=<span class="string">&quot;link3&quot;</span>).previous_siblings:</span><br><span class="line">    print(<span class="built_in">repr</span>(sibling))</span><br></pre></td></tr></table></figure>
-<h3 id="搜索文档树"><a href="#搜索文档树" class="headerlink" title="搜索文档树"></a>搜索文档树</h3></li>
-<li><p>常用的方法为find()和find_all(),其他的搜索方法有find_parent() 和 find_parents()、 find_next_sibling() 和 find_next_siblings() 、find_all_next() 和 find_next()、find_all_previous() 和 find_previous() 等。</p>
-</li>
-<li><p>find_all():搜索当前tag的所有tag子节点，并判断是否符合过滤器的条件。</p>
-<ul>
-<li>返回值类型是bs4.element.ResultSet</li>
-<li>完整的语法：<code>find_all(name,attrs,recursive,string,**kwargs)</code></li>
-<li>示例代码<figure class="highlight fsharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">     soup.find_all(<span class="string">&quot;title&quot;</span>)</span><br><span class="line">     # <span class="meta">[&lt;title&gt;The Dormouse&#x27;s story&lt;/title&gt;]</span></span><br><span class="line">     #</span><br><span class="line">     soup.find_all(<span class="string">&quot;p&quot;</span>, <span class="string">&quot;title&quot;</span>)</span><br><span class="line">        # <span class="meta">[&lt;p class=&quot;title&quot;&gt;&lt;b&gt;The Dormouse&#x27;s story&lt;/b&gt;&lt;/p&gt;]</span></span><br><span class="line">     # </span><br><span class="line">     soup.find_all(<span class="string">&quot;a&quot;</span>)</span><br><span class="line">     # <span class="meta">[&lt;a class=&quot;sister&quot; href=&quot;http://example.com/elsie&quot; id=&quot;link1&quot;&gt;Elsie&lt;/a&gt;,</span></span><br><span class="line"><span class="meta">     #  &lt;a class=&quot;sister&quot; href=&quot;http://example.com/lacie&quot; id=&quot;link2&quot;&gt;Lacie&lt;/a&gt;,</span></span><br><span class="line"><span class="meta">     #  &lt;a class=&quot;sister&quot; href=&quot;http://example.com/tillie&quot; id=&quot;link3&quot;&gt;Tillie&lt;/a&gt;]</span></span><br><span class="line">     #</span><br><span class="line">     soup.find_all(id=<span class="string">&quot;link2&quot;</span>)</span><br><span class="line">     # <span class="meta">[&lt;a class=&quot;sister&quot; href=&quot;http://example.com/lacie&quot; id=&quot;link2&quot;&gt;Lacie&lt;/a&gt;]</span></span><br><span class="line">     #</span><br><span class="line">     import re</span><br><span class="line">     soup.find(string=re.compile(<span class="string">&quot;sisters&quot;</span>))</span><br><span class="line">     # u&#x27;Once upon a time there were three little sisters; <span class="keyword">and</span> their names were\n&#x27;</span><br><span class="line">     </span><br><span class="line">name 参数：可以查找所有名字为 name 的tag。</span><br><span class="line">attr 参数：就是tag里的属性。</span><br><span class="line">string 参数：搜索文档中字符串的内容。</span><br><span class="line">recursive 参数： 调用tag的 find_all() 方法时，Beautiful Soup会检索当前tag的所有子孙节点。如果只想搜索tag的直接子节点，可以使用参数 recursive=False 。</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-<li><p>find():和find_all()类似，只是返回第一个值，返回类型为bs4.element.Tag。</p>
-</li>
-<li><p>完整语法为：<code>find(name,attrs,recursive,string,**kwargs)</code></p>
-</li>
-<li><p>示例代码</p>
-<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">soup.find(<span class="string">&#x27;title&#x27;</span>)</span><br><span class="line">\# &lt;title&gt;The Dormous<span class="string">e&#x27;s story&lt;/title&gt;</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">soup.find(&quot;head&quot;).find(&quot;title&quot;)</span></span><br><span class="line"><span class="string">\# &lt;title&gt;The Dormouse&#x27;</span>s story&lt;/title&gt;</span><br></pre></td></tr></table></figure></li>
-<li><p>以上代码在python3下运行，其他函数参看官方文档。</p>
-</li>
-</ul>
-<hr>
-<p>2019.2.23</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/Python_library_BeautifulSoup/" data-id="ckjv2ttwg009ht0dnabzs84qh" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BeautifulSoup/" rel="tag">BeautifulSoup</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Markdown_add_table" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/Markdown_add_table/" class="article-date">
-  <time datetime="2019-02-23T10:47:41.000Z" itemprop="datePublished">2019-02-23</time>
+    <a href="/Compiler_g++_usuage/" class="article-date">
+  <time datetime="2019-03-07T07:10:33.000Z" itemprop="datePublished">2019-03-07</time>
 </a>
     
   <div class="article-category">
@@ -374,7 +85,7 @@ download(&#39;http://example.webscraping.com/&#39;)</code></pre>
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/Markdown_add_table/">Markdown插入表格</a>
+      <a class="article-title" href="/Compiler_g++_usuage/">编译器g++使用</a>
     </h1>
   
 
@@ -384,71 +95,48 @@ download(&#39;http://example.webscraping.com/&#39;)</code></pre>
       
 	  <!-- Table of Contents -->
 
-        <ul>
-<li><p>​ 默认情况下Markdown 插入的表格，单元格中的内容默认左对齐。</p>
+        <h2 id="编译器g"><a href="#编译器g" class="headerlink" title="编译器g++"></a>编译器g++</h2><ul>
+<li>g++  是GNU组织开发出的编译器软件集合（GCC）下的一个C++编译器。</li>
+<li>g++ 是Unix 和 Linux  系统下标配的 基于命令行的 C++编译器。</li>
+<li>C/C++代码的编译过程：<ul>
+<li><img src="Compiler_g++_usuage/bianyi.jpg"></li>
+</ul>
 </li>
-<li><p>普通表格markdown代码：</p>
+</ul>
+<h2 id="g-的参数"><a href="#g-的参数" class="headerlink" title="g++ 的参数"></a>g++ 的参数</h2><ul>
+<li><p>**–version **显示g++ 的版本 。</p>
+</li>
+<li><p><strong>–target-help</strong> 显示特定平台环境的参数支持。比如嵌入式领域使用的avr-g++会对MCU 支持一些优化参数。</p>
+</li>
+<li><p><strong>-std=&lt;语言标准&gt;</strong> 如：-std=c++11  ，使用C++11标准</p>
+</li>
+<li><p><strong>-ansi</strong> 使用ANSI 标准，禁止GNU 标准特性，如 asm inline typeof 关键字,以及UNIX,vax等预处理宏。</p>
+</li>
+<li><p>~~~<br>-funsigned-char           #将程序中的char解析为unsigned char<br>-fno-signed-char         #将程序中的char解析为非signed char<br>-fsigned-char              #将程序中的char解析为signed char<br>-fno-unsigned-char    #将程序中的char解析为非unsigned char</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="bullet">  *</span> 在编译器中，char类型是 signed char  还是  unsigned char?不太清楚。所以若对范围敏感，应该明确定义unsigned char ，或者是 signed char 。上面4个参数就是指定g++将char解释为什么类型。</span><br><span class="line"></span><br><span class="line"><span class="bullet">*</span> <span class="strong">**优化选项：-O0,-O1,-O2及-O3**</span>，取英文单词Optimize首字母O，即编译器的优化选项的4个级别，-O0表示没有优化,-O1为缺省值，-O3优化级别最高。优化表现在生成的程序的大小和程序的执行速度。</span><br><span class="line"></span><br><span class="line"><span class="bullet">*</span> <span class="strong">**-w**</span> 编译时，不显示任何警告消息。</span><br><span class="line"></span><br><span class="line"><span class="bullet">*</span> <span class="strong">**-Wall**</span> 编译时，显示所有出现的警告消息。</span><br><span class="line"></span><br><span class="line"><span class="bullet">*</span> <span class="strong">**-o  <span class="xml"><span class="tag">&lt;<span class="name">file</span>&gt;</span></span>**</span>  输出编译后的结果到指定的文件file中。</span><br><span class="line"></span><br><span class="line"><span class="bullet">*</span> <span class="strong">**-E**</span> 对源文件进行预处理，预处理后生成.i（ 或者是 .ii）文件。通过此命令可以查看预处理器是如何工作，以理解预处理的工作机制。生成的是文本文件。  </span><br><span class="line"></span><br><span class="line"><span class="bullet">  *</span> <span class="code">~~~</span></span><br><span class="line"><span class="code">    g++ -E -o hello.i hello.cpp           #对hello.cpp进行预处理生成hello.i文件</span></span><br></pre></td></tr></table></figure></li>
+<li><p><strong>-S</strong> 只进行预处理和编译，编译是C++编译器的核心操作，其结果就是将C++代码中转译为汇编代码，生成.s汇编文件。生成的依然是文本文件。</p>
 <ul>
-<li>```<table>
-<thead>
-<tr>
-<th>一个普通标题</th>
-<th>一个普通标题</th>
-<th>一个普通标题</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>短文本</td>
-<td>中等文本</td>
-<td>稍微长一点的文本</td>
-</tr>
-<tr>
-<td>稍微长一点的文本</td>
-<td>短文本</td>
-<td>中等文本</td>
-</tr>
-</tbody></table>
-<figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  <span class="symbol">*</span> 显示效果</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"> 一个普通标题     |<span class="string"> 一个普通标题 </span>|<span class="string"> 一个普通标题     </span></span><br><span class="line"><span class="string"> ---- </span>|<span class="string"> ---- </span>|<span class="string"> ---- </span>|</span><br><span class="line"> 短文本           |<span class="string"> 中等文本     </span>|<span class="string"> 稍微长一点的文本 </span></span><br><span class="line"><span class="string"> 稍微长一点的文本 </span>|<span class="string"> 短文本       </span>|<span class="string"> 中等文本         </span></span><br><span class="line"></span><br><span class="line"><span class="string">* 表格的语句上一行必须为空行，不然表格不生效。</span></span><br><span class="line"></span><br><span class="line"><span class="string">* 表格内容对齐：</span></span><br><span class="line"></span><br><span class="line"><span class="string">  * ```</span></span><br><span class="line"><span class="string">    </span>|<span class="string"> 左对齐标题 </span>|<span class="string"> 右对齐标题 </span>|<span class="string"> 居中对齐标题 </span>|</span><br><span class="line">    |<span class="string"> :----</span>|<span class="string"> ----: </span>|<span class="string"> :----: </span>|</span><br><span class="line">    |<span class="string"> 短文本 </span>|<span class="string"> 中等文本 </span>|<span class="string"> 稍微长一点的文本 </span>|</span><br><span class="line">    |<span class="string"> 稍微长一点的文本 </span>|<span class="string"> 短文本 </span>|<span class="string"> 中等文本 </span>|</span><br></pre></td></tr></table></figure></li>
-<li>显示效果</li>
+<li>~~~<br>g++ -S -o hello.s hello.cpp          #生成汇编文件hello.s<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* **<span class="selector-tag">-c</span>** 只进行 预处理， 编译，汇编操作，生成<span class="selector-class">.o</span> (<span class="selector-class">.obj</span>)文件，不进行链接。生成的是二进制文件。</span><br><span class="line"></span><br><span class="line">  * ~~~</span><br><span class="line">    <span class="selector-tag">g</span>++ <span class="selector-tag">-c</span> <span class="selector-tag">-o</span> <span class="selector-tag">hello</span><span class="selector-class">.o</span> <span class="selector-tag">hello</span><span class="selector-class">.cpp</span></span><br></pre></td></tr></table></figure></li>
 </ul>
 </li>
-</ul>
-<table>
-<thead>
-<tr>
-<th align="left">左对齐标题</th>
-<th align="right">右对齐标题</th>
-<th align="center">居中对齐标题</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">短文本</td>
-<td align="right">中等文本</td>
-<td align="center">稍微长一点的文本</td>
-</tr>
-<tr>
-<td align="left">稍微长一点的文本</td>
-<td align="right">短文本</td>
-<td align="center">中等文本</td>
-</tr>
-</tbody></table>
-<ul>
-<li>额外说明：<ul>
-<li>|、-、:之间的空格被忽略，内容和|间的空格被忽略。</li>
-<li>每行第一个|和最后一个|可省略，-的数量至少一个。</li>
-<li>对齐方式由以下代码控制： -:表示内容和标题栏居右对齐，:-表示内容和标题栏居左对齐，:-:表示内容和标题栏居中对齐。</li>
-</ul>
+<li><p><strong>-save-temps</strong> 顾名思义，就是保留编译产生的中间文件，使用这个参数，就没必要将前面的参数 -E  -S  -c  一个一个地使用了。</p>
 </li>
-</ul>
+<li><p><strong>-M , -MD</strong> 输出源文件的#include指令 （ #include<head_file> , #include”head_file” ） 引起的所有包含文件依赖。-M可以查看源文件实质上包含的所有头文件,-MD是将输出的结果保存到一个.d文件中</p>
+</li>
+<li><p><strong>-MM , -MMD</strong> 同上，只不过，他不会考虑 #include<head_file> 指令，而只考虑 #include”head_file” 指令。</p>
 <hr>
+<p>​</p>
+<p>​</p>
+</li>
+</ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/Markdown_add_table/" data-id="ckjv2ttuz004at0dncihp7tx7" class="article-share-link">Share</a>
+      <a data-url="http://wangxianggit.github.io/Compiler_g++_usuage/" data-id="ckjv2ttuj002et0dn5p7p3x1v" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C++</a></li></ul>
 
     </footer>
   </div>
@@ -457,10 +145,10 @@ download(&#39;http://example.webscraping.com/&#39;)</code></pre>
 
 
   
-    <article id="post-Markdown_grammer" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-C++_array_cite_and_cited_array" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/Markdown_grammer/" class="article-date">
-  <time datetime="2019-02-23T10:31:37.000Z" itemprop="datePublished">2019-02-23</time>
+    <a href="/C++_array_cite_and_cited_array/" class="article-date">
+  <time datetime="2019-03-07T06:07:02.000Z" itemprop="datePublished">2019-03-07</time>
 </a>
     
   <div class="article-category">
@@ -475,7 +163,7 @@ download(&#39;http://example.webscraping.com/&#39;)</code></pre>
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/Markdown_grammer/">Markdown grammar</a>
+      <a class="article-title" href="/C++_array_cite_and_cited_array/">C++数组的引用和引用的数组</a>
     </h1>
   
 
@@ -485,96 +173,243 @@ download(&#39;http://example.webscraping.com/&#39;)</code></pre>
       
 	  <!-- Table of Contents -->
 
-        <h2 id="Markdown-grammar"><a href="#Markdown-grammar" class="headerlink" title="Markdown grammar"></a>Markdown grammar</h2><h3 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h3><ul>
-<li>类Setext：任何数量的等号和减号（+ -）</li>
-<li>类atx形式：1到6个#号表示对应1到6阶标题，也可以添加作为对称效果，后面需要一个空格</li>
+        <h2 id="C-数组的引用和引用的数组"><a href="#C-数组的引用和引用的数组" class="headerlink" title="C++数组的引用和引用的数组"></a>C++数组的引用和引用的数组</h2><ul>
+<li>数组变量array向右结合，相当于(int&amp;)array[n]，在这里array是一个数组，其中数组的每个元素是引用，即引用的数组。</li>
+<li>数组的引用中首先和&amp;结合，即(int &amp;array)[n]，这里array是引用，其引用的对象是数组。</li>
 </ul>
-<h3 id="区块引用"><a href="#区块引用" class="headerlink" title="区块引用"></a>区块引用</h3><ul>
-<li>标记区块引用类似email中用&gt;的引用方式。</li>
-<li>区块引用的嵌套：根据层次加上不同数量的&gt;:</li>
-</ul>
-<blockquote>
-<p>This is the first level of quoting</p>
-<blockquote>
-<p>This is the nested blockquote</p>
-</blockquote>
-</blockquote>
 <ul>
-<li>区块引用内可以使用其他的Markdown语法，包括标题、列表、代码区块等</li>
-</ul>
-<blockquote>
-<h5 id="This-is-the-first-block"><a href="#This-is-the-first-block" class="headerlink" title="This is the first block"></a>This is the first block</h5><ol>
-<li><p>This is the second block</p>
-</li>
-<li><p>This is the third block</p>
-<p>return shell_exec(“echo $input |  $markdown_script”)</p>
-</li>
-</ol>
-</blockquote>
-<h3 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h3><ul>
-<li>无序列表使用星号、加号或减号作为列表标记。</li>
-<li>有序列表受用数字接着一个英文句点。</li>
-</ul>
-<h3 id="代码区块"><a href="#代码区块" class="headerlink" title="代码区块"></a>代码区块</h3><ul>
-<li><p>简单缩进4个空格或是一个制表符</p>
-</li>
-<li><p>Here is an example of AppleScript:</p>
-<p>tell application “Foo”</p>
-<p>​    beep</p>
-<p>end tell</p>
-</li>
-</ul>
-<h3 id="分隔线"><a href="#分隔线" class="headerlink" title="分隔线"></a>分隔线</h3><ul>
-<li>在一行中用三个以上的星号、减号、底线来建立一个分隔线，行内可以插入空格。</li>
-</ul>
-<h3 id="区段元素"><a href="#区段元素" class="headerlink" title="区段元素"></a>区段元素</h3><ul>
-<li>行内式链接在方括号后面紧接着圆括号并插入网址链接：</li>
-</ul>
-<blockquote>
-<p>This is [an example](<a target="_blank" rel="noopener" href="http://example.com/&quot;title&quot;">http://example.com/&quot;title&quot;</a>) inline link</p>
-</blockquote>
-<ul>
-<li>参考式的链接在链接文字的括号后面再加上另一个方括号，而在第二个方括号里面要填入用以辨识链接的标记：</li>
-</ul>
-<blockquote>
-<p>This is [an example][id] reference-style link. </p>
-<p>在文字的任意处把标记的连接内容定义出来：[id]:<a target="_blank" rel="noopener" href="http://example.com/&quot;title&quot;">http://example.com/&quot;title&quot;</a></p>
-<p>链接标签可以有字母、数字、空白和标点符号但是并不区分大小写</p>
-</blockquote>
-<ul>
-<li>隐式链接标记中链接标记等同于链接文字，只要在链接文字后面加上一个空的方括号：</li>
-</ul>
-<blockquote>
-<p>[Google][] 定义连接内容：[Google]:<a target="_blank" rel="noopener" href="http://google.com/">http://google.com</a></p>
-<p>I get 10 times more traffic from [Google]<a target="_blank" rel="noopener" href="http://google.com/" title="Google">1</a> than from [Yahoo]<a target="_blank" rel="noopener" href="http://search.yahoo.com/" title="Yahoo Search">2</a> or [MSN]<a target="_blank" rel="noopener" href="http://search.msn.com/" title="MSN Search">3</a>.</p>
-</blockquote>
-<h3 id="强调"><a href="#强调" class="headerlink" title="强调"></a>强调</h3><ul>
-<li>Markdown使用星号和底线作为标记强调字词的符号，使用一个或两个符号包围的字词表示不用程度的强调。</li>
-</ul>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><ul>
-<li>标记小段行内代码用反引号包围起来 <code>Use the printf() function </code></li>
-<li>代码区段内含有反引号，可以用多个反引号来开启和结束代码区段。</li>
-<li>以三个反引号开头得到一个代码区段。</li>
-</ul>
-<h3 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h3><ul>
-<li><p>行内式的图片语法为</p>
-<ul>
-<li>~~~<br>![Alt text](/path to/img.jpg)<figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 参考式的图片语法为</span><br><span class="line"></span><br><span class="line">  * ~~~</span><br><span class="line">    ![Alt <span class="type">text</span>]<span class="built_in">[id</span>] <span class="built_in">[id</span>]:<span class="built_in"> path</span> <span class="keyword">to</span>/img.jpg <span class="string">&quot;optional title&quot;</span></span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-<li><p>目前，Markdown无法指定图片的高度和宽度，如果需要可以使用普通的&lt;img&gt;标签</p>
+<li><pre><code>#include &lt;iostream&gt;
+
+using namespace std;
+
+void Test(int (&amp;array)[5])
+&#123;
+    cout &lt;&lt; &quot;size:&quot; &lt;&lt; sizeof(array) &lt;&lt; endl;
+    for (int i = 0; i &lt; sizeof(array)/4; i++)
+    &#123;
+      cout &lt;&lt; array[i] &lt;&lt; &quot; &quot;&lt;&lt;endl;
+    &#125;
+&#125;
+int main()
+&#123;
+    int  array[5] = &#123;1,2,3,4,5&#125;;
+    Test(array);
+    int n3[3]=&#123;2,4,6&#125;;
+    int (&amp;rn3)[3]=n3;
+    for(int i=0;i&lt;3;i++)
+      cout&lt;&lt;n3[i]&lt;&lt;&quot;  &quot;&lt;&lt;rn3[i]&lt;&lt;&quot;  &quot;&lt;&lt;endl;
+    return 0;
+&#125;</code></pre>
 </li>
 </ul>
 <hr>
-<p>2019/2/23</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/Markdown_grammer/" data-id="ckjv2ttv0004ct0dnfabqapf4" class="article-share-link">Share</a>
+      <a data-url="http://wangxianggit.github.io/C++_array_cite_and_cited_array/" data-id="ckjv2ttu2000rt0dn2udv4m9q" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C++</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-C++_keyword_const_cast" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/C++_keyword_const_cast/" class="article-date">
+  <time datetime="2019-03-07T04:39:57.000Z" itemprop="datePublished">2019-03-07</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/learning/">learning</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/C++_keyword_const_cast/">C++关键字const_cast</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+
+        <h2 id="const-cast用法"><a href="#const-cast用法" class="headerlink" title="const_cast用法"></a>const_cast用法</h2><ul>
+<li><p>const_cast是一种C++运算符，主要是用来去除复合类型中const和volatile属性（不是真正去除）。</p>
+</li>
+<li><p>若变量声明为const类型，其值本身不能改变，若想改变该变量的值一般是去除指针或引用的const属性，再进行间接修改。</p>
+</li>
+<li><p>使用方法：</p>
+<ul>
+<li><pre><code>const_cast&lt;type&gt;(expression)
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  * 通过<span class="keyword">const_cast</span>运算符，将<span class="keyword">const</span> type转换为type，将<span class="keyword">const</span> type&amp;转换为type&amp;。</span><br><span class="line"></span><br><span class="line">  * 也就是说源类型和目标类型除了<span class="keyword">const</span>属性不同，其他地方完全相同。</span><br><span class="line"></span><br><span class="line">* ~~~</span><br><span class="line">  <span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line">  <span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">ConstTest1</span><span class="params">()</span></span>&#123;</span><br><span class="line">      <span class="keyword">const</span> <span class="keyword">int</span> a = <span class="number">5</span>;</span><br><span class="line">      <span class="keyword">int</span> *p;</span><br><span class="line">      p = <span class="keyword">const_cast</span>&lt;<span class="keyword">int</span>*&gt;(&amp;a);</span><br><span class="line">      (*p)++;</span><br><span class="line">      <span class="built_in">cout</span>&lt;&lt;a&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">      <span class="built_in">cout</span>&lt;&lt;*p&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">      </span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">ConstTest2</span><span class="params">()</span></span>&#123;</span><br><span class="line">      <span class="keyword">int</span> i;</span><br><span class="line">      <span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;please input a integer:&quot;</span>;</span><br><span class="line">      <span class="built_in">cin</span>&gt;&gt;i;</span><br><span class="line">      <span class="keyword">const</span> <span class="keyword">int</span> a = i;</span><br><span class="line">      <span class="keyword">int</span> &amp;r = <span class="keyword">const_cast</span>&lt;<span class="keyword">int</span> &amp;&gt;(a);</span><br><span class="line">      r++;</span><br><span class="line">      <span class="built_in">cout</span>&lt;&lt;a&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">      ConstTest1();</span><br><span class="line">      ConstTest2();</span><br><span class="line">      <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  输出：</span><br><span class="line">  <span class="number">5</span></span><br><span class="line">  <span class="number">6</span></span><br><span class="line">  若输入<span class="number">7</span></span><br><span class="line">  则输出<span class="number">8</span></span><br></pre></td></tr></table></figure>
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wangxianggit.github.io/C++_keyword_const_cast/" data-id="ckjv2ttu70017t0dn1dkh8urv" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C++</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-C++_citation" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/C++_citation/" class="article-date">
+  <time datetime="2019-03-07T03:54:17.000Z" itemprop="datePublished">2019-03-07</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/learning/">learning</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/C++_citation/">C/C++中的引用</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+
+        <h2 id="C-C-引用"><a href="#C-C-引用" class="headerlink" title="C/C++引用"></a>C/C++引用</h2><ul>
+<li><p>引用，即某一个变量或对象的别名，对引用的操作与对其所绑定的变量或对象的操作完全等价。</p>
+</li>
+<li><p>语法格式：</p>
+<ul>
+<li>~~~<br>变量类型 &amp;引用名=目标变量名；<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  * &amp;不是求地址运算符，而是起标志作用</span><br><span class="line"></span><br><span class="line">  * 引用类型必须和其所绑定的变量的类型相同</span><br><span class="line"></span><br><span class="line">* 声明引用的同时必须对其初始化，否则系统会报错</span><br><span class="line"></span><br><span class="line">  * ~~~</span><br><span class="line">    <span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">int</span> a=<span class="number">10</span>;</span><br><span class="line">        <span class="keyword">int</span> &amp;b=a; <span class="comment">//声明引用的同时必须对其初始化</span></span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;b&lt;&lt;<span class="string">&quot;  &quot;</span>&lt;&lt;a&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>引用相当于变量或对象的别名，因此不能再将已有的引用名作为其他变量或对象的名字或别名</p>
+</li>
+<li><p>引用不是定义一个新的变量或对象，因此内存不会为引用开辟新的空间存储这个引用</p>
+<ul>
+<li><p>~~~<br>#include<iostream><br>using namespace std;<br>int main(){</p>
+<pre><code>int val=10;
+int &amp;n_val=value;
+cout&lt;&lt;&quot;val地址为：&quot;&lt;&lt;&amp;val&lt;&lt;endl;
+cout&lt;&lt;&quot;n_val地址为：&quot;&lt;&lt;&amp;n_val&lt;&lt;endl;
+return 0;</code></pre>
+<p>}</p>
+<p>output:<br>val地址为：0x207d040<br>n_val地址为：0x207d040</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 对数组引用</span><br><span class="line"></span><br><span class="line">  * ~~~</span><br><span class="line">    <span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">int</span> a[<span class="number">3</span>]=&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>&#125;;</span><br><span class="line">        <span class="keyword">int</span> &amp;b=(&amp;a)[<span class="number">3</span>];<span class="comment">//对数组的引用 </span></span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;a[<span class="number">0</span>]&lt;&lt;<span class="string">&quot; &quot;</span>&lt;&lt;b[<span class="number">0</span>]&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;a[<span class="number">1</span>]&lt;&lt;<span class="string">&quot; &quot;</span>&lt;&lt;b[<span class="number">1</span>]&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;a[<span class="number">2</span>]&lt;&lt;<span class="string">&quot; &quot;</span>&lt;&lt;b[<span class="number">2</span>]&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>对指针的引用</p>
+<ul>
+<li><pre><code>#include&lt;iostream&gt;
+using namespace std;
+int main()&#123;
+    int a=10;
+    int *ptr=&amp;a;
+    int *&amp;new_ptr=ptr;
+    cout&lt;&lt;&amp;ptr&lt;&lt;&quot; &quot;&lt;&lt;&amp;new_ptr&lt;&lt;endl;
+    return 0; 
+&#125;</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wangxianggit.github.io/C++_citation/" data-id="ckjv2ttu3000ut0dnbzlqcc7p" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C++</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Compiler_cc、gcc、g++_CC_difference" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/Compiler_cc%E3%80%81gcc%E3%80%81g++_CC_difference/" class="article-date">
+  <time datetime="2019-03-07T03:41:33.000Z" itemprop="datePublished">2019-03-07</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/learning/">learning</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/Compiler_cc%E3%80%81gcc%E3%80%81g++_CC_difference/">编译器cc、gcc、g++和CC区别</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+
+        <h2 id="编译器cc、gcc、g-和CC"><a href="#编译器cc、gcc、g-和CC" class="headerlink" title="编译器cc、gcc、g++和CC"></a>编译器cc、gcc、g++和CC</h2><ul>
+<li>gcc 是GNU Compiler Collection，原名为Gun C语言编译器，因为它原本只能处理C语言，但gcc很快地扩展，包含很多编译器（C、C++、Objective-C、Ada、Fortran、 Java），可以说gcc是GNU编译器集合。</li>
+<li>g++ 是C++编译器。</li>
+<li>cc 在 Unix系统下是 C Compiler，一个是古老的 C 编译器。在Linux 下 cc 一般是一个符号连接，指向 gcc；可以通过 $ ls -l /usr/bin/cc 来简单察看，该变量是 make 程序的内建变量，默认指向 gcc 。 cc 符号链接和变量存在的意义在于源码的移植性，可以方便的用 gcc 来编译老的用cc编译的Unix软件，甚至连 makefile 都不用改在，而且也便于 Linux 程序在 Unix下 编译。</li>
+<li>CC 一般是 makefile 里面的一个名字标签，即宏定义，表示采用的是什么编译器（如：CC = gcc）。</li>
+</ul>
+<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><ul>
+<li>后缀为.c的，gcc把它当作是C程序，而g++当作是c++程序；后缀为.cpp的，两者都会认为是C++程序，注意，虽然C++是C的超集，但是两者对语法的要求是有区别的。C++的语法规则更加严谨一些。</li>
+<li>编译阶段，g++会调用gcc，对于C++代码，两者是等价的，但是因为gcc命令不能自动和C++程序使用的库联接，所以通常用g++来完成链接，为了统一起见，干脆编译/链接统统用g++了，因此给人一种以为cpp程序只能用g++的错觉。</li>
+<li>gcc不会定义__cplusplus宏，而g++会，实际上，这个宏只是标志着编译器将会把代码按C还是C++语法来解释，如上所述，如果后缀为.c，并且采用gcc编译器，则该宏就是未定义的，否则，就是已定义。</li>
+<li>编译可以用gcc/g++，而链接可以用g++或者gcc -lstdc++。因为gcc命令不能自动和C++程序使用的库联接，所以通常使用g++来完成联接。但在编译阶段，g++会自动调用gcc，二者等价。</li>
+</ul>
+<hr>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wangxianggit.github.io/Compiler_cc%E3%80%81gcc%E3%80%81g++_CC_difference/" data-id="ckjv2ttui002bt0dngx59gcf5" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C++</a></li></ul>
 
     </footer>
   </div>
@@ -587,7 +422,7 @@ download(&#39;http://example.webscraping.com/&#39;)</code></pre>
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/page/24/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/23/">23</a><a class="page-number" href="/page/24/">24</a><span class="page-number current">25</span><a class="page-number" href="/page/26/">26</a><a class="page-number" href="/page/27/">27</a><span class="space">&hellip;</span><a class="page-number" href="/page/38/">38</a><a class="extend next" rel="next" href="/page/26/">Next &amp;raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/24/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/23/">23</a><a class="page-number" href="/page/24/">24</a><span class="page-number current">25</span><a class="page-number" href="/page/26/">26</a><a class="page-number" href="/page/27/">27</a><span class="space">&hellip;</span><a class="page-number" href="/page/41/">41</a><a class="extend next" rel="next" href="/page/26/">Next &amp;raquo;</a>
   </nav>
 
 </section>
@@ -625,7 +460,7 @@ download(&#39;http://example.webscraping.com/&#39;)</code></pre>
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithm/" rel="tag">Algorithm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Altium-Designer/" rel="tag">Altium Designer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Apache/" rel="tag">Apache</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BeautifulSoup/" rel="tag">BeautifulSoup</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Centos7/" rel="tag">Centos7</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cython/" rel="tag">Cython</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Electronic/" rel="tag">Electronic</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/English/" rel="tag">English</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Geant4/" rel="tag">Geant4</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hardware/" rel="tag">Hardware</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Image/" rel="tag">Image</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jupyter/" rel="tag">Jupyter</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nuclear-Physics/" rel="tag">Nuclear Physics</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Open/" rel="tag">Open</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Program/" rel="tag">Program</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PyPI/" rel="tag">PyPI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Py-Crawler/" rel="tag">Py_Crawler</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Random/" rel="tag">Random</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Resource/" rel="tag">Resource</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Root/" rel="tag">Root</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Scipy/" rel="tag">Scipy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Shell/" rel="tag">Shell</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Solidwork/" rel="tag">Solidwork</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TTree/" rel="tag">TTree</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tensorflow/" rel="tag">Tensorflow</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Thread/" rel="tag">Thread</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Urllib2/" rel="tag">Urllib2</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Virtual-memory/" rel="tag">Virtual memory</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cmake/" rel="tag">cmake</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cmd/" rel="tag">cmd</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/data-structure/" rel="tag">data structure</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/htop/" rel="tag">htop</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/keras/" rel="tag">keras</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/latex/" rel="tag">latex</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/os/" rel="tag">os</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/qt/" rel="tag">qt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/requests/" rel="tag">requests</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sk-learn/" rel="tag">sk-learn</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh/" rel="tag">ssh</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/statistic/" rel="tag">statistic</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vi/" rel="tag">vi</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/windows/" rel="tag">windows</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithm/" rel="tag">Algorithm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Altium-Designer/" rel="tag">Altium Designer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Apache/" rel="tag">Apache</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BeautifulSoup/" rel="tag">BeautifulSoup</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Centos7/" rel="tag">Centos7</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cython/" rel="tag">Cython</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Electronic/" rel="tag">Electronic</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/English/" rel="tag">English</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Geant4/" rel="tag">Geant4</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hardware/" rel="tag">Hardware</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Image/" rel="tag">Image</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jupyter/" rel="tag">Jupyter</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mongodb/" rel="tag">Mongodb</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nuclear-Physics/" rel="tag">Nuclear Physics</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Open/" rel="tag">Open</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Opencv/" rel="tag">Opencv</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Program/" rel="tag">Program</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PyPI/" rel="tag">PyPI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Py-Crawler/" rel="tag">Py_Crawler</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Random/" rel="tag">Random</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Resource/" rel="tag">Resource</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Root/" rel="tag">Root</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Scipy/" rel="tag">Scipy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Shell/" rel="tag">Shell</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Solidwork/" rel="tag">Solidwork</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TTree/" rel="tag">TTree</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tensorflow/" rel="tag">Tensorflow</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Thread/" rel="tag">Thread</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Urllib2/" rel="tag">Urllib2</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Virtual-memory/" rel="tag">Virtual memory</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cmake/" rel="tag">cmake</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cmd/" rel="tag">cmd</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/data-structure/" rel="tag">data structure</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/htop/" rel="tag">htop</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/keras/" rel="tag">keras</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/latex/" rel="tag">latex</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/os/" rel="tag">os</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/qt/" rel="tag">qt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/requests/" rel="tag">requests</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sk-learn/" rel="tag">sk-learn</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh/" rel="tag">ssh</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/statistic/" rel="tag">statistic</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vi/" rel="tag">vi</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/windows/" rel="tag">windows</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/yolo%EF%BC%8CC/" rel="tag">yolo，C</a></li></ul>
     </div>
   </div>
 
@@ -635,7 +470,7 @@ download(&#39;http://example.webscraping.com/&#39;)</code></pre>
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Algorithm/" style="font-size: 11.33px;">Algorithm</a> <a href="/tags/Altium-Designer/" style="font-size: 14.67px;">Altium Designer</a> <a href="/tags/Apache/" style="font-size: 11.33px;">Apache</a> <a href="/tags/BeautifulSoup/" style="font-size: 10px;">BeautifulSoup</a> <a href="/tags/C/" style="font-size: 15.33px;">C</a> <a href="/tags/C/" style="font-size: 18.67px;">C++</a> <a href="/tags/Centos7/" style="font-size: 17.33px;">Centos7</a> <a href="/tags/Cython/" style="font-size: 10px;">Cython</a> <a href="/tags/Electronic/" style="font-size: 13.33px;">Electronic</a> <a href="/tags/English/" style="font-size: 12px;">English</a> <a href="/tags/Geant4/" style="font-size: 10.67px;">Geant4</a> <a href="/tags/Hardware/" style="font-size: 10px;">Hardware</a> <a href="/tags/Hexo/" style="font-size: 14px;">Hexo</a> <a href="/tags/Image/" style="font-size: 10px;">Image</a> <a href="/tags/Jupyter/" style="font-size: 10px;">Jupyter</a> <a href="/tags/Linux/" style="font-size: 19.33px;">Linux</a> <a href="/tags/Markdown/" style="font-size: 16px;">Markdown</a> <a href="/tags/Nuclear-Physics/" style="font-size: 11.33px;">Nuclear Physics</a> <a href="/tags/Open/" style="font-size: 10px;">Open</a> <a href="/tags/Program/" style="font-size: 18px;">Program</a> <a href="/tags/PyPI/" style="font-size: 10px;">PyPI</a> <a href="/tags/Py-Crawler/" style="font-size: 10.67px;">Py_Crawler</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/Random/" style="font-size: 10px;">Random</a> <a href="/tags/Resource/" style="font-size: 10.67px;">Resource</a> <a href="/tags/Root/" style="font-size: 10.67px;">Root</a> <a href="/tags/Scipy/" style="font-size: 10px;">Scipy</a> <a href="/tags/Shell/" style="font-size: 16px;">Shell</a> <a href="/tags/Solidwork/" style="font-size: 10.67px;">Solidwork</a> <a href="/tags/TTree/" style="font-size: 10px;">TTree</a> <a href="/tags/Tensorflow/" style="font-size: 15.33px;">Tensorflow</a> <a href="/tags/Thread/" style="font-size: 10px;">Thread</a> <a href="/tags/Urllib2/" style="font-size: 10px;">Urllib2</a> <a href="/tags/Virtual-memory/" style="font-size: 10px;">Virtual memory</a> <a href="/tags/cmake/" style="font-size: 12.67px;">cmake</a> <a href="/tags/cmd/" style="font-size: 10.67px;">cmd</a> <a href="/tags/data-structure/" style="font-size: 10.67px;">data structure</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/htop/" style="font-size: 10px;">htop</a> <a href="/tags/keras/" style="font-size: 10.67px;">keras</a> <a href="/tags/latex/" style="font-size: 14.67px;">latex</a> <a href="/tags/os/" style="font-size: 10px;">os</a> <a href="/tags/qt/" style="font-size: 10px;">qt</a> <a href="/tags/requests/" style="font-size: 10px;">requests</a> <a href="/tags/sk-learn/" style="font-size: 10px;">sk-learn</a> <a href="/tags/ssh/" style="font-size: 12.67px;">ssh</a> <a href="/tags/statistic/" style="font-size: 10px;">statistic</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/windows/" style="font-size: 16.67px;">windows</a>
+      <a href="/tags/Algorithm/" style="font-size: 11.33px;">Algorithm</a> <a href="/tags/Altium-Designer/" style="font-size: 14.67px;">Altium Designer</a> <a href="/tags/Apache/" style="font-size: 11.33px;">Apache</a> <a href="/tags/BeautifulSoup/" style="font-size: 10px;">BeautifulSoup</a> <a href="/tags/C/" style="font-size: 15.33px;">C</a> <a href="/tags/C/" style="font-size: 18.67px;">C++</a> <a href="/tags/Centos7/" style="font-size: 17.33px;">Centos7</a> <a href="/tags/Cython/" style="font-size: 10px;">Cython</a> <a href="/tags/Electronic/" style="font-size: 13.33px;">Electronic</a> <a href="/tags/English/" style="font-size: 12px;">English</a> <a href="/tags/Geant4/" style="font-size: 10.67px;">Geant4</a> <a href="/tags/Hardware/" style="font-size: 10px;">Hardware</a> <a href="/tags/Hexo/" style="font-size: 14px;">Hexo</a> <a href="/tags/Image/" style="font-size: 12px;">Image</a> <a href="/tags/Jupyter/" style="font-size: 10px;">Jupyter</a> <a href="/tags/Linux/" style="font-size: 19.33px;">Linux</a> <a href="/tags/Markdown/" style="font-size: 16px;">Markdown</a> <a href="/tags/Mongodb/" style="font-size: 10px;">Mongodb</a> <a href="/tags/Nuclear-Physics/" style="font-size: 11.33px;">Nuclear Physics</a> <a href="/tags/Open/" style="font-size: 10px;">Open</a> <a href="/tags/Opencv/" style="font-size: 10.67px;">Opencv</a> <a href="/tags/Program/" style="font-size: 18px;">Program</a> <a href="/tags/PyPI/" style="font-size: 10px;">PyPI</a> <a href="/tags/Py-Crawler/" style="font-size: 10.67px;">Py_Crawler</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/Random/" style="font-size: 10px;">Random</a> <a href="/tags/Resource/" style="font-size: 10.67px;">Resource</a> <a href="/tags/Root/" style="font-size: 10.67px;">Root</a> <a href="/tags/Scipy/" style="font-size: 10px;">Scipy</a> <a href="/tags/Shell/" style="font-size: 16px;">Shell</a> <a href="/tags/Solidwork/" style="font-size: 10.67px;">Solidwork</a> <a href="/tags/TTree/" style="font-size: 10px;">TTree</a> <a href="/tags/Tensorflow/" style="font-size: 15.33px;">Tensorflow</a> <a href="/tags/Thread/" style="font-size: 10px;">Thread</a> <a href="/tags/Urllib2/" style="font-size: 10px;">Urllib2</a> <a href="/tags/Virtual-memory/" style="font-size: 10px;">Virtual memory</a> <a href="/tags/cmake/" style="font-size: 12.67px;">cmake</a> <a href="/tags/cmd/" style="font-size: 10.67px;">cmd</a> <a href="/tags/data-structure/" style="font-size: 10.67px;">data structure</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/htop/" style="font-size: 10px;">htop</a> <a href="/tags/keras/" style="font-size: 10.67px;">keras</a> <a href="/tags/latex/" style="font-size: 14.67px;">latex</a> <a href="/tags/os/" style="font-size: 10px;">os</a> <a href="/tags/qt/" style="font-size: 10px;">qt</a> <a href="/tags/requests/" style="font-size: 10px;">requests</a> <a href="/tags/sk-learn/" style="font-size: 10px;">sk-learn</a> <a href="/tags/ssh/" style="font-size: 12.67px;">ssh</a> <a href="/tags/statistic/" style="font-size: 10px;">statistic</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/windows/" style="font-size: 16.67px;">windows</a> <a href="/tags/yolo%EF%BC%8CC/" style="font-size: 10px;">yolo，C</a>
     </div>
   </div>
 
@@ -644,7 +479,7 @@ download(&#39;http://example.webscraping.com/&#39;)</code></pre>
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li></ul>
     </div>
   </div>
 
@@ -657,23 +492,23 @@ download(&#39;http://example.webscraping.com/&#39;)</code></pre>
       <ul>
         
           <li>
-            <a href="/winedt_break/">Winedt注册表破解</a>
+            <a href="/nodejs_windows_install/">windows下安装nodejs及环境变量设置</a>
           </li>
         
           <li>
-            <a href="/latex_content_dot/">latex生成目录条目加点</a>
+            <a href="/Centos7_mongodb_install/">Centos7安装Mongodb</a>
           </li>
         
           <li>
-            <a href="/latex_figure_prefix/">latex论文用图修改前缀</a>
+            <a href="/Endnote_download_tutorial/">EndnoteX9下载及新手教程</a>
           </li>
         
           <li>
-            <a href="/yum_unblock/">linux yum进程占用问题</a>
+            <a href="/centos7_opencv_install/">Centso7下安装opencv</a>
           </li>
         
           <li>
-            <a href="/linux_googlechrome/">linux安装谷歌浏览器</a>
+            <a href="/anaconda_democrate_source/">anaconda安装库使用国内源</a>
           </li>
         
       </ul>

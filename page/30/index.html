@@ -67,10 +67,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-Python_assert" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Python_code_organization" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/Python_assert/" class="article-date">
-  <time datetime="2019-01-31T15:30:33.000Z" itemprop="datePublished">2019-01-31</time>
+    <a href="/Python_code_organization/" class="article-date">
+  <time datetime="2019-02-17T03:27:33.000Z" itemprop="datePublished">2019-02-17</time>
 </a>
     
   <div class="article-category">
@@ -85,7 +85,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/Python_assert/">Python关键字assert</a>
+      <a class="article-title" href="/Python_code_organization/">Python代码组织方式</a>
     </h1>
   
 
@@ -96,26 +96,171 @@
 	  <!-- Table of Contents -->
 
         <ul>
-<li><p>​ 官方解释( <a target="_blank" rel="noopener" href="https://docs.python.org/3/reference/simple_stmts.html#assert">https://docs.python.org/3/reference/simple_stmts.html#assert</a> )：”Assert statements are a convenient way to insert debugging assertions into a program”</p>
+<li><p> 单文件中的元素：变量、函数、类等可供操作元素</p>
 </li>
-<li><p>一般用法：assert + 条件，如：assert 1==2</p>
+<li><p>模块(module):简单来说模块就是一个.py文件，例如：在同一个路径下有a.py和b.py两个文件，那么在a.py中就可以import b，然后通过b.xxx就可以使用b.py中的变量、函数、类。</p>
 </li>
-<li><p>输出结果：条件通过无输出，条件判断错误抛出异常</p>
-</li>
-<li><p>例如：</p>
+<li><p>包(package):包就是包含一个_<em>init_\</em>.py的文件夹，例如：在同一个路径下有一个a.py文件和一个b文件夹，在b文件夹中有一个__init__.py文件，在a中import b就是导入了b这个包，实际上就是__init__.py这个文件。</p>
 <ul>
-<li><pre><code>&gt;&gt;&gt;assert n&lt;2
-Traceback (most recent call last):
-  File &quot;&lt;pyshell#3&gt;&quot;, line 1, in &lt;module&gt;
-    assert False
-AssertionError
-&gt;&gt;&gt;assert 2&gt;1
-&gt;&gt;&gt;assert 3&lt;2
-Traceback (most recent call last):
-  File &quot;&lt;pyshell#3&gt;&quot;, line 1, in &lt;module&gt;
-    assert False
-AssertionError
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 输出异常参数：<span class="keyword">assert</span> +条件+异常参数，例：</span><br><span class="line"></span><br><span class="line">  * ~~~</span><br><span class="line">    &gt;&gt;&gt; <span class="keyword">assert</span> <span class="number">2</span>==<span class="number">1</span>,<span class="string">&#x27;2不等于1&#x27;</span></span><br><span class="line"></span><br><span class="line">    <span class="function">AssertionError         <span class="title">Traceback</span> <span class="params">(most recent call last)</span>:</span></span><br><span class="line"><span class="function">    &lt;ipython-input-135-63c975ef2764&gt; in &lt;<span class="keyword">module</span>&gt;</span></span><br><span class="line"><span class="function">    <span class="keyword">assert</span> 2</span>==<span class="number">1</span>,<span class="string">&#x27;2不等于1&#x27;</span></span><br><span class="line">    AssertionError: <span class="number">2</span>不等于<span class="number">1</span></span><br></pre></td></tr></table></figure>
+<li><img src="Python_code_organization/pic1.jpg"></li>
+</ul>
+</li>
+<li><p>__all__:在包的__init__.py中定义的__all__变量，这样就可以通过导入包名来调用包内各文件中的元素，例如：在同一个路径下有一个a.py文件和一个b文件夹，在b文件夹中有__init__.py和c.py两个文件</p>
+<ul>
+<li><img src="Python_code_organization/pic2.jpg"></li>
+<li>程序运行a.py后多了一个__pycache__文件夹，当一个模块第一次被导入时，它就被汇编为字节代码，并将字节码写入一个同名的.pyc文件。后来的导入操作会直接读取.pyc文件而不是.py文件。(除非.py文件的修改日期更新,这种情况会重新生成.pyc文件)</li>
+<li><img src="Python_code_organization/pic3.jpg"></li>
+</ul>
+</li>
+<li><p>为什么用.c来引入?</p>
+<p>前面的a.py可以使用import b来导入b.py中的元素，为什么b文件夹中的__init__.py中不能import c呢？因为__init__.py其实代表的是b这个文件夹，c并没有跟它在一级目录下，所以要使用.c来引入c.py中的元素。</p>
+</li>
+<li><p>多层目录怎么import？</p>
+<ul>
+<li><img src="Python_code_organization/pic4.jpg"></li>
+</ul>
+</li>
+<li><p>搜索路径</p>
+<p>导入模块时，解释器会搜索sys.path列表，这个列表中保存着一系列目录。</p>
+<p>不同的环境中sys.path是不一样的，Python会依次去查找列表的路径，找到后就会返回，所以先后顺序很重要，第一个’’是指当前目录或指定的相对路径，例如你当前目录中有一个math.py文件，当你import math的时候相当于导入了这个math.py文件，而不是标准库math。</p>
+</li>
+</ul>
+<hr>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wangxianggit.github.io/Python_code_organization/" data-id="ckjv2ttw6008et0dn3xukdpo4" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Program/" rel="tag">Program</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Hexo_blog_add_visit_statistics" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/Hexo_blog_add_visit_statistics/" class="article-date">
+  <time datetime="2019-02-17T02:17:17.000Z" itemprop="datePublished">2019-02-17</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/learning/">learning</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/Hexo_blog_add_visit_statistics/">Hexo博客添加访问统计</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+
+        <ul>
+<li><p> 网页计数引入不蒜子，参考链接：<a target="_blank" rel="noopener" href="http://ibruce.info/2015/04/04/busuanzi/">http://ibruce.info/2015/04/04/busuanzi/</a></p>
+</li>
+<li><p>引入不蒜子，在\layout\_partial\footer.ejs中添加如下内容：</p>
+<ul>
+<li>~~~<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 添加站点访问总量，在footer.ejs或header.ejs或sidebar.ejs添加如下标签：</span><br><span class="line"></span><br><span class="line">  * ~~~</span><br><span class="line">     <span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">&quot;busuanzi_container_site_pv&quot;</span>&gt;</span>本站总访问量<span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">&quot;busuanzi_value_site_pv&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span>次<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>访问量的计算方式：</p>
+<ul>
+<li>pv的方式，单个用户连续点击n篇文章，记录n次访问量。</li>
+<li>uv的方式，单个用户连续点击n篇文章，只记录1次访客数。</li>
+</ul>
+</li>
+<li><p>添加文章的访问量则在article.ejs里面添加上述标签，不再详述。</p>
+</li>
+<li><p>其他效果详见不蒜子网站。</p>
+</li>
+</ul>
+<hr>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wangxianggit.github.io/Hexo_blog_add_visit_statistics/" data-id="ckjv2ttur003gt0dne66of12w" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Python3_grammar_modifier" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/Python3_grammar_modifier/" class="article-date">
+  <time datetime="2019-02-16T16:57:27.000Z" itemprop="datePublished">2019-02-17</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Python/">Python</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/Python3_grammar_modifier/">Python3语法变动</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+
+        <ul>
+<li><p>​ Print由语句变为函数</p>
+<ul>
+<li>~~~<br>print ‘a’,’b’ -&gt; print(‘a’,’b’)<figure class="highlight nim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* xrange被取消，使用<span class="built_in">range</span>实现其功能，返回的数据是一个类</span><br><span class="line"></span><br><span class="line">* 字符串的存储由<span class="number">8</span>bit变为<span class="number">16</span>bit <span class="type">Unicode</span>存储，使用比较操作符时如果比较异常抛出<span class="type">TypeError</span>错误。</span><br><span class="line"></span><br><span class="line">* cmp()，\__cmp__()函数取消</span><br><span class="line"></span><br><span class="line">* long关键字由<span class="built_in">int</span>取代，两者效果相同</span><br><span class="line"></span><br><span class="line">* <span class="keyword">try</span> <span class="keyword">except</span>语句发生变化</span><br><span class="line"></span><br><span class="line">  * ~~~</span><br><span class="line">    由原: <span class="keyword">try</span>:</span><br><span class="line"></span><br><span class="line">              ......</span><br><span class="line"></span><br><span class="line">         <span class="keyword">except</span>    <span class="type">Exception</span>, e :</span><br><span class="line"></span><br><span class="line">             ......</span><br><span class="line"></span><br><span class="line">    变为</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line"></span><br><span class="line">              ......</span><br><span class="line"></span><br><span class="line">         <span class="keyword">except</span>    <span class="type">Exception</span> <span class="keyword">as</span> e :</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>读取文件操作file()取消，统一使用open()；键盘读取函数raw_input(“message”)改为input(“message”)</p>
+</li>
+<li><p>字符串编码是bytes类，bytes类解码为字符串，bytes序列一旦形成内容不可变</p>
+<ul>
+<li>~~~<br>s=”abchd”<br>b=s.encode(编码方式)//常用编码方式为”gbk”,”utf-8”,”ascii”等<br>s1=b.decode(“编码方式”)<figure class="highlight gml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* <span class="built_in">chr</span>(k)和<span class="built_in">ord</span>(c)</span><br><span class="line"></span><br><span class="line">  * ~~~</span><br><span class="line">         python <span class="number">2.4</span><span class="number">.2</span>以前</span><br><span class="line"></span><br><span class="line">          <span class="built_in">chr</span>( K )   将编码K 转为字符，K的范围是 <span class="number">0</span> ~ <span class="number">255</span></span><br><span class="line"></span><br><span class="line">          <span class="built_in">ord</span>( c )   取单个字符的编码, 返回值的范围: <span class="number">0</span> ~ <span class="number">255</span></span><br><span class="line"></span><br><span class="line">       python <span class="number">3.0</span></span><br><span class="line"></span><br><span class="line">          <span class="built_in">chr</span>( K )   将编码K 转为字符，K的范围是 <span class="number">0</span> ~ <span class="number">65535</span></span><br><span class="line"></span><br><span class="line">          <span class="built_in">ord</span>( c )   取单个字符的编码, 返回值的范围: <span class="number">0</span> ~ <span class="number">65535</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>除法运算</p>
+<ul>
+<li><pre><code>python 2.4.2以前
+
+   10/3      结果为 3     
+
+python 3.0
+
+   10 / 3 结果为 3.3333333333333335
+
+   10 // 3 结果为 3
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 字典(<span class="keyword">Dict)函数，keys()，items()，values()，返回的值不再是list，而是类。所以 </span> <span class="keyword">dict.iter.keys </span>(), <span class="keyword">dict.iteritems() </span>和 <span class="keyword">dict.itervalues()函数取消</span></span><br><span class="line"><span class="keyword"></span></span><br><span class="line"><span class="keyword">* </span>新增数组对象</span><br><span class="line"></span><br><span class="line">  * ~~~</span><br><span class="line">    (一） 初始化</span><br><span class="line"></span><br><span class="line">        a = <span class="keyword">bytearray( </span>  <span class="number">10</span> )</span><br><span class="line"></span><br><span class="line">         <span class="comment"># a 是一个由十个字节组成的数组，其每个元素是一个字节，类型借用 int</span></span><br><span class="line"></span><br><span class="line">         <span class="comment"># 此时，每个元素初始值为 0</span></span><br><span class="line"></span><br><span class="line">    （二） 字节数组 是可变的</span><br><span class="line"></span><br><span class="line">        a = <span class="keyword">bytearray( </span>  <span class="number">10</span> )</span><br><span class="line"></span><br><span class="line">         a[<span class="number">0</span>] = <span class="number">25</span></span><br><span class="line"></span><br><span class="line">         <span class="comment"># 可以用赋值语句更改其元素，但所赋的值必须在 0 ~ 255 之间</span></span><br><span class="line"></span><br><span class="line">    (三)   字节数组的切片仍是字节数组</span><br><span class="line"></span><br><span class="line">    (四)   字符串转化为字节数组</span><br><span class="line"></span><br><span class="line">         <span class="comment">#coding=gbk</span></span><br><span class="line"></span><br><span class="line">         s =<span class="string">&quot;你好&quot;</span></span><br><span class="line"></span><br><span class="line">         <span class="keyword">b </span>= s.encode( <span class="string">&quot;gbk&quot;</span>)     <span class="comment"># 先将字符串按某种“GBK”编码方式转化为 bytes</span></span><br><span class="line"></span><br><span class="line">         c = <span class="keyword">bytearray( </span><span class="keyword">b </span>)          <span class="comment">#再将 bytes 转化为 字节数组</span></span><br><span class="line"></span><br><span class="line">         也可以写作</span><br><span class="line"></span><br><span class="line">         c = <span class="keyword">bytearray( </span><span class="string">&quot;你好&quot;</span>, <span class="string">&quot;gbk&quot;</span>)</span><br><span class="line"></span><br><span class="line">    (五)   字节数组转化为字符串</span><br><span class="line"></span><br><span class="line">          c = <span class="keyword">bytearray( </span><span class="number">4</span> )</span><br><span class="line"></span><br><span class="line">           c[<span class="number">0</span>] = <span class="number">65</span> <span class="comment">; c[1]=66; c[2]= 67; c[3]= 68</span></span><br><span class="line"></span><br><span class="line">          s = c.decode( <span class="string">&quot;gbk&quot;</span> )</span><br><span class="line"></span><br><span class="line">           print ( s )</span><br><span class="line"></span><br><span class="line">          <span class="comment"># 应显示： ABCD           </span></span><br><span class="line"></span><br><span class="line">    (六) 字节数组可用于写入文本文件</span><br><span class="line"></span><br><span class="line">    <span class="comment">#coding=gbk</span></span><br><span class="line"></span><br><span class="line">    f = open(<span class="string">&quot;c:\\1234.txt&quot;</span>, <span class="string">&quot;wb&quot;</span>)</span><br><span class="line">    s = <span class="string">&quot;张三李四abcd1234&quot;</span></span><br><span class="line">    <span class="comment"># -------------------------------</span></span><br><span class="line">    <span class="comment"># 在 python2.4 中我们可以这样写：</span></span><br><span class="line">    <span class="comment"># f.write( s )</span></span><br><span class="line">    <span class="comment"># 但在 python 3.0中会引发异常</span></span><br><span class="line">    <span class="comment"># -------------------------------</span></span><br><span class="line">    <span class="keyword">b </span>= s.encode(<span class="string">&quot;gbk&quot;</span>)</span><br><span class="line"></span><br><span class="line">    f.write( <span class="keyword">b </span>)</span><br><span class="line">    c=<span class="keyword">bytearray( </span><span class="string">&quot;王五&quot;</span>,<span class="string">&quot;gbk&quot;</span>)</span><br><span class="line">    f.write( c )</span><br><span class="line">    f.<span class="keyword">close()</span></span><br><span class="line"><span class="keyword"></span></span><br><span class="line"><span class="keyword"> </span>   input(<span class="string">&quot;?&quot;</span>)</span><br></pre></td></tr></table></figure>
 </code></pre>
 </li>
 </ul>
@@ -126,7 +271,7 @@ AssertionError
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/Python_assert/" data-id="ckjv2ttw50086t0dn8nebbus4" class="article-share-link">Share</a>
+      <a data-url="http://wangxianggit.github.io/Python3_grammar_modifier/" data-id="ckjv2ttw2007yt0dn3vt058ae" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Program/" rel="tag">Program</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
@@ -138,10 +283,10 @@ AssertionError
 
 
   
-    <article id="post-Python_getitem_slice" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Python_key_word_import" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/Python_getitem_slice/" class="article-date">
-  <time datetime="2019-01-31T13:21:30.000Z" itemprop="datePublished">2019-01-31</time>
+    <a href="/Python_key_word_import/" class="article-date">
+  <time datetime="2019-02-16T15:21:33.000Z" itemprop="datePublished">2019-02-16</time>
 </a>
     
   <div class="article-category">
@@ -156,7 +301,7 @@ AssertionError
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/Python_getitem_slice/">Python特殊函数__getitem__切片功能</a>
+      <a class="article-title" href="/Python_key_word_import/">Python关键字import基本用法</a>
     </h1>
   
 
@@ -167,34 +312,26 @@ AssertionError
 	  <!-- Table of Contents -->
 
         <ul>
-<li><p>​ __getitem__函数传入参数可以是int也可以是切片对象</p>
-</li>
-<li><p>若传入的是切片对象，则函数相应输出切片对象</p>
-</li>
-<li><p>以费波拉契函数为例分别判断函数输入int和slice对象时的情形</p>
+<li><p>​ 导入包名称</p>
 <ul>
-<li>~~~<br>class Fib(object):<pre><code>def __getitem__(self, n):
-    if isinstance(n, int):
-        a, b = 1, 1
-        for x in range(n):
-            a, b = b, a + b
-        return a
-    if isinstance(n, slice):
-        start = n.start
-        stop = n.stop
-        a, b = 1, 1
-        L = []
-        for x in range(stop):
-            if x &gt;= start:
-                L.append(a)
-            a, b = b, a + b
-        return L</code></pre>
-<figure class="highlight inform7"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* ~~~</span><br><span class="line">  &gt;&gt;&gt;f=Fib()</span><br><span class="line">  &gt;&gt;&gt;f<span class="comment">[0:5]</span></span><br><span class="line">  <span class="comment">[1,1,2,3,5]</span></span><br></pre></td></tr></table></figure></li>
+<li><pre><code>import numpy</code></pre>
+</li>
 </ul>
 </li>
-<li><p>与之对应的是__setitem__()方法，把对象视作list或dict来对集合赋值。</p>
+<li><p>​ 从包中导入函数</p>
+<ul>
+<li>```<br>from math import pow<figure class="highlight elm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* ​ 导入包并赋予别名</span><br><span class="line"></span><br><span class="line">  - ```</span><br><span class="line">    <span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br></pre></td></tr></table></figure></li>
+</ul>
 </li>
-<li><p>__delitem__()方法，用于删除某个元素。</p>
+<li><p>导入包中所有内容</p>
+<ul>
+<li><pre><code>from matpoltlib import *</code></pre>
+</li>
+</ul>
+</li>
+<li><p>在import导入python脚本后并没有执行上面的代码，但可以访问其中的常量，对象和函数。</p>
+</li>
+<li><p>在模块中若导入python包，这些包只限于在模块中使用，外部代码使用这些包需要重新导入。</p>
 </li>
 </ul>
 <hr>
@@ -202,7 +339,7 @@ AssertionError
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/Python_getitem_slice/" data-id="ckjv2ttw8008ot0dncnbv8fsf" class="article-share-link">Share</a>
+      <a data-url="http://wangxianggit.github.io/Python_key_word_import/" data-id="ckjv2ttwe0098t0dnhtl918lj" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Program/" rel="tag">Program</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
@@ -214,14 +351,14 @@ AssertionError
 
 
   
-    <article id="post-Python_getitem" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-git_error_warning LF will be replaced by CRLF" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/Python_getitem/" class="article-date">
-  <time datetime="2019-01-31T13:07:10.000Z" itemprop="datePublished">2019-01-31</time>
+    <a href="/git_error_warning%20LF%20will%20be%20replaced%20by%20CRLF/" class="article-date">
+  <time datetime="2019-02-16T08:08:19.000Z" itemprop="datePublished">2019-02-16</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/Python/">Python</a>
+    <a class="article-category-link" href="/categories/git/">git</a>
   </div>
 
   </div>
@@ -232,7 +369,7 @@ AssertionError
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/Python_getitem/">Python特殊函数__getitem__()</a>
+      <a class="article-title" href="/git_error_warning%20LF%20will%20be%20replaced%20by%20CRLF/">git提示warning LF will be replaced by CRLF解决方法</a>
     </h1>
   
 
@@ -243,22 +380,23 @@ AssertionError
 	  <!-- Table of Contents -->
 
         <ul>
-<li><p>​ 对对象按照下标取出元素，使用特殊函数__getitem__()</p>
-</li>
-<li><p>以斐波那契数列作为对象，实现用下标得到相应类的实例：</p>
+<li><p>​ windows下使用命令：</p>
 <ul>
-<li><pre><code>class Fab(object):
-    def __init__(self):
-           self.a, self.b = 1, 1
-
-    def __getitem__(self, n):
-        for x in range(n):
-            self.a, self.b = self.b, self.a + self.b
-        return self.a
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* ~~~</span><br><span class="line"><span class="meta">  &gt;</span><span class="bash">&gt;&gt;f=Fab()</span></span><br><span class="line"><span class="meta">  &gt;</span><span class="bash">&gt;&gt;f[2]</span></span><br><span class="line">  2</span><br><span class="line"><span class="meta">  &gt;</span><span class="bash">&gt;&gt;f[10]</span></span><br><span class="line">  89</span><br></pre></td></tr></table></figure>
-
-
-</code></pre>
+<li>~~~<br>git add .<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 出现错误提示：</span><br><span class="line"></span><br><span class="line">* ~~~</span><br><span class="line">  warning: LF will be replaced <span class="keyword">by</span> <span class="literal">CRLF</span> <span class="keyword">in</span> .gitignore.</span><br><span class="line">  The <span class="built_in">file</span> will have its original <span class="built_in">line</span> endings <span class="keyword">in</span> your working <span class="built_in">directory</span>.</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>原因：</p>
+<ul>
+<li>CRLF – Carriage-Return Line-Feed 回车换行，即回车(CR, ASCII 13, \r) 换行(LF, ASCII 10, \n)。</li>
+<li>这两个ACSII字符不会在屏幕有任何输出，但在Windows中广泛使用来标识一行的结束，而在Linux/UNIX系统中只有换行符。</li>
+<li>也就是说在windows中的换行符为 CRLF， 而在linux下的换行符为：LF</li>
+<li>使用git来生成一个rails工程后，文件中的换行符为LF， 当执行git add .时，系统提示：LF 将被转换成 CRLF</li>
+</ul>
+</li>
+<li><p>设置禁用自动转换来消除警告提示：</p>
+<ul>
+<li><pre><code>rm -rf .git
+git config --global core.autocrlf false//禁用自动换行</code></pre>
 </li>
 </ul>
 </li>
@@ -268,153 +406,10 @@ AssertionError
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/Python_getitem/" data-id="ckjv2ttw8008lt0dn4c98ewih" class="article-share-link">Share</a>
+      <a data-url="http://wangxianggit.github.io/git_error_warning%20LF%20will%20be%20replaced%20by%20CRLF/" data-id="ckjv2ttxa00dct0dnca6j5mcp" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Program/" rel="tag">Program</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Python_iter" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/Python_iter/" class="article-date">
-  <time datetime="2019-01-31T11:28:12.000Z" itemprop="datePublished">2019-01-31</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Python/">Python</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/Python_iter/">Python特殊函数__iter__()</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-
-        <ul>
-<li><p>​ 循环调用一个类需要使用特殊函数方法__iter__(), 改方法返回一个迭代对象。</p>
-</li>
-<li><p>在一个循环中会不断调用迭代对象的next()方法得到循环的下一个值。</p>
-</li>
-<li><p>循环终止于抛出异常StopIteration()类的出现。</p>
-</li>
-<li><p>StopIteration是一个类，抛出异常时，会自动有一个中间环节，就是生成StopIteration的一个对象。</p>
-<ul>
-<li>~~~<br>raise StopIteration()<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 以斐波那契数列作为一个类，用<span class="keyword">for</span>循环进行迭代：</span><br><span class="line"></span><br><span class="line">  * ~~~</span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Fab</span>(<span class="params"><span class="built_in">object</span></span>):</span></span><br><span class="line">    	<span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self,<span class="built_in">max</span></span>):</span></span><br><span class="line">    		self.<span class="built_in">max</span> = <span class="built_in">max</span></span><br><span class="line">    		self.n,self.a,self.b = <span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span></span><br><span class="line">    	<span class="function"><span class="keyword">def</span> <span class="title">__iter__</span>(<span class="params">self</span>):</span></span><br><span class="line">    		<span class="keyword">return</span> self</span><br><span class="line">    	<span class="function"><span class="keyword">def</span> <span class="title">__next__</span>(<span class="params">self</span>):</span></span><br><span class="line">    		<span class="keyword">if</span> self.n&lt;self.<span class="built_in">max</span>:</span><br><span class="line">    			r = self.b</span><br><span class="line">    			self.a ,self.b = self.b ,self.a+self.b</span><br><span class="line">    			self.n = self.n+<span class="number">1</span></span><br><span class="line">    			<span class="keyword">return</span> r</span><br><span class="line">    		<span class="keyword">raise</span> StopIteration</span><br></pre></td></tr></table></figure></li>
-<li><pre><code>&gt;&gt;&gt; for n in Fab(10):
-...     print(n)
-...
-1
-1
-2
-3
-5
-...
-55</code></pre>
-</li>
-</ul>
-</li>
-</ul>
-<hr>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/Python_iter/" data-id="ckjv2ttwc0092t0dnhlus5lnq" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Program/" rel="tag">Program</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Python_special_class" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/Python_special_class/" class="article-date">
-  <time datetime="2019-01-31T10:41:03.000Z" itemprop="datePublished">2019-01-31</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Python/">Python</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/Python_special_class/">Python定制类</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-
-        <ul>
-<li><p>python中 __xxx__ 形式的变量或函数名在程序上有特殊用途。</p>
-</li>
-<li><p>__slot__用于指定类可以添加的属性。</p>
-</li>
-<li><p>__len__()用于返回类成员变量的长度。</p>
-</li>
-<li><p>__str__()自定义方式返回类对象的名称，例：</p>
-<ul>
-<li><p>~~~<br>class Student(object):</p>
-<pre><code> def __init__(self, name):
-     self.name = name
- def __str__(self):
-     return &#39;Student object (name: %s)&#39; % self.name</code></pre>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>print(Student(‘Tom’))<br>Student object (name: Tom)</p>
-</blockquote>
-</blockquote>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  * 在<span class="built_in">print</span>函数执行后，python自动调用函数\__str__(),返回自定类的名称</span><br><span class="line"></span><br><span class="line">* 另外一种情况是直接输入变量不用<span class="built_in">print</span>，打印出来的实例名称也可以自己定制，即用函数\__repr__()函数指定，例：</span><br><span class="line"></span><br><span class="line">  * ~~~</span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Student</span>(<span class="params"><span class="built_in">object</span></span>):</span></span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self, name</span>):</span></span><br><span class="line">            self.name = name</span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">__str__</span>(<span class="params">self</span>):</span></span><br><span class="line">            <span class="keyword">return</span> <span class="string">&#x27;Student object (name=%s)&#x27;</span> % self.name</span><br><span class="line">        __repr__ = __str__</span><br><span class="line">        </span><br><span class="line">    &gt;&gt;&gt; s=Student(<span class="string">&#x27;Tom&#x27;</span>)</span><br><span class="line">    Student <span class="built_in">object</span> (name: Tom)</span><br></pre></td></tr></table></figure></li>
-<li><p>这里输入对象名称后python调用函数__repr__，输出实例名称。</p>
-</li>
-</ul>
-</li>
-<li><p>另外python中还有其他定制类如__iter__ , __getitem__等等。</p>
-</li>
-</ul>
-<hr>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/Python_special_class/" data-id="ckjv2ttwl00a9t0dncqug6er2" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Program/" rel="tag">Program</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/windows/" rel="tag">windows</a></li></ul>
 
     </footer>
   </div>
@@ -427,7 +422,7 @@ AssertionError
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/page/29/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/28/">28</a><a class="page-number" href="/page/29/">29</a><span class="page-number current">30</span><a class="page-number" href="/page/31/">31</a><a class="page-number" href="/page/32/">32</a><span class="space">&hellip;</span><a class="page-number" href="/page/38/">38</a><a class="extend next" rel="next" href="/page/31/">Next &amp;raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/29/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/28/">28</a><a class="page-number" href="/page/29/">29</a><span class="page-number current">30</span><a class="page-number" href="/page/31/">31</a><a class="page-number" href="/page/32/">32</a><span class="space">&hellip;</span><a class="page-number" href="/page/41/">41</a><a class="extend next" rel="next" href="/page/31/">Next &amp;raquo;</a>
   </nav>
 
 </section>
@@ -465,7 +460,7 @@ AssertionError
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithm/" rel="tag">Algorithm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Altium-Designer/" rel="tag">Altium Designer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Apache/" rel="tag">Apache</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BeautifulSoup/" rel="tag">BeautifulSoup</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Centos7/" rel="tag">Centos7</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cython/" rel="tag">Cython</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Electronic/" rel="tag">Electronic</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/English/" rel="tag">English</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Geant4/" rel="tag">Geant4</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hardware/" rel="tag">Hardware</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Image/" rel="tag">Image</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jupyter/" rel="tag">Jupyter</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nuclear-Physics/" rel="tag">Nuclear Physics</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Open/" rel="tag">Open</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Program/" rel="tag">Program</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PyPI/" rel="tag">PyPI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Py-Crawler/" rel="tag">Py_Crawler</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Random/" rel="tag">Random</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Resource/" rel="tag">Resource</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Root/" rel="tag">Root</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Scipy/" rel="tag">Scipy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Shell/" rel="tag">Shell</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Solidwork/" rel="tag">Solidwork</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TTree/" rel="tag">TTree</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tensorflow/" rel="tag">Tensorflow</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Thread/" rel="tag">Thread</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Urllib2/" rel="tag">Urllib2</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Virtual-memory/" rel="tag">Virtual memory</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cmake/" rel="tag">cmake</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cmd/" rel="tag">cmd</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/data-structure/" rel="tag">data structure</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/htop/" rel="tag">htop</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/keras/" rel="tag">keras</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/latex/" rel="tag">latex</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/os/" rel="tag">os</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/qt/" rel="tag">qt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/requests/" rel="tag">requests</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sk-learn/" rel="tag">sk-learn</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh/" rel="tag">ssh</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/statistic/" rel="tag">statistic</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vi/" rel="tag">vi</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/windows/" rel="tag">windows</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithm/" rel="tag">Algorithm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Altium-Designer/" rel="tag">Altium Designer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Apache/" rel="tag">Apache</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BeautifulSoup/" rel="tag">BeautifulSoup</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Centos7/" rel="tag">Centos7</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cython/" rel="tag">Cython</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Electronic/" rel="tag">Electronic</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/English/" rel="tag">English</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Geant4/" rel="tag">Geant4</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hardware/" rel="tag">Hardware</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Image/" rel="tag">Image</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jupyter/" rel="tag">Jupyter</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mongodb/" rel="tag">Mongodb</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nuclear-Physics/" rel="tag">Nuclear Physics</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Open/" rel="tag">Open</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Opencv/" rel="tag">Opencv</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Program/" rel="tag">Program</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PyPI/" rel="tag">PyPI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Py-Crawler/" rel="tag">Py_Crawler</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Random/" rel="tag">Random</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Resource/" rel="tag">Resource</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Root/" rel="tag">Root</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Scipy/" rel="tag">Scipy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Shell/" rel="tag">Shell</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Solidwork/" rel="tag">Solidwork</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TTree/" rel="tag">TTree</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tensorflow/" rel="tag">Tensorflow</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Thread/" rel="tag">Thread</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Urllib2/" rel="tag">Urllib2</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Virtual-memory/" rel="tag">Virtual memory</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cmake/" rel="tag">cmake</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cmd/" rel="tag">cmd</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/data-structure/" rel="tag">data structure</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/htop/" rel="tag">htop</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/keras/" rel="tag">keras</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/latex/" rel="tag">latex</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/os/" rel="tag">os</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/qt/" rel="tag">qt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/requests/" rel="tag">requests</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sk-learn/" rel="tag">sk-learn</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh/" rel="tag">ssh</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/statistic/" rel="tag">statistic</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vi/" rel="tag">vi</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/windows/" rel="tag">windows</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/yolo%EF%BC%8CC/" rel="tag">yolo，C</a></li></ul>
     </div>
   </div>
 
@@ -475,7 +470,7 @@ AssertionError
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Algorithm/" style="font-size: 11.33px;">Algorithm</a> <a href="/tags/Altium-Designer/" style="font-size: 14.67px;">Altium Designer</a> <a href="/tags/Apache/" style="font-size: 11.33px;">Apache</a> <a href="/tags/BeautifulSoup/" style="font-size: 10px;">BeautifulSoup</a> <a href="/tags/C/" style="font-size: 15.33px;">C</a> <a href="/tags/C/" style="font-size: 18.67px;">C++</a> <a href="/tags/Centos7/" style="font-size: 17.33px;">Centos7</a> <a href="/tags/Cython/" style="font-size: 10px;">Cython</a> <a href="/tags/Electronic/" style="font-size: 13.33px;">Electronic</a> <a href="/tags/English/" style="font-size: 12px;">English</a> <a href="/tags/Geant4/" style="font-size: 10.67px;">Geant4</a> <a href="/tags/Hardware/" style="font-size: 10px;">Hardware</a> <a href="/tags/Hexo/" style="font-size: 14px;">Hexo</a> <a href="/tags/Image/" style="font-size: 10px;">Image</a> <a href="/tags/Jupyter/" style="font-size: 10px;">Jupyter</a> <a href="/tags/Linux/" style="font-size: 19.33px;">Linux</a> <a href="/tags/Markdown/" style="font-size: 16px;">Markdown</a> <a href="/tags/Nuclear-Physics/" style="font-size: 11.33px;">Nuclear Physics</a> <a href="/tags/Open/" style="font-size: 10px;">Open</a> <a href="/tags/Program/" style="font-size: 18px;">Program</a> <a href="/tags/PyPI/" style="font-size: 10px;">PyPI</a> <a href="/tags/Py-Crawler/" style="font-size: 10.67px;">Py_Crawler</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/Random/" style="font-size: 10px;">Random</a> <a href="/tags/Resource/" style="font-size: 10.67px;">Resource</a> <a href="/tags/Root/" style="font-size: 10.67px;">Root</a> <a href="/tags/Scipy/" style="font-size: 10px;">Scipy</a> <a href="/tags/Shell/" style="font-size: 16px;">Shell</a> <a href="/tags/Solidwork/" style="font-size: 10.67px;">Solidwork</a> <a href="/tags/TTree/" style="font-size: 10px;">TTree</a> <a href="/tags/Tensorflow/" style="font-size: 15.33px;">Tensorflow</a> <a href="/tags/Thread/" style="font-size: 10px;">Thread</a> <a href="/tags/Urllib2/" style="font-size: 10px;">Urllib2</a> <a href="/tags/Virtual-memory/" style="font-size: 10px;">Virtual memory</a> <a href="/tags/cmake/" style="font-size: 12.67px;">cmake</a> <a href="/tags/cmd/" style="font-size: 10.67px;">cmd</a> <a href="/tags/data-structure/" style="font-size: 10.67px;">data structure</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/htop/" style="font-size: 10px;">htop</a> <a href="/tags/keras/" style="font-size: 10.67px;">keras</a> <a href="/tags/latex/" style="font-size: 14.67px;">latex</a> <a href="/tags/os/" style="font-size: 10px;">os</a> <a href="/tags/qt/" style="font-size: 10px;">qt</a> <a href="/tags/requests/" style="font-size: 10px;">requests</a> <a href="/tags/sk-learn/" style="font-size: 10px;">sk-learn</a> <a href="/tags/ssh/" style="font-size: 12.67px;">ssh</a> <a href="/tags/statistic/" style="font-size: 10px;">statistic</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/windows/" style="font-size: 16.67px;">windows</a>
+      <a href="/tags/Algorithm/" style="font-size: 11.33px;">Algorithm</a> <a href="/tags/Altium-Designer/" style="font-size: 14.67px;">Altium Designer</a> <a href="/tags/Apache/" style="font-size: 11.33px;">Apache</a> <a href="/tags/BeautifulSoup/" style="font-size: 10px;">BeautifulSoup</a> <a href="/tags/C/" style="font-size: 15.33px;">C</a> <a href="/tags/C/" style="font-size: 18.67px;">C++</a> <a href="/tags/Centos7/" style="font-size: 17.33px;">Centos7</a> <a href="/tags/Cython/" style="font-size: 10px;">Cython</a> <a href="/tags/Electronic/" style="font-size: 13.33px;">Electronic</a> <a href="/tags/English/" style="font-size: 12px;">English</a> <a href="/tags/Geant4/" style="font-size: 10.67px;">Geant4</a> <a href="/tags/Hardware/" style="font-size: 10px;">Hardware</a> <a href="/tags/Hexo/" style="font-size: 14px;">Hexo</a> <a href="/tags/Image/" style="font-size: 12px;">Image</a> <a href="/tags/Jupyter/" style="font-size: 10px;">Jupyter</a> <a href="/tags/Linux/" style="font-size: 19.33px;">Linux</a> <a href="/tags/Markdown/" style="font-size: 16px;">Markdown</a> <a href="/tags/Mongodb/" style="font-size: 10px;">Mongodb</a> <a href="/tags/Nuclear-Physics/" style="font-size: 11.33px;">Nuclear Physics</a> <a href="/tags/Open/" style="font-size: 10px;">Open</a> <a href="/tags/Opencv/" style="font-size: 10.67px;">Opencv</a> <a href="/tags/Program/" style="font-size: 18px;">Program</a> <a href="/tags/PyPI/" style="font-size: 10px;">PyPI</a> <a href="/tags/Py-Crawler/" style="font-size: 10.67px;">Py_Crawler</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/Random/" style="font-size: 10px;">Random</a> <a href="/tags/Resource/" style="font-size: 10.67px;">Resource</a> <a href="/tags/Root/" style="font-size: 10.67px;">Root</a> <a href="/tags/Scipy/" style="font-size: 10px;">Scipy</a> <a href="/tags/Shell/" style="font-size: 16px;">Shell</a> <a href="/tags/Solidwork/" style="font-size: 10.67px;">Solidwork</a> <a href="/tags/TTree/" style="font-size: 10px;">TTree</a> <a href="/tags/Tensorflow/" style="font-size: 15.33px;">Tensorflow</a> <a href="/tags/Thread/" style="font-size: 10px;">Thread</a> <a href="/tags/Urllib2/" style="font-size: 10px;">Urllib2</a> <a href="/tags/Virtual-memory/" style="font-size: 10px;">Virtual memory</a> <a href="/tags/cmake/" style="font-size: 12.67px;">cmake</a> <a href="/tags/cmd/" style="font-size: 10.67px;">cmd</a> <a href="/tags/data-structure/" style="font-size: 10.67px;">data structure</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/htop/" style="font-size: 10px;">htop</a> <a href="/tags/keras/" style="font-size: 10.67px;">keras</a> <a href="/tags/latex/" style="font-size: 14.67px;">latex</a> <a href="/tags/os/" style="font-size: 10px;">os</a> <a href="/tags/qt/" style="font-size: 10px;">qt</a> <a href="/tags/requests/" style="font-size: 10px;">requests</a> <a href="/tags/sk-learn/" style="font-size: 10px;">sk-learn</a> <a href="/tags/ssh/" style="font-size: 12.67px;">ssh</a> <a href="/tags/statistic/" style="font-size: 10px;">statistic</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/windows/" style="font-size: 16.67px;">windows</a> <a href="/tags/yolo%EF%BC%8CC/" style="font-size: 10px;">yolo，C</a>
     </div>
   </div>
 
@@ -484,7 +479,7 @@ AssertionError
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li></ul>
     </div>
   </div>
 
@@ -497,23 +492,23 @@ AssertionError
       <ul>
         
           <li>
-            <a href="/winedt_break/">Winedt注册表破解</a>
+            <a href="/nodejs_windows_install/">windows下安装nodejs及环境变量设置</a>
           </li>
         
           <li>
-            <a href="/latex_content_dot/">latex生成目录条目加点</a>
+            <a href="/Centos7_mongodb_install/">Centos7安装Mongodb</a>
           </li>
         
           <li>
-            <a href="/latex_figure_prefix/">latex论文用图修改前缀</a>
+            <a href="/Endnote_download_tutorial/">EndnoteX9下载及新手教程</a>
           </li>
         
           <li>
-            <a href="/yum_unblock/">linux yum进程占用问题</a>
+            <a href="/centos7_opencv_install/">Centso7下安装opencv</a>
           </li>
         
           <li>
-            <a href="/linux_googlechrome/">linux安装谷歌浏览器</a>
+            <a href="/anaconda_democrate_source/">anaconda安装库使用国内源</a>
           </li>
         
       </ul>

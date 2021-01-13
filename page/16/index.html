@@ -67,10 +67,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-About_thread" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-jupyter_notebook_config" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/About_thread/" class="article-date">
-  <time datetime="2019-04-21T03:22:34.000Z" itemprop="datePublished">2019-04-21</time>
+    <a href="/jupyter_notebook_config/" class="article-date">
+  <time datetime="2019-05-07T06:18:36.000Z" itemprop="datePublished">2019-05-07</time>
 </a>
     
   <div class="article-category">
@@ -85,7 +85,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/About_thread/">一篇关于线程的知识文章</a>
+      <a class="article-title" href="/jupyter_notebook_config/">jupyter notebook服务器配置</a>
     </h1>
   
 
@@ -95,209 +95,46 @@
       
 	  <!-- Table of Contents -->
 
-        <ul>
-<li>参看链接：<a target="_blank" rel="noopener" href="https://www.internalpointers.com/post/gentle-introduction-multithreading">https://www.internalpointers.com/post/gentle-introduction-multithreading</a></li>
+        <h2 id="基本使用方法"><a href="#基本使用方法" class="headerlink" title="基本使用方法"></a>基本使用方法</h2><ul>
+<li>参考链接：<a target="_blank" rel="noopener" href="https://jupyter-notebook.readthedocs.io/en/stable/index.html">https://jupyter-notebook.readthedocs.io/en/stable/index.html</a></li>
 </ul>
-<hr>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/About_thread/" data-id="ckjv2tttu0006t0dn9mh91z8m" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Thread/" rel="tag">Thread</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Git_usuage_Centos7" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/Git_usuage_Centos7/" class="article-date">
-  <time datetime="2019-04-21T02:19:45.000Z" itemprop="datePublished">2019-04-21</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/git/">git</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/Git_usuage_Centos7/">Linux中git使用</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-
-        <h2 id="关于git"><a href="#关于git" class="headerlink" title="关于git"></a>关于git</h2><ul>
-<li><p>git安装：</p>
 <ul>
-<li><p>~~~<br>yum install git<br>git –version</p>
-<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">* git代码管理，分为四层：</span></span><br><span class="line"></span><br><span class="line"><span class="comment">  * 第一层：目录中的文件</span></span><br><span class="line"><span class="comment">  * 第二层：缓存区，提交命令git add file后，相应文件暂存在缓存区。</span></span><br><span class="line"><span class="comment">  * 第三层：本地仓库，提交命令git commit -m &quot;message&quot;后，缓存区的最新版本文件就会存放在本地仓库。在git中版本更新通过HEAD的指向进行表示，每一次更新或回退可以更改HEAD的指向，但是仓库中的每一个版本都还存在。</span></span><br><span class="line"><span class="comment">  * 第四层：远程仓库，执行push之后将本地仓库上传到远程仓库github中。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">* 常用命令：</span></span><br><span class="line"></span><br><span class="line"><span class="comment">  * git init:初始化本地目录，上传前的第一步</span></span><br><span class="line"><span class="comment">  * git status:查看当前仓库的状态</span></span><br><span class="line"><span class="comment">  * git add . ：将本地目录下的文件提交到暂存区</span></span><br><span class="line"><span class="comment">  * git commit -m &quot;message&quot;：将本地缓存区提交到本地仓库</span></span><br><span class="line"><span class="comment">  * git log：查看当前版本之前的提交记录</span></span><br><span class="line"><span class="comment">  * git remote rm origin:删除当前分支，重复提交需要用到</span></span><br><span class="line"><span class="comment">  * git diff:查看当前缓存区与文件差别</span></span><br><span class="line"></span><br><span class="line">### git使用</span><br><span class="line"></span><br><span class="line"><span class="comment">* git初始化，首次安装配置：</span></span><br><span class="line"></span><br><span class="line"><span class="comment">  * 配置电子邮件和用户名</span></span><br><span class="line"></span><br><span class="line"><span class="comment">    * ~~~</span></span><br><span class="line">      git config –<span class="keyword">global</span> user.name “yourname”</span><br><span class="line">      git config –<span class="keyword">global</span> user.email youremail@example.com</span><br></pre></td></tr></table></figure></li>
-<li><p>配置文本编辑器</p>
+<li>​ jupyter服务安装：<ul>
+<li>python版本要求：python3.3以上或python2.7</li>
+<li>安装anaconda，jupyter notebook也同时安装</li>
+<li>或在安装完python后使用pip安装：<code>pip install jupyter</code></li>
+</ul>
+</li>
+<li>启动jupyter：命令行下使用命令<code>jupyter notebook</code></li>
+<li>打开一个指定文件：<code>jupyter notebook &lt;filename&gt;.ipynb</code></li>
+<li>jupyter notebook帮助：<code>jupyter notebook --help</code></li>
+</ul>
+<h2 id="服务器配置"><a href="#服务器配置" class="headerlink" title="服务器配置"></a>服务器配置</h2><ul>
+<li><p>安装后默认启动ip：<a target="_blank" rel="noopener" href="http://127.0.0.1:8888/">http://127.0.0.1:8888</a></p>
+</li>
+<li><p>配置文件路径：</p>
 <ul>
-<li>~~~<br>git config –global core.editor “Editor”<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="bullet">*</span> 生成公钥，并在github中添加生成的公钥(不是私钥)</span><br><span class="line"></span><br><span class="line"><span class="bullet">  *</span> <span class="code">~~~</span></span><br><span class="line"><span class="code">    ssh-keygen -t rsa -C &lt;your_email@example.com&gt;</span></span><br></pre></td></tr></table></figure></li>
-</ul>
+<li><p>Windows: <code>C:\Users\USERNAME\.jupyter\jupyter_notebook_config.py</code></p>
 </li>
-<li><p>将生成的id_rsa.pub文件中的内容添加到github上，文件可能不可见在终端在切换到.ssh目录下可见。</p>
+<li><p>OS X: <code>/Users/USERNAME/.jupyter/jupyter_notebook_config.py</code></p>
 </li>
-</ul>
+<li><p>Linux: <code>/home/USERNAME/.jupyter/jupyter_notebook_config.py</code></p>
 </li>
-<li><p>提交到远程仓库：</p>
+<li><p>若没有相应的配置文件目录，需要手动生成：</p>
 <ul>
-<li><pre><code>git init //initialization
-git add filename
-git commit -m &quot;message&quot;
-git remote add origin git@github.com:&lt;用户名&gt;/&lt;仓库名&gt;.git
-git pull origin master //因为github建立仓库时会有readme.md文件，先要拷贝一份
-git push -u origin master //将本地仓库链接到master分支上，你当然可以链接到其他分支
-git push//上传你的本地仓库</code></pre>
-</li>
-<li><p>从远程仓库clone：git clone <a href="mailto:&#x67;&#105;&#116;&#64;&#x67;&#x69;&#x74;&#x68;&#x75;&#x62;&#x2e;&#x63;&#x6f;&#x6d;">&#x67;&#105;&#116;&#64;&#x67;&#x69;&#x74;&#x68;&#x75;&#x62;&#x2e;&#x63;&#x6f;&#x6d;</a>:username/projectname.git</p>
+<li><code>jupyter notebook --generate-config</code></li>
+</ul>
 </li>
 </ul>
-<hr>
 </li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/Git_usuage_Centos7/" data-id="ckjv2ttup0035t0dnf6mfcink" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Centos7/" rel="tag">Centos7</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/" rel="tag">git</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Linux_baidu_skydrive" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/Linux_baidu_skydrive/" class="article-date">
-  <time datetime="2019-04-20T10:28:25.000Z" itemprop="datePublished">2019-04-20</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/learning/">learning</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/Linux_baidu_skydrive/">Linux使用百度网盘</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-
-        <h2 id="Linux使用百度网盘"><a href="#Linux使用百度网盘" class="headerlink" title="Linux使用百度网盘"></a>Linux使用百度网盘</h2><ul>
-<li><p>使用谷歌浏览器的百度云插件，fork地址：<a target="_blank" rel="noopener" href="https://github.com/acgotaku/BaiduExporter">https://github.com/acgotaku/BaiduExporter</a></p>
-</li>
-<li><p>下载百度云资源推荐使用下载软件Aria2，软件安装管理员用户下执行：</p>
+<li><p>密码设置：</p>
 <ul>
-<li><p>~~~<br>yum install aria2</p>
-<figure class="highlight glsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* aria2官方网站地址：https:<span class="comment">//aria2.github.io/</span></span><br><span class="line"></span><br><span class="line">* aria2配置文件，小白直接使用：</span><br><span class="line"></span><br><span class="line">* ~~~</span><br><span class="line">      <span class="meta">#用户名</span></span><br><span class="line">      <span class="meta">#rpc-user=user</span></span><br><span class="line">      <span class="meta">#密码</span></span><br><span class="line">      <span class="meta">#rpc-passwd=passwd</span></span><br><span class="line">      <span class="meta">#上面的认证方式不建议使用,建议使用下面的token方式</span></span><br><span class="line">      <span class="meta">#设置加密的密钥</span></span><br><span class="line">      <span class="meta">#rpc-secret=token</span></span><br><span class="line">      <span class="meta">#允许rpc</span></span><br><span class="line">      enable-rpc=<span class="literal">true</span></span><br><span class="line">      <span class="meta">#允许所有来源, web界面跨域权限需要</span></span><br><span class="line">      rpc-allow-origin-<span class="built_in">all</span>=<span class="literal">true</span></span><br><span class="line">      <span class="meta">#允许外部访问，false的话只监听本地端口</span></span><br><span class="line">      rpc-listen-<span class="built_in">all</span>=<span class="literal">true</span></span><br><span class="line">      <span class="meta">#RPC端口, 仅当默认端口被占用时修改</span></span><br><span class="line">      <span class="meta">#rpc-listen-port=6800</span></span><br><span class="line">      <span class="meta">#最大同时下载数(任务数), 路由建议值: 3</span></span><br><span class="line">      <span class="built_in">max</span>-concurrent-downloads=<span class="number">5</span></span><br><span class="line">      <span class="meta">#断点续传</span></span><br><span class="line">      <span class="keyword">continue</span>=<span class="literal">true</span></span><br><span class="line">      <span class="meta">#同服务器连接数</span></span><br><span class="line">      <span class="built_in">max</span>-connection-per-server=<span class="number">5</span></span><br><span class="line">      <span class="meta">#最小文件分片大小, 下载线程数上限取决于能分出多少片, 对于小文件重要</span></span><br><span class="line">      <span class="built_in">min</span>-split-size=<span class="number">10</span>M</span><br><span class="line">      <span class="meta">#单文件最大线程数, 路由建议值: 5</span></span><br><span class="line">      split=<span class="number">10</span></span><br><span class="line">      <span class="meta">#下载速度限制</span></span><br><span class="line">      <span class="built_in">max</span>-overall-download-limit=<span class="number">0</span></span><br><span class="line">      <span class="meta">#单文件速度限制</span></span><br><span class="line">      <span class="built_in">max</span>-download-limit=<span class="number">0</span></span><br><span class="line">      <span class="meta">#上传速度限制</span></span><br><span class="line">      <span class="built_in">max</span>-overall-upload-limit=<span class="number">0</span></span><br><span class="line">      <span class="meta">#单文件速度限制</span></span><br><span class="line">      <span class="built_in">max</span>-upload-limit=<span class="number">0</span></span><br><span class="line">      <span class="meta">#断开速度过慢的连接</span></span><br><span class="line">      <span class="meta">#lowest-speed-limit=0</span></span><br><span class="line">      <span class="meta">#验证用，需要1.16.1之后的release版本</span></span><br><span class="line">      <span class="meta">#referer=*</span></span><br><span class="line">      <span class="meta">#文件保存路径, 默认为当前启动位置</span></span><br><span class="line">      dir=/home/acgotaku/Downloads</span><br><span class="line">      <span class="meta">#文件缓存, 使用内置的文件缓存, 如果你不相信Linux内核文件缓存和磁盘内置缓存时使用, 需要1.16及以上版本</span></span><br><span class="line">      <span class="meta">#disk-cache=0</span></span><br><span class="line">      <span class="meta">#另一种Linux文件缓存方式, 使用前确保您使用的内核支持此选项, 需要1.15及以上版本(?)</span></span><br><span class="line">      <span class="meta">#enable-mmap=true</span></span><br><span class="line">      <span class="meta">#文件预分配, 能有效降低文件碎片, 提高磁盘性能. 缺点是预分配时间较长</span></span><br><span class="line">      <span class="meta">#所需时间 none &lt; falloc ? trunc &lt;&lt; prealloc, falloc和trunc需要文件系统和内核支持</span></span><br><span class="line">      file-allocation=prealloc</span><br></pre></td></tr></table></figure></li>
-<li><p>两种下载模式：命令行和RPC serve模式。后者使用简单，开启后可以直接加载下载任务。</p>
-</li>
-<li><p>aria2软件开启：aria2c –conf-path=&lt;PATH&gt;,PATH是配置文件的绝对路径，最后一级是配置文件名称。</p>
-</li>
-</ul>
-</li>
-<li><p>同时开启百度网盘插件和aria2软件，在百度网盘网页版可以看到相应的RPC下载选项，单击后可以在aria2终端看到下载任务已经开启了。</p>
-</li>
-</ul>
-<hr>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/Linux_baidu_skydrive/" data-id="ckjv2ttuv003ut0dn4n432qjw" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Centos7/" rel="tag">Centos7</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-English_sci_Present_tense" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/English_sci_Present_tense/" class="article-date">
-  <time datetime="2019-04-20T05:33:07.000Z" itemprop="datePublished">2019-04-20</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/learning/">learning</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/English_sci_Present_tense/">英文SCI论文中时态一般现在时</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-
-        <h3 id="一般现在时"><a href="#一般现在时" class="headerlink" title="一般现在时"></a>一般现在时</h3><ul>
-<li>一般现在时表示现在的某种状况，或经常反复发生的行为和动作。</li>
-<li>时态中的状语常常为：always, usually, often,sometimes,every day(week,year…),once a week表示频率的词。</li>
-</ul>
-<h3 id="英文论文中的一般现在时"><a href="#英文论文中的一般现在时" class="headerlink" title="英文论文中的一般现在时"></a>英文论文中的一般现在时</h3><ul>
-<li><p>在sci英文论文中常常用到的一般现在时的情况为:</p>
+<li><p>在命令行下使用命令：<code>jupyter notebook password</code></p>
 <ul>
-<li><p>在摘要里，描述一个事实或者论文中的结论时：</p>
-<ul>
-<li>~~~<br>This new transition is tentatively assigned to the decay of the 170Ir ground<br>state. (prc.65.054310)<br>Conclusions on nuclear structure are drawn from the experimental ata, aided by Geant4 simulations and a discussion on theoretical calculations. (prc.98.044307)<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 引言中，具体写研究目的的情况，表示即将研究的客观规律：</span><br><span class="line"></span><br><span class="line">  * ~~~</span><br><span class="line">    In this article,<span class="keyword">the</span> existence <span class="keyword">of</span> such an isomeric α-decaying state <span class="keyword">is</span> confronted <span class="keyword">with</span> α-γ spectroscopy <span class="keyword">and</span> contemporary nuclear structure <span class="keyword">and</span> α-decay models. (prc<span class="number">.98</span><span class="number">.044307</span>)</span><br><span class="line">    The current work focuses <span class="keyword">on</span> <span class="keyword">the</span> <span class="keyword">first</span> identification <span class="keyword">of</span> <span class="number">109</span>Xe <span class="keyword">and</span> <span class="number">105</span>Te <span class="keyword">through</span> <span class="keyword">the</span> observation <span class="keyword">of</span> their α-decay chain. (prl<span class="number">.97</span><span class="number">.082501</span>)</span><br></pre></td></tr></table></figure></li>
+<li>~~~<br> jupyter notebook password<br>   Enter password:  <strong>**<br>   Verify password: **</strong><br>   [NotebookPasswordApp] Wrote hashed password to /Users/you/.jupyter/jupyter_notebook_config.json <figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 或者在python下：</span><br><span class="line"></span><br><span class="line">  * <span class="symbol">~~~</span></span><br><span class="line"><span class="symbol">    from notebook.auth import passwd</span></span><br><span class="line"><span class="symbol">    In [2]</span>: passwd()</span><br><span class="line">    Enter password:</span><br><span class="line">    Verify password:</span><br><span class="line">    Out[<span class="number">2</span>]: &#x27;sha1:67c9e60bb8b6:9ffede<span class="number">0825894254</span>b2e042ea597d<span class="number">771089</span>e11aed&#x27;</span><br></pre></td></tr></table></figure></li>
 </ul>
 </li>
-<li><p>结论中，阐述一个得到的确切结果,但如果有表示动作的词要用过去式如determined,observed等。</p>
-<ul>
-<li><pre><code>As a main result, an α-decay branch from the excited state at 17 keV in 219Ra is proposed to resolve a discrepancy between the evaluated level scheme and the experiment. (prc.98.044307)
-Contemporary theoretical calculations on deformation, rotational states and the α decay justify the nuclear structure interpretation. (prc.98.044307)</code></pre>
-</li>
-</ul>
-</li>
-<li><p>解释图表中的数据，符号和图像的时候以及说明列出的公式。</p>
+<li><p>在命令行下启动jupyter notebook即可密码登录，运行。</p>
 </li>
 </ul>
 <hr>
@@ -308,10 +145,10 @@ Contemporary theoretical calculations on deformation, rotational states and the 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/English_sci_Present_tense/" data-id="ckjv2ttum002st0dncy6o8697" class="article-share-link">Share</a>
+      <a data-url="http://wangxianggit.github.io/jupyter_notebook_config/" data-id="ckjv2ttxi00eet0dn9c212ogo" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/English/" rel="tag">English</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Jupyter/" rel="tag">Jupyter</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
 
     </footer>
   </div>
@@ -320,10 +157,10 @@ Contemporary theoretical calculations on deformation, rotational states and the 
 
 
   
-    <article id="post-windows_install_hexo" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-randomdata_Integer_norepeat" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/windows_install_hexo/" class="article-date">
-  <time datetime="2019-04-20T05:02:41.000Z" itemprop="datePublished">2019-04-20</time>
+    <a href="/randomdata_Integer_norepeat/" class="article-date">
+  <time datetime="2019-05-05T01:43:31.000Z" itemprop="datePublished">2019-05-05</time>
 </a>
     
   <div class="article-category">
@@ -338,7 +175,7 @@ Contemporary theoretical calculations on deformation, rotational states and the 
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/windows_install_hexo/">windows下安装hexo博客</a>
+      <a class="article-title" href="/randomdata_Integer_norepeat/">用c++产生不重复整数随机数</a>
     </h1>
   
 
@@ -348,38 +185,29 @@ Contemporary theoretical calculations on deformation, rotational states and the 
       
 	  <!-- Table of Contents -->
 
-        <h2 id="windows下安装hexo博客"><a href="#windows下安装hexo博客" class="headerlink" title="windows下安装hexo博客"></a>windows下安装hexo博客</h2><ul>
-<li>Hexo是一个静态博客的生成工具，可以在windows或linux平台上运行。</li>
-<li>在hexo博客中可以使用各种主题，同时主题的格式也可以自己定制。</li>
-</ul>
-<h3 id="需要安装的软件"><a href="#需要安装的软件" class="headerlink" title="需要安装的软件"></a>需要安装的软件</h3><ul>
-<li><p>安装步骤：</p>
+        <h2 id="C-产生不重复随机整数"><a href="#C-产生不重复随机整数" class="headerlink" title="C++产生不重复随机整数"></a>C++产生不重复随机整数</h2><ul>
+<li><p>​ 方法1：</p>
 <ul>
-<li><p>安装git，在网上下载相应版本的应用程序后安装，安装完git配置好用户名，邮箱以及github公钥并上传到自己的github网站上。</p>
+<li>先产生一段连续的整数，比如0-500，存储到数组。</li>
+<li>然后产生一个随机整数，把数组的位置随机调换。</li>
+</ul>
 </li>
-<li><p>安装node.js,在网站上下载好合适版本应用程序后安装，简单安装按照程序默认即可，安装好之后打开gitbash输入npm -v，如果出现相应版本号即说明安装成功同时也配置好了环境变量。</p>
-</li>
-<li><p>安装markdown编辑器：由于hexo博客文本是用markdown格式生成的，合适的markdown编辑器有利于提高编辑效率，windowns下markdownpad(<a target="_blank" rel="noopener" href="http://markdownpad.com/">http://markdownpad.com/</a>)，typora(<a target="_blank" rel="noopener" href="https://www.typora.io/">https://www.typora.io/</a>)等都是不错的选择。</p>
-</li>
-<li><p>为了避免由于在windows下的换行符转义出现的问题需要，在gitbansh中禁用自动转换：</p>
+<li><p>代码：</p>
 <ul>
-<li><pre><code>git init
-rm -rf .git
-git config --global core.autocrlf false//禁用自动换行
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="section">### hexo博客安装</span></span><br><span class="line"></span><br><span class="line"><span class="bullet">*</span> 在gitbash或cmd命令行下安装hexo命令：</span><br><span class="line"></span><br><span class="line"><span class="bullet">  *</span> <span class="code">`npm install -g hexo-cli`</span></span><br><span class="line"></span><br><span class="line"><span class="bullet">*</span> 输入hexo -v出现一系列版本号，表示安装成功。</span><br><span class="line"></span><br><span class="line"><span class="bullet">*</span> hexo使用3.0版本以上，deploy的type 的github需要改成<span class="code">`git`</span>：</span><br><span class="line"></span><br><span class="line"><span class="bullet">  *</span> <span class="code">~~~</span></span><br><span class="line"><span class="code">    npm install hexo-deployer-git --save</span></span><br></pre></td></tr></table></figure>
-### 生成博客</code></pre>
+<li><pre><code>#include &lt;algorithm&gt; //swap function
+#include &lt;iostream&gt; //std io
+
+using namespace std;
+int main()&#123;
+    int x[500];
+    for(int i=0;i&lt;500;i++) x[i]=i;
+    for(int i=0;i&lt;500;i++) swap(a[i], a[rand()%i]);
+    return 1;
+&#125;
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  * rand()产生的随机数范围在<span class="number">0</span><span class="number">-65536</span>，因此如果需要替换大于<span class="number">65536</span>个长度的数组需要可以用两个随机数的算术操作来产生。</span><br><span class="line"></span><br><span class="line">* 方法<span class="number">2</span>：</span><br><span class="line"></span><br><span class="line">  * 直接产生一个范围内的随机数，然后使用<span class="built_in">std</span>::<span class="built_in">set</span>函数去重。</span><br><span class="line"></span><br><span class="line">  * 在c++里，<span class="built_in">std</span>::<span class="built_in">set</span>是基于红黑树的平衡二叉树的数据结构实现的一种容器，容器内包含的元素值唯一，可以基于这个特点去重和排序。</span><br><span class="line"></span><br><span class="line">  * ~~~</span><br><span class="line">    <span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line">    <span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;set&gt;</span></span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">set</span>&lt;<span class="keyword">int</span>&gt; s;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">100</span>;i++)&#123;</span><br><span class="line">            s.insert(rand());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
+</code></pre>
 </li>
 </ul>
-</li>
-</ul>
-</li>
-<li><p>新建文件夹后，进入该文件夹后输入命令：hexo init,进行初始化</p>
-</li>
-<li><p>初始化完成后会输入命令:hexo g生成静态博客</p>
-</li>
-<li><p>输入命令hexo s可以在localhost:4000地址中看到示例博客</p>
-</li>
-<li><p>定制自己的个性化主题需要进行远程部署，并可以在配置文件当中配置个性化主题。</p>
 </li>
 </ul>
 <hr>
@@ -387,10 +215,230 @@ git config --global core.autocrlf false//禁用自动换行
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/windows_install_hexo/" data-id="ckjv2ttyn00jct0dne6zv31u7" class="article-share-link">Share</a>
+      <a data-url="http://wangxianggit.github.io/randomdata_Integer_norepeat/" data-id="ckjv2ttxy00ght0dn5ztxeo62" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/windows/" rel="tag">windows</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Algorithm/" rel="tag">Algorithm</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Random/" rel="tag">Random</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Linux_source" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/Linux_source/" class="article-date">
+  <time datetime="2019-05-04T11:39:26.000Z" itemprop="datePublished">2019-05-04</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/learning/">learning</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/Linux_source/">Linux命令source</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+
+        <h2 id="source-命令"><a href="#source-命令" class="headerlink" title="source 命令"></a>source 命令</h2><ul>
+<li>source命令使当前的shell读入文件，并执行其中的shell命令，通常用于环境变量的修改。<ul>
+<li>语法格式：source filepath 或  . filepath（点符号等同于source）</li>
+</ul>
+</li>
+<li>source命令不需要文件具有可执行权限，即对文件的权限没有限制。</li>
+</ul>
+<h2 id="和-、sh的区别"><a href="#和-、sh的区别" class="headerlink" title="和./、sh的区别"></a>和./、sh的区别</h2><ul>
+<li>./命令需要文件具有可执行权限，才可执行，./命令在进行脚本执行时会查找脚本第一行是否指定了解释器，如果没有指定即用当前系统默认的bash执行，否则将会交给指定的解释器。</li>
+<li>sh命令也是执行某个脚本，和source命令一样不需要脚本具有可执行权限。</li>
+<li>sh执行叫脚本时打开一个subshell去执行，并且在subshell里面设置的变量不会影响到父shell。</li>
+</ul>
+<hr>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wangxianggit.github.io/Linux_source/" data-id="ckjv2ttuy0047t0dn5mwc6dni" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Shell/" rel="tag">Shell</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Linux_find" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/Linux_find/" class="article-date">
+  <time datetime="2019-05-04T08:54:03.000Z" itemprop="datePublished">2019-05-04</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/learning/">learning</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/Linux_find/">Linux find命令</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+
+        <h2 id="Linux-find命令"><a href="#Linux-find命令" class="headerlink" title="Linux find命令"></a>Linux find命令</h2><ul>
+<li>​find命令可以搜索指定目录下的文件。 </li>
+</ul>
+<ul>
+<li><p>语法：<code>find   path   -option [expression]  </code></p>
+</li>
+<li><p>其中path表示要搜索的目录，option表示查找参数</p>
+</li>
+<li><p>实例：</p>
+<ul>
+<li><pre><code>find //查找当前目录下的所有文件
+find ./ -name &quot;a.txt&quot; //查找当前目录下名称为a.txt的文件
+find ./ -maxdepth 2 -name &quot;a.txt&quot;//限制深度为2查找
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="string">*</span> <span class="string">常用参数：</span></span><br><span class="line"></span><br><span class="line">  <span class="string">*</span> <span class="string">~~~</span></span><br><span class="line">    <span class="string">-mount,</span> <span class="string">-xdev</span> <span class="string">:</span> <span class="string">只检查和指定目录在同一个文件系统下的文件，避免列出其它文件系统中的文件</span></span><br><span class="line"></span><br><span class="line">    <span class="string">-amin</span> <span class="attr">n :</span> <span class="string">在过去</span> <span class="string">n</span> <span class="string">分钟内被读取过</span></span><br><span class="line"></span><br><span class="line">    <span class="string">-anewer</span> <span class="attr">file :</span> <span class="string">比文件</span> <span class="string">file</span> <span class="string">更晚被读取过的文件</span></span><br><span class="line"></span><br><span class="line">    <span class="string">-atime</span> <span class="attr">n :</span> <span class="string">在过去n天内被读取过的文件</span></span><br><span class="line"></span><br><span class="line">    <span class="string">-cmin</span> <span class="attr">n :</span> <span class="string">在过去</span> <span class="string">n</span> <span class="string">分钟内被修改过</span></span><br><span class="line"></span><br><span class="line">    <span class="string">-cnewer</span> <span class="string">file</span> <span class="string">:比文件</span> <span class="string">file</span> <span class="string">更新的文件</span></span><br><span class="line"></span><br><span class="line">    <span class="string">-ctime</span> <span class="attr">n :</span> <span class="string">在过去n天内被修改过的文件</span></span><br><span class="line"></span><br><span class="line">    <span class="string">-empty</span> <span class="string">:</span> <span class="string">空的文件-gid</span> <span class="attr">n or -group name :</span> <span class="string">gid</span> <span class="string">是</span> <span class="string">n</span> <span class="string">或是</span> <span class="string">group</span> <span class="string">名称是</span> <span class="string">name</span></span><br><span class="line"></span><br><span class="line">    <span class="string">-ipath</span> <span class="string">p,</span> <span class="string">-path</span> <span class="attr">p :</span> <span class="string">路径名称符合</span> <span class="string">p</span> <span class="string">的文件，ipath</span> <span class="string">会忽略大小写</span></span><br><span class="line"></span><br><span class="line">    <span class="string">-name</span> <span class="string">name,</span> <span class="string">-iname</span> <span class="attr">name :</span> <span class="string">文件名称符合</span> <span class="string">name</span> <span class="string">的文件。iname</span> <span class="string">会忽略大小写</span></span><br><span class="line"></span><br><span class="line">    <span class="string">-size</span> <span class="attr">n :</span> <span class="string">文件大小</span> <span class="string">是</span> <span class="string">n</span> <span class="string">单位，b</span> <span class="string">代表</span> <span class="number">512</span> <span class="string">位元组的区块，c</span> <span class="string">表示字元数，k</span> <span class="string">表示</span> <span class="string">kilo</span> <span class="string">bytes，w</span> <span class="string">是二个位元组。-type</span> <span class="attr">c :</span> <span class="string">文件类型是</span> <span class="string">c</span> <span class="string">的文件。</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">d:</span> <span class="string">目录</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">c:</span> <span class="string">字型装置文件</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">b:</span> <span class="string">区块装置文件</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">p:</span> <span class="string">具名贮列</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">f:</span> <span class="string">一般文件</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">l:</span> <span class="string">符号连结</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">s:</span> <span class="string">socket</span></span><br></pre></td></tr></table></figure>
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wangxianggit.github.io/Linux_find/" data-id="ckjv2ttux0040t0dn65juepgl" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Shell/" rel="tag">Shell</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Linux_grep" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/Linux_grep/" class="article-date">
+  <time datetime="2019-05-04T08:22:35.000Z" itemprop="datePublished">2019-05-04</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/learning/">learning</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/Linux_grep/">Linux grep命令</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+
+        <h2 id="Linux-grep命令"><a href="#Linux-grep命令" class="headerlink" title="Linux grep命令"></a>Linux grep命令</h2><ul>
+<li><p>当前目录，搜索preamp字段的所有文件，并打印出所在行：</p>
+<ul>
+<li><pre><code>grep preamp *
+
+output:
+preamp.cpp:double preamp(double *x,double *par)
+preamp.cpp:void preamp()
+preamp.cpp:  TF1 *fp=new TF1(&quot;fp&quot;,preamp,0,200,4);
+preamp.cpp~:double preamp(double *x,double *par)
+preamp.cpp~:void preamp()
+preamp.cpp~:  TF1 *fp=new TF1(&quot;fp&quot;,preamp,0,200,4);
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 使用递归的方式搜索符合字段的文件加入参数-r</span><br><span class="line"></span><br><span class="line">  * ~~~</span><br><span class="line">    <span class="keyword">grep</span> preamp ./filter</span><br><span class="line"></span><br><span class="line">    output:</span><br><span class="line">    .<span class="regexp">/filter/</span>preamp.cpp:<span class="keyword">double</span> preamp(<span class="keyword">double</span> *x,<span class="keyword">double</span> *par)</span><br><span class="line">    .<span class="regexp">/filter/</span>preamp.cpp:<span class="keyword">void</span> preamp()</span><br><span class="line">    .<span class="regexp">/filter/</span>preamp.cpp:  TF1 *fp=<span class="keyword">new</span> TF1(<span class="string">&quot;fp&quot;</span>,preamp,<span class="number">0</span>,<span class="number">200</span>,<span class="number">4</span>);</span><br><span class="line">    .<span class="regexp">/filter/</span>preamp.cpp~:<span class="keyword">double</span> preamp(<span class="keyword">double</span> *x,<span class="keyword">double</span> *par)</span><br><span class="line">    .<span class="regexp">/filter/</span>preamp.cpp~:<span class="keyword">void</span> preamp()</span><br><span class="line">    .<span class="regexp">/filter/</span>preamp.cpp~:  TF1 *fp=<span class="keyword">new</span> TF1(<span class="string">&quot;fp&quot;</span>,preamp,<span class="number">0</span>,<span class="number">200</span>,<span class="number">4</span>);</span><br></pre></td></tr></table></figure>
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="详细使用方法"><a href="#详细使用方法" class="headerlink" title="详细使用方法"></a>详细使用方法</h2><ul>
+<li><p>语法：<code>grep [-abcEFGhHilLnqrsvVwxy][-A&lt;显示列数&gt;][-B&lt;显示列数&gt;][-C&lt;显示列数&gt;][-d&lt;进行动作&gt;][-e&lt;范本样式&gt;][-f&lt;范本文件&gt;][--help][范本样式][文件或目录...]</code></p>
+</li>
+<li><p>参数说明：</p>
+<ul>
+<li><pre><code>-a 或 --text : 不要忽略二进制的数据。
+-A&lt;显示行数&gt; 或 --after-context=&lt;显示行数&gt; : 除了显示符合范本样式的那一列之外，并显示该行之后的内容。
+-b 或 --byte-offset : 在显示符合样式的那一行之前，标示出该行第一个字符的编号。
+-B&lt;显示行数&gt; 或 --before-context=&lt;显示行数&gt; : 除了显示符合样式的那一行之外，并显示该行之前的内容。
+-c 或 --count : 计算符合样式的列数。
+-C&lt;显示行数&gt; 或 --context=&lt;显示行数&gt;或-&lt;显示行数&gt; : 除了显示符合样式的那一行之外，并显示该行之前后的内容。
+-d &lt;动作&gt; 或 --directories=&lt;动作&gt; : 当指定要查找的是目录而非文件时，必须使用这项参数，否则grep指令将回报信息并停止动作。
+-e&lt;范本样式&gt; 或 --regexp=&lt;范本样式&gt; : 指定字符串做为查找文件内容的样式。
+-E 或 --extended-regexp : 将样式为延伸的普通表示法来使用。
+-f&lt;规则文件&gt; 或 --file=&lt;规则文件&gt; : 指定规则文件，其内容含有一个或多个规则样式，让grep查找符合规则条件的文件内容，格式为每行一个规则样式。
+-F 或 --fixed-regexp : 将样式视为固定字符串的列表。
+-G 或 --basic-regexp : 将样式视为普通的表示法来使用。
+-h 或 --no-filename : 在显示符合样式的那一行之前，不标示该行所属的文件名称。
+-H 或 --with-filename : 在显示符合样式的那一行之前，表示该行所属的文件名称。
+-i 或 --ignore-case : 忽略字符大小写的差别。
+-l 或 --file-with-matches : 列出文件内容符合指定的样式的文件名称。
+-L 或 --files-without-match : 列出文件内容不符合指定的样式的文件名称。
+-n 或 --line-number : 在显示符合样式的那一行之前，标示出该行的列数编号。
+-o 或 --only-matching : 只显示匹配PATTERN 部分。
+-q 或 --quiet或--silent : 不显示任何信息。
+-r 或 --recursive : 此参数的效果和指定&quot;-d recurse&quot;参数相同。
+-s 或 --no-messages : 不显示错误信息。
+-v 或 --revert-match : 显示不包含匹配文本的所有行。
+-V 或 --version : 显示版本信息。
+-w 或 --word-regexp : 只显示全字符合的列。
+-x --line-regexp : 只显示全列符合的列。
+-y : 此参数的效果和指定&quot;-i&quot;参数相同。</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wangxianggit.github.io/Linux_grep/" data-id="ckjv2ttuy0044t0dnc7km9eyo" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Shell/" rel="tag">Shell</a></li></ul>
 
     </footer>
   </div>
@@ -403,7 +451,7 @@ git config --global core.autocrlf false//禁用自动换行
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/page/15/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="page-number" href="/page/15/">15</a><span class="page-number current">16</span><a class="page-number" href="/page/17/">17</a><a class="page-number" href="/page/18/">18</a><span class="space">&hellip;</span><a class="page-number" href="/page/38/">38</a><a class="extend next" rel="next" href="/page/17/">Next &amp;raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/15/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="page-number" href="/page/15/">15</a><span class="page-number current">16</span><a class="page-number" href="/page/17/">17</a><a class="page-number" href="/page/18/">18</a><span class="space">&hellip;</span><a class="page-number" href="/page/41/">41</a><a class="extend next" rel="next" href="/page/17/">Next &amp;raquo;</a>
   </nav>
 
 </section>
@@ -441,7 +489,7 @@ git config --global core.autocrlf false//禁用自动换行
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithm/" rel="tag">Algorithm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Altium-Designer/" rel="tag">Altium Designer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Apache/" rel="tag">Apache</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BeautifulSoup/" rel="tag">BeautifulSoup</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Centos7/" rel="tag">Centos7</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cython/" rel="tag">Cython</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Electronic/" rel="tag">Electronic</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/English/" rel="tag">English</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Geant4/" rel="tag">Geant4</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hardware/" rel="tag">Hardware</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Image/" rel="tag">Image</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jupyter/" rel="tag">Jupyter</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nuclear-Physics/" rel="tag">Nuclear Physics</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Open/" rel="tag">Open</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Program/" rel="tag">Program</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PyPI/" rel="tag">PyPI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Py-Crawler/" rel="tag">Py_Crawler</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Random/" rel="tag">Random</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Resource/" rel="tag">Resource</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Root/" rel="tag">Root</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Scipy/" rel="tag">Scipy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Shell/" rel="tag">Shell</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Solidwork/" rel="tag">Solidwork</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TTree/" rel="tag">TTree</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tensorflow/" rel="tag">Tensorflow</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Thread/" rel="tag">Thread</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Urllib2/" rel="tag">Urllib2</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Virtual-memory/" rel="tag">Virtual memory</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cmake/" rel="tag">cmake</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cmd/" rel="tag">cmd</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/data-structure/" rel="tag">data structure</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/htop/" rel="tag">htop</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/keras/" rel="tag">keras</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/latex/" rel="tag">latex</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/os/" rel="tag">os</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/qt/" rel="tag">qt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/requests/" rel="tag">requests</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sk-learn/" rel="tag">sk-learn</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh/" rel="tag">ssh</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/statistic/" rel="tag">statistic</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vi/" rel="tag">vi</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/windows/" rel="tag">windows</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithm/" rel="tag">Algorithm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Altium-Designer/" rel="tag">Altium Designer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Apache/" rel="tag">Apache</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BeautifulSoup/" rel="tag">BeautifulSoup</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Centos7/" rel="tag">Centos7</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cython/" rel="tag">Cython</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Electronic/" rel="tag">Electronic</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/English/" rel="tag">English</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Geant4/" rel="tag">Geant4</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hardware/" rel="tag">Hardware</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Image/" rel="tag">Image</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jupyter/" rel="tag">Jupyter</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mongodb/" rel="tag">Mongodb</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nuclear-Physics/" rel="tag">Nuclear Physics</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Open/" rel="tag">Open</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Opencv/" rel="tag">Opencv</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Program/" rel="tag">Program</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PyPI/" rel="tag">PyPI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Py-Crawler/" rel="tag">Py_Crawler</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Random/" rel="tag">Random</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Resource/" rel="tag">Resource</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Root/" rel="tag">Root</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Scipy/" rel="tag">Scipy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Shell/" rel="tag">Shell</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Solidwork/" rel="tag">Solidwork</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TTree/" rel="tag">TTree</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tensorflow/" rel="tag">Tensorflow</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Thread/" rel="tag">Thread</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Urllib2/" rel="tag">Urllib2</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Virtual-memory/" rel="tag">Virtual memory</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cmake/" rel="tag">cmake</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cmd/" rel="tag">cmd</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/data-structure/" rel="tag">data structure</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/htop/" rel="tag">htop</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/keras/" rel="tag">keras</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/latex/" rel="tag">latex</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/os/" rel="tag">os</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/qt/" rel="tag">qt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/requests/" rel="tag">requests</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sk-learn/" rel="tag">sk-learn</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh/" rel="tag">ssh</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/statistic/" rel="tag">statistic</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vi/" rel="tag">vi</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/windows/" rel="tag">windows</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/yolo%EF%BC%8CC/" rel="tag">yolo，C</a></li></ul>
     </div>
   </div>
 
@@ -451,7 +499,7 @@ git config --global core.autocrlf false//禁用自动换行
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Algorithm/" style="font-size: 11.33px;">Algorithm</a> <a href="/tags/Altium-Designer/" style="font-size: 14.67px;">Altium Designer</a> <a href="/tags/Apache/" style="font-size: 11.33px;">Apache</a> <a href="/tags/BeautifulSoup/" style="font-size: 10px;">BeautifulSoup</a> <a href="/tags/C/" style="font-size: 15.33px;">C</a> <a href="/tags/C/" style="font-size: 18.67px;">C++</a> <a href="/tags/Centos7/" style="font-size: 17.33px;">Centos7</a> <a href="/tags/Cython/" style="font-size: 10px;">Cython</a> <a href="/tags/Electronic/" style="font-size: 13.33px;">Electronic</a> <a href="/tags/English/" style="font-size: 12px;">English</a> <a href="/tags/Geant4/" style="font-size: 10.67px;">Geant4</a> <a href="/tags/Hardware/" style="font-size: 10px;">Hardware</a> <a href="/tags/Hexo/" style="font-size: 14px;">Hexo</a> <a href="/tags/Image/" style="font-size: 10px;">Image</a> <a href="/tags/Jupyter/" style="font-size: 10px;">Jupyter</a> <a href="/tags/Linux/" style="font-size: 19.33px;">Linux</a> <a href="/tags/Markdown/" style="font-size: 16px;">Markdown</a> <a href="/tags/Nuclear-Physics/" style="font-size: 11.33px;">Nuclear Physics</a> <a href="/tags/Open/" style="font-size: 10px;">Open</a> <a href="/tags/Program/" style="font-size: 18px;">Program</a> <a href="/tags/PyPI/" style="font-size: 10px;">PyPI</a> <a href="/tags/Py-Crawler/" style="font-size: 10.67px;">Py_Crawler</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/Random/" style="font-size: 10px;">Random</a> <a href="/tags/Resource/" style="font-size: 10.67px;">Resource</a> <a href="/tags/Root/" style="font-size: 10.67px;">Root</a> <a href="/tags/Scipy/" style="font-size: 10px;">Scipy</a> <a href="/tags/Shell/" style="font-size: 16px;">Shell</a> <a href="/tags/Solidwork/" style="font-size: 10.67px;">Solidwork</a> <a href="/tags/TTree/" style="font-size: 10px;">TTree</a> <a href="/tags/Tensorflow/" style="font-size: 15.33px;">Tensorflow</a> <a href="/tags/Thread/" style="font-size: 10px;">Thread</a> <a href="/tags/Urllib2/" style="font-size: 10px;">Urllib2</a> <a href="/tags/Virtual-memory/" style="font-size: 10px;">Virtual memory</a> <a href="/tags/cmake/" style="font-size: 12.67px;">cmake</a> <a href="/tags/cmd/" style="font-size: 10.67px;">cmd</a> <a href="/tags/data-structure/" style="font-size: 10.67px;">data structure</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/htop/" style="font-size: 10px;">htop</a> <a href="/tags/keras/" style="font-size: 10.67px;">keras</a> <a href="/tags/latex/" style="font-size: 14.67px;">latex</a> <a href="/tags/os/" style="font-size: 10px;">os</a> <a href="/tags/qt/" style="font-size: 10px;">qt</a> <a href="/tags/requests/" style="font-size: 10px;">requests</a> <a href="/tags/sk-learn/" style="font-size: 10px;">sk-learn</a> <a href="/tags/ssh/" style="font-size: 12.67px;">ssh</a> <a href="/tags/statistic/" style="font-size: 10px;">statistic</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/windows/" style="font-size: 16.67px;">windows</a>
+      <a href="/tags/Algorithm/" style="font-size: 11.33px;">Algorithm</a> <a href="/tags/Altium-Designer/" style="font-size: 14.67px;">Altium Designer</a> <a href="/tags/Apache/" style="font-size: 11.33px;">Apache</a> <a href="/tags/BeautifulSoup/" style="font-size: 10px;">BeautifulSoup</a> <a href="/tags/C/" style="font-size: 15.33px;">C</a> <a href="/tags/C/" style="font-size: 18.67px;">C++</a> <a href="/tags/Centos7/" style="font-size: 17.33px;">Centos7</a> <a href="/tags/Cython/" style="font-size: 10px;">Cython</a> <a href="/tags/Electronic/" style="font-size: 13.33px;">Electronic</a> <a href="/tags/English/" style="font-size: 12px;">English</a> <a href="/tags/Geant4/" style="font-size: 10.67px;">Geant4</a> <a href="/tags/Hardware/" style="font-size: 10px;">Hardware</a> <a href="/tags/Hexo/" style="font-size: 14px;">Hexo</a> <a href="/tags/Image/" style="font-size: 12px;">Image</a> <a href="/tags/Jupyter/" style="font-size: 10px;">Jupyter</a> <a href="/tags/Linux/" style="font-size: 19.33px;">Linux</a> <a href="/tags/Markdown/" style="font-size: 16px;">Markdown</a> <a href="/tags/Mongodb/" style="font-size: 10px;">Mongodb</a> <a href="/tags/Nuclear-Physics/" style="font-size: 11.33px;">Nuclear Physics</a> <a href="/tags/Open/" style="font-size: 10px;">Open</a> <a href="/tags/Opencv/" style="font-size: 10.67px;">Opencv</a> <a href="/tags/Program/" style="font-size: 18px;">Program</a> <a href="/tags/PyPI/" style="font-size: 10px;">PyPI</a> <a href="/tags/Py-Crawler/" style="font-size: 10.67px;">Py_Crawler</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/Random/" style="font-size: 10px;">Random</a> <a href="/tags/Resource/" style="font-size: 10.67px;">Resource</a> <a href="/tags/Root/" style="font-size: 10.67px;">Root</a> <a href="/tags/Scipy/" style="font-size: 10px;">Scipy</a> <a href="/tags/Shell/" style="font-size: 16px;">Shell</a> <a href="/tags/Solidwork/" style="font-size: 10.67px;">Solidwork</a> <a href="/tags/TTree/" style="font-size: 10px;">TTree</a> <a href="/tags/Tensorflow/" style="font-size: 15.33px;">Tensorflow</a> <a href="/tags/Thread/" style="font-size: 10px;">Thread</a> <a href="/tags/Urllib2/" style="font-size: 10px;">Urllib2</a> <a href="/tags/Virtual-memory/" style="font-size: 10px;">Virtual memory</a> <a href="/tags/cmake/" style="font-size: 12.67px;">cmake</a> <a href="/tags/cmd/" style="font-size: 10.67px;">cmd</a> <a href="/tags/data-structure/" style="font-size: 10.67px;">data structure</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/htop/" style="font-size: 10px;">htop</a> <a href="/tags/keras/" style="font-size: 10.67px;">keras</a> <a href="/tags/latex/" style="font-size: 14.67px;">latex</a> <a href="/tags/os/" style="font-size: 10px;">os</a> <a href="/tags/qt/" style="font-size: 10px;">qt</a> <a href="/tags/requests/" style="font-size: 10px;">requests</a> <a href="/tags/sk-learn/" style="font-size: 10px;">sk-learn</a> <a href="/tags/ssh/" style="font-size: 12.67px;">ssh</a> <a href="/tags/statistic/" style="font-size: 10px;">statistic</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/windows/" style="font-size: 16.67px;">windows</a> <a href="/tags/yolo%EF%BC%8CC/" style="font-size: 10px;">yolo，C</a>
     </div>
   </div>
 
@@ -460,7 +508,7 @@ git config --global core.autocrlf false//禁用自动换行
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li></ul>
     </div>
   </div>
 
@@ -473,23 +521,23 @@ git config --global core.autocrlf false//禁用自动换行
       <ul>
         
           <li>
-            <a href="/winedt_break/">Winedt注册表破解</a>
+            <a href="/nodejs_windows_install/">windows下安装nodejs及环境变量设置</a>
           </li>
         
           <li>
-            <a href="/latex_content_dot/">latex生成目录条目加点</a>
+            <a href="/Centos7_mongodb_install/">Centos7安装Mongodb</a>
           </li>
         
           <li>
-            <a href="/latex_figure_prefix/">latex论文用图修改前缀</a>
+            <a href="/Endnote_download_tutorial/">EndnoteX9下载及新手教程</a>
           </li>
         
           <li>
-            <a href="/yum_unblock/">linux yum进程占用问题</a>
+            <a href="/centos7_opencv_install/">Centso7下安装opencv</a>
           </li>
         
           <li>
-            <a href="/linux_googlechrome/">linux安装谷歌浏览器</a>
+            <a href="/anaconda_democrate_source/">anaconda安装库使用国内源</a>
           </li>
         
       </ul>

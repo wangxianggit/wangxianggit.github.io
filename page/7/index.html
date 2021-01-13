@@ -67,10 +67,81 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-tensorboard" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-cmake_makefile" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/tensorboard/" class="article-date">
-  <time datetime="2019-09-17T14:16:28.000Z" itemprop="datePublished">2019-09-17</time>
+    <a href="/cmake_makefile/" class="article-date">
+  <time datetime="2019-12-06T05:25:12.000Z" itemprop="datePublished">2019-12-06</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/learning/">learning</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/cmake_makefile/">cmake生成简单makefile</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+
+        <h2 id="cmake生成简单makefile"><a href="#cmake生成简单makefile" class="headerlink" title="cmake生成简单makefile"></a>cmake生成简单makefile</h2><ul>
+<li><p>cmake是跨平台编译工具，自动化生成Makefile等编译文件。</p>
+</li>
+<li><p>简单例子：</p>
+<ul>
+<li><p>现有源文件只包含一个文件hello.cpp:</p>
+</li>
+<li><p>~~~<br>#include <iostream><br>using namespace std;</p>
+<p>int main(int argc,char** argv)<br>{</p>
+<pre><code>cout &lt;&lt; &quot;Hello for cmake!&quot; &lt;&lt; endl;
+return 0;</code></pre>
+<p>}</p>
+<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 编写 <span class="module-access"><span class="module"><span class="identifier">CMakeLists</span>.</span></span>txt :</span><br><span class="line"></span><br><span class="line">* ~~~</span><br><span class="line">  cmake<span class="constructor">_minimum_required(VERSION 2.8.11)</span></span><br><span class="line">  project(HELLO)</span><br><span class="line">  </span><br><span class="line">  add<span class="constructor">_executable(<span class="params">hello</span> <span class="params">hello</span>.<span class="params">cpp</span>)</span></span><br></pre></td></tr></table></figure></li>
+<li><p><code>cmake_minimum_required()</code>这句代码是指定 cmake 的最低版本<br><code>project()</code>这句代码是指定工程的名称<br><code>add_executable()</code>这个指示生成的可执行文件，上面的例子是编译 hello.cpp 生成 hello 这个可执行文件</p>
+</li>
+<li><p>CMakeLists.txt 写好后，在当前目录执行 <code>cmake .</code>命令，<code>.</code>代表在当前目录执行操作，如果 CMakeLists.txt 在别处，需要将路径添加在 cmake 后面。</p>
+</li>
+<li><p>命令完成后，我们可以发现当前目录多了 1 个名为 CMakeFiles 的文件，也多了一个 Makefile 文件。</p>
+</li>
+<li><p>执行 make 命令，最终可以发现生成了可执行文件 hello.</p>
+</li>
+<li><p>在终端执行 <code>./hello</code>，可以看见屏幕结果</p>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wangxianggit.github.io/cmake_makefile/" data-id="ckjv2ttx500ckt0dn9mny1vay" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cmake/" rel="tag">cmake</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-python_nan_inf" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/python_nan_inf/" class="article-date">
+  <time datetime="2019-10-12T10:23:21.000Z" itemprop="datePublished">2019-10-12</time>
 </a>
     
   <div class="article-category">
@@ -85,7 +156,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/tensorboard/">tf tensorboard</a>
+      <a class="article-title" href="/python_nan_inf/">Python 缺失值inf、nan处理</a>
     </h1>
   
 
@@ -95,21 +166,23 @@
       
 	  <!-- Table of Contents -->
 
-        <h2 id="Tensorboard"><a href="#Tensorboard" class="headerlink" title="Tensorboard"></a>Tensorboard</h2><ul>
-<li><p>TensorBoard是ts的可视化工具，用于展现TensorFlow图像，绘制图像生成的定量指标图以及附加数据。</p>
+        <ul>
+<li><p> 把inf值转换成nan：<code>pd.set_option(&#39;mode.use_inf_as_na&#39;, True)</code></p>
 </li>
-<li><p>TensorBoard通过summary对数据进行汇总。</p>
+<li><p>统计每一列缺失值的个数：<code>print(df.isnull().sum())</code></p>
 </li>
-<li><p>常用的操作如下：</p>
+<li><p>前向填充和反向填充：</p>
 <ul>
-<li>~~~<br>tf.summary.FileWriter——用于将汇总数据写入磁盘<br>tf.summary.scalar——对标量数据汇总和记录<br>tf.summary.histogram——记录数据的直方图<br>tf.summary.image——将图像写入summary<br>tf.summary.merge——对各类的汇总进行一次合并<br>tf.summary.merge_all——合并默认图像中的所有汇总<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 保存图像：</span><br><span class="line"></span><br><span class="line"><span class="operator">  * </span>~~~</span><br><span class="line">    sess = tf.<span class="constructor">Session()</span></span><br><span class="line">    writer = tf.summary.<span class="constructor">FileWriter(<span class="string">&quot;logs/&quot;</span>, <span class="params">sess</span>.<span class="params">graph</span>)</span> #第一个参数指定生成文件的目录。</span><br><span class="line">    init = tf.global<span class="constructor">_variables_initializer()</span></span><br><span class="line">    sess.run(init)</span><br></pre></td></tr></table></figure></li>
+<li><pre><code>df.fillna(method=&#39;ffill&#39;,axis=1)
+df.fillna(method=&#39;bfill&#39;,axis=1)</code></pre>
+</li>
 </ul>
 </li>
-<li><p>运行代码后可以在tf.summary.FileWriter中指定目录下找到生成的文件。</p>
+<li><p>指定值填充：<code>df.fillna(&#39;value&#39;)</code></p>
 </li>
-<li><p>在终端下输入命令tensorboard –logdir=&lt;文件目录&gt;，这里文件目录可以写logs文件夹的绝对目录。</p>
+<li><p>去除缺失值：<code>df.dropna(axis=1)</code></p>
 </li>
-<li><p>没有报错可以在终端看到相应的ip地址，在浏览器中输入该地址可以查看保存的图像。</p>
+<li><p>inf值替换：<code>df.replace([np.inf,-np.inf],np.nan)</code></p>
 </li>
 </ul>
 <hr>
@@ -117,7 +190,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/tensorboard/" data-id="ckjv2ttyb00hvt0dnetnmgnqx" class="article-share-link">Share</a>
+      <a data-url="http://wangxianggit.github.io/python_nan_inf/" data-id="ckjv2ttxx00get0dn60ts45wj" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
@@ -129,10 +202,10 @@
 
 
   
-    <article id="post-tf_basic" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-keras_epoch_batch" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/tf_basic/" class="article-date">
-  <time datetime="2019-09-17T02:22:15.000Z" itemprop="datePublished">2019-09-17</time>
+    <a href="/keras_epoch_batch/" class="article-date">
+  <time datetime="2019-10-02T10:09:34.000Z" itemprop="datePublished">2019-10-02</time>
 </a>
     
   <div class="article-category">
@@ -147,7 +220,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/tf_basic/">tf使用方法</a>
+      <a class="article-title" href="/keras_epoch_batch/">keras框架参数epoch,batch_size</a>
     </h1>
   
 
@@ -157,43 +230,25 @@
       
 	  <!-- Table of Contents -->
 
-        <h2 id="tf基本用法"><a href="#tf基本用法" class="headerlink" title="tf基本用法"></a>tf基本用法</h2><ul>
-<li>TensorFlow用数据流图(data flow graphs)进行数值计算，数据流图描述有向图中的数值计算过程。</li>
-<li>有向图用节点代表数学运算，边表示节点之间的联系，负责传输多维数据(Tensors)。</li>
-<li>节点可以被分配到多个计算设备上，执行异步和并行的操作；只有等到之前的节点的计算状态完成后，当前节点才能执行操作。</li>
-</ul>
-<h3 id="tf计算步骤"><a href="#tf计算步骤" class="headerlink" title="tf计算步骤"></a>tf计算步骤</h3><ul>
-<li><p>将计算流程表示成图； </p>
-</li>
-<li><p>通过Sessions来执行图计算； </p>
-</li>
-<li><p>将数据表示为tensors； </p>
-</li>
-<li><p>使用Variables来保持状态信息； </p>
-</li>
-<li><p>分别使用feeds和fetches来填充数据和抓取任意的操作结果。</p>
-</li>
-<li><p>在tf中</p>
-<ul>
-<li><pre><code>使用图(graph)来表示任务
-被称之为会话(Session)的上下文(context)中执行图
-使用tensor表示数据
-通过变量(Variable)维护状态
-使用feed和fetch可以为任意操作(arbitrary operation)赋值或者从其中获取数据
-<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 例子：生成三维数据，然后用一个平面拟合它：</span><br><span class="line"></span><br><span class="line">  * ~~~</span><br><span class="line">    import tensorflow as tf</span><br><span class="line">    import numpy as np</span><br><span class="line"></span><br><span class="line">    # 用 NumPy 随机生成 <span class="number">100</span> 个数据</span><br><span class="line">    x_data = np.float32(np.<span class="built_in">random</span>.rand(<span class="number">2</span>, <span class="number">100</span>)) #np的固定变量，在动态图执行时不变</span><br><span class="line">    y_data = np.dot([<span class="number">0.100</span>, <span class="number">0.200</span>], x_data) + <span class="number">0.300</span># 构造一个线性模型</span><br><span class="line">    b = tf.Variable(tf.zeros([<span class="number">1</span>]))</span><br><span class="line">    W = tf.Variable(tf.random_uniform([<span class="number">1</span>, <span class="number">2</span>], <span class="number">-1.0</span>, <span class="number">1.0</span>))</span><br><span class="line">    y = tf.matmul(W, x_data) + b</span><br><span class="line"></span><br><span class="line">    # 最小化方差</span><br><span class="line">    loss = tf.reduce_mean(tf.square(y - y_data))</span><br><span class="line">    optimizer = tf.train.GradientDescentOptimizer(<span class="number">0.5</span>)</span><br><span class="line">    train = optimizer.minimize(loss)</span><br><span class="line"></span><br><span class="line">    # 初始化变量</span><br><span class="line">    init = tf.global_variables_initializer()</span><br><span class="line">    #官网是tf.initialize_all_variables() 该函数将不再使用，在 <span class="number">2017</span>年#<span class="number">3</span>月<span class="number">2</span>号以后；用 tf.global_variables_initializer() 替代 #tf.initialize_all_variables()</span><br><span class="line">    # 启动图 (graph)</span><br><span class="line">    sess = tf.Session()</span><br><span class="line">    sess.run(init)</span><br><span class="line"></span><br><span class="line">    # 拟合平面</span><br><span class="line">    <span class="keyword">for</span> step <span class="keyword">in</span> xrange(<span class="number">0</span>, <span class="number">201</span>):</span><br><span class="line">        sess.run(train)</span><br><span class="line">        <span class="keyword">if</span> step % <span class="number">20</span> == <span class="number">0</span>:        </span><br><span class="line">        	<span class="built_in">print</span>(step, sess.run(W), sess.run(b))</span><br><span class="line">        </span><br><span class="line">    # 输出结果为：</span><br><span class="line">    <span class="number">0</span> <span class="string">[[-0.06302287  0.8480452 ]]</span> [<span class="number">0.02871008</span>]</span><br><span class="line">    <span class="number">20</span> <span class="string">[[0.11223048 0.32942632]]</span> [<span class="number">0.22313249</span>]</span><br><span class="line">    <span class="number">40</span> <span class="string">[[0.11314692 0.22914961]]</span> [<span class="number">0.2776536</span>]</span><br><span class="line">    <span class="number">60</span> <span class="string">[[0.10542101 0.2073079 ]]</span> [<span class="number">0.29336828</span>]</span><br><span class="line">    <span class="number">80</span> <span class="string">[[0.1018621  0.20198399]]</span> [<span class="number">0.2980105</span>]</span><br><span class="line">    <span class="number">100</span> <span class="string">[[0.10059794 0.20056652]]</span> [<span class="number">0.29939982</span>]</span><br><span class="line">    <span class="number">120</span> <span class="string">[[0.10018642 0.20016651]]</span> [<span class="number">0.29981843</span>]</span><br><span class="line">    <span class="number">140</span> <span class="string">[[0.10005732 0.20004971]]</span> [<span class="number">0.299945</span>]</span><br><span class="line">    <span class="number">160</span> <span class="string">[[0.1000175  0.20001495]]</span> [<span class="number">0.29998332</span>]</span><br><span class="line">    <span class="number">180</span> <span class="string">[[0.10000534 0.2000045 ]]</span> [<span class="number">0.29999495</span>]</span><br><span class="line">    <span class="number">200</span> <span class="string">[[0.10000162 0.20000136]]</span> [<span class="number">0.29999846</span>]</span><br></pre></td></tr></table></figure></code></pre>
-</li>
+        <h2 id="keras框架参数epoch-batch-size"><a href="#keras框架参数epoch-batch-size" class="headerlink" title="keras框架参数epoch,batch_size"></a>keras框架参数epoch,batch_size</h2><ul>
+<li>epochs指的就是训练过程中数据将被“轮”多少次，即所有训练数据仅仅参与一次不够，需要多次参与训练达到loss下降的要求。</li>
+<li>batch，梯度下降每次的参数更新有两种方式：<ul>
+<li>第一种，遍历全部数据集算一次损失函数，然后算函数对各个参数的梯度，更新梯度。这种方法每更新一次参数都要把数据集里的所有样本都看一遍，计算量开销大，计算速度慢，不支持在线学习，这称为Batch gradient descent，批梯度下降。</li>
+<li>另一种，每看一个数据就算一下损失函数，然后求梯度更新参数，这个称为随机梯度下降，stochastic gradient descent。这个方法速度比较快，但是收敛性能不太好，可能在最优点附近晃来晃去，hit不到最优点。两次参数的更新也有可能互相抵消掉，造成目标函数震荡的比较剧烈。</li>
 </ul>
 </li>
+<li>为了克服两种方法的缺点，现在一般采用的是一种折中手段，mini-batch gradient decent，小批的梯度下降，这种方法把数据分为若干个批，按批来更新参数，这样，一个批中的一组数据共同决定了本次梯度的方向，下降起来就不容易跑偏，减少了随机性。另一方面因为批的样本数与整个数据集相比小了很多，计算量也不是很大。</li>
+<li>基本上现在的梯度下降都是基于mini-batch的，所以Keras的模块中经常会出现batch_size，就是指计算一次梯度下降所用到的样本数。</li>
 </ul>
 <hr>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/tf_basic/" data-id="ckjv2ttyf00idt0dn18lqf5p0" class="article-share-link">Share</a>
+      <a data-url="http://wangxianggit.github.io/keras_epoch_batch/" data-id="ckjv2ttxk00elt0dn3zjo5xwe" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Tensorflow/" rel="tag">Tensorflow</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/keras/" rel="tag">keras</a></li></ul>
 
     </footer>
   </div>
@@ -202,10 +257,10 @@
 
 
   
-    <article id="post-tf_square" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-sk-learn_minmaxscaler" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/tf_square/" class="article-date">
-  <time datetime="2019-09-16T06:52:22.000Z" itemprop="datePublished">2019-09-16</time>
+    <a href="/sk-learn_minmaxscaler/" class="article-date">
+  <time datetime="2019-10-02T09:18:22.000Z" itemprop="datePublished">2019-10-02</time>
 </a>
     
   <div class="article-category">
@@ -220,7 +275,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/tf_square/">tf函数tf.square</a>
+      <a class="article-title" href="/sk-learn_minmaxscaler/">sk-learn MinMaxScaler方法</a>
     </h1>
   
 
@@ -230,27 +285,18 @@
       
 	  <!-- Table of Contents -->
 
-        <h2 id="tf函数square"><a href="#tf函数square" class="headerlink" title="tf函数square"></a>tf函数square</h2><ul>
-<li><p>函数原型：tf.square(x, name=None)</p>
+        <h2 id="sk-learn-MinMaxScaler方法"><a href="#sk-learn-MinMaxScaler方法" class="headerlink" title="sk-learn MinMaxScaler方法"></a>sk-learn MinMaxScaler方法</h2><ul>
+<li><p>MinMaxScaler将 features 缩放到[0,1]之间</p>
 </li>
-<li><p>Args:</p>
+<li><p>公式：</p>
 <ul>
-<li><strong>x</strong>: A Tensor or SparseTensor. Must be one of the following types: half, float32, float64, int32, int64, complex64, complex128.</li>
-<li><strong>name</strong>: A name for the operation (optional).</li>
+<li>val = (X - X.min(axis=0)) / (X.max(axis=0) - X.min(axis=0))</li>
 </ul>
 </li>
-<li><p>function：Computes square of x element-wise.</p>
-</li>
-<li><p>code：</p>
+<li><p>示例代码</p>
 <ul>
-<li><pre><code>hello=tf.constant([1,2,3,4,5,7])
-hello=tf.square(hello)
-sess=tf.Session()
-print(sess.run(hello))
-sess.close()
-
-output:
-[ 1  4  9 16 25 49]</code></pre>
+<li><pre><code>scaler = MinMaxScaler()
+dataset = scaler.fit_transform(dataset)</code></pre>
 </li>
 </ul>
 </li>
@@ -260,10 +306,10 @@ output:
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/tf_square/" data-id="ckjv2ttyh00ijt0dnc27a58gb" class="article-share-link">Share</a>
+      <a data-url="http://wangxianggit.github.io/sk-learn_minmaxscaler/" data-id="ckjv2tty500hct0dnab82al2c" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Tensorflow/" rel="tag">Tensorflow</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sk-learn/" rel="tag">sk-learn</a></li></ul>
 
     </footer>
   </div>
@@ -272,10 +318,10 @@ output:
 
 
   
-    <article id="post-Python_reduce" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-keras_dense" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/Python_reduce/" class="article-date">
-  <time datetime="2019-09-16T03:28:32.000Z" itemprop="datePublished">2019-09-16</time>
+    <a href="/keras_dense/" class="article-date">
+  <time datetime="2019-10-02T09:05:11.000Z" itemprop="datePublished">2019-10-02</time>
 </a>
     
   <div class="article-category">
@@ -290,7 +336,7 @@ output:
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/Python_reduce/">Python函数reduce</a>
+      <a class="article-title" href="/keras_dense/">keras.layers dense方法</a>
     </h1>
   
 
@@ -300,84 +346,22 @@ output:
       
 	  <!-- Table of Contents -->
 
-        <h2 id="reduce函数"><a href="#reduce函数" class="headerlink" title="reduce函数"></a>reduce函数</h2><ul>
-<li><p>Python3使用导入函数：<code>from functools import reduce</code></p>
-</li>
-<li><p>函数定义：<code>reduce(function, sequence [, initial] ) -&gt; value</code></p>
-</li>
-<li><p>即通过传入的function函数对序列sequence进行累次操作，最终得到函数累次操作后的输出。</p>
-</li>
-<li><p>示例代码：</p>
+        <h2 id="keras-layers-dense方法"><a href="#keras-layers-dense方法" class="headerlink" title="keras.layers dense方法"></a>keras.layers dense方法</h2><ul>
+<li><p>函数原型：</p>
 <ul>
-<li><pre><code>from functools import reduce
-lst=[1,2,3,4]
-print(reduce(lambda x,y: x+y, lst))
-
-output:10</code></pre>
+<li><pre><code>keras.layers.Dense(units, 
+                  activation=None, 
+                  use_bias=True, 
+                  kernel_initializer=&#39;glorot_uniform&#39;, 
+                  bias_initializer=&#39;zeros&#39;, 
+                  kernel_regularizer=None, 
+                  bias_regularizer=None, 
+                  activity_regularizer=None, 
+                  kernel_constraint=None, 
+                  bias_constraint=None)
+<figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 参数说明：</span><br><span class="line"></span><br><span class="line">  * ~~~</span><br><span class="line"><span class="symbol">    units:</span>该层有几个神经元</span><br><span class="line"></span><br><span class="line"><span class="symbol">    activation:</span>该层使用的激活函数</span><br><span class="line"></span><br><span class="line"><span class="symbol">    use_bias:</span>是否添加偏置项</span><br><span class="line"></span><br><span class="line"><span class="symbol">    kernel_initializer:</span>权重初始化方法</span><br><span class="line"></span><br><span class="line"><span class="symbol">    bias_initializer:</span>偏置值初始化方法</span><br><span class="line"></span><br><span class="line"><span class="symbol">    kernel_regularizer:</span>权重规范化函数</span><br><span class="line"></span><br><span class="line"><span class="symbol">    bias_regularizer:</span>偏置值规范化方法</span><br><span class="line"></span><br><span class="line"><span class="symbol">    activity_regularizer:</span>输出的规范化方法</span><br><span class="line"></span><br><span class="line"><span class="symbol">    kernel_constraint:</span>权重变化限制函数</span><br><span class="line"></span><br><span class="line"><span class="symbol">    bias_constraint:</span>偏置值变化限制函数</span><br></pre></td></tr></table></figure></code></pre>
 </li>
 </ul>
-</li>
-<li><p>如果希望是累乘，lambda函数改为乘积形式。</p>
-</li>
-<li><p>如果提供参数initial，函数会以序列的第一个和initial这个位置作为初始输入。</p>
-</li>
-</ul>
-<hr>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/Python_reduce/" data-id="ckjv2ttwm00adt0dn1h4s2ys3" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Python_locals" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/Python_locals/" class="article-date">
-  <time datetime="2019-09-15T13:35:11.000Z" itemprop="datePublished">2019-09-15</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Python/">Python</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/Python_locals/">Python函数locals</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-
-        <h2 id="locals函数"><a href="#locals函数" class="headerlink" title="locals函数"></a>locals函数</h2><ul>
-<li><p>作用：以字典的形式返回当前的变量名和值</p>
-</li>
-<li><pre><code>def funp():
-    strv=&#39;locals&#39;
-    dic=&#123;&#39;a&#39;:[1,2],&#39;b&#39;:[2,3]&#125;
-    print(locals())
-data = funp()
-
-output:
-&#123;&#39;dic&#39;: &#123;&#39;a&#39;: [1, 2], &#39;b&#39;: [2, 3]&#125;, &#39;strv&#39;: &#39;locals&#39;&#125;</code></pre>
 </li>
 </ul>
 <hr>
@@ -385,10 +369,10 @@ output:
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/Python_locals/" data-id="ckjv2ttwi009vt0dnf21i8emb" class="article-share-link">Share</a>
+      <a data-url="http://wangxianggit.github.io/keras_dense/" data-id="ckjv2ttxj00eht0dncw0g1dbt" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/keras/" rel="tag">keras</a></li></ul>
 
     </footer>
   </div>
@@ -401,7 +385,7 @@ output:
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/page/6/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/38/">38</a><a class="extend next" rel="next" href="/page/8/">Next &amp;raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/6/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/41/">41</a><a class="extend next" rel="next" href="/page/8/">Next &amp;raquo;</a>
   </nav>
 
 </section>
@@ -439,7 +423,7 @@ output:
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithm/" rel="tag">Algorithm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Altium-Designer/" rel="tag">Altium Designer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Apache/" rel="tag">Apache</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BeautifulSoup/" rel="tag">BeautifulSoup</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Centos7/" rel="tag">Centos7</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cython/" rel="tag">Cython</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Electronic/" rel="tag">Electronic</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/English/" rel="tag">English</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Geant4/" rel="tag">Geant4</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hardware/" rel="tag">Hardware</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Image/" rel="tag">Image</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jupyter/" rel="tag">Jupyter</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nuclear-Physics/" rel="tag">Nuclear Physics</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Open/" rel="tag">Open</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Program/" rel="tag">Program</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PyPI/" rel="tag">PyPI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Py-Crawler/" rel="tag">Py_Crawler</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Random/" rel="tag">Random</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Resource/" rel="tag">Resource</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Root/" rel="tag">Root</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Scipy/" rel="tag">Scipy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Shell/" rel="tag">Shell</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Solidwork/" rel="tag">Solidwork</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TTree/" rel="tag">TTree</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tensorflow/" rel="tag">Tensorflow</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Thread/" rel="tag">Thread</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Urllib2/" rel="tag">Urllib2</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Virtual-memory/" rel="tag">Virtual memory</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cmake/" rel="tag">cmake</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cmd/" rel="tag">cmd</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/data-structure/" rel="tag">data structure</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/htop/" rel="tag">htop</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/keras/" rel="tag">keras</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/latex/" rel="tag">latex</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/os/" rel="tag">os</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/qt/" rel="tag">qt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/requests/" rel="tag">requests</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sk-learn/" rel="tag">sk-learn</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh/" rel="tag">ssh</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/statistic/" rel="tag">statistic</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vi/" rel="tag">vi</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/windows/" rel="tag">windows</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithm/" rel="tag">Algorithm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Altium-Designer/" rel="tag">Altium Designer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Apache/" rel="tag">Apache</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BeautifulSoup/" rel="tag">BeautifulSoup</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Centos7/" rel="tag">Centos7</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cython/" rel="tag">Cython</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Electronic/" rel="tag">Electronic</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/English/" rel="tag">English</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Geant4/" rel="tag">Geant4</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hardware/" rel="tag">Hardware</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Image/" rel="tag">Image</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jupyter/" rel="tag">Jupyter</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mongodb/" rel="tag">Mongodb</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nuclear-Physics/" rel="tag">Nuclear Physics</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Open/" rel="tag">Open</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Opencv/" rel="tag">Opencv</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Program/" rel="tag">Program</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PyPI/" rel="tag">PyPI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Py-Crawler/" rel="tag">Py_Crawler</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Random/" rel="tag">Random</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Resource/" rel="tag">Resource</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Root/" rel="tag">Root</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Scipy/" rel="tag">Scipy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Shell/" rel="tag">Shell</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Solidwork/" rel="tag">Solidwork</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TTree/" rel="tag">TTree</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tensorflow/" rel="tag">Tensorflow</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Thread/" rel="tag">Thread</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Urllib2/" rel="tag">Urllib2</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Virtual-memory/" rel="tag">Virtual memory</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cmake/" rel="tag">cmake</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cmd/" rel="tag">cmd</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/data-structure/" rel="tag">data structure</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/htop/" rel="tag">htop</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/keras/" rel="tag">keras</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/latex/" rel="tag">latex</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/os/" rel="tag">os</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/qt/" rel="tag">qt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/requests/" rel="tag">requests</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sk-learn/" rel="tag">sk-learn</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh/" rel="tag">ssh</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/statistic/" rel="tag">statistic</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vi/" rel="tag">vi</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/windows/" rel="tag">windows</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/yolo%EF%BC%8CC/" rel="tag">yolo，C</a></li></ul>
     </div>
   </div>
 
@@ -449,7 +433,7 @@ output:
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Algorithm/" style="font-size: 11.33px;">Algorithm</a> <a href="/tags/Altium-Designer/" style="font-size: 14.67px;">Altium Designer</a> <a href="/tags/Apache/" style="font-size: 11.33px;">Apache</a> <a href="/tags/BeautifulSoup/" style="font-size: 10px;">BeautifulSoup</a> <a href="/tags/C/" style="font-size: 15.33px;">C</a> <a href="/tags/C/" style="font-size: 18.67px;">C++</a> <a href="/tags/Centos7/" style="font-size: 17.33px;">Centos7</a> <a href="/tags/Cython/" style="font-size: 10px;">Cython</a> <a href="/tags/Electronic/" style="font-size: 13.33px;">Electronic</a> <a href="/tags/English/" style="font-size: 12px;">English</a> <a href="/tags/Geant4/" style="font-size: 10.67px;">Geant4</a> <a href="/tags/Hardware/" style="font-size: 10px;">Hardware</a> <a href="/tags/Hexo/" style="font-size: 14px;">Hexo</a> <a href="/tags/Image/" style="font-size: 10px;">Image</a> <a href="/tags/Jupyter/" style="font-size: 10px;">Jupyter</a> <a href="/tags/Linux/" style="font-size: 19.33px;">Linux</a> <a href="/tags/Markdown/" style="font-size: 16px;">Markdown</a> <a href="/tags/Nuclear-Physics/" style="font-size: 11.33px;">Nuclear Physics</a> <a href="/tags/Open/" style="font-size: 10px;">Open</a> <a href="/tags/Program/" style="font-size: 18px;">Program</a> <a href="/tags/PyPI/" style="font-size: 10px;">PyPI</a> <a href="/tags/Py-Crawler/" style="font-size: 10.67px;">Py_Crawler</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/Random/" style="font-size: 10px;">Random</a> <a href="/tags/Resource/" style="font-size: 10.67px;">Resource</a> <a href="/tags/Root/" style="font-size: 10.67px;">Root</a> <a href="/tags/Scipy/" style="font-size: 10px;">Scipy</a> <a href="/tags/Shell/" style="font-size: 16px;">Shell</a> <a href="/tags/Solidwork/" style="font-size: 10.67px;">Solidwork</a> <a href="/tags/TTree/" style="font-size: 10px;">TTree</a> <a href="/tags/Tensorflow/" style="font-size: 15.33px;">Tensorflow</a> <a href="/tags/Thread/" style="font-size: 10px;">Thread</a> <a href="/tags/Urllib2/" style="font-size: 10px;">Urllib2</a> <a href="/tags/Virtual-memory/" style="font-size: 10px;">Virtual memory</a> <a href="/tags/cmake/" style="font-size: 12.67px;">cmake</a> <a href="/tags/cmd/" style="font-size: 10.67px;">cmd</a> <a href="/tags/data-structure/" style="font-size: 10.67px;">data structure</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/htop/" style="font-size: 10px;">htop</a> <a href="/tags/keras/" style="font-size: 10.67px;">keras</a> <a href="/tags/latex/" style="font-size: 14.67px;">latex</a> <a href="/tags/os/" style="font-size: 10px;">os</a> <a href="/tags/qt/" style="font-size: 10px;">qt</a> <a href="/tags/requests/" style="font-size: 10px;">requests</a> <a href="/tags/sk-learn/" style="font-size: 10px;">sk-learn</a> <a href="/tags/ssh/" style="font-size: 12.67px;">ssh</a> <a href="/tags/statistic/" style="font-size: 10px;">statistic</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/windows/" style="font-size: 16.67px;">windows</a>
+      <a href="/tags/Algorithm/" style="font-size: 11.33px;">Algorithm</a> <a href="/tags/Altium-Designer/" style="font-size: 14.67px;">Altium Designer</a> <a href="/tags/Apache/" style="font-size: 11.33px;">Apache</a> <a href="/tags/BeautifulSoup/" style="font-size: 10px;">BeautifulSoup</a> <a href="/tags/C/" style="font-size: 15.33px;">C</a> <a href="/tags/C/" style="font-size: 18.67px;">C++</a> <a href="/tags/Centos7/" style="font-size: 17.33px;">Centos7</a> <a href="/tags/Cython/" style="font-size: 10px;">Cython</a> <a href="/tags/Electronic/" style="font-size: 13.33px;">Electronic</a> <a href="/tags/English/" style="font-size: 12px;">English</a> <a href="/tags/Geant4/" style="font-size: 10.67px;">Geant4</a> <a href="/tags/Hardware/" style="font-size: 10px;">Hardware</a> <a href="/tags/Hexo/" style="font-size: 14px;">Hexo</a> <a href="/tags/Image/" style="font-size: 12px;">Image</a> <a href="/tags/Jupyter/" style="font-size: 10px;">Jupyter</a> <a href="/tags/Linux/" style="font-size: 19.33px;">Linux</a> <a href="/tags/Markdown/" style="font-size: 16px;">Markdown</a> <a href="/tags/Mongodb/" style="font-size: 10px;">Mongodb</a> <a href="/tags/Nuclear-Physics/" style="font-size: 11.33px;">Nuclear Physics</a> <a href="/tags/Open/" style="font-size: 10px;">Open</a> <a href="/tags/Opencv/" style="font-size: 10.67px;">Opencv</a> <a href="/tags/Program/" style="font-size: 18px;">Program</a> <a href="/tags/PyPI/" style="font-size: 10px;">PyPI</a> <a href="/tags/Py-Crawler/" style="font-size: 10.67px;">Py_Crawler</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/Random/" style="font-size: 10px;">Random</a> <a href="/tags/Resource/" style="font-size: 10.67px;">Resource</a> <a href="/tags/Root/" style="font-size: 10.67px;">Root</a> <a href="/tags/Scipy/" style="font-size: 10px;">Scipy</a> <a href="/tags/Shell/" style="font-size: 16px;">Shell</a> <a href="/tags/Solidwork/" style="font-size: 10.67px;">Solidwork</a> <a href="/tags/TTree/" style="font-size: 10px;">TTree</a> <a href="/tags/Tensorflow/" style="font-size: 15.33px;">Tensorflow</a> <a href="/tags/Thread/" style="font-size: 10px;">Thread</a> <a href="/tags/Urllib2/" style="font-size: 10px;">Urllib2</a> <a href="/tags/Virtual-memory/" style="font-size: 10px;">Virtual memory</a> <a href="/tags/cmake/" style="font-size: 12.67px;">cmake</a> <a href="/tags/cmd/" style="font-size: 10.67px;">cmd</a> <a href="/tags/data-structure/" style="font-size: 10.67px;">data structure</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/htop/" style="font-size: 10px;">htop</a> <a href="/tags/keras/" style="font-size: 10.67px;">keras</a> <a href="/tags/latex/" style="font-size: 14.67px;">latex</a> <a href="/tags/os/" style="font-size: 10px;">os</a> <a href="/tags/qt/" style="font-size: 10px;">qt</a> <a href="/tags/requests/" style="font-size: 10px;">requests</a> <a href="/tags/sk-learn/" style="font-size: 10px;">sk-learn</a> <a href="/tags/ssh/" style="font-size: 12.67px;">ssh</a> <a href="/tags/statistic/" style="font-size: 10px;">statistic</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/windows/" style="font-size: 16.67px;">windows</a> <a href="/tags/yolo%EF%BC%8CC/" style="font-size: 10px;">yolo，C</a>
     </div>
   </div>
 
@@ -458,7 +442,7 @@ output:
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li></ul>
     </div>
   </div>
 
@@ -471,23 +455,23 @@ output:
       <ul>
         
           <li>
-            <a href="/winedt_break/">Winedt注册表破解</a>
+            <a href="/nodejs_windows_install/">windows下安装nodejs及环境变量设置</a>
           </li>
         
           <li>
-            <a href="/latex_content_dot/">latex生成目录条目加点</a>
+            <a href="/Centos7_mongodb_install/">Centos7安装Mongodb</a>
           </li>
         
           <li>
-            <a href="/latex_figure_prefix/">latex论文用图修改前缀</a>
+            <a href="/Endnote_download_tutorial/">EndnoteX9下载及新手教程</a>
           </li>
         
           <li>
-            <a href="/yum_unblock/">linux yum进程占用问题</a>
+            <a href="/centos7_opencv_install/">Centso7下安装opencv</a>
           </li>
         
           <li>
-            <a href="/linux_googlechrome/">linux安装谷歌浏览器</a>
+            <a href="/anaconda_democrate_source/">anaconda安装库使用国内源</a>
           </li>
         
       </ul>

@@ -67,10 +67,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-ifstream_frequently_read_txtfile" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Centos_windows_twosystem_boot_repaire" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/ifstream_frequently_read_txtfile/" class="article-date">
-  <time datetime="2018-09-18T07:38:23.000Z" itemprop="datePublished">2018-09-18</time>
+    <a href="/Centos_windows_twosystem_boot_repaire/" class="article-date">
+  <time datetime="2019-01-18T02:36:23.000Z" itemprop="datePublished">2019-01-18</time>
 </a>
     
   <div class="article-category">
@@ -85,7 +85,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/ifstream_frequently_read_txtfile/">ifstream重复读取文本文件</a>
+      <a class="article-title" href="/Centos_windows_twosystem_boot_repaire/">Centos和windows双系统引导修复</a>
     </h1>
   
 
@@ -96,151 +96,40 @@
 	  <!-- Table of Contents -->
 
         <ul>
-<li><p>ifstream流对象关闭后不能改变流对象的内部状态。如果遇到读写失败，对象的状态将一直保持错误模式。</p>
-</li>
-<li><p>使用clear操作可以重新恢复流对象的内部状态。</p>
-</li>
-<li><p>若需要使用流对象重复读取某个文件，必须在重复读取文件之前调用clear函数清除流对象之前保留的状态。</p>
-</li>
-<li><pre><code>  long bt, dt0, dt;
-  int fnp, inp;
-  string ss;
-   ifstream infile(ipfn, ios::in);//ipfn:file name
-        bool t=false;
-        while(getline(infile,ss))&#123;
-          istringstream iss(ss);
-            iss&gt;&gt;bt&gt;&gt;dt0&gt;&gt;dt&gt;&gt;fnp&gt;&gt;inp;
-        &#125;
-        infile.close();
-        infile.clear(ios::goodbit);</code></pre>
-</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/ifstream_frequently_read_txtfile/" data-id="ckjv2ttxh00eat0dn39ed8je0" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Program/" rel="tag">Program</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-c++_read_integrate" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/c++_read_integrate/" class="article-date">
-  <time datetime="2018-09-17T17:43:40.000Z" itemprop="datePublished">2018-09-18</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/learning/">learning</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/c++_read_integrate/">c++读取整数</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-
-        <ul>
-<li><p>将txt文件中的内容读取到整数变量中，txt文件内容：</p>
-</li>
-<li><p>```<br>760569222770 760569402420 179650 431 1<br>3972158235210 3972158718970 483760 431 1<br>5160568876430 5160568982420 105990 431 1</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 使用<span class="built_in">istringstream</span>类将读取的内容存储到整型变量并输出：</span><br><span class="line"></span><br><span class="line">* ```</span><br><span class="line">  <span class="function"><span class="keyword">int</span> <span class="title">read</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="function">ifstream <span class="title">infile</span><span class="params">(<span class="string">&quot;infdata.txt&quot;</span>)</span></span>;<span class="comment">//读取txt文件</span></span><br><span class="line">    <span class="keyword">if</span>(!infile) &#123; <span class="built_in">cout</span>&lt;&lt;<span class="string">&quot; Data error !&quot;</span>&lt;&lt;<span class="built_in">endl</span>; <span class="keyword">return</span> <span class="number">0</span>;&#125;</span><br><span class="line">    <span class="built_in">string</span> s;</span><br><span class="line">     <span class="keyword">long</span> a, b, c;</span><br><span class="line">     <span class="keyword">int</span> d,e;</span><br><span class="line">     <span class="built_in">string</span> Str1, Str2;</span><br><span class="line">     <span class="built_in">string</span> Input;</span><br><span class="line">    <span class="keyword">while</span>(getline(infile,Input))</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="built_in">cout</span>&lt;&lt;Input&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">      <span class="function"><span class="built_in">istringstream</span> <span class="title">iss</span><span class="params">(Input)</span></span>;</span><br><span class="line">       <span class="keyword">while</span>(iss&gt;&gt;a&gt;&gt;b&gt;&gt;c&gt;&gt;d&gt;&gt;e)&#123;</span><br><span class="line">         <span class="built_in">cout</span>&lt;&lt;a&lt;&lt;<span class="string">&quot;  &quot;</span>&lt;&lt;b&lt;&lt;<span class="string">&quot;  &quot;</span>&lt;&lt;c&lt;&lt;<span class="string">&quot;  &quot;</span>&lt;&lt;d&lt;&lt;<span class="string">&quot;  &quot;</span>&lt;&lt;e&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">         &#125;</span><br><span class="line">      &#125;</span><br><span class="line">     </span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">  &#125; </span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
-<li><p>在root命令行下运行输出各个整数值</p>
-</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/c++_read_integrate/" data-id="ckjv2ttwz00btt0dnf23c0cl3" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C++</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Centos7_install_Qt5.9" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/Centos7_install_Qt5.9/" class="article-date">
-  <time datetime="2018-07-23T13:55:34.000Z" itemprop="datePublished">2018-07-23</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/learning/">learning</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/Centos7_install_Qt5.9/">Centos7安装Qt5.9</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-
-        <ul>
-<li><p>参考链接：<a target="_blank" rel="noopener" href="http://doc.qt.io/qt-5/linux.html">http://doc.qt.io/qt-5/linux.html</a></p>
-</li>
-<li><pre><code>sudo yum groupinstall &quot;C Development Tools and Libraries&quot;
-sudo yum install libgl libgl-devel
-sudo yum install mesa-libGL-devel mesa-libGLU-devel freeglut-devel
-sudo yum install libxcb libxcb-devel libXrender libXrender-devel xcb-util-wm xcb-util-wm-devel xcb-util xcb-util-devel xcb-util-image xcb-util-image-devel xcb-util-keysyms xcb-util-keysyms-devel
-<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="bullet">* </span>安装好基本库之后下载安装包进行安装：</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-wget http://download.qt.io/archive/qt/5.9/5.9.2/qt-opensource-linux-x64-5.9.2.run
-chmod +x qt-opensource-linux-x64-5.9.2.run
-./qt-opensource-linux-x64-5.9.2.run
-<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="code">  ​</span></span><br><span class="line"></span><br><span class="line"><span class="bullet">* </span>设置环境变量：</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-export LD_LIBRARY_PATH=/opt/Qt5.9.2/Tools/QtCreator/lib:/opt/Qt5.9.2/Tools/QtCreator/lib/qtcreator:/opt/Qt5.9.2/Tools/QtCreator/lib/Qt/lib:$LD_LIBRARY_PATH
-export PATH=$PATH:/opt/Qt5.9.2/5.9.2/gcc_64/bin:/opt/Qt5.9.2/Tools/QtCreator/bin</code></pre>
-<p>​</p>
-</li>
-<li><p>QTCreator输入中文：</p>
+<li><p>​ 若开机找不到已经安装的centos7，修复引导的办法是：</p>
 <ul>
-<li>设置环境变量export QT_IM_MODULE=iBus</li>
+<li><p>用centos iso 制作启动u盘进入到安装centos的界面，开机选择的时候不要选择安装centos,而是选择troubleshooting疑难解答选项，然后回车选择rescue a centos system。</p>
+</li>
+<li><p>进入到下一个界面，按tab键选择continue (一定要选），然后选择ok. 进入命令行界面，输入</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chroot <span class="regexp">/mnt/</span>sysimage</span><br></pre></td></tr></table></figure></li>
+<li><p>接着安装grub2</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="regexp">/sbin/g</span>rub2-install <span class="regexp">/dev/</span>sda</span><br></pre></td></tr></table></figure></li>
+<li><p>安装成功重启系统，centos引导恢复。</p>
+</li>
+</ul>
+</li>
+<li><p>若安装windows和centos7双系统，先安装windows后再安装centos7，重启后windows看不到，修复办法：</p>
+<ul>
+<li><p>安装ntfs-3g,命令：yum install ntfs-3g, 使centos能识别出windows所在的分区。</p>
+</li>
+<li><p>在root用户下执行命令</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grub2-mkconfig -o <span class="regexp">/boot/g</span>rub2/grub.cfg</span><br></pre></td></tr></table></figure></li>
+<li><p>grub.cfg为grub的配置文件, 系统自动找到windows 系统与centos7系统的引导项，并加入到了grub.cfg菜单中。</p>
+</li>
+<li><p>重启后启动菜单同时出现windows和centos7选项。</p>
+</li>
 </ul>
 </li>
 </ul>
+<hr>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/Centos7_install_Qt5.9/" data-id="ckjv2ttud001pt0dn0xbs9zir" class="article-share-link">Share</a>
+      <a data-url="http://wangxianggit.github.io/Centos_windows_twosystem_boot_repaire/" data-id="ckjv2ttug0025t0dn89dr9oiu" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Centos7/" rel="tag">Centos7</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/qt/" rel="tag">qt</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Centos7/" rel="tag">Centos7</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/windows/" rel="tag">windows</a></li></ul>
 
     </footer>
   </div>
@@ -249,10 +138,10 @@ export PATH=$PATH:/opt/Qt5.9.2/5.9.2/gcc_64/bin:/opt/Qt5.9.2/Tools/QtCreator/bin
 
 
   
-    <article id="post-Centos7_modified_add_yum_variables" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Centos_version" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/Centos7_modified_add_yum_variables/" class="article-date">
-  <time datetime="2018-07-23T13:41:07.000Z" itemprop="datePublished">2018-07-23</time>
+    <a href="/Centos_version/" class="article-date">
+  <time datetime="2019-01-18T02:17:17.000Z" itemprop="datePublished">2019-01-18</time>
 </a>
     
   <div class="article-category">
@@ -267,7 +156,7 @@ export PATH=$PATH:/opt/Qt5.9.2/5.9.2/gcc_64/bin:/opt/Qt5.9.2/Tools/QtCreator/bin
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/Centos7_modified_add_yum_variables/">Centos7修改添加yum变量</a>
+      <a class="article-title" href="/Centos_version/">查看CentOS版本信息</a>
     </h1>
   
 
@@ -278,15 +167,33 @@ export PATH=$PATH:/opt/Qt5.9.2/5.9.2/gcc_64/bin:/opt/Qt5.9.2/Tools/QtCreator/bin
 	  <!-- Table of Contents -->
 
         <ul>
-<li>Centos yum变量保存目录路径：/etc/yum/vars</li>
-<li>其中文件名是变量名，文件内容是变量的值</li>
-<li>例如在目录下建立一个文件，文件名为basearch，文件内容为x86_64,则yum文件在自动搜索域名时能够将变量名转换为设定字符。</li>
+<li>​ cat /etc/issue 查看版本<ul>
+<li>etc  初期etc的英文名字缩写为etcetera ，后来大家更习惯称为 Editable Text Configuration。ETC为系统配置文件目录，该目录包含系统启动脚本、启动配置文件、用户登陆配置文件、网络配置文件、httpd 配置文件、IPSec 配置文件和其他文件等。</li>
 </ul>
+</li>
+<li>cat /etc/centos-release 查看CentOS版本</li>
+<li>cat /proc/version<ul>
+<li>proc 为process的缩写，里面存放与内核相关的文件。</li>
+<li>显示结果：<br>    Linux version 2.6.32-504.12.2.el6.x86_64 (<a href="mailto:&#x6d;&#111;&#x63;&#107;&#98;&#117;&#105;&#x6c;&#100;&#x40;&#99;&#x36;&#98;&#57;&#46;&#98;&#x73;&#x79;&#115;&#46;&#100;&#101;&#118;&#x2e;&#99;&#101;&#110;&#x74;&#111;&#x73;&#x2e;&#x6f;&#114;&#x67;">&#x6d;&#111;&#x63;&#107;&#98;&#117;&#105;&#x6c;&#100;&#x40;&#99;&#x36;&#98;&#57;&#46;&#98;&#x73;&#x79;&#115;&#46;&#100;&#101;&#118;&#x2e;&#99;&#101;&#110;&#x74;&#111;&#x73;&#x2e;&#x6f;&#114;&#x67;</a>) (gcc version 4.4.7 20120313 (Red Hat 4.4.7-11) (GCC) ) #1 SMP Wed Mar 11 22:03:14 UTC 2015  </li>
+<li>我们可以看到该系统使用的是Linux 2.6.32 内核的64为操作系统。GCC 为GUN 编译器集合，采用4.4.5版本。</li>
+</ul>
+</li>
+<li>uname -a <ul>
+<li>显示中：Linux 主机192-168-14-166 ， Linux 版本2.6.32-504.12.2.el6.x86_64 64位</li>
+</ul>
+</li>
+<li>uname -r<ul>
+<li>显示结果：2.6.32-504.12.2.el6.x86_64</li>
+<li>分析结果：Linux 版本2.6.32-504.12.2.el6.x86_64 64位</li>
+</ul>
+</li>
+</ul>
+<hr>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/Centos7_modified_add_yum_variables/" data-id="ckjv2ttud001st0dnc3317ogu" class="article-share-link">Share</a>
+      <a data-url="http://wangxianggit.github.io/Centos_version/" data-id="ckjv2ttuf001zt0dn58smhabb" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Centos7/" rel="tag">Centos7</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li></ul>
@@ -298,10 +205,10 @@ export PATH=$PATH:/opt/Qt5.9.2/5.9.2/gcc_64/bin:/opt/Qt5.9.2/Tools/QtCreator/bin
 
 
   
-    <article id="post-C_C++_mixed_compile" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-solidwork_project_plot_show_annotation" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/C_C++_mixed_compile/" class="article-date">
-  <time datetime="2018-05-22T14:19:43.000Z" itemprop="datePublished">2018-05-22</time>
+    <a href="/solidwork_project_plot_show_annotation/" class="article-date">
+  <time datetime="2018-12-16T07:33:39.000Z" itemprop="datePublished">2018-12-16</time>
 </a>
     
   <div class="article-category">
@@ -316,7 +223,7 @@ export PATH=$PATH:/opt/Qt5.9.2/5.9.2/gcc_64/bin:/opt/Qt5.9.2/Tools/QtCreator/bin
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/C_C++_mixed_compile/">C和C＋＋混合编译</a>
+      <a class="article-title" href="/solidwork_project_plot_show_annotation/">solidwork工程图显示和隐藏注解</a>
     </h1>
   
 
@@ -326,130 +233,156 @@ export PATH=$PATH:/opt/Qt5.9.2/5.9.2/gcc_64/bin:/opt/Qt5.9.2/Tools/QtCreator/bin
       
 	  <!-- Table of Contents -->
 
-        <h3 id="关于extern-C"><a href="#关于extern-C" class="headerlink" title="关于extern_C"></a>关于extern_C</h3><ul>
-<li><p>通常，在C语言的头文件中经常可以看到类似下面这种形式的代码：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span>  __cplusplus  </span></span><br><span class="line"><span class="keyword">extern</span> <span class="string">&quot;C&quot;</span> &#123;  </span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span>  </span></span><br><span class="line"><span class="comment">/**** some declaration or so *****/</span>  </span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span>  __cplusplus  </span></span><br><span class="line">&#125;  </span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span>  <span class="comment">/* end of __cplusplus */</span>  </span></span><br></pre></td></tr></table></figure></li>
-<li><p>实际上，这是为了让CPP能够与C接口而采用的一种语法形式。之所以采用这种方式，是因为两种语言之间的一些差异所导致的。由于CPP支持多态性，也就是具有相同函数名的函数可以完成不同的功能，CPP通常是通过参数区分具体调用的是哪一个函数。在编译的时候，CPP编译器会将参数类型和函数名连接在一起，于是在程序编译成为目标文件以后，CPP编译器可以直接根据目标文件中的符号名将多个目标文件连接成一个目标文件或者可执行文件。但是在C语言中，由于完全没有多态性的概念，C编译器在编译时除了会在函数名前面添加一个下划线之外，什么也不会做（至少很多编译器都是这样干的）。由于这种的原因，当采用CPP与C混合编程的时候，就可能会出问题。假设在某一个头文件中定义了这样一个函数：</p>
-<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">foo</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span>;</span><br></pre></td></tr></table></figure></li>
-<li><p>而这个函数的实现位于一个.c文件中，同时，在.cpp文件中调用了这个函数。那么，当CPP编译器编译这个函数的时候，就有可能会把这个函数名改成fooii，这里的ii表示函数的第一参数和第二参数都是整型。而C编译器却有可能将这个函数名编译成foo。也就是说，在CPP编译器得到的目标文件中，foo()函数是由fooii符号来引用的，而在C编译器生成的目标文件中，foo()函数是由foo指代的。但连接器工作的时候，它可不管上层采用的是什么语言，它只认目标文件中的符号。于是，连接器将会发现在.cpp中调用了foo()函数，但是在其它的目标文件中却找不到fooii这个符号，于是提示连接过程出错。extern “C” {}这种语法形式就是用来解决这个问题的。</p>
-</li>
+        <ul>
+<li>参考链接：<a target="_blank" rel="noopener" href="http://help.solidworks.com/">http://help.solidworks.com</a></li>
 </ul>
-<p>###extern_C用法</p>
+<h3 id="隐藏-显示注解"><a href="#隐藏-显示注解" class="headerlink" title="隐藏/显示注解"></a>隐藏/显示注解</h3><p>隐藏/显示注解允许您在工程图中切换单个注解或表格的显示状态。</p>
 <ul>
-<li><p>首先假设有下面这样三个文件：</p>
-<ul>
-<li><p>```<br>/* file: test_extern_c.h <em>/<br>#ifndef <strong>TEST_EXTERN_C_H__<br>#define __TEST_EXTERN_C_H</strong><br>#ifdef  __cplusplus<br>extern “C” {<br>#endif<br>/</em>  </p>
-<ul>
-<li>this is a test function, which calculate  </li>
-<li>the multiply of a and b.  </li>
-<li>/<br>extern int ThisIsTest(int a, int b);<br>#ifdef  __cplusplus<br>}<br>#endif  /* end of __cplusplus */<br>#endif  <figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 在这个头文件中只定义了一个函数，<span class="constructor">ThisIsTest()</span>。这个函数被定义为一个外部函数，可以被包括到其它程序文件中。假设<span class="constructor">ThisIsTest()</span>函数的实现位于test_extern_c.c文件中：</span><br><span class="line"></span><br><span class="line">* ```</span><br><span class="line">  <span class="comment">/* test_extern_c.c */</span>  </span><br><span class="line">    </span><br><span class="line">  #<span class="keyword">include</span> <span class="string">&quot;test_extern_c.h&quot;</span>  </span><br><span class="line">    </span><br><span class="line">  <span class="built_in">int</span> <span class="constructor">ThisIsTest(<span class="params">int</span> <span class="params">a</span>, <span class="params">int</span> <span class="params">b</span>)</span>  </span><br><span class="line">  &#123;  </span><br><span class="line">      return (a + b);  </span><br><span class="line">  &#125;  </span><br></pre></td></tr></table></figure></li>
+<li>如果您隐藏一注解，它仍存在于视图中。因此，如果您再次输入注解，它不会恢复。</li>
+<li>如果您删除一注解，当您再次输入注解时，它会恢复（如果它没有出现在另一视图中）。</li>
 </ul>
+<hr>
+<h3 id="显示尺寸名称"><a href="#显示尺寸名称" class="headerlink" title="显示尺寸名称"></a>显示尺寸名称</h3><p>欲显示尺寸名称：</p>
+<p>单击视图 &gt; 隐藏/显示 &gt; 尺寸名称 或隐藏/显示项目 <img src="http://help.solidworks.com/2016/Chinese-simplified/SolidWorks/sldworks/sum1450372805989.image"> &gt; 查看尺寸名称 <img src="http://help.solidworks.com/2016/Chinese-simplified/SolidWorks/sldworks/ena1450448842249.image">（前导视图工具栏）。</p>
+<hr>
+<h3 id="隐藏或显示注解"><a href="#隐藏或显示注解" class="headerlink" title="隐藏或显示注解"></a>隐藏或显示注解</h3><p>欲隐藏或显示注解：</p>
+<ol>
+<li><p>单击注解工具栏上的 隐藏/显示注解 <img src="http://help.solidworks.com/2016/Chinese-simplified/SolidWorks/sldworks/zom1450447334509.image">，或单击视图 &gt; 隐藏/显示 &gt; 注解。</p>
+<p>指针变为 <img src="http://help.solidworks.com/2016/Chinese-simplified/SolidWorks/sldworks/fao1450449637736.image">。</p>
 </li>
-<li><p>可以看到，ThisIsTest()函数的实现非常简单，就是将两个参数的相加结果返回而已。现在，假设要从CPP中调用ThisIsTest()函数：</p>
+<li><p>选择您想显示或隐藏的注解。</p>
+<table>
+<thead>
+<tr>
+<th>单击一注解以隐藏：</th>
+<th>单击一注解以显示：</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><img src="http://help.solidworks.com/2016/Chinese-simplified/SolidWorks/sldworks/eql1450450570309.image"></td>
+<td><img src="http://help.solidworks.com/2016/Chinese-simplified/SolidWorks/sldworks/mdu1450450570757.image"></td>
+</tr>
+</tbody></table>
+<p>如果您没有使用视图 &gt; 隐藏/显示 &gt; 注解，您可用右键单击一注解然后单击 隐藏 来隐藏注解。</p>
 </li>
-<li><p>```<br>/* main.cpp */<br>#include “test_extern_c.h”<br>#include &lt;stdio.h&gt;<br>#include &lt;stdlib.h&gt;  </p>
-<p>class FOO {<br>public:  </p>
-<p>int bar(int a, int b)<br>{  </p>
-<pre><code>printf(&quot;result=%i\n&quot;, ThisIsTest(a, b));  </code></pre>
-<p>}<br>};  </p>
-<p>int main(int argc, char **argv)<br>{  </p>
-<pre><code>int a = atoi(argv[1]);  
-int b = atoi(argv[2]);   
-
-FOO *foo = new FOO();  
-
-foo-&gt;bar(a, b);  
-
-return(0);  </code></pre>
-<p>}  </p>
-<figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 上面程序在g++下编译能够通过。那么，如果将test_extern_c.h中的extern <span class="string">&quot;C&quot;</span> &#123;&#125;所在的那几行注释掉会怎样呢？注释后的test_extern_c.h文件内容如下：</span><br><span class="line"></span><br><span class="line">* ```</span><br><span class="line">   <span class="comment">/* test_extern_c.h */</span>  </span><br></pre></td></tr></table></figure>
-<p>#ifndef <strong>TEST_EXTERN_C_H__<br>#define __TEST_EXTERN_C_H</strong>  </p>
-<p>//#ifdef   __cplusplus<br>//extern “C” {<br>//#endif<br>​<br>/*  </p>
-<ul>
-<li>this is a test function, which calculate  </li>
-<li>the multiply of a and b.<br> */  </li>
-</ul>
-<p>extern int ThisIsTest(int a, int b);<br>​<br>​<br>//#ifdef   __cplusplus<br>//  }<br>//#endif   /* end of __cplusplus */<br>​<br>#endif  </p>
-<figure class="highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 除此之外，其它文件不做任何的改变，仍然采用同样的方式编译test_extern_c.c和main.cpp文件,结果出现错误，连接器ld提示找不到对函数ThisIsTest()的引用。</span><br><span class="line"></span><br><span class="line">* 现用下面方式把目标文件编译出来，然后看目标文件中到底有哪些符号：</span><br><span class="line"></span><br><span class="line">* ```</span><br><span class="line">  [cyc@cyc src]$ gcc -c test_extern_c.c      </span><br><span class="line">    </span><br><span class="line">  [cyc@cyc src]$ objdump -t test_extern_c.o  </span><br><span class="line">    </span><br><span class="line">  test_extern_c.o:     file format elf32-i386  </span><br><span class="line">    </span><br><span class="line">  SYMBOL TABLE:  </span><br><span class="line">    </span><br><span class="line">  <span class="number">00000000</span> l    df *ABS*  <span class="number">00000000</span> test_extern_c.c  </span><br><span class="line">    </span><br><span class="line">  <span class="number">00000000</span> l    d  .text  <span class="number">00000000</span>  </span><br><span class="line">    </span><br><span class="line">  <span class="number">00000000</span> l    d  .data  <span class="number">00000000</span>  </span><br><span class="line">    </span><br><span class="line">  <span class="number">00000000</span> l    d  .bss   <span class="number">00000000</span>  </span><br><span class="line">    </span><br><span class="line">  <span class="number">00000000</span> l    d  .comment       <span class="number">00000000</span>  </span><br><span class="line">    </span><br><span class="line">  <span class="number">00000000</span> g     F .text  <span class="number">0000000</span>b ThisIsTest  </span><br><span class="line">     </span><br><span class="line">    </span><br><span class="line">  [cyc@cyc src]$ g++ -c main.cpp            </span><br><span class="line">    </span><br><span class="line">  [cyc@cyc src]$ objdump -t main.o          </span><br><span class="line">     </span><br><span class="line">    </span><br><span class="line">  main.o:     file format elf32-i386  </span><br><span class="line">    </span><br><span class="line">  SYMBOL TABLE:  </span><br><span class="line">    </span><br><span class="line">  <span class="number">00000000</span> l    df *ABS*  <span class="number">00000000</span> main.cpp  </span><br><span class="line">    </span><br><span class="line">  <span class="number">00000000</span> l    d  .text  <span class="number">00000000</span>  </span><br><span class="line">    </span><br><span class="line">  <span class="number">00000000</span> l    d  .data  <span class="number">00000000</span>  </span><br><span class="line">    </span><br><span class="line">  <span class="number">00000000</span> l    d  .bss   <span class="number">00000000</span>  </span><br><span class="line">    </span><br><span class="line">  <span class="number">00000000</span> l    d  .rodata        <span class="number">00000000</span>  </span><br><span class="line">    </span><br><span class="line">  <span class="number">00000000</span> l    d  .gnu.linkonce.t._ZN3FOO3barEii <span class="number">00000000</span>  </span><br><span class="line">    </span><br><span class="line">  <span class="number">00000000</span> l    d  .eh_frame      <span class="number">00000000</span>  </span><br><span class="line">    </span><br><span class="line">  <span class="number">00000000</span> l    d  .comment       <span class="number">00000000</span>  </span><br><span class="line">    </span><br><span class="line">  <span class="number">00000000</span> g     F .text  <span class="number">00000081</span> main  </span><br><span class="line">    </span><br><span class="line">  <span class="number">00000000</span>         *UND*  <span class="number">00000000</span> atoi  </span><br><span class="line">    </span><br><span class="line">  <span class="number">00000000</span>         *UND*  <span class="number">00000000</span> _Znwj  </span><br><span class="line">    </span><br><span class="line">  <span class="number">00000000</span>         *UND*  <span class="number">00000000</span> _ZdlPv  </span><br><span class="line">    </span><br><span class="line">  <span class="number">00000000</span>  w    F .gnu.linkonce.t._ZN3FOO3barEii <span class="number">00000027</span> _ZN3FOO3barEii  </span><br><span class="line">    </span><br><span class="line">  <span class="number">00000000</span>         *UND*  <span class="number">00000000</span> _Z10ThisIsTestii  </span><br><span class="line">    </span><br><span class="line">  <span class="number">00000000</span>         *UND*  <span class="number">00000000</span> printf  </span><br><span class="line">    </span><br><span class="line">  <span class="number">00000000</span>         *UND*  <span class="number">00000000</span> __gxx_personality_v0  </span><br></pre></td></tr></table></figure></li>
-<li><p>采用gcc编译了test_extern_c.c之后，在其目标文件test_extern_c.o中的有一个ThisIsTest符号，这个符号就是源文件中定义的ThisIsTest()函数了。而在采用g++编译了main.cpp之后，在其目标文件main.o中有一个Z10ThisIsTestii符号，这个就是经过g++编译器“粉碎”过后的函数名。其最后的两个字符i就表示第一参数和第二参数都是整型。显然，两者编译后得到的函数名不同导致错误。</p>
-</li>
-<li><p>如果采用extern “C” {}形式看一下编译出来的目标文件中又有哪些符号：</p>
-</li>
-<li><pre><code>[cyc@cyc src]$ gcc -c test_extern_c.c  
-
-[cyc@cyc src]$ objdump -t test_extern_c.o  
-
-test_extern_c.o:     file format elf32-i386  
-
-SYMBOL TABLE:  
-
-00000000 l    df *ABS*  00000000 test_extern_c.c  
-
-00000000 l    d  .text  00000000  
-
-00000000 l    d  .data  00000000  
-
-00000000 l    d  .bss   00000000  
-
-00000000 l    d  .comment       00000000  
-
-00000000 g     F .text  0000000b ThisIsTest  
-
-[cyc@cyc src]$ g++ -c main.cpp  
-
-[cyc@cyc src]$ objdump -t main.o  
-
-main.o:     file format elf32-i386  
-
-SYMBOL TABLE:  
-
-00000000 l    df *ABS*  00000000 main.cpp  
-
-00000000 l    d  .text  00000000  
-
-00000000 l    d  .data  00000000  
-
-00000000 l    d  .bss   00000000  
-
-00000000 l    d  .rodata        00000000  
-
-00000000 l    d  .gnu.linkonce.t._ZN3FOO3barEii 00000000  
-
-00000000 l    d  .eh_frame      00000000  
-
-00000000 l    d  .comment       00000000  
-
-00000000 g     F .text  00000081 main  
-
-00000000         *UND*  00000000 atoi  
-
-00000000         *UND*  00000000 _Znwj  
-
-00000000         *UND*  00000000 _ZdlPv  
-
-00000000  w    F .gnu.linkonce.t._ZN3FOO3barEii 00000027 _ZN3FOO3barEii  
-
-00000000         *UND*  00000000 ThisIsTest  
-
-00000000         *UND*  00000000 printf  
-
-00000000         *UND*  00000000 __gxx_personality_v0  </code></pre>
-</li>
-<li><p>可以看到，在两个目标文件中，都有一个符号ThisIsTest，这个符号引用的就是ThisIsTest()函数了。显然，此时在两个目标文件中都存在同样的ThisIsTest符号，因此认为它们引用的实际上同一个函数，于是就将两个目标文件连接在一起，凡是出现程序代码段中有ThisIsTest符号的地方都用ThisIsTest()函数的实际地址代替。另外，还可以看到，仅仅被extern “C” {}包围起来的函数采用这样的目标符号形式，对于main.cpp中的FOO类的成员函数，在两种编译方式后的符号名都是经过“粉碎”。</p>
-</li>
-</ul>
-</li>
-</ul>
-<p>+++</p>
-<p>2018/5/22 </p>
+</ol>
+<hr>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/C_C++_mixed_compile/" data-id="ckjv2ttu9001et0dnafzv7nnh" class="article-share-link">Share</a>
+      <a data-url="http://wangxianggit.github.io/solidwork_project_plot_show_annotation/" data-id="ckjv2tty800hjt0dnbwykaon3" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C++</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Solidwork/" rel="tag">Solidwork</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/windows/" rel="tag">windows</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-hexo_editor_formula" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/hexo_editor_formula/" class="article-date">
+  <time datetime="2018-12-02T03:22:25.000Z" itemprop="datePublished">2018-12-02</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/learning/">learning</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/hexo_editor_formula/">hexo公式编辑</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+
+        <h3 id="hexo公式编辑"><a href="#hexo公式编辑" class="headerlink" title="hexo公式编辑"></a>hexo公式编辑</h3><ul>
+<li><p>公式编辑示例</p>
+</li>
+<li><pre><code> $$ 
+   f(n)=\begin&#123;cases&#125;
+   n/2, &amp; \text&#123;$ x&lt;=2 $&#125;\\
+   3n+1, &amp; \text&#123;$ x&gt;2 $&#125;
+   \end&#123;cases&#125;
+ $$</code></pre>
+</li>
+<li><p>显示结果</p>
+<p> ​<br> $$<br> f(n)=\begin{cases}<br> n/2, &amp; \text{如果$ x&lt;=2 $}\<br> 3n+1, &amp; \text{如果$ x&gt;2 $}<br> \end{cases}<br> $$</p>
+</li>
+</ul>
+<ul>
+<li>$$lim_{1\to+\infty}P(|\frac{1}{n}\sum_i^nX_i-\mu|&lt;\epsilon)=1, i=1,…,n$$  </li>
+<li>$lim_{1\to+\infty}P(|\frac{1}{n}\sum_i^nX_i-\mu|&lt;\epsilon)=1, i=1,…,n$</li>
+<li>$lim_{1\to+\infty}P(|\frac{1}{n}\sum_i^nX_i-\mu|&lt;\epsilon)=1, i=1,…,n$</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wangxianggit.github.io/hexo_editor_formula/" data-id="ckjv2ttxd00dqt0dn02i19urw" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/latex/" rel="tag">latex</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-cmd_commands" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/cmd_commands/" class="article-date">
+  <time datetime="2018-12-02T02:34:08.000Z" itemprop="datePublished">2018-12-02</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/learning/">learning</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/cmd_commands/">cmd常用命令</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+
+        <h3 id="cmd常用命令​"><a href="#cmd常用命令​" class="headerlink" title="cmd常用命令​"></a>cmd常用命令​</h3><p>AT 计划在计算机上运行的命令和程序。<br>ATTRIB 显示或更改文件属性。<br>BREAK 设置或清除扩展式 CTRL+C 检查。<br>CACLS 显示或修改文件的访问控制列表(ACLs)。<br>CALL 从另一个批处理程序调用这一个。<br>CD 显示当前目录的名称或将其更改。<br>CHCP 显示或设置活动代码页数。<br>CHDIR 显示当前目录的名称或将其更改。<br>CHKDSK 检查磁盘并显示状态报告。<br>CHKNTFS 显示或修改启动时间磁盘检查。<br>CLS 清除屏幕。<br>CMD 打开另一个 Windows 命令解释程序窗口。<br>COLOR 设置默认控制台前景和背景颜色。<br>COMP 比较两个或两套文件的内容。<br>COMPACT 显示或更改 NTFS 分区上文件的压缩。<br>CONVERT 将 FAT 卷转换成 NTFS。您不能转换当前驱动器。<br>COPY 将至少一个文件复制到另一个位置。<br>DATE 显示或设置日期。<br>DEL 删除至少一个文件。<br>DIR 显示一个目录中的文件和子目录。<br>DISKCOMP 比较两个软盘的内容。<br>DISKCOPY 将一个软盘的内容复制到另一个软盘。<br>DOSKEY 编辑命令行、调用 Windows 命令并创建宏。<br>ECHO 显示消息，或将命令回显打开或关上。<br>ENDLOCAL 结束批文件中环境更改的本地化。<br>ERASE 删除至少一个文件。<br>EXIT 退出 CMD.EXE 程序(命令解释程序)。<br>FC 比较两个或两套文件，并显示不同处。<br>FIND 在文件中搜索文字字符串。<br>FINDSTR 在文件中搜索字符串。<br>FOR 为一套文件中的每个文件运行一个指定的命令。<br>FORMAT 格式化磁盘，以便跟 Windows 使用。<br>FTYPE 显示或修改用于文件扩展名关联的文件类型。<br>GOTO 将 Windows 命令解释程序指向批处理程序中某个标明的行。<br>GRAFTABL 启用 Windows 来以图像模式显示扩展字符集。<br>HELP 提供 Windows 命令的帮助信息。<br>IF 执行批处理程序中的条件性处理。<br>LABEL 创建、更改或删除磁盘的卷标。<br>MD 创建目录。<br>MKDIR 创建目录。<br>MODE 配置系统设备。<br>MORE 一次显示一个结果屏幕。<br>MOVE 将文件从一个目录移到另一个目录。<br>PATH 显示或设置可执行文件的搜索路径。<br>PAUSE 暂停批文件的处理并显示消息。<br>POPD 还原 PUSHD 保存的当前目录的上一个值。<br>PRINT 打印文本文件。<br>PROMPT 更改 Windows 命令提示符。<br>PUSHD 保存当前目录，然后对其进行更改。<br>RD 删除目录。<br>RECOVER 从有问题的磁盘恢复可读信息。<br>REM 记录批文件或 CONFIG.SYS 中的注释。<br>REN 重命名文件。<br>RENAME 重命名文件。<br>REPLACE 替换文件。<br>RMDIR 删除目录。<br>SET 显示、设置或删除 Windows 环境变量。<br>SETLOCAL 开始批文件中环境更改的本地化。<br>SHIFT 更换批文件中可替换参数的位置。<br>SORT 对输入进行分类。<br>START 启动另一个窗口来运行指定的程序或命令。<br>SUBST 将路径跟一个驱动器号关联。<br>TIME 显示或设置系统时间。<br>TITLE 设置 CMD.EXE 会话的窗口标题。<br>TREE 以图形模式显示驱动器或路径的目录结构。<br>TYPE 显示文本文件的内容。<br>VER 显示 Windows 版本。<br>VERIFY 告诉 Windows 是否验证文件是否已正确写入磁盘。<br>VOL 显示磁盘卷标和序列号。<br>XCOPY 复制文件和目录树。<br>appwiz.cpl————添加删除程序<br>control userpasswords2——–用户帐户设置<br>cleanmgr——-垃圾整理<br>CMD————–命令提示符可以当作是 Windows 的一个附件，Ping，Convert 这些不能在图形环境下 使用的功能要借助它来完成。<br>cmd——jview察看Java虚拟机版本。<br>command.com——调用的则是系统内置的 NTVDM，一个 DOS虚拟机。它完全是一个类似 Virtual PC 的 虚拟环境，和系统本身联系不大。当我们在命令提示符下运行 DOS 程序时，实际上也 是自动转移到 NTVDM虚拟机下，和 CMD 本身没什么关系。<br>calc———–启动计算器<br>chkdsk.exe—–Chkdsk磁盘检查<br>compmgmt.msc—计算机管理<br>conf———–启动 netmeeting<br>control userpasswords2—–User Account 权限设置<br>devmgmt.msc— 设备管理器<br>diskmgmt.msc—磁盘管理实用程序<br>dfrg.msc——-磁盘碎片整理程序<br>drwtsn32—— 系统医生<br>dvdplay——–启动Media Player<br>dxdiag———–DirectX Diagnostic Tool<br>gpedit.msc——-组策略编辑器<br>gpupdate /target:computer /force 强制刷新组策略<br>eventvwr.exe—–事件查看器<br>explorer——-打开资源管理器<br>logoff———注销命令<br>lusrmgr.msc—-本机用户和组<br>msinfo32———系统信息<br>msconfig———系统配置实用程序<br>net start (servicename)—-启动该服务<br>net stop (servicename)—–停止该服务<br>notepad——–打开记事本<br>nusrmgr.cpl——-同control userpasswords，打开用户帐户控制面板<br>Nslookup——-IP地址侦测器<br>oobe/msoobe /a—-检查XP是否激活<br>perfmon.msc—-计算机性能监测程序<br>progman——–程序管理器<br>regedit———-注册表编辑器<br>regedt32——-注册表编辑器<br>regsvr32 /u *.dll—-停止dll文件运行<br>route print——查看路由表<br>rononce -p —-15秒关机<br>rsop.msc——-组策略结果集<br>rundll32.exe rundll32.exe %Systemroot%System32shimgvw.dll,ImageView_Fullscreen—-启动一个空白的Windows 图片和传真查看器<br>secpol.msc——–本地安全策略<br>services.msc—本地服务设置<br>sfc /scannow—–启动系统文件检查器<br>sndrec32——-录音机<br>taskmgr—–任务管理器（适用于2000／xp／2003）<br>tsshutdn——-60秒倒计时关机命令<br>winchat——–XP自带局域网聊天<br>winmsd———系统信息<br>winver—–显示About Windows 窗口<br>wupdmgr———–Windows Update</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wangxianggit.github.io/cmd_commands/" data-id="ckjv2ttx600crt0dn9i3rdjz8" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cmd/" rel="tag">cmd</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/windows/" rel="tag">windows</a></li></ul>
 
     </footer>
   </div>
@@ -462,7 +395,7 @@ SYMBOL TABLE:
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/page/35/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/34/">34</a><a class="page-number" href="/page/35/">35</a><span class="page-number current">36</span><a class="page-number" href="/page/37/">37</a><a class="page-number" href="/page/38/">38</a><a class="extend next" rel="next" href="/page/37/">Next &amp;raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/35/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/34/">34</a><a class="page-number" href="/page/35/">35</a><span class="page-number current">36</span><a class="page-number" href="/page/37/">37</a><a class="page-number" href="/page/38/">38</a><span class="space">&hellip;</span><a class="page-number" href="/page/41/">41</a><a class="extend next" rel="next" href="/page/37/">Next &amp;raquo;</a>
   </nav>
 
 </section>
@@ -500,7 +433,7 @@ SYMBOL TABLE:
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithm/" rel="tag">Algorithm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Altium-Designer/" rel="tag">Altium Designer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Apache/" rel="tag">Apache</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BeautifulSoup/" rel="tag">BeautifulSoup</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Centos7/" rel="tag">Centos7</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cython/" rel="tag">Cython</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Electronic/" rel="tag">Electronic</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/English/" rel="tag">English</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Geant4/" rel="tag">Geant4</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hardware/" rel="tag">Hardware</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Image/" rel="tag">Image</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jupyter/" rel="tag">Jupyter</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nuclear-Physics/" rel="tag">Nuclear Physics</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Open/" rel="tag">Open</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Program/" rel="tag">Program</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PyPI/" rel="tag">PyPI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Py-Crawler/" rel="tag">Py_Crawler</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Random/" rel="tag">Random</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Resource/" rel="tag">Resource</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Root/" rel="tag">Root</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Scipy/" rel="tag">Scipy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Shell/" rel="tag">Shell</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Solidwork/" rel="tag">Solidwork</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TTree/" rel="tag">TTree</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tensorflow/" rel="tag">Tensorflow</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Thread/" rel="tag">Thread</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Urllib2/" rel="tag">Urllib2</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Virtual-memory/" rel="tag">Virtual memory</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cmake/" rel="tag">cmake</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cmd/" rel="tag">cmd</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/data-structure/" rel="tag">data structure</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/htop/" rel="tag">htop</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/keras/" rel="tag">keras</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/latex/" rel="tag">latex</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/os/" rel="tag">os</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/qt/" rel="tag">qt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/requests/" rel="tag">requests</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sk-learn/" rel="tag">sk-learn</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh/" rel="tag">ssh</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/statistic/" rel="tag">statistic</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vi/" rel="tag">vi</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/windows/" rel="tag">windows</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithm/" rel="tag">Algorithm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Altium-Designer/" rel="tag">Altium Designer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Apache/" rel="tag">Apache</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BeautifulSoup/" rel="tag">BeautifulSoup</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Centos7/" rel="tag">Centos7</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cython/" rel="tag">Cython</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Electronic/" rel="tag">Electronic</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/English/" rel="tag">English</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Geant4/" rel="tag">Geant4</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hardware/" rel="tag">Hardware</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Image/" rel="tag">Image</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jupyter/" rel="tag">Jupyter</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mongodb/" rel="tag">Mongodb</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nuclear-Physics/" rel="tag">Nuclear Physics</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Open/" rel="tag">Open</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Opencv/" rel="tag">Opencv</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Program/" rel="tag">Program</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PyPI/" rel="tag">PyPI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Py-Crawler/" rel="tag">Py_Crawler</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Random/" rel="tag">Random</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Resource/" rel="tag">Resource</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Root/" rel="tag">Root</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Scipy/" rel="tag">Scipy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Shell/" rel="tag">Shell</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Solidwork/" rel="tag">Solidwork</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TTree/" rel="tag">TTree</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tensorflow/" rel="tag">Tensorflow</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Thread/" rel="tag">Thread</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Urllib2/" rel="tag">Urllib2</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Virtual-memory/" rel="tag">Virtual memory</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cmake/" rel="tag">cmake</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cmd/" rel="tag">cmd</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/data-structure/" rel="tag">data structure</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/htop/" rel="tag">htop</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/keras/" rel="tag">keras</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/latex/" rel="tag">latex</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/os/" rel="tag">os</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/qt/" rel="tag">qt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/requests/" rel="tag">requests</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sk-learn/" rel="tag">sk-learn</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh/" rel="tag">ssh</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/statistic/" rel="tag">statistic</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vi/" rel="tag">vi</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/windows/" rel="tag">windows</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/yolo%EF%BC%8CC/" rel="tag">yolo，C</a></li></ul>
     </div>
   </div>
 
@@ -510,7 +443,7 @@ SYMBOL TABLE:
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Algorithm/" style="font-size: 11.33px;">Algorithm</a> <a href="/tags/Altium-Designer/" style="font-size: 14.67px;">Altium Designer</a> <a href="/tags/Apache/" style="font-size: 11.33px;">Apache</a> <a href="/tags/BeautifulSoup/" style="font-size: 10px;">BeautifulSoup</a> <a href="/tags/C/" style="font-size: 15.33px;">C</a> <a href="/tags/C/" style="font-size: 18.67px;">C++</a> <a href="/tags/Centos7/" style="font-size: 17.33px;">Centos7</a> <a href="/tags/Cython/" style="font-size: 10px;">Cython</a> <a href="/tags/Electronic/" style="font-size: 13.33px;">Electronic</a> <a href="/tags/English/" style="font-size: 12px;">English</a> <a href="/tags/Geant4/" style="font-size: 10.67px;">Geant4</a> <a href="/tags/Hardware/" style="font-size: 10px;">Hardware</a> <a href="/tags/Hexo/" style="font-size: 14px;">Hexo</a> <a href="/tags/Image/" style="font-size: 10px;">Image</a> <a href="/tags/Jupyter/" style="font-size: 10px;">Jupyter</a> <a href="/tags/Linux/" style="font-size: 19.33px;">Linux</a> <a href="/tags/Markdown/" style="font-size: 16px;">Markdown</a> <a href="/tags/Nuclear-Physics/" style="font-size: 11.33px;">Nuclear Physics</a> <a href="/tags/Open/" style="font-size: 10px;">Open</a> <a href="/tags/Program/" style="font-size: 18px;">Program</a> <a href="/tags/PyPI/" style="font-size: 10px;">PyPI</a> <a href="/tags/Py-Crawler/" style="font-size: 10.67px;">Py_Crawler</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/Random/" style="font-size: 10px;">Random</a> <a href="/tags/Resource/" style="font-size: 10.67px;">Resource</a> <a href="/tags/Root/" style="font-size: 10.67px;">Root</a> <a href="/tags/Scipy/" style="font-size: 10px;">Scipy</a> <a href="/tags/Shell/" style="font-size: 16px;">Shell</a> <a href="/tags/Solidwork/" style="font-size: 10.67px;">Solidwork</a> <a href="/tags/TTree/" style="font-size: 10px;">TTree</a> <a href="/tags/Tensorflow/" style="font-size: 15.33px;">Tensorflow</a> <a href="/tags/Thread/" style="font-size: 10px;">Thread</a> <a href="/tags/Urllib2/" style="font-size: 10px;">Urllib2</a> <a href="/tags/Virtual-memory/" style="font-size: 10px;">Virtual memory</a> <a href="/tags/cmake/" style="font-size: 12.67px;">cmake</a> <a href="/tags/cmd/" style="font-size: 10.67px;">cmd</a> <a href="/tags/data-structure/" style="font-size: 10.67px;">data structure</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/htop/" style="font-size: 10px;">htop</a> <a href="/tags/keras/" style="font-size: 10.67px;">keras</a> <a href="/tags/latex/" style="font-size: 14.67px;">latex</a> <a href="/tags/os/" style="font-size: 10px;">os</a> <a href="/tags/qt/" style="font-size: 10px;">qt</a> <a href="/tags/requests/" style="font-size: 10px;">requests</a> <a href="/tags/sk-learn/" style="font-size: 10px;">sk-learn</a> <a href="/tags/ssh/" style="font-size: 12.67px;">ssh</a> <a href="/tags/statistic/" style="font-size: 10px;">statistic</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/windows/" style="font-size: 16.67px;">windows</a>
+      <a href="/tags/Algorithm/" style="font-size: 11.33px;">Algorithm</a> <a href="/tags/Altium-Designer/" style="font-size: 14.67px;">Altium Designer</a> <a href="/tags/Apache/" style="font-size: 11.33px;">Apache</a> <a href="/tags/BeautifulSoup/" style="font-size: 10px;">BeautifulSoup</a> <a href="/tags/C/" style="font-size: 15.33px;">C</a> <a href="/tags/C/" style="font-size: 18.67px;">C++</a> <a href="/tags/Centos7/" style="font-size: 17.33px;">Centos7</a> <a href="/tags/Cython/" style="font-size: 10px;">Cython</a> <a href="/tags/Electronic/" style="font-size: 13.33px;">Electronic</a> <a href="/tags/English/" style="font-size: 12px;">English</a> <a href="/tags/Geant4/" style="font-size: 10.67px;">Geant4</a> <a href="/tags/Hardware/" style="font-size: 10px;">Hardware</a> <a href="/tags/Hexo/" style="font-size: 14px;">Hexo</a> <a href="/tags/Image/" style="font-size: 12px;">Image</a> <a href="/tags/Jupyter/" style="font-size: 10px;">Jupyter</a> <a href="/tags/Linux/" style="font-size: 19.33px;">Linux</a> <a href="/tags/Markdown/" style="font-size: 16px;">Markdown</a> <a href="/tags/Mongodb/" style="font-size: 10px;">Mongodb</a> <a href="/tags/Nuclear-Physics/" style="font-size: 11.33px;">Nuclear Physics</a> <a href="/tags/Open/" style="font-size: 10px;">Open</a> <a href="/tags/Opencv/" style="font-size: 10.67px;">Opencv</a> <a href="/tags/Program/" style="font-size: 18px;">Program</a> <a href="/tags/PyPI/" style="font-size: 10px;">PyPI</a> <a href="/tags/Py-Crawler/" style="font-size: 10.67px;">Py_Crawler</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/Random/" style="font-size: 10px;">Random</a> <a href="/tags/Resource/" style="font-size: 10.67px;">Resource</a> <a href="/tags/Root/" style="font-size: 10.67px;">Root</a> <a href="/tags/Scipy/" style="font-size: 10px;">Scipy</a> <a href="/tags/Shell/" style="font-size: 16px;">Shell</a> <a href="/tags/Solidwork/" style="font-size: 10.67px;">Solidwork</a> <a href="/tags/TTree/" style="font-size: 10px;">TTree</a> <a href="/tags/Tensorflow/" style="font-size: 15.33px;">Tensorflow</a> <a href="/tags/Thread/" style="font-size: 10px;">Thread</a> <a href="/tags/Urllib2/" style="font-size: 10px;">Urllib2</a> <a href="/tags/Virtual-memory/" style="font-size: 10px;">Virtual memory</a> <a href="/tags/cmake/" style="font-size: 12.67px;">cmake</a> <a href="/tags/cmd/" style="font-size: 10.67px;">cmd</a> <a href="/tags/data-structure/" style="font-size: 10.67px;">data structure</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/htop/" style="font-size: 10px;">htop</a> <a href="/tags/keras/" style="font-size: 10.67px;">keras</a> <a href="/tags/latex/" style="font-size: 14.67px;">latex</a> <a href="/tags/os/" style="font-size: 10px;">os</a> <a href="/tags/qt/" style="font-size: 10px;">qt</a> <a href="/tags/requests/" style="font-size: 10px;">requests</a> <a href="/tags/sk-learn/" style="font-size: 10px;">sk-learn</a> <a href="/tags/ssh/" style="font-size: 12.67px;">ssh</a> <a href="/tags/statistic/" style="font-size: 10px;">statistic</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/windows/" style="font-size: 16.67px;">windows</a> <a href="/tags/yolo%EF%BC%8CC/" style="font-size: 10px;">yolo，C</a>
     </div>
   </div>
 
@@ -519,7 +452,7 @@ SYMBOL TABLE:
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li></ul>
     </div>
   </div>
 
@@ -532,23 +465,23 @@ SYMBOL TABLE:
       <ul>
         
           <li>
-            <a href="/winedt_break/">Winedt注册表破解</a>
+            <a href="/nodejs_windows_install/">windows下安装nodejs及环境变量设置</a>
           </li>
         
           <li>
-            <a href="/latex_content_dot/">latex生成目录条目加点</a>
+            <a href="/Centos7_mongodb_install/">Centos7安装Mongodb</a>
           </li>
         
           <li>
-            <a href="/latex_figure_prefix/">latex论文用图修改前缀</a>
+            <a href="/Endnote_download_tutorial/">EndnoteX9下载及新手教程</a>
           </li>
         
           <li>
-            <a href="/yum_unblock/">linux yum进程占用问题</a>
+            <a href="/centos7_opencv_install/">Centso7下安装opencv</a>
           </li>
         
           <li>
-            <a href="/linux_googlechrome/">linux安装谷歌浏览器</a>
+            <a href="/anaconda_democrate_source/">anaconda安装库使用国内源</a>
           </li>
         
       </ul>
