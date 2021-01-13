@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>C和C＋＋混合编译 | Wangxiang&#39;s blog website</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="关于extern_C 通常，在C语言的头文件中经常可以看到类似下面这种形式的代码： 1234567#ifdef  __cplusplus  extern &quot;C&quot; &amp;#123;  #endif  &#x2F;**** some declaration or so *****&#x2F;  #ifdef  __cplusplus  &amp;#125;  #endif  &#x2F;* end of __cpluspl">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C和C＋＋混合编译">
+<meta property="og:url" content="http://wangxianggit.github.io/C_C++_mixed_compile/index.html">
+<meta property="og:site_name" content="Wangxiang&#39;s blog website">
+<meta property="og:description" content="关于extern_C 通常，在C语言的头文件中经常可以看到类似下面这种形式的代码： 1234567#ifdef  __cplusplus  extern &quot;C&quot; &amp;#123;  #endif  &#x2F;**** some declaration or so *****&#x2F;  #ifdef  __cplusplus  &amp;#125;  #endif  &#x2F;* end of __cpluspl">
+<meta property="og:locale">
+<meta property="article:published_time" content="2018-05-22T14:19:43.000Z">
+<meta property="article:modified_time" content="2018-05-22T16:00:19.144Z">
+<meta property="article:author" content="wangxiang">
+<meta property="article:tag" content="C">
+<meta property="article:tag" content="C++">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Wangxiang&#39;s blog website" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Wangxiang&#39;s blog website</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://wangxianggit.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-C_C++_mixed_compile" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/C_C++_mixed_compile/" class="article-date">
+  <time datetime="2018-05-22T14:19:43.000Z" itemprop="datePublished">2018-05-22</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/learning/">learning</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      C和C＋＋混合编译
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">article content</strong>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B3%E4%BA%8Eextern-C"><span class="toc-number">1.</span> <span class="toc-text">关于extern_C</span></a></li></ol>
+  </div>
+
+        <h3 id="关于extern-C"><a href="#关于extern-C" class="headerlink" title="关于extern_C"></a>关于extern_C</h3><ul>
+<li><p>通常，在C语言的头文件中经常可以看到类似下面这种形式的代码：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span>  __cplusplus  </span></span><br><span class="line"><span class="keyword">extern</span> <span class="string">&quot;C&quot;</span> &#123;  </span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span>  </span></span><br><span class="line"><span class="comment">/**** some declaration or so *****/</span>  </span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span>  __cplusplus  </span></span><br><span class="line">&#125;  </span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span>  <span class="comment">/* end of __cplusplus */</span>  </span></span><br></pre></td></tr></table></figure></li>
+<li><p>实际上，这是为了让CPP能够与C接口而采用的一种语法形式。之所以采用这种方式，是因为两种语言之间的一些差异所导致的。由于CPP支持多态性，也就是具有相同函数名的函数可以完成不同的功能，CPP通常是通过参数区分具体调用的是哪一个函数。在编译的时候，CPP编译器会将参数类型和函数名连接在一起，于是在程序编译成为目标文件以后，CPP编译器可以直接根据目标文件中的符号名将多个目标文件连接成一个目标文件或者可执行文件。但是在C语言中，由于完全没有多态性的概念，C编译器在编译时除了会在函数名前面添加一个下划线之外，什么也不会做（至少很多编译器都是这样干的）。由于这种的原因，当采用CPP与C混合编程的时候，就可能会出问题。假设在某一个头文件中定义了这样一个函数：</p>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">foo</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span>;</span><br></pre></td></tr></table></figure></li>
+<li><p>而这个函数的实现位于一个.c文件中，同时，在.cpp文件中调用了这个函数。那么，当CPP编译器编译这个函数的时候，就有可能会把这个函数名改成fooii，这里的ii表示函数的第一参数和第二参数都是整型。而C编译器却有可能将这个函数名编译成foo。也就是说，在CPP编译器得到的目标文件中，foo()函数是由fooii符号来引用的，而在C编译器生成的目标文件中，foo()函数是由foo指代的。但连接器工作的时候，它可不管上层采用的是什么语言，它只认目标文件中的符号。于是，连接器将会发现在.cpp中调用了foo()函数，但是在其它的目标文件中却找不到fooii这个符号，于是提示连接过程出错。extern “C” {}这种语法形式就是用来解决这个问题的。</p>
+</li>
+</ul>
+<p>###extern_C用法</p>
+<ul>
+<li><p>首先假设有下面这样三个文件：</p>
+<ul>
+<li><p>```<br>/* file: test_extern_c.h <em>/<br>#ifndef <strong>TEST_EXTERN_C_H__<br>#define __TEST_EXTERN_C_H</strong><br>#ifdef  __cplusplus<br>extern “C” {<br>#endif<br>/</em>  </p>
+<ul>
+<li>this is a test function, which calculate  </li>
+<li>the multiply of a and b.  </li>
+<li>/<br>extern int ThisIsTest(int a, int b);<br>#ifdef  __cplusplus<br>}<br>#endif  /* end of __cplusplus */<br>#endif  <figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 在这个头文件中只定义了一个函数，<span class="constructor">ThisIsTest()</span>。这个函数被定义为一个外部函数，可以被包括到其它程序文件中。假设<span class="constructor">ThisIsTest()</span>函数的实现位于test_extern_c.c文件中：</span><br><span class="line"></span><br><span class="line">* ```</span><br><span class="line">  <span class="comment">/* test_extern_c.c */</span>  </span><br><span class="line">    </span><br><span class="line">  #<span class="keyword">include</span> <span class="string">&quot;test_extern_c.h&quot;</span>  </span><br><span class="line">    </span><br><span class="line">  <span class="built_in">int</span> <span class="constructor">ThisIsTest(<span class="params">int</span> <span class="params">a</span>, <span class="params">int</span> <span class="params">b</span>)</span>  </span><br><span class="line">  &#123;  </span><br><span class="line">      return (a + b);  </span><br><span class="line">  &#125;  </span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>可以看到，ThisIsTest()函数的实现非常简单，就是将两个参数的相加结果返回而已。现在，假设要从CPP中调用ThisIsTest()函数：</p>
+</li>
+<li><p>```<br>/* main.cpp */<br>#include “test_extern_c.h”<br>#include &lt;stdio.h&gt;<br>#include &lt;stdlib.h&gt;  </p>
+<p>class FOO {<br>public:  </p>
+<p>int bar(int a, int b)<br>{  </p>
+<pre><code>printf(&quot;result=%i\n&quot;, ThisIsTest(a, b));  </code></pre>
+<p>}<br>};  </p>
+<p>int main(int argc, char **argv)<br>{  </p>
+<pre><code>int a = atoi(argv[1]);  
+int b = atoi(argv[2]);   
+
+FOO *foo = new FOO();  
+
+foo-&gt;bar(a, b);  
+
+return(0);  </code></pre>
+<p>}  </p>
+<figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 上面程序在g++下编译能够通过。那么，如果将test_extern_c.h中的extern <span class="string">&quot;C&quot;</span> &#123;&#125;所在的那几行注释掉会怎样呢？注释后的test_extern_c.h文件内容如下：</span><br><span class="line"></span><br><span class="line">* ```</span><br><span class="line">   <span class="comment">/* test_extern_c.h */</span>  </span><br></pre></td></tr></table></figure>
+<p>#ifndef <strong>TEST_EXTERN_C_H__<br>#define __TEST_EXTERN_C_H</strong>  </p>
+<p>//#ifdef   __cplusplus<br>//extern “C” {<br>//#endif<br>​<br>/*  </p>
+<ul>
+<li>this is a test function, which calculate  </li>
+<li>the multiply of a and b.<br> */  </li>
+</ul>
+<p>extern int ThisIsTest(int a, int b);<br>​<br>​<br>//#ifdef   __cplusplus<br>//  }<br>//#endif   /* end of __cplusplus */<br>​<br>#endif  </p>
+<figure class="highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 除此之外，其它文件不做任何的改变，仍然采用同样的方式编译test_extern_c.c和main.cpp文件,结果出现错误，连接器ld提示找不到对函数ThisIsTest()的引用。</span><br><span class="line"></span><br><span class="line">* 现用下面方式把目标文件编译出来，然后看目标文件中到底有哪些符号：</span><br><span class="line"></span><br><span class="line">* ```</span><br><span class="line">  [cyc@cyc src]$ gcc -c test_extern_c.c      </span><br><span class="line">    </span><br><span class="line">  [cyc@cyc src]$ objdump -t test_extern_c.o  </span><br><span class="line">    </span><br><span class="line">  test_extern_c.o:     file format elf32-i386  </span><br><span class="line">    </span><br><span class="line">  SYMBOL TABLE:  </span><br><span class="line">    </span><br><span class="line">  <span class="number">00000000</span> l    df *ABS*  <span class="number">00000000</span> test_extern_c.c  </span><br><span class="line">    </span><br><span class="line">  <span class="number">00000000</span> l    d  .text  <span class="number">00000000</span>  </span><br><span class="line">    </span><br><span class="line">  <span class="number">00000000</span> l    d  .data  <span class="number">00000000</span>  </span><br><span class="line">    </span><br><span class="line">  <span class="number">00000000</span> l    d  .bss   <span class="number">00000000</span>  </span><br><span class="line">    </span><br><span class="line">  <span class="number">00000000</span> l    d  .comment       <span class="number">00000000</span>  </span><br><span class="line">    </span><br><span class="line">  <span class="number">00000000</span> g     F .text  <span class="number">0000000</span>b ThisIsTest  </span><br><span class="line">     </span><br><span class="line">    </span><br><span class="line">  [cyc@cyc src]$ g++ -c main.cpp            </span><br><span class="line">    </span><br><span class="line">  [cyc@cyc src]$ objdump -t main.o          </span><br><span class="line">     </span><br><span class="line">    </span><br><span class="line">  main.o:     file format elf32-i386  </span><br><span class="line">    </span><br><span class="line">  SYMBOL TABLE:  </span><br><span class="line">    </span><br><span class="line">  <span class="number">00000000</span> l    df *ABS*  <span class="number">00000000</span> main.cpp  </span><br><span class="line">    </span><br><span class="line">  <span class="number">00000000</span> l    d  .text  <span class="number">00000000</span>  </span><br><span class="line">    </span><br><span class="line">  <span class="number">00000000</span> l    d  .data  <span class="number">00000000</span>  </span><br><span class="line">    </span><br><span class="line">  <span class="number">00000000</span> l    d  .bss   <span class="number">00000000</span>  </span><br><span class="line">    </span><br><span class="line">  <span class="number">00000000</span> l    d  .rodata        <span class="number">00000000</span>  </span><br><span class="line">    </span><br><span class="line">  <span class="number">00000000</span> l    d  .gnu.linkonce.t._ZN3FOO3barEii <span class="number">00000000</span>  </span><br><span class="line">    </span><br><span class="line">  <span class="number">00000000</span> l    d  .eh_frame      <span class="number">00000000</span>  </span><br><span class="line">    </span><br><span class="line">  <span class="number">00000000</span> l    d  .comment       <span class="number">00000000</span>  </span><br><span class="line">    </span><br><span class="line">  <span class="number">00000000</span> g     F .text  <span class="number">00000081</span> main  </span><br><span class="line">    </span><br><span class="line">  <span class="number">00000000</span>         *UND*  <span class="number">00000000</span> atoi  </span><br><span class="line">    </span><br><span class="line">  <span class="number">00000000</span>         *UND*  <span class="number">00000000</span> _Znwj  </span><br><span class="line">    </span><br><span class="line">  <span class="number">00000000</span>         *UND*  <span class="number">00000000</span> _ZdlPv  </span><br><span class="line">    </span><br><span class="line">  <span class="number">00000000</span>  w    F .gnu.linkonce.t._ZN3FOO3barEii <span class="number">00000027</span> _ZN3FOO3barEii  </span><br><span class="line">    </span><br><span class="line">  <span class="number">00000000</span>         *UND*  <span class="number">00000000</span> _Z10ThisIsTestii  </span><br><span class="line">    </span><br><span class="line">  <span class="number">00000000</span>         *UND*  <span class="number">00000000</span> printf  </span><br><span class="line">    </span><br><span class="line">  <span class="number">00000000</span>         *UND*  <span class="number">00000000</span> __gxx_personality_v0  </span><br></pre></td></tr></table></figure></li>
+<li><p>采用gcc编译了test_extern_c.c之后，在其目标文件test_extern_c.o中的有一个ThisIsTest符号，这个符号就是源文件中定义的ThisIsTest()函数了。而在采用g++编译了main.cpp之后，在其目标文件main.o中有一个Z10ThisIsTestii符号，这个就是经过g++编译器“粉碎”过后的函数名。其最后的两个字符i就表示第一参数和第二参数都是整型。显然，两者编译后得到的函数名不同导致错误。</p>
+</li>
+<li><p>如果采用extern “C” {}形式看一下编译出来的目标文件中又有哪些符号：</p>
+</li>
+<li><pre><code>[cyc@cyc src]$ gcc -c test_extern_c.c  
+
+[cyc@cyc src]$ objdump -t test_extern_c.o  
+
+test_extern_c.o:     file format elf32-i386  
+
+SYMBOL TABLE:  
+
+00000000 l    df *ABS*  00000000 test_extern_c.c  
+
+00000000 l    d  .text  00000000  
+
+00000000 l    d  .data  00000000  
+
+00000000 l    d  .bss   00000000  
+
+00000000 l    d  .comment       00000000  
+
+00000000 g     F .text  0000000b ThisIsTest  
+
+[cyc@cyc src]$ g++ -c main.cpp  
+
+[cyc@cyc src]$ objdump -t main.o  
+
+main.o:     file format elf32-i386  
+
+SYMBOL TABLE:  
+
+00000000 l    df *ABS*  00000000 main.cpp  
+
+00000000 l    d  .text  00000000  
+
+00000000 l    d  .data  00000000  
+
+00000000 l    d  .bss   00000000  
+
+00000000 l    d  .rodata        00000000  
+
+00000000 l    d  .gnu.linkonce.t._ZN3FOO3barEii 00000000  
+
+00000000 l    d  .eh_frame      00000000  
+
+00000000 l    d  .comment       00000000  
+
+00000000 g     F .text  00000081 main  
+
+00000000         *UND*  00000000 atoi  
+
+00000000         *UND*  00000000 _Znwj  
+
+00000000         *UND*  00000000 _ZdlPv  
+
+00000000  w    F .gnu.linkonce.t._ZN3FOO3barEii 00000027 _ZN3FOO3barEii  
+
+00000000         *UND*  00000000 ThisIsTest  
+
+00000000         *UND*  00000000 printf  
+
+00000000         *UND*  00000000 __gxx_personality_v0  </code></pre>
+</li>
+<li><p>可以看到，在两个目标文件中，都有一个符号ThisIsTest，这个符号引用的就是ThisIsTest()函数了。显然，此时在两个目标文件中都存在同样的ThisIsTest符号，因此认为它们引用的实际上同一个函数，于是就将两个目标文件连接在一起，凡是出现程序代码段中有ThisIsTest符号的地方都用ThisIsTest()函数的实际地址代替。另外，还可以看到，仅仅被extern “C” {}包围起来的函数采用这样的目标符号形式，对于main.cpp中的FOO类的成员函数，在两种编译方式后的符号名都是经过“粉碎”。</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>+++</p>
+<p>2018/5/22 </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wangxianggit.github.io/C_C++_mixed_compile/" data-id="ckjv261ti001hgcdn5h7gbviy" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C++</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/Centos7_modified_add_yum_variables/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Centos7修改添加yum变量
+        
+      </div>
+    </a>
+  
+  
+    <a href="/hexo_file_upload/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">hexo上传文件</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+
+  <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+  
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">links</h3>
+    <div class="widget">
+      <li><a href="https://wangxianggit.github.io/About%20me/" title="wangxiang's Blog">Contact with me</a></li>
+      <li><a target="_blank" rel="noopener" href="https://github.com/wangxianggit" title="wangxiang's Blog">Github.com</a></li>
+	  <li><a target="_blank" rel="noopener" href="http://www.lzu.edu.cn" title="wangxiang's Blog">Lanzhou University</a></li>
+	  <li><a target="_blank" rel="noopener" href="https://www.pku.edu.cn" title="wangxiang's Blog">Peking University</a></li>
+	  <li><a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/" title="wangxiang's Blog">清华大学开源软件镜像站</a></li>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/">Algorithm</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Altium/">Altium</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Py-Crawler/">Py_Crawler</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/learning/">learning</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithm/" rel="tag">Algorithm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Altium-Designer/" rel="tag">Altium Designer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Apache/" rel="tag">Apache</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BeautifulSoup/" rel="tag">BeautifulSoup</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Centos7/" rel="tag">Centos7</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cython/" rel="tag">Cython</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Electronic/" rel="tag">Electronic</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/English/" rel="tag">English</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Geant4/" rel="tag">Geant4</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hardware/" rel="tag">Hardware</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Image/" rel="tag">Image</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jupyter/" rel="tag">Jupyter</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nuclear-Physics/" rel="tag">Nuclear Physics</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Open/" rel="tag">Open</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Program/" rel="tag">Program</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PyPI/" rel="tag">PyPI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Py-Crawler/" rel="tag">Py_Crawler</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Random/" rel="tag">Random</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Resource/" rel="tag">Resource</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Root/" rel="tag">Root</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Scipy/" rel="tag">Scipy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Shell/" rel="tag">Shell</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Solidwork/" rel="tag">Solidwork</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TTree/" rel="tag">TTree</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tensorflow/" rel="tag">Tensorflow</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Thread/" rel="tag">Thread</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Urllib2/" rel="tag">Urllib2</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Virtual-memory/" rel="tag">Virtual memory</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cmake/" rel="tag">cmake</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cmd/" rel="tag">cmd</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/data-structure/" rel="tag">data structure</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/htop/" rel="tag">htop</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/keras/" rel="tag">keras</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/latex/" rel="tag">latex</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/os/" rel="tag">os</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/qt/" rel="tag">qt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/requests/" rel="tag">requests</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sk-learn/" rel="tag">sk-learn</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh/" rel="tag">ssh</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/statistic/" rel="tag">statistic</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vi/" rel="tag">vi</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/windows/" rel="tag">windows</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Algorithm/" style="font-size: 11.33px;">Algorithm</a> <a href="/tags/Altium-Designer/" style="font-size: 14.67px;">Altium Designer</a> <a href="/tags/Apache/" style="font-size: 11.33px;">Apache</a> <a href="/tags/BeautifulSoup/" style="font-size: 10px;">BeautifulSoup</a> <a href="/tags/C/" style="font-size: 15.33px;">C</a> <a href="/tags/C/" style="font-size: 18.67px;">C++</a> <a href="/tags/Centos7/" style="font-size: 17.33px;">Centos7</a> <a href="/tags/Cython/" style="font-size: 10px;">Cython</a> <a href="/tags/Electronic/" style="font-size: 13.33px;">Electronic</a> <a href="/tags/English/" style="font-size: 12px;">English</a> <a href="/tags/Geant4/" style="font-size: 10.67px;">Geant4</a> <a href="/tags/Hardware/" style="font-size: 10px;">Hardware</a> <a href="/tags/Hexo/" style="font-size: 14px;">Hexo</a> <a href="/tags/Image/" style="font-size: 10px;">Image</a> <a href="/tags/Jupyter/" style="font-size: 10px;">Jupyter</a> <a href="/tags/Linux/" style="font-size: 19.33px;">Linux</a> <a href="/tags/Markdown/" style="font-size: 16px;">Markdown</a> <a href="/tags/Nuclear-Physics/" style="font-size: 11.33px;">Nuclear Physics</a> <a href="/tags/Open/" style="font-size: 10px;">Open</a> <a href="/tags/Program/" style="font-size: 18px;">Program</a> <a href="/tags/PyPI/" style="font-size: 10px;">PyPI</a> <a href="/tags/Py-Crawler/" style="font-size: 10.67px;">Py_Crawler</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/Random/" style="font-size: 10px;">Random</a> <a href="/tags/Resource/" style="font-size: 10.67px;">Resource</a> <a href="/tags/Root/" style="font-size: 10.67px;">Root</a> <a href="/tags/Scipy/" style="font-size: 10px;">Scipy</a> <a href="/tags/Shell/" style="font-size: 16px;">Shell</a> <a href="/tags/Solidwork/" style="font-size: 10.67px;">Solidwork</a> <a href="/tags/TTree/" style="font-size: 10px;">TTree</a> <a href="/tags/Tensorflow/" style="font-size: 15.33px;">Tensorflow</a> <a href="/tags/Thread/" style="font-size: 10px;">Thread</a> <a href="/tags/Urllib2/" style="font-size: 10px;">Urllib2</a> <a href="/tags/Virtual-memory/" style="font-size: 10px;">Virtual memory</a> <a href="/tags/cmake/" style="font-size: 12.67px;">cmake</a> <a href="/tags/cmd/" style="font-size: 10.67px;">cmd</a> <a href="/tags/data-structure/" style="font-size: 10.67px;">data structure</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/htop/" style="font-size: 10px;">htop</a> <a href="/tags/keras/" style="font-size: 10.67px;">keras</a> <a href="/tags/latex/" style="font-size: 14.67px;">latex</a> <a href="/tags/os/" style="font-size: 10px;">os</a> <a href="/tags/qt/" style="font-size: 10px;">qt</a> <a href="/tags/requests/" style="font-size: 10px;">requests</a> <a href="/tags/sk-learn/" style="font-size: 10px;">sk-learn</a> <a href="/tags/ssh/" style="font-size: 12.67px;">ssh</a> <a href="/tags/statistic/" style="font-size: 10px;">statistic</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/windows/" style="font-size: 16.67px;">windows</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/winedt_break/">Winedt注册表破解</a>
+          </li>
+        
+          <li>
+            <a href="/latex_content_dot/">latex生成目录条目加点</a>
+          </li>
+        
+          <li>
+            <a href="/latex_figure_prefix/">latex论文用图修改前缀</a>
+          </li>
+        
+          <li>
+            <a href="/yum_unblock/">linux yum进程占用问题</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+  </script>
+  
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2021 wangxiang<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>python文件操作open | Wangxiang&#39;s blog website</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Python文件对象 Python的文件对象提供了丰富的函数用于访问磁盘文件以及其他类型的抽象文件。 Python中内建函数open()和file()具有相同功能，可以替换。  Open对象函数 创建文件对象  ~~~file&#x3D;open(“file”,’option’)1234567891011121314151617181920* option参数：  * ~~~    文件模式   操作">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python文件操作open">
+<meta property="og:url" content="http://wangxianggit.github.io/Python_file_operation_open/index.html">
+<meta property="og:site_name" content="Wangxiang&#39;s blog website">
+<meta property="og:description" content="Python文件对象 Python的文件对象提供了丰富的函数用于访问磁盘文件以及其他类型的抽象文件。 Python中内建函数open()和file()具有相同功能，可以替换。  Open对象函数 创建文件对象  ~~~file&#x3D;open(“file”,’option’)1234567891011121314151617181920* option参数：  * ~~~    文件模式   操作">
+<meta property="og:locale">
+<meta property="article:published_time" content="2019-03-12T02:59:38.000Z">
+<meta property="article:modified_time" content="2019-03-12T02:59:41.327Z">
+<meta property="article:author" content="wangxiang">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="Open">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Wangxiang&#39;s blog website" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Wangxiang&#39;s blog website</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://wangxianggit.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Python_file_operation_open" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/Python_file_operation_open/" class="article-date">
+  <time datetime="2019-03-12T02:59:38.000Z" itemprop="datePublished">2019-03-12</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Python/">Python</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      python文件操作open
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">article content</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Python%E6%96%87%E4%BB%B6%E5%AF%B9%E8%B1%A1"><span class="toc-number">1.</span> <span class="toc-text">Python文件对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Open%E5%AF%B9%E8%B1%A1%E5%87%BD%E6%95%B0"><span class="toc-number">2.</span> <span class="toc-text">Open对象函数</span></a></li></ol>
+  </div>
+
+        <h2 id="Python文件对象"><a href="#Python文件对象" class="headerlink" title="Python文件对象"></a>Python文件对象</h2><ul>
+<li>Python的文件对象提供了丰富的函数用于访问磁盘文件以及其他类型的抽象文件。</li>
+<li>Python中内建函数open()和file()具有相同功能，可以替换。</li>
+</ul>
+<h2 id="Open对象函数"><a href="#Open对象函数" class="headerlink" title="Open对象函数"></a>Open对象函数</h2><ul>
+<li><p>创建文件对象</p>
+<ul>
+<li>~~~<br>file=open(“file”,’option’)<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">* <span class="selector-tag">option</span>参数：</span><br><span class="line"></span><br><span class="line">  * ~~~</span><br><span class="line">    文件模式   操作</span><br><span class="line">    <span class="selector-tag">r</span>  以只读方式打开</span><br><span class="line">    <span class="selector-tag">rU</span> 或 <span class="selector-tag">Ua</span> 以读方式打开, 同时提供通用换行符支持 (PEP <span class="number">278</span>)</span><br><span class="line">    <span class="selector-tag">w</span>  以写方式打开 (必要时清空)</span><br><span class="line">    <span class="selector-tag">a</span>  以追加模式打开 (从 EOF 开始, 必要时创建新文件)</span><br><span class="line">    <span class="selector-tag">r</span>+ 以读写模式打开</span><br><span class="line">    <span class="selector-tag">w</span>+ 以读写模式打开 (参见 w )</span><br><span class="line">    <span class="selector-tag">a</span>+ 以读写模式打开 (参见 a )</span><br><span class="line">    <span class="selector-tag">rb</span> 以二进制读模式打开</span><br><span class="line">    <span class="selector-tag">wb</span> 以二进制写模式打开 (参见 w )</span><br><span class="line">    <span class="selector-tag">ab</span> 以二进制追加模式打开 (参见 a )</span><br><span class="line">    <span class="selector-tag">rb</span>+ 以二进制读写模式打开 (参见 r+ )</span><br><span class="line">    <span class="selector-tag">wb</span>+ 以二进制读写模式打开 (参见 w+ )</span><br><span class="line">    <span class="selector-tag">ab</span>+ 以二进制读写模式打开 (参见 a+ )</span><br><span class="line">    <span class="selector-tag">x</span>    如果文件存在报错，不存在则创建</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>示例代码：</p>
+<ul>
+<li><pre><code>f = open(&#39;/etc/motd&#39;) # 以读方式打开
+f = open(&#39;test&#39;, &#39;w&#39;) # 以写方式打开
+f = open(&#39;data&#39;, &#39;r+&#39;) # 以读写方式打开
+f = open(&#39;io.sys&#39;, &#39;rb&#39;) # 以二进制读模式打开
+<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">## 文件对象的内建方法</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+file.close() 关闭文件
+file.fileno() 返回文件的描述符(file descriptor ,FD, 整数值)
+file.flush() 刷新文件的内部缓冲区
+file.isatty() 判断 file 是否是一个类 tty 设备
+file.nexta() 返回文件的下一行(类似于 file.readline() ), 或在没有其它行时
+引发 StopIteration 异常
+file.read(size=-1) 从文件读取 size 个字节, 当未给定 size 或给定负值的时候, 读
+取剩余的所有字节, 然后作为字符串返回.如果打开模式无b,则read按字符读取，否则按字节读取
+file.readline(size=-1) 从文件中读取并返回一行(包括行结束符), 或返回最大 size
+file=open(&#39;test&#39;,&#39;ab&#39;)
+file.write(bytes(&#39;hehe&#39;,encoding=&#39;utf-8&#39;)) 向文件写入字符串  (会覆盖原有数据，坑
+file.close() 关闭文件
+file.tell获取当前指针的位置
+file.read()如果打开模式无b,则read按字符读取，否则按字节读取
+file.fileno文件描述符
+file.truncat 截断数据，清除文件指针之后的数据
+file.seek(off, whence=0) 在文件中移动文件指针, 从 whence ( 0 代表文件其始, 1代表当前位置, 2 代表文件末尾)偏移 off 字节,不论是否有中文，都以字节为单位
+file.truncate(size=file.tell()) 截取文件到最大 size 字节, 默认为当前文件位置
+file.writelines(seq) 向文件写入字符串序列 seq ; seq 应该是一个返回字符串的
+可迭代对象
+file.readlines(sizhint=0) 读取文件的所有行并作为一个列表返回(包含所有的行结束
+符);</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wangxianggit.github.io/Python_file_operation_open/" data-id="ckjv261ul005rgcdndf5e1sbv" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Open/" rel="tag">Open</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/windows_ctex_insert_eps_problem/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          windows下使用ctex不能插入eps图片问题
+        
+      </div>
+    </a>
+  
+  
+    <a href="/Python_module_os/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Python模块os</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+
+  <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+  
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">links</h3>
+    <div class="widget">
+      <li><a href="https://wangxianggit.github.io/About%20me/" title="wangxiang's Blog">Contact with me</a></li>
+      <li><a target="_blank" rel="noopener" href="https://github.com/wangxianggit" title="wangxiang's Blog">Github.com</a></li>
+	  <li><a target="_blank" rel="noopener" href="http://www.lzu.edu.cn" title="wangxiang's Blog">Lanzhou University</a></li>
+	  <li><a target="_blank" rel="noopener" href="https://www.pku.edu.cn" title="wangxiang's Blog">Peking University</a></li>
+	  <li><a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/" title="wangxiang's Blog">清华大学开源软件镜像站</a></li>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/">Algorithm</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Altium/">Altium</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Py-Crawler/">Py_Crawler</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/learning/">learning</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithm/" rel="tag">Algorithm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Altium-Designer/" rel="tag">Altium Designer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Apache/" rel="tag">Apache</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BeautifulSoup/" rel="tag">BeautifulSoup</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Centos7/" rel="tag">Centos7</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cython/" rel="tag">Cython</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Electronic/" rel="tag">Electronic</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/English/" rel="tag">English</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Geant4/" rel="tag">Geant4</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hardware/" rel="tag">Hardware</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Image/" rel="tag">Image</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jupyter/" rel="tag">Jupyter</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nuclear-Physics/" rel="tag">Nuclear Physics</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Open/" rel="tag">Open</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Program/" rel="tag">Program</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PyPI/" rel="tag">PyPI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Py-Crawler/" rel="tag">Py_Crawler</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Random/" rel="tag">Random</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Resource/" rel="tag">Resource</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Root/" rel="tag">Root</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Scipy/" rel="tag">Scipy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Shell/" rel="tag">Shell</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Solidwork/" rel="tag">Solidwork</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TTree/" rel="tag">TTree</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tensorflow/" rel="tag">Tensorflow</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Thread/" rel="tag">Thread</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Urllib2/" rel="tag">Urllib2</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Virtual-memory/" rel="tag">Virtual memory</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cmake/" rel="tag">cmake</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cmd/" rel="tag">cmd</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/data-structure/" rel="tag">data structure</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/htop/" rel="tag">htop</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/keras/" rel="tag">keras</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/latex/" rel="tag">latex</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/os/" rel="tag">os</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/qt/" rel="tag">qt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/requests/" rel="tag">requests</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sk-learn/" rel="tag">sk-learn</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh/" rel="tag">ssh</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/statistic/" rel="tag">statistic</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vi/" rel="tag">vi</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/windows/" rel="tag">windows</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Algorithm/" style="font-size: 11.33px;">Algorithm</a> <a href="/tags/Altium-Designer/" style="font-size: 14.67px;">Altium Designer</a> <a href="/tags/Apache/" style="font-size: 11.33px;">Apache</a> <a href="/tags/BeautifulSoup/" style="font-size: 10px;">BeautifulSoup</a> <a href="/tags/C/" style="font-size: 15.33px;">C</a> <a href="/tags/C/" style="font-size: 18.67px;">C++</a> <a href="/tags/Centos7/" style="font-size: 17.33px;">Centos7</a> <a href="/tags/Cython/" style="font-size: 10px;">Cython</a> <a href="/tags/Electronic/" style="font-size: 13.33px;">Electronic</a> <a href="/tags/English/" style="font-size: 12px;">English</a> <a href="/tags/Geant4/" style="font-size: 10.67px;">Geant4</a> <a href="/tags/Hardware/" style="font-size: 10px;">Hardware</a> <a href="/tags/Hexo/" style="font-size: 14px;">Hexo</a> <a href="/tags/Image/" style="font-size: 10px;">Image</a> <a href="/tags/Jupyter/" style="font-size: 10px;">Jupyter</a> <a href="/tags/Linux/" style="font-size: 19.33px;">Linux</a> <a href="/tags/Markdown/" style="font-size: 16px;">Markdown</a> <a href="/tags/Nuclear-Physics/" style="font-size: 11.33px;">Nuclear Physics</a> <a href="/tags/Open/" style="font-size: 10px;">Open</a> <a href="/tags/Program/" style="font-size: 18px;">Program</a> <a href="/tags/PyPI/" style="font-size: 10px;">PyPI</a> <a href="/tags/Py-Crawler/" style="font-size: 10.67px;">Py_Crawler</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/Random/" style="font-size: 10px;">Random</a> <a href="/tags/Resource/" style="font-size: 10.67px;">Resource</a> <a href="/tags/Root/" style="font-size: 10.67px;">Root</a> <a href="/tags/Scipy/" style="font-size: 10px;">Scipy</a> <a href="/tags/Shell/" style="font-size: 16px;">Shell</a> <a href="/tags/Solidwork/" style="font-size: 10.67px;">Solidwork</a> <a href="/tags/TTree/" style="font-size: 10px;">TTree</a> <a href="/tags/Tensorflow/" style="font-size: 15.33px;">Tensorflow</a> <a href="/tags/Thread/" style="font-size: 10px;">Thread</a> <a href="/tags/Urllib2/" style="font-size: 10px;">Urllib2</a> <a href="/tags/Virtual-memory/" style="font-size: 10px;">Virtual memory</a> <a href="/tags/cmake/" style="font-size: 12.67px;">cmake</a> <a href="/tags/cmd/" style="font-size: 10.67px;">cmd</a> <a href="/tags/data-structure/" style="font-size: 10.67px;">data structure</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/htop/" style="font-size: 10px;">htop</a> <a href="/tags/keras/" style="font-size: 10.67px;">keras</a> <a href="/tags/latex/" style="font-size: 14.67px;">latex</a> <a href="/tags/os/" style="font-size: 10px;">os</a> <a href="/tags/qt/" style="font-size: 10px;">qt</a> <a href="/tags/requests/" style="font-size: 10px;">requests</a> <a href="/tags/sk-learn/" style="font-size: 10px;">sk-learn</a> <a href="/tags/ssh/" style="font-size: 12.67px;">ssh</a> <a href="/tags/statistic/" style="font-size: 10px;">statistic</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/windows/" style="font-size: 16.67px;">windows</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/winedt_break/">Winedt注册表破解</a>
+          </li>
+        
+          <li>
+            <a href="/latex_content_dot/">latex生成目录条目加点</a>
+          </li>
+        
+          <li>
+            <a href="/latex_figure_prefix/">latex论文用图修改前缀</a>
+          </li>
+        
+          <li>
+            <a href="/yum_unblock/">linux yum进程占用问题</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+  </script>
+  
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2021 wangxiang<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

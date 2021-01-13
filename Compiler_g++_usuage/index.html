@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>编译器g++使用 | Wangxiang&#39;s blog website</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="编译器g++ g++  是GNU组织开发出的编译器软件集合（GCC）下的一个C++编译器。 g++ 是Unix 和 Linux  系统下标配的 基于命令行的 C++编译器。 C&#x2F;C++代码的编译过程：     g++ 的参数 **–version **显示g++ 的版本 。  –target-help 显示特定平台环境的参数支持。比如嵌入式领域使用的avr-g++会对MCU 支持一些优化参数。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="编译器g++使用">
+<meta property="og:url" content="http://wangxianggit.github.io/Compiler_g++_usuage/index.html">
+<meta property="og:site_name" content="Wangxiang&#39;s blog website">
+<meta property="og:description" content="编译器g++ g++  是GNU组织开发出的编译器软件集合（GCC）下的一个C++编译器。 g++ 是Unix 和 Linux  系统下标配的 基于命令行的 C++编译器。 C&#x2F;C++代码的编译过程：     g++ 的参数 **–version **显示g++ 的版本 。  –target-help 显示特定平台环境的参数支持。比如嵌入式领域使用的avr-g++会对MCU 支持一些优化参数。">
+<meta property="og:locale">
+<meta property="og:image" content="http://wangxianggit.github.io/Compiler_g++_usuage/Compiler_g++_usuage/bianyi.jpg">
+<meta property="article:published_time" content="2019-03-07T07:10:33.000Z">
+<meta property="article:modified_time" content="2019-04-26T13:57:08.529Z">
+<meta property="article:author" content="wangxiang">
+<meta property="article:tag" content="C">
+<meta property="article:tag" content="C++">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://wangxianggit.github.io/Compiler_g++_usuage/Compiler_g++_usuage/bianyi.jpg">
+  
+    <link rel="alternate" href="/atom.xml" title="Wangxiang&#39;s blog website" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Wangxiang&#39;s blog website</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://wangxianggit.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Compiler_g++_usuage" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/Compiler_g++_usuage/" class="article-date">
+  <time datetime="2019-03-07T07:10:33.000Z" itemprop="datePublished">2019-03-07</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/learning/">learning</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      编译器g++使用
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">article content</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BC%96%E8%AF%91%E5%99%A8g"><span class="toc-number">1.</span> <span class="toc-text">编译器g++</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#g-%E7%9A%84%E5%8F%82%E6%95%B0"><span class="toc-number">2.</span> <span class="toc-text">g++ 的参数</span></a></li></ol>
+  </div>
+
+        <h2 id="编译器g"><a href="#编译器g" class="headerlink" title="编译器g++"></a>编译器g++</h2><ul>
+<li>g++  是GNU组织开发出的编译器软件集合（GCC）下的一个C++编译器。</li>
+<li>g++ 是Unix 和 Linux  系统下标配的 基于命令行的 C++编译器。</li>
+<li>C/C++代码的编译过程：<ul>
+<li><img src="Compiler_g++_usuage/bianyi.jpg"></li>
+</ul>
+</li>
+</ul>
+<h2 id="g-的参数"><a href="#g-的参数" class="headerlink" title="g++ 的参数"></a>g++ 的参数</h2><ul>
+<li><p>**–version **显示g++ 的版本 。</p>
+</li>
+<li><p><strong>–target-help</strong> 显示特定平台环境的参数支持。比如嵌入式领域使用的avr-g++会对MCU 支持一些优化参数。</p>
+</li>
+<li><p><strong>-std=&lt;语言标准&gt;</strong> 如：-std=c++11  ，使用C++11标准</p>
+</li>
+<li><p><strong>-ansi</strong> 使用ANSI 标准，禁止GNU 标准特性，如 asm inline typeof 关键字,以及UNIX,vax等预处理宏。</p>
+</li>
+<li><p>~~~<br>-funsigned-char           #将程序中的char解析为unsigned char<br>-fno-signed-char         #将程序中的char解析为非signed char<br>-fsigned-char              #将程序中的char解析为signed char<br>-fno-unsigned-char    #将程序中的char解析为非unsigned char</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="bullet">  *</span> 在编译器中，char类型是 signed char  还是  unsigned char?不太清楚。所以若对范围敏感，应该明确定义unsigned char ，或者是 signed char 。上面4个参数就是指定g++将char解释为什么类型。</span><br><span class="line"></span><br><span class="line"><span class="bullet">*</span> <span class="strong">**优化选项：-O0,-O1,-O2及-O3**</span>，取英文单词Optimize首字母O，即编译器的优化选项的4个级别，-O0表示没有优化,-O1为缺省值，-O3优化级别最高。优化表现在生成的程序的大小和程序的执行速度。</span><br><span class="line"></span><br><span class="line"><span class="bullet">*</span> <span class="strong">**-w**</span> 编译时，不显示任何警告消息。</span><br><span class="line"></span><br><span class="line"><span class="bullet">*</span> <span class="strong">**-Wall**</span> 编译时，显示所有出现的警告消息。</span><br><span class="line"></span><br><span class="line"><span class="bullet">*</span> <span class="strong">**-o  <span class="xml"><span class="tag">&lt;<span class="name">file</span>&gt;</span></span>**</span>  输出编译后的结果到指定的文件file中。</span><br><span class="line"></span><br><span class="line"><span class="bullet">*</span> <span class="strong">**-E**</span> 对源文件进行预处理，预处理后生成.i（ 或者是 .ii）文件。通过此命令可以查看预处理器是如何工作，以理解预处理的工作机制。生成的是文本文件。  </span><br><span class="line"></span><br><span class="line"><span class="bullet">  *</span> <span class="code">~~~</span></span><br><span class="line"><span class="code">    g++ -E -o hello.i hello.cpp           #对hello.cpp进行预处理生成hello.i文件</span></span><br></pre></td></tr></table></figure></li>
+<li><p><strong>-S</strong> 只进行预处理和编译，编译是C++编译器的核心操作，其结果就是将C++代码中转译为汇编代码，生成.s汇编文件。生成的依然是文本文件。</p>
+<ul>
+<li>~~~<br>g++ -S -o hello.s hello.cpp          #生成汇编文件hello.s<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* **<span class="selector-tag">-c</span>** 只进行 预处理， 编译，汇编操作，生成<span class="selector-class">.o</span> (<span class="selector-class">.obj</span>)文件，不进行链接。生成的是二进制文件。</span><br><span class="line"></span><br><span class="line">  * ~~~</span><br><span class="line">    <span class="selector-tag">g</span>++ <span class="selector-tag">-c</span> <span class="selector-tag">-o</span> <span class="selector-tag">hello</span><span class="selector-class">.o</span> <span class="selector-tag">hello</span><span class="selector-class">.cpp</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p><strong>-save-temps</strong> 顾名思义，就是保留编译产生的中间文件，使用这个参数，就没必要将前面的参数 -E  -S  -c  一个一个地使用了。</p>
+</li>
+<li><p><strong>-M , -MD</strong> 输出源文件的#include指令 （ #include<head_file> , #include”head_file” ） 引起的所有包含文件依赖。-M可以查看源文件实质上包含的所有头文件,-MD是将输出的结果保存到一个.d文件中</p>
+</li>
+<li><p><strong>-MM , -MMD</strong> 同上，只不过，他不会考虑 #include<head_file> 指令，而只考虑 #include”head_file” 指令。</p>
+<hr>
+<p>​</p>
+<p>​</p>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wangxianggit.github.io/Compiler_g++_usuage/" data-id="ckjv261ts002ggcdn0rcjetxr" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C++</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/Python_data_type/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Python基本数据类型
+        
+      </div>
+    </a>
+  
+  
+    <a href="/C++_array_cite_and_cited_array/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">C++数组的引用和引用的数组</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+
+  <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+  
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">links</h3>
+    <div class="widget">
+      <li><a href="https://wangxianggit.github.io/About%20me/" title="wangxiang's Blog">Contact with me</a></li>
+      <li><a target="_blank" rel="noopener" href="https://github.com/wangxianggit" title="wangxiang's Blog">Github.com</a></li>
+	  <li><a target="_blank" rel="noopener" href="http://www.lzu.edu.cn" title="wangxiang's Blog">Lanzhou University</a></li>
+	  <li><a target="_blank" rel="noopener" href="https://www.pku.edu.cn" title="wangxiang's Blog">Peking University</a></li>
+	  <li><a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/" title="wangxiang's Blog">清华大学开源软件镜像站</a></li>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/">Algorithm</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Altium/">Altium</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Py-Crawler/">Py_Crawler</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/learning/">learning</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithm/" rel="tag">Algorithm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Altium-Designer/" rel="tag">Altium Designer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Apache/" rel="tag">Apache</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BeautifulSoup/" rel="tag">BeautifulSoup</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Centos7/" rel="tag">Centos7</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cython/" rel="tag">Cython</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Electronic/" rel="tag">Electronic</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/English/" rel="tag">English</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Geant4/" rel="tag">Geant4</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hardware/" rel="tag">Hardware</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Image/" rel="tag">Image</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jupyter/" rel="tag">Jupyter</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nuclear-Physics/" rel="tag">Nuclear Physics</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Open/" rel="tag">Open</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Program/" rel="tag">Program</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PyPI/" rel="tag">PyPI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Py-Crawler/" rel="tag">Py_Crawler</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Random/" rel="tag">Random</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Resource/" rel="tag">Resource</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Root/" rel="tag">Root</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Scipy/" rel="tag">Scipy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Shell/" rel="tag">Shell</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Solidwork/" rel="tag">Solidwork</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TTree/" rel="tag">TTree</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tensorflow/" rel="tag">Tensorflow</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Thread/" rel="tag">Thread</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Urllib2/" rel="tag">Urllib2</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Virtual-memory/" rel="tag">Virtual memory</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cmake/" rel="tag">cmake</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cmd/" rel="tag">cmd</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/data-structure/" rel="tag">data structure</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/htop/" rel="tag">htop</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/keras/" rel="tag">keras</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/latex/" rel="tag">latex</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/os/" rel="tag">os</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/qt/" rel="tag">qt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/requests/" rel="tag">requests</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sk-learn/" rel="tag">sk-learn</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh/" rel="tag">ssh</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/statistic/" rel="tag">statistic</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vi/" rel="tag">vi</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/windows/" rel="tag">windows</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Algorithm/" style="font-size: 11.33px;">Algorithm</a> <a href="/tags/Altium-Designer/" style="font-size: 14.67px;">Altium Designer</a> <a href="/tags/Apache/" style="font-size: 11.33px;">Apache</a> <a href="/tags/BeautifulSoup/" style="font-size: 10px;">BeautifulSoup</a> <a href="/tags/C/" style="font-size: 15.33px;">C</a> <a href="/tags/C/" style="font-size: 18.67px;">C++</a> <a href="/tags/Centos7/" style="font-size: 17.33px;">Centos7</a> <a href="/tags/Cython/" style="font-size: 10px;">Cython</a> <a href="/tags/Electronic/" style="font-size: 13.33px;">Electronic</a> <a href="/tags/English/" style="font-size: 12px;">English</a> <a href="/tags/Geant4/" style="font-size: 10.67px;">Geant4</a> <a href="/tags/Hardware/" style="font-size: 10px;">Hardware</a> <a href="/tags/Hexo/" style="font-size: 14px;">Hexo</a> <a href="/tags/Image/" style="font-size: 10px;">Image</a> <a href="/tags/Jupyter/" style="font-size: 10px;">Jupyter</a> <a href="/tags/Linux/" style="font-size: 19.33px;">Linux</a> <a href="/tags/Markdown/" style="font-size: 16px;">Markdown</a> <a href="/tags/Nuclear-Physics/" style="font-size: 11.33px;">Nuclear Physics</a> <a href="/tags/Open/" style="font-size: 10px;">Open</a> <a href="/tags/Program/" style="font-size: 18px;">Program</a> <a href="/tags/PyPI/" style="font-size: 10px;">PyPI</a> <a href="/tags/Py-Crawler/" style="font-size: 10.67px;">Py_Crawler</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/Random/" style="font-size: 10px;">Random</a> <a href="/tags/Resource/" style="font-size: 10.67px;">Resource</a> <a href="/tags/Root/" style="font-size: 10.67px;">Root</a> <a href="/tags/Scipy/" style="font-size: 10px;">Scipy</a> <a href="/tags/Shell/" style="font-size: 16px;">Shell</a> <a href="/tags/Solidwork/" style="font-size: 10.67px;">Solidwork</a> <a href="/tags/TTree/" style="font-size: 10px;">TTree</a> <a href="/tags/Tensorflow/" style="font-size: 15.33px;">Tensorflow</a> <a href="/tags/Thread/" style="font-size: 10px;">Thread</a> <a href="/tags/Urllib2/" style="font-size: 10px;">Urllib2</a> <a href="/tags/Virtual-memory/" style="font-size: 10px;">Virtual memory</a> <a href="/tags/cmake/" style="font-size: 12.67px;">cmake</a> <a href="/tags/cmd/" style="font-size: 10.67px;">cmd</a> <a href="/tags/data-structure/" style="font-size: 10.67px;">data structure</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/htop/" style="font-size: 10px;">htop</a> <a href="/tags/keras/" style="font-size: 10.67px;">keras</a> <a href="/tags/latex/" style="font-size: 14.67px;">latex</a> <a href="/tags/os/" style="font-size: 10px;">os</a> <a href="/tags/qt/" style="font-size: 10px;">qt</a> <a href="/tags/requests/" style="font-size: 10px;">requests</a> <a href="/tags/sk-learn/" style="font-size: 10px;">sk-learn</a> <a href="/tags/ssh/" style="font-size: 12.67px;">ssh</a> <a href="/tags/statistic/" style="font-size: 10px;">statistic</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/windows/" style="font-size: 16.67px;">windows</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/winedt_break/">Winedt注册表破解</a>
+          </li>
+        
+          <li>
+            <a href="/latex_content_dot/">latex生成目录条目加点</a>
+          </li>
+        
+          <li>
+            <a href="/latex_figure_prefix/">latex论文用图修改前缀</a>
+          </li>
+        
+          <li>
+            <a href="/yum_unblock/">linux yum进程占用问题</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+  </script>
+  
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2021 wangxiang<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
