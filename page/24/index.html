@@ -67,73 +67,6 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-Altium_designer_ways_copper_deposition" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/Altium_designer_ways_copper_deposition/" class="article-date">
-  <time datetime="2019-03-04T12:35:11.000Z" itemprop="datePublished">2019-03-04</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Altium/">Altium</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/Altium_designer_ways_copper_deposition/">Altium_designer中三种不同覆铜方式</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-
-        <h2 id="Altium-不同覆铜方式"><a href="#Altium-不同覆铜方式" class="headerlink" title="Altium 不同覆铜方式"></a>Altium 不同覆铜方式</h2><ul>
-<li>三种覆铜方式：Fill,Polygon pour和Solid region，三种不同的覆铜方式分别完成不同的功能。</li>
-<li>Fill即在一个区域内直接用铜皮覆盖，且不区分是否存在焊盘或过孔。<ul>
-<li>因此在Fill填充的区域如果存在网络，线路或过孔等都将连接在一起，不正确的使用容易造成短路。</li>
-<li>Fill填充的区域面积一般比较小，同时Fill的区域只能是矩形不可随意绘制图形。</li>
-<li>Fill在布线前完成。</li>
-</ul>
-</li>
-<li>Polygon pour即铺铜也称为灌铜，作用和Fill相近但有以下区分<ul>
-<li>灌铜可以主动区分过孔和网络，如果过孔与焊点不属于同一个网络，灌铜将根据设置好的规则将它们分开并保持安全距离。</li>
-<li>灌铜的目的是提高电路的抗干扰能力、减小辐射干扰、高频PCB电路板常常选用。</li>
-<li>灌铜功能可以自动删除死铜，在铺铜时，点击Tools-Preferences，在PCB Editor 栏的Interactive Routing 处选Push Obstacle （遇到不同网络的走线时推挤其它的走线，Ignore Obstacle为穿过）模式并选中Automatically Remove Loops（自动删除多余的走线）。</li>
-</ul>
-</li>
-<li>Solid region即在在覆铜区域内整片覆盖成一个整体铜膜。<ul>
-<li>覆铜区域内不允许存在其它网络的焊盘 过孔 铜膜走线，否则会造成短路。</li>
-<li>实心覆铜可以绘制任意形状，也可以由其它图形转换而来，为了能绘出任意图形的实心覆铜，可以先在PCB板的顶部丝印层top overly，用划线工具画出任意形状的图形，随后框选它，然后点击菜单tools—-convert—-create region from selected primitives—-创建实心覆铜区域。</li>
-<li>实心覆铜常用于创建任意形状的焊盘、铜膜走线、插接件、连接件、在制作PCB封装时经常使用。</li>
-</ul>
-</li>
-</ul>
-<hr>
-<p>2019/03/04</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/Altium_designer_ways_copper_deposition/" data-id="ckjv2aw3v000zrsdn0auv6fpg" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Altium-Designer/" rel="tag">Altium Designer</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Electronic/" rel="tag">Electronic</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
     <article id="post-Altium_design_resize" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/Altium_design_resize/" class="article-date">
@@ -376,6 +309,90 @@
 
 
   
+    <article id="post-Python_statement_try_except" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/Python_statement_try_except/" class="article-date">
+  <time datetime="2019-02-26T14:51:57.000Z" itemprop="datePublished">2019-02-26</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Python/">Python</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/Python_statement_try_except/">Python异常处理语句try和except</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+
+        <h2 id="try-except和finally语句"><a href="#try-except和finally语句" class="headerlink" title="try except和finally语句"></a>try except和finally语句</h2><ul>
+<li>​ Python中，try/except语句用于处理程序执行过程的异常情况，如语法、数据除零等错误。</li>
+<li>try/finally语句用于无论是否发生异常情况，都需要执行的清理工作，如在通信过程中，无论通信是否发生错误，都需要在通信完成或者发生错误时关闭网络连接。</li>
+<li>尽管try/except和try/finally的作用不同，但是在编程实践中通常可以把它们组合在一起使try/except/else/finally的形式来实现稳定性和灵活性更好的设计。</li>
+<li>默认情况下，在程序段的执行过程中，如果没有提供try/except的处理，脚本文件执行过程中所产生的异常消息会自动发送给程序调用端，如python shell，而python shell对异常消息的默认处理则是终止程序的执行并打印具体的出错信息。</li>
+</ul>
+<h2 id="语句格式"><a href="#语句格式" class="headerlink" title="语句格式"></a>语句格式</h2><ul>
+<li><p>python中try/except/else/finally语句的完整格式如下：</p>
+<ul>
+<li><pre><code>try:
+     Normal execution block
+except A:
+     Exception A handle
+except B:
+     Exception B handle
+except:
+     Other exception handle
+else:
+     if no exception,get here
+finally:
+     print(&quot;finally&quot;)   </code></pre>
+</li>
+</ul>
+</li>
+<li><p>语句错误处理</p>
+<ul>
+<li>正常执行的程序在try下面的Normal execution block执行块中执行，在执行过程中如果发生了异常，则<strong>中断当前在Normal execution block中的执行</strong>，跳转到对应的异常处理块中开始执行；</li>
+<li>python<strong>从第一个except X处开始查找</strong>，如果找到了对应的exception类型则进入其提供的exception handle中进行处理，如果没有找到则直接进入except块处进行处理。except块是可选项，如果没有提供，该exception将会被提交给python进行默认处理，处理方式则是<strong>终止应用程序并打印提示信息</strong>；</li>
+<li>如果在Normal execution block执行块中执行过程中没有发生任何异常，则在执行完Normal execution block后会进入else执行块中（如果存在的话）执行。</li>
+<li>无论是否发生了异常，只要提供了finally语句，以上try/except/else/finally代码块执行的最后一步总是执行finally所对应的代码块。</li>
+</ul>
+</li>
+<li><p>在上面所示的完整语句中try/except/else/finally所出现的顺序必须是try–&gt;except X–&gt;except–&gt;else–&gt;finally，即所有的<strong>except必须在else和finally之前</strong>，<strong>else（如果有的话）必须在finally之前</strong>，而<strong>except X必须在except之前</strong>。否则会出现语法错误。</p>
+</li>
+<li><p>对于上面所展示的try/except完整格式而言，else和finally都是可选的，而不是必须的，但是如果存在的话e<strong>lse必须在finally之前</strong>，<strong>finally</strong>（如果存在的话）<strong>必须在整个语句的最后位置</strong>。</p>
+</li>
+<li><p>在上面的完整语句中，else语句的存在必须以except X或者except语句为前提，<strong>如果在没有except语句的try block中使用else语句会引发语法错误</strong>。也就是说<strong>else不能与try/finally配合使用</strong>。</p>
+</li>
+</ul>
+<hr>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wangxianggit.github.io/Python_statement_try_except/" data-id="ckjv2aw5o008ersdn8ar813kr" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Program/" rel="tag">Program</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
 
 
   <nav id="page-nav">
@@ -437,7 +454,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li></ul>
     </div>
   </div>
 
@@ -448,10 +465,6 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
-        
-          <li>
-            <a href="/hello-world/">Hello World</a>
-          </li>
         
           <li>
             <a href="/winedt_break/">Winedt注册表破解</a>
@@ -467,6 +480,10 @@
         
           <li>
             <a href="/yum_unblock/">linux yum进程占用问题</a>
+          </li>
+        
+          <li>
+            <a href="/linux_googlechrome/">linux安装谷歌浏览器</a>
           </li>
         
       </ul>

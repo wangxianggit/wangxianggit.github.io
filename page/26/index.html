@@ -67,132 +67,6 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-Markdown_grammer" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/Markdown_grammer/" class="article-date">
-  <time datetime="2019-02-23T10:31:37.000Z" itemprop="datePublished">2019-02-23</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/learning/">learning</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/Markdown_grammer/">Markdown grammar</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-
-        <h2 id="Markdown-grammar"><a href="#Markdown-grammar" class="headerlink" title="Markdown grammar"></a>Markdown grammar</h2><h3 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h3><ul>
-<li>类Setext：任何数量的等号和减号（+ -）</li>
-<li>类atx形式：1到6个#号表示对应1到6阶标题，也可以添加作为对称效果，后面需要一个空格</li>
-</ul>
-<h3 id="区块引用"><a href="#区块引用" class="headerlink" title="区块引用"></a>区块引用</h3><ul>
-<li>标记区块引用类似email中用&gt;的引用方式。</li>
-<li>区块引用的嵌套：根据层次加上不同数量的&gt;:</li>
-</ul>
-<blockquote>
-<p>This is the first level of quoting</p>
-<blockquote>
-<p>This is the nested blockquote</p>
-</blockquote>
-</blockquote>
-<ul>
-<li>区块引用内可以使用其他的Markdown语法，包括标题、列表、代码区块等</li>
-</ul>
-<blockquote>
-<h5 id="This-is-the-first-block"><a href="#This-is-the-first-block" class="headerlink" title="This is the first block"></a>This is the first block</h5><ol>
-<li><p>This is the second block</p>
-</li>
-<li><p>This is the third block</p>
-<p>return shell_exec(“echo $input |  $markdown_script”)</p>
-</li>
-</ol>
-</blockquote>
-<h3 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h3><ul>
-<li>无序列表使用星号、加号或减号作为列表标记。</li>
-<li>有序列表受用数字接着一个英文句点。</li>
-</ul>
-<h3 id="代码区块"><a href="#代码区块" class="headerlink" title="代码区块"></a>代码区块</h3><ul>
-<li><p>简单缩进4个空格或是一个制表符</p>
-</li>
-<li><p>Here is an example of AppleScript:</p>
-<p>tell application “Foo”</p>
-<p>​    beep</p>
-<p>end tell</p>
-</li>
-</ul>
-<h3 id="分隔线"><a href="#分隔线" class="headerlink" title="分隔线"></a>分隔线</h3><ul>
-<li>在一行中用三个以上的星号、减号、底线来建立一个分隔线，行内可以插入空格。</li>
-</ul>
-<h3 id="区段元素"><a href="#区段元素" class="headerlink" title="区段元素"></a>区段元素</h3><ul>
-<li>行内式链接在方括号后面紧接着圆括号并插入网址链接：</li>
-</ul>
-<blockquote>
-<p>This is [an example](<a target="_blank" rel="noopener" href="http://example.com/&quot;title&quot;">http://example.com/&quot;title&quot;</a>) inline link</p>
-</blockquote>
-<ul>
-<li>参考式的链接在链接文字的括号后面再加上另一个方括号，而在第二个方括号里面要填入用以辨识链接的标记：</li>
-</ul>
-<blockquote>
-<p>This is [an example][id] reference-style link. </p>
-<p>在文字的任意处把标记的连接内容定义出来：[id]:<a target="_blank" rel="noopener" href="http://example.com/&quot;title&quot;">http://example.com/&quot;title&quot;</a></p>
-<p>链接标签可以有字母、数字、空白和标点符号但是并不区分大小写</p>
-</blockquote>
-<ul>
-<li>隐式链接标记中链接标记等同于链接文字，只要在链接文字后面加上一个空的方括号：</li>
-</ul>
-<blockquote>
-<p>[Google][] 定义连接内容：[Google]:<a target="_blank" rel="noopener" href="http://google.com/">http://google.com</a></p>
-<p>I get 10 times more traffic from [Google]<a target="_blank" rel="noopener" href="http://google.com/" title="Google">1</a> than from [Yahoo]<a target="_blank" rel="noopener" href="http://search.yahoo.com/" title="Yahoo Search">2</a> or [MSN]<a target="_blank" rel="noopener" href="http://search.msn.com/" title="MSN Search">3</a>.</p>
-</blockquote>
-<h3 id="强调"><a href="#强调" class="headerlink" title="强调"></a>强调</h3><ul>
-<li>Markdown使用星号和底线作为标记强调字词的符号，使用一个或两个符号包围的字词表示不用程度的强调。</li>
-</ul>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><ul>
-<li>标记小段行内代码用反引号包围起来 <code>Use the printf() function </code></li>
-<li>代码区段内含有反引号，可以用多个反引号来开启和结束代码区段。</li>
-<li>以三个反引号开头得到一个代码区段。</li>
-</ul>
-<h3 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h3><ul>
-<li><p>行内式的图片语法为</p>
-<ul>
-<li>~~~<br>![Alt text](/path to/img.jpg)<figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 参考式的图片语法为</span><br><span class="line"></span><br><span class="line">  * ~~~</span><br><span class="line">    ![Alt <span class="type">text</span>]<span class="built_in">[id</span>] <span class="built_in">[id</span>]:<span class="built_in"> path</span> <span class="keyword">to</span>/img.jpg <span class="string">&quot;optional title&quot;</span></span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-<li><p>目前，Markdown无法指定图片的高度和宽度，如果需要可以使用普通的&lt;img&gt;标签</p>
-</li>
-</ul>
-<hr>
-<p>2019/2/23</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/Markdown_grammer/" data-id="ckjv2aw4v004trsdng0hza1wc" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
     <article id="post-Python_library_requests" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/Python_library_requests/" class="article-date">
@@ -445,6 +319,68 @@ Py1.py __name__=Py1</code></pre>
 
 
   
+    <article id="post-Hexo_blog_add_links" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/Hexo_blog_add_links/" class="article-date">
+  <time datetime="2019-02-17T08:26:57.000Z" itemprop="datePublished">2019-02-17</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/learning/">learning</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/Hexo_blog_add_links/">Hexo侧边栏添加外链</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+
+        <ul>
+<li><p>以landscape主题为例，在侧边栏添加外部链接。 </p>
+</li>
+<li><p>在/layout/_widget/目录下复制archive.ejs并重新命名为links.ejs，修改文件内容为：</p>
+<ul>
+<li>~~~<br>&lt;% if (site.posts.length){ %&gt;  <div class="widget-wrap">
+    <h3 class="widget-title"><%= __('links') %></h3>
+    <div class="widget">
+      <li><a href="https://wangxianggit.github.io/About%20me/" title="wangxiang's Blog">About Author</a></li>
+    </div>
+  </div>
+<% } %>
+<figure class="highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  * 其中href是需要添加的链接url，title后面是显示在侧边栏的名称。</span><br><span class="line"></span><br><span class="line">* 然后修改主题的配置文件_config.yml</span><br><span class="line"></span><br><span class="line">  * ~~~</span><br><span class="line">    # Sidebar</span><br><span class="line">    sidebar: right</span><br><span class="line">    widgets:</span><br><span class="line">    -<span class="ruby"> links /<span class="regexp">/新添加的那个外链</span></span></span><br><span class="line"><span class="ruby">    - category</span></span><br><span class="line"><span class="ruby">    - tag</span></span><br><span class="line"><span class="ruby">    - tagcloud</span></span><br><span class="line"><span class="ruby">    - archive</span></span><br><span class="line"><span class="ruby">    - recent_posts</span></span><br></pre></td></tr></table></figure></li>
+<li>此处新添的外链名称要和links.ejs名称相同</li>
+</ul>
+</li>
+</ul>
+<hr>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wangxianggit.github.io/Hexo_blog_add_links/" data-id="ckjv2aw4k003rrsdn65ry0lnw" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
 
 
   <nav id="page-nav">
@@ -506,7 +442,7 @@ Py1.py __name__=Py1</code></pre>
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li></ul>
     </div>
   </div>
 
@@ -517,10 +453,6 @@ Py1.py __name__=Py1</code></pre>
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
-        
-          <li>
-            <a href="/hello-world/">Hello World</a>
-          </li>
         
           <li>
             <a href="/winedt_break/">Winedt注册表破解</a>
@@ -536,6 +468,10 @@ Py1.py __name__=Py1</code></pre>
         
           <li>
             <a href="/yum_unblock/">linux yum进程占用问题</a>
+          </li>
+        
+          <li>
+            <a href="/linux_googlechrome/">linux安装谷歌浏览器</a>
           </li>
         
       </ul>
