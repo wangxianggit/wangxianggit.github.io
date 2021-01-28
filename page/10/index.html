@@ -67,6 +67,85 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-np_array_asarray" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/np_array_asarray/" class="article-date">
+  <time datetime="2019-09-22T10:21:07.000Z" itemprop="datePublished">2019-09-22</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Python/">Python</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/np_array_asarray/">np.array&amp;np.asarray</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+
+        <h3 id="函数np-array和np-asarray"><a href="#函数np-array和np-asarray" class="headerlink" title="函数np.array和np.asarray"></a>函数np.array和np.asarray</h3><ul>
+<li><p>两个函数都可以把结构数据转成ndarray类型</p>
+</li>
+<li><p>区别：当数据源是ndarray时，array仍会copy出一个副本，占用新的内存，asarray不会。</p>
+</li>
+<li><p>示例代码：</p>
+<ul>
+<li><pre><code>import numpy as np  
+
+arr1=np.ones((3,3))  
+arr2=np.array(arr1)  
+arr3=np.asarray(arr1)  
+arr1[1]=2  
+print (&#39;arr1:\n&#39;,arr1  )
+print (&#39;arr2:\n&#39;,arr2  )
+print (&#39;arr3:\n&#39;,arr3  )
+out:
+arr1:
+ [[1. 1. 1.]
+ [2. 2. 2.]
+ [1. 1. 1.]]
+arr2:
+ [[1. 1. 1.]
+ [1. 1. 1.]
+ [1. 1. 1.]]
+arr3:
+ [[1. 1. 1.]
+ [2. 2. 2.]
+ [1. 1. 1.]]
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wangxianggit.github.io/np_array_asarray/" data-id="ckjv3w9e000dz6sdn4q3r66rb" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-array_reshape" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/array_reshape/" class="article-date">
@@ -299,84 +378,11 @@ sess.run(init)
 
 
   
-    <article id="post-tf_basic" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/tf_basic/" class="article-date">
-  <time datetime="2019-09-17T02:22:15.000Z" itemprop="datePublished">2019-09-17</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Python/">Python</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/tf_basic/">tf使用方法</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-
-        <h2 id="tf基本用法"><a href="#tf基本用法" class="headerlink" title="tf基本用法"></a>tf基本用法</h2><ul>
-<li>TensorFlow用数据流图(data flow graphs)进行数值计算，数据流图描述有向图中的数值计算过程。</li>
-<li>有向图用节点代表数学运算，边表示节点之间的联系，负责传输多维数据(Tensors)。</li>
-<li>节点可以被分配到多个计算设备上，执行异步和并行的操作；只有等到之前的节点的计算状态完成后，当前节点才能执行操作。</li>
-</ul>
-<h3 id="tf计算步骤"><a href="#tf计算步骤" class="headerlink" title="tf计算步骤"></a>tf计算步骤</h3><ul>
-<li><p>将计算流程表示成图； </p>
-</li>
-<li><p>通过Sessions来执行图计算； </p>
-</li>
-<li><p>将数据表示为tensors； </p>
-</li>
-<li><p>使用Variables来保持状态信息； </p>
-</li>
-<li><p>分别使用feeds和fetches来填充数据和抓取任意的操作结果。</p>
-</li>
-<li><p>在tf中</p>
-<ul>
-<li><pre><code>使用图(graph)来表示任务
-被称之为会话(Session)的上下文(context)中执行图
-使用tensor表示数据
-通过变量(Variable)维护状态
-使用feed和fetch可以为任意操作(arbitrary operation)赋值或者从其中获取数据
-<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 例子：生成三维数据，然后用一个平面拟合它：</span><br><span class="line"></span><br><span class="line">  * ~~~</span><br><span class="line">    import tensorflow as tf</span><br><span class="line">    import numpy as np</span><br><span class="line"></span><br><span class="line">    # 用 NumPy 随机生成 <span class="number">100</span> 个数据</span><br><span class="line">    x_data = np.float32(np.<span class="built_in">random</span>.rand(<span class="number">2</span>, <span class="number">100</span>)) #np的固定变量，在动态图执行时不变</span><br><span class="line">    y_data = np.dot([<span class="number">0.100</span>, <span class="number">0.200</span>], x_data) + <span class="number">0.300</span># 构造一个线性模型</span><br><span class="line">    b = tf.Variable(tf.zeros([<span class="number">1</span>]))</span><br><span class="line">    W = tf.Variable(tf.random_uniform([<span class="number">1</span>, <span class="number">2</span>], <span class="number">-1.0</span>, <span class="number">1.0</span>))</span><br><span class="line">    y = tf.matmul(W, x_data) + b</span><br><span class="line"></span><br><span class="line">    # 最小化方差</span><br><span class="line">    loss = tf.reduce_mean(tf.square(y - y_data))</span><br><span class="line">    optimizer = tf.train.GradientDescentOptimizer(<span class="number">0.5</span>)</span><br><span class="line">    train = optimizer.minimize(loss)</span><br><span class="line"></span><br><span class="line">    # 初始化变量</span><br><span class="line">    init = tf.global_variables_initializer()</span><br><span class="line">    #官网是tf.initialize_all_variables() 该函数将不再使用，在 <span class="number">2017</span>年#<span class="number">3</span>月<span class="number">2</span>号以后；用 tf.global_variables_initializer() 替代 #tf.initialize_all_variables()</span><br><span class="line">    # 启动图 (graph)</span><br><span class="line">    sess = tf.Session()</span><br><span class="line">    sess.run(init)</span><br><span class="line"></span><br><span class="line">    # 拟合平面</span><br><span class="line">    <span class="keyword">for</span> step <span class="keyword">in</span> xrange(<span class="number">0</span>, <span class="number">201</span>):</span><br><span class="line">        sess.run(train)</span><br><span class="line">        <span class="keyword">if</span> step % <span class="number">20</span> == <span class="number">0</span>:        </span><br><span class="line">        	<span class="built_in">print</span>(step, sess.run(W), sess.run(b))</span><br><span class="line">        </span><br><span class="line">    # 输出结果为：</span><br><span class="line">    <span class="number">0</span> <span class="string">[[-0.06302287  0.8480452 ]]</span> [<span class="number">0.02871008</span>]</span><br><span class="line">    <span class="number">20</span> <span class="string">[[0.11223048 0.32942632]]</span> [<span class="number">0.22313249</span>]</span><br><span class="line">    <span class="number">40</span> <span class="string">[[0.11314692 0.22914961]]</span> [<span class="number">0.2776536</span>]</span><br><span class="line">    <span class="number">60</span> <span class="string">[[0.10542101 0.2073079 ]]</span> [<span class="number">0.29336828</span>]</span><br><span class="line">    <span class="number">80</span> <span class="string">[[0.1018621  0.20198399]]</span> [<span class="number">0.2980105</span>]</span><br><span class="line">    <span class="number">100</span> <span class="string">[[0.10059794 0.20056652]]</span> [<span class="number">0.29939982</span>]</span><br><span class="line">    <span class="number">120</span> <span class="string">[[0.10018642 0.20016651]]</span> [<span class="number">0.29981843</span>]</span><br><span class="line">    <span class="number">140</span> <span class="string">[[0.10005732 0.20004971]]</span> [<span class="number">0.299945</span>]</span><br><span class="line">    <span class="number">160</span> <span class="string">[[0.1000175  0.20001495]]</span> [<span class="number">0.29998332</span>]</span><br><span class="line">    <span class="number">180</span> <span class="string">[[0.10000534 0.2000045 ]]</span> [<span class="number">0.29999495</span>]</span><br><span class="line">    <span class="number">200</span> <span class="string">[[0.10000162 0.20000136]]</span> [<span class="number">0.29999846</span>]</span><br></pre></td></tr></table></figure></code></pre>
-</li>
-</ul>
-</li>
-</ul>
-<hr>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/tf_basic/" data-id="ckjv3w9er00h66sdnd9ngeyow" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Tensorflow/" rel="tag">Tensorflow</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/page/9/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/">11</a><a class="page-number" href="/page/12/">12</a><span class="space">&hellip;</span><a class="page-number" href="/page/41/">41</a><a class="extend next" rel="next" href="/page/11/">Next &amp;raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/9/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/">11</a><a class="page-number" href="/page/12/">12</a><span class="space">&hellip;</span><a class="page-number" href="/page/42/">42</a><a class="extend next" rel="next" href="/page/11/">Next &amp;raquo;</a>
   </nav>
 
 </section>
@@ -424,7 +430,7 @@ sess.run(init)
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Algorithm/" style="font-size: 11.33px;">Algorithm</a> <a href="/tags/Altium-Designer/" style="font-size: 14.67px;">Altium Designer</a> <a href="/tags/Apache/" style="font-size: 11.33px;">Apache</a> <a href="/tags/BeautifulSoup/" style="font-size: 10px;">BeautifulSoup</a> <a href="/tags/C/" style="font-size: 15.33px;">C</a> <a href="/tags/C/" style="font-size: 18.67px;">C++</a> <a href="/tags/Centos7/" style="font-size: 17.33px;">Centos7</a> <a href="/tags/Cython/" style="font-size: 10px;">Cython</a> <a href="/tags/Electronic/" style="font-size: 13.33px;">Electronic</a> <a href="/tags/English/" style="font-size: 12px;">English</a> <a href="/tags/Geant4/" style="font-size: 10.67px;">Geant4</a> <a href="/tags/Hardware/" style="font-size: 10px;">Hardware</a> <a href="/tags/Hexo/" style="font-size: 14px;">Hexo</a> <a href="/tags/Image/" style="font-size: 12px;">Image</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Jupyter/" style="font-size: 10px;">Jupyter</a> <a href="/tags/Linux/" style="font-size: 19.33px;">Linux</a> <a href="/tags/Markdown/" style="font-size: 16px;">Markdown</a> <a href="/tags/Mongodb/" style="font-size: 10px;">Mongodb</a> <a href="/tags/Nuclear-Physics/" style="font-size: 11.33px;">Nuclear Physics</a> <a href="/tags/Open/" style="font-size: 10px;">Open</a> <a href="/tags/Opencv/" style="font-size: 10.67px;">Opencv</a> <a href="/tags/Program/" style="font-size: 18px;">Program</a> <a href="/tags/PyPI/" style="font-size: 10px;">PyPI</a> <a href="/tags/Py-Crawler/" style="font-size: 10.67px;">Py_Crawler</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/Random/" style="font-size: 10px;">Random</a> <a href="/tags/Resource/" style="font-size: 10.67px;">Resource</a> <a href="/tags/Root/" style="font-size: 10.67px;">Root</a> <a href="/tags/Scipy/" style="font-size: 10px;">Scipy</a> <a href="/tags/Shell/" style="font-size: 16px;">Shell</a> <a href="/tags/Solidwork/" style="font-size: 10.67px;">Solidwork</a> <a href="/tags/TTree/" style="font-size: 10px;">TTree</a> <a href="/tags/Tensorflow/" style="font-size: 15.33px;">Tensorflow</a> <a href="/tags/Thread/" style="font-size: 10px;">Thread</a> <a href="/tags/Urllib2/" style="font-size: 10px;">Urllib2</a> <a href="/tags/Virtual-memory/" style="font-size: 10px;">Virtual memory</a> <a href="/tags/cmake/" style="font-size: 12.67px;">cmake</a> <a href="/tags/cmd/" style="font-size: 10.67px;">cmd</a> <a href="/tags/data-structure/" style="font-size: 10.67px;">data structure</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/hexo/" style="font-size: 11.33px;">hexo</a> <a href="/tags/htop/" style="font-size: 10px;">htop</a> <a href="/tags/keras/" style="font-size: 10.67px;">keras</a> <a href="/tags/latex/" style="font-size: 14.67px;">latex</a> <a href="/tags/os/" style="font-size: 10px;">os</a> <a href="/tags/qt/" style="font-size: 10px;">qt</a> <a href="/tags/requests/" style="font-size: 10px;">requests</a> <a href="/tags/sk-learn/" style="font-size: 10px;">sk-learn</a> <a href="/tags/ssh/" style="font-size: 12.67px;">ssh</a> <a href="/tags/statistic/" style="font-size: 10px;">statistic</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/windows/" style="font-size: 16.67px;">windows</a> <a href="/tags/yolo%EF%BC%8CC/" style="font-size: 10px;">yolo，C</a>
+      <a href="/tags/Algorithm/" style="font-size: 11.33px;">Algorithm</a> <a href="/tags/Altium-Designer/" style="font-size: 14.67px;">Altium Designer</a> <a href="/tags/Apache/" style="font-size: 11.33px;">Apache</a> <a href="/tags/BeautifulSoup/" style="font-size: 10px;">BeautifulSoup</a> <a href="/tags/C/" style="font-size: 15.33px;">C</a> <a href="/tags/C/" style="font-size: 18.67px;">C++</a> <a href="/tags/Centos7/" style="font-size: 17.33px;">Centos7</a> <a href="/tags/Cython/" style="font-size: 10px;">Cython</a> <a href="/tags/Electronic/" style="font-size: 13.33px;">Electronic</a> <a href="/tags/English/" style="font-size: 12px;">English</a> <a href="/tags/Geant4/" style="font-size: 10.67px;">Geant4</a> <a href="/tags/Hardware/" style="font-size: 10px;">Hardware</a> <a href="/tags/Hexo/" style="font-size: 14px;">Hexo</a> <a href="/tags/Image/" style="font-size: 12px;">Image</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Jupyter/" style="font-size: 10px;">Jupyter</a> <a href="/tags/Linux/" style="font-size: 19.33px;">Linux</a> <a href="/tags/Markdown/" style="font-size: 16px;">Markdown</a> <a href="/tags/Mongodb/" style="font-size: 10px;">Mongodb</a> <a href="/tags/Nuclear-Physics/" style="font-size: 11.33px;">Nuclear Physics</a> <a href="/tags/Open/" style="font-size: 10px;">Open</a> <a href="/tags/Opencv/" style="font-size: 11.33px;">Opencv</a> <a href="/tags/Program/" style="font-size: 18px;">Program</a> <a href="/tags/PyPI/" style="font-size: 10px;">PyPI</a> <a href="/tags/Py-Crawler/" style="font-size: 10.67px;">Py_Crawler</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/Random/" style="font-size: 10px;">Random</a> <a href="/tags/Resource/" style="font-size: 10.67px;">Resource</a> <a href="/tags/Root/" style="font-size: 10.67px;">Root</a> <a href="/tags/Scipy/" style="font-size: 10px;">Scipy</a> <a href="/tags/Shell/" style="font-size: 16px;">Shell</a> <a href="/tags/Solidwork/" style="font-size: 10.67px;">Solidwork</a> <a href="/tags/TTree/" style="font-size: 10px;">TTree</a> <a href="/tags/Tensorflow/" style="font-size: 15.33px;">Tensorflow</a> <a href="/tags/Thread/" style="font-size: 10px;">Thread</a> <a href="/tags/Urllib2/" style="font-size: 10px;">Urllib2</a> <a href="/tags/Virtual-memory/" style="font-size: 10px;">Virtual memory</a> <a href="/tags/cmake/" style="font-size: 12.67px;">cmake</a> <a href="/tags/cmd/" style="font-size: 10.67px;">cmd</a> <a href="/tags/data-structure/" style="font-size: 10.67px;">data structure</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/hexo/" style="font-size: 11.33px;">hexo</a> <a href="/tags/htop/" style="font-size: 10px;">htop</a> <a href="/tags/keras/" style="font-size: 10.67px;">keras</a> <a href="/tags/latex/" style="font-size: 14.67px;">latex</a> <a href="/tags/os/" style="font-size: 10px;">os</a> <a href="/tags/qt/" style="font-size: 10px;">qt</a> <a href="/tags/requests/" style="font-size: 10px;">requests</a> <a href="/tags/sk-learn/" style="font-size: 10px;">sk-learn</a> <a href="/tags/ssh/" style="font-size: 12.67px;">ssh</a> <a href="/tags/statistic/" style="font-size: 10px;">statistic</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/windows/" style="font-size: 16.67px;">windows</a> <a href="/tags/yolo%EF%BC%8CC/" style="font-size: 10px;">yolo，C</a>
     </div>
   </div>
 
@@ -446,6 +452,10 @@ sess.run(init)
       <ul>
         
           <li>
+            <a href="/opencv%20_error_The%20function%20is%20not%20implemented/">opencv error “The function is not implemented“</a>
+          </li>
+        
+          <li>
             <a href="/Java_override/">Java的@override使用方法</a>
           </li>
         
@@ -459,10 +469,6 @@ sess.run(init)
         
           <li>
             <a href="/hexo_ERROR_Deployer_not_found_git/">hexo部署错误Deployer not found git</a>
-          </li>
-        
-          <li>
-            <a href="/nodejs_windows_install/">windows下安装nodejs及环境变量设置</a>
           </li>
         
       </ul>
