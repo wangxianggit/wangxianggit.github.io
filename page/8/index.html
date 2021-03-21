@@ -67,6 +67,77 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-cmake_makefile" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/cmake_makefile/" class="article-date">
+  <time datetime="2019-12-06T05:25:12.000Z" itemprop="datePublished">2019-12-06</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/learning/">learning</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/cmake_makefile/">cmake生成简单makefile</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+
+        <h2 id="cmake生成简单makefile"><a href="#cmake生成简单makefile" class="headerlink" title="cmake生成简单makefile"></a>cmake生成简单makefile</h2><ul>
+<li><p>cmake是跨平台编译工具，自动化生成Makefile等编译文件。</p>
+</li>
+<li><p>简单例子：</p>
+<ul>
+<li><p>现有源文件只包含一个文件hello.cpp:</p>
+</li>
+<li><p>~~~<br>#include <iostream><br>using namespace std;</p>
+<p>int main(int argc,char** argv)<br>{</p>
+<pre><code>cout &lt;&lt; &quot;Hello for cmake!&quot; &lt;&lt; endl;
+return 0;</code></pre>
+<p>}</p>
+<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 编写 <span class="module-access"><span class="module"><span class="identifier">CMakeLists</span>.</span></span>txt :</span><br><span class="line"></span><br><span class="line">* ~~~</span><br><span class="line">  cmake<span class="constructor">_minimum_required(VERSION 2.8.11)</span></span><br><span class="line">  project(HELLO)</span><br><span class="line">  </span><br><span class="line">  add<span class="constructor">_executable(<span class="params">hello</span> <span class="params">hello</span>.<span class="params">cpp</span>)</span></span><br></pre></td></tr></table></figure></li>
+<li><p><code>cmake_minimum_required()</code>这句代码是指定 cmake 的最低版本<br><code>project()</code>这句代码是指定工程的名称<br><code>add_executable()</code>这个指示生成的可执行文件，上面的例子是编译 hello.cpp 生成 hello 这个可执行文件</p>
+</li>
+<li><p>CMakeLists.txt 写好后，在当前目录执行 <code>cmake .</code>命令，<code>.</code>代表在当前目录执行操作，如果 CMakeLists.txt 在别处，需要将路径添加在 cmake 后面。</p>
+</li>
+<li><p>命令完成后，我们可以发现当前目录多了 1 个名为 CMakeFiles 的文件，也多了一个 Makefile 文件。</p>
+</li>
+<li><p>执行 make 命令，最终可以发现生成了可执行文件 hello.</p>
+</li>
+<li><p>在终端执行 <code>./hello</code>，可以看见屏幕结果</p>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wangxianggit.github.io/cmake_makefile/" data-id="ckjv3w9db00ap6sdn4mnd5x4o" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cmake/" rel="tag">cmake</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-python_nan_inf" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/python_nan_inf/" class="article-date">
@@ -310,68 +381,6 @@ dataset = scaler.fit_transform(dataset)</code></pre>
 
 
   
-    <article id="post-new_alloc" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/new_alloc/" class="article-date">
-  <time datetime="2019-10-01T09:28:11.000Z" itemprop="datePublished">2019-10-01</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/learning/">learning</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/new_alloc/">C++动态分配内存new</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-
-        <h2 id="new动态内存分配"><a href="#new动态内存分配" class="headerlink" title="new动态内存分配"></a>new动态内存分配</h2><ul>
-<li><p>作用：动态分配内存并调用相应类的构造函数</p>
-</li>
-<li><p>变量申请：Type* pointer = new Type;</p>
-</li>
-<li><p>数组申请：Type* pointer = new Type[N];</p>
-</li>
-<li><p>~~~<br>int * var;<br>var = new int [10];</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 动态分配内存示例：</span><br><span class="line"></span><br><span class="line">  * ~~~</span><br><span class="line">    <span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">int</span>* p = <span class="keyword">new</span> <span class="keyword">int</span>;</span><br><span class="line">        *p = <span class="number">5</span>;</span><br><span class="line">        *p = *p + <span class="number">10</span>;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;p = %p\n&quot;</span>, p);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;*p = %d\n&quot;</span>, *p);</span><br><span class="line">        <span class="keyword">delete</span> p;</span><br><span class="line">        p = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">10</span>];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;<span class="number">10</span>; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            p[i] = i + <span class="number">1</span>;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;p[%d] = %d\n&quot;</span>, i, p[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">delete</span>[] p;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></li>
-<li><p>和malloc函数区别：</p>
-<ul>
-<li>new关键字是C++定义的关键字，malloc是C提供的库函数</li>
-<li>new以类型为单位进行内存分配，malloc以字节为单位</li>
-<li>new在申请但各类型变量可以初始化，malloc不能</li>
-</ul>
-</li>
-</ul>
-<hr>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/new_alloc/" data-id="ckjv3w9dy00dp6sdn85vj4ybt" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C++</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
@@ -433,7 +442,7 @@ dataset = scaler.fit_transform(dataset)</code></pre>
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li></ul>
     </div>
   </div>
 
@@ -444,6 +453,10 @@ dataset = scaler.fit_transform(dataset)</code></pre>
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/python_function_return_type/">python定义函数指定返回值类型</a>
+          </li>
         
           <li>
             <a href="/opencv%20_error_The%20function%20is%20not%20implemented/">opencv error “The function is not implemented“</a>
@@ -459,10 +472,6 @@ dataset = scaler.fit_transform(dataset)</code></pre>
         
           <li>
             <a href="/hexo_error_access_right/">hexo部署权限问题</a>
-          </li>
-        
-          <li>
-            <a href="/hexo_ERROR_Deployer_not_found_git/">hexo部署错误Deployer not found git</a>
           </li>
         
       </ul>
