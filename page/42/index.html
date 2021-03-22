@@ -67,6 +67,70 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-windows_git_configuration" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/windows_git_configuration/" class="article-date">
+  <time datetime="2018-04-23T10:28:54.000Z" itemprop="datePublished">2018-04-23</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/git/">git</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/windows_git_configuration/">windows git配置环境变量</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+
+        <ul>
+<li>Git 中使用命令git config配置或读取相应工作环境变量。这些变量可以存放在三个不同地方：/etc/gitconfig文件，系统中对所有用户普适的配置，若使用git config时用–system选项；~/.gitconfig文件，用户目录下的配置文件只适用于该用户，若使用git config时用–global选项；当前项目的Git目录中的配置文件(.git/config文件)：这里的配置仅仅针对当前项目有效，每一个级别的配置都会覆盖上层相同的配置，所以.git/config里的配置会覆盖/etc/gitconfig中的同名变量。</li>
+<li>在 Windows 系统上，Git 会找寻用户主目录下的 <code>.gitconfig</code> 文件。主目录即 <code>$HOME</code> 变量指定的目录，一般都是 <code>C:\Documents and Settings\$USER</code>。此外，Git 还会尝试找寻 <code>/etc/gitconfig</code> 文件，只不过看当初 Git 装在什么目录，就以此作为根目录来定位。</li>
+<li>用户信息：配置个人用户名和电子邮件地址。<ul>
+<li>git config –global user.name “John Doe”</li>
+<li>git config –global user.email <a href="mailto:&#x6a;&#111;&#104;&#x6e;&#x64;&#111;&#101;&#64;&#101;&#x78;&#x61;&#109;&#112;&#108;&#x65;&#46;&#99;&#111;&#109;">&#x6a;&#111;&#104;&#x6e;&#x64;&#111;&#101;&#64;&#101;&#x78;&#x61;&#109;&#112;&#108;&#x65;&#46;&#99;&#111;&#109;</a></li>
+</ul>
+</li>
+<li>文本编辑器，git需要输入额外消息的时候会自动调用一个外部文本编辑器。<ul>
+<li>git config –global core.editor emacs</li>
+</ul>
+</li>
+<li>查看配置信息<ul>
+<li>git config –list</li>
+</ul>
+</li>
+<li>生成公钥：打开命令行输入<code>ssh-keygen -t rsa -C &lt;your_email@example.com&gt;</code>,把生成的公钥信息id_rsa.pub复制到github网站上的相应位置。</li>
+<li>id_rsa.pub文件可能不可见，可以切换到相应目录下用vim编辑器查看。选中文本后按快捷键y即可复制。</li>
+<li>注意生成的还有一个文件id_rsa文件是私钥，不能作为公钥复制，否则出错。</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wangxianggit.github.io/windows_git_configuration/" data-id="ckjv3w9fy00of6sdn72gj2xva" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/" rel="tag">git</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-Hexo_error_error deployer not found" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/Hexo_error_error%20deployer%20not%20found/" class="article-date">
@@ -224,6 +288,10 @@
       <ul>
         
           <li>
+            <a href="/python_pprint/">python--pprint模块</a>
+          </li>
+        
+          <li>
             <a href="/python_function_return_type/">python定义函数指定返回值类型</a>
           </li>
         
@@ -237,10 +305,6 @@
         
           <li>
             <a href="/Centos7_mongodb_install/">Centos7安装Mongodb</a>
-          </li>
-        
-          <li>
-            <a href="/hexo_error_access_right/">hexo部署权限问题</a>
           </li>
         
       </ul>
