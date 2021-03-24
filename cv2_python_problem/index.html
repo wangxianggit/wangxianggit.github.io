@@ -5,19 +5,20 @@
   
 
   
-  <title>使用ImageMagick生成字体图像 | There is no rose without a thorn</title>
+  <title>python opencv problem cv2 has no attribute CV_LOAD_IMAGE_GRAYSCALE | There is no rose without a thorn</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="首先安装ImageMagick，安装的时候需要勾选”Install legacy utilities(e.g. convert)”，否则后续相关的命令不可用。  找出想转换的字体文件的路径，或者直接拷贝到相应目录下。  使用python脚本生成字体图像，代码如下：  # -*- coding: utf-8 -*-    import os  l&#x3D;[&quot;贝类&quot;,&quot;贝类1">
+  <meta name="description" content="使用opencv python显示图像：cv2.CV_LOAD_IMAGE_GRAYSCALE报错如下：  module ‘cv2’ has no attribute ‘CV_LOAD_IMAGE_GRAYSCALE’。Traceback (most recent call last): ......    旧版本的opencv使用CV_LOAD_IMAGE_GRAYSCALE加载灰度图，新版本">
 <meta property="og:type" content="article">
-<meta property="og:title" content="使用ImageMagick生成字体图像">
-<meta property="og:url" content="http://wangxianggit.github.io/ImageMagick_create_font_image/index.html">
+<meta property="og:title" content="python opencv problem cv2 has no attribute CV_LOAD_IMAGE_GRAYSCALE">
+<meta property="og:url" content="http://wangxianggit.github.io/cv2_python_problem/index.html">
 <meta property="og:site_name" content="There is no rose without a thorn">
-<meta property="og:description" content="首先安装ImageMagick，安装的时候需要勾选”Install legacy utilities(e.g. convert)”，否则后续相关的命令不可用。  找出想转换的字体文件的路径，或者直接拷贝到相应目录下。  使用python脚本生成字体图像，代码如下：  # -*- coding: utf-8 -*-    import os  l&#x3D;[&quot;贝类&quot;,&quot;贝类1">
+<meta property="og:description" content="使用opencv python显示图像：cv2.CV_LOAD_IMAGE_GRAYSCALE报错如下：  module ‘cv2’ has no attribute ‘CV_LOAD_IMAGE_GRAYSCALE’。Traceback (most recent call last): ......    旧版本的opencv使用CV_LOAD_IMAGE_GRAYSCALE加载灰度图，新版本">
 <meta property="og:locale">
-<meta property="article:published_time" content="2020-07-14T03:03:27.000Z">
-<meta property="article:modified_time" content="2020-07-14T03:09:12.039Z">
+<meta property="article:published_time" content="2021-03-24T05:49:22.000Z">
+<meta property="article:modified_time" content="2021-03-24T05:57:54.587Z">
 <meta property="article:author" content="wangxiang">
-<meta property="article:tag" content="Image">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="Opencv">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="There is no rose without a thorn" type="application/atom+xml">
@@ -68,14 +69,14 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-ImageMagick_create_font_image" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-cv2_python_problem" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/ImageMagick_create_font_image/" class="article-date">
-  <time datetime="2020-07-14T03:03:27.000Z" itemprop="datePublished">2020-07-14</time>
+    <a href="/cv2_python_problem/" class="article-date">
+  <time datetime="2021-03-24T05:49:22.000Z" itemprop="datePublished">2021-03-24</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/learning/">learning</a>
+    <a class="article-category-link" href="/categories/Python/">Python</a>
   </div>
 
   </div>
@@ -86,7 +87,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      使用ImageMagick生成字体图像
+      python opencv problem cv2 has no attribute CV_LOAD_IMAGE_GRAYSCALE
     </h1>
   
 
@@ -102,29 +103,14 @@
   </div>
 
         <ul>
-<li><p>首先安装ImageMagick，安装的时候需要勾选”Install legacy utilities(e.g. convert)”，否则后续相关的命令不可用。</p>
-</li>
-<li><p>找出想转换的字体文件的路径，或者直接拷贝到相应目录下。</p>
-</li>
-<li><p>使用python脚本生成字体图像，代码如下：</p>
+<li><p>使用opencv python显示图像：cv2.CV_LOAD_IMAGE_GRAYSCALE报错如下：</p>
 <ul>
-<li><pre><code># -*- coding: utf-8 -*-   
-import os
-
-l=[&quot;贝类&quot;,&quot;贝类1&quot;,&quot;贝类2&quot;,&quot;鲍鱼&quot;,&quot;海参&quot;]
-
-def make_labels(s):
-    i = 0
-    for word in l:
-        os.system(&quot;convert -fill black -background white -bordercolor white -font simsun.ttc -pointsize %d label:\&quot;%s\&quot; \&quot;cn_%d_%d.png\&quot;&quot;%(s,word,i,s/12-1))
-        i = i + 1
-
-for i in [12,24,36,48,60,72,84,96]:
-    make_labels(i)</code></pre>
+<li><pre><code>module ‘cv2’ has no attribute ‘CV_LOAD_IMAGE_GRAYSCALE’。Traceback (most recent call last):
+......</code></pre>
 </li>
 </ul>
 </li>
-<li><p>执行该脚本可以生成字体图片，其中for循环list参数表示图片大小。</p>
+<li><p>旧版本的opencv使用CV_LOAD_IMAGE_GRAYSCALE加载灰度图，新版本使用CV_LOAD_IMAGE_GRAYSCALE无报错。</p>
 </li>
 </ul>
 <hr>
@@ -132,10 +118,10 @@ for i in [12,24,36,48,60,72,84,96]:
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/ImageMagick_create_font_image/" data-id="ckjv3w9bo003x6sdnd2qi08hr" class="article-share-link">Share</a>
+      <a data-url="http://wangxianggit.github.io/cv2_python_problem/" data-id="ckmn1cs3e0000dcdn4n1hfz8h" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Image/" rel="tag">Image</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Opencv/" rel="tag">Opencv</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
 
     </footer>
   </div>
@@ -143,19 +129,10 @@ for i in [12,24,36,48,60,72,84,96]:
     
 <nav id="article-nav">
   
-    <a href="/Opencv_lib_zhong/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          Opencv库添加中文支持
-        
-      </div>
-    </a>
   
-  
-    <a href="/ImageMagick_install_use/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/python_pprint/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">ImageMagick安装和使用</div>
+      <div class="article-nav-title">python--pprint模块</div>
     </a>
   
 </nav>

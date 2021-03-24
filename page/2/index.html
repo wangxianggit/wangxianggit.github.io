@@ -67,6 +67,109 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Centos7_mongodb_install" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/Centos7_mongodb_install/" class="article-date">
+  <time datetime="2021-01-13T08:23:34.000Z" itemprop="datePublished">2021-01-13</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/learning/">learning</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/Centos7_mongodb_install/">Centos7安装Mongodb</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+
+        <ul>
+<li><p>​ 下载安装包：<a target="_blank" rel="noopener" href="https://www.mongodb.com/download-center/community">https://www.mongodb.com/download-center/community</a></p>
+</li>
+<li><p>解压安装包：tar -zxvf mongodb-linux-x86_64-4.0.6.tgz</p>
+</li>
+<li><p>移动到安装文件夹：mv mongodb-linux-x86_64-4.0.6 /opt/mongodb</p>
+</li>
+<li><p>配置conf和目录文件：</p>
+<ul>
+<li><p>进入mongodb目录后创建db目录和日志文件：</p>
+</li>
+<li><p>```<br>mkdir -p ./data/db<br>mkdir -p ./logs<br>touch ./logs/mongodb.log</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 创建mongodb.conf文件：vi mongodb.conf</span><br><span class="line"></span><br><span class="line">* ```</span><br><span class="line">  <span class="comment">#端口号</span></span><br><span class="line">  port=<span class="number">27017</span></span><br><span class="line">  <span class="comment">#db目录</span></span><br><span class="line">  dbpath=<span class="regexp">/opt/m</span>ongodb<span class="regexp">/data/</span>db</span><br><span class="line">  <span class="comment">#日志目录</span></span><br><span class="line">  logpath=<span class="regexp">/opt/m</span>ongodb<span class="regexp">/logs/m</span>ongodb.log</span><br><span class="line">  <span class="comment">#后台</span></span><br><span class="line">  fork=true</span><br><span class="line">  <span class="comment">#日志输出</span></span><br><span class="line">  logappend=true</span><br><span class="line">  <span class="comment">#允许远程IP连接</span></span><br><span class="line">  bind_ip=<span class="number">0.0</span>.<span class="number">0.0</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>启动测试：</p>
+<ul>
+<li>启动：./bin/mongod –config mongodb.conf</li>
+<li>连接：./bin/mongo</li>
+<li>测试：use qydb; show dbs</li>
+</ul>
+</li>
+<li><p>配置开机启动：</p>
+<ul>
+<li><p>cd /lib/systemd/system</p>
+</li>
+<li><p>vi mongodb.service</p>
+</li>
+<li><pre><code>[Unit] 
+Description=mongodb 
+After=network.target remote-fs.target nss-lookup.target 
+
+[Service] 
+Type=forking 
+ExecStart=/opt/mongodb/bin/mongod --config /usr/local/mongodb/mongodb.conf 
+ExecReload=/bin/kill -s HUP $MAINPID 
+ExecStop=/opt/mongodb/bin/mongod --shutdown --config /opt/mongodb/mongodb.conf 
+PrivateTmp=true 
+
+[Install] 
+WantedBy=multi-user.target
+
+#启动服务
+systemctl start mongodb.service    
+#停止服务
+systemctl stop mongodb.service
+#添加开机自启动
+systemctl enable mongodb.service
+#重启服务
+systemctl restart mongodb.service</code></pre>
+</li>
+<li><p>添加环境变量profile：export PATH=$PATH:/opt/mongodb/bin</p>
+</li>
+</ul>
+</li>
+<li><p>mongodb可视化工具：Robo 3T ：<a target="_blank" rel="noopener" href="https://robomongo.org/">https://robomongo.org/</a></p>
+</li>
+</ul>
+<hr>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wangxianggit.github.io/Centos7_mongodb_install/" data-id="ckjv3w9b6001w6sdn901sh3df" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Centos7/" rel="tag">Centos7</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Mongodb/" rel="tag">Mongodb</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-hexo_error_access_right" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/hexo_error_access_right/" class="article-date">
@@ -300,82 +403,6 @@ npm config set cache &quot;C:\node\node_cache&quot;
 
 
   
-    <article id="post-centos7_opencv_install" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/centos7_opencv_install/" class="article-date">
-  <time datetime="2020-10-06T02:28:21.000Z" itemprop="datePublished">2020-10-06</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/learning/">learning</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/centos7_opencv_install/">Centso7下安装opencv</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-
-        <h3 id="Centso7下安装opencv"><a href="#Centso7下安装opencv" class="headerlink" title="Centso7下安装opencv"></a>Centso7下安装opencv</h3><ul>
-<li><p>配置epel源：</p>
-<ul>
-<li>~~~<br>yum -y install epel-release<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 安装相关依赖</span><br><span class="line"></span><br><span class="line">  * ~~~</span><br><span class="line">    yum <span class="keyword">install</span> -y gcc gcc-c++  </span><br><span class="line">    yum <span class="keyword">install</span> -y cmake  </span><br><span class="line">    yum <span class="keyword">install</span> -y python-devel numpy </span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-<li><p>安装opencv</p>
-<ul>
-<li><p>~~~<br>cd /usr/local<br>wget <a target="_blank" rel="noopener" href="https://github.com/opencv/opencv/archive/3.4.3.zip">https://github.com/opencv/opencv/archive/3.4.3.zip</a><br>unzip 3.4.3.zip<br>cd opencv-3.4.3  <br>mkdir release   <br>cd release</p>
-<p>cmake -D WITH_TBB=ON -D WITH_EIGEN=ON ..<br> <br>cmake -D BUILD_DOCS=ON -D BUILD_TESTS=OFF -D BUILD_PERF_TESTS=OFF -D BUILD_EXAMPLES=OFF ..<br>   <br>cmake -D WITH_OPENCL=OFF -D WITH_CUDA=OFF -D BUILD_opencv_gpu=OFF -D BUILD_opencv_gpuarithm=OFF -D BUILD_opencv_gpubgsegm=OFF -D BUILD_opencv_gpucodec=OFF -D BUILD_opencv_gpufeatures2d=OFF -D BUILD_opencv_gpufilters=OFF -D BUILD_opencv_gpuimgproc=OFF -D BUILD_opencv_gpulegacy=OFF -D BUILD_opencv_gpuoptflow=OFF -D BUILD_opencv_gpustereo=OFF -D BUILD_opencv_gpuwarping=OFF ..</p>
-<p>cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local .. </p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 编译前设置pkgconfig路径：</span><br><span class="line"></span><br><span class="line">  * ~~~</span><br><span class="line">    export PKG_CONFIG_PATH=<span class="regexp">/usr/</span>local<span class="regexp">/lib64/</span>pkgconfig</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-<li><p>编译并安装：</p>
-<ul>
-<li><p>~~~<br>cd /usr/local/opencv-3.4.3/release</p>
-<p>make <br> <br>make install</p>
-<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">* 加入动态库配置：</span></span><br><span class="line"></span><br><span class="line"><span class="comment">  * ~~~</span></span><br><span class="line">    /bin/bash -c &#x27;echo <span class="string">&quot;/usr/local/lib64&quot;</span> &gt; /etc/ld.<span class="keyword">so</span>.<span class="keyword">conf</span>.<span class="keyword">d</span>/opencv.<span class="keyword">conf</span>&#x27;</span><br><span class="line">     </span><br><span class="line">    ldconfig</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-<li><p>检查安装：</p>
-<ul>
-<li><pre><code>pkg-config —cflags opencv
-pkg-config —libs opencv</code></pre>
-</li>
-<li><p>执行后没有报错即安装成功</p>
-</li>
-</ul>
-</li>
-</ul>
-<hr>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/centos7_opencv_install/" data-id="ckjv3w9d700a46sdn0sc498sf" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Centos7/" rel="tag">Centos7</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
@@ -428,7 +455,7 @@ pkg-config —libs opencv</code></pre>
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Algorithm/" style="font-size: 11.33px;">Algorithm</a> <a href="/tags/Altium-Designer/" style="font-size: 14.67px;">Altium Designer</a> <a href="/tags/Apache/" style="font-size: 11.33px;">Apache</a> <a href="/tags/BeautifulSoup/" style="font-size: 10px;">BeautifulSoup</a> <a href="/tags/C/" style="font-size: 15.33px;">C</a> <a href="/tags/C/" style="font-size: 18.67px;">C++</a> <a href="/tags/Centos7/" style="font-size: 17.33px;">Centos7</a> <a href="/tags/Cython/" style="font-size: 10px;">Cython</a> <a href="/tags/Electronic/" style="font-size: 13.33px;">Electronic</a> <a href="/tags/English/" style="font-size: 12px;">English</a> <a href="/tags/Geant4/" style="font-size: 10.67px;">Geant4</a> <a href="/tags/Hardware/" style="font-size: 10px;">Hardware</a> <a href="/tags/Hexo/" style="font-size: 14px;">Hexo</a> <a href="/tags/Image/" style="font-size: 12px;">Image</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Jupyter/" style="font-size: 10px;">Jupyter</a> <a href="/tags/Linux/" style="font-size: 19.33px;">Linux</a> <a href="/tags/Markdown/" style="font-size: 16px;">Markdown</a> <a href="/tags/Mongodb/" style="font-size: 10px;">Mongodb</a> <a href="/tags/Nuclear-Physics/" style="font-size: 11.33px;">Nuclear Physics</a> <a href="/tags/Open/" style="font-size: 10px;">Open</a> <a href="/tags/Opencv/" style="font-size: 11.33px;">Opencv</a> <a href="/tags/Program/" style="font-size: 18px;">Program</a> <a href="/tags/PyPI/" style="font-size: 10px;">PyPI</a> <a href="/tags/Py-Crawler/" style="font-size: 10.67px;">Py_Crawler</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/Random/" style="font-size: 10px;">Random</a> <a href="/tags/Resource/" style="font-size: 10.67px;">Resource</a> <a href="/tags/Root/" style="font-size: 10.67px;">Root</a> <a href="/tags/Scipy/" style="font-size: 10px;">Scipy</a> <a href="/tags/Shell/" style="font-size: 16px;">Shell</a> <a href="/tags/Solidwork/" style="font-size: 10.67px;">Solidwork</a> <a href="/tags/TTree/" style="font-size: 10px;">TTree</a> <a href="/tags/Tensorflow/" style="font-size: 15.33px;">Tensorflow</a> <a href="/tags/Thread/" style="font-size: 10px;">Thread</a> <a href="/tags/Urllib2/" style="font-size: 10px;">Urllib2</a> <a href="/tags/Virtual-memory/" style="font-size: 10px;">Virtual memory</a> <a href="/tags/cmake/" style="font-size: 12.67px;">cmake</a> <a href="/tags/cmd/" style="font-size: 10.67px;">cmd</a> <a href="/tags/data-structure/" style="font-size: 10.67px;">data structure</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/hexo/" style="font-size: 11.33px;">hexo</a> <a href="/tags/htop/" style="font-size: 10px;">htop</a> <a href="/tags/keras/" style="font-size: 10.67px;">keras</a> <a href="/tags/latex/" style="font-size: 14.67px;">latex</a> <a href="/tags/os/" style="font-size: 10px;">os</a> <a href="/tags/qt/" style="font-size: 10px;">qt</a> <a href="/tags/requests/" style="font-size: 10px;">requests</a> <a href="/tags/sk-learn/" style="font-size: 10px;">sk-learn</a> <a href="/tags/ssh/" style="font-size: 12.67px;">ssh</a> <a href="/tags/statistic/" style="font-size: 10px;">statistic</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/windows/" style="font-size: 16.67px;">windows</a> <a href="/tags/yolo%EF%BC%8CC/" style="font-size: 10px;">yolo，C</a>
+      <a href="/tags/Algorithm/" style="font-size: 11.33px;">Algorithm</a> <a href="/tags/Altium-Designer/" style="font-size: 14.67px;">Altium Designer</a> <a href="/tags/Apache/" style="font-size: 11.33px;">Apache</a> <a href="/tags/BeautifulSoup/" style="font-size: 10px;">BeautifulSoup</a> <a href="/tags/C/" style="font-size: 15.33px;">C</a> <a href="/tags/C/" style="font-size: 18.67px;">C++</a> <a href="/tags/Centos7/" style="font-size: 17.33px;">Centos7</a> <a href="/tags/Cython/" style="font-size: 10px;">Cython</a> <a href="/tags/Electronic/" style="font-size: 13.33px;">Electronic</a> <a href="/tags/English/" style="font-size: 12px;">English</a> <a href="/tags/Geant4/" style="font-size: 10.67px;">Geant4</a> <a href="/tags/Hardware/" style="font-size: 10px;">Hardware</a> <a href="/tags/Hexo/" style="font-size: 14px;">Hexo</a> <a href="/tags/Image/" style="font-size: 12px;">Image</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Jupyter/" style="font-size: 10px;">Jupyter</a> <a href="/tags/Linux/" style="font-size: 19.33px;">Linux</a> <a href="/tags/Markdown/" style="font-size: 16px;">Markdown</a> <a href="/tags/Mongodb/" style="font-size: 10px;">Mongodb</a> <a href="/tags/Nuclear-Physics/" style="font-size: 11.33px;">Nuclear Physics</a> <a href="/tags/Open/" style="font-size: 10px;">Open</a> <a href="/tags/Opencv/" style="font-size: 12px;">Opencv</a> <a href="/tags/Program/" style="font-size: 18px;">Program</a> <a href="/tags/PyPI/" style="font-size: 10px;">PyPI</a> <a href="/tags/Py-Crawler/" style="font-size: 10.67px;">Py_Crawler</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/Random/" style="font-size: 10px;">Random</a> <a href="/tags/Resource/" style="font-size: 10.67px;">Resource</a> <a href="/tags/Root/" style="font-size: 10.67px;">Root</a> <a href="/tags/Scipy/" style="font-size: 10px;">Scipy</a> <a href="/tags/Shell/" style="font-size: 16px;">Shell</a> <a href="/tags/Solidwork/" style="font-size: 10.67px;">Solidwork</a> <a href="/tags/TTree/" style="font-size: 10px;">TTree</a> <a href="/tags/Tensorflow/" style="font-size: 15.33px;">Tensorflow</a> <a href="/tags/Thread/" style="font-size: 10px;">Thread</a> <a href="/tags/Urllib2/" style="font-size: 10px;">Urllib2</a> <a href="/tags/Virtual-memory/" style="font-size: 10px;">Virtual memory</a> <a href="/tags/cmake/" style="font-size: 12.67px;">cmake</a> <a href="/tags/cmd/" style="font-size: 10.67px;">cmd</a> <a href="/tags/data-structure/" style="font-size: 10.67px;">data structure</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/hexo/" style="font-size: 11.33px;">hexo</a> <a href="/tags/htop/" style="font-size: 10px;">htop</a> <a href="/tags/keras/" style="font-size: 10.67px;">keras</a> <a href="/tags/latex/" style="font-size: 14.67px;">latex</a> <a href="/tags/os/" style="font-size: 10px;">os</a> <a href="/tags/qt/" style="font-size: 10px;">qt</a> <a href="/tags/requests/" style="font-size: 10px;">requests</a> <a href="/tags/sk-learn/" style="font-size: 10px;">sk-learn</a> <a href="/tags/ssh/" style="font-size: 12.67px;">ssh</a> <a href="/tags/statistic/" style="font-size: 10px;">statistic</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/windows/" style="font-size: 16.67px;">windows</a> <a href="/tags/yolo%EF%BC%8CC/" style="font-size: 10px;">yolo，C</a>
     </div>
   </div>
 
@@ -450,6 +477,10 @@ pkg-config —libs opencv</code></pre>
       <ul>
         
           <li>
+            <a href="/cv2_python_problem/">python opencv problem cv2 has no attribute CV_LOAD_IMAGE_GRAYSCALE</a>
+          </li>
+        
+          <li>
             <a href="/python_pprint/">python--pprint模块</a>
           </li>
         
@@ -463,10 +494,6 @@ pkg-config —libs opencv</code></pre>
         
           <li>
             <a href="/Java_override/">Java的@override使用方法</a>
-          </li>
-        
-          <li>
-            <a href="/Centos7_mongodb_install/">Centos7安装Mongodb</a>
           </li>
         
       </ul>
