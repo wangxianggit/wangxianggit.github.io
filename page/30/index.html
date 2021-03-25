@@ -67,6 +67,161 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Python_library_BeautifulSoup" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/Python_library_BeautifulSoup/" class="article-date">
+  <time datetime="2019-02-23T14:12:19.000Z" itemprop="datePublished">2019-02-23</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Python/">Python</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/Python_library_BeautifulSoup/">Python库BeautifulSoup使用</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+
+        <h2 id="BeautifulSoup概述"><a href="#BeautifulSoup概述" class="headerlink" title="BeautifulSoup概述"></a>BeautifulSoup概述</h2><ul>
+<li><p>BeautifulSoup模块用于从HTML文本中提取我们想要的数据，参考网站：<a target="_blank" rel="noopener" href="https://beautifulsoup.readthedocs.io/zh_CN/latest/">https://beautifulsoup.readthedocs.io/zh_CN/latest/</a></p>
+</li>
+<li><p>BeautifulSoup 有多个版本，这里选择版本BeautifulSoup4。</p>
+</li>
+<li><p>模块安装，在命令行终端下使用命令：</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">conda install beautifulsoup4 <span class="regexp">//</span>前提安装了anaconda</span><br><span class="line">或使用pip命令</span><br><span class="line">pip install beautifulsoup4 </span><br></pre></td></tr></table></figure></li>
+<li><p>lxml是一个解析器，BeautifulSoup可以使用它来解析HTML，然后提取内容，模块安装</p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda <span class="keyword">install</span> lxml</span><br></pre></td></tr></table></figure>
+<ul>
+<li>如果不安装lxml，则BeautifulSoup会使用Python内置的解析器对文档进行解析。之所以使用lxml，是因为它速度快。</li>
+</ul>
+</li>
+<li><p>不同文档解析器对比如下：</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>解析器</th>
+<th>使用方法</th>
+<th>优势</th>
+<th>劣势</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Python标准库</td>
+<td>BeautifulSoup(markup,”html.parser”)</td>
+<td>Python的内置标准库  执行速度适  中文档容错能力强</td>
+<td>Python 2.7.3 or 3.2.2)前 的版本中文档容错能力差</td>
+</tr>
+<tr>
+<td>lxml HTML 解析器</td>
+<td>BeautifulSoup(markup,”lxml”)</td>
+<td>速度快  文档容错能力强</td>
+<td>需要安装C语言库</td>
+</tr>
+<tr>
+<td>lxml XML 解析器</td>
+<td>BeautifulSoup(markup,[“lxml-xml”]) BeautifulSoup(markup,”xml”)</td>
+<td>速度快  唯一支持XML的解析器</td>
+<td>需要安装C语言库</td>
+</tr>
+<tr>
+<td>html5lib</td>
+<td>BeautifulSoup(markup,”html5lib”)</td>
+<td>最好的容错性  以浏览器的方式解析文档  生成HTML5格式的文档</td>
+<td>速度慢，不依赖外部扩展</td>
+</tr>
+</tbody></table>
+<h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><h3 id="BeautifulSoup对象类型"><a href="#BeautifulSoup对象类型" class="headerlink" title="BeautifulSoup对象类型"></a>BeautifulSoup对象类型</h3><ul>
+<li>BeautifulSoup将复杂HTML文档转换成一个复杂的树形结构，每个节点都是Python对象。</li>
+<li>所有对象可以归纳为4种类型: Tag , NavigableString , BeautifulSoup , Comment 。</li>
+</ul>
+<h3 id="Tag"><a href="#Tag" class="headerlink" title="Tag"></a>Tag</h3><ul>
+<li><p>Python中的Tag和HTML或XML中的标签一样。</p>
+</li>
+<li><p>使用find()方法返回的类型就是Tag，用find_all()返回的是多个Tag对象的集合，在Python中可以用for循环遍历。</p>
+</li>
+<li><p>返回Tag后，可以提取该对象中包含的信息。</p>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">tag</span>.name /提取标签名字</span><br><span class="line"><span class="keyword">tag</span>[&#x27;<span class="keyword">attribute</span>&#x27;] /提取标签的属性</span><br></pre></td></tr></table></figure>
+<ul>
+<li>示例代码：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">from bs4 import BeautifulSoup</span><br><span class="line"></span><br><span class="line">html_doc = <span class="string">&quot;&quot;</span><span class="string">&quot;</span></span><br><span class="line"><span class="string">&lt;html&gt;&lt;head&gt;&lt;title&gt;The Dormouse&#x27;s story&lt;/title&gt;&lt;/head&gt;</span></span><br><span class="line"><span class="string">&lt;body&gt;</span></span><br><span class="line"><span class="string">&lt;p class=&quot;</span>title<span class="string">&quot;&gt;&lt;b&gt;The Dormouse&#x27;s story&lt;/b&gt;&lt;/p&gt;</span></span><br><span class="line"><span class="string">&lt;p class=&quot;</span>story<span class="string">&quot;&gt;Once upon a time there were three little sisters; and their names were</span></span><br><span class="line"><span class="string">&lt;a href=&quot;</span>http://example.com/elsie<span class="string">&quot; class=&quot;</span>sister<span class="string">&quot; id=&quot;</span>link1<span class="string">&quot;&gt;Elsie&lt;/a&gt;,</span></span><br><span class="line"><span class="string">&lt;a href=&quot;</span>http://example.com/lacie<span class="string">&quot; class=&quot;</span>sister<span class="string">&quot; id=&quot;</span>link2<span class="string">&quot;&gt;Lacie&lt;/a&gt; and</span></span><br><span class="line"><span class="string">&lt;a href=&quot;</span>http://example.com/tillie<span class="string">&quot; class=&quot;</span>sister<span class="string">&quot; id=&quot;</span>link3<span class="string">&quot;&gt;Tillie&lt;/a&gt;;</span></span><br><span class="line"><span class="string">and they lived at the bottom of a well.&lt;/p&gt;</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">&lt;p class=&quot;</span>story<span class="string">&quot;&gt;...&lt;/p&gt;</span></span><br><span class="line"><span class="string">&quot;</span><span class="string">&quot;&quot;</span></span><br><span class="line">soup = BeautifulSoup(html_doc, <span class="string">&#x27;lxml&#x27;</span>)  <span class="comment">#声明BeautifulSoup对象</span></span><br><span class="line">find = soup.find(<span class="string">&#x27;p&#x27;</span>)  <span class="comment">#使用find方法查到第一个p标签</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;find&#x27;s return type is &quot;</span>, <span class="built_in">type</span>(find))  <span class="comment">#输出返回值类型</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;find&#x27;s content is&quot;</span>, find)  <span class="comment">#输出find获取的值</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;find&#x27;s Tag Name is &quot;</span>, find.name)  <span class="comment">#输出标签的名字</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;find&#x27;s Attribute(class) is &quot;</span>, find[<span class="string">&#x27;class&#x27;</span>])  <span class="comment">#输出标签的class属性值</span></span><br></pre></td></tr></table></figure>
+<h3 id="NavigableString"><a href="#NavigableString" class="headerlink" title="NavigableString"></a>NavigableString</h3></li>
+</ul>
+</li>
+<li><p>NavigableString即是标签中的文本内容，获取方式如下：</p>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">tag</span>.<span class="keyword">string</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>上面例子中使用上面获取之后得到的文本内容为：The Dormouse’s story</li>
+</ul>
+</li>
+</ul>
+<h3 id="BeautifulSoup"><a href="#BeautifulSoup" class="headerlink" title="BeautifulSoup"></a>BeautifulSoup</h3><ul>
+<li>BeautifulSoup对象表示一个文档的全部内容。</li>
+<li>可以支持遍历文档树和搜索文档树。</li>
+<li>例如上面例子中的soup对象即为BeautifulSoup对象。</li>
+</ul>
+<h3 id="Comment"><a href="#Comment" class="headerlink" title="Comment"></a>Comment</h3><ul>
+<li><p>该对象即为HTML或XML文档中的注释。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">markup = &quot;<span class="tag">&lt;<span class="name">b</span>&gt;</span><span class="comment">&lt;!--Hey, buddy. Want to buy a used parser?--&gt;</span><span class="tag">&lt;/<span class="name">b</span>&gt;</span>&quot;</span><br><span class="line">soup = BeautifulSoup(markup)</span><br><span class="line">comment = soup.b.string</span><br><span class="line">type(comment)</span><br><span class="line">\# <span class="tag">&lt;<span class="name">class</span> &#x27;<span class="attr">bs4.element.Comment</span>&#x27;&gt;</span></span><br></pre></td></tr></table></figure></li>
+<li><p>该类对象可以用来获取注释的内容，获取方法为：comment.string</p>
+</li>
+<li><p>可以用于判断该类型是否是一个注释</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> bs4</span><br><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> <span class="built_in">type</span>(SomeString) == bs4.element.Comment:</span><br><span class="line">    print(<span class="string">&#x27;该字符是注释&#x27;</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    print(<span class="string">&#x27;该字符不是注释&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="BeautifulSopu遍历法"><a href="#BeautifulSopu遍历法" class="headerlink" title="BeautifulSopu遍历法"></a>BeautifulSopu遍历法</h2></li>
+</ul>
+<h3 id="节点和标签名"><a href="#节点和标签名" class="headerlink" title="节点和标签名"></a>节点和标签名</h3><ul>
+<li><p>可以使用子节点、父节点及标签名的方式遍历：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">soup.head <span class="comment">#查找head标签</span></span><br><span class="line">soup.p <span class="comment">#查找第一个p标签</span></span><br><span class="line"></span><br><span class="line">\<span class="comment">#对标签的直接子节点进行循环</span></span><br><span class="line">title_tag=soup.find(<span class="string">&#x27;p&#x27;</span>)</span><br><span class="line"><span class="keyword">for</span> child <span class="keyword">in</span> title_tag.children:</span><br><span class="line">    print(child)</span><br><span class="line"></span><br><span class="line">soup.parent <span class="comment">#父节点</span></span><br><span class="line"></span><br><span class="line">\<span class="comment"># 所有父节点</span></span><br><span class="line"><span class="keyword">for</span> parent <span class="keyword">in</span> link.parents:</span><br><span class="line">    <span class="keyword">if</span> parent <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">        print(parent)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        print(parent.name)</span><br><span class="line"></span><br><span class="line">\<span class="comment"># 兄弟节点</span></span><br><span class="line">sibling_soup.b.next_sibling <span class="comment">#后面的兄弟节点</span></span><br><span class="line">sibling_soup.c.previous_sibling <span class="comment">#前面的兄弟节点</span></span><br><span class="line"></span><br><span class="line">\<span class="comment">#所有兄弟节点</span></span><br><span class="line"><span class="keyword">for</span> sibling <span class="keyword">in</span> soup.a.next_siblings:</span><br><span class="line">    print(<span class="built_in">repr</span>(sibling))</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> sibling <span class="keyword">in</span> soup.find(<span class="built_in">id</span>=<span class="string">&quot;link3&quot;</span>).previous_siblings:</span><br><span class="line">    print(<span class="built_in">repr</span>(sibling))</span><br></pre></td></tr></table></figure>
+<h3 id="搜索文档树"><a href="#搜索文档树" class="headerlink" title="搜索文档树"></a>搜索文档树</h3></li>
+<li><p>常用的方法为find()和find_all(),其他的搜索方法有find_parent() 和 find_parents()、 find_next_sibling() 和 find_next_siblings() 、find_all_next() 和 find_next()、find_all_previous() 和 find_previous() 等。</p>
+</li>
+<li><p>find_all():搜索当前tag的所有tag子节点，并判断是否符合过滤器的条件。</p>
+<ul>
+<li>返回值类型是bs4.element.ResultSet</li>
+<li>完整的语法：<code>find_all(name,attrs,recursive,string,**kwargs)</code></li>
+<li>示例代码<figure class="highlight fsharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">     soup.find_all(<span class="string">&quot;title&quot;</span>)</span><br><span class="line">     # <span class="meta">[&lt;title&gt;The Dormouse&#x27;s story&lt;/title&gt;]</span></span><br><span class="line">     #</span><br><span class="line">     soup.find_all(<span class="string">&quot;p&quot;</span>, <span class="string">&quot;title&quot;</span>)</span><br><span class="line">        # <span class="meta">[&lt;p class=&quot;title&quot;&gt;&lt;b&gt;The Dormouse&#x27;s story&lt;/b&gt;&lt;/p&gt;]</span></span><br><span class="line">     # </span><br><span class="line">     soup.find_all(<span class="string">&quot;a&quot;</span>)</span><br><span class="line">     # <span class="meta">[&lt;a class=&quot;sister&quot; href=&quot;http://example.com/elsie&quot; id=&quot;link1&quot;&gt;Elsie&lt;/a&gt;,</span></span><br><span class="line"><span class="meta">     #  &lt;a class=&quot;sister&quot; href=&quot;http://example.com/lacie&quot; id=&quot;link2&quot;&gt;Lacie&lt;/a&gt;,</span></span><br><span class="line"><span class="meta">     #  &lt;a class=&quot;sister&quot; href=&quot;http://example.com/tillie&quot; id=&quot;link3&quot;&gt;Tillie&lt;/a&gt;]</span></span><br><span class="line">     #</span><br><span class="line">     soup.find_all(id=<span class="string">&quot;link2&quot;</span>)</span><br><span class="line">     # <span class="meta">[&lt;a class=&quot;sister&quot; href=&quot;http://example.com/lacie&quot; id=&quot;link2&quot;&gt;Lacie&lt;/a&gt;]</span></span><br><span class="line">     #</span><br><span class="line">     import re</span><br><span class="line">     soup.find(string=re.compile(<span class="string">&quot;sisters&quot;</span>))</span><br><span class="line">     # u&#x27;Once upon a time there were three little sisters; <span class="keyword">and</span> their names were\n&#x27;</span><br><span class="line">     </span><br><span class="line">name 参数：可以查找所有名字为 name 的tag。</span><br><span class="line">attr 参数：就是tag里的属性。</span><br><span class="line">string 参数：搜索文档中字符串的内容。</span><br><span class="line">recursive 参数： 调用tag的 find_all() 方法时，Beautiful Soup会检索当前tag的所有子孙节点。如果只想搜索tag的直接子节点，可以使用参数 recursive=False 。</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>find():和find_all()类似，只是返回第一个值，返回类型为bs4.element.Tag。</p>
+</li>
+<li><p>完整语法为：<code>find(name,attrs,recursive,string,**kwargs)</code></p>
+</li>
+<li><p>示例代码</p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">soup.find(<span class="string">&#x27;title&#x27;</span>)</span><br><span class="line">\# &lt;title&gt;The Dormous<span class="string">e&#x27;s story&lt;/title&gt;</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">soup.find(&quot;head&quot;).find(&quot;title&quot;)</span></span><br><span class="line"><span class="string">\# &lt;title&gt;The Dormouse&#x27;</span>s story&lt;/title&gt;</span><br></pre></td></tr></table></figure></li>
+<li><p>以上代码在python3下运行，其他函数参看官方文档。</p>
+</li>
+</ul>
+<hr>
+<p>2019.2.23</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wangxianggit.github.io/Python_library_BeautifulSoup/" data-id="ckjv3w9ci007c6sdnbsos5tbb" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BeautifulSoup/" rel="tag">BeautifulSoup</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-Markdown_add_table" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/Markdown_add_table/" class="article-date">
@@ -421,81 +576,11 @@ r = requests.post(&quot;http://httpbin.org/post&quot;, data=payload)</code></pre
 
 
   
-    <article id="post-Python_special_variable__name__" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/Python_special_variable__name__/" class="article-date">
-  <time datetime="2019-02-18T03:33:34.000Z" itemprop="datePublished">2019-02-18</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Python/">Python</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/Python_special_variable__name__/">Python特殊变量__name__</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-
-        <ul>
-<li><p> Python脚本中常常有这样的语句：if __name__ == ‘__main__‘，用于执行某个脚本，但是这里涉及到一个python特殊变量 __name__ ，这里是在变量前后都加上了双下划线，所以是python定义的特殊变量。</p>
-</li>
-<li><p>关于python需要解释以下几点：</p>
-<ul>
-<li>Python的模块可以独立运行，同时模块之间也可以通过import互相引用</li>
-<li>import的操作会执行所import的模块</li>
-<li> __name__ 特殊变量就是标识模块的名字的一个系统变量，若当前模块是主模块，模块名字就是 __main__ ，如果模块是被导入， __name__的值为模块名字</li>
-<li>通过模块名称的判断可以确定当前模块是否是主函数，并执行相应操作</li>
-</ul>
-</li>
-<li><p>示例代码</p>
-<ul>
-<li><p>~~~<br>#Py1.py<br>#!/usr/bin/env python<br>def test():<br>  print ‘<strong>name</strong> = ‘,<strong>name</strong><br>if <strong>name</strong> == ‘<strong>main</strong>‘:<br>  test()</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* ~~~</span><br><span class="line">  <span class="comment">#Py2.py</span></span><br><span class="line">  <span class="comment">#!/usr/bin/env python</span></span><br><span class="line">  <span class="keyword">import</span> Py1.py</span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">test</span>():</span></span><br><span class="line">    <span class="built_in">print</span> <span class="string">&#x27;__name__ = &#x27;</span>,__name__</span><br><span class="line">  <span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    test()</span><br><span class="line">    <span class="built_in">print</span> ‘Py1.py __name__ = ’,Py1.__name__</span><br></pre></td></tr></table></figure></li>
-<li><p>执行结果：</p>
-</li>
-<li><pre><code>__name__=__main__
-Py1.py __name__=Py1</code></pre>
-</li>
-</ul>
-</li>
-<li><p>通过结果可以知道，Py2.py直接执行，那么内建变量__name__的值为__main__，否则为模块的名字，通过这个特性可以在if语句里面添加测试代码，减少BUG，提高程序的可靠性。</p>
-</li>
-</ul>
-<hr>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/Python_special_variable__name__/" data-id="ckjv3w9cr008i6sdnco49bm7i" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Program/" rel="tag">Program</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/page/29/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/28/">28</a><a class="page-number" href="/page/29/">29</a><span class="page-number current">30</span><a class="page-number" href="/page/31/">31</a><a class="page-number" href="/page/32/">32</a><span class="space">&hellip;</span><a class="page-number" href="/page/42/">42</a><a class="extend next" rel="next" href="/page/31/">Next &amp;raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/29/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/28/">28</a><a class="page-number" href="/page/29/">29</a><span class="page-number current">30</span><a class="page-number" href="/page/31/">31</a><a class="page-number" href="/page/32/">32</a><span class="space">&hellip;</span><a class="page-number" href="/page/43/">43</a><a class="extend next" rel="next" href="/page/31/">Next &amp;raquo;</a>
   </nav>
 
 </section>
@@ -565,6 +650,10 @@ Py1.py __name__=Py1</code></pre>
       <ul>
         
           <li>
+            <a href="/ntp_date/">Centos7使用npt设置时间同步</a>
+          </li>
+        
+          <li>
             <a href="/OLAP_OLTP/">联机分析处理和联机事务处理</a>
           </li>
         
@@ -578,10 +667,6 @@ Py1.py __name__=Py1</code></pre>
         
           <li>
             <a href="/python_function_return_type/">python定义函数指定返回值类型</a>
-          </li>
-        
-          <li>
-            <a href="/opencv%20_error_The%20function%20is%20not%20implemented/">opencv error “The function is not implemented“</a>
           </li>
         
       </ul>

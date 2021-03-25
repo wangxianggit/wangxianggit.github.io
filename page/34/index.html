@@ -67,6 +67,80 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Python property_modifier" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/Python%20property_modifier/" class="article-date">
+  <time datetime="2019-02-10T00:29:32.000Z" itemprop="datePublished">2019-02-10</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Python/">Python</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/Python%20property_modifier/">Python property修饰符</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+
+        <ul>
+<li><p>作用：把相关函数”装饰”成属性调用，可以用于限制类中的成员变量。</p>
+</li>
+<li><p>示例:</p>
+<ul>
+<li><p>~~~<br>class Student(object):</p>
+<pre><code>def __init__(self, name, score):
+    self.name = name
+    self.__score = score
+def get_score(self):
+    return self.__score
+def set_score(self, score):
+    if score &lt; 0 or score &gt; 100:
+        raise ValueError(&#39;invalid score&#39;)
+    self.__score = score</code></pre>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>s=Student(‘Bob’,59)</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 若写成s.set_score(<span class="number">1000</span>)会出现报错,如此相当于使用函数对成员变量做限制，同时可以通过外部函数对类的私有成员变量进行访问。</span><br><span class="line"></span><br><span class="line">* 现在考虑直接访问成员变量同时可以对变量作出限制的情况，在这里可以用装饰器把get/<span class="built_in">set</span>方法变成属性调用：</span><br><span class="line"></span><br><span class="line">* ~~~</span><br><span class="line">  <span class="class"><span class="keyword">class</span> <span class="title">Student</span>(<span class="params"><span class="built_in">object</span></span>):</span></span><br><span class="line">      <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self, name, score</span>):</span></span><br><span class="line">          self.name = name</span><br><span class="line">          self.__score = score</span><br><span class="line"><span class="meta">      @property</span></span><br><span class="line">      <span class="function"><span class="keyword">def</span> <span class="title">score</span>(<span class="params">self</span>):</span></span><br><span class="line">          <span class="keyword">return</span> self.__score</span><br><span class="line"><span class="meta">      @score.setter</span></span><br><span class="line">      <span class="function"><span class="keyword">def</span> <span class="title">score</span>(<span class="params">self, score</span>):</span></span><br><span class="line">          <span class="keyword">if</span> score &lt; <span class="number">0</span> <span class="keyword">or</span> score &gt; <span class="number">100</span>:</span><br><span class="line">              <span class="keyword">raise</span> ValueError(<span class="string">&#x27;invalid score&#x27;</span>)</span><br><span class="line">          self.__score = score</span><br></pre></td></tr></table></figure></li>
+<li><p>第一个score(self)是get方法，用@property装饰，第二个score(self, score)是set方法，用@score.setter装饰，@score.setter是前一个@property装饰后的副产品。</p>
+</li>
+<li><p>在这里对 score 赋值实际调用的是 set方法。</p>
+</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wangxianggit.github.io/Python%20property_modifier/" data-id="ckjv3w9c4005n6sdnc9sv2rk7" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Program/" rel="tag">Program</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-Python classmethod_modifier" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/Python%20classmethod_modifier/" class="article-date">
@@ -380,77 +454,11 @@ AssertionError
 
 
   
-    <article id="post-Python_getitem" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/Python_getitem/" class="article-date">
-  <time datetime="2019-01-31T13:07:10.000Z" itemprop="datePublished">2019-01-31</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Python/">Python</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/Python_getitem/">Python特殊函数__getitem__()</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-
-        <ul>
-<li><p>​ 对对象按照下标取出元素，使用特殊函数__getitem__()</p>
-</li>
-<li><p>以斐波那契数列作为对象，实现用下标得到相应类的实例：</p>
-<ul>
-<li><pre><code>class Fab(object):
-    def __init__(self):
-           self.a, self.b = 1, 1
-
-    def __getitem__(self, n):
-        for x in range(n):
-            self.a, self.b = self.b, self.a + self.b
-        return self.a
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* ~~~</span><br><span class="line"><span class="meta">  &gt;</span><span class="bash">&gt;&gt;f=Fab()</span></span><br><span class="line"><span class="meta">  &gt;</span><span class="bash">&gt;&gt;f[2]</span></span><br><span class="line">  2</span><br><span class="line"><span class="meta">  &gt;</span><span class="bash">&gt;&gt;f[10]</span></span><br><span class="line">  89</span><br></pre></td></tr></table></figure>
-
-
-</code></pre>
-</li>
-</ul>
-</li>
-</ul>
-<hr>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/Python_getitem/" data-id="ckjv3w9cb006j6sdn1achcrh4" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Program/" rel="tag">Program</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/page/33/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/32/">32</a><a class="page-number" href="/page/33/">33</a><span class="page-number current">34</span><a class="page-number" href="/page/35/">35</a><a class="page-number" href="/page/36/">36</a><span class="space">&hellip;</span><a class="page-number" href="/page/42/">42</a><a class="extend next" rel="next" href="/page/35/">Next &amp;raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/33/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/32/">32</a><a class="page-number" href="/page/33/">33</a><span class="page-number current">34</span><a class="page-number" href="/page/35/">35</a><a class="page-number" href="/page/36/">36</a><span class="space">&hellip;</span><a class="page-number" href="/page/43/">43</a><a class="extend next" rel="next" href="/page/35/">Next &amp;raquo;</a>
   </nav>
 
 </section>
@@ -520,6 +528,10 @@ AssertionError
       <ul>
         
           <li>
+            <a href="/ntp_date/">Centos7使用npt设置时间同步</a>
+          </li>
+        
+          <li>
             <a href="/OLAP_OLTP/">联机分析处理和联机事务处理</a>
           </li>
         
@@ -533,10 +545,6 @@ AssertionError
         
           <li>
             <a href="/python_function_return_type/">python定义函数指定返回值类型</a>
-          </li>
-        
-          <li>
-            <a href="/opencv%20_error_The%20function%20is%20not%20implemented/">opencv error “The function is not implemented“</a>
           </li>
         
       </ul>

@@ -67,6 +67,78 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Altium_Design_layer_implication" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/Altium_Design_layer_implication/" class="article-date">
+  <time datetime="2018-11-16T10:11:56.000Z" itemprop="datePublished">2018-11-16</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Altium/">Altium</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/Altium_Design_layer_implication/">Altium Design各层含义</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+
+        <p>顶层信号层(Top Layer)：</p>
+<p>也称元件层，主要用来放置元器件，对于双层板和多层板可以用来布线。</p>
+<p><strong>中间信号层(Mid Layer)：</strong></p>
+<p>最多可有30层，在多层板中用于布信号线。</p>
+<p><strong>底层信号层(Bottom Layer)：</strong></p>
+<p>也称焊接层，主要用于布线及焊接，有时也可放置元器件。</p>
+<p><strong>顶部丝印层(Top Overlayer)：</strong></p>
+<p>用于标注元器件的投影轮廓、元器件的标号、标称值或型号及各种注释字符。</p>
+<p><strong>底部丝印层(Bottom Overlayer)：</strong></p>
+<p>与顶部丝印层作用相同，如果各种标注在顶部丝印层都含有，那么在底部丝印层就不需要了。</p>
+<p><strong>内部电源层(Internal Plane)：</strong></p>
+<p>通常称为内电层，包括供电电源层、参考电源层和地平面信号层。内部电源层为负片形式输出。</p>
+<p><strong>机械层(Mechanical Layer)：</strong></p>
+<p>机械层是定义整个PCB板的外观的，它一般用于设置电路板的外形尺寸，数据标记，对齐标记，装配说明以及其它的机械信息。</p>
+<p><strong>阻焊层(Solder Mask-焊接面)：</strong></p>
+<p>有顶部阻焊层(Top solder Mask)和底部阻焊层(Bottom Solder Mask)两层，是Protel PCB对应于电路板文件中的焊盘和过孔数据自动生成的板层，主要用于铺设阻焊漆。本板层采用负片输出，所以板层上显示的焊盘和过孔部分代表电路板上不铺阻焊漆的区域，也就是可以进行焊接的部分。</p>
+<p>因为它是负片输出，所以实际上有Solder Mask的部分实际效果并不上绿油，而是镀锡，呈银白色！在焊盘以外的各部位涂覆一层涂料，如防焊漆，用于阻止这些部位上锡。阻焊层用于在设计过程中匹配焊盘，是自动产生的。</p>
+<p>阻焊盘就是solder mask，是指板子上要上绿油的部分。实际上这阻焊层使用的是负片输出，所以在阻焊层的形状映射到板子上以后，并不是上了绿油阻焊，反而是露出了铜皮。通常为了增大铜皮的厚度，采用阻焊层上划线去绿油，然后加锡达到增加铜线厚度的效果。</p>
+<p><strong>锡膏层(Past Mask-面焊面)：</strong></p>
+<p>有顶部锡膏层(Top Past Mask)和底部锡膏层(Bottom Past Mask)两层，它就是指我们可以看到的露在外面的铜铂，（比如我们在顶层布线层画了一根导线，这根导线我们在PCB上所看到的只是一根线而已，它是被整个绿油盖住的，但是我们在这根线的位置上的Top Paste层上画一个方形，或一个点，所打出来的板上这个方形和这个点就没有绿油了，而是铜铂。 </p>
+<p>它和阻焊层的作用相似，不同的是在机器焊接时对应的表面粘贴式元件的焊盘。</p>
+<p><strong>禁止布线层(Keep Out Layer)：</strong></p>
+<p>用于绘制印制板外边界及定位孔等镂空部分，也就是说我们先定义了禁止布线层后，我们在以后的布线过程中，所布的具有电气特性的线是不可能超出禁止布线层的边界。用于定义在电路板上能够有效放置元件和布线的区域。作用是绘制禁止布线区域，如果印制板中没有绘制机械层的情况下，印制板厂家的人会以此层来做为PCB外形来处理。如果KEEPOUT LAYER层和机械层都有的情况下，默认是以机械层为PCB外形，但印制板厂家的技术人员会自己去区分，但是区分不出来的情况下他们会默认以机械层当外形层。</p>
+<p><strong>多层(Multi Layer)：</strong></p>
+<p>通常与过孔或通孔焊盘设计组合出现，用于描述空洞的层特性。电路板上焊盘和穿透式过孔要穿透整个电路板，与不同的导电图形层建立电气连接关系，因此系统专门设置了一个抽象的层——多层。一般，焊盘与过孔都要设置在多层上，如果关闭此层，焊盘与过孔就无法显示出来。</p>
+<p><strong>钻孔数据层（Drill）：</strong></p>
+<p>钻孔层提供电路板制造过程中的钻孔信息(如焊盘，过孔就需要钻孔)。Altium Designer提供了Drill guide(钻孔指示图)和Drill drawing(钻孔图)两个钻孔层。</p>
+<hr>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wangxianggit.github.io/Altium_Design_layer_implication/" data-id="ckjv3w9aq000b6sdnhlpxfrts" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Altium-Designer/" rel="tag">Altium Designer</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Electronic/" rel="tag">Electronic</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-c++_multithread" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/c++_multithread/" class="article-date">
@@ -346,75 +418,11 @@ int main()
 
 
   
-    <article id="post-htop_hotkey" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/htop_hotkey/" class="article-date">
-  <time datetime="2018-10-12T06:08:43.000Z" itemprop="datePublished">2018-10-12</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/learning/">learning</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/htop_hotkey/">htop常用快捷键</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-
-        <ul>
-<li><p>htop常用快捷键</p>
-<ul>
-<li><pre><code>F1,h,?:查看htop使用说明，
-F2,s  :设置选项
-F3,/  :搜索进程
-F4,\  :过滤器，输入关键字搜索
-F5,t  :显示属性结构
-F6,&lt;,&gt;:选择排序方式
-F7, [,:减少进程的优先级(nice)
-F8，] :增加进程的优先级(nice)
-F9，k :杀掉选中的进程
-F10，q:退出htop
-u:显示所有用户，并可以选中某一特定用户的进程
-U：取消标记所有的进程
-<figure class="highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* htop主界面介绍:</span><br><span class="line"></span><br><span class="line">  * ![](htop_hotkey/htopjiemian.jpg)</span><br><span class="line"></span><br><span class="line">  * ```</span><br><span class="line">    PID：进程标志号，是非零正整数 </span><br><span class="line">    USER：进程所有者的用户名 </span><br><span class="line">    PR：进程的优先级别 </span><br><span class="line">    NI：进程的优先级别数 </span><br><span class="line">    VIRT：进程占用的虚拟内存 </span><br><span class="line">    RES：进程占用的物理内存 </span><br><span class="line">    SHR：进程使用的共享内存 </span><br><span class="line">    S：进程的状态，其中S表示休眠，R表示正在运行，Z表示僵死状态，N表示该进程优先值是负数 </span><br><span class="line"><span class="tag">    %<span class="selector-tag">CPU</span></span>：该进程占用的CPU使用率 </span><br><span class="line"><span class="tag">    %<span class="selector-tag">MEM</span></span>：该进程占用的物理内存和总内存的百分比 </span><br><span class="line">    TIME&amp;+：该进程启动后占用的总的CPU时间 </span><br><span class="line">    Command：进程启动的启动命令名称</span><br></pre></td></tr></table></figure></code></pre>
-</li>
-</ul>
-</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/htop_hotkey/" data-id="ckjv3w9do00cc6sdn0q6td9bm" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/htop/" rel="tag">htop</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/page/38/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/37/">37</a><a class="page-number" href="/page/38/">38</a><span class="page-number current">39</span><a class="page-number" href="/page/40/">40</a><a class="page-number" href="/page/41/">41</a><a class="page-number" href="/page/42/">42</a><a class="extend next" rel="next" href="/page/40/">Next &amp;raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/38/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/37/">37</a><a class="page-number" href="/page/38/">38</a><span class="page-number current">39</span><a class="page-number" href="/page/40/">40</a><a class="page-number" href="/page/41/">41</a><span class="space">&hellip;</span><a class="page-number" href="/page/43/">43</a><a class="extend next" rel="next" href="/page/40/">Next &amp;raquo;</a>
   </nav>
 
 </section>
@@ -484,6 +492,10 @@ U：取消标记所有的进程
       <ul>
         
           <li>
+            <a href="/ntp_date/">Centos7使用npt设置时间同步</a>
+          </li>
+        
+          <li>
             <a href="/OLAP_OLTP/">联机分析处理和联机事务处理</a>
           </li>
         
@@ -497,10 +509,6 @@ U：取消标记所有的进程
         
           <li>
             <a href="/python_function_return_type/">python定义函数指定返回值类型</a>
-          </li>
-        
-          <li>
-            <a href="/opencv%20_error_The%20function%20is%20not%20implemented/">opencv error “The function is not implemented“</a>
           </li>
         
       </ul>

@@ -67,6 +67,80 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-nodejs_windows_install" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/nodejs_windows_install/" class="article-date">
+  <time datetime="2021-01-13T06:03:12.000Z" itemprop="datePublished">2021-01-13</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/learning/">learning</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/nodejs_windows_install/">windows下安装nodejs及环境变量设置</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+
+        <ul>
+<li><p> 安装包下载：<a target="_blank" rel="noopener" href="https://nodejs.org/zh-cn/download/">https://nodejs.org/zh-cn/download/</a></p>
+</li>
+<li><p>安装包.msi和.zip格式区别：</p>
+<ul>
+<li><code>.msi</code>是Windows installer开发出来的程序安装文件，它可以让你安装，修改，卸载你所安装的程序。说白了.msi就是Windows installer的数据包，把所有和安装文件相关的内容封装在一个包里。</li>
+<li><code>.zip</code>是一个压缩包，解压之后即可，不需要安装，需要配置环境变量</li>
+</ul>
+</li>
+<li><p>下载完成按照默认点击next安装。</p>
+</li>
+<li><p>版本信息查看：</p>
+<ul>
+<li>查看版本：node -v</li>
+<li>npm版本：npm -v</li>
+</ul>
+</li>
+<li><p>执行<code>npm install -g XXXX</code>下载全局包时，这个包的默认存放路径位<code>C:\Users\用户名\AppData\Roaming\npm\node_modules下</code>，可以通过<code>CMD</code>指令<code>npm root -g</code>查看。</p>
+</li>
+<li><p>修改全局包下载位置：</p>
+<ul>
+<li><pre><code>npm config set prefix &quot;C:\node\node_global&quot;
+npm config set cache &quot;C:\node\node_cache&quot;
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 或者打开`c:\<span class="keyword">node</span><span class="title">\node_modules</span>\npm\.npmrc`文件，修改如下：</span><br><span class="line"></span><br><span class="line">* ~~~</span><br><span class="line">  prefix =C:\<span class="keyword">node</span><span class="title">\node_global</span></span><br><span class="line">  cache = C:\<span class="keyword">node</span><span class="title">\node_cache</span></span><br></pre></td></tr></table></figure>
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wangxianggit.github.io/nodejs_windows_install/" data-id="ckjv3w9dy00ds6sdnhjviglet" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/windows/" rel="tag">windows</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-Endnote_download_tutorial" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/Endnote_download_tutorial/" class="article-date">
@@ -328,91 +402,11 @@ print(sess.run(hello))  </code></pre>
 
 
   
-    <article id="post-Python_pdb_debug" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/Python_pdb_debug/" class="article-date">
-  <time datetime="2020-07-26T10:44:29.000Z" itemprop="datePublished">2020-07-26</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Python/">Python</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/Python_pdb_debug/">Python pdb调试命令</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-
-        <ul>
-<li><p>ENTER (重复上次命令)</p>
-</li>
-<li><p>c (继续)直到遇到下一个断点</p>
-</li>
-<li><p>l (查找当前位于哪里)</p>
-</li>
-<li><p>s (进入子程序,如果当前有一个函数调用，那么 s 会进入被调用的函数体)</p>
-</li>
-<li><p>n(ext) 让程序运行下一行，如果当前语句有一个函数调用，用 n 是不会进入被调用的函数体中的</p>
-</li>
-<li><p>r (运行直到子程序结束)</p>
-</li>
-<li><p>!&lt;python 命令&gt;执行shell命令</p>
-</li>
-<li><p>h (帮助)</p>
-</li>
-<li><p>a(rgs) 打印当前函数的参数</p>
-</li>
-<li><p>j(ump) 让程序跳转到指定的行数</p>
-</li>
-<li><p>l(ist) 可以列出当前将要运行的代码块</p>
-</li>
-<li><p>p(rint) 最有用的命令之一，打印某个变量</p>
-</li>
-<li><p>q(uit) 退出调试</p>
-</li>
-<li><p>r(eturn) 继续执行，直到函数体返回</p>
-<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">pdb</span>单步执行太麻烦了，所以一般<span class="keyword">import</span> pdb 之后，直接在代码里需要调试的地方放一个pdb.set_trace()，就可以设置一个断点， 程序会在pdb.set_trace()暂停并进入pdb调试环境，可以用pdb 变量名查看变量，或者c继续运行：</span><br><span class="line"><span class="keyword">import</span> pdb</span><br><span class="line"></span><br><span class="line"><span class="title">s</span> = &#x27;<span class="number">10</span>&#x27;</span><br><span class="line"><span class="title">n</span> = int(s)</span><br><span class="line"><span class="title">pdb</span>.set_trace() #运行到这里会自动暂停</span><br><span class="line"><span class="title">print</span>(<span class="number">10</span>/n)</span><br></pre></td></tr></table></figure></li>
-<li><p>使用ipdb可以显示彩色环境，安装如下：</p>
-<ul>
-<li>pip install ipdb -i <a target="_blank" rel="noopener" href="https://pypi.tuna.tsinghua.edu.cn/simple">https://pypi.tuna.tsinghua.edu.cn/simple</a></li>
-</ul>
-</li>
-</ul>
-<hr>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/Python_pdb_debug/" data-id="ckjv3w9cn00806sdng356ge9w" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/page/2/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/42/">42</a><a class="extend next" rel="next" href="/page/4/">Next &amp;raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/2/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/43/">43</a><a class="extend next" rel="next" href="/page/4/">Next &amp;raquo;</a>
   </nav>
 
 </section>
@@ -482,6 +476,10 @@ print(sess.run(hello))  </code></pre>
       <ul>
         
           <li>
+            <a href="/ntp_date/">Centos7使用npt设置时间同步</a>
+          </li>
+        
+          <li>
             <a href="/OLAP_OLTP/">联机分析处理和联机事务处理</a>
           </li>
         
@@ -495,10 +493,6 @@ print(sess.run(hello))  </code></pre>
         
           <li>
             <a href="/python_function_return_type/">python定义函数指定返回值类型</a>
-          </li>
-        
-          <li>
-            <a href="/opencv%20_error_The%20function%20is%20not%20implemented/">opencv error “The function is not implemented“</a>
           </li>
         
       </ul>

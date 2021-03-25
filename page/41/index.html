@@ -67,6 +67,72 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Centos7_install_Qt5.9" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/Centos7_install_Qt5.9/" class="article-date">
+  <time datetime="2018-07-23T13:55:34.000Z" itemprop="datePublished">2018-07-23</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/learning/">learning</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/Centos7_install_Qt5.9/">Centos7安装Qt5.9</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+
+        <ul>
+<li><p>参考链接：<a target="_blank" rel="noopener" href="http://doc.qt.io/qt-5/linux.html">http://doc.qt.io/qt-5/linux.html</a></p>
+</li>
+<li><pre><code>sudo yum groupinstall &quot;C Development Tools and Libraries&quot;
+sudo yum install libgl libgl-devel
+sudo yum install mesa-libGL-devel mesa-libGLU-devel freeglut-devel
+sudo yum install libxcb libxcb-devel libXrender libXrender-devel xcb-util-wm xcb-util-wm-devel xcb-util xcb-util-devel xcb-util-image xcb-util-image-devel xcb-util-keysyms xcb-util-keysyms-devel
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="bullet">* </span>安装好基本库之后下载安装包进行安装：</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+wget http://download.qt.io/archive/qt/5.9/5.9.2/qt-opensource-linux-x64-5.9.2.run
+chmod +x qt-opensource-linux-x64-5.9.2.run
+./qt-opensource-linux-x64-5.9.2.run
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="code">  ​</span></span><br><span class="line"></span><br><span class="line"><span class="bullet">* </span>设置环境变量：</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+export LD_LIBRARY_PATH=/opt/Qt5.9.2/Tools/QtCreator/lib:/opt/Qt5.9.2/Tools/QtCreator/lib/qtcreator:/opt/Qt5.9.2/Tools/QtCreator/lib/Qt/lib:$LD_LIBRARY_PATH
+export PATH=$PATH:/opt/Qt5.9.2/5.9.2/gcc_64/bin:/opt/Qt5.9.2/Tools/QtCreator/bin</code></pre>
+<p>​</p>
+</li>
+<li><p>QTCreator输入中文：</p>
+<ul>
+<li>设置环境变量export QT_IM_MODULE=iBus</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wangxianggit.github.io/Centos7_install_Qt5.9/" data-id="ckjv3w9b2001i6sdn7idg9bv4" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Centos7/" rel="tag">Centos7</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/qt/" rel="tag">qt</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-Centos7_modified_add_yum_variables" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/Centos7_modified_add_yum_variables/" class="article-date">
@@ -448,73 +514,11 @@ SYMBOL TABLE:
 
 
   
-    <article id="post-hexo_image" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/hexo_image/" class="article-date">
-  <time datetime="2018-04-26T10:17:54.000Z" itemprop="datePublished">2018-04-26</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/learning/">learning</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/hexo_image/">hexo windows下上传图片</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-
-        <ul>
-<li><p>步骤</p>
-<ul>
-<li>确认_config.yml中有：post_asset_folder:true</li>
-<li>在hexo目录下执行：npm install <a target="_blank" rel="noopener" href="https://github.com/CodeFalling/hexo-asset-image">https://github.com/CodeFalling/hexo-asset-image</a> –save</li>
-<li>确保在hexo目录/source/_posts下创建和md文件同名的目录，在里面放该md需要的图片，然后在md中插入：![](目录名/文件名.png)</li>
-<li>若是截图得到的图片扩展名是大写，md文件中也应该大写。</li>
-</ul>
-</li>
-<li><p>首次配置完了需要执行一次清除操作，再生成页面：</p>
-<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean</span><br><span class="line">$ hexo <span class="keyword">generate</span></span><br><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>​</p>
-</li>
-</ul>
-<ul>
-<li> 示例图片</li>
-<li><img src="hexo_image/example.jpg"></li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/hexo_image/" data-id="ckjv3w9dn00c86sdnhmn6ggz5" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/page/40/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/39/">39</a><a class="page-number" href="/page/40/">40</a><span class="page-number current">41</span><a class="page-number" href="/page/42/">42</a><a class="extend next" rel="next" href="/page/42/">Next &amp;raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/40/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/39/">39</a><a class="page-number" href="/page/40/">40</a><span class="page-number current">41</span><a class="page-number" href="/page/42/">42</a><a class="page-number" href="/page/43/">43</a><a class="extend next" rel="next" href="/page/42/">Next &amp;raquo;</a>
   </nav>
 
 </section>
@@ -584,6 +588,10 @@ SYMBOL TABLE:
       <ul>
         
           <li>
+            <a href="/ntp_date/">Centos7使用npt设置时间同步</a>
+          </li>
+        
+          <li>
             <a href="/OLAP_OLTP/">联机分析处理和联机事务处理</a>
           </li>
         
@@ -597,10 +605,6 @@ SYMBOL TABLE:
         
           <li>
             <a href="/python_function_return_type/">python定义函数指定返回值类型</a>
-          </li>
-        
-          <li>
-            <a href="/opencv%20_error_The%20function%20is%20not%20implemented/">opencv error “The function is not implemented“</a>
           </li>
         
       </ul>

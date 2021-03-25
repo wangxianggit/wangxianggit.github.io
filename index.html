@@ -67,6 +67,67 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-ntp_date" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/ntp_date/" class="article-date">
+  <time datetime="2021-03-25T05:00:32.000Z" itemprop="datePublished">2021-03-25</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/learning/">learning</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/ntp_date/">Centos7使用npt设置时间同步</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+
+        <ul>
+<li><p>设置时区并使用npt进行时间同步：</p>
+<ul>
+<li><pre><code>yum install ntp // 安装ntp服务
+systemctl enable ntpd // 开机启动服务
+systemctl start ntpd // 启动服务
+timedatectl set-timezone Asia/Shanghai // 更改时区
+timedatectl set-ntp yes // 启用ntp同步
+ntpq -p // 同步时间
+
+<figure class="highlight dsconfig"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 在<span class="string">CentOS</span> <span class="string">6</span>版本，时间设置有<span class="string">date</span>、<span class="string">hwclock</span>命令，从<span class="string">CentOS</span> <span class="string">7</span>开始，使用了一个新的命令<span class="string">timedatectl</span>。</span><br><span class="line"></span><br><span class="line">* <span class="string">timedatectl</span>命令的使用：</span><br><span class="line"></span><br><span class="line">  * ```</span><br><span class="line">    <span class="comment"># 读取时间</span></span><br><span class="line">    <span class="string">timedatectl</span>  //等同于 <span class="string">timedatectl</span> <span class="string">status</span></span><br><span class="line"><span class="string"></span>    <span class="comment"># 设置时间</span></span><br><span class="line">    <span class="string">timedatectl</span> <span class="built_in">set-time</span> <span class="string">&quot;YYYY-MM-DD HH:MM:SS&quot;</span></span><br><span class="line">    <span class="comment"># 列出所有时区</span></span><br><span class="line">    <span class="string">timedatectl</span> <span class="built_in">list-timezones</span></span><br><span class="line"><span class="built_in"></span>    <span class="comment"># 更改时区</span></span><br><span class="line">    <span class="string">timedatectl</span> <span class="built_in">set-timezone</span> <span class="string">Asia</span>/<span class="string">Shanghai</span></span><br><span class="line"><span class="string"></span>    <span class="comment"># 或   ln -sf /usr/share/zoneinfor/Asia/Shanghai /etc/localtime     </span></span><br><span class="line">    设置是否与<span class="string">NTP</span>服务器同步</span><br><span class="line">    <span class="string">timedatectl</span> <span class="built_in">set-ntp</span> <span class="string">yes</span>  //<span class="string">yes</span>或者<span class="string">no</span></span><br><span class="line"><span class="string"></span>    将硬件时钟调整为与本地时钟一致</span><br><span class="line">    <span class="string">hwclock</span> <span class="built_in">--systohc</span> <span class="built_in">--localtime</span> 或 <span class="string">timedatectl</span> <span class="built_in">set-local-rtc</span> <span class="string">1</span></span><br><span class="line"><span class="string"></span>    注，硬件时钟默认使用<span class="string">UTC</span>时间，因为硬件时钟不能保存时区和夏令时调整，修改后就无法从硬件时钟中读取出准确标准时间，因此不建议修改。修改后系统会出现警告。</span><br><span class="line">    将硬件时间设置成 <span class="string">UTC</span></span><br><span class="line"><span class="string"></span>    <span class="string">hwclock</span> <span class="built_in">--systohc</span> <span class="built_in">--utc</span> 或 <span class="string">timedatectl</span> <span class="built_in">set-local-rtc</span> <span class="string">1</span></span><br><span class="line"><span class="string"></span>    <span class="comment"># 显示硬件时间：</span></span><br><span class="line">    <span class="string">hwclock</span> <span class="built_in">--show</span></span><br><span class="line"><span class="built_in"></span>    <span class="comment"># 设置硬件时间：</span></span><br><span class="line">    <span class="string">hwclock</span> <span class="built_in">--set</span> <span class="built_in">--date</span> ‘<span class="string">08</span>/<span class="string">02</span>/<span class="string">2012</span> <span class="string">12:00:</span><span class="string">00</span>’</span><br><span class="line">    <span class="comment"># 将硬件时间同步到系统时间：</span></span><br><span class="line">    <span class="string">hwclock</span> <span class="built_in">--hctosys</span></span><br><span class="line"><span class="built_in"></span>    <span class="comment"># 强制把系统时间写入CMOS：</span></span><br><span class="line">    <span class="comment"># clock -w</span></span><br></pre></td></tr></table></figure>
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wangxianggit.github.io/ntp_date/" data-id="ckmoev9np00009wdneva9glvt" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Centos7/" rel="tag">Centos7</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-OLAP_OLTP" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/OLAP_OLTP/" class="article-date">
@@ -331,72 +392,11 @@ def first(l: Sequence[T]) -&gt; T:   # Generic function
 
 
   
-    <article id="post-opencv _error_The function is not implemented" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/opencv%20_error_The%20function%20is%20not%20implemented/" class="article-date">
-  <time datetime="2021-01-28T12:08:41.000Z" itemprop="datePublished">2021-01-28</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Python/">Python</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/opencv%20_error_The%20function%20is%20not%20implemented/">opencv error “The function is not implemented“</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-
-        <ul>
-<li><p>​ Python3.6 anaconda环境执行opencv代码出现错误：</p>
-<ul>
-<li><pre><code class="Traceback">File “test.py”, line 45, in
-
-cv2.imshow(‘image’,image)
-
-cv2.error: OpenCV(3.4.5) error: (-2:Unspecified error) The function is not implemented. Rebuild the library with Windows, GTK+ 2.x or Carbon support. If you are on Ubuntu or Debian, install libgtk2.0-dev and pkg-config, then re-run cmake or configure script in function ‘cvShowImage’</code></pre>
-</li>
-</ul>
-</li>
-<li><p>版本冲突，首先如果你是通过pip命令卸载原有python:<code>pip uninstall opencv-python</code></p>
-</li>
-<li><p>然后重新安装即可：<code>pip install opencv-python -i http://mirrors.aliyun.com/pypi/simple/   --trusted-host mirrors.aliyun.com</code></p>
-</li>
-</ul>
-<hr>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/opencv%20_error_The%20function%20is%20not%20implemented/" data-id="ckkgtme1j00006sdnhuhye652" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Opencv/" rel="tag">Opencv</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
     
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/42/">42</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/43/">43</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
   </nav>
 
 </section>
@@ -466,6 +466,10 @@ cv2.error: OpenCV(3.4.5) error: (-2:Unspecified error) The function is not imple
       <ul>
         
           <li>
+            <a href="/ntp_date/">Centos7使用npt设置时间同步</a>
+          </li>
+        
+          <li>
             <a href="/OLAP_OLTP/">联机分析处理和联机事务处理</a>
           </li>
         
@@ -479,10 +483,6 @@ cv2.error: OpenCV(3.4.5) error: (-2:Unspecified error) The function is not imple
         
           <li>
             <a href="/python_function_return_type/">python定义函数指定返回值类型</a>
-          </li>
-        
-          <li>
-            <a href="/opencv%20_error_The%20function%20is%20not%20implemented/">opencv error “The function is not implemented“</a>
           </li>
         
       </ul>

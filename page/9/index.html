@@ -67,6 +67,70 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-python_nan_inf" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/python_nan_inf/" class="article-date">
+  <time datetime="2019-10-12T10:23:21.000Z" itemprop="datePublished">2019-10-12</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Python/">Python</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/python_nan_inf/">Python 缺失值inf、nan处理</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+
+        <ul>
+<li><p> 把inf值转换成nan：<code>pd.set_option(&#39;mode.use_inf_as_na&#39;, True)</code></p>
+</li>
+<li><p>统计每一列缺失值的个数：<code>print(df.isnull().sum())</code></p>
+</li>
+<li><p>前向填充和反向填充：</p>
+<ul>
+<li><pre><code>df.fillna(method=&#39;ffill&#39;,axis=1)
+df.fillna(method=&#39;bfill&#39;,axis=1)</code></pre>
+</li>
+</ul>
+</li>
+<li><p>指定值填充：<code>df.fillna(&#39;value&#39;)</code></p>
+</li>
+<li><p>去除缺失值：<code>df.dropna(axis=1)</code></p>
+</li>
+<li><p>inf值替换：<code>df.replace([np.inf,-np.inf],np.nan)</code></p>
+</li>
+</ul>
+<hr>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wangxianggit.github.io/python_nan_inf/" data-id="ckjv3w9e800ev6sdnbcwc9j2c" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-keras_epoch_batch" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/keras_epoch_batch/" class="article-date">
@@ -308,75 +372,11 @@ dataset = scaler.fit_transform(dataset)</code></pre>
 
 
   
-    <article id="post-tf.initialize_all_variables()andtf.global_variables_initializer()" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/tf.initialize_all_variables()andtf.global_variables_initializer()/" class="article-date">
-  <time datetime="2019-09-28T06:43:40.000Z" itemprop="datePublished">2019-09-28</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Python/">Python</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/tf.initialize_all_variables()andtf.global_variables_initializer()/">tf.initialize_all_variables()和tf.global_variables_initializer()</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-
-        <h3 id="tf-initialize-all-variables-和tf-global-variables-initializer"><a href="#tf-initialize-all-variables-和tf-global-variables-initializer" class="headerlink" title="tf.initialize_all_variables()和tf.global_variables_initializer()"></a>tf.initialize_all_variables()和tf.global_variables_initializer()</h3><ul>
-<li><p>tf.global_variables_initializer() 是 tf.initialize_all_variables()的升级版</p>
-</li>
-<li><pre><code>变量初始化
-
-变量初始化的标准形式：
-
-init = tf.global_variables_initializer()
-
-sess = tf.Session()
-
-sess.run(init)
-
-当然也可简写为：
-
-tf.Session().run(tf.initialize_all_variables())
-<figure class="highlight pf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 变量的更新</span><br><span class="line"></span><br><span class="line">  * ~~~</span><br><span class="line">    <span class="keyword">state</span> = tf.Variable(<span class="number">1</span>, name=&#x27;counter&#x27;)</span><br><span class="line"></span><br><span class="line">    add_one = tf.add(<span class="keyword">state</span>, tf.constant(<span class="number">1</span>))</span><br><span class="line"></span><br><span class="line">    update = tf.assign(<span class="keyword">state</span>, add_one)</span><br><span class="line"></span><br><span class="line">    with tf.Session() as sess:</span><br><span class="line"></span><br><span class="line">            sess.run(tf.gloabl_variables_initializer())</span><br><span class="line"></span><br><span class="line">            sess.run(<span class="keyword">state</span>)</span><br><span class="line"></span><br><span class="line">            <span class="keyword">for</span> _ <span class="keyword">in</span> range(<span class="number">3</span>):</span><br><span class="line"></span><br><span class="line">                sess.run(update)</span><br><span class="line"></span><br><span class="line">                print(sess.run(<span class="keyword">state</span>))</span><br></pre></td></tr></table></figure></code></pre>
-</li>
-</ul>
-<hr>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/tf.initialize_all_variables()andtf.global_variables_initializer()/" data-id="ckjv3w9eo00gs6sdn7te45000" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Tensorflow/" rel="tag">Tensorflow</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/page/8/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><span class="space">&hellip;</span><a class="page-number" href="/page/42/">42</a><a class="extend next" rel="next" href="/page/10/">Next &amp;raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/8/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><span class="space">&hellip;</span><a class="page-number" href="/page/43/">43</a><a class="extend next" rel="next" href="/page/10/">Next &amp;raquo;</a>
   </nav>
 
 </section>
@@ -446,6 +446,10 @@ tf.Session().run(tf.initialize_all_variables())
       <ul>
         
           <li>
+            <a href="/ntp_date/">Centos7使用npt设置时间同步</a>
+          </li>
+        
+          <li>
             <a href="/OLAP_OLTP/">联机分析处理和联机事务处理</a>
           </li>
         
@@ -459,10 +463,6 @@ tf.Session().run(tf.initialize_all_variables())
         
           <li>
             <a href="/python_function_return_type/">python定义函数指定返回值类型</a>
-          </li>
-        
-          <li>
-            <a href="/opencv%20_error_The%20function%20is%20not%20implemented/">opencv error “The function is not implemented“</a>
           </li>
         
       </ul>

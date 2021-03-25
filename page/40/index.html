@@ -67,6 +67,70 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-htop_hotkey" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/htop_hotkey/" class="article-date">
+  <time datetime="2018-10-12T06:08:43.000Z" itemprop="datePublished">2018-10-12</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/learning/">learning</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/htop_hotkey/">htop常用快捷键</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+
+        <ul>
+<li><p>htop常用快捷键</p>
+<ul>
+<li><pre><code>F1,h,?:查看htop使用说明，
+F2,s  :设置选项
+F3,/  :搜索进程
+F4,\  :过滤器，输入关键字搜索
+F5,t  :显示属性结构
+F6,&lt;,&gt;:选择排序方式
+F7, [,:减少进程的优先级(nice)
+F8，] :增加进程的优先级(nice)
+F9，k :杀掉选中的进程
+F10，q:退出htop
+u:显示所有用户，并可以选中某一特定用户的进程
+U：取消标记所有的进程
+<figure class="highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* htop主界面介绍:</span><br><span class="line"></span><br><span class="line">  * ![](htop_hotkey/htopjiemian.jpg)</span><br><span class="line"></span><br><span class="line">  * ```</span><br><span class="line">    PID：进程标志号，是非零正整数 </span><br><span class="line">    USER：进程所有者的用户名 </span><br><span class="line">    PR：进程的优先级别 </span><br><span class="line">    NI：进程的优先级别数 </span><br><span class="line">    VIRT：进程占用的虚拟内存 </span><br><span class="line">    RES：进程占用的物理内存 </span><br><span class="line">    SHR：进程使用的共享内存 </span><br><span class="line">    S：进程的状态，其中S表示休眠，R表示正在运行，Z表示僵死状态，N表示该进程优先值是负数 </span><br><span class="line"><span class="tag">    %<span class="selector-tag">CPU</span></span>：该进程占用的CPU使用率 </span><br><span class="line"><span class="tag">    %<span class="selector-tag">MEM</span></span>：该进程占用的物理内存和总内存的百分比 </span><br><span class="line">    TIME&amp;+：该进程启动后占用的总的CPU时间 </span><br><span class="line">    Command：进程启动的启动命令名称</span><br></pre></td></tr></table></figure></code></pre>
+</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wangxianggit.github.io/htop_hotkey/" data-id="ckjv3w9do00cc6sdn0q6td9bm" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/htop/" rel="tag">htop</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-Altium_Design_PCB_reverse" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/Altium_Design_PCB_reverse/" class="article-date">
@@ -294,77 +358,11 @@
 
 
   
-    <article id="post-Centos7_install_Qt5.9" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/Centos7_install_Qt5.9/" class="article-date">
-  <time datetime="2018-07-23T13:55:34.000Z" itemprop="datePublished">2018-07-23</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/learning/">learning</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/Centos7_install_Qt5.9/">Centos7安装Qt5.9</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-
-        <ul>
-<li><p>参考链接：<a target="_blank" rel="noopener" href="http://doc.qt.io/qt-5/linux.html">http://doc.qt.io/qt-5/linux.html</a></p>
-</li>
-<li><pre><code>sudo yum groupinstall &quot;C Development Tools and Libraries&quot;
-sudo yum install libgl libgl-devel
-sudo yum install mesa-libGL-devel mesa-libGLU-devel freeglut-devel
-sudo yum install libxcb libxcb-devel libXrender libXrender-devel xcb-util-wm xcb-util-wm-devel xcb-util xcb-util-devel xcb-util-image xcb-util-image-devel xcb-util-keysyms xcb-util-keysyms-devel
-<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="bullet">* </span>安装好基本库之后下载安装包进行安装：</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-wget http://download.qt.io/archive/qt/5.9/5.9.2/qt-opensource-linux-x64-5.9.2.run
-chmod +x qt-opensource-linux-x64-5.9.2.run
-./qt-opensource-linux-x64-5.9.2.run
-<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="code">  ​</span></span><br><span class="line"></span><br><span class="line"><span class="bullet">* </span>设置环境变量：</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-export LD_LIBRARY_PATH=/opt/Qt5.9.2/Tools/QtCreator/lib:/opt/Qt5.9.2/Tools/QtCreator/lib/qtcreator:/opt/Qt5.9.2/Tools/QtCreator/lib/Qt/lib:$LD_LIBRARY_PATH
-export PATH=$PATH:/opt/Qt5.9.2/5.9.2/gcc_64/bin:/opt/Qt5.9.2/Tools/QtCreator/bin</code></pre>
-<p>​</p>
-</li>
-<li><p>QTCreator输入中文：</p>
-<ul>
-<li>设置环境变量export QT_IM_MODULE=iBus</li>
-</ul>
-</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/Centos7_install_Qt5.9/" data-id="ckjv3w9b2001i6sdn7idg9bv4" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Centos7/" rel="tag">Centos7</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/qt/" rel="tag">qt</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/page/39/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/38/">38</a><a class="page-number" href="/page/39/">39</a><span class="page-number current">40</span><a class="page-number" href="/page/41/">41</a><a class="page-number" href="/page/42/">42</a><a class="extend next" rel="next" href="/page/41/">Next &amp;raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/39/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/38/">38</a><a class="page-number" href="/page/39/">39</a><span class="page-number current">40</span><a class="page-number" href="/page/41/">41</a><a class="page-number" href="/page/42/">42</a><a class="page-number" href="/page/43/">43</a><a class="extend next" rel="next" href="/page/41/">Next &amp;raquo;</a>
   </nav>
 
 </section>
@@ -434,6 +432,10 @@ export PATH=$PATH:/opt/Qt5.9.2/5.9.2/gcc_64/bin:/opt/Qt5.9.2/Tools/QtCreator/bin
       <ul>
         
           <li>
+            <a href="/ntp_date/">Centos7使用npt设置时间同步</a>
+          </li>
+        
+          <li>
             <a href="/OLAP_OLTP/">联机分析处理和联机事务处理</a>
           </li>
         
@@ -447,10 +449,6 @@ export PATH=$PATH:/opt/Qt5.9.2/5.9.2/gcc_64/bin:/opt/Qt5.9.2/Tools/QtCreator/bin
         
           <li>
             <a href="/python_function_return_type/">python定义函数指定返回值类型</a>
-          </li>
-        
-          <li>
-            <a href="/opencv%20_error_The%20function%20is%20not%20implemented/">opencv error “The function is not implemented“</a>
           </li>
         
       </ul>

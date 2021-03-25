@@ -67,6 +67,71 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-cmake_print" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/cmake_print/" class="article-date">
+  <time datetime="2019-12-06T06:34:27.000Z" itemprop="datePublished">2019-12-06</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/learning/">learning</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/cmake_print/">cmake打印乘法表</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+
+        <h3 id="cmake打印乘法表"><a href="#cmake打印乘法表" class="headerlink" title="cmake打印乘法表"></a>cmake打印乘法表</h3><ul>
+<li><p>CMakeLists.txt 文件代码：</p>
+<ul>
+<li><pre><code>cmake_minimum_required(VERSION 2.8.11) 
+project(test) 
+foreach(i RANGE 1 9) 
+    set(exp &quot;&quot;) 
+    foreach(j RANGE 1 $&#123;i&#125;) 
+        math(EXPR value &quot;$&#123;j&#125; * $&#123;i&#125;&quot;) 
+        string(APPEND exp &quot;$&#123;j&#125;&quot; &quot;*&quot;) 
+        string(APPEND exp &quot;$&#123;i&#125;&quot; &quot;=&quot;) 
+        string(APPEND exp &quot;$&#123;value&#125;&quot; &quot; &quot;) 
+    endforeach() 
+    message($&#123;exp&#125;)
+endforeach()
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 主要运用 <span class="keyword">foreach</span>()、string()、<span class="builtin-name">set</span>()、message() 命令。</span><br><span class="line"></span><br><span class="line">* 在当前目录运行 `cmake .`命令。</span><br><span class="line"></span><br><span class="line">* 终端打印结果如下：</span><br><span class="line"></span><br><span class="line">  * ~~~</span><br><span class="line">    1<span class="number">*1</span>=1 </span><br><span class="line">    1<span class="number">*2</span>=2 2<span class="number">*2</span>=4 </span><br><span class="line">    1<span class="number">*3</span>=3 2<span class="number">*3</span>=6 3<span class="number">*3</span>=9 </span><br><span class="line">    1<span class="number">*4</span>=4 2<span class="number">*4</span>=8 3<span class="number">*4</span>=12 4<span class="number">*4</span>=16 </span><br><span class="line">    1<span class="number">*5</span>=5 2<span class="number">*5</span>=10 3<span class="number">*5</span>=15 4<span class="number">*5</span>=20 5<span class="number">*5</span>=25 </span><br><span class="line">    1<span class="number">*6</span>=6 2<span class="number">*6</span>=12 3<span class="number">*6</span>=18 4<span class="number">*6</span>=24 5<span class="number">*6</span>=30 6<span class="number">*6</span>=36 </span><br><span class="line">    1<span class="number">*7</span>=7 2<span class="number">*7</span>=14 3<span class="number">*7</span>=21 4<span class="number">*7</span>=28 5<span class="number">*7</span>=35 6<span class="number">*7</span>=42 7<span class="number">*7</span>=49 </span><br><span class="line">    1<span class="number">*8</span>=8 2<span class="number">*8</span>=16 3<span class="number">*8</span>=24 4<span class="number">*8</span>=32 5<span class="number">*8</span>=40 6<span class="number">*8</span>=48 7<span class="number">*8</span>=56 8<span class="number">*8</span>=64 </span><br><span class="line">    1<span class="number">*9</span>=9 2<span class="number">*9</span>=18 3<span class="number">*9</span>=27 4<span class="number">*9</span>=36 5<span class="number">*9</span>=45 6<span class="number">*9</span>=54 7<span class="number">*9</span>=63 8<span class="number">*9</span>=72 9<span class="number">*9</span>=81 </span><br><span class="line">    -- Configuring done </span><br><span class="line">    -- Generating done</span><br></pre></td></tr></table></figure></code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wangxianggit.github.io/cmake_print/" data-id="ckjv3w9dc00as6sdndu4m2rhk" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cmake/" rel="tag">cmake</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-cmake_basic_gramma" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/cmake_basic_gramma/" class="article-date">
@@ -441,75 +506,11 @@ return 0;</code></pre>
 
 
   
-    <article id="post-python_nan_inf" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/python_nan_inf/" class="article-date">
-  <time datetime="2019-10-12T10:23:21.000Z" itemprop="datePublished">2019-10-12</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Python/">Python</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/python_nan_inf/">Python 缺失值inf、nan处理</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-
-        <ul>
-<li><p> 把inf值转换成nan：<code>pd.set_option(&#39;mode.use_inf_as_na&#39;, True)</code></p>
-</li>
-<li><p>统计每一列缺失值的个数：<code>print(df.isnull().sum())</code></p>
-</li>
-<li><p>前向填充和反向填充：</p>
-<ul>
-<li><pre><code>df.fillna(method=&#39;ffill&#39;,axis=1)
-df.fillna(method=&#39;bfill&#39;,axis=1)</code></pre>
-</li>
-</ul>
-</li>
-<li><p>指定值填充：<code>df.fillna(&#39;value&#39;)</code></p>
-</li>
-<li><p>去除缺失值：<code>df.dropna(axis=1)</code></p>
-</li>
-<li><p>inf值替换：<code>df.replace([np.inf,-np.inf],np.nan)</code></p>
-</li>
-</ul>
-<hr>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/python_nan_inf/" data-id="ckjv3w9e800ev6sdnbcwc9j2c" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/page/7/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/42/">42</a><a class="extend next" rel="next" href="/page/9/">Next &amp;raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/7/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/43/">43</a><a class="extend next" rel="next" href="/page/9/">Next &amp;raquo;</a>
   </nav>
 
 </section>
@@ -579,6 +580,10 @@ df.fillna(method=&#39;bfill&#39;,axis=1)</code></pre>
       <ul>
         
           <li>
+            <a href="/ntp_date/">Centos7使用npt设置时间同步</a>
+          </li>
+        
+          <li>
             <a href="/OLAP_OLTP/">联机分析处理和联机事务处理</a>
           </li>
         
@@ -592,10 +597,6 @@ df.fillna(method=&#39;bfill&#39;,axis=1)</code></pre>
         
           <li>
             <a href="/python_function_return_type/">python定义函数指定返回值类型</a>
-          </li>
-        
-          <li>
-            <a href="/opencv%20_error_The%20function%20is%20not%20implemented/">opencv error “The function is not implemented“</a>
           </li>
         
       </ul>
