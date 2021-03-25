@@ -67,6 +67,84 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Compiler_g++_usuage" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/Compiler_g++_usuage/" class="article-date">
+  <time datetime="2019-03-07T07:10:33.000Z" itemprop="datePublished">2019-03-07</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/learning/">learning</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/Compiler_g++_usuage/">编译器g++使用</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+
+        <h2 id="编译器g"><a href="#编译器g" class="headerlink" title="编译器g++"></a>编译器g++</h2><ul>
+<li>g++  是GNU组织开发出的编译器软件集合（GCC）下的一个C++编译器。</li>
+<li>g++ 是Unix 和 Linux  系统下标配的 基于命令行的 C++编译器。</li>
+<li>C/C++代码的编译过程：<ul>
+<li><img src="Compiler_g++_usuage/bianyi.jpg"></li>
+</ul>
+</li>
+</ul>
+<h2 id="g-的参数"><a href="#g-的参数" class="headerlink" title="g++ 的参数"></a>g++ 的参数</h2><ul>
+<li><p>**–version **显示g++ 的版本 。</p>
+</li>
+<li><p><strong>–target-help</strong> 显示特定平台环境的参数支持。比如嵌入式领域使用的avr-g++会对MCU 支持一些优化参数。</p>
+</li>
+<li><p><strong>-std=&lt;语言标准&gt;</strong> 如：-std=c++11  ，使用C++11标准</p>
+</li>
+<li><p><strong>-ansi</strong> 使用ANSI 标准，禁止GNU 标准特性，如 asm inline typeof 关键字,以及UNIX,vax等预处理宏。</p>
+</li>
+<li><p>~~~<br>-funsigned-char           #将程序中的char解析为unsigned char<br>-fno-signed-char         #将程序中的char解析为非signed char<br>-fsigned-char              #将程序中的char解析为signed char<br>-fno-unsigned-char    #将程序中的char解析为非unsigned char</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="bullet">  *</span> 在编译器中，char类型是 signed char  还是  unsigned char?不太清楚。所以若对范围敏感，应该明确定义unsigned char ，或者是 signed char 。上面4个参数就是指定g++将char解释为什么类型。</span><br><span class="line"></span><br><span class="line"><span class="bullet">*</span> <span class="strong">**优化选项：-O0,-O1,-O2及-O3**</span>，取英文单词Optimize首字母O，即编译器的优化选项的4个级别，-O0表示没有优化,-O1为缺省值，-O3优化级别最高。优化表现在生成的程序的大小和程序的执行速度。</span><br><span class="line"></span><br><span class="line"><span class="bullet">*</span> <span class="strong">**-w**</span> 编译时，不显示任何警告消息。</span><br><span class="line"></span><br><span class="line"><span class="bullet">*</span> <span class="strong">**-Wall**</span> 编译时，显示所有出现的警告消息。</span><br><span class="line"></span><br><span class="line"><span class="bullet">*</span> <span class="strong">**-o  <span class="xml"><span class="tag">&lt;<span class="name">file</span>&gt;</span></span>**</span>  输出编译后的结果到指定的文件file中。</span><br><span class="line"></span><br><span class="line"><span class="bullet">*</span> <span class="strong">**-E**</span> 对源文件进行预处理，预处理后生成.i（ 或者是 .ii）文件。通过此命令可以查看预处理器是如何工作，以理解预处理的工作机制。生成的是文本文件。  </span><br><span class="line"></span><br><span class="line"><span class="bullet">  *</span> <span class="code">~~~</span></span><br><span class="line"><span class="code">    g++ -E -o hello.i hello.cpp           #对hello.cpp进行预处理生成hello.i文件</span></span><br></pre></td></tr></table></figure></li>
+<li><p><strong>-S</strong> 只进行预处理和编译，编译是C++编译器的核心操作，其结果就是将C++代码中转译为汇编代码，生成.s汇编文件。生成的依然是文本文件。</p>
+<ul>
+<li>~~~<br>g++ -S -o hello.s hello.cpp          #生成汇编文件hello.s<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* **<span class="selector-tag">-c</span>** 只进行 预处理， 编译，汇编操作，生成<span class="selector-class">.o</span> (<span class="selector-class">.obj</span>)文件，不进行链接。生成的是二进制文件。</span><br><span class="line"></span><br><span class="line">  * ~~~</span><br><span class="line">    <span class="selector-tag">g</span>++ <span class="selector-tag">-c</span> <span class="selector-tag">-o</span> <span class="selector-tag">hello</span><span class="selector-class">.o</span> <span class="selector-tag">hello</span><span class="selector-class">.cpp</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p><strong>-save-temps</strong> 顾名思义，就是保留编译产生的中间文件，使用这个参数，就没必要将前面的参数 -E  -S  -c  一个一个地使用了。</p>
+</li>
+<li><p><strong>-M , -MD</strong> 输出源文件的#include指令 （ #include<head_file> , #include”head_file” ） 引起的所有包含文件依赖。-M可以查看源文件实质上包含的所有头文件,-MD是将输出的结果保存到一个.d文件中</p>
+</li>
+<li><p><strong>-MM , -MMD</strong> 同上，只不过，他不会考虑 #include<head_file> 指令，而只考虑 #include”head_file” 指令。</p>
+<hr>
+<p>​</p>
+<p>​</p>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wangxianggit.github.io/Compiler_g++_usuage/" data-id="ckjv3w9bc002j6sdn6i1adnab" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C++</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-C++_array_cite_and_cited_array" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/C++_array_cite_and_cited_array/" class="article-date">
@@ -340,77 +418,6 @@ int main()&#123;
 
 
   
-    <article id="post-C++_keyword_const" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/C++_keyword_const/" class="article-date">
-  <time datetime="2019-03-06T13:12:53.000Z" itemprop="datePublished">2019-03-06</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/learning/">learning</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/C++_keyword_const/">C/C++关键字const</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-
-        <h2 id="C-C-关键字const"><a href="#C-C-关键字const" class="headerlink" title="C/C++ 关键字const"></a>C/C++ 关键字const</h2><ul>
-<li>const关键字用于修饰变量使之具有不能被修改的属性。</li>
-</ul>
-<h3 id="修饰局部变量"><a href="#修饰局部变量" class="headerlink" title="修饰局部变量"></a>修饰局部变量</h3><ul>
-<li><p>修饰局部变量使用方法</p>
-<ul>
-<li>~~~<br>const int a = 10;<br>or<br>int const b = 20;<figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  * 用<span class="keyword">const</span>修饰变量时，一定要给变量初始化，初始化之后不能改变。</span><br><span class="line"></span><br><span class="line">  * C++中经<span class="keyword">const</span>修饰的变量，若没有进行变量初始化，编译报错，C中会出现警告。</span><br><span class="line"></span><br><span class="line"><span class="meta">### 修饰指针</span></span><br><span class="line"></span><br><span class="line">* <span class="keyword">const</span>修饰指针后，指针所指向的内容是常量，不可被修改，例如：</span><br><span class="line"></span><br><span class="line">  * ```</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">int</span> * p　＝　＆c;</span><br><span class="line">    or</span><br><span class="line">    <span class="keyword">int</span> <span class="keyword">const</span> * p　＝　＆c;</span><br><span class="line">    ```</span><br><span class="line"></span><br><span class="line">* 常量指针不能通过这个指针改变变量的值，但是可以通过其他的引用来改变变量的值。例：</span><br><span class="line"></span><br><span class="line">  * ~~~</span><br><span class="line">    <span class="keyword">int</span> a=<span class="number">2</span>;</span><br><span class="line">    <span class="keyword">int</span> c = <span class="number">5</span>;</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">int</span> *n = &amp;a;</span><br><span class="line">    a = <span class="number">100</span>;</span><br><span class="line">    a = c;</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-<li><p>常量指针指向的值不能改变，但是指针本身可以改变，即常量指针可以指向其他的地址。</p>
-</li>
-<li><p>指针常量是指指针本身是个常量，不能在指向其他的地址，即其指向的地址不能改变。</p>
-</li>
-</ul>
-<h3 id="修饰引用"><a href="#修饰引用" class="headerlink" title="修饰引用"></a>修饰引用</h3><ul>
-<li>~~~<br>int a = 1;<br>int const &amp;a = b;<br>const int &amp;a = b;<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 两种定义方式等价</span><br><span class="line"></span><br><span class="line"><span class="meta">### 在函数中的使用</span></span><br><span class="line"></span><br><span class="line">* ~~~</span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">StrCopy</span>(<span class="params"><span class="built_in">char</span> *strdes, <span class="keyword">const</span> <span class="built_in">char</span> *strsrc</span>)</span>;<span class="comment">//防止修改指针指向的内容</span></span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">swap</span> (<span class="params"> <span class="built_in">int</span> * <span class="keyword">const</span> p1 , <span class="built_in">int</span> * <span class="keyword">const</span> p2 </span>)  <span class="comment">//防止修改指针指向的地址</span></span></span><br></pre></td></tr></table></figure></li>
-<li>如果给以“指针传递”方式的函数返回值加 const 修饰，那么函数返回值（即指针）的内容不能被修改，该返回值只能被赋给加const 修饰的同类型指针。</li>
-</ul>
-<h3 id="const常量和宏常量的区别"><a href="#const常量和宏常量的区别" class="headerlink" title="const常量和宏常量的区别"></a>const常量和宏常量的区别</h3><ul>
-<li>const常量有数据类型，而宏常量没有数据类型。编译器可以对前者进行类型安全检查，而对后者只进行字符替换，没有类型安全检查，并且在字符替换时可能会产生意料不到的错误（边际效应）。</li>
-<li>const定义常量从汇编的角度来看，只是给出了对应的内存地址，而不是象#define一样给出的是立即数，所以，const定义的常量在程序运行过程中只有一份拷贝，而#define定义的常量在内存中有若干个拷贝。</li>
-<li>宏定义是一个“编译时”概念，在预处理阶段展开，不能对宏定义进行调试，生命周期结束于编译时期。const常量是一个“运行时”概念，在程序运行时使用，类似于一个只读数据。</li>
-<li>编译器通常不为普通const常量分配存储空间，而是将它们保存在符号表中，这使得它成为一个编译期间的常量，没有了存储与读内存的操作，使得它的效率也很高</li>
-<li>const修饰符可以防止意外的修改，增强程序的健壮性。</li>
-<li>宏定义不能作为参数传递给函数；const常量可以在函数的参数列表中出现。</li>
-</ul>
-<hr>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/C++_keyword_const/" data-id="ckjv3w9ay00146sdn2qax6k4l" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C++</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
@@ -463,7 +470,7 @@ int main()&#123;
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Algorithm/" style="font-size: 11.33px;">Algorithm</a> <a href="/tags/Altium-Designer/" style="font-size: 14.67px;">Altium Designer</a> <a href="/tags/Apache/" style="font-size: 11.33px;">Apache</a> <a href="/tags/BeautifulSoup/" style="font-size: 10px;">BeautifulSoup</a> <a href="/tags/C/" style="font-size: 15.33px;">C</a> <a href="/tags/C/" style="font-size: 18.67px;">C++</a> <a href="/tags/Centos7/" style="font-size: 17.33px;">Centos7</a> <a href="/tags/Cython/" style="font-size: 10px;">Cython</a> <a href="/tags/Database/" style="font-size: 10px;">Database</a> <a href="/tags/Electronic/" style="font-size: 13.33px;">Electronic</a> <a href="/tags/English/" style="font-size: 12px;">English</a> <a href="/tags/Geant4/" style="font-size: 10.67px;">Geant4</a> <a href="/tags/Hardware/" style="font-size: 10px;">Hardware</a> <a href="/tags/Hexo/" style="font-size: 14px;">Hexo</a> <a href="/tags/Image/" style="font-size: 12px;">Image</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Jupyter/" style="font-size: 10px;">Jupyter</a> <a href="/tags/Linux/" style="font-size: 19.33px;">Linux</a> <a href="/tags/Markdown/" style="font-size: 16px;">Markdown</a> <a href="/tags/Mongodb/" style="font-size: 10px;">Mongodb</a> <a href="/tags/Nuclear-Physics/" style="font-size: 11.33px;">Nuclear Physics</a> <a href="/tags/Open/" style="font-size: 10px;">Open</a> <a href="/tags/Opencv/" style="font-size: 12px;">Opencv</a> <a href="/tags/Program/" style="font-size: 18px;">Program</a> <a href="/tags/PyPI/" style="font-size: 10px;">PyPI</a> <a href="/tags/Py-Crawler/" style="font-size: 10.67px;">Py_Crawler</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/Random/" style="font-size: 10px;">Random</a> <a href="/tags/Resource/" style="font-size: 10.67px;">Resource</a> <a href="/tags/Root/" style="font-size: 10.67px;">Root</a> <a href="/tags/Scipy/" style="font-size: 10px;">Scipy</a> <a href="/tags/Shell/" style="font-size: 16px;">Shell</a> <a href="/tags/Solidwork/" style="font-size: 10.67px;">Solidwork</a> <a href="/tags/TTree/" style="font-size: 10px;">TTree</a> <a href="/tags/Tensorflow/" style="font-size: 15.33px;">Tensorflow</a> <a href="/tags/Thread/" style="font-size: 10px;">Thread</a> <a href="/tags/Urllib2/" style="font-size: 10px;">Urllib2</a> <a href="/tags/Virtual-memory/" style="font-size: 10px;">Virtual memory</a> <a href="/tags/cmake/" style="font-size: 12.67px;">cmake</a> <a href="/tags/cmd/" style="font-size: 10.67px;">cmd</a> <a href="/tags/data-structure/" style="font-size: 10.67px;">data structure</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/hexo/" style="font-size: 11.33px;">hexo</a> <a href="/tags/htop/" style="font-size: 10px;">htop</a> <a href="/tags/keras/" style="font-size: 10.67px;">keras</a> <a href="/tags/latex/" style="font-size: 14.67px;">latex</a> <a href="/tags/os/" style="font-size: 10px;">os</a> <a href="/tags/qt/" style="font-size: 10px;">qt</a> <a href="/tags/requests/" style="font-size: 10px;">requests</a> <a href="/tags/sk-learn/" style="font-size: 10px;">sk-learn</a> <a href="/tags/ssh/" style="font-size: 12.67px;">ssh</a> <a href="/tags/statistic/" style="font-size: 10px;">statistic</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/windows/" style="font-size: 16.67px;">windows</a> <a href="/tags/yolo%EF%BC%8CC/" style="font-size: 10px;">yolo，C</a>
+      <a href="/tags/Algorithm/" style="font-size: 11.33px;">Algorithm</a> <a href="/tags/Altium-Designer/" style="font-size: 14.67px;">Altium Designer</a> <a href="/tags/Apache/" style="font-size: 11.33px;">Apache</a> <a href="/tags/BeautifulSoup/" style="font-size: 10px;">BeautifulSoup</a> <a href="/tags/C/" style="font-size: 15.33px;">C</a> <a href="/tags/C/" style="font-size: 18.67px;">C++</a> <a href="/tags/Centos7/" style="font-size: 17.33px;">Centos7</a> <a href="/tags/Cython/" style="font-size: 10px;">Cython</a> <a href="/tags/Database/" style="font-size: 10.67px;">Database</a> <a href="/tags/Electronic/" style="font-size: 13.33px;">Electronic</a> <a href="/tags/English/" style="font-size: 12px;">English</a> <a href="/tags/Geant4/" style="font-size: 10.67px;">Geant4</a> <a href="/tags/Hardware/" style="font-size: 10px;">Hardware</a> <a href="/tags/Hexo/" style="font-size: 14px;">Hexo</a> <a href="/tags/Image/" style="font-size: 12px;">Image</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Jupyter/" style="font-size: 10px;">Jupyter</a> <a href="/tags/Linux/" style="font-size: 19.33px;">Linux</a> <a href="/tags/Markdown/" style="font-size: 16px;">Markdown</a> <a href="/tags/Mongodb/" style="font-size: 10px;">Mongodb</a> <a href="/tags/Nuclear-Physics/" style="font-size: 11.33px;">Nuclear Physics</a> <a href="/tags/Open/" style="font-size: 10px;">Open</a> <a href="/tags/Opencv/" style="font-size: 12px;">Opencv</a> <a href="/tags/Program/" style="font-size: 18px;">Program</a> <a href="/tags/PyPI/" style="font-size: 10px;">PyPI</a> <a href="/tags/Py-Crawler/" style="font-size: 10.67px;">Py_Crawler</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/Random/" style="font-size: 10px;">Random</a> <a href="/tags/Resource/" style="font-size: 10.67px;">Resource</a> <a href="/tags/Root/" style="font-size: 10.67px;">Root</a> <a href="/tags/Scipy/" style="font-size: 10px;">Scipy</a> <a href="/tags/Shell/" style="font-size: 16px;">Shell</a> <a href="/tags/Solidwork/" style="font-size: 10.67px;">Solidwork</a> <a href="/tags/TTree/" style="font-size: 10px;">TTree</a> <a href="/tags/Tensorflow/" style="font-size: 15.33px;">Tensorflow</a> <a href="/tags/Thread/" style="font-size: 10px;">Thread</a> <a href="/tags/Urllib2/" style="font-size: 10px;">Urllib2</a> <a href="/tags/Virtual-memory/" style="font-size: 10px;">Virtual memory</a> <a href="/tags/cmake/" style="font-size: 12.67px;">cmake</a> <a href="/tags/cmd/" style="font-size: 10.67px;">cmd</a> <a href="/tags/data-structure/" style="font-size: 10.67px;">data structure</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/hexo/" style="font-size: 11.33px;">hexo</a> <a href="/tags/htop/" style="font-size: 10px;">htop</a> <a href="/tags/keras/" style="font-size: 10.67px;">keras</a> <a href="/tags/latex/" style="font-size: 14.67px;">latex</a> <a href="/tags/os/" style="font-size: 10px;">os</a> <a href="/tags/qt/" style="font-size: 10px;">qt</a> <a href="/tags/requests/" style="font-size: 10px;">requests</a> <a href="/tags/sk-learn/" style="font-size: 10px;">sk-learn</a> <a href="/tags/ssh/" style="font-size: 12.67px;">ssh</a> <a href="/tags/statistic/" style="font-size: 10px;">statistic</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/windows/" style="font-size: 16.67px;">windows</a> <a href="/tags/yolo%EF%BC%8CC/" style="font-size: 10px;">yolo，C</a>
     </div>
   </div>
 
@@ -485,6 +492,10 @@ int main()&#123;
       <ul>
         
           <li>
+            <a href="/Hbase_noHRegionServer/">Hbase启动集群有些节点没有HRegionServer</a>
+          </li>
+        
+          <li>
             <a href="/ntp_date/">Centos7使用npt设置时间同步</a>
           </li>
         
@@ -498,10 +509,6 @@ int main()&#123;
         
           <li>
             <a href="/python_pprint/">python--pprint模块</a>
-          </li>
-        
-          <li>
-            <a href="/python_function_return_type/">python定义函数指定返回值类型</a>
           </li>
         
       </ul>

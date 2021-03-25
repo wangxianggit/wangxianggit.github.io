@@ -67,6 +67,78 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Python_tf_unstack" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/Python_tf_unstack/" class="article-date">
+  <time datetime="2019-09-14T15:35:31.000Z" itemprop="datePublished">2019-09-14</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Python/">Python</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/Python_tf_unstack/">tf.unstack &amp;&amp; tf.stack</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+
+        <h2 id="tf函数unstack和stack"><a href="#tf函数unstack和stack" class="headerlink" title="tf函数unstack和stack"></a>tf函数unstack和stack</h2><ul>
+<li><p>数组合并函数tf.stack</p>
+<ul>
+<li><p>函数：stack(value,num=None,axis=0,name=’stack’ )</p>
+</li>
+<li><p>value：代表需要分解的矩阵变量（其实就是一个多维数组，一般为二维）；</p>
+</li>
+<li><p>axis：指明对矩阵的哪个维度进行合并。</p>
+</li>
+<li><p>示例代码：</p>
+</li>
+<li><pre><code>import tensorflow as tf
+a = tf.constant([1, 2, 3])
+b = tf.constant([4, 5, 6])
+c = tf.stack( [a,b], axis=0)
+with tf.Session() as sess:
+    print(sess.run(c))
+
+output：
+[[1 2 3]
+ [4 5 6]]
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 矩阵分解函数tf.unstack</span><br><span class="line"></span><br><span class="line">  * 函数：unstack(value,<span class="attribute">num</span>=None,axis=0,name=&#x27;unstack&#x27; )</span><br><span class="line"></span><br><span class="line">  * value：代表需要分解的矩阵变量（其实就是一个多维数组，一般为二维）；</span><br><span class="line"></span><br><span class="line">  * axis：指明对矩阵的哪个维度进行分解。</span><br><span class="line"></span><br><span class="line">  * 示例代码：</span><br><span class="line"></span><br><span class="line">  * ~~~</span><br><span class="line">    import tensorflow as tf</span><br><span class="line">    c = tf.constant([[1, 2, 3],</span><br><span class="line">     [4, 5, 6]])</span><br><span class="line">    d = tf.unstack(c, <span class="attribute">axis</span>=0)</span><br><span class="line">    e = tf.unstack(c, <span class="attribute">axis</span>=1)</span><br><span class="line">    with tf.Session() as sess:</span><br><span class="line">    	<span class="builtin-name">print</span>(sess.<span class="builtin-name">run</span>(d))</span><br><span class="line">    	<span class="builtin-name">print</span>(sess.<span class="builtin-name">run</span>(e))</span><br><span class="line">    	</span><br><span class="line">    output：</span><br><span class="line">    [array([1, 2, 3]), array([4, 5, 6])]</span><br><span class="line">    [array([1, 4]), array([2, 5]), array([3, 6])]</span><br></pre></td></tr></table></figure></code></pre>
+</li>
+</ul>
+<hr>
+<p>​</p>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wangxianggit.github.io/Python_tf_unstack/" data-id="ckjv3w9ct008q6sdnhh8p28w4" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Tensorflow/" rel="tag">Tensorflow</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-python_copy_deepcopy" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/python_copy_deepcopy/" class="article-date">
@@ -329,75 +401,6 @@ array([0, 0, 0, 0, 1, 0, 0, 1], dtype=uint8)&#125;</code></pre>
 
 
   
-    <article id="post-ssh_config" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/ssh_config/" class="article-date">
-  <time datetime="2019-06-06T01:51:42.000Z" itemprop="datePublished">2019-06-06</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/learning/">learning</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/ssh_config/">ssh服务配置</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-
-        <h2 id="ssh服务配置"><a href="#ssh服务配置" class="headerlink" title="ssh服务配置"></a>ssh服务配置</h2><ul>
-<li><p>备份配置文件：<code>cp /etc/ssh/sshd_config /etc/ssh/sshd_config.bak</code></p>
-</li>
-<li><p>我们通过看配置文件发现ssh服务的默认端口是22，很多时候我们的服务器被黑不是被人针对了，而是对方在扫一个网段中开启22端口的机器，而机器密码又是很简单。</p>
-</li>
-<li><p>把默认端口改了，这样就不容易被人扫出来。</p>
-</li>
-<li><p>修改默认端口：</p>
-<ul>
-<li>~~~<br>#Port 22<br>Port 9527<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">  * 我们把默认端口改为9527</span></span><br><span class="line"></span><br><span class="line"><span class="comment">  * 注意改的这个端口一定不能占用别的服务的默认端口，以免别的服务启动不起来</span></span><br><span class="line"></span><br><span class="line"><span class="comment">* 禁止root登陆：</span></span><br><span class="line"></span><br><span class="line"><span class="comment">  * root在我们系统中是一个特殊的存在，他是系统管理员，也就意味着他在系统中可以为所欲为，所以它也是我们要特别关注的对象</span></span><br><span class="line"></span><br><span class="line"><span class="comment">  * ~~~</span></span><br><span class="line">    #PermitRootLogin yes</span><br><span class="line">    PermitRootLogin <span class="keyword">no</span></span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-<li><p>限制ssh监听的ip</p>
-<ul>
-<li><p>这个适用于服务器有多个IP，这样我们就可以只监听内网IP，这样就只能用在同一个局域网的机器去连接，而我们只需要让在同一个服务器的另一台机器监听在外网，这样就可以实现在外网也访问服务器了，方法如下</p>
-</li>
-<li><pre><code>#ListenAddress 0.0.0.0
-#ListenAddress ::
-ListenAddress [ip]
-<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">  * 此时只能通过设定的ip连接</span></span><br><span class="line"></span><br><span class="line"><span class="comment">* 禁止使用密码登陆</span></span><br><span class="line"></span><br><span class="line"><span class="comment">  * 使用key认证登录的，这是一种比较安全的登录方式，所以为了提高安全性我们可以通过这种方式来登录服务器。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">  * 修改一下配置文件：</span></span><br><span class="line"></span><br><span class="line"><span class="comment">    * ~~~</span></span><br><span class="line">      #PasswordAuthentication yes</span><br><span class="line">      PasswordAuthentication <span class="keyword">no</span></span><br></pre></td></tr></table></figure></code></pre>
-</li>
-</ul>
-</li>
-</ul>
-<hr>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/ssh_config/" data-id="ckjv3w9ei00g46sdndcr4d1ba" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ssh/" rel="tag">ssh</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
@@ -450,7 +453,7 @@ ListenAddress [ip]
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Algorithm/" style="font-size: 11.33px;">Algorithm</a> <a href="/tags/Altium-Designer/" style="font-size: 14.67px;">Altium Designer</a> <a href="/tags/Apache/" style="font-size: 11.33px;">Apache</a> <a href="/tags/BeautifulSoup/" style="font-size: 10px;">BeautifulSoup</a> <a href="/tags/C/" style="font-size: 15.33px;">C</a> <a href="/tags/C/" style="font-size: 18.67px;">C++</a> <a href="/tags/Centos7/" style="font-size: 17.33px;">Centos7</a> <a href="/tags/Cython/" style="font-size: 10px;">Cython</a> <a href="/tags/Database/" style="font-size: 10px;">Database</a> <a href="/tags/Electronic/" style="font-size: 13.33px;">Electronic</a> <a href="/tags/English/" style="font-size: 12px;">English</a> <a href="/tags/Geant4/" style="font-size: 10.67px;">Geant4</a> <a href="/tags/Hardware/" style="font-size: 10px;">Hardware</a> <a href="/tags/Hexo/" style="font-size: 14px;">Hexo</a> <a href="/tags/Image/" style="font-size: 12px;">Image</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Jupyter/" style="font-size: 10px;">Jupyter</a> <a href="/tags/Linux/" style="font-size: 19.33px;">Linux</a> <a href="/tags/Markdown/" style="font-size: 16px;">Markdown</a> <a href="/tags/Mongodb/" style="font-size: 10px;">Mongodb</a> <a href="/tags/Nuclear-Physics/" style="font-size: 11.33px;">Nuclear Physics</a> <a href="/tags/Open/" style="font-size: 10px;">Open</a> <a href="/tags/Opencv/" style="font-size: 12px;">Opencv</a> <a href="/tags/Program/" style="font-size: 18px;">Program</a> <a href="/tags/PyPI/" style="font-size: 10px;">PyPI</a> <a href="/tags/Py-Crawler/" style="font-size: 10.67px;">Py_Crawler</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/Random/" style="font-size: 10px;">Random</a> <a href="/tags/Resource/" style="font-size: 10.67px;">Resource</a> <a href="/tags/Root/" style="font-size: 10.67px;">Root</a> <a href="/tags/Scipy/" style="font-size: 10px;">Scipy</a> <a href="/tags/Shell/" style="font-size: 16px;">Shell</a> <a href="/tags/Solidwork/" style="font-size: 10.67px;">Solidwork</a> <a href="/tags/TTree/" style="font-size: 10px;">TTree</a> <a href="/tags/Tensorflow/" style="font-size: 15.33px;">Tensorflow</a> <a href="/tags/Thread/" style="font-size: 10px;">Thread</a> <a href="/tags/Urllib2/" style="font-size: 10px;">Urllib2</a> <a href="/tags/Virtual-memory/" style="font-size: 10px;">Virtual memory</a> <a href="/tags/cmake/" style="font-size: 12.67px;">cmake</a> <a href="/tags/cmd/" style="font-size: 10.67px;">cmd</a> <a href="/tags/data-structure/" style="font-size: 10.67px;">data structure</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/hexo/" style="font-size: 11.33px;">hexo</a> <a href="/tags/htop/" style="font-size: 10px;">htop</a> <a href="/tags/keras/" style="font-size: 10.67px;">keras</a> <a href="/tags/latex/" style="font-size: 14.67px;">latex</a> <a href="/tags/os/" style="font-size: 10px;">os</a> <a href="/tags/qt/" style="font-size: 10px;">qt</a> <a href="/tags/requests/" style="font-size: 10px;">requests</a> <a href="/tags/sk-learn/" style="font-size: 10px;">sk-learn</a> <a href="/tags/ssh/" style="font-size: 12.67px;">ssh</a> <a href="/tags/statistic/" style="font-size: 10px;">statistic</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/windows/" style="font-size: 16.67px;">windows</a> <a href="/tags/yolo%EF%BC%8CC/" style="font-size: 10px;">yolo，C</a>
+      <a href="/tags/Algorithm/" style="font-size: 11.33px;">Algorithm</a> <a href="/tags/Altium-Designer/" style="font-size: 14.67px;">Altium Designer</a> <a href="/tags/Apache/" style="font-size: 11.33px;">Apache</a> <a href="/tags/BeautifulSoup/" style="font-size: 10px;">BeautifulSoup</a> <a href="/tags/C/" style="font-size: 15.33px;">C</a> <a href="/tags/C/" style="font-size: 18.67px;">C++</a> <a href="/tags/Centos7/" style="font-size: 17.33px;">Centos7</a> <a href="/tags/Cython/" style="font-size: 10px;">Cython</a> <a href="/tags/Database/" style="font-size: 10.67px;">Database</a> <a href="/tags/Electronic/" style="font-size: 13.33px;">Electronic</a> <a href="/tags/English/" style="font-size: 12px;">English</a> <a href="/tags/Geant4/" style="font-size: 10.67px;">Geant4</a> <a href="/tags/Hardware/" style="font-size: 10px;">Hardware</a> <a href="/tags/Hexo/" style="font-size: 14px;">Hexo</a> <a href="/tags/Image/" style="font-size: 12px;">Image</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Jupyter/" style="font-size: 10px;">Jupyter</a> <a href="/tags/Linux/" style="font-size: 19.33px;">Linux</a> <a href="/tags/Markdown/" style="font-size: 16px;">Markdown</a> <a href="/tags/Mongodb/" style="font-size: 10px;">Mongodb</a> <a href="/tags/Nuclear-Physics/" style="font-size: 11.33px;">Nuclear Physics</a> <a href="/tags/Open/" style="font-size: 10px;">Open</a> <a href="/tags/Opencv/" style="font-size: 12px;">Opencv</a> <a href="/tags/Program/" style="font-size: 18px;">Program</a> <a href="/tags/PyPI/" style="font-size: 10px;">PyPI</a> <a href="/tags/Py-Crawler/" style="font-size: 10.67px;">Py_Crawler</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/Random/" style="font-size: 10px;">Random</a> <a href="/tags/Resource/" style="font-size: 10.67px;">Resource</a> <a href="/tags/Root/" style="font-size: 10.67px;">Root</a> <a href="/tags/Scipy/" style="font-size: 10px;">Scipy</a> <a href="/tags/Shell/" style="font-size: 16px;">Shell</a> <a href="/tags/Solidwork/" style="font-size: 10.67px;">Solidwork</a> <a href="/tags/TTree/" style="font-size: 10px;">TTree</a> <a href="/tags/Tensorflow/" style="font-size: 15.33px;">Tensorflow</a> <a href="/tags/Thread/" style="font-size: 10px;">Thread</a> <a href="/tags/Urllib2/" style="font-size: 10px;">Urllib2</a> <a href="/tags/Virtual-memory/" style="font-size: 10px;">Virtual memory</a> <a href="/tags/cmake/" style="font-size: 12.67px;">cmake</a> <a href="/tags/cmd/" style="font-size: 10.67px;">cmd</a> <a href="/tags/data-structure/" style="font-size: 10.67px;">data structure</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/hexo/" style="font-size: 11.33px;">hexo</a> <a href="/tags/htop/" style="font-size: 10px;">htop</a> <a href="/tags/keras/" style="font-size: 10.67px;">keras</a> <a href="/tags/latex/" style="font-size: 14.67px;">latex</a> <a href="/tags/os/" style="font-size: 10px;">os</a> <a href="/tags/qt/" style="font-size: 10px;">qt</a> <a href="/tags/requests/" style="font-size: 10px;">requests</a> <a href="/tags/sk-learn/" style="font-size: 10px;">sk-learn</a> <a href="/tags/ssh/" style="font-size: 12.67px;">ssh</a> <a href="/tags/statistic/" style="font-size: 10px;">statistic</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/windows/" style="font-size: 16.67px;">windows</a> <a href="/tags/yolo%EF%BC%8CC/" style="font-size: 10px;">yolo，C</a>
     </div>
   </div>
 
@@ -472,6 +475,10 @@ ListenAddress [ip]
       <ul>
         
           <li>
+            <a href="/Hbase_noHRegionServer/">Hbase启动集群有些节点没有HRegionServer</a>
+          </li>
+        
+          <li>
             <a href="/ntp_date/">Centos7使用npt设置时间同步</a>
           </li>
         
@@ -485,10 +492,6 @@ ListenAddress [ip]
         
           <li>
             <a href="/python_pprint/">python--pprint模块</a>
-          </li>
-        
-          <li>
-            <a href="/python_function_return_type/">python定义函数指定返回值类型</a>
           </li>
         
       </ul>
