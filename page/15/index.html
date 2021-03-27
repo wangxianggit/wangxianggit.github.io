@@ -67,6 +67,53 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Collection_interests" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/Collection_interests/" class="article-date">
+  <time datetime="2019-06-03T03:05:32.000Z" itemprop="datePublished">2019-06-03</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/learning/">learning</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/Collection_interests/">新趣集</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+
+        <h2 id="新趣集，一个新的产品发现社区"><a href="#新趣集，一个新的产品发现社区" class="headerlink" title="新趣集，一个新的产品发现社区"></a>新趣集，一个新的产品发现社区</h2><ul>
+<li>链接：<a target="_blank" rel="noopener" href="https://xinquji.com/">https://xinquji.com</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wangxianggit.github.io/Collection_interests/" data-id="ckjv3w9ba002b6sdngffsd5gk" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Resource/" rel="tag">Resource</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-open_source_book_website" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/open_source_book_website/" class="article-date">
@@ -293,70 +340,6 @@ i=i+1</code></pre>
 
 
   
-    <article id="post-algorithm_sort_insertion" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/algorithm_sort_insertion/" class="article-date">
-  <time datetime="2019-05-16T04:03:32.000Z" itemprop="datePublished">2019-05-16</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Algorithm/">Algorithm</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/algorithm_sort_insertion/">插入排序</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-
-        <h2 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h2><ul>
-<li><p>​ 伪代码：</p>
-<ul>
-<li><pre><code>INSERTION-SORT(A)
-
-for j=2 to A.length
-  key=A[j]
-  //Insert A[j] into the sorted sequence A[1..j-1]
-  i=j-1
-  while i&gt; and A[i]&gt;key
-    A[i+1]=A[i]
-    i=i-1
-  A[i+1]=key
-<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">* 在for循环的每次迭代开始，包含元素A[1..j-1]的子数组构成了当前排序好的数组，剩余的子数组A[j+1..n]对应即将进行排序的元素。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">* A[1..j-1]构成一个循环不变式。</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">* 循环不变式的性质：</span></span><br><span class="line"></span><br><span class="line"><span class="comment">  * 初始化：循环的第一次迭代之前，它为真。</span></span><br><span class="line"><span class="comment">  * 保持：如果循环的某次迭代之前它为真，那么下次迭代之前它仍然为真。</span></span><br><span class="line"><span class="comment">  * 终止：当前两条性质成立时，循环结束时保持排序状态。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">* c++代码实现：</span></span><br><span class="line"></span><br><span class="line"><span class="comment">  * ~~~</span></span><br><span class="line">    void insertion_sort(int A[], int length)&#123;</span><br><span class="line">        <span class="keyword">for</span>(int j=1;j&lt;len;j++)&#123;</span><br><span class="line">            int key=A[j];</span><br><span class="line">            <span class="comment">//Insert A[j] into the sorted sequence A[1..j-1]</span></span><br><span class="line">            i=j-1;</span><br><span class="line">            <span class="keyword">while</span>(i&gt;0&amp;&amp;A[i]&gt;key)&#123;</span><br><span class="line">                A[i+1]=A[i];</span><br><span class="line">                i=i-1;</span><br><span class="line">            &#125;</span><br><span class="line">            A[i+1]=key;</span><br><span class="line">        &#125; </span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-</code></pre>
-</li>
-</ul>
-</li>
-</ul>
-<hr>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/algorithm_sort_insertion/" data-id="ckjv3w9cw00986sdn0zdnbzj0" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Algorithm/" rel="tag">Algorithm</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C++</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
@@ -431,6 +414,10 @@ for j=2 to A.length
       <ul>
         
           <li>
+            <a href="/python_cprint/">Python使用cprint模块打印带颜色字符</a>
+          </li>
+        
+          <li>
             <a href="/Hbase_noHRegionServer/">Hbase启动集群有些节点没有HRegionServer</a>
           </li>
         
@@ -444,10 +431,6 @@ for j=2 to A.length
         
           <li>
             <a href="/cv2_python_problem/">python opencv problem:cv2 has no attribute CV_LOAD_IMAGE_GRAYSCALE</a>
-          </li>
-        
-          <li>
-            <a href="/python_pprint/">python--pprint模块</a>
           </li>
         
       </ul>

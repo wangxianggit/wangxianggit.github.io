@@ -67,6 +67,62 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-tf.global_variables_initializer" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/tf.global_variables_initializer/" class="article-date">
+  <time datetime="2019-09-18T01:22:37.000Z" itemprop="datePublished">2019-09-18</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Python/">Python</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/tf.global_variables_initializer/">tf.global_variables_initializer</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+
+        <h3 id="tf-global-variables-initializer"><a href="#tf-global-variables-initializer" class="headerlink" title="tf.global_variables_initializer"></a>tf.global_variables_initializer</h3><ul>
+<li><p>函数用于初始化模型的参数：</p>
+<ul>
+<li><pre><code>init = tf.initialize_all_variables()
+sess = tf.Session()
+sess.run(init)
+<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 有选择地初始化部分变量，使用 tf.initialize<span class="constructor">_variables()</span>：</span><br><span class="line"></span><br><span class="line"><span class="operator">  * </span>~~~</span><br><span class="line">    init_new_vars_op = tf.initialize<span class="constructor">_variables([<span class="params">v_6</span>, <span class="params">v_7</span>, <span class="params">v_8</span>])</span></span><br><span class="line">    sess.run(init_new_vars_op)</span><br></pre></td></tr></table></figure></code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wangxianggit.github.io/tf.global_variables_initializer/" data-id="ckjv3w9en00gp6sdn1aj1cmce" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Tensorflow/" rel="tag">Tensorflow</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-tensorboard" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/tensorboard/" class="article-date">
@@ -339,64 +395,6 @@ output:10</code></pre>
 
 
   
-    <article id="post-Python_locals" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/Python_locals/" class="article-date">
-  <time datetime="2019-09-15T13:35:11.000Z" itemprop="datePublished">2019-09-15</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Python/">Python</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/Python_locals/">Python函数locals</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-
-        <h2 id="locals函数"><a href="#locals函数" class="headerlink" title="locals函数"></a>locals函数</h2><ul>
-<li><p>作用：以字典的形式返回当前的变量名和值</p>
-</li>
-<li><pre><code>def funp():
-    strv=&#39;locals&#39;
-    dic=&#123;&#39;a&#39;:[1,2],&#39;b&#39;:[2,3]&#125;
-    print(locals())
-data = funp()
-
-output:
-&#123;&#39;dic&#39;: &#123;&#39;a&#39;: [1, 2], &#39;b&#39;: [2, 3]&#125;, &#39;strv&#39;: &#39;locals&#39;&#125;</code></pre>
-</li>
-</ul>
-<hr>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/Python_locals/" data-id="ckjv3w9ck007n6sdn8pov7433" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
@@ -471,6 +469,10 @@ output:
       <ul>
         
           <li>
+            <a href="/python_cprint/">Python使用cprint模块打印带颜色字符</a>
+          </li>
+        
+          <li>
             <a href="/Hbase_noHRegionServer/">Hbase启动集群有些节点没有HRegionServer</a>
           </li>
         
@@ -484,10 +486,6 @@ output:
         
           <li>
             <a href="/cv2_python_problem/">python opencv problem:cv2 has no attribute CV_LOAD_IMAGE_GRAYSCALE</a>
-          </li>
-        
-          <li>
-            <a href="/python_pprint/">python--pprint模块</a>
           </li>
         
       </ul>

@@ -67,6 +67,67 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Python_len" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/Python_len/" class="article-date">
+  <time datetime="2019-01-31T10:32:51.000Z" itemprop="datePublished">2019-01-31</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Python/">Python</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/Python_len/">Python特殊函数__len__</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+
+        <ul>
+<li><p>​ Python特殊函数__len()__使函数len()能够作用于类中的变量，例：</p>
+<ul>
+<li><pre><code>class Namespace(object):
+
+    def __init__(self, *args):
+        self.names = args
+
+    def __len__(self):
+        return len(self.names)
+
+s = Namespace(&#39;jia&#39;, &#39;tim&#39;)
+print( len(s) )</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wangxianggit.github.io/Python_len/" data-id="ckjv3w9ch00756sdna11r8mmp" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Program/" rel="tag">Program</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-Python_slot" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/Python_slot/" class="article-date">
@@ -322,70 +383,6 @@ pip install web.py -i http://pypi.douban.com/simple --trusted-host pypi.douban.c
 
 
   
-    <article id="post-windows_CentOS7_two_system_install" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/windows_CentOS7_two_system_install/" class="article-date">
-  <time datetime="2019-01-29T05:28:33.000Z" itemprop="datePublished">2019-01-29</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/learning/">learning</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/windows_CentOS7_two_system_install/">U盘安装windows和CentOS7双系统</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-
-        <ul>
-<li><p>​ 先安装windows后安装CentOS7</p>
-</li>
-<li><p>进入安装界面后不能直接选择“Install CentOS 7”或“Test this media &amp;  istall CentOS 7”，安装前需要指定U盘的位置</p>
-</li>
-<li><p>安装界面上按下Tab键，屏幕下方出现以下字符串：</p>
-<ul>
-<li><p>~~~</p>
-<blockquote>
-<p>Vmlinuz initrd=initrd.img inst.stage2=hd:LABEL=CentOS\x207\x20x86_64 4d.live.check quiet_</p>
-</blockquote>
-<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="bullet">* </span>修改为 </span><br><span class="line"></span><br><span class="line"><span class="bullet">* </span>~~~</span><br><span class="line"><span class="code">  Vmlinuz initrd=initrd.img linux dd quiet</span></span><br></pre></td></tr></table></figure></li>
-<li><p>看到界面上出现U盘的盘符或位置，接着重启电脑后重复上面操作将安装位置指定,后回车就可以进行安装</p>
-</li>
-<li><pre><code>Vmlinuz initrd=initrd.img inst.stage2=hd:/dev/sdb4</code></pre>
-</li>
-</ul>
-</li>
-</ul>
-<hr>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/windows_CentOS7_two_system_install/" data-id="ckjv3w9fw00o76sdn622q33pw" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Centos7/" rel="tag">Centos7</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/windows/" rel="tag">windows</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
@@ -460,6 +457,10 @@ pip install web.py -i http://pypi.douban.com/simple --trusted-host pypi.douban.c
       <ul>
         
           <li>
+            <a href="/python_cprint/">Python使用cprint模块打印带颜色字符</a>
+          </li>
+        
+          <li>
             <a href="/Hbase_noHRegionServer/">Hbase启动集群有些节点没有HRegionServer</a>
           </li>
         
@@ -473,10 +474,6 @@ pip install web.py -i http://pypi.douban.com/simple --trusted-host pypi.douban.c
         
           <li>
             <a href="/cv2_python_problem/">python opencv problem:cv2 has no attribute CV_LOAD_IMAGE_GRAYSCALE</a>
-          </li>
-        
-          <li>
-            <a href="/python_pprint/">python--pprint模块</a>
           </li>
         
       </ul>

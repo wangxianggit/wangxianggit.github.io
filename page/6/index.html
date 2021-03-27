@@ -67,6 +67,65 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Opencv_three_channel_image" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/Opencv_three_channel_image/" class="article-date">
+  <time datetime="2020-07-13T06:00:32.000Z" itemprop="datePublished">2020-07-13</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Python/">Python</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/Opencv_three_channel_image/">Opencv处理三通道图像</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+
+        <ul>
+<li><p>单通道图，即灰度图，每个像素点只有一个值代表颜色，像素值在0到255之间，0是黑色，255是白色，中间值是一些不同等级的灰色。3通道灰度图其实只有一个通道有值，其他两个通道的值是零。</p>
+</li>
+<li><p>一般每个像素点都有三个值，即三通道图。例如RGB图片即为三通道图片，RGB色彩模式是工业界的一种颜色标准，是通过对红(R)、绿(G)、蓝(B)三个颜色通道的变化以及它们相互之间的叠加来得到各式各样的颜色的，RGB即是代表红、绿、蓝三个通道的颜色，这个标准几乎包括了人类视力所能感知的所有颜色，是目前运用最广的颜色系统之一。</p>
+</li>
+<li><p>使用opencv库可以对图像的三通道分别进行处理，处理中需要用到cv2模块，在anaconda环境中安装：</p>
+<ul>
+<li><pre><code>conda install --channel https://conda.anaconda.org/menpo opencv
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  * 需要提前安装好nodejs，以及npm。</span><br><span class="line"></span><br><span class="line">* 示例代码：</span><br><span class="line"></span><br><span class="line">  * ```</span><br><span class="line">    import cv2</span><br><span class="line">     </span><br><span class="line">    <span class="attribute">img</span>=cv2.imread(&quot;pic.jpg&quot;)</span><br><span class="line">    <span class="builtin-name">print</span>(img.shape)</span><br><span class="line">    <span class="attribute">b</span>=img[:,:,0]</span><br><span class="line">    <span class="attribute">g</span>=img[:,:,1]</span><br><span class="line">    <span class="attribute">r</span>=img[:,:,2]</span><br><span class="line">    <span class="builtin-name">print</span>(b)</span><br><span class="line">     </span><br><span class="line">    b,g,<span class="attribute">r</span>=cv2.split(img)           #拆分三个通道</span><br><span class="line">    cv2.imshow(<span class="string">&#x27;original&#x27;</span>,img)        </span><br><span class="line">    cv2.imshow(<span class="string">&#x27;B&#x27;</span>,b)               </span><br><span class="line">    cv2.imshow(<span class="string">&#x27;G&#x27;</span>,g)</span><br><span class="line">    cv2.imshow(<span class="string">&#x27;R&#x27;</span>,r)</span><br><span class="line">    <span class="attribute">m1</span>=cv2.merge([b,g,r])          #按照bgr合并通道</span><br><span class="line">    <span class="attribute">m2</span>=cv2.merge([r,g,b])          #按照rgb合并通道</span><br><span class="line">    cv2.imshow(<span class="string">&#x27;BGR&#x27;</span>,m1)</span><br><span class="line">    cv2.imshow(<span class="string">&#x27;RGB&#x27;</span>,m2)</span><br><span class="line">    cv2.waitKey()            #等待键盘输入，不调用此方法则显示的图像将会一闪而逝</span><br><span class="line">    cv2.destroyAllWindows()  #销毁所有窗口</span><br><span class="line">    <span class="builtin-name">print</span>(b)</span><br><span class="line">    <span class="builtin-name">print</span>(b.shape)</span><br></pre></td></tr></table></figure>
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wangxianggit.github.io/Opencv_three_channel_image/" data-id="ckjv3w9c1005a6sdna4wudv2r" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Opencv/" rel="tag">Opencv</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-winedt_break" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/winedt_break/" class="article-date">
@@ -298,64 +357,6 @@
 
 
   
-    <article id="post-linux_googlechrome" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/linux_googlechrome/" class="article-date">
-  <time datetime="2019-12-21T14:20:18.000Z" itemprop="datePublished">2019-12-21</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/learning/">learning</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/linux_googlechrome/">linux安装谷歌浏览器</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-
-        <h3 id="linux安装谷歌浏览器"><a href="#linux安装谷歌浏览器" class="headerlink" title="linux安装谷歌浏览器"></a>linux安装谷歌浏览器</h3><ul>
-<li><p>下载rpm安装包：</p>
-<ul>
-<li>~~~<br><a target="_blank" rel="noopener" href="https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm">https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm</a><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 安装相关依赖：</span><br><span class="line"></span><br><span class="line">  * ~~~</span><br><span class="line">    yum <span class="keyword">install</span> -y lsb</span><br><span class="line">    yum <span class="keyword">install</span> -y libXScrnSaver</span><br><span class="line">    yum <span class="keyword">install</span> -y libappindicator3*</span><br><span class="line">    yum <span class="keyword">install</span> -y liberation-fonts</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-<li><p>安装chrome：</p>
-<ul>
-<li><pre><code>rpm ivh google-chrome-stable_current_x86_64.rpm</code></pre>
-</li>
-</ul>
-</li>
-</ul>
-<hr>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/linux_googlechrome/" data-id="ckjv3w9dv00de6sdneibzff4j" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
@@ -430,6 +431,10 @@
       <ul>
         
           <li>
+            <a href="/python_cprint/">Python使用cprint模块打印带颜色字符</a>
+          </li>
+        
+          <li>
             <a href="/Hbase_noHRegionServer/">Hbase启动集群有些节点没有HRegionServer</a>
           </li>
         
@@ -443,10 +448,6 @@
         
           <li>
             <a href="/cv2_python_problem/">python opencv problem:cv2 has no attribute CV_LOAD_IMAGE_GRAYSCALE</a>
-          </li>
-        
-          <li>
-            <a href="/python_pprint/">python--pprint模块</a>
           </li>
         
       </ul>

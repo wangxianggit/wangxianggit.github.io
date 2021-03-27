@@ -67,6 +67,70 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-ifstream_frequently_read_txtfile" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/ifstream_frequently_read_txtfile/" class="article-date">
+  <time datetime="2018-09-18T07:38:23.000Z" itemprop="datePublished">2018-09-18</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/learning/">learning</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/ifstream_frequently_read_txtfile/">ifstream重复读取文本文件</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+
+        <ul>
+<li><p>ifstream流对象关闭后不能改变流对象的内部状态。如果遇到读写失败，对象的状态将一直保持错误模式。</p>
+</li>
+<li><p>使用clear操作可以重新恢复流对象的内部状态。</p>
+</li>
+<li><p>若需要使用流对象重复读取某个文件，必须在重复读取文件之前调用clear函数清除流对象之前保留的状态。</p>
+</li>
+<li><pre><code>  long bt, dt0, dt;
+  int fnp, inp;
+  string ss;
+   ifstream infile(ipfn, ios::in);//ipfn:file name
+        bool t=false;
+        while(getline(infile,ss))&#123;
+          istringstream iss(ss);
+            iss&gt;&gt;bt&gt;&gt;dt0&gt;&gt;dt&gt;&gt;fnp&gt;&gt;inp;
+        &#125;
+        infile.close();
+        infile.clear(ios::goodbit);</code></pre>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wangxianggit.github.io/ifstream_frequently_read_txtfile/" data-id="ckjv3w9dq00cq6sdndc4m4a2w" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Program/" rel="tag">Program</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-c++_read_integrate" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/c++_read_integrate/" class="article-date">
@@ -394,58 +458,6 @@ SYMBOL TABLE:
 
 
   
-    <article id="post-hexo_file_upload" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/hexo_file_upload/" class="article-date">
-  <time datetime="2018-05-04T13:31:48.000Z" itemprop="datePublished">2018-05-04</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/learning/">learning</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/hexo_file_upload/">hexo上传文件</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-
-        <ul>
-<li>在hexo目录/source/_posts下创建和md文件同名的目录，在里面放该md需要引用的文件，然后在md中插入：[text](目录名/文件名.pdf)</li>
-<li>文件扩展名填写相应引用文件的扩展名。</li>
-<li>示例文件：<ul>
-<li><a href="/hexo_file_upload/PhysRevC.95.044608.pdf">example of link file</a></li>
-</ul>
-</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/hexo_file_upload/" data-id="ckjv3w9dm00c56sdn5tctgjbb" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
@@ -520,6 +532,10 @@ SYMBOL TABLE:
       <ul>
         
           <li>
+            <a href="/python_cprint/">Python使用cprint模块打印带颜色字符</a>
+          </li>
+        
+          <li>
             <a href="/Hbase_noHRegionServer/">Hbase启动集群有些节点没有HRegionServer</a>
           </li>
         
@@ -533,10 +549,6 @@ SYMBOL TABLE:
         
           <li>
             <a href="/cv2_python_problem/">python opencv problem:cv2 has no attribute CV_LOAD_IMAGE_GRAYSCALE</a>
-          </li>
-        
-          <li>
-            <a href="/python_pprint/">python--pprint模块</a>
           </li>
         
       </ul>

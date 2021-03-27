@@ -67,6 +67,60 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-hdf5_set_WRITEABLE_flag_True" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/hdf5_set_WRITEABLE_flag_True/" class="article-date">
+  <time datetime="2019-06-20T13:38:12.000Z" itemprop="datePublished">2019-06-20</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Python/">Python</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/hdf5_set_WRITEABLE_flag_True/">Hdf数据读取错误：cannot set WRITEABLE flag to True</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+
+        <h2 id="Hdf数据读取错误：cannot-set-WRITEABLE-flag-to-True"><a href="#Hdf数据读取错误：cannot-set-WRITEABLE-flag-to-True" class="headerlink" title="Hdf数据读取错误：cannot set WRITEABLE flag to True"></a>Hdf数据读取错误：cannot set WRITEABLE flag to True</h2><ul>
+<li>python中使用hdf5读取文件时报错：cannot set WRITEABLE flag to True of this array</li>
+<li>原因是numpy版本与pytables的最新版本不兼容，若numpy版本时1.16则版本太高。</li>
+<li>把numpy版本降到1.15即可：<ul>
+<li><code>python -m pip install numpy==1.15</code></li>
+</ul>
+</li>
+<li>另外不仅出现在hdf数据读取会出现这样错误，其他类似报错也只需要把numpy版本降低即可。</li>
+</ul>
+<hr>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wangxianggit.github.io/hdf5_set_WRITEABLE_flag_True/" data-id="ckjv3w9dj00br6sdnakqoe5ae" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/data-structure/" rel="tag">data structure</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-ssh_config" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/ssh_config/" class="article-date">
@@ -347,53 +401,6 @@ import hello</code></pre>
 
 
   
-    <article id="post-Collection_interests" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/Collection_interests/" class="article-date">
-  <time datetime="2019-06-03T03:05:32.000Z" itemprop="datePublished">2019-06-03</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/learning/">learning</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/Collection_interests/">新趣集</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-
-        <h2 id="新趣集，一个新的产品发现社区"><a href="#新趣集，一个新的产品发现社区" class="headerlink" title="新趣集，一个新的产品发现社区"></a>新趣集，一个新的产品发现社区</h2><ul>
-<li>链接：<a target="_blank" rel="noopener" href="https://xinquji.com/">https://xinquji.com</a></li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/Collection_interests/" data-id="ckjv3w9ba002b6sdngffsd5gk" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Resource/" rel="tag">Resource</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
@@ -468,6 +475,10 @@ import hello</code></pre>
       <ul>
         
           <li>
+            <a href="/python_cprint/">Python使用cprint模块打印带颜色字符</a>
+          </li>
+        
+          <li>
             <a href="/Hbase_noHRegionServer/">Hbase启动集群有些节点没有HRegionServer</a>
           </li>
         
@@ -481,10 +492,6 @@ import hello</code></pre>
         
           <li>
             <a href="/cv2_python_problem/">python opencv problem:cv2 has no attribute CV_LOAD_IMAGE_GRAYSCALE</a>
-          </li>
-        
-          <li>
-            <a href="/python_pprint/">python--pprint模块</a>
           </li>
         
       </ul>

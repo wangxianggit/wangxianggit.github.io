@@ -5,17 +5,17 @@
   
 
   
-  <title>Python库talib的安装 | There is no rose without a thorn</title>
+  <title>Python使用cprint模块打印带颜色字符 | There is no rose without a thorn</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="​ TaLib官网：http:&#x2F;&#x2F;ta-lib.org&#x2F;  Python wrapper for TA-Lib：http:&#x2F;&#x2F;mrjbq7.github.io&#x2F;ta-lib&#x2F;doc_index.html  pip安装talib时常常会出现如下错误：  error: Microsoft Visual C++ 14.0 is required. Get it with “Microsoft Visu">
+  <meta name="description" content="cprint功能：在终端打印带有颜色的字符串  安装：pip install cprint或下载安whl安装包地址https:&#x2F;&#x2F;pypi.org&#x2F;project&#x2F;cprint&#x2F;  使用示例：  from cprint import *  cprint(str) # WHITE cprint.ok(str) # BLUE cprint.info(str) # GREEN cprint.warn(">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Python库talib的安装">
-<meta property="og:url" content="http://wangxianggit.github.io/Python_talib_install/index.html">
+<meta property="og:title" content="Python使用cprint模块打印带颜色字符">
+<meta property="og:url" content="http://wangxianggit.github.io/python_cprint/index.html">
 <meta property="og:site_name" content="There is no rose without a thorn">
-<meta property="og:description" content="​ TaLib官网：http:&#x2F;&#x2F;ta-lib.org&#x2F;  Python wrapper for TA-Lib：http:&#x2F;&#x2F;mrjbq7.github.io&#x2F;ta-lib&#x2F;doc_index.html  pip安装talib时常常会出现如下错误：  error: Microsoft Visual C++ 14.0 is required. Get it with “Microsoft Visu">
+<meta property="og:description" content="cprint功能：在终端打印带有颜色的字符串  安装：pip install cprint或下载安whl安装包地址https:&#x2F;&#x2F;pypi.org&#x2F;project&#x2F;cprint&#x2F;  使用示例：  from cprint import *  cprint(str) # WHITE cprint.ok(str) # BLUE cprint.info(str) # GREEN cprint.warn(">
 <meta property="og:locale">
-<meta property="article:published_time" content="2019-09-09T14:57:23.000Z">
-<meta property="article:modified_time" content="2019-09-09T15:04:05.383Z">
+<meta property="article:published_time" content="2021-03-27T10:25:37.000Z">
+<meta property="article:modified_time" content="2021-03-27T10:30:30.919Z">
 <meta property="article:author" content="wangxiang">
 <meta property="article:tag" content="Python">
 <meta name="twitter:card" content="summary">
@@ -68,10 +68,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-Python_talib_install" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-python_cprint" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/Python_talib_install/" class="article-date">
-  <time datetime="2019-09-09T14:57:23.000Z" itemprop="datePublished">2019-09-09</time>
+    <a href="/python_cprint/" class="article-date">
+  <time datetime="2021-03-27T10:25:37.000Z" itemprop="datePublished">2021-03-27</time>
 </a>
     
   <div class="article-category">
@@ -86,7 +86,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Python库talib的安装
+      Python使用cprint模块打印带颜色字符
     </h1>
   
 
@@ -102,25 +102,22 @@
   </div>
 
         <ul>
-<li><p>​ TaLib官网：<a target="_blank" rel="noopener" href="https://www.lizenghai.com/goto/?url=http://ta-lib.org/">http://ta-lib.org/</a></p>
+<li><p>cprint功能：在终端打印带有颜色的字符串</p>
 </li>
-<li><p>Python wrapper for TA-Lib：<a target="_blank" rel="noopener" href="https://www.lizenghai.com/goto/?url=http://mrjbq7.github.io/ta-lib/doc_index.html">http://mrjbq7.github.io/ta-lib/doc_index.html</a></p>
+<li><p>安装：<code>pip install cprint</code>或下载安whl安装包地址<a target="_blank" rel="noopener" href="https://pypi.org/project/cprint/">https://pypi.org/project/cprint/</a></p>
 </li>
-<li><p>pip安装talib时常常会出现如下错误：</p>
+<li><p>使用示例：</p>
 <ul>
-<li><pre><code>error: Microsoft Visual C++ 14.0 is required. Get it with “Microsoft Visual C++ Build Tools”: https://visualstudio.microsoft.com/downloads/</code></pre>
+<li><pre><code>from cprint import *
+
+cprint(str) # WHITE
+cprint.ok(str) # BLUE
+cprint.info(str) # GREEN
+cprint.warn(str) # YELLOW
+cprint.err(str, interrupt=False) # BROWN
+cprint.fatal(str, interrupt=False) # RED</code></pre>
 </li>
 </ul>
-</li>
-<li><p>如果安装visual C++14.0往往安装包很大，安装起来很麻烦。</p>
-</li>
-<li><p>因此可以用手动安装的方法：</p>
-<ul>
-<li>手动下载对应的whl文件，下载地址：<a target="_blank" rel="noopener" href="https://www.lizenghai.com/goto/?url=https://www.lfd.uci.edu/~gohlke/pythonlibs/">https://www.lfd.uci.edu/~gohlke/pythonlibs/</a></li>
-<li>进入下载目录使用pip install filename.whl 安装</li>
-</ul>
-</li>
-<li><p>命令行界面出现成功安装的提示就可以使用。</p>
 </li>
 </ul>
 <hr>
@@ -128,7 +125,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/Python_talib_install/" data-id="ckjv3w9cs008o6sdn583uf2y9" class="article-share-link">Share</a>
+      <a data-url="http://wangxianggit.github.io/python_cprint/" data-id="ckmrlezuk000084dn415qhcla" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
@@ -139,19 +136,10 @@
     
 <nav id="article-nav">
   
-    <a href="/numpy_unpackbits/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          numpy函数unpackbits
-        
-      </div>
-    </a>
   
-  
-    <a href="/hdf5_set_WRITEABLE_flag_True/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/Hbase_noHRegionServer/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Hdf数据读取错误：cannot set WRITEABLE flag to True</div>
+      <div class="article-nav-title">Hbase启动集群有些节点没有HRegionServer</div>
     </a>
   
 </nav>

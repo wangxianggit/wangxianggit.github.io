@@ -67,6 +67,73 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Altium_designer_ways_copper_deposition" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/Altium_designer_ways_copper_deposition/" class="article-date">
+  <time datetime="2019-03-04T12:35:11.000Z" itemprop="datePublished">2019-03-04</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Altium/">Altium</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/Altium_designer_ways_copper_deposition/">Altium_designer中三种不同覆铜方式</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+
+        <h2 id="Altium-不同覆铜方式"><a href="#Altium-不同覆铜方式" class="headerlink" title="Altium 不同覆铜方式"></a>Altium 不同覆铜方式</h2><ul>
+<li>三种覆铜方式：Fill,Polygon pour和Solid region，三种不同的覆铜方式分别完成不同的功能。</li>
+<li>Fill即在一个区域内直接用铜皮覆盖，且不区分是否存在焊盘或过孔。<ul>
+<li>因此在Fill填充的区域如果存在网络，线路或过孔等都将连接在一起，不正确的使用容易造成短路。</li>
+<li>Fill填充的区域面积一般比较小，同时Fill的区域只能是矩形不可随意绘制图形。</li>
+<li>Fill在布线前完成。</li>
+</ul>
+</li>
+<li>Polygon pour即铺铜也称为灌铜，作用和Fill相近但有以下区分<ul>
+<li>灌铜可以主动区分过孔和网络，如果过孔与焊点不属于同一个网络，灌铜将根据设置好的规则将它们分开并保持安全距离。</li>
+<li>灌铜的目的是提高电路的抗干扰能力、减小辐射干扰、高频PCB电路板常常选用。</li>
+<li>灌铜功能可以自动删除死铜，在铺铜时，点击Tools-Preferences，在PCB Editor 栏的Interactive Routing 处选Push Obstacle （遇到不同网络的走线时推挤其它的走线，Ignore Obstacle为穿过）模式并选中Automatically Remove Loops（自动删除多余的走线）。</li>
+</ul>
+</li>
+<li>Solid region即在在覆铜区域内整片覆盖成一个整体铜膜。<ul>
+<li>覆铜区域内不允许存在其它网络的焊盘 过孔 铜膜走线，否则会造成短路。</li>
+<li>实心覆铜可以绘制任意形状，也可以由其它图形转换而来，为了能绘出任意图形的实心覆铜，可以先在PCB板的顶部丝印层top overly，用划线工具画出任意形状的图形，随后框选它，然后点击菜单tools—-convert—-create region from selected primitives—-创建实心覆铜区域。</li>
+<li>实心覆铜常用于创建任意形状的焊盘、铜膜走线、插接件、连接件、在制作PCB封装时经常使用。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p>2019/03/04</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wangxianggit.github.io/Altium_designer_ways_copper_deposition/" data-id="ckjv3w9au000o6sdnb83971wk" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Altium-Designer/" rel="tag">Altium Designer</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Electronic/" rel="tag">Electronic</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-Altium_design_resize" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/Altium_design_resize/" class="article-date">
@@ -329,75 +396,6 @@ finally:
 
 
   
-    <article id="post-Python_library_Urllib2" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/Python_library_Urllib2/" class="article-date">
-  <time datetime="2019-02-26T14:17:17.000Z" itemprop="datePublished">2019-02-26</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Py-Crawler/">Py_Crawler</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/Python_library_Urllib2/">Python3库Urllib2迁移</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-
-        <ul>
-<li><p>​ Python3.x中urllib2被拆分成了urllib.request和urllib.error两个包，因此直接导入urllib2会报错，使用pip或 conda安装urllib2也会出现找不到包的情况。</p>
-</li>
-<li><p>导入相应包使用代码：<code>import urllib.request 和import urllib.error</code></p>
-</li>
-<li><p>代码中使用相应函数代码：<code>urllib2.xxx修改为urllib.request.xxx</code></p>
-</li>
-<li><p>示例代码：</p>
-</li>
-<li><pre><code>##download webpage
-import urllib.request
-import urllib.error
-
-def download(url):
-    print(&#39;Downloading:&#39;,url)
-    try:
-        html=urllib.request.urlopen(url).read()
-    except urllib.error as e:
-        print(&#39;download error:&#39;,e.reason)
-        html=None
-    return html
-download(&#39;http://example.webscraping.com/&#39;)</code></pre>
-</li>
-</ul>
-<hr>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/Python_library_Urllib2/" data-id="ckjv3w9cj007g6sdn8k3k8aen" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Py-Crawler/" rel="tag">Py_Crawler</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Urllib2/" rel="tag">Urllib2</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
@@ -472,6 +470,10 @@ download(&#39;http://example.webscraping.com/&#39;)</code></pre>
       <ul>
         
           <li>
+            <a href="/python_cprint/">Python使用cprint模块打印带颜色字符</a>
+          </li>
+        
+          <li>
             <a href="/Hbase_noHRegionServer/">Hbase启动集群有些节点没有HRegionServer</a>
           </li>
         
@@ -485,10 +487,6 @@ download(&#39;http://example.webscraping.com/&#39;)</code></pre>
         
           <li>
             <a href="/cv2_python_problem/">python opencv problem:cv2 has no attribute CV_LOAD_IMAGE_GRAYSCALE</a>
-          </li>
-        
-          <li>
-            <a href="/python_pprint/">python--pprint模块</a>
           </li>
         
       </ul>

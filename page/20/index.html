@@ -67,6 +67,65 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-win8_anaconda_env_configuration" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/win8_anaconda_env_configuration/" class="article-date">
+  <time datetime="2019-04-27T13:06:47.000Z" itemprop="datePublished">2019-04-27</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/learning/">learning</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/win8_anaconda_env_configuration/">win8.1下anaconda环境变量配置</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+
+        <h2 id="anaconda环境变量配置"><a href="#anaconda环境变量配置" class="headerlink" title="anaconda环境变量配置"></a>anaconda环境变量配置</h2><ul>
+<li><p>windows下安装好anaconda后默认没有把环境变量添加到系统路径中去，所以在cmd中无法识别相应的命令，如pip，conda等。</p>
+</li>
+<li><p>若安装anaconda的路径在D:\anaconda\</p>
+</li>
+<li><p>在我的电脑-&gt;属性-&gt;高级系统设置-&gt;环境变量-&gt;PATH中加入一下路径：</p>
+<ul>
+<li><pre><code>D:\anaconda\ 
+D:\anaconda\Scripts\ ##pip conda etc
+D:\anaconda\Library\bin\</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wangxianggit.github.io/win8_anaconda_env_configuration/" data-id="ckjv3w9fv00o56sdn3s9zd9fs" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/windows/" rel="tag">windows</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-anaconda_python2_python3_install" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/anaconda_python2_python3_install/" class="article-date">
@@ -363,55 +422,6 @@ yum --version
 
 
   
-    <article id="post-Python_module_calendar" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/Python_module_calendar/" class="article-date">
-  <time datetime="2019-04-21T04:47:27.000Z" itemprop="datePublished">2019-04-21</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Python/">Python</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/Python_module_calendar/">python模块calendar</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-
-        <h3 id="calendar模块​"><a href="#calendar模块​" class="headerlink" title="calendar模块​"></a>calendar模块​</h3><ul>
-<li>python库的calendar模块可以进行日历获取、显示、判断是否闰年等。</li>
-</ul>
-<figure class="highlight tap"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#导入模块</span></span><br><span class="line">In [1]: import calendar</span><br><span class="line"></span><br><span class="line"><span class="comment">#显示月份</span></span><br><span class="line">In [2]: calendar.month(2018,4)</span><br><span class="line">Out[2]: &#x27;     April 2018\nMo Tu We Th Fr Sa Su\n                   1\n<span class="number"> 2 </span><span class="number"> 3 </span> 4</span><br><span class="line">5 <span class="number"> 6 </span><span class="number"> 7 </span> 8\n<span class="number"> 9 </span>10<span class="number"> 11 </span>12<span class="number"> 13 </span>14 15\n16<span class="number"> 17 </span>18<span class="number"> 19 </span>20<span class="number"> 21 </span>22\n23<span class="number"> 24 </span>25<span class="number"> 26 </span>27<span class="number"> 28 </span>29\n30</span><br><span class="line">\n&#x27;</span><br><span class="line"></span><br><span class="line"><span class="comment">#打印日历</span></span><br><span class="line">In [3]: print(calendar.month(2018,4))</span><br><span class="line">     April 2018</span><br><span class="line">Mo Tu We Th Fr Sa Su</span><br><span class="line">                   1</span><br><span class="line"><span class="number"> 2 </span><span class="number"> 3 </span><span class="number"> 4 </span><span class="number"> 5 </span><span class="number"> 6 </span><span class="number"> 7 </span> 8</span><br><span class="line"><span class="number"> 9 </span>10<span class="number"> 11 </span>12<span class="number"> 13 </span>14 15</span><br><span class="line">16<span class="number"> 17 </span>18<span class="number"> 19 </span>20<span class="number"> 21 </span>22</span><br><span class="line">23<span class="number"> 24 </span>25<span class="number"> 26 </span>27<span class="number"> 28 </span>29</span><br><span class="line">30</span><br><span class="line">判断是否为闰年</span><br><span class="line">In [4]: calendar.isleap(2018)</span><br><span class="line">Out[4]: False</span><br></pre></td></tr></table></figure>
-<hr>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/Python_module_calendar/" data-id="ckjv3w9cl007q6sdn1umf92u5" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
@@ -486,6 +496,10 @@ yum --version
       <ul>
         
           <li>
+            <a href="/python_cprint/">Python使用cprint模块打印带颜色字符</a>
+          </li>
+        
+          <li>
             <a href="/Hbase_noHRegionServer/">Hbase启动集群有些节点没有HRegionServer</a>
           </li>
         
@@ -499,10 +513,6 @@ yum --version
         
           <li>
             <a href="/cv2_python_problem/">python opencv problem:cv2 has no attribute CV_LOAD_IMAGE_GRAYSCALE</a>
-          </li>
-        
-          <li>
-            <a href="/python_pprint/">python--pprint模块</a>
           </li>
         
       </ul>

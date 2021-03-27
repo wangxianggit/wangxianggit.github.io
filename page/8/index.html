@@ -67,6 +67,73 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-sshd no hostkeys available" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/sshd%20no%20hostkeys%20available/" class="article-date">
+  <time datetime="2019-12-06T10:24:37.000Z" itemprop="datePublished">2019-12-06</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/learning/">learning</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/sshd%20no%20hostkeys%20available/">ssh启动错误：no hostkeys available— exiting</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+
+        <ul>
+<li><p>ssh服务启动不了，查看出现错误原因：</p>
+<ul>
+<li> <code>/usr/sbin/sshd -T</code></li>
+<li> 若输出错误存在问题：no hostkeys available— exiting，则错误原因是ssh密钥出现问题。</li>
+</ul>
+</li>
+<li><p>root权限下，重新生成密钥：</p>
+<ul>
+<li>ssh-keygen -t dsa -f /etc/ssh/ssh_host_dsa_key</li>
+<li>ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key</li>
+</ul>
+</li>
+<li><p>修改密钥权限：</p>
+<ul>
+<li>chmod 600 /etc/ssh/ssh_host_dsa_key</li>
+<li>chmod 600 /etc/ssh/ssh_host_rsa_key</li>
+</ul>
+</li>
+<li><p>重启ssh服务即可。</p>
+</li>
+</ul>
+<hr>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wangxianggit.github.io/sshd%20no%20hostkeys%20available/" data-id="ckjv3w9em00gi6sdn4yae5gbw" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Centos7/" rel="tag">Centos7</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ssh/" rel="tag">ssh</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-centos7_ssh" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/centos7_ssh/" class="article-date">
@@ -423,85 +490,6 @@ string(UUID &lt;out-var&gt; ...)</code></pre>
 
 
   
-    <article id="post-cmake_compile_static" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/cmake_compile_static/" class="article-date">
-  <time datetime="2019-12-06T05:34:27.000Z" itemprop="datePublished">2019-12-06</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/learning/">learning</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/cmake_compile_static/">cmake编译静态链接库</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-
-        <h2 id="cmake编译静态链接库"><a href="#cmake编译静态链接库" class="headerlink" title="cmake编译静态链接库"></a>cmake编译静态链接库</h2><ul>
-<li><p>例如 hello.cpp 需要调用一个 so 中的 接口api，so 库是由 源文件world.cpp 编译生成。</p>
-</li>
-<li><p>各个文件内容如下：</p>
-</li>
-<li><p>world.h 的代码，它位于工程中 <code>./include</code>文件夹：</p>
-<ul>
-<li><p>~~~<br>#ifndef <strong>WORLD_H__<br>#define __WORLD_H</strong></p>
-<p>void say_hello();</p>
-<p>#endif</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* world.cpp 的代码:</span><br><span class="line"></span><br><span class="line">  * ~~~</span><br><span class="line">    <span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt; </span></span></span><br><span class="line">    <span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&quot;include/world.h&quot;</span> v</span></span><br><span class="line">    <span class="function">oid <span class="title">say_hello</span><span class="params">()</span> </span></span><br><span class="line"><span class="function">    </span>&#123; </span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;I\&#x27;m cmake, welcome&quot;</span> &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>; &#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-<li><p>hello.cpp的代码:</p>
-<ul>
-<li><p>~~~<br>#include <iostream><br>#include “include/world.h”<br>using namespace std;<br>int main(int argc,char** argv)<br>{<br>cout &lt;&lt; “Hello for cmake!” &lt;&lt; endl;<br>say_hello();<br>return 0;<br>}</p>
-<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* <span class="module-access"><span class="module"><span class="identifier">CMakeLists</span>.</span></span>txt 文件可以写成：</span><br><span class="line"></span><br><span class="line"><span class="operator">  * </span>~~~</span><br><span class="line">    cmake<span class="constructor">_minimum_required(VERSION 2.8.11)</span> </span><br><span class="line">    project(HELLO) </span><br><span class="line">    <span class="keyword">include</span><span class="constructor">_directories(<span class="string">&quot;include&quot;</span>)</span> </span><br><span class="line">    add<span class="constructor">_library(<span class="params">world</span> <span class="params">world</span>.<span class="params">cpp</span>)</span> </span><br><span class="line">    add<span class="constructor">_executable(<span class="params">hello</span> <span class="params">hello</span>.<span class="params">cpp</span>)</span> </span><br><span class="line">    target<span class="constructor">_link_libraries(<span class="params">hello</span> <span class="params">world</span>)</span></span><br></pre></td></tr></table></figure></li>
-<li><p>include_directories()这句代码指定了头文件地址</p>
-</li>
-<li><p>add_library()的作用是生成库文件，默认是 .a 的文件，也就是静态库</p>
-</li>
-<li><p>target_lingk_libraries()就是为可执行文件 hello 链接 libworld.a 这个库。</p>
-</li>
-</ul>
-</li>
-<li><p>执行 <code>cmake .</code>操作可以看到会正常生成 MakeFile 文件。</p>
-</li>
-<li><p>执行make命令可以生成相应目标文件。</p>
-</li>
-<li><p>目录下生成了两个文件 libworld.a 和 hello，即静态链接和目标文件。</p>
-</li>
-<li><p>cmake执行顺序为：指定头文件路径，指定动态库或者是静态库的路径，然后链接。</p>
-</li>
-</ul>
-<hr>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/cmake_compile_static/" data-id="ckjv3w9d900ai6sdna5iwcydo" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cmake/" rel="tag">cmake</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
@@ -576,6 +564,10 @@ string(UUID &lt;out-var&gt; ...)</code></pre>
       <ul>
         
           <li>
+            <a href="/python_cprint/">Python使用cprint模块打印带颜色字符</a>
+          </li>
+        
+          <li>
             <a href="/Hbase_noHRegionServer/">Hbase启动集群有些节点没有HRegionServer</a>
           </li>
         
@@ -589,10 +581,6 @@ string(UUID &lt;out-var&gt; ...)</code></pre>
         
           <li>
             <a href="/cv2_python_problem/">python opencv problem:cv2 has no attribute CV_LOAD_IMAGE_GRAYSCALE</a>
-          </li>
-        
-          <li>
-            <a href="/python_pprint/">python--pprint模块</a>
           </li>
         
       </ul>

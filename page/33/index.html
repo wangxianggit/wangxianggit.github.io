@@ -67,6 +67,73 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-git_error_warning LF will be replaced by CRLF" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/git_error_warning%20LF%20will%20be%20replaced%20by%20CRLF/" class="article-date">
+  <time datetime="2019-02-16T08:08:19.000Z" itemprop="datePublished">2019-02-16</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/git/">git</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/git_error_warning%20LF%20will%20be%20replaced%20by%20CRLF/">git提示warning LF will be replaced by CRLF解决方法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+
+        <ul>
+<li><p>​ windows下使用命令：</p>
+<ul>
+<li>~~~<br>git add .<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 出现错误提示：</span><br><span class="line"></span><br><span class="line">* ~~~</span><br><span class="line">  warning: LF will be replaced <span class="keyword">by</span> <span class="literal">CRLF</span> <span class="keyword">in</span> .gitignore.</span><br><span class="line">  The <span class="built_in">file</span> will have its original <span class="built_in">line</span> endings <span class="keyword">in</span> your working <span class="built_in">directory</span>.</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>原因：</p>
+<ul>
+<li>CRLF – Carriage-Return Line-Feed 回车换行，即回车(CR, ASCII 13, \r) 换行(LF, ASCII 10, \n)。</li>
+<li>这两个ACSII字符不会在屏幕有任何输出，但在Windows中广泛使用来标识一行的结束，而在Linux/UNIX系统中只有换行符。</li>
+<li>也就是说在windows中的换行符为 CRLF， 而在linux下的换行符为：LF</li>
+<li>使用git来生成一个rails工程后，文件中的换行符为LF， 当执行git add .时，系统提示：LF 将被转换成 CRLF</li>
+</ul>
+</li>
+<li><p>设置禁用自动转换来消除警告提示：</p>
+<ul>
+<li><pre><code>rm -rf .git
+git config --global core.autocrlf false//禁用自动换行</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wangxianggit.github.io/git_error_warning%20LF%20will%20be%20replaced%20by%20CRLF/" data-id="ckjv3w9di00bo6sdn8bhfbimj" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/windows/" rel="tag">windows</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-git_upload_remote_from_localization" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/git_upload_remote_from_localization/" class="article-date">
@@ -328,96 +395,6 @@ array([ 0.56911206,  0.99777291,  0.18943144,  0.19387287,  0.75090637,
 
 
   
-    <article id="post-Python_code_indent" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/Python_code_indent/" class="article-date">
-  <time datetime="2019-02-10T00:31:33.000Z" itemprop="datePublished">2019-02-10</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Python/">Python</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/Python_code_indent/">Python代码缩进</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-
-        <ul>
-<li><p>Python程序的基本组成：逻辑行和缩进</p>
-<ul>
-<li>Python的一个逻辑行即一条语句，可以包括一个或多个物理行。</li>
-<li>每个物理行的结尾可以是注释或换行符，注释部分以#号开头，Python解释其在执行这部分代码时自动忽略这部分代码。</li>
-</ul>
-</li>
-<li><p>空行</p>
-<ul>
-<li>若一行代码只包含注释或空格，即为空行。</li>
-<li>在交互式解释其中如果要终止一段代码需要以回车输入一个空行，这个也算是一个物理行，它不带任何空格或注释。</li>
-</ul>
-</li>
-<li><p>一个逻辑行跨行的表示</p>
-<ul>
-<li>符号&#39;\‘将两个相邻的物理行连接成一个逻辑行，这种情况下前面的行不能包括注释。</li>
-<li>各种括号可以跨越多个物理行，如{},[],()等。</li>
-<li>三重引号字符串常量也可以跨越多行。</li>
-</ul>
-</li>
-<li><p>Python代码缩进</p>
-<ul>
-<li><p>缩进是Python表示语句块的唯一方法。</p>
-</li>
-<li><p>同一个语句块中必须使用相同的缩进。</p>
-</li>
-<li><p>源文件的第一行不需要使用缩进。</p>
-</li>
-<li><pre><code>#!/usr/bin/python3
-
-for num in range(5,20):
-    for i in range(2,num):
-        if num%i==0:
-            j=num/i
-            print(num)
-            break
-    else:
-        print(f&#39;&#123;num&#125; a prime number!&#39;)</code></pre>
-</li>
-<li><p>标准Python分格中每个缩进级别使用4个空格，不使用Tab制表符</p>
-</li>
-</ul>
-</li>
-</ul>
-<p>参考：《Python技术手册》</p>
-<hr>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/Python_code_indent/" data-id="ckjv3w9c900676sdn0xiv3oo1" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Program/" rel="tag">Program</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
@@ -492,6 +469,10 @@ for num in range(5,20):
       <ul>
         
           <li>
+            <a href="/python_cprint/">Python使用cprint模块打印带颜色字符</a>
+          </li>
+        
+          <li>
             <a href="/Hbase_noHRegionServer/">Hbase启动集群有些节点没有HRegionServer</a>
           </li>
         
@@ -505,10 +486,6 @@ for num in range(5,20):
         
           <li>
             <a href="/cv2_python_problem/">python opencv problem:cv2 has no attribute CV_LOAD_IMAGE_GRAYSCALE</a>
-          </li>
-        
-          <li>
-            <a href="/python_pprint/">python--pprint模块</a>
           </li>
         
       </ul>
