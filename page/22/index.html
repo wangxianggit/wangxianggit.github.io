@@ -67,6 +67,67 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Linux_baidu_skydrive" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/Linux_baidu_skydrive/" class="article-date">
+  <time datetime="2019-04-20T10:28:25.000Z" itemprop="datePublished">2019-04-20</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/learning/">learning</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/Linux_baidu_skydrive/">Linux使用百度网盘</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+
+        <h2 id="Linux使用百度网盘"><a href="#Linux使用百度网盘" class="headerlink" title="Linux使用百度网盘"></a>Linux使用百度网盘</h2><ul>
+<li><p>使用谷歌浏览器的百度云插件，fork地址：<a target="_blank" rel="noopener" href="https://github.com/acgotaku/BaiduExporter">https://github.com/acgotaku/BaiduExporter</a></p>
+</li>
+<li><p>下载百度云资源推荐使用下载软件Aria2，软件安装管理员用户下执行：</p>
+<ul>
+<li><p>~~~<br>yum install aria2</p>
+<figure class="highlight glsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* aria2官方网站地址：https:<span class="comment">//aria2.github.io/</span></span><br><span class="line"></span><br><span class="line">* aria2配置文件，小白直接使用：</span><br><span class="line"></span><br><span class="line">* ~~~</span><br><span class="line">      <span class="meta">#用户名</span></span><br><span class="line">      <span class="meta">#rpc-user=user</span></span><br><span class="line">      <span class="meta">#密码</span></span><br><span class="line">      <span class="meta">#rpc-passwd=passwd</span></span><br><span class="line">      <span class="meta">#上面的认证方式不建议使用,建议使用下面的token方式</span></span><br><span class="line">      <span class="meta">#设置加密的密钥</span></span><br><span class="line">      <span class="meta">#rpc-secret=token</span></span><br><span class="line">      <span class="meta">#允许rpc</span></span><br><span class="line">      enable-rpc=<span class="literal">true</span></span><br><span class="line">      <span class="meta">#允许所有来源, web界面跨域权限需要</span></span><br><span class="line">      rpc-allow-origin-<span class="built_in">all</span>=<span class="literal">true</span></span><br><span class="line">      <span class="meta">#允许外部访问，false的话只监听本地端口</span></span><br><span class="line">      rpc-listen-<span class="built_in">all</span>=<span class="literal">true</span></span><br><span class="line">      <span class="meta">#RPC端口, 仅当默认端口被占用时修改</span></span><br><span class="line">      <span class="meta">#rpc-listen-port=6800</span></span><br><span class="line">      <span class="meta">#最大同时下载数(任务数), 路由建议值: 3</span></span><br><span class="line">      <span class="built_in">max</span>-concurrent-downloads=<span class="number">5</span></span><br><span class="line">      <span class="meta">#断点续传</span></span><br><span class="line">      <span class="keyword">continue</span>=<span class="literal">true</span></span><br><span class="line">      <span class="meta">#同服务器连接数</span></span><br><span class="line">      <span class="built_in">max</span>-connection-per-server=<span class="number">5</span></span><br><span class="line">      <span class="meta">#最小文件分片大小, 下载线程数上限取决于能分出多少片, 对于小文件重要</span></span><br><span class="line">      <span class="built_in">min</span>-split-size=<span class="number">10</span>M</span><br><span class="line">      <span class="meta">#单文件最大线程数, 路由建议值: 5</span></span><br><span class="line">      split=<span class="number">10</span></span><br><span class="line">      <span class="meta">#下载速度限制</span></span><br><span class="line">      <span class="built_in">max</span>-overall-download-limit=<span class="number">0</span></span><br><span class="line">      <span class="meta">#单文件速度限制</span></span><br><span class="line">      <span class="built_in">max</span>-download-limit=<span class="number">0</span></span><br><span class="line">      <span class="meta">#上传速度限制</span></span><br><span class="line">      <span class="built_in">max</span>-overall-upload-limit=<span class="number">0</span></span><br><span class="line">      <span class="meta">#单文件速度限制</span></span><br><span class="line">      <span class="built_in">max</span>-upload-limit=<span class="number">0</span></span><br><span class="line">      <span class="meta">#断开速度过慢的连接</span></span><br><span class="line">      <span class="meta">#lowest-speed-limit=0</span></span><br><span class="line">      <span class="meta">#验证用，需要1.16.1之后的release版本</span></span><br><span class="line">      <span class="meta">#referer=*</span></span><br><span class="line">      <span class="meta">#文件保存路径, 默认为当前启动位置</span></span><br><span class="line">      dir=/home/acgotaku/Downloads</span><br><span class="line">      <span class="meta">#文件缓存, 使用内置的文件缓存, 如果你不相信Linux内核文件缓存和磁盘内置缓存时使用, 需要1.16及以上版本</span></span><br><span class="line">      <span class="meta">#disk-cache=0</span></span><br><span class="line">      <span class="meta">#另一种Linux文件缓存方式, 使用前确保您使用的内核支持此选项, 需要1.15及以上版本(?)</span></span><br><span class="line">      <span class="meta">#enable-mmap=true</span></span><br><span class="line">      <span class="meta">#文件预分配, 能有效降低文件碎片, 提高磁盘性能. 缺点是预分配时间较长</span></span><br><span class="line">      <span class="meta">#所需时间 none &lt; falloc ? trunc &lt;&lt; prealloc, falloc和trunc需要文件系统和内核支持</span></span><br><span class="line">      file-allocation=prealloc</span><br></pre></td></tr></table></figure></li>
+<li><p>两种下载模式：命令行和RPC serve模式。后者使用简单，开启后可以直接加载下载任务。</p>
+</li>
+<li><p>aria2软件开启：aria2c –conf-path=&lt;PATH&gt;,PATH是配置文件的绝对路径，最后一级是配置文件名称。</p>
+</li>
+</ul>
+</li>
+<li><p>同时开启百度网盘插件和aria2软件，在百度网盘网页版可以看到相应的RPC下载选项，单击后可以在aria2终端看到下载任务已经开启了。</p>
+</li>
+</ul>
+<hr>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wangxianggit.github.io/Linux_baidu_skydrive/" data-id="ckjv3w9bp00446sdn801wfqfd" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Centos7/" rel="tag">Centos7</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-English_sci_Present_tense" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/English_sci_Present_tense/" class="article-date">
@@ -343,55 +404,6 @@ ln -s ~/typora_install/Typora-linux-x64/Typora /usr/bin/typora
 
 
   
-    <article id="post-typora_install_linux" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/typora_install_linux/" class="article-date">
-  <time datetime="2019-04-18T16:22:25.000Z" itemprop="datePublished">2019-04-19</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/learning/">learning</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/typora_install_linux/">Linux下安装Typora</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-
-        <h2 id="Linux下安装Typora"><a href="#Linux下安装Typora" class="headerlink" title="Linux下安装Typora"></a>Linux下安装Typora</h2><ul>
-<li><strong>官方安装教程：<a target="_blank" rel="noopener" href="https://support.typora.io/Typora-on-Linux/">https://support.typora.io/Typora-on-Linux/</a></strong></li>
-</ul>
-<hr>
-<p>​</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/typora_install_linux/" data-id="ckjv3w9et00hh6sdn77uz88bz" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
@@ -466,6 +478,10 @@ ln -s ~/typora_install/Typora-linux-x64/Typora /usr/bin/typora
       <ul>
         
           <li>
+            <a href="/Python_tqdm/">Python 使用tqdm模块添加进度条</a>
+          </li>
+        
+          <li>
             <a href="/python_error_validate_lengths/">Python ImportError cannot import name &#39;_validate_lengths&#39;</a>
           </li>
         
@@ -479,10 +495,6 @@ ln -s ~/typora_install/Typora-linux-x64/Typora /usr/bin/typora
         
           <li>
             <a href="/ntp_date/">Centos7使用npt设置时间同步</a>
-          </li>
-        
-          <li>
-            <a href="/OLAP_OLTP/">联机分析处理和联机事务处理</a>
           </li>
         
       </ul>

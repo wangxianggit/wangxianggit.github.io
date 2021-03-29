@@ -67,6 +67,71 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-numpy_unpackbits" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/numpy_unpackbits/" class="article-date">
+  <time datetime="2019-09-13T17:41:03.000Z" itemprop="datePublished">2019-09-14</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Python/">Python</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/numpy_unpackbits/">numpy函数unpackbits</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+
+        <h2 id="numpy函数unpackbits"><a href="#numpy函数unpackbits" class="headerlink" title="numpy函数unpackbits"></a>numpy函数unpackbits</h2><ul>
+<li><p>unpackbits函数把整数转化成对应的二进制数。</p>
+</li>
+<li><pre><code>int2binary = &#123;&#125; #整数到其二进制表示的映射
+binary = np.unpackbits(
+    np.array([range(10)],dtype=np.uint8).T,axis=1)
+for i in range(10):
+    int2binary[i] = binary[i]
+print(int2binary)
+
+output:
+&#123;0: array([0, 0, 0, 0, 0, 0, 0, 0], dtype=uint8), 1: array([0, 0, 0, 0, 0, 0, 0, 1],
+dtype=uint8), 2: array([0, 0, 0, 0, 0, 0, 1, 0], dtype=uint8), 3: array([0, 0, 0, 0, 0, 0,
+1, 1], dtype=uint8), 4: array([0, 0, 0, 0, 0, 1, 0, 0], dtype=uint8), 5: array([0, 0, 0, 0,
+0, 1, 0, 1], dtype=uint8), 6: array([0, 0, 0, 0, 0, 1, 1, 0], dtype=uint8), 7: array([0, 0,
+0, 0, 0, 1, 1, 1], dtype=uint8), 8: array([0, 0, 0, 0, 1, 0, 0, 0], dtype=uint8), 9:
+array([0, 0, 0, 0, 1, 0, 0, 1], dtype=uint8)&#125;</code></pre>
+<hr>
+<p>​</p>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wangxianggit.github.io/numpy_unpackbits/" data-id="ckjv3w9e100e36sdn9cm4b0le" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-Python_talib_install" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/Python_talib_install/" class="article-date">
@@ -337,60 +402,6 @@ ListenAddress [ip]
 
 
   
-    <article id="post-ssh_show_image" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/ssh_show_image/" class="article-date">
-  <time datetime="2019-06-06T00:57:20.000Z" itemprop="datePublished">2019-06-06</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/learning/">learning</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/ssh_show_image/">Linux ssh显示图形界面</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-
-        <h2 id="Linux-ssh显示图形界面"><a href="#Linux-ssh显示图形界面" class="headerlink" title="Linux ssh显示图形界面"></a>Linux ssh显示图形界面</h2><ul>
-<li>在图形机上开启SSH服务的图形界面显示：<ul>
-<li>修改配置文件：/etc/ssh/sshd_config</li>
-<li><code>X11Forwarding yes</code>不同发行版可能不一样，参看配置文件中的注释部分</li>
-</ul>
-</li>
-<li>当ssh远程登陆时加上-X选项：<code>ssh -X [IP]</code></li>
-<li>启动程序远程登陆可以开启图形界面显示。</li>
-</ul>
-<hr>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/ssh_show_image/" data-id="ckjv3w9el00ge6sdnc8r58z9l" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ssh/" rel="tag">ssh</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
@@ -465,6 +476,10 @@ ListenAddress [ip]
       <ul>
         
           <li>
+            <a href="/Python_tqdm/">Python 使用tqdm模块添加进度条</a>
+          </li>
+        
+          <li>
             <a href="/python_error_validate_lengths/">Python ImportError cannot import name &#39;_validate_lengths&#39;</a>
           </li>
         
@@ -478,10 +493,6 @@ ListenAddress [ip]
         
           <li>
             <a href="/ntp_date/">Centos7使用npt设置时间同步</a>
-          </li>
-        
-          <li>
-            <a href="/OLAP_OLTP/">联机分析处理和联机事务处理</a>
           </li>
         
       </ul>

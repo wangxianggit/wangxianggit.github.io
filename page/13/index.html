@@ -67,6 +67,76 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-tf_square" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/tf_square/" class="article-date">
+  <time datetime="2019-09-16T06:52:22.000Z" itemprop="datePublished">2019-09-16</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Python/">Python</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/tf_square/">tf函数tf.square</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+
+        <h2 id="tf函数square"><a href="#tf函数square" class="headerlink" title="tf函数square"></a>tf函数square</h2><ul>
+<li><p>函数原型：tf.square(x, name=None)</p>
+</li>
+<li><p>Args:</p>
+<ul>
+<li><strong>x</strong>: A Tensor or SparseTensor. Must be one of the following types: half, float32, float64, int32, int64, complex64, complex128.</li>
+<li><strong>name</strong>: A name for the operation (optional).</li>
+</ul>
+</li>
+<li><p>function：Computes square of x element-wise.</p>
+</li>
+<li><p>code：</p>
+<ul>
+<li><pre><code>hello=tf.constant([1,2,3,4,5,7])
+hello=tf.square(hello)
+sess=tf.Session()
+print(sess.run(hello))
+sess.close()
+
+output:
+[ 1  4  9 16 25 49]</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wangxianggit.github.io/tf_square/" data-id="ckjv3w9es00hd6sdn1tux4klz" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Tensorflow/" rel="tag">Tensorflow</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-Python_reduce" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/Python_reduce/" class="article-date">
@@ -340,71 +410,6 @@ print(ls1,ls2) #[1, 2, 3, 4, 5] [1, 2, 3, 4, 5] 因为两个变量的内存指�
 
 
   
-    <article id="post-numpy_unpackbits" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/numpy_unpackbits/" class="article-date">
-  <time datetime="2019-09-13T17:41:03.000Z" itemprop="datePublished">2019-09-14</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Python/">Python</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/numpy_unpackbits/">numpy函数unpackbits</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-
-        <h2 id="numpy函数unpackbits"><a href="#numpy函数unpackbits" class="headerlink" title="numpy函数unpackbits"></a>numpy函数unpackbits</h2><ul>
-<li><p>unpackbits函数把整数转化成对应的二进制数。</p>
-</li>
-<li><pre><code>int2binary = &#123;&#125; #整数到其二进制表示的映射
-binary = np.unpackbits(
-    np.array([range(10)],dtype=np.uint8).T,axis=1)
-for i in range(10):
-    int2binary[i] = binary[i]
-print(int2binary)
-
-output:
-&#123;0: array([0, 0, 0, 0, 0, 0, 0, 0], dtype=uint8), 1: array([0, 0, 0, 0, 0, 0, 0, 1],
-dtype=uint8), 2: array([0, 0, 0, 0, 0, 0, 1, 0], dtype=uint8), 3: array([0, 0, 0, 0, 0, 0,
-1, 1], dtype=uint8), 4: array([0, 0, 0, 0, 0, 1, 0, 0], dtype=uint8), 5: array([0, 0, 0, 0,
-0, 1, 0, 1], dtype=uint8), 6: array([0, 0, 0, 0, 0, 1, 1, 0], dtype=uint8), 7: array([0, 0,
-0, 0, 0, 1, 1, 1], dtype=uint8), 8: array([0, 0, 0, 0, 1, 0, 0, 0], dtype=uint8), 9:
-array([0, 0, 0, 0, 1, 0, 0, 1], dtype=uint8)&#125;</code></pre>
-<hr>
-<p>​</p>
-</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/numpy_unpackbits/" data-id="ckjv3w9e100e36sdn9cm4b0le" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
@@ -479,6 +484,10 @@ array([0, 0, 0, 0, 1, 0, 0, 1], dtype=uint8)&#125;</code></pre>
       <ul>
         
           <li>
+            <a href="/Python_tqdm/">Python 使用tqdm模块添加进度条</a>
+          </li>
+        
+          <li>
             <a href="/python_error_validate_lengths/">Python ImportError cannot import name &#39;_validate_lengths&#39;</a>
           </li>
         
@@ -492,10 +501,6 @@ array([0, 0, 0, 0, 1, 0, 0, 1], dtype=uint8)&#125;</code></pre>
         
           <li>
             <a href="/ntp_date/">Centos7使用npt设置时间同步</a>
-          </li>
-        
-          <li>
-            <a href="/OLAP_OLTP/">联机分析处理和联机事务处理</a>
           </li>
         
       </ul>

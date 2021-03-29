@@ -67,6 +67,89 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-shell_special_symbol" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/shell_special_symbol/" class="article-date">
+  <time datetime="2019-05-09T16:28:36.000Z" itemprop="datePublished">2019-05-10</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/learning/">learning</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/shell_special_symbol/">shell特殊符号</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+
+        <h2 id="shell特殊符号"><a href="#shell特殊符号" class="headerlink" title="shell特殊符号"></a>shell特殊符号</h2><ul>
+<li>；分号，连续运行命令：<code>echo &quot;hello&quot;;echo &quot;world&quot;</code></li>
+</ul>
+<ul>
+<li>| 管道，前面命令的标准输出作为后面命令的标准输入：<code>ps -e | grep &quot;ssh&quot;</code></li>
+<li>&amp; 将命令放到后台执行</li>
+<li>&amp;&amp; 前面命令返回值为0才执行后面的命令:<code>ls &amp;&amp; echo &quot;ok&quot;</code></li>
+<li>|| 前面命令返回值为非0才执行后面的命令:<code>lls || echo &quot;ok&quot;</code></li>
+<li># 号:<ul>
+<li><pre><code>- 单个井号表示注释
+- $# 表示位置参数的个数:echo $#
+- $&#123;#变量名&#125; 表示变量的长度:a=&quot;hello&quot;;echo $&#123;#a&#125;
+- $&#123;#变量名[@]&#125; 表示数组的个数:a=(1 2 3);echo $&#123;#a[@]&#125;</code></pre>
+</li>
+</ul>
+</li>
+<li>!惊叹号:<ul>
+<li>将命令或者条件表达式的返回值取反</li>
+<li>执行历史命令: !231</li>
+<li>vi或者ftp中执行外部shell命令</li>
+</ul>
+</li>
+<li>$符号：<ul>
+<li>取变量值</li>
+<li>正则表达式或一些程序中表示行尾</li>
+</ul>
+</li>
+<li>&gt;大于号，输出重定向：echo ‘abc’ &gt; a.txt</li>
+<li>&lt;小于号，输入重定向：</li>
+<li>双圆括号，算术运算符：echo $((10/3))</li>
+<li>[]单方括号：<ul>
+<li>通配符和正则中表示匹配括号中的任意一个字符</li>
+<li>条件测试表达式：[-f /etc/passwd]</li>
+<li>数组中下标括号: echo ${a[0]}</li>
+</ul>
+</li>
+<li>[[]]双方括号，字符串比较测试：[[a=b]]</li>
+</ul>
+<hr>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wangxianggit.github.io/shell_special_symbol/" data-id="ckjv3w9ef00fq6sdncar835zx" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Shell/" rel="tag">Shell</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-shell_file_exist" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/shell_file_exist/" class="article-date">
@@ -409,74 +492,6 @@ esac</code></pre>
 
 
   
-    <article id="post-shell_string" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/shell_string/" class="article-date">
-  <time datetime="2019-05-09T08:47:21.000Z" itemprop="datePublished">2019-05-09</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/learning/">learning</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/shell_string/">shell字符串</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-
-        <h2 id="shell字符串​"><a href="#shell字符串​" class="headerlink" title="shell字符串​"></a>shell字符串​</h2><ul>
-<li><p>单引号和双引号字符串：</p>
-<ul>
-<li><p>单引号里的任何字符都会原样输出，单引号字符串中的变量是无效的；</p>
-</li>
-<li><p>单引号字串中不能出现单独一个的单引号（对单引号使用转义符后也不行），但可成对出现，作为字符串拼接使用。</p>
-</li>
-<li><p>双引号里可以有变量，双引号里可以出现转义字符</p>
-</li>
-<li><p>~~~<br>name=’runoob’<br>str=”My name is &quot;$name&quot;! \n”<br>echo -e $str</p>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 字符串拼接：</span><br><span class="line"></span><br><span class="line">  * ~~~</span><br><span class="line">    <span class="attribute">name</span>=<span class="string">&quot;runoob&quot;</span></span><br><span class="line">    # 使用双引号拼接</span><br><span class="line">    <span class="attribute">str1</span>=<span class="string">&quot;hello, &quot;</span><span class="variable">$name</span><span class="string">&quot; .&quot;</span></span><br><span class="line">    <span class="attribute">str2</span>=<span class="string">&quot;hello, <span class="variable">$&#123;name&#125;</span> .&quot;</span></span><br><span class="line">    echo <span class="variable">$str1</span>  <span class="variable">$str2</span></span><br><span class="line">    # 使用单引号拼接</span><br><span class="line">    <span class="attribute">str3</span>=<span class="string">&#x27;hello, &#x27;</span><span class="variable">$name</span><span class="string">&#x27; .&#x27;</span></span><br><span class="line">    <span class="attribute">str4</span>=<span class="string">&#x27;hello, $&#123;name&#125; .&#x27;</span></span><br><span class="line">    echo <span class="variable">$str3</span>  <span class="variable">$str4</span></span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-<li><p>字符串长度：</p>
-<ul>
-<li><pre><code>name=&quot;runoob&quot;
-echo $&#123;#name&#125; #计算变量长度
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 提取子字符串：</span><br><span class="line"></span><br><span class="line">  * ~~~</span><br><span class="line">    <span class="keyword">string</span>=<span class="string">&quot;runoob is a great site&quot;</span></span><br><span class="line">    <span class="keyword">echo</span> $&#123;<span class="keyword">string</span>:<span class="number">1</span>:<span class="number">4</span>&#125; <span class="comment"># 输出 unoo</span></span><br></pre></td></tr></table></figure>
-</code></pre>
-</li>
-</ul>
-</li>
-</ul>
-<hr>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/shell_string/" data-id="ckjv3w9eg00ft6sdngl1nfuzv" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Shell/" rel="tag">Shell</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
@@ -551,6 +566,10 @@ echo $&#123;#name&#125; #计算变量长度
       <ul>
         
           <li>
+            <a href="/Python_tqdm/">Python 使用tqdm模块添加进度条</a>
+          </li>
+        
+          <li>
             <a href="/python_error_validate_lengths/">Python ImportError cannot import name &#39;_validate_lengths&#39;</a>
           </li>
         
@@ -564,10 +583,6 @@ echo $&#123;#name&#125; #计算变量长度
         
           <li>
             <a href="/ntp_date/">Centos7使用npt设置时间同步</a>
-          </li>
-        
-          <li>
-            <a href="/OLAP_OLTP/">联机分析处理和联机事务处理</a>
           </li>
         
       </ul>

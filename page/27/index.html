@@ -67,6 +67,104 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Python_keyword_with" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/Python_keyword_with/" class="article-date">
+  <time datetime="2019-03-09T13:08:39.000Z" itemprop="datePublished">2019-03-09</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Python/">Python</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/Python_keyword_with/">Python关键字with</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+
+        <h3 id="关键字with"><a href="#关键字with" class="headerlink" title="关键字with"></a>关键字with</h3><ul>
+<li><p>示例代码：</p>
+<ul>
+<li>~~~<br>with open(“/file.txt”) as fn:<pre><code>infd = fn.read()
+print(infd)</code></pre>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 在上面的程序执行过后，<span class="keyword">with</span>语句会自动关闭文件，即相当在<span class="keyword">with</span>后面的语句执行结束后，会对当前的对象进行清理工作。</span><br><span class="line"></span><br><span class="line">* <span class="keyword">with</span>语句使用格式为：</span><br><span class="line"></span><br><span class="line">  * ~~~</span><br><span class="line">    <span class="keyword">with</span> 表达式[<span class="keyword">as</span> target(s)]:</span><br><span class="line">        执行语句</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>with语句作用和try…except…finally语句类似，可以替代使用。</p>
+</li>
+</ul>
+<h3 id="工作原理"><a href="#工作原理" class="headerlink" title="工作原理"></a>工作原理</h3><ul>
+<li><p>with通过__enter__方法初始化，然后在__exit__中做善后以及处理异常。</p>
+</li>
+<li><p>其中__enter__方法在语句体（with语句包裹起来的代码块）执行之前进入运行，__exit__方法在语句体执行完毕退出后运行。</p>
+</li>
+<li><p>紧跟with后面的语句会被求值，返回对象的__enter__方法被调用，这个方法的返回值将被赋值给as关键字后面的变量，当with后面的代码块全部被执行完之后，将调用前面返回对象的__exit_方法。</p>
+</li>
+<li><p>with语句最关键的地方在于被求值对象必须有__enter__和__exit__这两个方法，那我们就可以通过自己实现这两方法来自定义with语句处理异常。</p>
+</li>
+<li><p>自定义__enter__和__exit__示例：</p>
+<ul>
+<li><pre><code>#encoding=utf-8
+
+class opened(object):
+    def __init__(self,filename):
+        self.handle=open(filename)
+        print &quot;File open:%s&quot;%filename
+    def __enter__(self):
+        print &quot;[enter%s]: Allocate resource.&quot;%self.handle
+        return self.handle #可以返回不同的对象
+    def __exit__(self,exc_type,exc_value,exc_trackback):
+        print &quot;[Exit %s]: Close the file.&quot; %self.handle
+        if exc_trackback is None:
+            print &quot;[Exit %s]:Exited without exception.&quot;%self.handle
+            self.handle.close()
+        else:
+            print &quot;[Exit %s]: Exited with exception raised.&quot;%self.handle
+        return False # 可以省略，缺省的None也是被看做是False
+
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code>with opened(r&#39;./fdata.txt&#39;) as fn:
+    infd = fn.read():
+    print(infd)
+
+with opened(r&#39;./fdata.txt&#39;) as fn:
+    for infd in fn.readlines():
+        print indf
+~~~</code></pre>
+<hr>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wangxianggit.github.io/Python_keyword_with/" data-id="ckjv3w9ci00796sdn7fzlhoii" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-Python_interprete" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/Python_interprete/" class="article-date">
@@ -721,65 +819,6 @@ int main()
 
 
   
-    <article id="post-C++_keyword_const_cast" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/C++_keyword_const_cast/" class="article-date">
-  <time datetime="2019-03-07T04:39:57.000Z" itemprop="datePublished">2019-03-07</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/learning/">learning</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/C++_keyword_const_cast/">C++关键字const_cast</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-
-        <h2 id="const-cast用法"><a href="#const-cast用法" class="headerlink" title="const_cast用法"></a>const_cast用法</h2><ul>
-<li><p>const_cast是一种C++运算符，主要是用来去除复合类型中const和volatile属性（不是真正去除）。</p>
-</li>
-<li><p>若变量声明为const类型，其值本身不能改变，若想改变该变量的值一般是去除指针或引用的const属性，再进行间接修改。</p>
-</li>
-<li><p>使用方法：</p>
-<ul>
-<li><pre><code>const_cast&lt;type&gt;(expression)
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  * 通过<span class="keyword">const_cast</span>运算符，将<span class="keyword">const</span> type转换为type，将<span class="keyword">const</span> type&amp;转换为type&amp;。</span><br><span class="line"></span><br><span class="line">  * 也就是说源类型和目标类型除了<span class="keyword">const</span>属性不同，其他地方完全相同。</span><br><span class="line"></span><br><span class="line">* ~~~</span><br><span class="line">  <span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line">  <span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">ConstTest1</span><span class="params">()</span></span>&#123;</span><br><span class="line">      <span class="keyword">const</span> <span class="keyword">int</span> a = <span class="number">5</span>;</span><br><span class="line">      <span class="keyword">int</span> *p;</span><br><span class="line">      p = <span class="keyword">const_cast</span>&lt;<span class="keyword">int</span>*&gt;(&amp;a);</span><br><span class="line">      (*p)++;</span><br><span class="line">      <span class="built_in">cout</span>&lt;&lt;a&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">      <span class="built_in">cout</span>&lt;&lt;*p&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">      </span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">ConstTest2</span><span class="params">()</span></span>&#123;</span><br><span class="line">      <span class="keyword">int</span> i;</span><br><span class="line">      <span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;please input a integer:&quot;</span>;</span><br><span class="line">      <span class="built_in">cin</span>&gt;&gt;i;</span><br><span class="line">      <span class="keyword">const</span> <span class="keyword">int</span> a = i;</span><br><span class="line">      <span class="keyword">int</span> &amp;r = <span class="keyword">const_cast</span>&lt;<span class="keyword">int</span> &amp;&gt;(a);</span><br><span class="line">      r++;</span><br><span class="line">      <span class="built_in">cout</span>&lt;&lt;a&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">      ConstTest1();</span><br><span class="line">      ConstTest2();</span><br><span class="line">      <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  输出：</span><br><span class="line">  <span class="number">5</span></span><br><span class="line">  <span class="number">6</span></span><br><span class="line">  若输入<span class="number">7</span></span><br><span class="line">  则输出<span class="number">8</span></span><br></pre></td></tr></table></figure>
-</code></pre>
-</li>
-</ul>
-</li>
-</ul>
-<hr>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/C++_keyword_const_cast/" data-id="ckjv3w9az00176sdnfenq44l8" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C++</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
@@ -854,6 +893,10 @@ int main()
       <ul>
         
           <li>
+            <a href="/Python_tqdm/">Python 使用tqdm模块添加进度条</a>
+          </li>
+        
+          <li>
             <a href="/python_error_validate_lengths/">Python ImportError cannot import name &#39;_validate_lengths&#39;</a>
           </li>
         
@@ -867,10 +910,6 @@ int main()
         
           <li>
             <a href="/ntp_date/">Centos7使用npt设置时间同步</a>
-          </li>
-        
-          <li>
-            <a href="/OLAP_OLTP/">联机分析处理和联机事务处理</a>
           </li>
         
       </ul>

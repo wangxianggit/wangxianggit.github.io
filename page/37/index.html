@@ -67,6 +67,76 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-python3.6_autoinstall_script" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/python3.6_autoinstall_script/" class="article-date">
+  <time datetime="2019-01-29T09:52:11.000Z" itemprop="datePublished">2019-01-29</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/learning/">learning</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/python3.6_autoinstall_script/">python3.6自动安装脚本</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+
+        <ul>
+<li><p>​ linux版本要求：CentOS，Scientific Linux</p>
+</li>
+<li><p>自动安装脚本</p>
+<ul>
+<li><pre><code>#!/bin/bash
+yum -y install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel db4-devel libpcap-devel xz-devel
+mkdir -p /usr/local/python3
+cd /mnt
+wget https://www.python.org/ftp/python/3.6.1/Python-3.6.1.tgz
+tar -zxvf Python-3.6.1.tgz
+cd Python-3.6.1
+./configure --prefix=/usr/local/python3
+make &amp;&amp; make install
+ln -s /usr/local/python3/bin/python3 /usr/bin/python3
+echo &quot;PATH=$PATH:/usr/local/python3/bin&quot;  &gt;&gt;~/.bashrc
+echo &quot;export PATH &quot; &gt;&gt;~/.bashrc
+source ~/.bashrc
+python3 -V</code></pre>
+</li>
+<li><p>环境变量可以设置在~/.bashrc或/etc/profile</p>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wangxianggit.github.io/python3.6_autoinstall_script/" data-id="ckjv3w9e300eh6sdn36n26mmh" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Centos7/" rel="tag">Centos7</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-PyPI_source_domestic" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/PyPI_source_domestic/" class="article-date">
@@ -374,71 +444,6 @@ print(a.ops)</code></pre>
 
 
   
-    <article id="post-Centos7_install_anaconda" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/Centos7_install_anaconda/" class="article-date">
-  <time datetime="2019-01-19T10:49:11.000Z" itemprop="datePublished">2019-01-19</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/learning/">learning</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/Centos7_install_anaconda/">Centos7安装anaconda</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-
-        <ul>
-<li><p>Anaconda特点：</p>
-<ul>
-<li>包含了众多流行的科学、数学、工程、数据分析的Python包</li>
-<li>完全开源和免费</li>
-<li>额外的加速、优化是收费的，但对于学术用途可以申请免费的License</li>
-<li>全平台支持：Linux、Windows、Mac</li>
-<li>支持Python 2.6、2.7、3.3、3.4，可自由切换</li>
-</ul>
-<p>​</p>
-</li>
-<li><p>下载安装包：</p>
-<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">wget</span> https://repo.anaconda.com/archive/Anaconda<span class="number">2</span>-<span class="number">5</span>.<span class="number">0</span>.<span class="number">1</span>-Linux-x<span class="number">86</span>_<span class="number">64</span>.sh</span><br></pre></td></tr></table></figure></li>
-<li><p>在下载文件目录下输入命令：</p>
-<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">bash</span> Anaconda<span class="number">2</span>-<span class="number">5</span>.<span class="number">0</span>.<span class="number">1</span>-Linux-x<span class="number">86</span>_<span class="number">64</span>.sh</span><br></pre></td></tr></table></figure></li>
-<li><p>根据提示可以用默认路径安装，或自定义安装</p>
-</li>
-<li><p>安装完成后输入python进入python环境。</p>
-</li>
-</ul>
-<hr>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/Centos7_install_anaconda/" data-id="ckjv3w9b5001p6sdn8e7r1eje" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Centos7/" rel="tag">Centos7</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
@@ -513,6 +518,10 @@ print(a.ops)</code></pre>
       <ul>
         
           <li>
+            <a href="/Python_tqdm/">Python 使用tqdm模块添加进度条</a>
+          </li>
+        
+          <li>
             <a href="/python_error_validate_lengths/">Python ImportError cannot import name &#39;_validate_lengths&#39;</a>
           </li>
         
@@ -526,10 +535,6 @@ print(a.ops)</code></pre>
         
           <li>
             <a href="/ntp_date/">Centos7使用npt设置时间同步</a>
-          </li>
-        
-          <li>
-            <a href="/OLAP_OLTP/">联机分析处理和联机事务处理</a>
           </li>
         
       </ul>

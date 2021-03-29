@@ -67,6 +67,103 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-c++_multithread" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/c++_multithread/" class="article-date">
+  <time datetime="2018-11-08T17:27:15.000Z" itemprop="datePublished">2018-11-09</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/learning/">learning</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/c++_multithread/">c++多线程</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+
+        <ul>
+<li><p>c++程序基于线程的多任务处理是同一程序的片段的并发执行。</p>
+</li>
+<li><p>创建线程：</p>
+<ul>
+<li><p>```<br>#include &lt;pthread.h&gt;<br>pthread_create (thread, attr, start_routine, arg) </p>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  	 thread	指向线程标识符指针。</span><br><span class="line"></span><br><span class="line">  	 attr	一个不透明的属性对象，可以被用来设置线程属性。您可以指定线程属性对象，也可以使用默认值 <span class="literal">NULL</span>。</span><br><span class="line"></span><br><span class="line">  	 start_routine	线程运行函数起始地址，一旦线程被创建就会执行。</span><br><span class="line"></span><br><span class="line">  	 arg	运行函数的参数。它必须通过把引用作为指针强制转换为 <span class="keyword">void</span> 类型进行传递。如果没有传递参数，则使用 <span class="literal">NULL</span>。</span><br><span class="line"></span><br><span class="line">  * 创建线程成功时，函数返回 <span class="number">0</span>，若返回值不为 <span class="number">0</span> 则说明创建线程失败。</span><br><span class="line"></span><br><span class="line">* 终止线程：</span><br><span class="line"></span><br><span class="line">  * ```</span><br><span class="line">    <span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;pthread.h&gt;</span></span></span><br><span class="line">    pthread_exit (status) </span><br></pre></td></tr></table></figure></li>
+<li><p>pthread_exit用于显式地退出一个线程。</p>
+</li>
+<li><p>通常情况下，pthread_exit() 函数是在线程完成工作后无需继续存在时被调用。</p>
+</li>
+<li><p>如果 main() 是在它所创建的线程之前结束，并通过 pthread_exit() 退出，那么其他线程将继续执行。否则，它们将在 main() 结束时自动被终止。</p>
+</li>
+</ul>
+</li>
+<li><p>代码实现</p>
+<ul>
+<li><pre><code>#include &lt;iostream&gt;
+// 必须的头文件
+#include &lt;pthread.h&gt;
+
+using namespace std;
+
+#define NUM_THREADS 5
+
+// 线程的运行函数
+void* say_hello(void* args)
+&#123;
+    cout &lt;&lt; &quot;Hello Runoob！&quot; &lt;&lt; endl;
+    return 0;
+&#125;
+
+int main()
+&#123;
+    // 定义线程的 id 变量，多个变量使用数组
+    pthread_t tids[NUM_THREADS];
+    for(int i = 0; i &lt; NUM_THREADS; ++i)
+    &#123;
+        //参数依次是：创建的线程id，线程参数，调用的函数，传入的函数参数
+        int ret = pthread_create(&amp;tids[i], NULL, say_hello, NULL);
+        if (ret != 0)
+        &#123;
+           cout &lt;&lt; &quot;pthread_create error: error_code=&quot; &lt;&lt; ret &lt;&lt; endl;
+        &#125;
+    &#125;
+    //等各个线程退出后，进程才结束，否则进程强制结束了，线程可能还没反应过来；
+    pthread_exit(NULL);
+&#125;</code></pre>
+</li>
+</ul>
+<p>​</p>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wangxianggit.github.io/c++_multithread/" data-id="ckjv3w9d1009q6sdnebdwfcwa" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C++</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-c++_inline_function" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/c++_inline_function/" class="article-date">
@@ -313,60 +410,6 @@ U：取消标记所有的进程
 
 
   
-    <article id="post-Altium_Design_PCB_reverse" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/Altium_Design_PCB_reverse/" class="article-date">
-  <time datetime="2018-10-11T15:47:21.000Z" itemprop="datePublished">2018-10-11</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Altium/">Altium</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/Altium_Design_PCB_reverse/">Altium Design PCB板反向</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-
-        <ul>
-<li>PCB板设计在反面布线操作，从正面看看到的是顶层，反向看就是底面：<ul>
-<li><img src="Altium_Design_PCB_reverse/pic1.jpg"></li>
-</ul>
-</li>
-<li>在正面全选所有对象，后输入M后出现菜单栏选择Move可以移动所有对象，按住鼠标左键后再按L就出现了PCB板的反面：<ul>
-<li><img src="Altium_Design_PCB_reverse/pic2.jpg"></li>
-</ul>
-</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/Altium_Design_PCB_reverse/" data-id="ckjv3w9ar000g6sdn8sy7abof" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Altium-Designer/" rel="tag">Altium Designer</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Electronic/" rel="tag">Electronic</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
@@ -441,6 +484,10 @@ U：取消标记所有的进程
       <ul>
         
           <li>
+            <a href="/Python_tqdm/">Python 使用tqdm模块添加进度条</a>
+          </li>
+        
+          <li>
             <a href="/python_error_validate_lengths/">Python ImportError cannot import name &#39;_validate_lengths&#39;</a>
           </li>
         
@@ -454,10 +501,6 @@ U：取消标记所有的进程
         
           <li>
             <a href="/ntp_date/">Centos7使用npt设置时间同步</a>
-          </li>
-        
-          <li>
-            <a href="/OLAP_OLTP/">联机分析处理和联机事务处理</a>
           </li>
         
       </ul>

@@ -67,6 +67,74 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Python_tqdm" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/Python_tqdm/" class="article-date">
+  <time datetime="2021-03-29T16:53:21.000Z" itemprop="datePublished">2021-03-30</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Python/">Python</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/Python_tqdm/">Python 使用tqdm模块添加进度条</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+
+        <ul>
+<li><p>Tqdm 模块可以在程序运行时添加Python进度条，即在 Python 长循环中添加一个进度提示信息，用户可以封装任意的迭代器 tqdm(iterator)。</p>
+</li>
+<li><p>安装：<code>pip install tqdm</code></p>
+</li>
+<li><p>使用方法一: tqdm</p>
+<ul>
+<li>```<br>from tqdm import tqdm<br>for i in tqdm(range(5000)):  <pre><code> #do something
+ print(i) # tqdm(list)方法可以传入任意一种list,比如数组或者string的数组</code></pre>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 使用方法二: <span class="selector-tag">trange</span></span><br><span class="line"></span><br><span class="line">  * ```</span><br><span class="line">    <span class="selector-tag">from</span> <span class="selector-tag">tqdm</span> <span class="selector-tag">import</span> <span class="selector-tag">trange</span></span><br><span class="line">    <span class="selector-tag">for</span> <span class="selector-tag">i</span> <span class="selector-tag">in</span> <span class="selector-tag">trange</span>(<span class="number">5000</span>):</span><br><span class="line">        <span class="selector-id">#do</span> <span class="selector-tag">something</span></span><br><span class="line">        <span class="selector-tag">print</span>(i) <span class="selector-id">#trange</span>(i) 是 <span class="selector-tag">tqdm</span>(range(i)) 的简单写法</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>使用方法三: 手动方法</p>
+<ul>
+<li><p>在for循环外部初始化tqdm,可以打印其他信息</p>
+</li>
+<li><pre><code>pbar = tqdm([&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;])
+for char in pbar:
+    pbar.set_description(&quot;Processing %s&quot; % char)</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wangxianggit.github.io/Python_tqdm/" data-id="ckmuu7p6k0000m0dn3u7ud1lv" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-python_error_validate_lengths" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/python_error_validate_lengths/" class="article-date">
@@ -316,57 +384,6 @@ ntpq -p // 同步时间
 
 
   
-    <article id="post-OLAP_OLTP" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/OLAP_OLTP/" class="article-date">
-  <time datetime="2021-03-24T16:33:52.000Z" itemprop="datePublished">2021-03-25</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Database/">Database</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/OLAP_OLTP/">联机分析处理和联机事务处理</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-
-        <ul>
-<li>现今的数据处理大致可以分成两类：<strong>联机事务处理OLTP</strong>（on-line transaction processing）、<strong>联机分析处理OLAP</strong>（On-Line Analytical Processing）。</li>
-<li>OLTP是传统的关系型数据库的主要应用，主要是基本的、日常的事务处理，例如银行交易。OLAP是数据仓库系统的主要应用，支持复杂的分析操作，侧重决策支持，并且提供直观易懂的查询结果.</li>
-<li><code>OLTP</code>: 也称为面向交易的处理系统，其基本特征是顾客的原始数据可以立即传送到计算中心进行处理，并在很短的时间内给出处理结果。这样做的最大优点是可以即时地处理输入的数据，及时地回答。也称为实时系统(Real time System)。衡量联机事务处理系统的一个重要性能指标是系统性能，具体体现为实时响应时间(Response Time)，即用户在终端上送入数据之后，到计算机对这个请求给出答复所需要的时间。OLTP是由数据库引擎负责完成的。OLTP 数据库旨在使事务应用程序仅写入所需的数据，以便尽快处理单个事务。</li>
-<li><code>OLAP</code>:随着数据库技术的发展和应用，数据库存储的数据量从20世纪80年代的兆（M）字节及千兆（G）字节过渡到现在的兆兆（T）字节和千兆兆（P）字节，同时，用户的查询需求也越来越复杂，涉及的已不仅是查询或操纵一张关系表中的一条或几条记录，而且要对多张表中千万条记录的数据进行数据分析和信息综合，关系数据库系统已不能全部满足这一要求。在国外，不少软件厂商采取了发展其前端产品来弥补关系数据库管理系统支持的不足，力图统一分散的公共应用逻辑，在短时间内响应非数据处理专业人员的复杂查询要求。联机分析处理（OLAP）系统是数据仓库系统最主要的应用，专门设计用于支持复杂的分析操作，侧重对决策人员和高层管理人员的决策支持，可以根据分析人员的要求快速、灵活地进行大数据量的复杂查询处理，并且以一种直观而易懂的形式将查询结果提供给决策人员，以便他们准确掌握企业（公司）的经营状况，了解对象的需求，制定正确的方案。</li>
-</ul>
-<hr>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/OLAP_OLTP/" data-id="ckmno7zls0000y4dnb9argmyj" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Database/" rel="tag">Database</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
@@ -441,6 +458,10 @@ ntpq -p // 同步时间
       <ul>
         
           <li>
+            <a href="/Python_tqdm/">Python 使用tqdm模块添加进度条</a>
+          </li>
+        
+          <li>
             <a href="/python_error_validate_lengths/">Python ImportError cannot import name &#39;_validate_lengths&#39;</a>
           </li>
         
@@ -454,10 +475,6 @@ ntpq -p // 同步时间
         
           <li>
             <a href="/ntp_date/">Centos7使用npt设置时间同步</a>
-          </li>
-        
-          <li>
-            <a href="/OLAP_OLTP/">联机分析处理和联机事务处理</a>
           </li>
         
       </ul>
