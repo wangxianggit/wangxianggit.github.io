@@ -67,6 +67,74 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Python os.path.splitext" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/Python%20os.path.splitext/" class="article-date">
+  <time datetime="2020-07-13T07:06:18.000Z" itemprop="datePublished">2020-07-13</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Python/">Python</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/Python%20os.path.splitext/">Python os.path.splitext函数</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+
+        <ul>
+<li><p>函数原型：os.path.splitext(“filename”)</p>
+</li>
+<li><p>用于将文件名与扩展名分离，函数返回文件名和扩展名元组</p>
+</li>
+<li><p>示例代码：</p>
+<ul>
+<li><pre><code>import os
+
+path1=&#39;C:\etc\lib\readme.md&#39;
+path2=&#39;C:\etc\lib&#39;
+res1=os.path.splitext(path1)
+res2=os.path.splitext(path2)
+print(res1)
+print(res2)
+
+output
+(&#39;C:\\etc\\lib\readme&#39;, &#39;.md&#39;)
+(&#39;C:\\etc\\lib&#39;, &#39;&#39;)</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wangxianggit.github.io/Python%20os.path.splitext/" data-id="ckjv3w9c3005k6sdn272m4ktg" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-Opencv_three_channel_image" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/Opencv_three_channel_image/" class="article-date">
@@ -304,59 +372,6 @@
 
 
   
-    <article id="post-yum_unblock" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/yum_unblock/" class="article-date">
-  <time datetime="2019-12-22T03:14:23.000Z" itemprop="datePublished">2019-12-22</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/learning/">learning</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/yum_unblock/">linux yum进程占用问题</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-
-        <h3 id="linux-yum进程占用问题"><a href="#linux-yum进程占用问题" class="headerlink" title="linux yum进程占用问题"></a>linux yum进程占用问题</h3><ul>
-<li><p>一个yum进程非正常关闭后打开另一个进程出现yum被占用的警告</p>
-<ul>
-<li>~~~<br>Another app is currently holding the yum lock; waiting for it to exit…<br>The other application is: yum<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">* 即yum进程被占用，清除缓存中的进程重启yum即可：</span></span><br><span class="line"></span><br><span class="line"><span class="comment">  * ~~~</span></span><br><span class="line">    <span class="keyword">rm</span> -f /<span class="keyword">var</span>/<span class="keyword">run</span>/yum.pid</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-<li><p>重启yum进程。</p>
-</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/yum_unblock/" data-id="ckjv3w9g300oy6sdn654sgv5s" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
@@ -431,6 +446,10 @@
       <ul>
         
           <li>
+            <a href="/python_error_validate_lengths/">Python ImportError cannot import name &#39;_validate_lengths&#39;</a>
+          </li>
+        
+          <li>
             <a href="/python_cprint/">Python使用cprint模块打印带颜色字符</a>
           </li>
         
@@ -444,10 +463,6 @@
         
           <li>
             <a href="/OLAP_OLTP/">联机分析处理和联机事务处理</a>
-          </li>
-        
-          <li>
-            <a href="/cv2_python_problem/">python opencv problem:cv2 has no attribute CV_LOAD_IMAGE_GRAYSCALE</a>
           </li>
         
       </ul>

@@ -67,6 +67,63 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-cv2_python_problem" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/cv2_python_problem/" class="article-date">
+  <time datetime="2021-03-24T05:49:22.000Z" itemprop="datePublished">2021-03-24</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Python/">Python</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/cv2_python_problem/">python opencv problem:cv2 has no attribute CV_LOAD_IMAGE_GRAYSCALE</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+
+        <ul>
+<li><p>使用opencv python显示图像：cv2.CV_LOAD_IMAGE_GRAYSCALE报错如下：</p>
+<ul>
+<li><pre><code>module ‘cv2’ has no attribute ‘CV_LOAD_IMAGE_GRAYSCALE’。Traceback (most recent call last):
+......</code></pre>
+</li>
+</ul>
+</li>
+<li><p>旧版本的opencv使用CV_LOAD_IMAGE_GRAYSCALE加载灰度图，新版本使用cv2.IMREAD_GRAYSCALE</p>
+<p>无报错。</p>
+</li>
+</ul>
+<hr>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wangxianggit.github.io/cv2_python_problem/" data-id="ckmn1cs3e0000dcdn4n1hfz8h" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Opencv/" rel="tag">Opencv</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-python_pprint" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/python_pprint/" class="article-date">
@@ -338,109 +395,6 @@ cv2.error: OpenCV(3.4.5) error: (-2:Unspecified error) The function is not imple
 
 
   
-    <article id="post-Centos7_mongodb_install" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/Centos7_mongodb_install/" class="article-date">
-  <time datetime="2021-01-13T08:23:34.000Z" itemprop="datePublished">2021-01-13</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/learning/">learning</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/Centos7_mongodb_install/">Centos7安装Mongodb</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-
-        <ul>
-<li><p>​ 下载安装包：<a target="_blank" rel="noopener" href="https://www.mongodb.com/download-center/community">https://www.mongodb.com/download-center/community</a></p>
-</li>
-<li><p>解压安装包：tar -zxvf mongodb-linux-x86_64-4.0.6.tgz</p>
-</li>
-<li><p>移动到安装文件夹：mv mongodb-linux-x86_64-4.0.6 /opt/mongodb</p>
-</li>
-<li><p>配置conf和目录文件：</p>
-<ul>
-<li><p>进入mongodb目录后创建db目录和日志文件：</p>
-</li>
-<li><p>```<br>mkdir -p ./data/db<br>mkdir -p ./logs<br>touch ./logs/mongodb.log</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 创建mongodb.conf文件：vi mongodb.conf</span><br><span class="line"></span><br><span class="line">* ```</span><br><span class="line">  <span class="comment">#端口号</span></span><br><span class="line">  port=<span class="number">27017</span></span><br><span class="line">  <span class="comment">#db目录</span></span><br><span class="line">  dbpath=<span class="regexp">/opt/m</span>ongodb<span class="regexp">/data/</span>db</span><br><span class="line">  <span class="comment">#日志目录</span></span><br><span class="line">  logpath=<span class="regexp">/opt/m</span>ongodb<span class="regexp">/logs/m</span>ongodb.log</span><br><span class="line">  <span class="comment">#后台</span></span><br><span class="line">  fork=true</span><br><span class="line">  <span class="comment">#日志输出</span></span><br><span class="line">  logappend=true</span><br><span class="line">  <span class="comment">#允许远程IP连接</span></span><br><span class="line">  bind_ip=<span class="number">0.0</span>.<span class="number">0.0</span></span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-<li><p>启动测试：</p>
-<ul>
-<li>启动：./bin/mongod –config mongodb.conf</li>
-<li>连接：./bin/mongo</li>
-<li>测试：use qydb; show dbs</li>
-</ul>
-</li>
-<li><p>配置开机启动：</p>
-<ul>
-<li><p>cd /lib/systemd/system</p>
-</li>
-<li><p>vi mongodb.service</p>
-</li>
-<li><pre><code>[Unit] 
-Description=mongodb 
-After=network.target remote-fs.target nss-lookup.target 
-
-[Service] 
-Type=forking 
-ExecStart=/opt/mongodb/bin/mongod --config /usr/local/mongodb/mongodb.conf 
-ExecReload=/bin/kill -s HUP $MAINPID 
-ExecStop=/opt/mongodb/bin/mongod --shutdown --config /opt/mongodb/mongodb.conf 
-PrivateTmp=true 
-
-[Install] 
-WantedBy=multi-user.target
-
-#启动服务
-systemctl start mongodb.service    
-#停止服务
-systemctl stop mongodb.service
-#添加开机自启动
-systemctl enable mongodb.service
-#重启服务
-systemctl restart mongodb.service</code></pre>
-</li>
-<li><p>添加环境变量profile：export PATH=$PATH:/opt/mongodb/bin</p>
-</li>
-</ul>
-</li>
-<li><p>mongodb可视化工具：Robo 3T ：<a target="_blank" rel="noopener" href="https://robomongo.org/">https://robomongo.org/</a></p>
-</li>
-</ul>
-<hr>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/Centos7_mongodb_install/" data-id="ckjv3w9b6001w6sdn901sh3df" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Centos7/" rel="tag">Centos7</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Mongodb/" rel="tag">Mongodb</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
@@ -515,6 +469,10 @@ systemctl restart mongodb.service</code></pre>
       <ul>
         
           <li>
+            <a href="/python_error_validate_lengths/">Python ImportError cannot import name &#39;_validate_lengths&#39;</a>
+          </li>
+        
+          <li>
             <a href="/python_cprint/">Python使用cprint模块打印带颜色字符</a>
           </li>
         
@@ -528,10 +486,6 @@ systemctl restart mongodb.service</code></pre>
         
           <li>
             <a href="/OLAP_OLTP/">联机分析处理和联机事务处理</a>
-          </li>
-        
-          <li>
-            <a href="/cv2_python_problem/">python opencv problem:cv2 has no attribute CV_LOAD_IMAGE_GRAYSCALE</a>
           </li>
         
       </ul>

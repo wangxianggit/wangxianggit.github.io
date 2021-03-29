@@ -67,6 +67,83 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-cython_usage1" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/cython_usage1/" class="article-date">
+  <time datetime="2019-06-04T12:57:27.000Z" itemprop="datePublished">2019-06-04</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Python/">Python</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/cython_usage1/">Cython用于编译Python脚本</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+
+        <h2 id="Cython用于编译Python脚本"><a href="#Cython用于编译Python脚本" class="headerlink" title="Cython用于编译Python脚本"></a>Cython用于编译Python脚本</h2><ul>
+<li><p>网站：<a target="_blank" rel="noopener" href="https://cython.org/">https://cython.org</a></p>
+</li>
+<li><p>Python脚本也可以通过编译来加速运行，使用cython可以达到这个效果。</p>
+</li>
+<li><p>Cython安装：</p>
+<ul>
+<li><p><code>pip install Cython</code></p>
+</li>
+<li><p>或在官方网站上下载源码包安装</p>
+</li>
+<li><p>~~~<br>tar -xvzf Cython-xxx.tar.gz<br>cd Cython-xxx<br>python setup.py install</p>
+<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">## Cython编译方法</span><br><span class="line"></span><br><span class="line">* 新建一个.cyx文件，文件内容为: `print <span class="string">&quot;Hello world!&quot;</span>`</span><br><span class="line"></span><br><span class="line">* 然后新建一个setup.py文件，内容如下：</span><br><span class="line"></span><br><span class="line">  * ~~~</span><br><span class="line">    <span class="keyword">from</span> distutils.core <span class="keyword">import</span> setup</span><br><span class="line">    <span class="keyword">from</span> Cython.Build <span class="keyword">import</span> cythonize</span><br><span class="line">         </span><br><span class="line">    setup(</span><br><span class="line">       ext_modules=cythonize(<span class="string">&quot;hello.pyx&quot;</span>)</span><br><span class="line">    )</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>在命令行下编译:<code>python setup.py build_ext --inplace</code></p>
+</li>
+<li><p>完成后在目录下多出.c和.so文件，这里，c文件就是cython将我们的pyx文件解析成一个c文件件，不依赖与平台，而后面的so或者pyd文件，则是将c文件进行编译后的一个文件，依赖于平台。</p>
+</li>
+<li><p>so文件或者pyd文件就可以像普通的python文件一样，被import。</p>
+</li>
+<li><p>除了编译，另外一种简单高效的使用方式是在python前加上以下内容：</p>
+<ul>
+<li><pre><code>import pyximport
+pyximport.install()
+import hello</code></pre>
+</li>
+<li><p>这里相当于cython默认帮我们编译好直接调用</p>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wangxianggit.github.io/cython_usage1/" data-id="ckjv3w9dg00bd6sdnfdes1zsu" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Cython/" rel="tag">Cython</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-Collection_interests" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/Collection_interests/" class="article-date">
@@ -261,85 +338,6 @@
 
 
   
-    <article id="post-divide_conquer_algorithm" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/divide_conquer_algorithm/" class="article-date">
-  <time datetime="2019-05-17T06:35:11.000Z" itemprop="datePublished">2019-05-17</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Algorithm/">Algorithm</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/divide_conquer_algorithm/">归并排序算法</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-
-        <h2 id="分治思想"><a href="#分治思想" class="headerlink" title="分治思想"></a>分治思想</h2><ul>
-<li>​ 许多有用的算法在结构上是递归的：为了解决一个给定的问题，算法一次或多次递归调用其自身以解决紧密相关的若干子问题。</li>
-</ul>
-<ul>
-<li>这些算法遵循分治法的思想：将原问题分解为几个规模较小的但类似于原问题的子问题，递归地求解这些子问题，然后再合并这些子问题的解来建立原问题的解。</li>
-<li>分治模式在每层递归时都有三个步骤：<ul>
-<li>分解原问题为若干子问题，这些子问题是原问题的规模较小的实例。</li>
-<li>解决这些子问题，递归地求解各子问题，若子问题的规模足够小，直接求解。</li>
-<li>合并这些子问题的解即原问题的解。</li>
-</ul>
-</li>
-</ul>
-<h2 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h2><ul>
-<li><p>归并排序算法遵循分治模式：</p>
-<ul>
-<li>分解：分解待排序的n个元素的序列成n/2个元素的两个子序列。</li>
-<li>解决：使用归并排序递归排序两个子序列。</li>
-<li>合并：合并两个已经排序的子序列已产生已排序的答案。</li>
-</ul>
-</li>
-<li><p>归并排序算法的关键操作是合并步骤中的两个已排序的序列，通过调用一个辅助过程MERGE(A,p,q,r)来完成合并，伪代码如下：</p>
-<ul>
-<li><p>~~~<br>MERGE(A,p,q,r)</p>
-<p>n1=q-p+1<br>n2=r-q<br>let L[1..n1+1] and R[1..n2+1] be new array<br>for i=1 to n1<br>  L[i]=A[p+i-1]<br>for j=1 to n2<br>  R[j]=A[q+j]<br>L[n1+1]=null<br>R[n2+1]=null<br>i=1<br>j=1<br>for k=p to r<br>  if L[i]&lt;=R[j] </p>
-<pre><code>A[k]=L[i]
-i=i+1</code></pre>
-<p>  else A[k]=R[j]</p>
-<pre><code>j=j+1</code></pre>
-<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 现在可以把过程MERGE作为归并排序算法中的一个子程序来使用。下面的过程MERGE-<span class="constructor">SORG(A,<span class="params">p</span>,<span class="params">r</span>)</span>排序子数组A<span class="literal">[<span class="identifier">p</span><span class="operator">...</span><span class="identifier">r</span>]</span>中的元素。若p&gt;=r，则该子数组最多含有一个元素，已经排好序。否则分解步骤简单地计算一个下标q，将A<span class="literal">[<span class="identifier">p</span>..<span class="identifier">r</span>]</span>分成两个子数组，A<span class="literal">[<span class="identifier">p</span>..<span class="identifier">q</span>]</span>,A<span class="literal">[<span class="identifier">q</span>+<span class="number">1</span>,<span class="identifier">r</span>]</span>,各自包含n/<span class="number">2</span>个元素：</span><br><span class="line"></span><br><span class="line"><span class="operator">  * </span>~~~</span><br><span class="line">    MERGE-<span class="constructor">SORT(A,<span class="params">p</span>,<span class="params">r</span>)</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> p&lt;r</span><br><span class="line">    q=<span class="literal">[(<span class="identifier">p</span>+<span class="identifier">r</span>)<span class="operator">/</span><span class="number">2</span>]</span></span><br><span class="line">    MERGE-<span class="constructor">SORT(A,<span class="params">p</span>,<span class="params">q</span>)</span></span><br><span class="line">    MERGE-<span class="constructor">SORT(A,<span class="params">q</span>+1,<span class="params">r</span>)</span></span><br><span class="line">    <span class="constructor">MERGE(A,<span class="params">p</span>,<span class="params">q</span>,<span class="params">r</span>)</span></span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-<li><p>为此对于任意长度的数组，当长度为2的幂次方时，可以运用自底向上的思想，依次合并长度为1的数组到长度为2的数组，合并长度为2 的数组到长度为4的数组，直到所有元素排序。</p>
-</li>
-</ul>
-<hr>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/divide_conquer_algorithm/" data-id="ckjv3w9df00b66sdn3hyjh5er" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Algorithm/" rel="tag">Algorithm</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
@@ -414,6 +412,10 @@ i=i+1</code></pre>
       <ul>
         
           <li>
+            <a href="/python_error_validate_lengths/">Python ImportError cannot import name &#39;_validate_lengths&#39;</a>
+          </li>
+        
+          <li>
             <a href="/python_cprint/">Python使用cprint模块打印带颜色字符</a>
           </li>
         
@@ -427,10 +429,6 @@ i=i+1</code></pre>
         
           <li>
             <a href="/OLAP_OLTP/">联机分析处理和联机事务处理</a>
-          </li>
-        
-          <li>
-            <a href="/cv2_python_problem/">python opencv problem:cv2 has no attribute CV_LOAD_IMAGE_GRAYSCALE</a>
           </li>
         
       </ul>

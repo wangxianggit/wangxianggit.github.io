@@ -5,16 +5,19 @@
   
 
   
-  <title>There is no rose without a thorn</title>
+  <title>Python ImportError cannot import name &#39;_validate_lengths&#39; | There is no rose without a thorn</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="There is no rose without a thorn">
-<meta property="og:type" content="website">
-<meta property="og:title" content="There is no rose without a thorn">
-<meta property="og:url" content="http://wangxianggit.github.io/page/36/index.html">
+  <meta name="description" content="Python运行报错如下：  packages&#x2F;torch_geometric&#x2F;transforms&#x2F;to_superpixels.py&quot;, line 2, in &lt;module&gt;     from skimage.segmentation import slic   File &quot;&#x2F;opt&#x2F;anaconda3.5&#x2F;lib&#x2F;python3.6&#x2F;site-packag">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python ImportError cannot import name &#39;_validate_lengths&#39;">
+<meta property="og:url" content="http://wangxianggit.github.io/python_error_validate_lengths/index.html">
 <meta property="og:site_name" content="There is no rose without a thorn">
-<meta property="og:description" content="There is no rose without a thorn">
+<meta property="og:description" content="Python运行报错如下：  packages&#x2F;torch_geometric&#x2F;transforms&#x2F;to_superpixels.py&quot;, line 2, in &lt;module&gt;     from skimage.segmentation import slic   File &quot;&#x2F;opt&#x2F;anaconda3.5&#x2F;lib&#x2F;python3.6&#x2F;site-packag">
 <meta property="og:locale">
+<meta property="article:published_time" content="2021-03-29T10:25:33.000Z">
+<meta property="article:modified_time" content="2021-03-29T10:29:26.402Z">
 <meta property="article:author" content="wangxiang">
+<meta property="article:tag" content="Python">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="There is no rose without a thorn" type="application/atom+xml">
@@ -65,12 +68,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-Python_special_class" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-python_error_validate_lengths" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/Python_special_class/" class="article-date">
-  <time datetime="2019-01-31T10:41:03.000Z" itemprop="datePublished">2019-01-31</time>
+    <a href="/python_error_validate_lengths/" class="article-date">
+  <time datetime="2021-03-29T10:25:33.000Z" itemprop="datePublished">2021-03-29</time>
 </a>
     
   <div class="article-category">
@@ -84,8 +85,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/Python_special_class/">Python定制类</a>
+    <h1 class="article-title" itemprop="name">
+      Python ImportError cannot import name &#39;_validate_lengths&#39;
     </h1>
   
 
@@ -95,33 +96,29 @@
       
 	  <!-- Table of Contents -->
 
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">article content</strong>
+    
+  </div>
+
         <ul>
-<li><p>python中 __xxx__ 形式的变量或函数名在程序上有特殊用途。</p>
-</li>
-<li><p>__slot__用于指定类可以添加的属性。</p>
-</li>
-<li><p>__len__()用于返回类成员变量的长度。</p>
-</li>
-<li><p>__str__()自定义方式返回类对象的名称，例：</p>
+<li><p>Python运行报错如下：</p>
 <ul>
-<li><p>~~~<br>class Student(object):</p>
-<pre><code> def __init__(self, name):
-     self.name = name
- def __str__(self):
-     return &#39;Student object (name: %s)&#39; % self.name</code></pre>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>print(Student(‘Tom’))<br>Student object (name: Tom)</p>
-</blockquote>
-</blockquote>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  * 在<span class="built_in">print</span>函数执行后，python自动调用函数\__str__(),返回自定类的名称</span><br><span class="line"></span><br><span class="line">* 另外一种情况是直接输入变量不用<span class="built_in">print</span>，打印出来的实例名称也可以自己定制，即用函数\__repr__()函数指定，例：</span><br><span class="line"></span><br><span class="line">  * ~~~</span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Student</span>(<span class="params"><span class="built_in">object</span></span>):</span></span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self, name</span>):</span></span><br><span class="line">            self.name = name</span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">__str__</span>(<span class="params">self</span>):</span></span><br><span class="line">            <span class="keyword">return</span> <span class="string">&#x27;Student object (name=%s)&#x27;</span> % self.name</span><br><span class="line">        __repr__ = __str__</span><br><span class="line">        </span><br><span class="line">    &gt;&gt;&gt; s=Student(<span class="string">&#x27;Tom&#x27;</span>)</span><br><span class="line">    Student <span class="built_in">object</span> (name: Tom)</span><br></pre></td></tr></table></figure></li>
-<li><p>这里输入对象名称后python调用函数__repr__，输出实例名称。</p>
+<li><pre><code>packages/torch_geometric/transforms/to_superpixels.py&quot;, line 2, in &lt;module&gt;
+    from skimage.segmentation import slic
+  File &quot;/opt/anaconda3.5/lib/python3.6/site-packages/skimage/__init__.py&quot;, line 158, in &lt;module&gt;
+    from .util.dtype import *
+  File &quot;/opt/anaconda3.5/lib/python3.6/site-packages/skimage/util/__init__.py&quot;, line 7, in &lt;module&gt;
+    from .arraycrop import crop
+  File &quot;/opt/anaconda3.5/lib/python3.6/site-packages/skimage/util/arraycrop.py&quot;, line 8, in &lt;module&gt;
+    from numpy.lib.arraypad import _validate_lengths
+ImportError: cannot import name &#39;_validate_lengths&#39;</code></pre>
 </li>
 </ul>
 </li>
-<li><p>另外python中还有其他定制类如__iter__ , __getitem__等等。</p>
+<li><p>注意到skimage这个包导入出错，即在安装相关包时numpy库的版本改变，所以导致出错。</p>
+</li>
+<li><p>重新安装scikit-image包：<code>conda install scikit-image</code>，重新运行无报错。</p>
 </li>
 </ul>
 <hr>
@@ -129,274 +126,27 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/Python_special_class/" data-id="ckjv3w9cq008e6sdncxhq4323" class="article-share-link">Share</a>
+      <a data-url="http://wangxianggit.github.io/python_error_validate_lengths/" data-id="ckmug9gso0000xsdn99f10hov" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Program/" rel="tag">Program</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
 
     </footer>
   </div>
   
-</article>
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-Python_len" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/Python_len/" class="article-date">
-  <time datetime="2019-01-31T10:32:51.000Z" itemprop="datePublished">2019-01-31</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Python/">Python</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/Python_len/">Python特殊函数__len__</a>
-    </h1>
+    <a href="/python_cprint/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Python使用cprint模块打印带颜色字符</div>
+    </a>
   
+</nav>
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-
-        <ul>
-<li><p>​ Python特殊函数__len()__使函数len()能够作用于类中的变量，例：</p>
-<ul>
-<li><pre><code>class Namespace(object):
-
-    def __init__(self, *args):
-        self.names = args
-
-    def __len__(self):
-        return len(self.names)
-
-s = Namespace(&#39;jia&#39;, &#39;tim&#39;)
-print( len(s) )</code></pre>
-</li>
-</ul>
-</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/Python_len/" data-id="ckjv3w9ch00756sdna11r8mmp" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Program/" rel="tag">Program</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
-
-    </footer>
-  </div>
   
 </article>
-
-
-  
-    <article id="post-Python_slot" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/Python_slot/" class="article-date">
-  <time datetime="2019-01-31T09:30:22.000Z" itemprop="datePublished">2019-01-31</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Python/">Python</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/Python_slot/">Python __slot__变量</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-
-        <ul>
-<li><p>​ Python可以在定义类中添加特殊变量 __slot__ 来限制该类可以添加的属性，例：</p>
-<ul>
-<li><p>~~~<br>class Student(object):</p>
-<pre><code> __slots__ = (&#39;name&#39;, &#39;age&#39;) # 定义允许绑定的属性名称</code></pre>
-<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 类中绑定两个变量<span class="type">name</span>和age，其他额外定义的变量则不起作用。</span><br><span class="line"></span><br><span class="line">* ~~~</span><br><span class="line">  s = Student() # 创建新的实例</span><br><span class="line">  s.name = <span class="string">&#x27;Michael&#x27;</span> # 绑定属性<span class="string">&#x27;name&#x27;</span></span><br><span class="line">  s.age = <span class="number">25</span> # 绑定属性<span class="string">&#x27;age&#x27;</span></span><br><span class="line">  s.score = <span class="number">99</span> # 绑定属性<span class="string">&#x27;score&#x27;</span></span><br><span class="line">  Traceback (most recent <span class="keyword">call</span> last):</span><br><span class="line">    File &quot;&lt;stdin&gt;&quot;, <span class="type">line</span> <span class="number">1</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">  AttributeError: <span class="string">&#x27;Student&#x27;</span> <span class="keyword">object</span> has <span class="keyword">no</span> <span class="keyword">attribute</span> <span class="string">&#x27;score&#x27;</span></span><br></pre></td></tr></table></figure></li>
-<li><p>由于score没有被放到__slots__中，所以不能绑定score属性，试图绑定score将得到AttributeError的错误。</p>
-</li>
-<li><p>__slot__定义的属性仅对当前的类起作用，对继承的子类不起作用。</p>
-</li>
-</ul>
-</li>
-</ul>
-<hr>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/Python_slot/" data-id="ckjv3w9cp008b6sdneiungmpb" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Program/" rel="tag">Program</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-git_pull_upload_problem" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/git_pull_upload_problem/" class="article-date">
-  <time datetime="2019-01-29T12:46:05.000Z" itemprop="datePublished">2019-01-29</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/git/">git</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/git_pull_upload_problem/">git pull上传问题</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-
-        <ul>
-<li><p>windows下使用git终端上传文件，执行命令git push -u origin master后出现如下错误：</p>
-<ul>
-<li><pre><code>To https://github.com/wangxianggit/PythonDSP.git
- ! [rejected]        master -&gt; master (non-fast-forward)
-error: failed to push some refs to &#39;https://github.com/wangxianggit/PythonDSP.git&#39;
-hint: Updates were rejected because a pushed branch tip is behind its remote
-hint: counterpart. Check out this branch and integrate the remote changes
-hint: (e.g. &#39;git pull ...&#39;) before pushing again.
-hint: See the &#39;Note about fast-forwards&#39; in &#39;git push --help&#39; for details.
-<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="bullet">* </span>原因：github上的版本里有readme文件和本地版本冲突</span><br><span class="line"></span><br><span class="line"><span class="bullet">* </span>使用强制覆盖命令解决冲突：</span><br><span class="line"></span><br><span class="line"><span class="bullet">* </span>~~~</span><br><span class="line"><span class="code">  git push -u origin master -f </span></span><br></pre></td></tr></table></figure>
-</code></pre>
-</li>
-</ul>
-</li>
-</ul>
-<hr>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/git_pull_upload_problem/" data-id="ckjv3w9di00bk6sdn70jq3lb3" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/windows/" rel="tag">windows</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-python3.6_autoinstall_script" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/python3.6_autoinstall_script/" class="article-date">
-  <time datetime="2019-01-29T09:52:11.000Z" itemprop="datePublished">2019-01-29</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/learning/">learning</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/python3.6_autoinstall_script/">python3.6自动安装脚本</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-
-        <ul>
-<li><p>​ linux版本要求：CentOS，Scientific Linux</p>
-</li>
-<li><p>自动安装脚本</p>
-<ul>
-<li><pre><code>#!/bin/bash
-yum -y install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel db4-devel libpcap-devel xz-devel
-mkdir -p /usr/local/python3
-cd /mnt
-wget https://www.python.org/ftp/python/3.6.1/Python-3.6.1.tgz
-tar -zxvf Python-3.6.1.tgz
-cd Python-3.6.1
-./configure --prefix=/usr/local/python3
-make &amp;&amp; make install
-ln -s /usr/local/python3/bin/python3 /usr/bin/python3
-echo &quot;PATH=$PATH:/usr/local/python3/bin&quot;  &gt;&gt;~/.bashrc
-echo &quot;export PATH &quot; &gt;&gt;~/.bashrc
-source ~/.bashrc
-python3 -V</code></pre>
-</li>
-<li><p>环境变量可以设置在~/.bashrc或/etc/profile</p>
-</li>
-</ul>
-</li>
-</ul>
-<hr>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/python3.6_autoinstall_script/" data-id="ckjv3w9e300eh6sdn36n26mmh" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Centos7/" rel="tag">Centos7</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-
-
-  <nav id="page-nav">
-    
-    <a class="extend prev" rel="prev" href="/page/35/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/34/">34</a><a class="page-number" href="/page/35/">35</a><span class="page-number current">36</span><a class="page-number" href="/page/37/">37</a><a class="page-number" href="/page/38/">38</a><span class="space">&hellip;</span><a class="page-number" href="/page/43/">43</a><a class="extend next" rel="next" href="/page/37/">Next &amp;raquo;</a>
-  </nav>
 
 </section>
         

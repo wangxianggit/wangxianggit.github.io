@@ -67,6 +67,80 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Python_interprete" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/Python_interprete/" class="article-date">
+  <time datetime="2019-03-08T12:32:10.000Z" itemprop="datePublished">2019-03-08</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Python/">Python</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/Python_interprete/">Python解释器</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+
+        <h2 id="Python解释器"><a href="#Python解释器" class="headerlink" title="Python解释器"></a>Python解释器</h2><ul>
+<li>参考链接：<a target="_blank" rel="noopener" href="https://www.liaoxuefeng.com/wiki/">https://www.liaoxuefeng.com/wiki/</a></li>
+<li>Python程序即以.py为扩展名的文件，要运行程序需要python解释器去执行。</li>
+<li>由于整个Python语言从规范到解释器都是开源的，执行python程序存在多种解释器。</li>
+</ul>
+<h2 id="CPython"><a href="#CPython" class="headerlink" title="CPython"></a>CPython</h2><ul>
+<li>官方网站上下载并安装好Python后，我们就直接获得了一个官方版本的解释器：CPython。</li>
+<li>这个解释器是用C语言开发的，所以叫CPython。</li>
+<li>在命令行下运行<code>python</code>就是启动CPython解释器。</li>
+</ul>
+<h2 id="IPython"><a href="#IPython" class="headerlink" title="IPython"></a>IPython</h2><ul>
+<li>IPython是基于CPython之上的一个交互式解释器，即IPython只是在交互方式上有所增强，但是执行Python代码的功能和CPython是完全一样的。好比很多国产浏览器虽然外观不同，但内核其实都是调用了IE。</li>
+<li>CPython用<code>&gt;&gt;&gt;</code>作为提示符，而IPython用<code>In [序号]:</code>作为提示符。</li>
+</ul>
+<h2 id="PyPy"><a href="#PyPy" class="headerlink" title="PyPy"></a>PyPy</h2><ul>
+<li>PyPy是另一个Python解释器，它的目标是执行速度。</li>
+<li>PyPy采用<a target="_blank" rel="noopener" href="http://en.wikipedia.org/wiki/Just-in-time_compilation">JIT技术</a>，对Python代码进行动态编译（注意不是解释），所以可以显著提高Python代码的执行速度。</li>
+<li>绝大部分Python代码都可以在PyPy下运行，但是PyPy和CPython有一些是不同的，这就导致相同的Python代码在两种解释器下执行可能会有不同的结果。</li>
+<li>如果你的代码要放到PyPy下执行，就需要了解<a target="_blank" rel="noopener" href="http://pypy.readthedocs.org/en/latest/cpython_differences.html">PyPy和CPython的不同点</a>。</li>
+</ul>
+<h2 id="Jython"><a href="#Jython" class="headerlink" title="Jython"></a>Jython</h2><ul>
+<li>Jython是运行在Java平台上的Python解释器，可以直接把Python代码编译成Java字节码执行。</li>
+</ul>
+<h2 id="IronPython"><a href="#IronPython" class="headerlink" title="IronPython"></a>IronPython</h2><ul>
+<li>IronPython和Jython类似，只不过IronPython是运行在微软.Net平台上的Python解释器，可以直接把Python代码编译成.Net的字节码。</li>
+</ul>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><ul>
+<li>Python的解释器很多，但使用最广泛的还是CPython。</li>
+<li>如果要和Java或.Net平台交互，最好的办法不是用Jython或IronPython，而是通过网络调用来交互，确保各程序之间的独立性。</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wangxianggit.github.io/Python_interprete/" data-id="ckjv3w9ce006v6sdna3po7t8g" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-Python_data_type" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/Python_data_type/" class="article-date">
@@ -706,89 +780,6 @@ int main()
 
 
   
-    <article id="post-C++_citation" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/C++_citation/" class="article-date">
-  <time datetime="2019-03-07T03:54:17.000Z" itemprop="datePublished">2019-03-07</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/learning/">learning</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/C++_citation/">C/C++中的引用</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-
-        <h2 id="C-C-引用"><a href="#C-C-引用" class="headerlink" title="C/C++引用"></a>C/C++引用</h2><ul>
-<li><p>引用，即某一个变量或对象的别名，对引用的操作与对其所绑定的变量或对象的操作完全等价。</p>
-</li>
-<li><p>语法格式：</p>
-<ul>
-<li>~~~<br>变量类型 &amp;引用名=目标变量名；<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  * &amp;不是求地址运算符，而是起标志作用</span><br><span class="line"></span><br><span class="line">  * 引用类型必须和其所绑定的变量的类型相同</span><br><span class="line"></span><br><span class="line">* 声明引用的同时必须对其初始化，否则系统会报错</span><br><span class="line"></span><br><span class="line">  * ~~~</span><br><span class="line">    <span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">int</span> a=<span class="number">10</span>;</span><br><span class="line">        <span class="keyword">int</span> &amp;b=a; <span class="comment">//声明引用的同时必须对其初始化</span></span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;b&lt;&lt;<span class="string">&quot;  &quot;</span>&lt;&lt;a&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-<li><p>引用相当于变量或对象的别名，因此不能再将已有的引用名作为其他变量或对象的名字或别名</p>
-</li>
-<li><p>引用不是定义一个新的变量或对象，因此内存不会为引用开辟新的空间存储这个引用</p>
-<ul>
-<li><p>~~~<br>#include<iostream><br>using namespace std;<br>int main(){</p>
-<pre><code>int val=10;
-int &amp;n_val=value;
-cout&lt;&lt;&quot;val地址为：&quot;&lt;&lt;&amp;val&lt;&lt;endl;
-cout&lt;&lt;&quot;n_val地址为：&quot;&lt;&lt;&amp;n_val&lt;&lt;endl;
-return 0;</code></pre>
-<p>}</p>
-<p>output:<br>val地址为：0x207d040<br>n_val地址为：0x207d040</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 对数组引用</span><br><span class="line"></span><br><span class="line">  * ~~~</span><br><span class="line">    <span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">int</span> a[<span class="number">3</span>]=&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>&#125;;</span><br><span class="line">        <span class="keyword">int</span> &amp;b=(&amp;a)[<span class="number">3</span>];<span class="comment">//对数组的引用 </span></span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;a[<span class="number">0</span>]&lt;&lt;<span class="string">&quot; &quot;</span>&lt;&lt;b[<span class="number">0</span>]&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;a[<span class="number">1</span>]&lt;&lt;<span class="string">&quot; &quot;</span>&lt;&lt;b[<span class="number">1</span>]&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;a[<span class="number">2</span>]&lt;&lt;<span class="string">&quot; &quot;</span>&lt;&lt;b[<span class="number">2</span>]&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-<li><p>对指针的引用</p>
-<ul>
-<li><pre><code>#include&lt;iostream&gt;
-using namespace std;
-int main()&#123;
-    int a=10;
-    int *ptr=&amp;a;
-    int *&amp;new_ptr=ptr;
-    cout&lt;&lt;&amp;ptr&lt;&lt;&quot; &quot;&lt;&lt;&amp;new_ptr&lt;&lt;endl;
-    return 0; 
-&#125;</code></pre>
-</li>
-</ul>
-</li>
-</ul>
-<hr>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/C++_citation/" data-id="ckjv3w9aw000u6sdn8ac8dugc" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C++</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
@@ -863,6 +854,10 @@ int main()&#123;
       <ul>
         
           <li>
+            <a href="/python_error_validate_lengths/">Python ImportError cannot import name &#39;_validate_lengths&#39;</a>
+          </li>
+        
+          <li>
             <a href="/python_cprint/">Python使用cprint模块打印带颜色字符</a>
           </li>
         
@@ -876,10 +871,6 @@ int main()&#123;
         
           <li>
             <a href="/OLAP_OLTP/">联机分析处理和联机事务处理</a>
-          </li>
-        
-          <li>
-            <a href="/cv2_python_problem/">python opencv problem:cv2 has no attribute CV_LOAD_IMAGE_GRAYSCALE</a>
           </li>
         
       </ul>
