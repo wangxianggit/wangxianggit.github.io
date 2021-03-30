@@ -7,15 +7,15 @@
   
   <title>Python 使用tqdm模块添加进度条 | There is no rose without a thorn</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Tqdm 模块可以在程序运行时添加Python进度条，即在 Python 长循环中添加一个进度提示信息，用户可以封装任意的迭代器 tqdm(iterator)。  安装：pip install tqdm  使用方法一: tqdm  &#96;&#96;&#96;from tqdm import tqdmfor i in tqdm(range(5000)):   #do something  print(i) # tqd">
+  <meta name="description" content="Tqdm 模块可以在程序运行时添加Python进度条，即在 Python 长循环中添加一个进度提示信息，用户可以封装任意的迭代器 tqdm(iterator)。  安装：pip install tqdm  使用方法一: tqdm   1234from tqdm import tqdmfor i in tqdm(range(5000)):      #do something    print(i">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python 使用tqdm模块添加进度条">
 <meta property="og:url" content="http://wangxianggit.github.io/Python_tqdm/index.html">
 <meta property="og:site_name" content="There is no rose without a thorn">
-<meta property="og:description" content="Tqdm 模块可以在程序运行时添加Python进度条，即在 Python 长循环中添加一个进度提示信息，用户可以封装任意的迭代器 tqdm(iterator)。  安装：pip install tqdm  使用方法一: tqdm  &#96;&#96;&#96;from tqdm import tqdmfor i in tqdm(range(5000)):   #do something  print(i) # tqd">
+<meta property="og:description" content="Tqdm 模块可以在程序运行时添加Python进度条，即在 Python 长循环中添加一个进度提示信息，用户可以封装任意的迭代器 tqdm(iterator)。  安装：pip install tqdm  使用方法一: tqdm   1234from tqdm import tqdmfor i in tqdm(range(5000)):      #do something    print(i">
 <meta property="og:locale">
 <meta property="article:published_time" content="2021-03-29T16:53:21.000Z">
-<meta property="article:modified_time" content="2021-03-29T17:00:02.873Z">
+<meta property="article:modified_time" content="2021-03-30T11:22:55.395Z">
 <meta property="article:author" content="wangxiang">
 <meta property="article:tag" content="Python">
 <meta name="twitter:card" content="summary">
@@ -107,23 +107,21 @@
 <li><p>安装：<code>pip install tqdm</code></p>
 </li>
 <li><p>使用方法一: tqdm</p>
-<ul>
-<li>```<br>from tqdm import tqdm<br>for i in tqdm(range(5000)):  <pre><code> #do something
- print(i) # tqdm(list)方法可以传入任意一种list,比如数组或者string的数组</code></pre>
-<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 使用方法二: <span class="selector-tag">trange</span></span><br><span class="line"></span><br><span class="line">  * ```</span><br><span class="line">    <span class="selector-tag">from</span> <span class="selector-tag">tqdm</span> <span class="selector-tag">import</span> <span class="selector-tag">trange</span></span><br><span class="line">    <span class="selector-tag">for</span> <span class="selector-tag">i</span> <span class="selector-tag">in</span> <span class="selector-tag">trange</span>(<span class="number">5000</span>):</span><br><span class="line">        <span class="selector-id">#do</span> <span class="selector-tag">something</span></span><br><span class="line">        <span class="selector-tag">print</span>(i) <span class="selector-id">#trange</span>(i) 是 <span class="selector-tag">tqdm</span>(range(i)) 的简单写法</span><br></pre></td></tr></table></figure></li>
-</ul>
 </li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> tqdm <span class="keyword">import</span> tqdm</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> tqdm(<span class="built_in">range</span>(<span class="number">5000</span>)):  </span><br><span class="line">    <span class="comment">#do something</span></span><br><span class="line">    print(i) <span class="comment"># tqdm(list)方法可以传入任意一种list,比如数组或者string的数组</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>使用方法二: trange</li>
+</ul>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">from</span> <span class="selector-tag">tqdm</span> <span class="selector-tag">import</span> <span class="selector-tag">trange</span></span><br><span class="line"><span class="selector-tag">for</span> <span class="selector-tag">i</span> <span class="selector-tag">in</span> <span class="selector-tag">trange</span>(<span class="number">5000</span>):</span><br><span class="line">    <span class="selector-id">#do</span> <span class="selector-tag">something</span></span><br><span class="line">    <span class="selector-tag">print</span>(i) <span class="selector-id">#trange</span>(i) 是 <span class="selector-tag">tqdm</span>(range(i)) 的简单写法</span><br></pre></td></tr></table></figure>
+<ul>
 <li><p>使用方法三: 手动方法</p>
 <ul>
-<li><p>在for循环外部初始化tqdm,可以打印其他信息</p>
-</li>
-<li><pre><code>pbar = tqdm([&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;])
-for char in pbar:
-    pbar.set_description(&quot;Processing %s&quot; % char)</code></pre>
-</li>
+<li>在for循环外部初始化tqdm,可以打印其他信息</li>
 </ul>
 </li>
 </ul>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pbar = tqdm([<span class="string">&quot;a&quot;</span>, <span class="string">&quot;b&quot;</span>, <span class="string">&quot;c&quot;</span>, <span class="string">&quot;d&quot;</span>])</span><br><span class="line"><span class="keyword">for</span> <span class="keyword">char</span> <span class="keyword">in</span> <span class="attr">pbar:</span></span><br><span class="line">	pbar.set_description(<span class="string">&quot;Processing %s&quot;</span> % <span class="keyword">char</span>)</span><br></pre></td></tr></table></figure>
 <hr>
 
       
