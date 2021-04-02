@@ -7,15 +7,15 @@
   
   <title>hive初始化many connection error | There is no rose without a thorn</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="hive初始化many connection error hive中输入初始化命令：schematool -dbType mysql -initSchema 出现连接过多错误：  12org.apache.hadoop.hive.metastore.HiveMetaException: Failed to get schema version.Underlying cause: java.sql.">
+  <meta name="description" content="hive初始化many connection error hive中输入初始化命令：schematool -dbType mysql -initSchema 出现连接过多错误：  123org.apache.hadoop.hive.metastore.HiveMetaException: Failed to get schema version. Underlying cause: java.sq">
 <meta property="og:type" content="article">
 <meta property="og:title" content="hive初始化many connection error">
 <meta property="og:url" content="http://wangxianggit.github.io/hive_connection_block/index.html">
 <meta property="og:site_name" content="There is no rose without a thorn">
-<meta property="og:description" content="hive初始化many connection error hive中输入初始化命令：schematool -dbType mysql -initSchema 出现连接过多错误：  12org.apache.hadoop.hive.metastore.HiveMetaException: Failed to get schema version.Underlying cause: java.sql.">
+<meta property="og:description" content="hive初始化many connection error hive中输入初始化命令：schematool -dbType mysql -initSchema 出现连接过多错误：  123org.apache.hadoop.hive.metastore.HiveMetaException: Failed to get schema version. Underlying cause: java.sq">
 <meta property="og:locale">
 <meta property="article:published_time" content="2021-04-02T11:43:11.000Z">
-<meta property="article:modified_time" content="2021-04-02T11:48:40.041Z">
+<meta property="article:modified_time" content="2021-04-02T11:50:05.336Z">
 <meta property="article:author" content="wangxiang">
 <meta property="article:tag" content="Database">
 <meta name="twitter:card" content="summary">
@@ -105,7 +105,7 @@
 <li>hive中输入初始化命令：<code>schematool -dbType mysql -initSchema</code></li>
 <li>出现连接过多错误：</li>
 </ul>
-<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">org.apache.hadoop.hive.metastore.HiveMetaException: Failed <span class="keyword">to</span> <span class="keyword">get</span> <span class="keyword">schema</span> <span class="keyword">version</span>.</span><br><span class="line">Underlying cause: java.<span class="keyword">sql</span>.SQLException : <span class="keyword">null</span>,  message <span class="keyword">from</span> <span class="keyword">server</span>: &quot;Host &#x27;10.10.75.161&#x27; is blocked because of many connection errors; unblock with &#x27;mysqladmin flush-hosts&#x27;&quot;</span><br></pre></td></tr></table></figure>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">org.apache.hadoop.hive.metastore.HiveMetaException: Failed <span class="keyword">to</span> <span class="keyword">get</span> <span class="keyword">schema</span> <span class="keyword">version</span>. </span><br><span class="line">Underlying cause: java.<span class="keyword">sql</span>.SQLException : <span class="keyword">null</span>,  message <span class="keyword">from</span> <span class="keyword">server</span>: &quot;Host &#x27;10.10.75.161&#x27; is</span><br><span class="line">blocked because of many connection errors; unblock with &#x27;mysqladmin flush-hosts&#x27;&quot;</span><br></pre></td></tr></table></figure>
 <ul>
 <li><p>原因：同一个ip在短时间内产生太多（超过mysql数据库max_connection_errors的最大值）中断的数据库连接而导致的阻塞。</p>
 </li>
