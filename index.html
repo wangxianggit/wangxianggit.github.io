@@ -105,17 +105,23 @@
 </li>
 <li><p>解决方法：</p>
 <ul>
-<li>1、提高max_connection_errors数量：</li>
-</ul>
-<p>　    * 1） 修改max_connection_errors的数量为1000： set global max_connect_errors=1000;<br>　    * 2） 查看是否修改成功：SHOW GLOBAL VARIABLES LIKE ‘%max_connect_errors%’;</p>
+<li><p>1、提高max_connection_errors数量：</p>
 <ul>
-<li>2、使用mysqladmin flush-hosts 命令清理一下hosts文件；</li>
+<li>1） 修改max_connection_errors的数量为1000： set global max_connect_errors=1000;</li>
+<li>2） 查看是否修改成功：SHOW GLOBAL VARIABLES LIKE ‘%max_connect_errors%’;</li>
 </ul>
-<p>　　 * mysqladmin flush-hosts -h iphost -P port -u root -prootpasswd;<br>​         * 也可以mysql -uroot -prootpasswd 在数据库中执行命令：flush hosts;</p>
-<hr>
-<p>​</p>
+</li>
+<li><p>2、使用mysqladmin flush-hosts 命令清理一下hosts文件；</p>
+<ul>
+<li>mysqladmin flush-hosts -h iphost -P port -u root -prootpasswd</li>
+<li>或mysql -uroot -prootpasswd 在数据库中执行命令：flush hosts;</li>
+</ul>
 </li>
 </ul>
+</li>
+</ul>
+<hr>
+<p>  ​</p>
 
       
     </div>
