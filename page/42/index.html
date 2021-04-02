@@ -67,6 +67,58 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-c++_read_integrate" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/c++_read_integrate/" class="article-date">
+  <time datetime="2018-09-17T17:43:40.000Z" itemprop="datePublished">2018-09-18</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/learning/">learning</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/c++_read_integrate/">c++读取整数</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+
+        <ul>
+<li><p>将txt文件中的内容读取到整数变量中，txt文件内容：</p>
+</li>
+<li><p>```<br>760569222770 760569402420 179650 431 1<br>3972158235210 3972158718970 483760 431 1<br>5160568876430 5160568982420 105990 431 1</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 使用<span class="built_in">istringstream</span>类将读取的内容存储到整型变量并输出：</span><br><span class="line"></span><br><span class="line">* ```</span><br><span class="line">  <span class="function"><span class="keyword">int</span> <span class="title">read</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="function">ifstream <span class="title">infile</span><span class="params">(<span class="string">&quot;infdata.txt&quot;</span>)</span></span>;<span class="comment">//读取txt文件</span></span><br><span class="line">    <span class="keyword">if</span>(!infile) &#123; <span class="built_in">cout</span>&lt;&lt;<span class="string">&quot; Data error !&quot;</span>&lt;&lt;<span class="built_in">endl</span>; <span class="keyword">return</span> <span class="number">0</span>;&#125;</span><br><span class="line">    <span class="built_in">string</span> s;</span><br><span class="line">     <span class="keyword">long</span> a, b, c;</span><br><span class="line">     <span class="keyword">int</span> d,e;</span><br><span class="line">     <span class="built_in">string</span> Str1, Str2;</span><br><span class="line">     <span class="built_in">string</span> Input;</span><br><span class="line">    <span class="keyword">while</span>(getline(infile,Input))</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="built_in">cout</span>&lt;&lt;Input&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">      <span class="function"><span class="built_in">istringstream</span> <span class="title">iss</span><span class="params">(Input)</span></span>;</span><br><span class="line">       <span class="keyword">while</span>(iss&gt;&gt;a&gt;&gt;b&gt;&gt;c&gt;&gt;d&gt;&gt;e)&#123;</span><br><span class="line">         <span class="built_in">cout</span>&lt;&lt;a&lt;&lt;<span class="string">&quot;  &quot;</span>&lt;&lt;b&lt;&lt;<span class="string">&quot;  &quot;</span>&lt;&lt;c&lt;&lt;<span class="string">&quot;  &quot;</span>&lt;&lt;d&lt;&lt;<span class="string">&quot;  &quot;</span>&lt;&lt;e&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">         &#125;</span><br><span class="line">      &#125;</span><br><span class="line">     </span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">  &#125; </span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+<li><p>在root命令行下运行输出各个整数值</p>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wangxianggit.github.io/c++_read_integrate/" data-id="ckjv3w9d5009x6sdnd81x9ew5" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C++</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-Centos7_install_Qt5.9" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/Centos7_install_Qt5.9/" class="article-date">
@@ -394,126 +446,6 @@ SYMBOL TABLE:
 
 
   
-    <article id="post-Geant4_visualization" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/Geant4_visualization/" class="article-date">
-  <time datetime="2018-05-03T12:15:40.000Z" itemprop="datePublished">2018-05-03</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/learning/">learning</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/Geant4_visualization/">Geant4 可视化</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-
-        <ul>
-<li><p>Macro file for the visualization setting in the initialization phase </p>
-</li>
-<li><p>of the B1 example when running in interactive mode</p>
-</li>
-<li><p>Use these open statements to open selected visualization</p>
-</li>
-<li><p>Use this open statement to create an OpenGL view:<br>/vis/open OGL 600x600-0+0</p>
-</li>
-<li><p>Use this open statement to create an OpenInventor view:<br>*/vis/open OI</p>
-</li>
-<li><p>Use this open statement to create a .prim file suitable for</p>
-</li>
-<li><p>viewing in DAWN:<br>*/vis/open DAWNFILE</p>
-</li>
-<li><p>Use this open statement to create a .heprep file suitable for</p>
-</li>
-<li><p>viewing in HepRApp:<br>*/vis/open HepRepFile</p>
-</li>
-<li><p>Use this open statement to create a .wrl file suitable for</p>
-</li>
-<li><p>viewing in a VRML viewer:<br>*/vis/open VRML2FILE</p>
-</li>
-<li><p>Disable auto refresh and quieten vis messages whilst scene and</p>
-</li>
-<li><p>trajectories are established:<br>/vis/viewer/set/autoRefresh false<br>/vis/verbose errors</p>
-</li>
-<li><p>Draw geometry:<br>/vis/drawVolume</p>
-</li>
-<li><p>Specify view angle:<br>/vis/viewer/set/viewpointVector -1 0 0<br>/vis/viewer/set/lightsVector -1 0 0</p>
-</li>
-<li><p>Specify style (surface, wireframe, auxiliary edges,…)<br>/vis/viewer/set/style wireframe<br>/vis/viewer/set/auxiliaryEdge true<br>/vis/viewer/set/lineSegmentsPerCircle 100</p>
-</li>
-<li><p>Draw smooth trajectories at end of event, showing trajectory points</p>
-</li>
-<li><p>as markers 2 pixels wide:<br>/vis/scene/add/trajectories smooth<br>/vis/modeling/trajectories/create/drawByCharge<br>/vis/modeling/trajectories/drawByCharge-0/default/setDrawStepPts true<br>/vis/modeling/trajectories/drawByCharge-0/default/setStepPtsSize 2</p>
-</li>
-<li><p>(if too many tracks cause core dump =&gt; /tracking/storeTrajectory 0)</p>
-</li>
-<li><p>Draw hits at end of event:<br>*/vis/scene/add/hits</p>
-</li>
-<li><p>To draw only gammas:<br>*/vis/filtering/trajectories/create/particleFilter<br>*/vis/filtering/trajectories/particleFilter-0/add gamma</p>
-</li>
-<li><p>To invert the above, drawing all particles except gammas,</p>
-</li>
-<li><p>keep the above two lines but also add:<br>*/vis/filtering/trajectories/particleFilter-0/invert true</p>
-</li>
-<li><p>Many other options are available with /vis/modeling and /vis/filtering.</p>
-</li>
-<li><p>For example, to select colour by particle ID:<br>*/vis/modeling/trajectories/create/drawByParticleID<br>*/vis/modeling/trajectories/drawByParticleID-0/default/setDrawStepPts true</p>
-</li>
-<li><p>To select or override default colours (note: e+ is blue by default):<br>*/vis/modeling/trajectories/list<br>*/vis/modeling/trajectories/drawByParticleID-0/set e+ yellow</p>
-</li>
-<li><p>To superimpose all of the events from a given run:<br>/vis/scene/endOfEventAction accumulate</p>
-</li>
-<li><p>Decorations</p>
-</li>
-<li><p>Name<br>/vis/set/textColour green<br>/vis/set/textLayout right<br>/vis/scene/add/text2D 0.9 -.9 24 ! ! exampleB1</p>
-</li>
-<li><p>or, if your system does not support right-adjustment<br>*/vis/scene/add/text2D 0 -.9 24 ! ! exampleB1<br>/vis/set/textLayout    * Revert to normal (left adjusted) layout<br>/vis/set/textColour    * Revert to default text colour (blue)</p>
-</li>
-<li><p>Axes, scale, etc.<br>/vis/scene/add/scale   * Simple scale line<br>/vis/scene/add/axes    * Simple axes: x=red, y=green, z=blue.<br>/vis/scene/add/eventID * Drawn at end of event<br>/vis/scene/add/date    * Date stamp<br>/vis/scene/add/logo2D  * Simple logo<br>/vis/scene/add/logo    * 3D logo</p>
-</li>
-<li><p>Frame<br>/vis/set/colour red<br>/vis/set/lineWidth 2<br>/vis/scene/add/frame   * Simple frame around the view<br>/vis/set/colour        * Revert to default colour (white)<br>/vis/set/lineWidth     * Revert to default line width (1.)</p>
-</li>
-<li><p>Attach text to one edge of Shape1, with a small, fixed offset<br>/vis/scene/add/text 0 6 -4 cm 18 4 4 Shape1</p>
-</li>
-<li><p>Attach text to one corner of Shape2, with a small, fixed offset<br>/vis/scene/add/text 6 7 10 cm 18 4 4 Shape2</p>
-</li>
-<li><p>To get nice view<br>/vis/geometry/set/visibility World 0 false<br>/vis/geometry/set/visibility Envelope 0 false<br>/vis/viewer/set/style surface<br>/vis/viewer/set/hiddenMarker true<br>/vis/viewer/set/viewpointThetaPhi 120 150</p>
-</li>
-<li><p>Re-establish auto refreshing and verbosity:<br>/vis/viewer/set/autoRefresh true<br>/vis/verbose warnings</p>
-</li>
-<li><p>For file-based drivers, use this to create an empty detector view:<br>*/vis/viewer/flush</p>
-</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/Geant4_visualization/" data-id="ckjv3w9bi00386sdnhix82a7o" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Geant4/" rel="tag">Geant4</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
@@ -566,7 +498,7 @@ SYMBOL TABLE:
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Algorithm/" style="font-size: 11.25px;">Algorithm</a> <a href="/tags/Altium-Designer/" style="font-size: 14.38px;">Altium Designer</a> <a href="/tags/Apache/" style="font-size: 11.25px;">Apache</a> <a href="/tags/BeautifulSoup/" style="font-size: 10px;">BeautifulSoup</a> <a href="/tags/C/" style="font-size: 15px;">C</a> <a href="/tags/C/" style="font-size: 18.75px;">C++</a> <a href="/tags/Centos7/" style="font-size: 17.5px;">Centos7</a> <a href="/tags/Cython/" style="font-size: 10px;">Cython</a> <a href="/tags/Database/" style="font-size: 10.63px;">Database</a> <a href="/tags/Electronic/" style="font-size: 13.13px;">Electronic</a> <a href="/tags/English/" style="font-size: 11.88px;">English</a> <a href="/tags/Geant4/" style="font-size: 10.63px;">Geant4</a> <a href="/tags/Hardware/" style="font-size: 10px;">Hardware</a> <a href="/tags/Hexo/" style="font-size: 13.75px;">Hexo</a> <a href="/tags/Image/" style="font-size: 11.88px;">Image</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Jupyter/" style="font-size: 10px;">Jupyter</a> <a href="/tags/Linux/" style="font-size: 19.38px;">Linux</a> <a href="/tags/Markdown/" style="font-size: 15.63px;">Markdown</a> <a href="/tags/Mongodb/" style="font-size: 10px;">Mongodb</a> <a href="/tags/Nuclear-Physics/" style="font-size: 11.25px;">Nuclear Physics</a> <a href="/tags/Open/" style="font-size: 10px;">Open</a> <a href="/tags/Opencv/" style="font-size: 11.88px;">Opencv</a> <a href="/tags/Program/" style="font-size: 18.13px;">Program</a> <a href="/tags/PyPI/" style="font-size: 10px;">PyPI</a> <a href="/tags/Py-Crawler/" style="font-size: 10.63px;">Py_Crawler</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/Random/" style="font-size: 10px;">Random</a> <a href="/tags/Resource/" style="font-size: 10.63px;">Resource</a> <a href="/tags/Root/" style="font-size: 10.63px;">Root</a> <a href="/tags/Scipy/" style="font-size: 10px;">Scipy</a> <a href="/tags/Shell/" style="font-size: 16.25px;">Shell</a> <a href="/tags/Solidwork/" style="font-size: 10.63px;">Solidwork</a> <a href="/tags/TTree/" style="font-size: 10px;">TTree</a> <a href="/tags/Tensorflow/" style="font-size: 15px;">Tensorflow</a> <a href="/tags/Thread/" style="font-size: 10px;">Thread</a> <a href="/tags/Urllib2/" style="font-size: 10px;">Urllib2</a> <a href="/tags/Virtual-memory/" style="font-size: 10px;">Virtual memory</a> <a href="/tags/cmake/" style="font-size: 12.5px;">cmake</a> <a href="/tags/cmd/" style="font-size: 10.63px;">cmd</a> <a href="/tags/data-structure/" style="font-size: 10.63px;">data structure</a> <a href="/tags/git/" style="font-size: 13.13px;">git</a> <a href="/tags/hexo/" style="font-size: 11.25px;">hexo</a> <a href="/tags/htop/" style="font-size: 10px;">htop</a> <a href="/tags/keras/" style="font-size: 10.63px;">keras</a> <a href="/tags/latex/" style="font-size: 14.38px;">latex</a> <a href="/tags/os/" style="font-size: 10px;">os</a> <a href="/tags/qt/" style="font-size: 10px;">qt</a> <a href="/tags/requests/" style="font-size: 10px;">requests</a> <a href="/tags/sk-learn/" style="font-size: 10px;">sk-learn</a> <a href="/tags/ssh/" style="font-size: 12.5px;">ssh</a> <a href="/tags/statistic/" style="font-size: 10px;">statistic</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/windows/" style="font-size: 16.88px;">windows</a> <a href="/tags/yolo%EF%BC%8CC/" style="font-size: 10px;">yolo，C</a>
+      <a href="/tags/Algorithm/" style="font-size: 11.25px;">Algorithm</a> <a href="/tags/Altium-Designer/" style="font-size: 14.38px;">Altium Designer</a> <a href="/tags/Apache/" style="font-size: 11.25px;">Apache</a> <a href="/tags/BeautifulSoup/" style="font-size: 10px;">BeautifulSoup</a> <a href="/tags/C/" style="font-size: 15px;">C</a> <a href="/tags/C/" style="font-size: 18.75px;">C++</a> <a href="/tags/Centos7/" style="font-size: 17.5px;">Centos7</a> <a href="/tags/Cython/" style="font-size: 10px;">Cython</a> <a href="/tags/Database/" style="font-size: 11.25px;">Database</a> <a href="/tags/Electronic/" style="font-size: 13.13px;">Electronic</a> <a href="/tags/English/" style="font-size: 11.88px;">English</a> <a href="/tags/Geant4/" style="font-size: 10.63px;">Geant4</a> <a href="/tags/Hardware/" style="font-size: 10px;">Hardware</a> <a href="/tags/Hexo/" style="font-size: 13.75px;">Hexo</a> <a href="/tags/Image/" style="font-size: 11.88px;">Image</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Jupyter/" style="font-size: 10px;">Jupyter</a> <a href="/tags/Linux/" style="font-size: 19.38px;">Linux</a> <a href="/tags/Markdown/" style="font-size: 15.63px;">Markdown</a> <a href="/tags/Mongodb/" style="font-size: 10px;">Mongodb</a> <a href="/tags/Nuclear-Physics/" style="font-size: 11.25px;">Nuclear Physics</a> <a href="/tags/Open/" style="font-size: 10px;">Open</a> <a href="/tags/Opencv/" style="font-size: 11.88px;">Opencv</a> <a href="/tags/Program/" style="font-size: 18.13px;">Program</a> <a href="/tags/PyPI/" style="font-size: 10px;">PyPI</a> <a href="/tags/Py-Crawler/" style="font-size: 10.63px;">Py_Crawler</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/Random/" style="font-size: 10px;">Random</a> <a href="/tags/Resource/" style="font-size: 10.63px;">Resource</a> <a href="/tags/Root/" style="font-size: 10.63px;">Root</a> <a href="/tags/Scipy/" style="font-size: 10px;">Scipy</a> <a href="/tags/Shell/" style="font-size: 16.25px;">Shell</a> <a href="/tags/Solidwork/" style="font-size: 10.63px;">Solidwork</a> <a href="/tags/TTree/" style="font-size: 10px;">TTree</a> <a href="/tags/Tensorflow/" style="font-size: 15px;">Tensorflow</a> <a href="/tags/Thread/" style="font-size: 10px;">Thread</a> <a href="/tags/Urllib2/" style="font-size: 10px;">Urllib2</a> <a href="/tags/Virtual-memory/" style="font-size: 10px;">Virtual memory</a> <a href="/tags/cmake/" style="font-size: 12.5px;">cmake</a> <a href="/tags/cmd/" style="font-size: 10.63px;">cmd</a> <a href="/tags/data-structure/" style="font-size: 10.63px;">data structure</a> <a href="/tags/git/" style="font-size: 13.13px;">git</a> <a href="/tags/hexo/" style="font-size: 11.25px;">hexo</a> <a href="/tags/htop/" style="font-size: 10px;">htop</a> <a href="/tags/keras/" style="font-size: 10.63px;">keras</a> <a href="/tags/latex/" style="font-size: 14.38px;">latex</a> <a href="/tags/os/" style="font-size: 10px;">os</a> <a href="/tags/qt/" style="font-size: 10px;">qt</a> <a href="/tags/requests/" style="font-size: 10px;">requests</a> <a href="/tags/sk-learn/" style="font-size: 10px;">sk-learn</a> <a href="/tags/ssh/" style="font-size: 12.5px;">ssh</a> <a href="/tags/statistic/" style="font-size: 10px;">statistic</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/windows/" style="font-size: 16.88px;">windows</a> <a href="/tags/yolo%EF%BC%8CC/" style="font-size: 10px;">yolo，C</a>
     </div>
   </div>
 
@@ -575,7 +507,7 @@ SYMBOL TABLE:
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li></ul>
     </div>
   </div>
 
@@ -586,6 +518,10 @@ SYMBOL TABLE:
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/hive_warn_ssl/">启动hive出现ssl警告</a>
+          </li>
         
           <li>
             <a href="/Linux_netstat/">netstat显示网络状态</a>
@@ -601,10 +537,6 @@ SYMBOL TABLE:
         
           <li>
             <a href="/python_cprint/">Python使用cprint模块打印带颜色字符</a>
-          </li>
-        
-          <li>
-            <a href="/Hbase_noHRegionServer/">Hbase启动集群有些节点没有HRegionServer</a>
           </li>
         
       </ul>
