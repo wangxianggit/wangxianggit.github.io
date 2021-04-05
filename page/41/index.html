@@ -67,6 +67,63 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-c++_inline_function" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/c++_inline_function/" class="article-date">
+  <time datetime="2018-11-08T16:56:47.000Z" itemprop="datePublished">2018-11-09</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/learning/">learning</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/c++_inline_function/">c++内联函数</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+
+        <ul>
+<li><p>​C++ 内联函数通常和类一起使用，或在定义类前定义内联函数。</p>
+</li>
+<li><p>c++内联函数定义在函数名前用关键字inline。</p>
+<ul>
+<li>```<br>inline void Foo(int x, int y)<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 内联函数通常和类一起用，或把函数放在类定义前。</span><br><span class="line"></span><br><span class="line">* 定义一个内联函数后，编译器编译程序时把该函数代码展开到每个调用该函数调用的地方。</span><br><span class="line"></span><br><span class="line">* 在类定义中的定义的函数都是内联函数，即使没有使用 <span class="keyword">inline</span>说明符。</span><br><span class="line"></span><br><span class="line">  * ```</span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">A</span></span></span><br><span class="line"><span class="class">    &#123;</span></span><br><span class="line">        <span class="keyword">public</span>:<span class="function"><span class="keyword">void</span> <span class="title">Foo</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;  &#125; <span class="comment">// 自动地成为内联函数</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>定义内联函数，代码编译时函数体就替换出现内联函数调用的语句不需要如一般函数在运行时才进行替换，提高运行效率，同时增大内存开销。所以内联函数一般很小，小于10行。</p>
+</li>
+<li><p>内联函数内不允许使用循环语句和开关语句。</p>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wangxianggit.github.io/c++_inline_function/" data-id="ckjv3w9d0009m6sdn0qrh5lbn" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C++</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-Geant4" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/Geant4/" class="article-date">
@@ -310,63 +367,6 @@ U：取消标记所有的进程
 
 
   
-    <article id="post-latex_table_slating_column" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/latex_table_slating_column/" class="article-date">
-  <time datetime="2018-10-07T11:14:31.000Z" itemprop="datePublished">2018-10-07</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/learning/">learning</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/latex_table_slating_column/">latex表格斜向分栏</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-
-        <ul>
-<li><p>使用宏包diagbox，引导栏加入 \usepackage{diagbox}</p>
-</li>
-<li><p>使用\diagbox{foo}{bar}或\diagbox{foo}{barz}{bar}</p>
-</li>
-<li><p>示例代码：</p>
-<figure class="highlight dust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml">\begin</span><span class="template-variable">&#123;table&#125;</span><span class="xml">[htp]</span></span><br><span class="line"></span><br><span class="line"><span class="xml">\caption</span><span class="template-variable">&#123;Th Isotopes Internal Conversion Coefficient of K and L shell&#125;</span></span><br><span class="line"><span class="xml">\begin</span><span class="template-variable">&#123;center&#125;</span></span><br><span class="line"><span class="xml">\begin</span><span class="template-variable">&#123;tabular&#125;</span><span class="template-variable">&#123;p&#123;80pt&#125;</span><span class="xml">p</span><span class="template-variable">&#123;40pt&#125;</span><span class="xml">p</span><span class="template-variable">&#123;40pt&#125;</span><span class="xml">p</span><span class="template-variable">&#123;80pt&#125;</span><span class="xml">p</span><span class="template-variable">&#123;40pt&#125;</span><span class="xml">p</span><span class="template-variable">&#123;40pt&#125;</span><span class="xml">&#125;</span></span><br><span class="line"><span class="xml">\hline</span></span><br><span class="line"><span class="xml">  \diagbox</span><span class="template-variable">&#123;E(keV)&#125;</span><span class="template-variable">&#123;Coe(K)&#125;</span><span class="template-variable">&#123;Multi&#125;</span><span class="xml"> &amp; M1 &amp; E2  &amp; \diagbox</span><span class="template-variable">&#123;E(keV)&#125;</span><span class="template-variable">&#123;Coe(L)&#125;</span><span class="template-variable">&#123;Multi&#125;</span><span class="xml"> &amp; M1 &amp;E2\\</span></span><br><span class="line"><span class="xml">\hline</span></span><br><span class="line"><span class="xml">  181&amp;        2.76&amp; 0.19&amp; 181&amp; 0.52&amp; 0.56\\</span></span><br><span class="line"><span class="xml">  229&amp;        1.43&amp; 0.12&amp;  229&amp; 0.27&amp; 0.21 \\</span></span><br><span class="line"><span class="xml">\hline</span></span><br><span class="line"><span class="xml">\end</span><span class="template-variable">&#123;tabular&#125;</span></span><br><span class="line"><span class="xml">\label</span><span class="template-variable">&#123;tab1&#125;</span></span><br><span class="line"><span class="xml">\end</span><span class="template-variable">&#123;center&#125;</span></span><br><span class="line"><span class="xml">\end</span><span class="template-variable">&#123;table&#125;</span></span><br></pre></td></tr></table></figure></li>
-<li><p>输出结果</p>
-<ul>
-<li><img src="latex_table_slating_column/pic.JPG"></li>
-</ul>
-</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/latex_table_slating_column/" data-id="ckjv3w9du00db6sdn3ff44kzi" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/latex/" rel="tag">latex</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
@@ -399,7 +399,7 @@ U：取消标记所有的进程
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/">Algorithm</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Altium/">Altium</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Database/">Database</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Py-Crawler/">Py_Crawler</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/learning/">learning</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/">Algorithm</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Altium/">Altium</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Database/">Database</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Learning/">Learning</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Py-Crawler/">Py_Crawler</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/learning/">learning</a></li></ul>
     </div>
   </div>
 
@@ -441,6 +441,10 @@ U：取消标记所有的进程
       <ul>
         
           <li>
+            <a href="/Linux_ps_zombie_process/">Linux系统查看僵尸进程</a>
+          </li>
+        
+          <li>
             <a href="/hive_connection_block/">hive初始化many connection error</a>
           </li>
         
@@ -454,10 +458,6 @@ U：取消标记所有的进程
         
           <li>
             <a href="/Python_tqdm/">Python 使用tqdm模块添加进度条</a>
-          </li>
-        
-          <li>
-            <a href="/python_error_validate_lengths/">Python ImportError cannot import name &#39;_validate_lengths&#39;</a>
           </li>
         
       </ul>

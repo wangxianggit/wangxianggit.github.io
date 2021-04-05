@@ -67,6 +67,74 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Python_key_word_import" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/Python_key_word_import/" class="article-date">
+  <time datetime="2019-02-16T15:21:33.000Z" itemprop="datePublished">2019-02-16</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Python/">Python</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/Python_key_word_import/">Python关键字import基本用法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+
+        <ul>
+<li><p>​ 导入包名称</p>
+<ul>
+<li><pre><code>import numpy</code></pre>
+</li>
+</ul>
+</li>
+<li><p>​ 从包中导入函数</p>
+<ul>
+<li>```<br>from math import pow<figure class="highlight elm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* ​ 导入包并赋予别名</span><br><span class="line"></span><br><span class="line">  - ```</span><br><span class="line">    <span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>导入包中所有内容</p>
+<ul>
+<li><pre><code>from matpoltlib import *</code></pre>
+</li>
+</ul>
+</li>
+<li><p>在import导入python脚本后并没有执行上面的代码，但可以访问其中的常量，对象和函数。</p>
+</li>
+<li><p>在模块中若导入python包，这些包只限于在模块中使用，外部代码使用这些包需要重新导入。</p>
+</li>
+</ul>
+<hr>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wangxianggit.github.io/Python_key_word_import/" data-id="ckjv3w9cf00726sdn1oryfqid" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Program/" rel="tag">Program</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-git_error_warning LF will be replaced by CRLF" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/git_error_warning%20LF%20will%20be%20replaced%20by%20CRLF/" class="article-date">
@@ -336,65 +404,6 @@ array([ 0.56911206,  0.99777291,  0.18943144,  0.19387287,  0.75090637,
 
 
   
-    <article id="post-Python_pandas.io.data_modified" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/Python_pandas.io.data_modified/" class="article-date">
-  <time datetime="2019-02-10T00:32:42.000Z" itemprop="datePublished">2019-02-10</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Python/">Python</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/Python_pandas.io.data_modified/">Python中pandas.io.data模块迁移</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-
-        <ul>
-<li><p>在python3中原pandas.io.data模块迁移到了pandas_datareader.data模块下。</p>
-</li>
-<li><p>模块安装：</p>
-<ul>
-<li>~~~<br>pip install pandas-datareader<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 使用命令<span class="selector-tag">pip</span> <span class="selector-tag">list</span>可以查看已经安装的<span class="selector-tag">pyhton</span>包：</span><br><span class="line"></span><br><span class="line">  * ~~~</span><br><span class="line">    <span class="selector-tag">odo</span> (<span class="number">0.5</span>.<span class="number">1</span>)</span><br><span class="line">    <span class="selector-tag">olefile</span> (<span class="number">0.44</span>)</span><br><span class="line">    <span class="selector-tag">openpyxl</span> (<span class="number">2.4</span>.<span class="number">8</span>)</span><br><span class="line">    <span class="selector-tag">packaging</span> (<span class="number">16.8</span>)</span><br><span class="line">    <span class="selector-tag">pandas</span> (<span class="number">0.20</span>.<span class="number">3</span>)</span><br><span class="line">    <span class="selector-tag">pandas-datareader</span> (<span class="number">0.7</span>.<span class="number">0</span>)</span><br><span class="line">    <span class="selector-tag">pandocfilters</span> (<span class="number">1.4</span>.<span class="number">2</span>)</span><br><span class="line">    <span class="selector-tag">partd</span> (<span class="number">0.3</span>.<span class="number">8</span>)</span><br><span class="line">    <span class="selector-tag">path</span><span class="selector-class">.py</span> (<span class="number">10.3</span>.<span class="number">1</span>)</span><br><span class="line">    <span class="selector-tag">pathlib2</span> (<span class="number">2.3</span>.<span class="number">0</span>)</span><br><span class="line">    <span class="selector-tag">patsy</span> (<span class="number">0.4</span>.<span class="number">1</span>)</span><br><span class="line">    <span class="selector-tag">pep8</span> (<span class="number">1.7</span>.<span class="number">0</span>)</span><br><span class="line">    <span class="selector-tag">pexpect</span> (<span class="number">4.2</span>.<span class="number">1</span>)</span><br><span class="line">    <span class="selector-tag">pickleshare</span> (<span class="number">0.7</span>.<span class="number">4</span>)</span><br><span class="line">    <span class="selector-tag">Pillow</span> (<span class="number">4.2</span>.<span class="number">1</span>)</span><br></pre></td></tr></table></figure></li>
-<li>可见pandas-datareader已经包含在安装列表里面</li>
-</ul>
-</li>
-<li><p>在python命令行中导入相应包：import pandas_datareader.data  as web</p>
-</li>
-<li><p>安装时是‘pandas-datareader’，导入时是‘pandas_datareader’.</p>
-</li>
-</ul>
-<hr>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/Python_pandas.io.data_modified/" data-id="ckjv3w9cn007x6sdng3nj6eh3" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Program/" rel="tag">Program</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
@@ -427,7 +436,7 @@ array([ 0.56911206,  0.99777291,  0.18943144,  0.19387287,  0.75090637,
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/">Algorithm</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Altium/">Altium</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Database/">Database</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Py-Crawler/">Py_Crawler</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/learning/">learning</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/">Algorithm</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Altium/">Altium</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Database/">Database</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Learning/">Learning</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Py-Crawler/">Py_Crawler</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/learning/">learning</a></li></ul>
     </div>
   </div>
 
@@ -469,6 +478,10 @@ array([ 0.56911206,  0.99777291,  0.18943144,  0.19387287,  0.75090637,
       <ul>
         
           <li>
+            <a href="/Linux_ps_zombie_process/">Linux系统查看僵尸进程</a>
+          </li>
+        
+          <li>
             <a href="/hive_connection_block/">hive初始化many connection error</a>
           </li>
         
@@ -482,10 +495,6 @@ array([ 0.56911206,  0.99777291,  0.18943144,  0.19387287,  0.75090637,
         
           <li>
             <a href="/Python_tqdm/">Python 使用tqdm模块添加进度条</a>
-          </li>
-        
-          <li>
-            <a href="/python_error_validate_lengths/">Python ImportError cannot import name &#39;_validate_lengths&#39;</a>
           </li>
         
       </ul>

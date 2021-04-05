@@ -67,6 +67,90 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Python_statement_try_except" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/Python_statement_try_except/" class="article-date">
+  <time datetime="2019-02-26T14:51:57.000Z" itemprop="datePublished">2019-02-26</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Python/">Python</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/Python_statement_try_except/">Python异常处理语句try和except</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+
+        <h2 id="try-except和finally语句"><a href="#try-except和finally语句" class="headerlink" title="try except和finally语句"></a>try except和finally语句</h2><ul>
+<li>​ Python中，try/except语句用于处理程序执行过程的异常情况，如语法、数据除零等错误。</li>
+<li>try/finally语句用于无论是否发生异常情况，都需要执行的清理工作，如在通信过程中，无论通信是否发生错误，都需要在通信完成或者发生错误时关闭网络连接。</li>
+<li>尽管try/except和try/finally的作用不同，但是在编程实践中通常可以把它们组合在一起使try/except/else/finally的形式来实现稳定性和灵活性更好的设计。</li>
+<li>默认情况下，在程序段的执行过程中，如果没有提供try/except的处理，脚本文件执行过程中所产生的异常消息会自动发送给程序调用端，如python shell，而python shell对异常消息的默认处理则是终止程序的执行并打印具体的出错信息。</li>
+</ul>
+<h2 id="语句格式"><a href="#语句格式" class="headerlink" title="语句格式"></a>语句格式</h2><ul>
+<li><p>python中try/except/else/finally语句的完整格式如下：</p>
+<ul>
+<li><pre><code>try:
+     Normal execution block
+except A:
+     Exception A handle
+except B:
+     Exception B handle
+except:
+     Other exception handle
+else:
+     if no exception,get here
+finally:
+     print(&quot;finally&quot;)   </code></pre>
+</li>
+</ul>
+</li>
+<li><p>语句错误处理</p>
+<ul>
+<li>正常执行的程序在try下面的Normal execution block执行块中执行，在执行过程中如果发生了异常，则<strong>中断当前在Normal execution block中的执行</strong>，跳转到对应的异常处理块中开始执行；</li>
+<li>python<strong>从第一个except X处开始查找</strong>，如果找到了对应的exception类型则进入其提供的exception handle中进行处理，如果没有找到则直接进入except块处进行处理。except块是可选项，如果没有提供，该exception将会被提交给python进行默认处理，处理方式则是<strong>终止应用程序并打印提示信息</strong>；</li>
+<li>如果在Normal execution block执行块中执行过程中没有发生任何异常，则在执行完Normal execution block后会进入else执行块中（如果存在的话）执行。</li>
+<li>无论是否发生了异常，只要提供了finally语句，以上try/except/else/finally代码块执行的最后一步总是执行finally所对应的代码块。</li>
+</ul>
+</li>
+<li><p>在上面所示的完整语句中try/except/else/finally所出现的顺序必须是try–&gt;except X–&gt;except–&gt;else–&gt;finally，即所有的<strong>except必须在else和finally之前</strong>，<strong>else（如果有的话）必须在finally之前</strong>，而<strong>except X必须在except之前</strong>。否则会出现语法错误。</p>
+</li>
+<li><p>对于上面所展示的try/except完整格式而言，else和finally都是可选的，而不是必须的，但是如果存在的话e<strong>lse必须在finally之前</strong>，<strong>finally</strong>（如果存在的话）<strong>必须在整个语句的最后位置</strong>。</p>
+</li>
+<li><p>在上面的完整语句中，else语句的存在必须以except X或者except语句为前提，<strong>如果在没有except语句的try block中使用else语句会引发语法错误</strong>。也就是说<strong>else不能与try/finally配合使用</strong>。</p>
+</li>
+</ul>
+<hr>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wangxianggit.github.io/Python_statement_try_except/" data-id="ckjv3w9cr008l6sdn6cf48d83" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Program/" rel="tag">Program</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-Python_library_Urllib2" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/Python_library_Urllib2/" class="article-date">
@@ -457,132 +541,6 @@ download(&#39;http://example.webscraping.com/&#39;)</code></pre>
 
 
   
-    <article id="post-Markdown_grammer" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/Markdown_grammer/" class="article-date">
-  <time datetime="2019-02-23T10:31:37.000Z" itemprop="datePublished">2019-02-23</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/learning/">learning</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/Markdown_grammer/">Markdown grammar</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-
-        <h2 id="Markdown-grammar"><a href="#Markdown-grammar" class="headerlink" title="Markdown grammar"></a>Markdown grammar</h2><h3 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h3><ul>
-<li>类Setext：任何数量的等号和减号（+ -）</li>
-<li>类atx形式：1到6个#号表示对应1到6阶标题，也可以添加作为对称效果，后面需要一个空格</li>
-</ul>
-<h3 id="区块引用"><a href="#区块引用" class="headerlink" title="区块引用"></a>区块引用</h3><ul>
-<li>标记区块引用类似email中用&gt;的引用方式。</li>
-<li>区块引用的嵌套：根据层次加上不同数量的&gt;:</li>
-</ul>
-<blockquote>
-<p>This is the first level of quoting</p>
-<blockquote>
-<p>This is the nested blockquote</p>
-</blockquote>
-</blockquote>
-<ul>
-<li>区块引用内可以使用其他的Markdown语法，包括标题、列表、代码区块等</li>
-</ul>
-<blockquote>
-<h5 id="This-is-the-first-block"><a href="#This-is-the-first-block" class="headerlink" title="This is the first block"></a>This is the first block</h5><ol>
-<li><p>This is the second block</p>
-</li>
-<li><p>This is the third block</p>
-<p>return shell_exec(“echo $input |  $markdown_script”)</p>
-</li>
-</ol>
-</blockquote>
-<h3 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h3><ul>
-<li>无序列表使用星号、加号或减号作为列表标记。</li>
-<li>有序列表受用数字接着一个英文句点。</li>
-</ul>
-<h3 id="代码区块"><a href="#代码区块" class="headerlink" title="代码区块"></a>代码区块</h3><ul>
-<li><p>简单缩进4个空格或是一个制表符</p>
-</li>
-<li><p>Here is an example of AppleScript:</p>
-<p>tell application “Foo”</p>
-<p>​    beep</p>
-<p>end tell</p>
-</li>
-</ul>
-<h3 id="分隔线"><a href="#分隔线" class="headerlink" title="分隔线"></a>分隔线</h3><ul>
-<li>在一行中用三个以上的星号、减号、底线来建立一个分隔线，行内可以插入空格。</li>
-</ul>
-<h3 id="区段元素"><a href="#区段元素" class="headerlink" title="区段元素"></a>区段元素</h3><ul>
-<li>行内式链接在方括号后面紧接着圆括号并插入网址链接：</li>
-</ul>
-<blockquote>
-<p>This is [an example](<a target="_blank" rel="noopener" href="http://example.com/&quot;title&quot;">http://example.com/&quot;title&quot;</a>) inline link</p>
-</blockquote>
-<ul>
-<li>参考式的链接在链接文字的括号后面再加上另一个方括号，而在第二个方括号里面要填入用以辨识链接的标记：</li>
-</ul>
-<blockquote>
-<p>This is [an example][id] reference-style link. </p>
-<p>在文字的任意处把标记的连接内容定义出来：[id]:<a target="_blank" rel="noopener" href="http://example.com/&quot;title&quot;">http://example.com/&quot;title&quot;</a></p>
-<p>链接标签可以有字母、数字、空白和标点符号但是并不区分大小写</p>
-</blockquote>
-<ul>
-<li>隐式链接标记中链接标记等同于链接文字，只要在链接文字后面加上一个空的方括号：</li>
-</ul>
-<blockquote>
-<p>[Google][] 定义连接内容：[Google]:<a target="_blank" rel="noopener" href="http://google.com/">http://google.com</a></p>
-<p>I get 10 times more traffic from [Google]<a target="_blank" rel="noopener" href="http://google.com/" title="Google">1</a> than from [Yahoo]<a target="_blank" rel="noopener" href="http://search.yahoo.com/" title="Yahoo Search">2</a> or [MSN]<a target="_blank" rel="noopener" href="http://search.msn.com/" title="MSN Search">3</a>.</p>
-</blockquote>
-<h3 id="强调"><a href="#强调" class="headerlink" title="强调"></a>强调</h3><ul>
-<li>Markdown使用星号和底线作为标记强调字词的符号，使用一个或两个符号包围的字词表示不用程度的强调。</li>
-</ul>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><ul>
-<li>标记小段行内代码用反引号包围起来 <code>Use the printf() function </code></li>
-<li>代码区段内含有反引号，可以用多个反引号来开启和结束代码区段。</li>
-<li>以三个反引号开头得到一个代码区段。</li>
-</ul>
-<h3 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h3><ul>
-<li><p>行内式的图片语法为</p>
-<ul>
-<li>~~~<br>![Alt text](/path to/img.jpg)<figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 参考式的图片语法为</span><br><span class="line"></span><br><span class="line">  * ~~~</span><br><span class="line">    ![Alt <span class="type">text</span>]<span class="built_in">[id</span>] <span class="built_in">[id</span>]:<span class="built_in"> path</span> <span class="keyword">to</span>/img.jpg <span class="string">&quot;optional title&quot;</span></span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-<li><p>目前，Markdown无法指定图片的高度和宽度，如果需要可以使用普通的&lt;img&gt;标签</p>
-</li>
-</ul>
-<hr>
-<p>2019/2/23</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/Markdown_grammer/" data-id="ckjv3w9bv004o6sdnhkgmcbg2" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
@@ -615,7 +573,7 @@ download(&#39;http://example.webscraping.com/&#39;)</code></pre>
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/">Algorithm</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Altium/">Altium</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Database/">Database</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Py-Crawler/">Py_Crawler</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/learning/">learning</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/">Algorithm</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Altium/">Altium</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Database/">Database</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Learning/">Learning</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Py-Crawler/">Py_Crawler</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/learning/">learning</a></li></ul>
     </div>
   </div>
 
@@ -657,6 +615,10 @@ download(&#39;http://example.webscraping.com/&#39;)</code></pre>
       <ul>
         
           <li>
+            <a href="/Linux_ps_zombie_process/">Linux系统查看僵尸进程</a>
+          </li>
+        
+          <li>
             <a href="/hive_connection_block/">hive初始化many connection error</a>
           </li>
         
@@ -670,10 +632,6 @@ download(&#39;http://example.webscraping.com/&#39;)</code></pre>
         
           <li>
             <a href="/Python_tqdm/">Python 使用tqdm模块添加进度条</a>
-          </li>
-        
-          <li>
-            <a href="/python_error_validate_lengths/">Python ImportError cannot import name &#39;_validate_lengths&#39;</a>
           </li>
         
       </ul>

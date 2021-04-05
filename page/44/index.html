@@ -67,6 +67,62 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-windows_configure_jupyter notebook_remote" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/windows_configure_jupyter%20notebook_remote/" class="article-date">
+  <time datetime="2018-04-23T16:28:54.000Z" itemprop="datePublished">2018-04-24</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/learning/">learning</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/windows_configure_jupyter%20notebook_remote/">windows下配置jupyter notebook远程连接</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+
+        <ul>
+<li><p>生成配置文件：jupyter botebook –generate-config</p>
+</li>
+<li><p>生成密钥，打开python解释器 </p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">python</span><br><span class="line">from notebook<span class="selector-class">.auth</span> import passwd</span><br><span class="line"><span class="function"><span class="title">passwd</span><span class="params">()</span></span></span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+<li><p>修改配置文件</p>
+<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">编辑器打开：~/.jupyter/jupyter_notebook_config.py</span><br><span class="line">修改一下几行：</span><br><span class="line">c.<span class="module-access"><span class="module"><span class="identifier">NotebookApp</span>.</span></span>ip = <span class="character">&#x27;*&#x27;</span></span><br><span class="line">c.<span class="module-access"><span class="module"><span class="identifier">NotebookApp</span>.</span></span>password = &#x27;复制生成的密码 格式：<span class="keyword">type</span>:salt:hashed-password</span><br><span class="line">c.<span class="module-access"><span class="module"><span class="identifier">NotebookApp</span>.</span></span>port = <span class="number">8888</span></span><br></pre></td></tr></table></figure></li>
+<li><p>修改~/.jupyter/jupyter_notebook_config.json文件，复制生成密码到相应位置。</p>
+</li>
+<li><p>服务器中输入ip：8888，密码即可访问。</p>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wangxianggit.github.io/windows_configure_jupyter%20notebook_remote/" data-id="ckjv3w9fx00oc6sdnd3t4c872" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-windows_git_configuration" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/windows_git_configuration/" class="article-date">
@@ -246,7 +302,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/">Algorithm</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Altium/">Altium</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Database/">Database</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Py-Crawler/">Py_Crawler</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/learning/">learning</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/">Algorithm</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Altium/">Altium</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Database/">Database</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Learning/">Learning</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Py-Crawler/">Py_Crawler</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/learning/">learning</a></li></ul>
     </div>
   </div>
 
@@ -288,6 +344,10 @@
       <ul>
         
           <li>
+            <a href="/Linux_ps_zombie_process/">Linux系统查看僵尸进程</a>
+          </li>
+        
+          <li>
             <a href="/hive_connection_block/">hive初始化many connection error</a>
           </li>
         
@@ -301,10 +361,6 @@
         
           <li>
             <a href="/Python_tqdm/">Python 使用tqdm模块添加进度条</a>
-          </li>
-        
-          <li>
-            <a href="/python_error_validate_lengths/">Python ImportError cannot import name &#39;_validate_lengths&#39;</a>
           </li>
         
       </ul>

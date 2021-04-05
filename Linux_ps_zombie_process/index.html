@@ -5,20 +5,20 @@
   
 
   
-  <title>Centos7修改添加yum变量 | There is no rose without a thorn</title>
+  <title>Linux系统查看僵尸进程 | There is no rose without a thorn</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Centos yum变量保存目录路径：&#x2F;etc&#x2F;yum&#x2F;vars 其中文件名是变量名，文件内容是变量的值 例如在目录下建立一个文件，文件名为basearch，文件内容为x86_64,则yum文件在自动搜索域名时能够将变量名转换为设定字符。">
+  <meta name="description" content="Linux系统查看僵尸进程 ps 命令可以查看有哪些进程正在运行和运行地状态、 进程 是否结束、进程有没有僵死、哪些进程占用了过多地资源等。 ps 命令最经常使用于监控后台进程工作情况,因为后台进程不和屏幕键盘这些标准输入&#x2F;输出设备进行通信,所以如果需要检测其情况,可以使用ps命令。 语法格式：ps [选项参数] 可用参数：  12345678-e 显示所有进程,环境变量-f 全格式-h 不显示标">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Centos7修改添加yum变量">
-<meta property="og:url" content="http://wangxianggit.github.io/Centos7_modified_add_yum_variables/index.html">
+<meta property="og:title" content="Linux系统查看僵尸进程">
+<meta property="og:url" content="http://wangxianggit.github.io/Linux_ps_zombie_process/index.html">
 <meta property="og:site_name" content="There is no rose without a thorn">
-<meta property="og:description" content="Centos yum变量保存目录路径：&#x2F;etc&#x2F;yum&#x2F;vars 其中文件名是变量名，文件内容是变量的值 例如在目录下建立一个文件，文件名为basearch，文件内容为x86_64,则yum文件在自动搜索域名时能够将变量名转换为设定字符。">
+<meta property="og:description" content="Linux系统查看僵尸进程 ps 命令可以查看有哪些进程正在运行和运行地状态、 进程 是否结束、进程有没有僵死、哪些进程占用了过多地资源等。 ps 命令最经常使用于监控后台进程工作情况,因为后台进程不和屏幕键盘这些标准输入&#x2F;输出设备进行通信,所以如果需要检测其情况,可以使用ps命令。 语法格式：ps [选项参数] 可用参数：  12345678-e 显示所有进程,环境变量-f 全格式-h 不显示标">
 <meta property="og:locale">
-<meta property="article:published_time" content="2018-07-23T13:41:07.000Z">
-<meta property="article:modified_time" content="2018-07-23T13:48:44.777Z">
+<meta property="article:published_time" content="2021-04-05T14:28:37.000Z">
+<meta property="article:modified_time" content="2021-04-05T15:08:14.760Z">
 <meta property="article:author" content="wangxiang">
-<meta property="article:tag" content="Centos7">
 <meta property="article:tag" content="Linux">
+<meta property="article:tag" content="Shell">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="There is no rose without a thorn" type="application/atom+xml">
@@ -69,14 +69,14 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-Centos7_modified_add_yum_variables" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-Linux_ps_zombie_process" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/Centos7_modified_add_yum_variables/" class="article-date">
-  <time datetime="2018-07-23T13:41:07.000Z" itemprop="datePublished">2018-07-23</time>
+    <a href="/Linux_ps_zombie_process/" class="article-date">
+  <time datetime="2021-04-05T14:28:37.000Z" itemprop="datePublished">2021-04-05</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/learning/">learning</a>
+    <a class="article-category-link" href="/categories/Learning/">Learning</a>
   </div>
 
   </div>
@@ -87,7 +87,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Centos7修改添加yum变量
+      Linux系统查看僵尸进程
     </h1>
   
 
@@ -99,22 +99,29 @@
 
   <div id="toc" class="toc-article">
     <strong class="toc-title">article content</strong>
-    
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux%E7%B3%BB%E7%BB%9F%E6%9F%A5%E7%9C%8B%E5%83%B5%E5%B0%B8%E8%BF%9B%E7%A8%8B"><span class="toc-number">1.</span> <span class="toc-text">Linux系统查看僵尸进程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E6%89%BEzoobie%E8%BF%9B%E7%A8%8B"><span class="toc-number">2.</span> <span class="toc-text">查找zoobie进程</span></a></li></ol>
   </div>
 
-        <ul>
-<li>Centos yum变量保存目录路径：/etc/yum/vars</li>
-<li>其中文件名是变量名，文件内容是变量的值</li>
-<li>例如在目录下建立一个文件，文件名为basearch，文件内容为x86_64,则yum文件在自动搜索域名时能够将变量名转换为设定字符。</li>
+        <h3 id="Linux系统查看僵尸进程"><a href="#Linux系统查看僵尸进程" class="headerlink" title="Linux系统查看僵尸进程"></a>Linux系统查看僵尸进程</h3><ul>
+<li>ps 命令可以查看有哪些进程正在运行和运行地状态、 进程 是否结束、进程有没有僵死、哪些进程占用了过多地资源等。</li>
+<li>ps 命令最经常使用于监控后台进程工作情况,因为后台进程不和屏幕键盘这些标准输入/输出设<br>备进行通信,所以如果需要检测其情况,可以使用ps命令。</li>
+<li>语法格式：<code>ps [选项参数]</code></li>
+<li>可用参数：</li>
 </ul>
+<figure class="highlight diff"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="deletion">-e 显示所有进程,环境变量</span></span><br><span class="line"><span class="deletion">-f 全格式</span></span><br><span class="line"><span class="deletion">-h 不显示标题</span></span><br><span class="line"><span class="deletion">-l 长格式</span></span><br><span class="line"><span class="deletion">-w 宽输出</span></span><br><span class="line"><span class="deletion">-a 显示终端上所有进程,包括其他用户地进程</span></span><br><span class="line"><span class="deletion">-r 只显示正在运行地进程</span></span><br><span class="line"><span class="deletion">-x 显示没有控制终端地进程</span></span><br></pre></td></tr></table></figure>
+<h3 id="查找zoobie进程"><a href="#查找zoobie进程" class="headerlink" title="查找zoobie进程"></a>查找zoobie进程</h3><ul>
+<li>使用top命令查看zoobie进程的数量，num zombie栏不为零则存在zombie进程。</li>
+<li>使用ps命令查找zoobie进程：<code>ps -A -ostat,ppid,pid,cmd | grep -e &#39;^[zZ]&#39;</code></li>
+</ul>
+<hr>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/Centos7_modified_add_yum_variables/" data-id="ckjv3w9b5001s6sdnbvc108jh" class="article-share-link">Share</a>
+      <a data-url="http://wangxianggit.github.io/Linux_ps_zombie_process/" data-id="ckn4qaxgx0000x8dn2n2p47qf" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Centos7/" rel="tag">Centos7</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Shell/" rel="tag">Shell</a></li></ul>
 
     </footer>
   </div>
@@ -122,19 +129,10 @@
     
 <nav id="article-nav">
   
-    <a href="/Centos7_install_Qt5.9/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          Centos7安装Qt5.9
-        
-      </div>
-    </a>
   
-  
-    <a href="/C_C++_mixed_compile/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/hive_connection_block/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">C和C＋＋混合编译</div>
+      <div class="article-nav-title">hive初始化many connection error</div>
     </a>
   
 </nav>

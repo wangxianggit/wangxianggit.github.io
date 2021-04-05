@@ -67,6 +67,68 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Hexo_blog_add_links" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/Hexo_blog_add_links/" class="article-date">
+  <time datetime="2019-02-17T08:26:57.000Z" itemprop="datePublished">2019-02-17</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/learning/">learning</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/Hexo_blog_add_links/">Hexo侧边栏添加外链</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+
+        <ul>
+<li><p>以landscape主题为例，在侧边栏添加外部链接。 </p>
+</li>
+<li><p>在/layout/_widget/目录下复制archive.ejs并重新命名为links.ejs，修改文件内容为：</p>
+<ul>
+<li>~~~<br>&lt;% if (site.posts.length){ %&gt;  <div class="widget-wrap">
+    <h3 class="widget-title"><%= __('links') %></h3>
+    <div class="widget">
+      <li><a href="https://wangxianggit.github.io/About%20me/" title="wangxiang's Blog">About Author</a></li>
+    </div>
+  </div>
+<% } %>
+<figure class="highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  * 其中href是需要添加的链接url，title后面是显示在侧边栏的名称。</span><br><span class="line"></span><br><span class="line">* 然后修改主题的配置文件_config.yml</span><br><span class="line"></span><br><span class="line">  * ~~~</span><br><span class="line">    # Sidebar</span><br><span class="line">    sidebar: right</span><br><span class="line">    widgets:</span><br><span class="line">    -<span class="ruby"> links /<span class="regexp">/新添加的那个外链</span></span></span><br><span class="line"><span class="ruby">    - category</span></span><br><span class="line"><span class="ruby">    - tag</span></span><br><span class="line"><span class="ruby">    - tagcloud</span></span><br><span class="line"><span class="ruby">    - archive</span></span><br><span class="line"><span class="ruby">    - recent_posts</span></span><br></pre></td></tr></table></figure></li>
+<li>此处新添的外链名称要和links.ejs名称相同</li>
+</ul>
+</li>
+</ul>
+<hr>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wangxianggit.github.io/Hexo_blog_add_links/" data-id="ckjv3w9bk003i6sdnc9me70oh" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-Python3_standard_data_type_bytes" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/Python3_standard_data_type_bytes/" class="article-date">
@@ -373,74 +435,6 @@ python 3.0
 
 
   
-    <article id="post-Python_key_word_import" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/Python_key_word_import/" class="article-date">
-  <time datetime="2019-02-16T15:21:33.000Z" itemprop="datePublished">2019-02-16</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Python/">Python</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/Python_key_word_import/">Python关键字import基本用法</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-
-        <ul>
-<li><p>​ 导入包名称</p>
-<ul>
-<li><pre><code>import numpy</code></pre>
-</li>
-</ul>
-</li>
-<li><p>​ 从包中导入函数</p>
-<ul>
-<li>```<br>from math import pow<figure class="highlight elm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* ​ 导入包并赋予别名</span><br><span class="line"></span><br><span class="line">  - ```</span><br><span class="line">    <span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-<li><p>导入包中所有内容</p>
-<ul>
-<li><pre><code>from matpoltlib import *</code></pre>
-</li>
-</ul>
-</li>
-<li><p>在import导入python脚本后并没有执行上面的代码，但可以访问其中的常量，对象和函数。</p>
-</li>
-<li><p>在模块中若导入python包，这些包只限于在模块中使用，外部代码使用这些包需要重新导入。</p>
-</li>
-</ul>
-<hr>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/Python_key_word_import/" data-id="ckjv3w9cf00726sdn1oryfqid" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Program/" rel="tag">Program</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
@@ -473,7 +467,7 @@ python 3.0
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/">Algorithm</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Altium/">Altium</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Database/">Database</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Py-Crawler/">Py_Crawler</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/learning/">learning</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/">Algorithm</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Altium/">Altium</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Database/">Database</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Learning/">Learning</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Py-Crawler/">Py_Crawler</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/learning/">learning</a></li></ul>
     </div>
   </div>
 
@@ -515,6 +509,10 @@ python 3.0
       <ul>
         
           <li>
+            <a href="/Linux_ps_zombie_process/">Linux系统查看僵尸进程</a>
+          </li>
+        
+          <li>
             <a href="/hive_connection_block/">hive初始化many connection error</a>
           </li>
         
@@ -528,10 +526,6 @@ python 3.0
         
           <li>
             <a href="/Python_tqdm/">Python 使用tqdm模块添加进度条</a>
-          </li>
-        
-          <li>
-            <a href="/python_error_validate_lengths/">Python ImportError cannot import name &#39;_validate_lengths&#39;</a>
           </li>
         
       </ul>
