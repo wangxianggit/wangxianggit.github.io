@@ -102,9 +102,9 @@
 <li>可用参数：</li>
 </ul>
 <figure class="highlight diff"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="deletion">-e 显示所有进程,环境变量</span></span><br><span class="line"><span class="deletion">-f 全格式</span></span><br><span class="line"><span class="deletion">-h 不显示标题</span></span><br><span class="line"><span class="deletion">-l 长格式</span></span><br><span class="line"><span class="deletion">-w 宽输出</span></span><br><span class="line"><span class="deletion">-a 显示终端上所有进程,包括其他用户地进程</span></span><br><span class="line"><span class="deletion">-r 只显示正在运行地进程</span></span><br><span class="line"><span class="deletion">-x 显示没有控制终端地进程</span></span><br></pre></td></tr></table></figure>
-<h3 id="查找zoobie进程"><a href="#查找zoobie进程" class="headerlink" title="查找zoobie进程"></a>查找zoobie进程</h3><ul>
-<li>使用top命令查看zoobie进程的数量，num zombie栏不为零则存在zombie进程。</li>
-<li>使用ps命令查找zoobie进程：<code>ps -A -ostat,ppid,pid,cmd | grep -e &#39;^[zZ]&#39;</code></li>
+<h3 id="查找zombie进程"><a href="#查找zombie进程" class="headerlink" title="查找zombie进程"></a>查找zombie进程</h3><ul>
+<li>使用top命令查看zombie进程的数量，num zombie栏不为零则存在zombie进程。</li>
+<li>使用ps命令查找zombie进程：<code>ps -A -ostat,ppid,pid,cmd | grep -e &#39;^[zZ]&#39;</code></li>
 </ul>
 <hr>
 
