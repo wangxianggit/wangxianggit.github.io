@@ -67,6 +67,94 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Python_file_operation_open" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/Python_file_operation_open/" class="article-date">
+  <time datetime="2019-03-12T02:59:38.000Z" itemprop="datePublished">2019-03-12</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Python/">Python</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/Python_file_operation_open/">python文件操作open</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+
+        <h2 id="Python文件对象"><a href="#Python文件对象" class="headerlink" title="Python文件对象"></a>Python文件对象</h2><ul>
+<li>Python的文件对象提供了丰富的函数用于访问磁盘文件以及其他类型的抽象文件。</li>
+<li>Python中内建函数open()和file()具有相同功能，可以替换。</li>
+</ul>
+<h2 id="Open对象函数"><a href="#Open对象函数" class="headerlink" title="Open对象函数"></a>Open对象函数</h2><ul>
+<li><p>创建文件对象</p>
+<ul>
+<li>~~~<br>file=open(“file”,’option’)<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">* <span class="selector-tag">option</span>参数：</span><br><span class="line"></span><br><span class="line">  * ~~~</span><br><span class="line">    文件模式   操作</span><br><span class="line">    <span class="selector-tag">r</span>  以只读方式打开</span><br><span class="line">    <span class="selector-tag">rU</span> 或 <span class="selector-tag">Ua</span> 以读方式打开, 同时提供通用换行符支持 (PEP <span class="number">278</span>)</span><br><span class="line">    <span class="selector-tag">w</span>  以写方式打开 (必要时清空)</span><br><span class="line">    <span class="selector-tag">a</span>  以追加模式打开 (从 EOF 开始, 必要时创建新文件)</span><br><span class="line">    <span class="selector-tag">r</span>+ 以读写模式打开</span><br><span class="line">    <span class="selector-tag">w</span>+ 以读写模式打开 (参见 w )</span><br><span class="line">    <span class="selector-tag">a</span>+ 以读写模式打开 (参见 a )</span><br><span class="line">    <span class="selector-tag">rb</span> 以二进制读模式打开</span><br><span class="line">    <span class="selector-tag">wb</span> 以二进制写模式打开 (参见 w )</span><br><span class="line">    <span class="selector-tag">ab</span> 以二进制追加模式打开 (参见 a )</span><br><span class="line">    <span class="selector-tag">rb</span>+ 以二进制读写模式打开 (参见 r+ )</span><br><span class="line">    <span class="selector-tag">wb</span>+ 以二进制读写模式打开 (参见 w+ )</span><br><span class="line">    <span class="selector-tag">ab</span>+ 以二进制读写模式打开 (参见 a+ )</span><br><span class="line">    <span class="selector-tag">x</span>    如果文件存在报错，不存在则创建</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>示例代码：</p>
+<ul>
+<li><pre><code>f = open(&#39;/etc/motd&#39;) # 以读方式打开
+f = open(&#39;test&#39;, &#39;w&#39;) # 以写方式打开
+f = open(&#39;data&#39;, &#39;r+&#39;) # 以读写方式打开
+f = open(&#39;io.sys&#39;, &#39;rb&#39;) # 以二进制读模式打开
+<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">## 文件对象的内建方法</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+file.close() 关闭文件
+file.fileno() 返回文件的描述符(file descriptor ,FD, 整数值)
+file.flush() 刷新文件的内部缓冲区
+file.isatty() 判断 file 是否是一个类 tty 设备
+file.nexta() 返回文件的下一行(类似于 file.readline() ), 或在没有其它行时
+引发 StopIteration 异常
+file.read(size=-1) 从文件读取 size 个字节, 当未给定 size 或给定负值的时候, 读
+取剩余的所有字节, 然后作为字符串返回.如果打开模式无b,则read按字符读取，否则按字节读取
+file.readline(size=-1) 从文件中读取并返回一行(包括行结束符), 或返回最大 size
+file=open(&#39;test&#39;,&#39;ab&#39;)
+file.write(bytes(&#39;hehe&#39;,encoding=&#39;utf-8&#39;)) 向文件写入字符串  (会覆盖原有数据，坑
+file.close() 关闭文件
+file.tell获取当前指针的位置
+file.read()如果打开模式无b,则read按字符读取，否则按字节读取
+file.fileno文件描述符
+file.truncat 截断数据，清除文件指针之后的数据
+file.seek(off, whence=0) 在文件中移动文件指针, 从 whence ( 0 代表文件其始, 1代表当前位置, 2 代表文件末尾)偏移 off 字节,不论是否有中文，都以字节为单位
+file.truncate(size=file.tell()) 截取文件到最大 size 字节, 默认为当前文件位置
+file.writelines(seq) 向文件写入字符串序列 seq ; seq 应该是一个返回字符串的
+可迭代对象
+file.readlines(sizhint=0) 读取文件的所有行并作为一个列表返回(包含所有的行结束
+符);</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wangxianggit.github.io/Python_file_operation_open/" data-id="ckjv3w9ca006c6sdna07m374g" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Open/" rel="tag">Open</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-Python_module_os" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/Python_module_os/" class="article-date">
@@ -455,104 +543,6 @@ description：
 
 
   
-    <article id="post-Python_keyword_with" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/Python_keyword_with/" class="article-date">
-  <time datetime="2019-03-09T13:08:39.000Z" itemprop="datePublished">2019-03-09</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Python/">Python</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/Python_keyword_with/">Python关键字with</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-
-        <h3 id="关键字with"><a href="#关键字with" class="headerlink" title="关键字with"></a>关键字with</h3><ul>
-<li><p>示例代码：</p>
-<ul>
-<li>~~~<br>with open(“/file.txt”) as fn:<pre><code>infd = fn.read()
-print(infd)</code></pre>
-<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 在上面的程序执行过后，<span class="keyword">with</span>语句会自动关闭文件，即相当在<span class="keyword">with</span>后面的语句执行结束后，会对当前的对象进行清理工作。</span><br><span class="line"></span><br><span class="line">* <span class="keyword">with</span>语句使用格式为：</span><br><span class="line"></span><br><span class="line">  * ~~~</span><br><span class="line">    <span class="keyword">with</span> 表达式[<span class="keyword">as</span> target(s)]:</span><br><span class="line">        执行语句</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-<li><p>with语句作用和try…except…finally语句类似，可以替代使用。</p>
-</li>
-</ul>
-<h3 id="工作原理"><a href="#工作原理" class="headerlink" title="工作原理"></a>工作原理</h3><ul>
-<li><p>with通过__enter__方法初始化，然后在__exit__中做善后以及处理异常。</p>
-</li>
-<li><p>其中__enter__方法在语句体（with语句包裹起来的代码块）执行之前进入运行，__exit__方法在语句体执行完毕退出后运行。</p>
-</li>
-<li><p>紧跟with后面的语句会被求值，返回对象的__enter__方法被调用，这个方法的返回值将被赋值给as关键字后面的变量，当with后面的代码块全部被执行完之后，将调用前面返回对象的__exit_方法。</p>
-</li>
-<li><p>with语句最关键的地方在于被求值对象必须有__enter__和__exit__这两个方法，那我们就可以通过自己实现这两方法来自定义with语句处理异常。</p>
-</li>
-<li><p>自定义__enter__和__exit__示例：</p>
-<ul>
-<li><pre><code>#encoding=utf-8
-
-class opened(object):
-    def __init__(self,filename):
-        self.handle=open(filename)
-        print &quot;File open:%s&quot;%filename
-    def __enter__(self):
-        print &quot;[enter%s]: Allocate resource.&quot;%self.handle
-        return self.handle #可以返回不同的对象
-    def __exit__(self,exc_type,exc_value,exc_trackback):
-        print &quot;[Exit %s]: Close the file.&quot; %self.handle
-        if exc_trackback is None:
-            print &quot;[Exit %s]:Exited without exception.&quot;%self.handle
-            self.handle.close()
-        else:
-            print &quot;[Exit %s]: Exited with exception raised.&quot;%self.handle
-        return False # 可以省略，缺省的None也是被看做是False
-
-</code></pre>
-</li>
-</ul>
-</li>
-</ul>
-<pre><code>with opened(r&#39;./fdata.txt&#39;) as fn:
-    infd = fn.read():
-    print(infd)
-
-with opened(r&#39;./fdata.txt&#39;) as fn:
-    for infd in fn.readlines():
-        print indf
-~~~</code></pre>
-<hr>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/Python_keyword_with/" data-id="ckjv3w9ci00796sdn7fzlhoii" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
@@ -627,6 +617,10 @@ with opened(r&#39;./fdata.txt&#39;) as fn:
       <ul>
         
           <li>
+            <a href="/linux_killall/">linux下杀死用户进程</a>
+          </li>
+        
+          <li>
             <a href="/Linux_ps_zombie_process/">Linux系统查看僵尸进程</a>
           </li>
         
@@ -640,10 +634,6 @@ with opened(r&#39;./fdata.txt&#39;) as fn:
         
           <li>
             <a href="/Linux_netstat/">netstat显示网络状态</a>
-          </li>
-        
-          <li>
-            <a href="/Python_tqdm/">Python 使用tqdm模块添加进度条</a>
           </li>
         
       </ul>
