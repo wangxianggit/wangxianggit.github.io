@@ -67,6 +67,80 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-C++_array_cite_and_cited_array" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/C++_array_cite_and_cited_array/" class="article-date">
+  <time datetime="2019-03-07T06:07:02.000Z" itemprop="datePublished">2019-03-07</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/learning/">learning</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/C++_array_cite_and_cited_array/">C++数组的引用和引用的数组</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+
+        <h2 id="C-数组的引用和引用的数组"><a href="#C-数组的引用和引用的数组" class="headerlink" title="C++数组的引用和引用的数组"></a>C++数组的引用和引用的数组</h2><ul>
+<li>数组变量array向右结合，相当于(int&amp;)array[n]，在这里array是一个数组，其中数组的每个元素是引用，即引用的数组。</li>
+<li>数组的引用中首先和&amp;结合，即(int &amp;array)[n]，这里array是引用，其引用的对象是数组。</li>
+</ul>
+<ul>
+<li><pre><code>#include &lt;iostream&gt;
+
+using namespace std;
+
+void Test(int (&amp;array)[5])
+&#123;
+    cout &lt;&lt; &quot;size:&quot; &lt;&lt; sizeof(array) &lt;&lt; endl;
+    for (int i = 0; i &lt; sizeof(array)/4; i++)
+    &#123;
+      cout &lt;&lt; array[i] &lt;&lt; &quot; &quot;&lt;&lt;endl;
+    &#125;
+&#125;
+int main()
+&#123;
+    int  array[5] = &#123;1,2,3,4,5&#125;;
+    Test(array);
+    int n3[3]=&#123;2,4,6&#125;;
+    int (&amp;rn3)[3]=n3;
+    for(int i=0;i&lt;3;i++)
+      cout&lt;&lt;n3[i]&lt;&lt;&quot;  &quot;&lt;&lt;rn3[i]&lt;&lt;&quot;  &quot;&lt;&lt;endl;
+    return 0;
+&#125;</code></pre>
+</li>
+</ul>
+<hr>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wangxianggit.github.io/C++_array_cite_and_cited_array/" data-id="ckjv3w9ax000x6sdnfiubcb90" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C++</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-C++_keyword_const_cast" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/C++_keyword_const_cast/" class="article-date">
@@ -337,70 +411,11 @@ int main()&#123;
 
 
   
-    <article id="post-C++_prestatement" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/C++_prestatement/" class="article-date">
-  <time datetime="2019-03-06T11:49:09.000Z" itemprop="datePublished">2019-03-06</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/learning/">learning</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/C++_prestatement/">C++使用前置声明</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-
-        <h2 id="C-前置声明​"><a href="#C-前置声明​" class="headerlink" title="C++前置声明​"></a>C++前置声明​</h2><ul>
-<li><p>使用前置声明可以解决在两个或多个头文件的互相包含问题。</p>
-</li>
-<li><p>例如在头文件a.h和头文件b.h的内容分别如下：</p>
-<ul>
-<li>~~~<br>//a.h<br>#include “b.h”<br>class A<br>{<br>….<br>private:  <pre><code>B b;  </code></pre>
-};<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">  <span class="comment">//b.h  </span></span><br><span class="line">  <span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&quot;a.h&quot;</span>  </span></span><br><span class="line">  <span class="class"><span class="keyword">class</span> <span class="title">B</span>  </span></span><br><span class="line"><span class="class">  &#123;</span>  </span><br><span class="line">  ....  </span><br><span class="line">  <span class="keyword">private</span>:  </span><br><span class="line">      A a;  </span><br><span class="line">  &#125;;</span><br><span class="line">  ​~~~</span><br><span class="line"></span><br><span class="line">* 一旦编译在a.h中会出现未定义类B的问题，因此使用前置声明，在a.h头文件加入声明类B的代码即可：</span><br><span class="line"></span><br><span class="line">* ~~~</span><br><span class="line">  <span class="comment">//a.h   </span></span><br><span class="line">  <span class="comment">//#include &quot;b.h&quot;  </span></span><br><span class="line">  <span class="class"><span class="keyword">class</span> <span class="title">B</span>;</span>   </span><br><span class="line">  <span class="class"><span class="keyword">class</span> <span class="title">A</span>   </span></span><br><span class="line"><span class="class">  &#123;</span>  </span><br><span class="line">   ....   </span><br><span class="line">  <span class="keyword">private</span>:  </span><br><span class="line">   B b;   </span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-<li><p>在这里加入前置声明不需要重新编译头文件a.h，但需要重新编译类B。</p>
-</li>
-<li><p>使用前置声明也可以减少类A的大小，上面只是声明了类B的指针而不是整个头文件，因此代码量大大缩小。</p>
-</li>
-</ul>
-<hr>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/C++_prestatement/" data-id="ckjv3w9b1001e6sdn6igy51se" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C++</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/page/28/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/27/">27</a><a class="page-number" href="/page/28/">28</a><span class="page-number current">29</span><a class="page-number" href="/page/30/">30</a><a class="page-number" href="/page/31/">31</a><span class="space">&hellip;</span><a class="page-number" href="/page/44/">44</a><a class="extend next" rel="next" href="/page/30/">Next &amp;raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/28/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/27/">27</a><a class="page-number" href="/page/28/">28</a><span class="page-number current">29</span><a class="page-number" href="/page/30/">30</a><a class="page-number" href="/page/31/">31</a><span class="space">&hellip;</span><a class="page-number" href="/page/45/">45</a><a class="extend next" rel="next" href="/page/30/">Next &amp;raquo;</a>
   </nav>
 
 </section>
@@ -457,7 +472,7 @@ int main()&#123;
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li></ul>
     </div>
   </div>
 
@@ -468,6 +483,10 @@ int main()&#123;
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/Linux_crontab/">linux定时任务crontab</a>
+          </li>
         
           <li>
             <a href="/linux_killall/">linux下杀死用户进程</a>
@@ -483,10 +502,6 @@ int main()&#123;
         
           <li>
             <a href="/hive_warn_ssl/">启动hive出现ssl警告</a>
-          </li>
-        
-          <li>
-            <a href="/Linux_netstat/">netstat显示网络状态</a>
           </li>
         
       </ul>

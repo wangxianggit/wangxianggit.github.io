@@ -67,6 +67,94 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Linux_crontab" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/Linux_crontab/" class="article-date">
+  <time datetime="2021-05-26T04:06:12.000Z" itemprop="datePublished">2021-05-26</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/learning/">learning</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/Linux_crontab/">linux定时任务crontab</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+
+        <h2 id="linux定时任务crontab"><a href="#linux定时任务crontab" class="headerlink" title="linux定时任务crontab"></a>linux定时任务crontab</h2><ul>
+<li>crond 是linux系统下用于周期性执行某任务或等待处理某事件的一个守护进程。</li>
+<li>与windows下的计划任务类似，当安装完成操作系统后，默认会安装此服务 工具，并且会自动启动crond进程。</li>
+<li>crond进程每分钟定期检查是否有要执行的任务，如果有要执行的任务，则自动执行该任务。</li>
+<li>Linux下的任务调度分两类：系统任务调度和用户任务调度。</li>
+<li><strong>系统任务调度</strong>：系统周期性需要执行的操作，如写缓存数据到硬盘、日志清理等。/etc目录的crontab文件，这个就是系统任务调度的配置文件。</li>
+<li><strong>/etc/crontab</strong>文件：</li>
+</ul>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">SHELL=<span class="regexp">/bin/</span>bash</span><br><span class="line"></span><br><span class="line">PATH=<span class="regexp">/sbin:/</span>bin:<span class="regexp">/usr/</span>sbin:<span class="regexp">/usr/</span>bin</span><br><span class="line"></span><br><span class="line">MAILTO=HOME=/</span><br><span class="line"></span><br><span class="line"><span class="comment"># run-parts</span></span><br><span class="line"></span><br><span class="line"><span class="number">51</span> * * * * root run-parts <span class="regexp">/etc/</span>cron.hourly</span><br><span class="line"></span><br><span class="line"><span class="number">24</span> <span class="number">7</span> * * * root run-parts <span class="regexp">/etc/</span>cron.daily</span><br><span class="line"></span><br><span class="line"><span class="number">22</span> <span class="number">4</span> * * <span class="number">0</span> root run-parts <span class="regexp">/etc/</span>cron.weekly</span><br><span class="line"></span><br><span class="line"><span class="number">42</span> <span class="number">4</span> <span class="number">1</span> * * root run-parts <span class="regexp">/etc/</span>cron.monthly</span><br></pre></td></tr></table></figure>
+<ul>
+<li>前4行配置crond任务运行的环境变量，第一行SHELL变量指定系统要使用的shell，这里是bash；第二行PATH变量指定了系统执行 命令的路径；第三行MAILTO变量指定了crond的任务执行信息将通过电子邮件发送给root用户，如果MAILTO变量的值为空，则表示不发送任务 执行信息给用户；第四行的HOME变量指定了在执行命令或者脚本时使用的主目录。第六至九行表示用户任务调度。</li>
+<li><strong>用户任务调度</strong>：用户定期要执行的工作，比如用户数据备份、定时邮件提醒等。用户可以使用 crontab 工具来定制自己的计划任务。</li>
+<li>所有用户定义的crontab 文件都被保存在 /var/spool/cron目录中。其文件名与用户名一致。</li>
+<li>使用者权限文件：<ul>
+<li>文件：/etc/cron.deny 该文件中所列用户不允许使用crontab命令</li>
+<li>文件：/etc/cron.allow 该文件中所列用户允许使用crontab命令</li>
+</ul>
+</li>
+<li>crontab文件的含义：用户所建立的crontab文件中，每一行都代表一项任务，每行的每个字段代表一项设置，它的格式共分为六个字段，前五段是时间设定段，第六段是要执行的命令段，格式：</li>
+</ul>
+<figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">minute</span> <span class="built_in">hour</span> <span class="built_in">day</span> <span class="built_in">month</span> week command</span><br><span class="line">在以上各个字段中，还可以使用以下特殊字符：</span><br><span class="line"></span><br><span class="line">星号（*）：代表所有可能的值，例如<span class="built_in">month</span>字段如果是星号，则表示在满足其它字段的制约条件后每月都执行该命令操作。</span><br><span class="line"></span><br><span class="line">逗号（,）：可以用逗号隔开的值指定一个列表范围，例如，“<span class="number">1</span>,<span class="number">2</span>,<span class="number">5</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>”</span><br><span class="line"></span><br><span class="line">中杠（-）：可以用整数之间的中杠表示一个整数范围，例如“<span class="number">2</span>-<span class="number">6</span>”表示“<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>”</span><br><span class="line"></span><br><span class="line">正斜线（/）：可以用正斜线指定时间的间隔频率，例如“<span class="number">0</span>-<span class="number">23</span>/<span class="number">2</span>”表示每两小时执行一次。同时正斜线可以和星号一起使用，例如*/<span class="number">10</span>，如果用在<span class="built_in">minute</span>字段，表示每十分钟执行一次。</span><br></pre></td></tr></table></figure>
+<h3 id="crond服务"><a href="#crond服务" class="headerlink" title="crond服务"></a>crond服务</h3><ul>
+<li>安装crontab：yum install crontabs</li>
+<li>服务操作说明：</li>
+</ul>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="regexp">/sbin/</span>service crond start <span class="regexp">//</span>启动服务</span><br><span class="line"></span><br><span class="line"><span class="regexp">/sbin/</span>service crond stop <span class="regexp">//</span>关闭服务</span><br><span class="line"></span><br><span class="line"><span class="regexp">/sbin/</span>service crond restart <span class="regexp">//</span>重启服务</span><br><span class="line"></span><br><span class="line"><span class="regexp">/sbin/</span>service crond reload <span class="regexp">//</span>重新载入配置</span><br><span class="line"></span><br><span class="line"><span class="regexp">/sbin/</span>service crond status <span class="regexp">//</span>启动服务</span><br><span class="line"></span><br><span class="line">查看crontab服务是否已设置为开机启动，执行命令：ntsysv</span><br><span class="line"></span><br><span class="line">加入开机自动启动：chkconfig –level <span class="number">35</span> crond on</span><br></pre></td></tr></table></figure>
+<p>###crontab命令详解</p>
+<ul>
+<li>命令格式：</li>
+</ul>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">crontab [-u <span class="keyword">user</span>] file</span><br><span class="line"></span><br><span class="line">crontab -u <span class="keyword">user</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>命令功能：通过crontab 命令，我们可以在固定的间隔时间执行指定的系统指令或 shell script脚本。时间间隔的单位可以是分钟、小时、日、月、周及以上的任意组合。这个命令非常设合周期性的日志分析或数据备份等工作。</li>
+<li>命令参数：<ul>
+<li>-u user：用来设定某个用户的crontab服务，例如，“-u ixdba”表示设定ixdba用户的crontab服务，此参数一般有root用户来运行。</li>
+<li>file：file是命令文件的名字,表示将file做为crontab的任务列表文件并载入crontab。如果在命令行中没有指定这个文件，crontab命令将接受标准输入（键盘）上键入的命令，并将它们载入crontab。</li>
+<li>-e：编辑某个用户的crontab文件内容。如果不指定用户，则表示编辑当前用户的crontab文件。</li>
+<li>-l：显示某个用户的crontab文件内容，如果不指定用户，则表示显示当前用户的crontab文件内容。</li>
+<li>-r：从/var/spool/cron目录中删除某个用户的crontab文件，如果不指定用户，则默认删除当前用户的crontab文件。</li>
+<li>-i：在删除用户的crontab文件时给确认提示。</li>
+</ul>
+</li>
+</ul>
+<hr>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wangxianggit.github.io/Linux_crontab/" data-id="ckp4yvin000006gdnd8uzbgzv" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-linux_killall" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/linux_killall/" class="article-date">
@@ -307,67 +395,11 @@
 
 
   
-    <article id="post-Linux_netstat" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/Linux_netstat/" class="article-date">
-  <time datetime="2021-03-31T07:42:21.000Z" itemprop="datePublished">2021-03-31</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/learning/">learning</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/Linux_netstat/">netstat显示网络状态</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-
-        <h3 id="netstat显示网络状态"><a href="#netstat显示网络状态" class="headerlink" title="netstat显示网络状态"></a>netstat显示网络状态</h3><ul>
-<li>Linux netstat 命令用于显示网络状态。</li>
-<li>利用 netstat 指令可让你得知整个 Linux 系统的网络情况。</li>
-<li>语法：<code>netstat [-acCeFghilMnNoprstuvVwx][-A&lt;网络类型&gt;][--ip]</code></li>
-<li>实例：</li>
-</ul>
-<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">查看端口或者查看进程</span><br><span class="line">netstat -anpt</span><br><span class="line">显示详细的网络状况</span><br><span class="line">netstat -<span class="keyword">a</span></span><br><span class="line">显示当前户籍UDP连接状况</span><br><span class="line">netstat -nu</span><br><span class="line">显示UDP端口号的使用情况</span><br><span class="line">netstat -apu</span><br><span class="line">显示网卡列表</span><br><span class="line">netstat -i</span><br></pre></td></tr></table></figure>
-<ul>
-<li>可用参数：</li>
-</ul>
-<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">-a或<span class="params">--all</span> 显示所有连线中的Socket。</span><br><span class="line">-A&lt;网络类型&gt;或--&lt;网络类型&gt; 列出该网络类型连线中的相关地址。</span><br><span class="line">-c或<span class="params">--continuous</span> 持续列出网络状态。</span><br><span class="line">-C或<span class="params">--cache</span> 显示路由器配置的快取信息。</span><br><span class="line">-e或<span class="params">--extend</span> 显示网络其他相关信息。</span><br><span class="line">-F或<span class="params">--fib</span> 显示路由缓存。</span><br><span class="line">-g或<span class="params">--groups</span> 显示多重广播功能群组组员名单。</span><br><span class="line">-h或<span class="params">--help</span> 在线帮助。</span><br><span class="line">-i或<span class="params">--interfaces</span> 显示网络界面信息表单。</span><br><span class="line">-l或<span class="params">--listening</span> 显示监控中的服务器的Socket。</span><br><span class="line">-M或<span class="params">--masquerade</span> 显示伪装的网络连线。</span><br><span class="line">-n或<span class="params">--numeric</span> 直接使用IP地址，而不通过域名服务器。</span><br><span class="line">-N或<span class="params">--netlink</span>或<span class="params">--symbolic</span> 显示网络硬件外围设备的符号连接名称。</span><br><span class="line">-o或<span class="params">--timers</span> 显示计时器。</span><br><span class="line">-p或<span class="params">--programs</span> 显示正在使用Socket的程序识别码和程序名称。</span><br><span class="line">-r或<span class="params">--route</span> 显示Routing Table。</span><br><span class="line">-s或<span class="params">--statistics</span> 显示网络工作信息统计表。</span><br><span class="line">-t或<span class="params">--tcp</span> 显示TCP传输协议的连线状况。</span><br><span class="line">-u或<span class="params">--udp</span> 显示UDP传输协议的连线状况。</span><br><span class="line">-v或<span class="params">--verbose</span> 显示指令执行过程。</span><br><span class="line">-V或<span class="params">--version</span> 显示版本信息。</span><br><span class="line">-w或<span class="params">--raw</span> 显示RAW传输协议的连线状况。</span><br><span class="line">-x或<span class="params">--unix</span> 此参数的效果和指定<span class="string">&quot;-A unix&quot;</span>参数相同。</span><br><span class="line"><span class="params">--ip</span>或<span class="params">--inet</span> 此参数的效果和指定<span class="string">&quot;-A inet&quot;</span>参数相同。</span><br></pre></td></tr></table></figure>
-<hr>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/Linux_netstat/" data-id="ckmx5e0660000g0dnblx594c6" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Shell/" rel="tag">Shell</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
     
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/44/">44</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/45/">45</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
   </nav>
 
 </section>
@@ -424,7 +456,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li></ul>
     </div>
   </div>
 
@@ -435,6 +467,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/Linux_crontab/">linux定时任务crontab</a>
+          </li>
         
           <li>
             <a href="/linux_killall/">linux下杀死用户进程</a>
@@ -450,10 +486,6 @@
         
           <li>
             <a href="/hive_warn_ssl/">启动hive出现ssl警告</a>
-          </li>
-        
-          <li>
-            <a href="/Linux_netstat/">netstat显示网络状态</a>
           </li>
         
       </ul>
