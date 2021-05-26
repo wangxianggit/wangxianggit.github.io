@@ -15,7 +15,7 @@
 <meta property="og:description" content="linux定时任务crontab crond 是linux系统下用于周期性执行某任务或等待处理某事件的一个守护进程。 与windows下的计划任务类似，当安装完成操作系统后，默认会安装此服务 工具，并且会自动启动crond进程。 crond进程每分钟定期检查是否有要执行的任务，如果有要执行的任务，则自动执行该任务。 Linux下的任务调度分两类：系统任务调度和用户任务调度。 系统任务调度：系统周期">
 <meta property="og:locale">
 <meta property="article:published_time" content="2021-05-26T04:06:12.000Z">
-<meta property="article:modified_time" content="2021-05-26T04:27:37.147Z">
+<meta property="article:modified_time" content="2021-05-26T04:35:10.567Z">
 <meta property="article:author" content="wangxiang">
 <meta property="article:tag" content="Linux">
 <meta name="twitter:card" content="summary">
@@ -98,7 +98,7 @@
 
   <div id="toc" class="toc-article">
     <strong class="toc-title">article content</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#linux%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1crontab"><span class="toc-number">1.</span> <span class="toc-text">linux定时任务crontab</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#crond%E6%9C%8D%E5%8A%A1"><span class="toc-number">1.1.</span> <span class="toc-text">crond服务</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#linux%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1crontab"><span class="toc-number">1.</span> <span class="toc-text">linux定时任务crontab</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#crond%E6%9C%8D%E5%8A%A1"><span class="toc-number">1.1.</span> <span class="toc-text">crond服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#crontab%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3"><span class="toc-number">1.2.</span> <span class="toc-text">crontab命令详解</span></a></li></ol></li></ol>
   </div>
 
         <h2 id="linux定时任务crontab"><a href="#linux定时任务crontab" class="headerlink" title="linux定时任务crontab"></a>linux定时任务crontab</h2><ul>
@@ -127,8 +127,7 @@
 <li>服务操作说明：</li>
 </ul>
 <figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="regexp">/sbin/</span>service crond start <span class="regexp">//</span>启动服务</span><br><span class="line"></span><br><span class="line"><span class="regexp">/sbin/</span>service crond stop <span class="regexp">//</span>关闭服务</span><br><span class="line"></span><br><span class="line"><span class="regexp">/sbin/</span>service crond restart <span class="regexp">//</span>重启服务</span><br><span class="line"></span><br><span class="line"><span class="regexp">/sbin/</span>service crond reload <span class="regexp">//</span>重新载入配置</span><br><span class="line"></span><br><span class="line"><span class="regexp">/sbin/</span>service crond status <span class="regexp">//</span>启动服务</span><br><span class="line"></span><br><span class="line">查看crontab服务是否已设置为开机启动，执行命令：ntsysv</span><br><span class="line"></span><br><span class="line">加入开机自动启动：chkconfig –level <span class="number">35</span> crond on</span><br></pre></td></tr></table></figure>
-<p>###crontab命令详解</p>
-<ul>
+<h3 id="crontab命令详解"><a href="#crontab命令详解" class="headerlink" title="crontab命令详解"></a>crontab命令详解</h3><ul>
 <li>命令格式：</li>
 </ul>
 <figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">crontab [-u <span class="keyword">user</span>] file</span><br><span class="line"></span><br><span class="line">crontab -u <span class="keyword">user</span></span><br></pre></td></tr></table></figure>
