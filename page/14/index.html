@@ -67,6 +67,68 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-tensorboard" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/tensorboard/" class="article-date">
+  <time datetime="2019-09-17T14:16:28.000Z" itemprop="datePublished">2019-09-17</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Python/">Python</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/tensorboard/">tf tensorboard</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+
+        <h2 id="Tensorboard"><a href="#Tensorboard" class="headerlink" title="Tensorboard"></a>Tensorboard</h2><ul>
+<li><p>TensorBoard是ts的可视化工具，用于展现TensorFlow图像，绘制图像生成的定量指标图以及附加数据。</p>
+</li>
+<li><p>TensorBoard通过summary对数据进行汇总。</p>
+</li>
+<li><p>常用的操作如下：</p>
+<ul>
+<li>~~~<br>tf.summary.FileWriter——用于将汇总数据写入磁盘<br>tf.summary.scalar——对标量数据汇总和记录<br>tf.summary.histogram——记录数据的直方图<br>tf.summary.image——将图像写入summary<br>tf.summary.merge——对各类的汇总进行一次合并<br>tf.summary.merge_all——合并默认图像中的所有汇总<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 保存图像：</span><br><span class="line"></span><br><span class="line"><span class="operator">  * </span>~~~</span><br><span class="line">    sess = tf.<span class="constructor">Session()</span></span><br><span class="line">    writer = tf.summary.<span class="constructor">FileWriter(<span class="string">&quot;logs/&quot;</span>, <span class="params">sess</span>.<span class="params">graph</span>)</span> #第一个参数指定生成文件的目录。</span><br><span class="line">    init = tf.global<span class="constructor">_variables_initializer()</span></span><br><span class="line">    sess.run(init)</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>运行代码后可以在tf.summary.FileWriter中指定目录下找到生成的文件。</p>
+</li>
+<li><p>在终端下输入命令tensorboard –logdir=&lt;文件目录&gt;，这里文件目录可以写logs文件夹的绝对目录。</p>
+</li>
+<li><p>没有报错可以在终端看到相应的ip地址，在浏览器中输入该地址可以查看保存的图像。</p>
+</li>
+</ul>
+<hr>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wangxianggit.github.io/tensorboard/" data-id="ckjv3w9en00gl6sdndxileu0j" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-tf_basic" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/tf_basic/" class="article-date">
@@ -335,78 +397,6 @@ output:
 
 
   
-    <article id="post-Python_tf_unstack" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/Python_tf_unstack/" class="article-date">
-  <time datetime="2019-09-14T15:35:31.000Z" itemprop="datePublished">2019-09-14</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Python/">Python</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/Python_tf_unstack/">tf.unstack &amp;&amp; tf.stack</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-
-        <h2 id="tf函数unstack和stack"><a href="#tf函数unstack和stack" class="headerlink" title="tf函数unstack和stack"></a>tf函数unstack和stack</h2><ul>
-<li><p>数组合并函数tf.stack</p>
-<ul>
-<li><p>函数：stack(value,num=None,axis=0,name=’stack’ )</p>
-</li>
-<li><p>value：代表需要分解的矩阵变量（其实就是一个多维数组，一般为二维）；</p>
-</li>
-<li><p>axis：指明对矩阵的哪个维度进行合并。</p>
-</li>
-<li><p>示例代码：</p>
-</li>
-<li><pre><code>import tensorflow as tf
-a = tf.constant([1, 2, 3])
-b = tf.constant([4, 5, 6])
-c = tf.stack( [a,b], axis=0)
-with tf.Session() as sess:
-    print(sess.run(c))
-
-output：
-[[1 2 3]
- [4 5 6]]
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 矩阵分解函数tf.unstack</span><br><span class="line"></span><br><span class="line">  * 函数：unstack(value,<span class="attribute">num</span>=None,axis=0,name=&#x27;unstack&#x27; )</span><br><span class="line"></span><br><span class="line">  * value：代表需要分解的矩阵变量（其实就是一个多维数组，一般为二维）；</span><br><span class="line"></span><br><span class="line">  * axis：指明对矩阵的哪个维度进行分解。</span><br><span class="line"></span><br><span class="line">  * 示例代码：</span><br><span class="line"></span><br><span class="line">  * ~~~</span><br><span class="line">    import tensorflow as tf</span><br><span class="line">    c = tf.constant([[1, 2, 3],</span><br><span class="line">     [4, 5, 6]])</span><br><span class="line">    d = tf.unstack(c, <span class="attribute">axis</span>=0)</span><br><span class="line">    e = tf.unstack(c, <span class="attribute">axis</span>=1)</span><br><span class="line">    with tf.Session() as sess:</span><br><span class="line">    	<span class="builtin-name">print</span>(sess.<span class="builtin-name">run</span>(d))</span><br><span class="line">    	<span class="builtin-name">print</span>(sess.<span class="builtin-name">run</span>(e))</span><br><span class="line">    	</span><br><span class="line">    output：</span><br><span class="line">    [array([1, 2, 3]), array([4, 5, 6])]</span><br><span class="line">    [array([1, 4]), array([2, 5]), array([3, 6])]</span><br></pre></td></tr></table></figure></code></pre>
-</li>
-</ul>
-<hr>
-<p>​</p>
-</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/Python_tf_unstack/" data-id="ckjv3w9ct008q6sdnhh8p28w4" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Tensorflow/" rel="tag">Tensorflow</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
@@ -459,7 +449,7 @@ output：
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Algorithm/" style="font-size: 11.25px;">Algorithm</a> <a href="/tags/Altium-Designer/" style="font-size: 14.38px;">Altium Designer</a> <a href="/tags/Apache/" style="font-size: 11.25px;">Apache</a> <a href="/tags/BeautifulSoup/" style="font-size: 10px;">BeautifulSoup</a> <a href="/tags/C/" style="font-size: 15px;">C</a> <a href="/tags/C/" style="font-size: 18.75px;">C++</a> <a href="/tags/Centos7/" style="font-size: 17.5px;">Centos7</a> <a href="/tags/Cython/" style="font-size: 10px;">Cython</a> <a href="/tags/Database/" style="font-size: 11.88px;">Database</a> <a href="/tags/Electronic/" style="font-size: 13.13px;">Electronic</a> <a href="/tags/English/" style="font-size: 11.88px;">English</a> <a href="/tags/Geant4/" style="font-size: 10.63px;">Geant4</a> <a href="/tags/Hardware/" style="font-size: 10px;">Hardware</a> <a href="/tags/Hexo/" style="font-size: 13.75px;">Hexo</a> <a href="/tags/Image/" style="font-size: 11.88px;">Image</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Jupyter/" style="font-size: 10px;">Jupyter</a> <a href="/tags/Linux/" style="font-size: 19.38px;">Linux</a> <a href="/tags/Markdown/" style="font-size: 15.63px;">Markdown</a> <a href="/tags/Mongodb/" style="font-size: 10px;">Mongodb</a> <a href="/tags/Nuclear-Physics/" style="font-size: 11.25px;">Nuclear Physics</a> <a href="/tags/Open/" style="font-size: 10px;">Open</a> <a href="/tags/Opencv/" style="font-size: 11.88px;">Opencv</a> <a href="/tags/Program/" style="font-size: 18.13px;">Program</a> <a href="/tags/PyPI/" style="font-size: 10px;">PyPI</a> <a href="/tags/Py-Crawler/" style="font-size: 10.63px;">Py_Crawler</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/Random/" style="font-size: 10px;">Random</a> <a href="/tags/Resource/" style="font-size: 10.63px;">Resource</a> <a href="/tags/Root/" style="font-size: 10.63px;">Root</a> <a href="/tags/Scipy/" style="font-size: 10px;">Scipy</a> <a href="/tags/Shell/" style="font-size: 16.25px;">Shell</a> <a href="/tags/Solidwork/" style="font-size: 10.63px;">Solidwork</a> <a href="/tags/TTree/" style="font-size: 10px;">TTree</a> <a href="/tags/Tensorflow/" style="font-size: 15px;">Tensorflow</a> <a href="/tags/Thread/" style="font-size: 10px;">Thread</a> <a href="/tags/Urllib2/" style="font-size: 10px;">Urllib2</a> <a href="/tags/Virtual-memory/" style="font-size: 10px;">Virtual memory</a> <a href="/tags/cmake/" style="font-size: 12.5px;">cmake</a> <a href="/tags/cmd/" style="font-size: 10.63px;">cmd</a> <a href="/tags/data-structure/" style="font-size: 10.63px;">data structure</a> <a href="/tags/git/" style="font-size: 13.13px;">git</a> <a href="/tags/hexo/" style="font-size: 11.25px;">hexo</a> <a href="/tags/htop/" style="font-size: 10px;">htop</a> <a href="/tags/keras/" style="font-size: 10.63px;">keras</a> <a href="/tags/latex/" style="font-size: 14.38px;">latex</a> <a href="/tags/os/" style="font-size: 10px;">os</a> <a href="/tags/qt/" style="font-size: 10px;">qt</a> <a href="/tags/requests/" style="font-size: 10px;">requests</a> <a href="/tags/sk-learn/" style="font-size: 10px;">sk-learn</a> <a href="/tags/ssh/" style="font-size: 12.5px;">ssh</a> <a href="/tags/statistic/" style="font-size: 10px;">statistic</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/windows/" style="font-size: 16.88px;">windows</a> <a href="/tags/yolo%EF%BC%8CC/" style="font-size: 10px;">yolo，C</a>
+      <a href="/tags/Algorithm/" style="font-size: 11.25px;">Algorithm</a> <a href="/tags/Altium-Designer/" style="font-size: 14.38px;">Altium Designer</a> <a href="/tags/Apache/" style="font-size: 11.25px;">Apache</a> <a href="/tags/BeautifulSoup/" style="font-size: 10px;">BeautifulSoup</a> <a href="/tags/C/" style="font-size: 15px;">C</a> <a href="/tags/C/" style="font-size: 18.75px;">C++</a> <a href="/tags/Centos7/" style="font-size: 17.5px;">Centos7</a> <a href="/tags/Cython/" style="font-size: 10px;">Cython</a> <a href="/tags/Database/" style="font-size: 12.5px;">Database</a> <a href="/tags/Electronic/" style="font-size: 13.13px;">Electronic</a> <a href="/tags/English/" style="font-size: 11.88px;">English</a> <a href="/tags/Geant4/" style="font-size: 10.63px;">Geant4</a> <a href="/tags/Hardware/" style="font-size: 10px;">Hardware</a> <a href="/tags/Hexo/" style="font-size: 13.75px;">Hexo</a> <a href="/tags/Image/" style="font-size: 11.88px;">Image</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Jupyter/" style="font-size: 10px;">Jupyter</a> <a href="/tags/Linux/" style="font-size: 19.38px;">Linux</a> <a href="/tags/Markdown/" style="font-size: 15.63px;">Markdown</a> <a href="/tags/Mongodb/" style="font-size: 10px;">Mongodb</a> <a href="/tags/Nuclear-Physics/" style="font-size: 11.25px;">Nuclear Physics</a> <a href="/tags/Open/" style="font-size: 10px;">Open</a> <a href="/tags/Opencv/" style="font-size: 11.88px;">Opencv</a> <a href="/tags/Program/" style="font-size: 18.13px;">Program</a> <a href="/tags/PyPI/" style="font-size: 10px;">PyPI</a> <a href="/tags/Py-Crawler/" style="font-size: 10.63px;">Py_Crawler</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/Random/" style="font-size: 10px;">Random</a> <a href="/tags/Resource/" style="font-size: 10.63px;">Resource</a> <a href="/tags/Root/" style="font-size: 10.63px;">Root</a> <a href="/tags/Scipy/" style="font-size: 10px;">Scipy</a> <a href="/tags/Shell/" style="font-size: 16.25px;">Shell</a> <a href="/tags/Solidwork/" style="font-size: 10.63px;">Solidwork</a> <a href="/tags/TTree/" style="font-size: 10px;">TTree</a> <a href="/tags/Tensorflow/" style="font-size: 15px;">Tensorflow</a> <a href="/tags/Thread/" style="font-size: 10px;">Thread</a> <a href="/tags/Urllib2/" style="font-size: 10px;">Urllib2</a> <a href="/tags/Virtual-memory/" style="font-size: 10px;">Virtual memory</a> <a href="/tags/cmake/" style="font-size: 12.5px;">cmake</a> <a href="/tags/cmd/" style="font-size: 10.63px;">cmd</a> <a href="/tags/data-structure/" style="font-size: 10.63px;">data structure</a> <a href="/tags/git/" style="font-size: 13.13px;">git</a> <a href="/tags/hexo/" style="font-size: 11.25px;">hexo</a> <a href="/tags/htop/" style="font-size: 10px;">htop</a> <a href="/tags/keras/" style="font-size: 10.63px;">keras</a> <a href="/tags/latex/" style="font-size: 14.38px;">latex</a> <a href="/tags/os/" style="font-size: 10px;">os</a> <a href="/tags/qt/" style="font-size: 10px;">qt</a> <a href="/tags/requests/" style="font-size: 10px;">requests</a> <a href="/tags/sk-learn/" style="font-size: 10px;">sk-learn</a> <a href="/tags/ssh/" style="font-size: 12.5px;">ssh</a> <a href="/tags/statistic/" style="font-size: 10px;">statistic</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/windows/" style="font-size: 16.88px;">windows</a> <a href="/tags/yolo%EF%BC%8CC/" style="font-size: 10px;">yolo，C</a>
     </div>
   </div>
 
@@ -481,6 +471,10 @@ output：
       <ul>
         
           <li>
+            <a href="/mysql_root_password/">MySQL忘记root密码后重置</a>
+          </li>
+        
+          <li>
             <a href="/Linux_crontab/">linux定时任务crontab</a>
           </li>
         
@@ -494,10 +488,6 @@ output：
         
           <li>
             <a href="/hive_connection_block/">hive初始化many connection error</a>
-          </li>
-        
-          <li>
-            <a href="/hive_warn_ssl/">启动hive出现ssl警告</a>
           </li>
         
       </ul>

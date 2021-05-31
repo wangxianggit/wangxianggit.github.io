@@ -5,20 +5,19 @@
   
 
   
-  <title>插入排序 | There is no rose without a thorn</title>
+  <title>MySQL忘记root密码后重置 | There is no rose without a thorn</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="插入排序 ​ 伪代码：  INSERTION-SORT(A)  for j&#x3D;2 to A.length   key&#x3D;A[j]   &#x2F;&#x2F;Insert A[j] into the sorted sequence A[1..j-1]   i&#x3D;j-1   while i&gt; and A[i]&gt;key     A[i+1]&#x3D;A[i]     i&#x3D;i-1   A[i+1]&#x3D;key 123456789">
+  <meta name="description" content="进入MySQL出现错误：ERROR 1045 (28000): Access denied for user ‘root’@’localhost’ (using passwor:yes) 即密码出现错误，如果遗忘密码需要重置： 首先设置跳过MySQL密码认证过程，vi打开&#x2F;etc&#x2F;my.cnf并在[mysqld]后面的任意一行添加’skip-grant-table’用来跳过密码验证。 重启MyS">
 <meta property="og:type" content="article">
-<meta property="og:title" content="插入排序">
-<meta property="og:url" content="http://wangxianggit.github.io/algorithm_sort_insertion/index.html">
+<meta property="og:title" content="MySQL忘记root密码后重置">
+<meta property="og:url" content="http://wangxianggit.github.io/mysql_root_password/index.html">
 <meta property="og:site_name" content="There is no rose without a thorn">
-<meta property="og:description" content="插入排序 ​ 伪代码：  INSERTION-SORT(A)  for j&#x3D;2 to A.length   key&#x3D;A[j]   &#x2F;&#x2F;Insert A[j] into the sorted sequence A[1..j-1]   i&#x3D;j-1   while i&gt; and A[i]&gt;key     A[i+1]&#x3D;A[i]     i&#x3D;i-1   A[i+1]&#x3D;key 123456789">
+<meta property="og:description" content="进入MySQL出现错误：ERROR 1045 (28000): Access denied for user ‘root’@’localhost’ (using passwor:yes) 即密码出现错误，如果遗忘密码需要重置： 首先设置跳过MySQL密码认证过程，vi打开&#x2F;etc&#x2F;my.cnf并在[mysqld]后面的任意一行添加’skip-grant-table’用来跳过密码验证。 重启MyS">
 <meta property="og:locale">
-<meta property="article:published_time" content="2019-05-16T04:03:32.000Z">
-<meta property="article:modified_time" content="2019-05-16T04:38:59.051Z">
+<meta property="article:published_time" content="2021-05-31T05:16:21.000Z">
+<meta property="article:modified_time" content="2021-05-31T05:25:37.283Z">
 <meta property="article:author" content="wangxiang">
-<meta property="article:tag" content="C++">
-<meta property="article:tag" content="Algorithm">
+<meta property="article:tag" content="Database">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="There is no rose without a thorn" type="application/atom+xml">
@@ -69,14 +68,14 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-algorithm_sort_insertion" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-mysql_root_password" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/algorithm_sort_insertion/" class="article-date">
-  <time datetime="2019-05-16T04:03:32.000Z" itemprop="datePublished">2019-05-16</time>
+    <a href="/mysql_root_password/" class="article-date">
+  <time datetime="2021-05-31T05:16:21.000Z" itemprop="datePublished">2021-05-31</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/Algorithm/">Algorithm</a>
+    <a class="article-category-link" href="/categories/learning/">learning</a>
   </div>
 
   </div>
@@ -87,7 +86,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      插入排序
+      MySQL忘记root密码后重置
     </h1>
   
 
@@ -99,25 +98,19 @@
 
   <div id="toc" class="toc-article">
     <strong class="toc-title">article content</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F"><span class="toc-number">1.</span> <span class="toc-text">插入排序</span></a></li></ol>
+    
   </div>
 
-        <h2 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h2><ul>
-<li><p>​ 伪代码：</p>
-<ul>
-<li><pre><code>INSERTION-SORT(A)
-
-for j=2 to A.length
-  key=A[j]
-  //Insert A[j] into the sorted sequence A[1..j-1]
-  i=j-1
-  while i&gt; and A[i]&gt;key
-    A[i+1]=A[i]
-    i=i-1
-  A[i+1]=key
-<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">* 在for循环的每次迭代开始，包含元素A[1..j-1]的子数组构成了当前排序好的数组，剩余的子数组A[j+1..n]对应即将进行排序的元素。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">* A[1..j-1]构成一个循环不变式。</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">* 循环不变式的性质：</span></span><br><span class="line"></span><br><span class="line"><span class="comment">  * 初始化：循环的第一次迭代之前，它为真。</span></span><br><span class="line"><span class="comment">  * 保持：如果循环的某次迭代之前它为真，那么下次迭代之前它仍然为真。</span></span><br><span class="line"><span class="comment">  * 终止：当前两条性质成立时，循环结束时保持排序状态。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">* c++代码实现：</span></span><br><span class="line"></span><br><span class="line"><span class="comment">  * ~~~</span></span><br><span class="line">    void insertion_sort(int A[], int length)&#123;</span><br><span class="line">        <span class="keyword">for</span>(int j=1;j&lt;len;j++)&#123;</span><br><span class="line">            int key=A[j];</span><br><span class="line">            <span class="comment">//Insert A[j] into the sorted sequence A[1..j-1]</span></span><br><span class="line">            i=j-1;</span><br><span class="line">            <span class="keyword">while</span>(i&gt;0&amp;&amp;A[i]&gt;key)&#123;</span><br><span class="line">                A[i+1]=A[i];</span><br><span class="line">                i=i-1;</span><br><span class="line">            &#125;</span><br><span class="line">            A[i+1]=key;</span><br><span class="line">        &#125; </span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-</code></pre>
-</li>
+        <ul>
+<li>进入MySQL出现错误：<strong>ERROR 1045 (28000): Access denied for user ‘root’@’localhost’ (using passwor:yes)</strong></li>
+<li>即密码出现错误，如果遗忘密码需要重置：<ul>
+<li>首先设置跳过MySQL密码认证过程，vi打开/etc/my.cnf并在[mysqld]后面的任意一行添加’skip-grant-table’用来跳过密码验证。</li>
+<li>重启MySQL：systemctl restart mysqld;</li>
+<li>重启之后输入mysql即可进入mysql;</li>
+<li>回到终端直接输入mysql可以免密码直接登录MySQL终端；</li>
+<li>在MySQL终端输入use mysql切换数据库；</li>
+<li>然后更改root密码：<strong>update mysql.user set authentication_string=password(‘root’) where user=’root’ ;</strong></li>
+<li>退出重新编辑my.cnf文件删掉skip-grant-tables 这一行，然后重启MySQL即实现root密码重置。</li>
 </ul>
 </li>
 </ul>
@@ -126,10 +119,10 @@ for j=2 to A.length
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/algorithm_sort_insertion/" data-id="ckjv3w9cw00986sdn0zdnbzj0" class="article-share-link">Share</a>
+      <a data-url="http://wangxianggit.github.io/mysql_root_password/" data-id="ckpc66q1h0000s4dnf2xhh5gq" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Algorithm/" rel="tag">Algorithm</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C++</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Database/" rel="tag">Database</a></li></ul>
 
     </footer>
   </div>
@@ -137,19 +130,10 @@ for j=2 to A.length
     
 <nav id="article-nav">
   
-    <a href="/divide_conquer_algorithm/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          归并排序算法
-        
-      </div>
-    </a>
   
-  
-    <a href="/shell_df_du/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/Linux_crontab/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">shell命令df和du</div>
+      <div class="article-nav-title">linux定时任务crontab</div>
     </a>
   
 </nav>

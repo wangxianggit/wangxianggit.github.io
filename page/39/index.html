@@ -67,6 +67,115 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-python3_class_definition" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/python3_class_definition/" class="article-date">
+  <time datetime="2019-01-28T13:35:44.000Z" itemprop="datePublished">2019-01-28</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Python/">Python</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/python3_class_definition/">python3类对象的定义</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+
+        <ul>
+<li><p>​ 面向对象</p>
+<ul>
+<li>类 Class: 用来描述具体相同的属性和方法的对象的集合。定义了该集合中每个对象所共有的属性和方法。对象是类的示例。</li>
+<li>类变量：类变量在整个实例化的对象中是公用的。类变量定义在类中且在函数体之外。类变量通常不作为实例变量使用。</li>
+<li>数据成员：类变量或者实例变量用于处理类及其实例对象的相关数据。</li>
+<li>方法重写：如果从父类继承的方法不能满足子类的需求，可以对其 进行改写，这个过程叫方法的覆盖（override），也称为方法的重写。</li>
+<li>实例变量：定义在方法中的变量，只作用于当前实例的类。</li>
+<li>继承：即一个派生类（derived class）继承基类（base class）的字段和方法。继承也允许把一个派生类的对象作为一个基类对象对待。例如，有这样一个设计：一个Dog类型的对象派生自Animal类，这是模拟”是一个（is-a）”关系（例图，Dog是一个Animal）。</li>
+<li>实例化：创建一个类的实例，类的具体对象。就是将创建的类赋值给另一个变量。理解为赋值即可，a = class()，这个过程，就叫做实例化</li>
+<li>方法：类中定义的函数。</li>
+<li>对象：通过类定义的数据结构实例。对象包括两个数据成员（类变量和实例变量）和方法。</li>
+</ul>
+</li>
+<li><p>定义</p>
+<ul>
+<li><p>语法格式</p>
+</li>
+<li><p>~~~<br>class ClassName:</p>
+<pre><code>&#39;&#39;&#39;Description&#39;&#39;&#39;
+&lt;statement-1&gt;
+.
+.
+.
+&lt;statement-N&gt;</code></pre>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  * 类实例化后，可以使用其属性，实际上，创建一个类之后，可以通过类名访问其属性</span><br><span class="line"></span><br><span class="line">* 类的方法</span><br><span class="line"></span><br><span class="line">  * 在类内部，使用 def 关键字来定义一个方法，与一般函数定义不同，类方法必须包含参数 <span class="keyword">self</span>, 且为第一个参数，<span class="keyword">self</span> 代表的是类的实例。</span><br><span class="line"></span><br><span class="line">  * ~~~</span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">people</span>:</span></span><br><span class="line">        <span class="comment">#定义基本属性</span></span><br><span class="line">        name = <span class="string">&#x27;&#x27;</span></span><br><span class="line">        age = <span class="number">0</span></span><br><span class="line">        <span class="comment">#定义私有属性,私有属性在类外部无法直接进行访问</span></span><br><span class="line">        __weight = <span class="number">0</span></span><br><span class="line">        <span class="comment">#定义构造方法</span></span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(<span class="keyword">self</span>,n,a,w)</span></span><span class="symbol">:</span></span><br><span class="line">            <span class="keyword">self</span>.name = n</span><br><span class="line">            <span class="keyword">self</span>.age = a</span><br><span class="line">            <span class="keyword">self</span>.__weight = w</span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">speak</span><span class="params">(<span class="keyword">self</span>)</span></span><span class="symbol">:</span></span><br><span class="line">            print(<span class="string">&quot;%s 说: 我 %d 岁。&quot;</span> <span class="string">%(self.name,self.age)</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 实例化类</span></span><br><span class="line">    p = people(<span class="string">&#x27;runoob&#x27;</span>,<span class="number">10</span>,<span class="number">30</span>)</span><br><span class="line">    p.speak()</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>类的对象</p>
+<ul>
+<li><p>类对象支持两种操作，<code>属性引用</code>和<code>实例化</code>。 </p>
+</li>
+<li><p>类对象创建后，类命名空间中所有的命名（变量、函数）都是有效属性名。</p>
+</li>
+<li><p>~~~<br>class devops():</p>
+<pre><code># 定义一个简单的类
+ops = [&#39;Citizen_Wang&#39;, &#39;Bob_Zhou&#39;]
+dev = [&#39;Jerry_Xue&#39;, &#39;Bagwell_Yan&#39;]
+def hello(self):
+    print(&#39;Hello world&#39;)</code></pre>
+<h1 id="实例化-类"><a href="#实例化-类" class="headerlink" title="实例化 类"></a>实例化 类</h1><p>a = devops()</p>
+<h1 id="访问类的属性-ops，dev"><a href="#访问类的属性-ops，dev" class="headerlink" title="访问类的属性 ops，dev"></a>访问类的属性 ops，dev</h1><p>print(a.ops)<br>print(a.dev)</p>
+<h1 id="访问类的方法-hello-函数"><a href="#访问类的方法-hello-函数" class="headerlink" title="访问类的方法 hello 函数"></a>访问类的方法 hello 函数</h1><p>a.hello()</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 输出结果：</span><br><span class="line"></span><br><span class="line">* ~~~</span><br><span class="line">  <span class="selector-attr">[<span class="string">&#x27;Citizen_Wang&#x27;</span>, <span class="string">&#x27;Bob_Zhou&#x27;</span>]</span></span><br><span class="line">  <span class="selector-attr">[<span class="string">&#x27;Jerry_Xue&#x27;</span>, <span class="string">&#x27;Bagwell_Yan&#x27;</span>]</span></span><br><span class="line">  <span class="selector-tag">Hello</span> <span class="selector-tag">world</span></span><br></pre></td></tr></table></figure></li>
+<li><p>实例化之后，支持对属性进行修改</p>
+</li>
+<li><pre><code>class devops():
+    # 定义一个简单的类
+    ops = [&#39;Citizen_Wang&#39;, &#39;Bob_Zhou&#39;]
+    dev = [&#39;Jerry_Xue&#39;, &#39;Bagwell_Yan&#39;]
+    def hello(self):
+        print(&#39;Hello world&#39;)
+
+# 实例化 类
+a = devops()
+
+# 访问类的属性 ops，dev
+print(a.ops)
+a.ops = &#39;No one has left&#39;
+print(a.ops)</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wangxianggit.github.io/python3_class_definition/" data-id="ckjv3w9e500eo6sdnber51lxq" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Program/" rel="tag">Program</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-python_script_run" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/python_script_run/" class="article-date">
@@ -316,77 +425,6 @@
 
 
   
-    <article id="post-Centos_windows_twosystem_boot_repaire" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/Centos_windows_twosystem_boot_repaire/" class="article-date">
-  <time datetime="2019-01-18T02:36:23.000Z" itemprop="datePublished">2019-01-18</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/learning/">learning</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/Centos_windows_twosystem_boot_repaire/">Centos和windows双系统引导修复</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-
-        <ul>
-<li><p>​ 若开机找不到已经安装的centos7，修复引导的办法是：</p>
-<ul>
-<li><p>用centos iso 制作启动u盘进入到安装centos的界面，开机选择的时候不要选择安装centos,而是选择troubleshooting疑难解答选项，然后回车选择rescue a centos system。</p>
-</li>
-<li><p>进入到下一个界面，按tab键选择continue (一定要选），然后选择ok. 进入命令行界面，输入</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chroot <span class="regexp">/mnt/</span>sysimage</span><br></pre></td></tr></table></figure></li>
-<li><p>接着安装grub2</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="regexp">/sbin/g</span>rub2-install <span class="regexp">/dev/</span>sda</span><br></pre></td></tr></table></figure></li>
-<li><p>安装成功重启系统，centos引导恢复。</p>
-</li>
-</ul>
-</li>
-<li><p>若安装windows和centos7双系统，先安装windows后再安装centos7，重启后windows看不到，修复办法：</p>
-<ul>
-<li><p>安装ntfs-3g,命令：yum install ntfs-3g, 使centos能识别出windows所在的分区。</p>
-</li>
-<li><p>在root用户下执行命令</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grub2-mkconfig -o <span class="regexp">/boot/g</span>rub2/grub.cfg</span><br></pre></td></tr></table></figure></li>
-<li><p>grub.cfg为grub的配置文件, 系统自动找到windows 系统与centos7系统的引导项，并加入到了grub.cfg菜单中。</p>
-</li>
-<li><p>重启后启动菜单同时出现windows和centos7选项。</p>
-</li>
-</ul>
-</li>
-</ul>
-<hr>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/Centos_windows_twosystem_boot_repaire/" data-id="ckjv3w9b900286sdnfhv9f0d1" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Centos7/" rel="tag">Centos7</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/windows/" rel="tag">windows</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
@@ -439,7 +477,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Algorithm/" style="font-size: 11.25px;">Algorithm</a> <a href="/tags/Altium-Designer/" style="font-size: 14.38px;">Altium Designer</a> <a href="/tags/Apache/" style="font-size: 11.25px;">Apache</a> <a href="/tags/BeautifulSoup/" style="font-size: 10px;">BeautifulSoup</a> <a href="/tags/C/" style="font-size: 15px;">C</a> <a href="/tags/C/" style="font-size: 18.75px;">C++</a> <a href="/tags/Centos7/" style="font-size: 17.5px;">Centos7</a> <a href="/tags/Cython/" style="font-size: 10px;">Cython</a> <a href="/tags/Database/" style="font-size: 11.88px;">Database</a> <a href="/tags/Electronic/" style="font-size: 13.13px;">Electronic</a> <a href="/tags/English/" style="font-size: 11.88px;">English</a> <a href="/tags/Geant4/" style="font-size: 10.63px;">Geant4</a> <a href="/tags/Hardware/" style="font-size: 10px;">Hardware</a> <a href="/tags/Hexo/" style="font-size: 13.75px;">Hexo</a> <a href="/tags/Image/" style="font-size: 11.88px;">Image</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Jupyter/" style="font-size: 10px;">Jupyter</a> <a href="/tags/Linux/" style="font-size: 19.38px;">Linux</a> <a href="/tags/Markdown/" style="font-size: 15.63px;">Markdown</a> <a href="/tags/Mongodb/" style="font-size: 10px;">Mongodb</a> <a href="/tags/Nuclear-Physics/" style="font-size: 11.25px;">Nuclear Physics</a> <a href="/tags/Open/" style="font-size: 10px;">Open</a> <a href="/tags/Opencv/" style="font-size: 11.88px;">Opencv</a> <a href="/tags/Program/" style="font-size: 18.13px;">Program</a> <a href="/tags/PyPI/" style="font-size: 10px;">PyPI</a> <a href="/tags/Py-Crawler/" style="font-size: 10.63px;">Py_Crawler</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/Random/" style="font-size: 10px;">Random</a> <a href="/tags/Resource/" style="font-size: 10.63px;">Resource</a> <a href="/tags/Root/" style="font-size: 10.63px;">Root</a> <a href="/tags/Scipy/" style="font-size: 10px;">Scipy</a> <a href="/tags/Shell/" style="font-size: 16.25px;">Shell</a> <a href="/tags/Solidwork/" style="font-size: 10.63px;">Solidwork</a> <a href="/tags/TTree/" style="font-size: 10px;">TTree</a> <a href="/tags/Tensorflow/" style="font-size: 15px;">Tensorflow</a> <a href="/tags/Thread/" style="font-size: 10px;">Thread</a> <a href="/tags/Urllib2/" style="font-size: 10px;">Urllib2</a> <a href="/tags/Virtual-memory/" style="font-size: 10px;">Virtual memory</a> <a href="/tags/cmake/" style="font-size: 12.5px;">cmake</a> <a href="/tags/cmd/" style="font-size: 10.63px;">cmd</a> <a href="/tags/data-structure/" style="font-size: 10.63px;">data structure</a> <a href="/tags/git/" style="font-size: 13.13px;">git</a> <a href="/tags/hexo/" style="font-size: 11.25px;">hexo</a> <a href="/tags/htop/" style="font-size: 10px;">htop</a> <a href="/tags/keras/" style="font-size: 10.63px;">keras</a> <a href="/tags/latex/" style="font-size: 14.38px;">latex</a> <a href="/tags/os/" style="font-size: 10px;">os</a> <a href="/tags/qt/" style="font-size: 10px;">qt</a> <a href="/tags/requests/" style="font-size: 10px;">requests</a> <a href="/tags/sk-learn/" style="font-size: 10px;">sk-learn</a> <a href="/tags/ssh/" style="font-size: 12.5px;">ssh</a> <a href="/tags/statistic/" style="font-size: 10px;">statistic</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/windows/" style="font-size: 16.88px;">windows</a> <a href="/tags/yolo%EF%BC%8CC/" style="font-size: 10px;">yolo，C</a>
+      <a href="/tags/Algorithm/" style="font-size: 11.25px;">Algorithm</a> <a href="/tags/Altium-Designer/" style="font-size: 14.38px;">Altium Designer</a> <a href="/tags/Apache/" style="font-size: 11.25px;">Apache</a> <a href="/tags/BeautifulSoup/" style="font-size: 10px;">BeautifulSoup</a> <a href="/tags/C/" style="font-size: 15px;">C</a> <a href="/tags/C/" style="font-size: 18.75px;">C++</a> <a href="/tags/Centos7/" style="font-size: 17.5px;">Centos7</a> <a href="/tags/Cython/" style="font-size: 10px;">Cython</a> <a href="/tags/Database/" style="font-size: 12.5px;">Database</a> <a href="/tags/Electronic/" style="font-size: 13.13px;">Electronic</a> <a href="/tags/English/" style="font-size: 11.88px;">English</a> <a href="/tags/Geant4/" style="font-size: 10.63px;">Geant4</a> <a href="/tags/Hardware/" style="font-size: 10px;">Hardware</a> <a href="/tags/Hexo/" style="font-size: 13.75px;">Hexo</a> <a href="/tags/Image/" style="font-size: 11.88px;">Image</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Jupyter/" style="font-size: 10px;">Jupyter</a> <a href="/tags/Linux/" style="font-size: 19.38px;">Linux</a> <a href="/tags/Markdown/" style="font-size: 15.63px;">Markdown</a> <a href="/tags/Mongodb/" style="font-size: 10px;">Mongodb</a> <a href="/tags/Nuclear-Physics/" style="font-size: 11.25px;">Nuclear Physics</a> <a href="/tags/Open/" style="font-size: 10px;">Open</a> <a href="/tags/Opencv/" style="font-size: 11.88px;">Opencv</a> <a href="/tags/Program/" style="font-size: 18.13px;">Program</a> <a href="/tags/PyPI/" style="font-size: 10px;">PyPI</a> <a href="/tags/Py-Crawler/" style="font-size: 10.63px;">Py_Crawler</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/Random/" style="font-size: 10px;">Random</a> <a href="/tags/Resource/" style="font-size: 10.63px;">Resource</a> <a href="/tags/Root/" style="font-size: 10.63px;">Root</a> <a href="/tags/Scipy/" style="font-size: 10px;">Scipy</a> <a href="/tags/Shell/" style="font-size: 16.25px;">Shell</a> <a href="/tags/Solidwork/" style="font-size: 10.63px;">Solidwork</a> <a href="/tags/TTree/" style="font-size: 10px;">TTree</a> <a href="/tags/Tensorflow/" style="font-size: 15px;">Tensorflow</a> <a href="/tags/Thread/" style="font-size: 10px;">Thread</a> <a href="/tags/Urllib2/" style="font-size: 10px;">Urllib2</a> <a href="/tags/Virtual-memory/" style="font-size: 10px;">Virtual memory</a> <a href="/tags/cmake/" style="font-size: 12.5px;">cmake</a> <a href="/tags/cmd/" style="font-size: 10.63px;">cmd</a> <a href="/tags/data-structure/" style="font-size: 10.63px;">data structure</a> <a href="/tags/git/" style="font-size: 13.13px;">git</a> <a href="/tags/hexo/" style="font-size: 11.25px;">hexo</a> <a href="/tags/htop/" style="font-size: 10px;">htop</a> <a href="/tags/keras/" style="font-size: 10.63px;">keras</a> <a href="/tags/latex/" style="font-size: 14.38px;">latex</a> <a href="/tags/os/" style="font-size: 10px;">os</a> <a href="/tags/qt/" style="font-size: 10px;">qt</a> <a href="/tags/requests/" style="font-size: 10px;">requests</a> <a href="/tags/sk-learn/" style="font-size: 10px;">sk-learn</a> <a href="/tags/ssh/" style="font-size: 12.5px;">ssh</a> <a href="/tags/statistic/" style="font-size: 10px;">statistic</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/windows/" style="font-size: 16.88px;">windows</a> <a href="/tags/yolo%EF%BC%8CC/" style="font-size: 10px;">yolo，C</a>
     </div>
   </div>
 
@@ -461,6 +499,10 @@
       <ul>
         
           <li>
+            <a href="/mysql_root_password/">MySQL忘记root密码后重置</a>
+          </li>
+        
+          <li>
             <a href="/Linux_crontab/">linux定时任务crontab</a>
           </li>
         
@@ -474,10 +516,6 @@
         
           <li>
             <a href="/hive_connection_block/">hive初始化many connection error</a>
-          </li>
-        
-          <li>
-            <a href="/hive_warn_ssl/">启动hive出现ssl警告</a>
           </li>
         
       </ul>
