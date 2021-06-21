@@ -67,6 +67,63 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Compiler_cc、gcc、g++_CC_difference" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/Compiler_cc%E3%80%81gcc%E3%80%81g++_CC_difference/" class="article-date">
+  <time datetime="2019-03-07T03:41:33.000Z" itemprop="datePublished">2019-03-07</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/learning/">learning</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/Compiler_cc%E3%80%81gcc%E3%80%81g++_CC_difference/">编译器cc、gcc、g++和CC区别</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+
+        <h2 id="编译器cc、gcc、g-和CC"><a href="#编译器cc、gcc、g-和CC" class="headerlink" title="编译器cc、gcc、g++和CC"></a>编译器cc、gcc、g++和CC</h2><ul>
+<li>gcc 是GNU Compiler Collection，原名为Gun C语言编译器，因为它原本只能处理C语言，但gcc很快地扩展，包含很多编译器（C、C++、Objective-C、Ada、Fortran、 Java），可以说gcc是GNU编译器集合。</li>
+<li>g++ 是C++编译器。</li>
+<li>cc 在 Unix系统下是 C Compiler，一个是古老的 C 编译器。在Linux 下 cc 一般是一个符号连接，指向 gcc；可以通过 $ ls -l /usr/bin/cc 来简单察看，该变量是 make 程序的内建变量，默认指向 gcc 。 cc 符号链接和变量存在的意义在于源码的移植性，可以方便的用 gcc 来编译老的用cc编译的Unix软件，甚至连 makefile 都不用改在，而且也便于 Linux 程序在 Unix下 编译。</li>
+<li>CC 一般是 makefile 里面的一个名字标签，即宏定义，表示采用的是什么编译器（如：CC = gcc）。</li>
+</ul>
+<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><ul>
+<li>后缀为.c的，gcc把它当作是C程序，而g++当作是c++程序；后缀为.cpp的，两者都会认为是C++程序，注意，虽然C++是C的超集，但是两者对语法的要求是有区别的。C++的语法规则更加严谨一些。</li>
+<li>编译阶段，g++会调用gcc，对于C++代码，两者是等价的，但是因为gcc命令不能自动和C++程序使用的库联接，所以通常用g++来完成链接，为了统一起见，干脆编译/链接统统用g++了，因此给人一种以为cpp程序只能用g++的错觉。</li>
+<li>gcc不会定义__cplusplus宏，而g++会，实际上，这个宏只是标志着编译器将会把代码按C还是C++语法来解释，如上所述，如果后缀为.c，并且采用gcc编译器，则该宏就是未定义的，否则，就是已定义。</li>
+<li>编译可以用gcc/g++，而链接可以用g++或者gcc -lstdc++。因为gcc命令不能自动和C++程序使用的库联接，所以通常使用g++来完成联接。但在编译阶段，g++会自动调用gcc，二者等价。</li>
+</ul>
+<hr>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wangxianggit.github.io/Compiler_cc%E3%80%81gcc%E3%80%81g++_CC_difference/" data-id="ckjv3w9ba002d6sdn0h5a8mer" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C++</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-C++_keyword_const" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/C++_keyword_const/" class="article-date">
@@ -399,73 +456,6 @@
 
 
   
-    <article id="post-Altium_designer_ways_copper_deposition" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/Altium_designer_ways_copper_deposition/" class="article-date">
-  <time datetime="2019-03-04T12:35:11.000Z" itemprop="datePublished">2019-03-04</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Altium/">Altium</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/Altium_designer_ways_copper_deposition/">Altium_designer中三种不同覆铜方式</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-
-        <h2 id="Altium-不同覆铜方式"><a href="#Altium-不同覆铜方式" class="headerlink" title="Altium 不同覆铜方式"></a>Altium 不同覆铜方式</h2><ul>
-<li>三种覆铜方式：Fill,Polygon pour和Solid region，三种不同的覆铜方式分别完成不同的功能。</li>
-<li>Fill即在一个区域内直接用铜皮覆盖，且不区分是否存在焊盘或过孔。<ul>
-<li>因此在Fill填充的区域如果存在网络，线路或过孔等都将连接在一起，不正确的使用容易造成短路。</li>
-<li>Fill填充的区域面积一般比较小，同时Fill的区域只能是矩形不可随意绘制图形。</li>
-<li>Fill在布线前完成。</li>
-</ul>
-</li>
-<li>Polygon pour即铺铜也称为灌铜，作用和Fill相近但有以下区分<ul>
-<li>灌铜可以主动区分过孔和网络，如果过孔与焊点不属于同一个网络，灌铜将根据设置好的规则将它们分开并保持安全距离。</li>
-<li>灌铜的目的是提高电路的抗干扰能力、减小辐射干扰、高频PCB电路板常常选用。</li>
-<li>灌铜功能可以自动删除死铜，在铺铜时，点击Tools-Preferences，在PCB Editor 栏的Interactive Routing 处选Push Obstacle （遇到不同网络的走线时推挤其它的走线，Ignore Obstacle为穿过）模式并选中Automatically Remove Loops（自动删除多余的走线）。</li>
-</ul>
-</li>
-<li>Solid region即在在覆铜区域内整片覆盖成一个整体铜膜。<ul>
-<li>覆铜区域内不允许存在其它网络的焊盘 过孔 铜膜走线，否则会造成短路。</li>
-<li>实心覆铜可以绘制任意形状，也可以由其它图形转换而来，为了能绘出任意图形的实心覆铜，可以先在PCB板的顶部丝印层top overly，用划线工具画出任意形状的图形，随后框选它，然后点击菜单tools—-convert—-create region from selected primitives—-创建实心覆铜区域。</li>
-<li>实心覆铜常用于创建任意形状的焊盘、铜膜走线、插接件、连接件、在制作PCB封装时经常使用。</li>
-</ul>
-</li>
-</ul>
-<hr>
-<p>2019/03/04</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/Altium_designer_ways_copper_deposition/" data-id="ckjv3w9au000o6sdnb83971wk" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Altium-Designer/" rel="tag">Altium Designer</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Electronic/" rel="tag">Electronic</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
@@ -527,7 +517,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li></ul>
     </div>
   </div>
 
@@ -538,6 +528,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/Linux_lsblk/">Linux系统lsblk命令</a>
+          </li>
         
           <li>
             <a href="/mysql_root_password/">MySQL忘记root密码后重置</a>
@@ -553,10 +547,6 @@
         
           <li>
             <a href="/Linux_ps_zombie_process/">Linux系统查看僵尸进程</a>
-          </li>
-        
-          <li>
-            <a href="/hive_connection_block/">hive初始化many connection error</a>
           </li>
         
       </ul>
