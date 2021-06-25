@@ -67,6 +67,65 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-C++_prestatement" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/C++_prestatement/" class="article-date">
+  <time datetime="2019-03-06T11:49:09.000Z" itemprop="datePublished">2019-03-06</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/learning/">learning</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/C++_prestatement/">C++使用前置声明</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+
+        <h2 id="C-前置声明​"><a href="#C-前置声明​" class="headerlink" title="C++前置声明​"></a>C++前置声明​</h2><ul>
+<li><p>使用前置声明可以解决在两个或多个头文件的互相包含问题。</p>
+</li>
+<li><p>例如在头文件a.h和头文件b.h的内容分别如下：</p>
+<ul>
+<li>~~~<br>//a.h<br>#include “b.h”<br>class A<br>{<br>….<br>private:  <pre><code>B b;  </code></pre>
+};<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">  <span class="comment">//b.h  </span></span><br><span class="line">  <span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&quot;a.h&quot;</span>  </span></span><br><span class="line">  <span class="class"><span class="keyword">class</span> <span class="title">B</span>  </span></span><br><span class="line"><span class="class">  &#123;</span>  </span><br><span class="line">  ....  </span><br><span class="line">  <span class="keyword">private</span>:  </span><br><span class="line">      A a;  </span><br><span class="line">  &#125;;</span><br><span class="line">  ​~~~</span><br><span class="line"></span><br><span class="line">* 一旦编译在a.h中会出现未定义类B的问题，因此使用前置声明，在a.h头文件加入声明类B的代码即可：</span><br><span class="line"></span><br><span class="line">* ~~~</span><br><span class="line">  <span class="comment">//a.h   </span></span><br><span class="line">  <span class="comment">//#include &quot;b.h&quot;  </span></span><br><span class="line">  <span class="class"><span class="keyword">class</span> <span class="title">B</span>;</span>   </span><br><span class="line">  <span class="class"><span class="keyword">class</span> <span class="title">A</span>   </span></span><br><span class="line"><span class="class">  &#123;</span>  </span><br><span class="line">   ....   </span><br><span class="line">  <span class="keyword">private</span>:  </span><br><span class="line">   B b;   </span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>在这里加入前置声明不需要重新编译头文件a.h，但需要重新编译类B。</p>
+</li>
+<li><p>使用前置声明也可以减少类A的大小，上面只是声明了类B的指针而不是整个头文件，因此代码量大大缩小。</p>
+</li>
+</ul>
+<hr>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wangxianggit.github.io/C++_prestatement/" data-id="ckjv3w9b1001e6sdn6igy51se" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C++</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-C++_code_writting_standard" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/C++_code_writting_standard/" class="article-date">
@@ -401,70 +460,11 @@
 
 
   
-    <article id="post-Altium_design_two_three_dimension_change" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/Altium_design_two_three_dimension_change/" class="article-date">
-  <time datetime="2019-03-03T01:40:41.000Z" itemprop="datePublished">2019-03-03</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Altium/">Altium</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/Altium_design_two_three_dimension_change/">Altium Designer二维三维视图切换</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-
-        <h2 id="AD视图切换​"><a href="#AD视图切换​" class="headerlink" title="AD视图切换​"></a>AD视图切换​</h2><ul>
-<li>由菜单栏切换到3D视图，依次点击菜单：<ul>
-<li>视图-&gt;3D布局模式</li>
-<li>回到菜单栏点击视图-&gt;2D布局模式，切换回3D视图</li>
-</ul>
-</li>
-<li>由快捷键切换：按键盘3到3D视图模式，在3D视图模式下按2回到2D视图模式</li>
-<li>在3D视图模式下可以进行的操作：<ul>
-<li>缩放：Ctrl+右键拖动鼠标，或Ctrl+滚动鼠标滚轮或PgUp/PgDn键</li>
-<li>平移：右键拖动鼠标，或标准windows鼠标滚轮控件</li>
-<li>旋转：Shift+右键拖动鼠标。</li>
-</ul>
-</li>
-</ul>
-<hr>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/Altium_design_two_three_dimension_change/" data-id="ckjv3w9as000h6sdn7iy12zj1" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Altium-Designer/" rel="tag">Altium Designer</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Electronic/" rel="tag">Electronic</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/page/30/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/29/">29</a><a class="page-number" href="/page/30/">30</a><span class="page-number current">31</span><a class="page-number" href="/page/32/">32</a><a class="page-number" href="/page/33/">33</a><span class="space">&hellip;</span><a class="page-number" href="/page/45/">45</a><a class="extend next" rel="next" href="/page/32/">Next &amp;raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/30/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/29/">29</a><a class="page-number" href="/page/30/">30</a><span class="page-number current">31</span><a class="page-number" href="/page/32/">32</a><a class="page-number" href="/page/33/">33</a><span class="space">&hellip;</span><a class="page-number" href="/page/46/">46</a><a class="extend next" rel="next" href="/page/32/">Next &amp;raquo;</a>
   </nav>
 
 </section>
@@ -502,7 +502,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithm/" rel="tag">Algorithm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Altium-Designer/" rel="tag">Altium Designer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Apache/" rel="tag">Apache</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BeautifulSoup/" rel="tag">BeautifulSoup</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Centos7/" rel="tag">Centos7</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cython/" rel="tag">Cython</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Database/" rel="tag">Database</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Electronic/" rel="tag">Electronic</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/English/" rel="tag">English</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Geant4/" rel="tag">Geant4</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hardware/" rel="tag">Hardware</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Image/" rel="tag">Image</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jupyter/" rel="tag">Jupyter</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mongodb/" rel="tag">Mongodb</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nuclear-Physics/" rel="tag">Nuclear Physics</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Open/" rel="tag">Open</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Opencv/" rel="tag">Opencv</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Program/" rel="tag">Program</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PyPI/" rel="tag">PyPI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Py-Crawler/" rel="tag">Py_Crawler</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Random/" rel="tag">Random</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Resource/" rel="tag">Resource</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Root/" rel="tag">Root</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Scipy/" rel="tag">Scipy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Shell/" rel="tag">Shell</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Solidwork/" rel="tag">Solidwork</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TTree/" rel="tag">TTree</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tensorflow/" rel="tag">Tensorflow</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Thread/" rel="tag">Thread</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Urllib2/" rel="tag">Urllib2</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Virtual-memory/" rel="tag">Virtual memory</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cmake/" rel="tag">cmake</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cmd/" rel="tag">cmd</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/data-structure/" rel="tag">data structure</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/htop/" rel="tag">htop</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/keras/" rel="tag">keras</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/latex/" rel="tag">latex</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/os/" rel="tag">os</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/qt/" rel="tag">qt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/requests/" rel="tag">requests</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sk-learn/" rel="tag">sk-learn</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh/" rel="tag">ssh</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/statistic/" rel="tag">statistic</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vi/" rel="tag">vi</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/windows/" rel="tag">windows</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/yolo%EF%BC%8CC/" rel="tag">yolo，C</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithm/" rel="tag">Algorithm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Altium-Designer/" rel="tag">Altium Designer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Apache/" rel="tag">Apache</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BeautifulSoup/" rel="tag">BeautifulSoup</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Centos7/" rel="tag">Centos7</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cython/" rel="tag">Cython</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Database/" rel="tag">Database</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Electronic/" rel="tag">Electronic</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/English/" rel="tag">English</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Geant4/" rel="tag">Geant4</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hardware/" rel="tag">Hardware</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Image/" rel="tag">Image</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jupyter/" rel="tag">Jupyter</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mongodb/" rel="tag">Mongodb</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nuclear-Physics/" rel="tag">Nuclear Physics</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Open/" rel="tag">Open</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Opencv/" rel="tag">Opencv</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Program/" rel="tag">Program</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PyPI/" rel="tag">PyPI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Py-Crawler/" rel="tag">Py_Crawler</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Random/" rel="tag">Random</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Resource/" rel="tag">Resource</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Root/" rel="tag">Root</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Scipy/" rel="tag">Scipy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Shell/" rel="tag">Shell</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Solidwork/" rel="tag">Solidwork</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TTree/" rel="tag">TTree</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tensorflow/" rel="tag">Tensorflow</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Thread/" rel="tag">Thread</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Urllib2/" rel="tag">Urllib2</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Virtual-memory/" rel="tag">Virtual memory</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cmake/" rel="tag">cmake</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cmd/" rel="tag">cmd</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/data-structure/" rel="tag">data structure</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/htop/" rel="tag">htop</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/keras/" rel="tag">keras</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/latex/" rel="tag">latex</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/os/" rel="tag">os</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/qt/" rel="tag">qt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/requests/" rel="tag">requests</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sk-learn/" rel="tag">sk-learn</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh/" rel="tag">ssh</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/statistic/" rel="tag">statistic</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vi/" rel="tag">vi</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wiki/" rel="tag">wiki</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/windows/" rel="tag">windows</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/yolo%EF%BC%8CC/" rel="tag">yolo，C</a></li></ul>
     </div>
   </div>
 
@@ -512,7 +512,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Algorithm/" style="font-size: 11.33px;">Algorithm</a> <a href="/tags/Altium-Designer/" style="font-size: 14.67px;">Altium Designer</a> <a href="/tags/Apache/" style="font-size: 11.33px;">Apache</a> <a href="/tags/BeautifulSoup/" style="font-size: 10px;">BeautifulSoup</a> <a href="/tags/C/" style="font-size: 15.33px;">C</a> <a href="/tags/C/" style="font-size: 18.67px;">C++</a> <a href="/tags/Centos7/" style="font-size: 18.67px;">Centos7</a> <a href="/tags/Cython/" style="font-size: 10px;">Cython</a> <a href="/tags/Database/" style="font-size: 12.67px;">Database</a> <a href="/tags/Electronic/" style="font-size: 13.33px;">Electronic</a> <a href="/tags/English/" style="font-size: 12px;">English</a> <a href="/tags/Geant4/" style="font-size: 10.67px;">Geant4</a> <a href="/tags/Hardware/" style="font-size: 10px;">Hardware</a> <a href="/tags/Hexo/" style="font-size: 14px;">Hexo</a> <a href="/tags/Image/" style="font-size: 12px;">Image</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Jupyter/" style="font-size: 10px;">Jupyter</a> <a href="/tags/Linux/" style="font-size: 19.33px;">Linux</a> <a href="/tags/Markdown/" style="font-size: 16px;">Markdown</a> <a href="/tags/Mongodb/" style="font-size: 10px;">Mongodb</a> <a href="/tags/Nuclear-Physics/" style="font-size: 11.33px;">Nuclear Physics</a> <a href="/tags/Open/" style="font-size: 10px;">Open</a> <a href="/tags/Opencv/" style="font-size: 12px;">Opencv</a> <a href="/tags/Program/" style="font-size: 18px;">Program</a> <a href="/tags/PyPI/" style="font-size: 10px;">PyPI</a> <a href="/tags/Py-Crawler/" style="font-size: 10.67px;">Py_Crawler</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/Random/" style="font-size: 10px;">Random</a> <a href="/tags/Resource/" style="font-size: 10.67px;">Resource</a> <a href="/tags/Root/" style="font-size: 10.67px;">Root</a> <a href="/tags/Scipy/" style="font-size: 10px;">Scipy</a> <a href="/tags/Shell/" style="font-size: 16.67px;">Shell</a> <a href="/tags/Solidwork/" style="font-size: 10.67px;">Solidwork</a> <a href="/tags/TTree/" style="font-size: 10px;">TTree</a> <a href="/tags/Tensorflow/" style="font-size: 15.33px;">Tensorflow</a> <a href="/tags/Thread/" style="font-size: 10px;">Thread</a> <a href="/tags/Urllib2/" style="font-size: 10px;">Urllib2</a> <a href="/tags/Virtual-memory/" style="font-size: 10px;">Virtual memory</a> <a href="/tags/cmake/" style="font-size: 12.67px;">cmake</a> <a href="/tags/cmd/" style="font-size: 10.67px;">cmd</a> <a href="/tags/data-structure/" style="font-size: 10.67px;">data structure</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/hexo/" style="font-size: 11.33px;">hexo</a> <a href="/tags/htop/" style="font-size: 10px;">htop</a> <a href="/tags/keras/" style="font-size: 10.67px;">keras</a> <a href="/tags/latex/" style="font-size: 14.67px;">latex</a> <a href="/tags/os/" style="font-size: 10px;">os</a> <a href="/tags/qt/" style="font-size: 10px;">qt</a> <a href="/tags/requests/" style="font-size: 10px;">requests</a> <a href="/tags/sk-learn/" style="font-size: 10px;">sk-learn</a> <a href="/tags/ssh/" style="font-size: 12.67px;">ssh</a> <a href="/tags/statistic/" style="font-size: 10px;">statistic</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/windows/" style="font-size: 17.33px;">windows</a> <a href="/tags/yolo%EF%BC%8CC/" style="font-size: 10px;">yolo，C</a>
+      <a href="/tags/Algorithm/" style="font-size: 11.33px;">Algorithm</a> <a href="/tags/Altium-Designer/" style="font-size: 14.67px;">Altium Designer</a> <a href="/tags/Apache/" style="font-size: 11.33px;">Apache</a> <a href="/tags/BeautifulSoup/" style="font-size: 10px;">BeautifulSoup</a> <a href="/tags/C/" style="font-size: 15.33px;">C</a> <a href="/tags/C/" style="font-size: 18.67px;">C++</a> <a href="/tags/Centos7/" style="font-size: 18.67px;">Centos7</a> <a href="/tags/Cython/" style="font-size: 10px;">Cython</a> <a href="/tags/Database/" style="font-size: 12.67px;">Database</a> <a href="/tags/Electronic/" style="font-size: 13.33px;">Electronic</a> <a href="/tags/English/" style="font-size: 12px;">English</a> <a href="/tags/Geant4/" style="font-size: 10.67px;">Geant4</a> <a href="/tags/Hardware/" style="font-size: 10px;">Hardware</a> <a href="/tags/Hexo/" style="font-size: 14px;">Hexo</a> <a href="/tags/Image/" style="font-size: 12px;">Image</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Jupyter/" style="font-size: 10px;">Jupyter</a> <a href="/tags/Linux/" style="font-size: 19.33px;">Linux</a> <a href="/tags/Markdown/" style="font-size: 16px;">Markdown</a> <a href="/tags/Mongodb/" style="font-size: 10px;">Mongodb</a> <a href="/tags/Nuclear-Physics/" style="font-size: 11.33px;">Nuclear Physics</a> <a href="/tags/Open/" style="font-size: 10px;">Open</a> <a href="/tags/Opencv/" style="font-size: 12px;">Opencv</a> <a href="/tags/Program/" style="font-size: 18px;">Program</a> <a href="/tags/PyPI/" style="font-size: 10px;">PyPI</a> <a href="/tags/Py-Crawler/" style="font-size: 10.67px;">Py_Crawler</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/Random/" style="font-size: 10px;">Random</a> <a href="/tags/Resource/" style="font-size: 10.67px;">Resource</a> <a href="/tags/Root/" style="font-size: 10.67px;">Root</a> <a href="/tags/Scipy/" style="font-size: 10px;">Scipy</a> <a href="/tags/Shell/" style="font-size: 16.67px;">Shell</a> <a href="/tags/Solidwork/" style="font-size: 10.67px;">Solidwork</a> <a href="/tags/TTree/" style="font-size: 10px;">TTree</a> <a href="/tags/Tensorflow/" style="font-size: 15.33px;">Tensorflow</a> <a href="/tags/Thread/" style="font-size: 10px;">Thread</a> <a href="/tags/Urllib2/" style="font-size: 10px;">Urllib2</a> <a href="/tags/Virtual-memory/" style="font-size: 10px;">Virtual memory</a> <a href="/tags/cmake/" style="font-size: 12.67px;">cmake</a> <a href="/tags/cmd/" style="font-size: 10.67px;">cmd</a> <a href="/tags/data-structure/" style="font-size: 10.67px;">data structure</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/hexo/" style="font-size: 11.33px;">hexo</a> <a href="/tags/htop/" style="font-size: 10px;">htop</a> <a href="/tags/keras/" style="font-size: 10.67px;">keras</a> <a href="/tags/latex/" style="font-size: 14.67px;">latex</a> <a href="/tags/os/" style="font-size: 10px;">os</a> <a href="/tags/qt/" style="font-size: 10px;">qt</a> <a href="/tags/requests/" style="font-size: 10px;">requests</a> <a href="/tags/sk-learn/" style="font-size: 10px;">sk-learn</a> <a href="/tags/ssh/" style="font-size: 12.67px;">ssh</a> <a href="/tags/statistic/" style="font-size: 10px;">statistic</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/wiki/" style="font-size: 10px;">wiki</a> <a href="/tags/windows/" style="font-size: 17.33px;">windows</a> <a href="/tags/yolo%EF%BC%8CC/" style="font-size: 10px;">yolo，C</a>
     </div>
   </div>
 
@@ -534,6 +534,10 @@
       <ul>
         
           <li>
+            <a href="/mediawiki_icon/">mediawiki设置logo和站点图标</a>
+          </li>
+        
+          <li>
             <a href="/yum_remi_error/">Centos7安装remi源错误</a>
           </li>
         
@@ -547,10 +551,6 @@
         
           <li>
             <a href="/mysql_root_password/">MySQL忘记root密码后重置</a>
-          </li>
-        
-          <li>
-            <a href="/Linux_crontab/">linux定时任务crontab</a>
           </li>
         
       </ul>

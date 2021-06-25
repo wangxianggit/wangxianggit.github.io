@@ -67,6 +67,62 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Linux_netstat" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/Linux_netstat/" class="article-date">
+  <time datetime="2021-03-31T07:42:21.000Z" itemprop="datePublished">2021-03-31</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/learning/">learning</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/Linux_netstat/">netstat显示网络状态</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+
+        <h3 id="netstat显示网络状态"><a href="#netstat显示网络状态" class="headerlink" title="netstat显示网络状态"></a>netstat显示网络状态</h3><ul>
+<li>Linux netstat 命令用于显示网络状态。</li>
+<li>利用 netstat 指令可让你得知整个 Linux 系统的网络情况。</li>
+<li>语法：<code>netstat [-acCeFghilMnNoprstuvVwx][-A&lt;网络类型&gt;][--ip]</code></li>
+<li>实例：</li>
+</ul>
+<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">查看端口或者查看进程</span><br><span class="line">netstat -anpt</span><br><span class="line">显示详细的网络状况</span><br><span class="line">netstat -<span class="keyword">a</span></span><br><span class="line">显示当前户籍UDP连接状况</span><br><span class="line">netstat -nu</span><br><span class="line">显示UDP端口号的使用情况</span><br><span class="line">netstat -apu</span><br><span class="line">显示网卡列表</span><br><span class="line">netstat -i</span><br></pre></td></tr></table></figure>
+<ul>
+<li>可用参数：</li>
+</ul>
+<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">-a或<span class="params">--all</span> 显示所有连线中的Socket。</span><br><span class="line">-A&lt;网络类型&gt;或--&lt;网络类型&gt; 列出该网络类型连线中的相关地址。</span><br><span class="line">-c或<span class="params">--continuous</span> 持续列出网络状态。</span><br><span class="line">-C或<span class="params">--cache</span> 显示路由器配置的快取信息。</span><br><span class="line">-e或<span class="params">--extend</span> 显示网络其他相关信息。</span><br><span class="line">-F或<span class="params">--fib</span> 显示路由缓存。</span><br><span class="line">-g或<span class="params">--groups</span> 显示多重广播功能群组组员名单。</span><br><span class="line">-h或<span class="params">--help</span> 在线帮助。</span><br><span class="line">-i或<span class="params">--interfaces</span> 显示网络界面信息表单。</span><br><span class="line">-l或<span class="params">--listening</span> 显示监控中的服务器的Socket。</span><br><span class="line">-M或<span class="params">--masquerade</span> 显示伪装的网络连线。</span><br><span class="line">-n或<span class="params">--numeric</span> 直接使用IP地址，而不通过域名服务器。</span><br><span class="line">-N或<span class="params">--netlink</span>或<span class="params">--symbolic</span> 显示网络硬件外围设备的符号连接名称。</span><br><span class="line">-o或<span class="params">--timers</span> 显示计时器。</span><br><span class="line">-p或<span class="params">--programs</span> 显示正在使用Socket的程序识别码和程序名称。</span><br><span class="line">-r或<span class="params">--route</span> 显示Routing Table。</span><br><span class="line">-s或<span class="params">--statistics</span> 显示网络工作信息统计表。</span><br><span class="line">-t或<span class="params">--tcp</span> 显示TCP传输协议的连线状况。</span><br><span class="line">-u或<span class="params">--udp</span> 显示UDP传输协议的连线状况。</span><br><span class="line">-v或<span class="params">--verbose</span> 显示指令执行过程。</span><br><span class="line">-V或<span class="params">--version</span> 显示版本信息。</span><br><span class="line">-w或<span class="params">--raw</span> 显示RAW传输协议的连线状况。</span><br><span class="line">-x或<span class="params">--unix</span> 此参数的效果和指定<span class="string">&quot;-A unix&quot;</span>参数相同。</span><br><span class="line"><span class="params">--ip</span>或<span class="params">--inet</span> 此参数的效果和指定<span class="string">&quot;-A inet&quot;</span>参数相同。</span><br></pre></td></tr></table></figure>
+<hr>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wangxianggit.github.io/Linux_netstat/" data-id="ckmx5e0660000g0dnblx594c6" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Shell/" rel="tag">Shell</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-Python_tqdm" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/Python_tqdm/" class="article-date">
@@ -321,67 +377,11 @@ cprint.fatal(str, interrupt=False) # RED</code></pre>
 
 
   
-    <article id="post-ntp_date" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/ntp_date/" class="article-date">
-  <time datetime="2021-03-25T05:00:32.000Z" itemprop="datePublished">2021-03-25</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/learning/">learning</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/ntp_date/">Centos7使用npt设置时间同步</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-
-        <ul>
-<li>设置时区并使用npt进行时间同步：</li>
-</ul>
-<figure class="highlight dsconfig"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">yum</span> <span class="string">install</span> <span class="string">ntp</span> // 安装<span class="string">ntp</span>服务</span><br><span class="line"><span class="string">systemctl</span> <span class="string">enable</span> <span class="string">ntpd</span> // 开机启动服务</span><br><span class="line"><span class="string">systemctl</span> <span class="string">start</span> <span class="string">ntpd</span> // 启动服务</span><br><span class="line"><span class="string">timedatectl</span> <span class="built_in">set-timezone</span> <span class="string">Asia</span>/<span class="string">Shanghai</span> // 更改时区</span><br><span class="line"><span class="string">timedatectl</span> <span class="built_in">set-ntp</span> <span class="string">yes</span> // 启用<span class="string">ntp</span>同步</span><br><span class="line"><span class="string">ntpq</span> -<span class="string">p</span> // 同步时间</span><br></pre></td></tr></table></figure>
-<ul>
-<li><p>在CentOS 6版本，时间设置有date、hwclock命令，从CentOS 7开始，使用了一个新的命令timedatectl。</p>
-</li>
-<li><p>timedatectl命令的使用：</p>
-</li>
-</ul>
-<figure class="highlight dsconfig"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 读取时间</span></span><br><span class="line"><span class="string">timedatectl</span>  //等同于 <span class="string">timedatectl</span> <span class="string">status</span></span><br><span class="line"><span class="string"></span><span class="comment"># 设置时间</span></span><br><span class="line"><span class="string">timedatectl</span> <span class="built_in">set-time</span> <span class="string">&quot;YYYY-MM-DD HH:MM:SS&quot;</span></span><br><span class="line"><span class="comment"># 列出所有时区</span></span><br><span class="line"><span class="string">timedatectl</span> <span class="built_in">list-timezones</span></span><br><span class="line"><span class="built_in">#</span> 更改时区</span><br><span class="line"><span class="string">timedatectl</span> <span class="built_in">set-timezone</span> <span class="string">Asia</span>/<span class="string">Shanghai</span></span><br><span class="line"><span class="string"></span><span class="comment"># 或   ln -sf /usr/share/zoneinfor/Asia/Shanghai /etc/localtime     </span></span><br><span class="line">设置是否与<span class="string">NTP</span>服务器同步</span><br><span class="line"><span class="string">timedatectl</span> <span class="built_in">set-ntp</span> <span class="string">yes</span>  //<span class="string">yes</span>或者<span class="string">no</span></span><br><span class="line"><span class="string"></span>将硬件时钟调整为与本地时钟一致</span><br><span class="line"><span class="string">hwclock</span> <span class="built_in">--systohc</span> <span class="built_in">--localtime</span> 或 <span class="string">timedatectl</span> <span class="built_in">set-local-rtc</span> <span class="string">1</span></span><br><span class="line"><span class="string"></span>注，硬件时钟默认使用<span class="string">UTC</span>时间，因为硬件时钟不能保存时区和夏令时调整，修改后就无法从硬件时钟中读取出准确标准时间，因此不建议修改。修改后系统会出现警告。</span><br><span class="line">将硬件时间设置成 <span class="string">UTC</span></span><br><span class="line"><span class="string">hwclock</span> <span class="built_in">--systohc</span> <span class="built_in">--utc</span> 或 <span class="string">timedatectl</span> <span class="built_in">set-local-rtc</span> <span class="string">1</span></span><br><span class="line"><span class="string"></span><span class="comment"># 显示硬件时间：</span></span><br><span class="line"><span class="string">hwclock</span> <span class="built_in">--show</span></span><br><span class="line"><span class="built_in">#</span> 设置硬件时间：</span><br><span class="line"><span class="string">hwclock</span> <span class="built_in">--set</span> <span class="built_in">--date</span> ‘<span class="string">08</span>/<span class="string">02</span>/<span class="string">2012</span> <span class="string">12:00:</span><span class="string">00</span>’</span><br><span class="line"><span class="comment"># 将硬件时间同步到系统时间：</span></span><br><span class="line"><span class="string">hwclock</span> <span class="built_in">--hctosys</span></span><br><span class="line"><span class="built_in">#</span> 强制把系统时间写入<span class="string">CMOS</span>：</span><br><span class="line"><span class="comment"># clock -w</span></span><br></pre></td></tr></table></figure>
-<hr>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/ntp_date/" data-id="ckmoev9np00009wdneva9glvt" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Centos7/" rel="tag">Centos7</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/page/2/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/45/">45</a><a class="extend next" rel="next" href="/page/4/">Next &amp;raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/2/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/46/">46</a><a class="extend next" rel="next" href="/page/4/">Next &amp;raquo;</a>
   </nav>
 
 </section>
@@ -419,7 +419,7 @@ cprint.fatal(str, interrupt=False) # RED</code></pre>
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithm/" rel="tag">Algorithm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Altium-Designer/" rel="tag">Altium Designer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Apache/" rel="tag">Apache</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BeautifulSoup/" rel="tag">BeautifulSoup</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Centos7/" rel="tag">Centos7</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cython/" rel="tag">Cython</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Database/" rel="tag">Database</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Electronic/" rel="tag">Electronic</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/English/" rel="tag">English</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Geant4/" rel="tag">Geant4</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hardware/" rel="tag">Hardware</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Image/" rel="tag">Image</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jupyter/" rel="tag">Jupyter</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mongodb/" rel="tag">Mongodb</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nuclear-Physics/" rel="tag">Nuclear Physics</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Open/" rel="tag">Open</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Opencv/" rel="tag">Opencv</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Program/" rel="tag">Program</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PyPI/" rel="tag">PyPI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Py-Crawler/" rel="tag">Py_Crawler</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Random/" rel="tag">Random</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Resource/" rel="tag">Resource</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Root/" rel="tag">Root</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Scipy/" rel="tag">Scipy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Shell/" rel="tag">Shell</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Solidwork/" rel="tag">Solidwork</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TTree/" rel="tag">TTree</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tensorflow/" rel="tag">Tensorflow</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Thread/" rel="tag">Thread</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Urllib2/" rel="tag">Urllib2</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Virtual-memory/" rel="tag">Virtual memory</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cmake/" rel="tag">cmake</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cmd/" rel="tag">cmd</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/data-structure/" rel="tag">data structure</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/htop/" rel="tag">htop</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/keras/" rel="tag">keras</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/latex/" rel="tag">latex</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/os/" rel="tag">os</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/qt/" rel="tag">qt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/requests/" rel="tag">requests</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sk-learn/" rel="tag">sk-learn</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh/" rel="tag">ssh</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/statistic/" rel="tag">statistic</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vi/" rel="tag">vi</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/windows/" rel="tag">windows</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/yolo%EF%BC%8CC/" rel="tag">yolo，C</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithm/" rel="tag">Algorithm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Altium-Designer/" rel="tag">Altium Designer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Apache/" rel="tag">Apache</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BeautifulSoup/" rel="tag">BeautifulSoup</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Centos7/" rel="tag">Centos7</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cython/" rel="tag">Cython</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Database/" rel="tag">Database</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Electronic/" rel="tag">Electronic</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/English/" rel="tag">English</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Geant4/" rel="tag">Geant4</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hardware/" rel="tag">Hardware</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Image/" rel="tag">Image</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jupyter/" rel="tag">Jupyter</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mongodb/" rel="tag">Mongodb</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nuclear-Physics/" rel="tag">Nuclear Physics</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Open/" rel="tag">Open</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Opencv/" rel="tag">Opencv</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Program/" rel="tag">Program</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PyPI/" rel="tag">PyPI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Py-Crawler/" rel="tag">Py_Crawler</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Random/" rel="tag">Random</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Resource/" rel="tag">Resource</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Root/" rel="tag">Root</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Scipy/" rel="tag">Scipy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Shell/" rel="tag">Shell</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Solidwork/" rel="tag">Solidwork</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TTree/" rel="tag">TTree</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tensorflow/" rel="tag">Tensorflow</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Thread/" rel="tag">Thread</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Urllib2/" rel="tag">Urllib2</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Virtual-memory/" rel="tag">Virtual memory</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cmake/" rel="tag">cmake</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cmd/" rel="tag">cmd</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/data-structure/" rel="tag">data structure</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/htop/" rel="tag">htop</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/keras/" rel="tag">keras</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/latex/" rel="tag">latex</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/os/" rel="tag">os</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/qt/" rel="tag">qt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/requests/" rel="tag">requests</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sk-learn/" rel="tag">sk-learn</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh/" rel="tag">ssh</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/statistic/" rel="tag">statistic</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vi/" rel="tag">vi</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wiki/" rel="tag">wiki</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/windows/" rel="tag">windows</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/yolo%EF%BC%8CC/" rel="tag">yolo，C</a></li></ul>
     </div>
   </div>
 
@@ -429,7 +429,7 @@ cprint.fatal(str, interrupt=False) # RED</code></pre>
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Algorithm/" style="font-size: 11.33px;">Algorithm</a> <a href="/tags/Altium-Designer/" style="font-size: 14.67px;">Altium Designer</a> <a href="/tags/Apache/" style="font-size: 11.33px;">Apache</a> <a href="/tags/BeautifulSoup/" style="font-size: 10px;">BeautifulSoup</a> <a href="/tags/C/" style="font-size: 15.33px;">C</a> <a href="/tags/C/" style="font-size: 18.67px;">C++</a> <a href="/tags/Centos7/" style="font-size: 18.67px;">Centos7</a> <a href="/tags/Cython/" style="font-size: 10px;">Cython</a> <a href="/tags/Database/" style="font-size: 12.67px;">Database</a> <a href="/tags/Electronic/" style="font-size: 13.33px;">Electronic</a> <a href="/tags/English/" style="font-size: 12px;">English</a> <a href="/tags/Geant4/" style="font-size: 10.67px;">Geant4</a> <a href="/tags/Hardware/" style="font-size: 10px;">Hardware</a> <a href="/tags/Hexo/" style="font-size: 14px;">Hexo</a> <a href="/tags/Image/" style="font-size: 12px;">Image</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Jupyter/" style="font-size: 10px;">Jupyter</a> <a href="/tags/Linux/" style="font-size: 19.33px;">Linux</a> <a href="/tags/Markdown/" style="font-size: 16px;">Markdown</a> <a href="/tags/Mongodb/" style="font-size: 10px;">Mongodb</a> <a href="/tags/Nuclear-Physics/" style="font-size: 11.33px;">Nuclear Physics</a> <a href="/tags/Open/" style="font-size: 10px;">Open</a> <a href="/tags/Opencv/" style="font-size: 12px;">Opencv</a> <a href="/tags/Program/" style="font-size: 18px;">Program</a> <a href="/tags/PyPI/" style="font-size: 10px;">PyPI</a> <a href="/tags/Py-Crawler/" style="font-size: 10.67px;">Py_Crawler</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/Random/" style="font-size: 10px;">Random</a> <a href="/tags/Resource/" style="font-size: 10.67px;">Resource</a> <a href="/tags/Root/" style="font-size: 10.67px;">Root</a> <a href="/tags/Scipy/" style="font-size: 10px;">Scipy</a> <a href="/tags/Shell/" style="font-size: 16.67px;">Shell</a> <a href="/tags/Solidwork/" style="font-size: 10.67px;">Solidwork</a> <a href="/tags/TTree/" style="font-size: 10px;">TTree</a> <a href="/tags/Tensorflow/" style="font-size: 15.33px;">Tensorflow</a> <a href="/tags/Thread/" style="font-size: 10px;">Thread</a> <a href="/tags/Urllib2/" style="font-size: 10px;">Urllib2</a> <a href="/tags/Virtual-memory/" style="font-size: 10px;">Virtual memory</a> <a href="/tags/cmake/" style="font-size: 12.67px;">cmake</a> <a href="/tags/cmd/" style="font-size: 10.67px;">cmd</a> <a href="/tags/data-structure/" style="font-size: 10.67px;">data structure</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/hexo/" style="font-size: 11.33px;">hexo</a> <a href="/tags/htop/" style="font-size: 10px;">htop</a> <a href="/tags/keras/" style="font-size: 10.67px;">keras</a> <a href="/tags/latex/" style="font-size: 14.67px;">latex</a> <a href="/tags/os/" style="font-size: 10px;">os</a> <a href="/tags/qt/" style="font-size: 10px;">qt</a> <a href="/tags/requests/" style="font-size: 10px;">requests</a> <a href="/tags/sk-learn/" style="font-size: 10px;">sk-learn</a> <a href="/tags/ssh/" style="font-size: 12.67px;">ssh</a> <a href="/tags/statistic/" style="font-size: 10px;">statistic</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/windows/" style="font-size: 17.33px;">windows</a> <a href="/tags/yolo%EF%BC%8CC/" style="font-size: 10px;">yolo，C</a>
+      <a href="/tags/Algorithm/" style="font-size: 11.33px;">Algorithm</a> <a href="/tags/Altium-Designer/" style="font-size: 14.67px;">Altium Designer</a> <a href="/tags/Apache/" style="font-size: 11.33px;">Apache</a> <a href="/tags/BeautifulSoup/" style="font-size: 10px;">BeautifulSoup</a> <a href="/tags/C/" style="font-size: 15.33px;">C</a> <a href="/tags/C/" style="font-size: 18.67px;">C++</a> <a href="/tags/Centos7/" style="font-size: 18.67px;">Centos7</a> <a href="/tags/Cython/" style="font-size: 10px;">Cython</a> <a href="/tags/Database/" style="font-size: 12.67px;">Database</a> <a href="/tags/Electronic/" style="font-size: 13.33px;">Electronic</a> <a href="/tags/English/" style="font-size: 12px;">English</a> <a href="/tags/Geant4/" style="font-size: 10.67px;">Geant4</a> <a href="/tags/Hardware/" style="font-size: 10px;">Hardware</a> <a href="/tags/Hexo/" style="font-size: 14px;">Hexo</a> <a href="/tags/Image/" style="font-size: 12px;">Image</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Jupyter/" style="font-size: 10px;">Jupyter</a> <a href="/tags/Linux/" style="font-size: 19.33px;">Linux</a> <a href="/tags/Markdown/" style="font-size: 16px;">Markdown</a> <a href="/tags/Mongodb/" style="font-size: 10px;">Mongodb</a> <a href="/tags/Nuclear-Physics/" style="font-size: 11.33px;">Nuclear Physics</a> <a href="/tags/Open/" style="font-size: 10px;">Open</a> <a href="/tags/Opencv/" style="font-size: 12px;">Opencv</a> <a href="/tags/Program/" style="font-size: 18px;">Program</a> <a href="/tags/PyPI/" style="font-size: 10px;">PyPI</a> <a href="/tags/Py-Crawler/" style="font-size: 10.67px;">Py_Crawler</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/Random/" style="font-size: 10px;">Random</a> <a href="/tags/Resource/" style="font-size: 10.67px;">Resource</a> <a href="/tags/Root/" style="font-size: 10.67px;">Root</a> <a href="/tags/Scipy/" style="font-size: 10px;">Scipy</a> <a href="/tags/Shell/" style="font-size: 16.67px;">Shell</a> <a href="/tags/Solidwork/" style="font-size: 10.67px;">Solidwork</a> <a href="/tags/TTree/" style="font-size: 10px;">TTree</a> <a href="/tags/Tensorflow/" style="font-size: 15.33px;">Tensorflow</a> <a href="/tags/Thread/" style="font-size: 10px;">Thread</a> <a href="/tags/Urllib2/" style="font-size: 10px;">Urllib2</a> <a href="/tags/Virtual-memory/" style="font-size: 10px;">Virtual memory</a> <a href="/tags/cmake/" style="font-size: 12.67px;">cmake</a> <a href="/tags/cmd/" style="font-size: 10.67px;">cmd</a> <a href="/tags/data-structure/" style="font-size: 10.67px;">data structure</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/hexo/" style="font-size: 11.33px;">hexo</a> <a href="/tags/htop/" style="font-size: 10px;">htop</a> <a href="/tags/keras/" style="font-size: 10.67px;">keras</a> <a href="/tags/latex/" style="font-size: 14.67px;">latex</a> <a href="/tags/os/" style="font-size: 10px;">os</a> <a href="/tags/qt/" style="font-size: 10px;">qt</a> <a href="/tags/requests/" style="font-size: 10px;">requests</a> <a href="/tags/sk-learn/" style="font-size: 10px;">sk-learn</a> <a href="/tags/ssh/" style="font-size: 12.67px;">ssh</a> <a href="/tags/statistic/" style="font-size: 10px;">statistic</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/wiki/" style="font-size: 10px;">wiki</a> <a href="/tags/windows/" style="font-size: 17.33px;">windows</a> <a href="/tags/yolo%EF%BC%8CC/" style="font-size: 10px;">yolo，C</a>
     </div>
   </div>
 
@@ -451,6 +451,10 @@ cprint.fatal(str, interrupt=False) # RED</code></pre>
       <ul>
         
           <li>
+            <a href="/mediawiki_icon/">mediawiki设置logo和站点图标</a>
+          </li>
+        
+          <li>
             <a href="/yum_remi_error/">Centos7安装remi源错误</a>
           </li>
         
@@ -464,10 +468,6 @@ cprint.fatal(str, interrupt=False) # RED</code></pre>
         
           <li>
             <a href="/mysql_root_password/">MySQL忘记root密码后重置</a>
-          </li>
-        
-          <li>
-            <a href="/Linux_crontab/">linux定时任务crontab</a>
           </li>
         
       </ul>
