@@ -67,6 +67,64 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-mysql_root_password" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/mysql_root_password/" class="article-date">
+  <time datetime="2021-05-31T05:16:21.000Z" itemprop="datePublished">2021-05-31</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/learning/">learning</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/mysql_root_password/">MySQL忘记root密码后重置</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+
+        <ul>
+<li>进入MySQL出现错误：<strong>ERROR 1045 (28000): Access denied for user ‘root’@’localhost’ (using passwor:yes)</strong></li>
+<li>即密码出现错误，如果遗忘密码需要重置：<ul>
+<li>首先设置跳过MySQL密码认证过程，vi打开/etc/my.cnf并在[mysqld]后面的任意一行添加’skip-grant-table’用来跳过密码验证。</li>
+<li>重启MySQL：systemctl restart mysqld;</li>
+<li>重启之后输入mysql即可进入mysql;</li>
+<li>回到终端直接输入mysql可以免密码直接登录MySQL终端；</li>
+<li>在MySQL终端输入use mysql切换数据库；</li>
+<li>然后更改root密码：<strong>update mysql.user set authentication_string=password(‘root’) where user=’root’ ;</strong></li>
+<li>退出重新编辑my.cnf文件删掉skip-grant-tables 这一行，然后重启MySQL即实现root密码重置。</li>
+</ul>
+</li>
+</ul>
+<hr>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wangxianggit.github.io/mysql_root_password/" data-id="ckpc66q1h0000s4dnf2xhh5gq" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Database/" rel="tag">Database</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-Linux_crontab" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/Linux_crontab/" class="article-date">
@@ -340,60 +398,6 @@
 
 
   
-    <article id="post-hive_warn_ssl" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/hive_warn_ssl/" class="article-date">
-  <time datetime="2021-04-02T11:04:47.000Z" itemprop="datePublished">2021-04-02</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Database/">Database</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/hive_warn_ssl/">启动hive出现ssl警告</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-
-        <h3 id="启动hive出现ssl警告"><a href="#启动hive出现ssl警告" class="headerlink" title="启动hive出现ssl警告"></a>启动hive出现ssl警告</h3><ul>
-<li>shell启动hive后出现警告：</li>
-</ul>
-<figure class="highlight vbnet"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Fri Apr <span class="number">02</span> <span class="number">19</span>:<span class="number">00</span>:<span class="number">51</span> CST <span class="number">2021</span> WARN: Establishing SSL connection without server<span class="comment">&#x27;s identity</span></span><br><span class="line">verification <span class="built_in">is</span> <span class="built_in">not</span> recommended. According <span class="keyword">to</span> MySQL <span class="number">5.5</span>.<span class="number">45</span>+, <span class="number">5.6</span>.<span class="number">26</span>+ <span class="built_in">and</span> <span class="number">5.7</span>.<span class="number">6</span>+ requirements SSL</span><br><span class="line">connection must be established <span class="keyword">by</span> <span class="keyword">default</span> <span class="keyword">if</span> <span class="keyword">explicit</span> <span class="keyword">option</span> isn<span class="comment">&#x27;t set. For compliance with</span></span><br><span class="line">existing applications <span class="built_in">not</span> <span class="keyword">using</span> SSL the verifyServerCertificate <span class="keyword">property</span> <span class="built_in">is</span> <span class="keyword">set</span> <span class="keyword">to</span> <span class="comment">&#x27;false&#x27;. You</span></span><br><span class="line">need either <span class="keyword">to</span> explicitly disable SSL <span class="keyword">by</span> setting useSSL=<span class="literal">false</span>, <span class="built_in">or</span> <span class="keyword">set</span> useSSL=<span class="literal">true</span> <span class="built_in">and</span> provide</span><br><span class="line">truststore <span class="keyword">for</span> server certificate verification.</span><br></pre></td></tr></table></figure>
-<ul>
-<li>原因是使用JDBC连接MySQL服务器时没有设置<code>useSSL</code>参数为<code>false</code>。</li>
-<li>需要在安装目录的conf中修改hive-site.xml配置文件；**在xml文件中&amp;amp；才表示&amp;**，所以正确的做法是在Hive的配置文件中，如<code>hive-site.xml</code>进行如下设置</li>
-</ul>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">name</span>&gt;</span>javax.jdo.option.ConnectionURL<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">value</span>&gt;</span>jdbc:mysql://localhost:3306/hive?createDatabaseIfNotExist=true<span class="symbol">&amp;amp;</span>useSSL=false<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">description</span>&gt;</span>JDBC connect string for a JDBC metastore<span class="tag">&lt;/<span class="name">description</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<hr>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/hive_warn_ssl/" data-id="ckn086v850000ewdn4qau1aqs" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Database/" rel="tag">Database</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
@@ -468,6 +472,10 @@
       <ul>
         
           <li>
+            <a href="/mediawiki_file_size/">mediawiki上传文件大小设置</a>
+          </li>
+        
+          <li>
             <a href="/mediawiki_icon/">mediawiki设置logo和站点图标</a>
           </li>
         
@@ -481,10 +489,6 @@
         
           <li>
             <a href="/Linux_lsblk/">Linux系统lsblk命令</a>
-          </li>
-        
-          <li>
-            <a href="/mysql_root_password/">MySQL忘记root密码后重置</a>
           </li>
         
       </ul>
