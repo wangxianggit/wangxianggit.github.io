@@ -67,6 +67,73 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Altium_designer_ways_copper_deposition" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/Altium_designer_ways_copper_deposition/" class="article-date">
+  <time datetime="2019-03-04T12:35:11.000Z" itemprop="datePublished">2019-03-04</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Altium/">Altium</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/Altium_designer_ways_copper_deposition/">Altium_designer中三种不同覆铜方式</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+
+        <h2 id="Altium-不同覆铜方式"><a href="#Altium-不同覆铜方式" class="headerlink" title="Altium 不同覆铜方式"></a>Altium 不同覆铜方式</h2><ul>
+<li>三种覆铜方式：Fill,Polygon pour和Solid region，三种不同的覆铜方式分别完成不同的功能。</li>
+<li>Fill即在一个区域内直接用铜皮覆盖，且不区分是否存在焊盘或过孔。<ul>
+<li>因此在Fill填充的区域如果存在网络，线路或过孔等都将连接在一起，不正确的使用容易造成短路。</li>
+<li>Fill填充的区域面积一般比较小，同时Fill的区域只能是矩形不可随意绘制图形。</li>
+<li>Fill在布线前完成。</li>
+</ul>
+</li>
+<li>Polygon pour即铺铜也称为灌铜，作用和Fill相近但有以下区分<ul>
+<li>灌铜可以主动区分过孔和网络，如果过孔与焊点不属于同一个网络，灌铜将根据设置好的规则将它们分开并保持安全距离。</li>
+<li>灌铜的目的是提高电路的抗干扰能力、减小辐射干扰、高频PCB电路板常常选用。</li>
+<li>灌铜功能可以自动删除死铜，在铺铜时，点击Tools-Preferences，在PCB Editor 栏的Interactive Routing 处选Push Obstacle （遇到不同网络的走线时推挤其它的走线，Ignore Obstacle为穿过）模式并选中Automatically Remove Loops（自动删除多余的走线）。</li>
+</ul>
+</li>
+<li>Solid region即在在覆铜区域内整片覆盖成一个整体铜膜。<ul>
+<li>覆铜区域内不允许存在其它网络的焊盘 过孔 铜膜走线，否则会造成短路。</li>
+<li>实心覆铜可以绘制任意形状，也可以由其它图形转换而来，为了能绘出任意图形的实心覆铜，可以先在PCB板的顶部丝印层top overly，用划线工具画出任意形状的图形，随后框选它，然后点击菜单tools—-convert—-create region from selected primitives—-创建实心覆铜区域。</li>
+<li>实心覆铜常用于创建任意形状的焊盘、铜膜走线、插接件、连接件、在制作PCB封装时经常使用。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p>2019/03/04</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wangxianggit.github.io/Altium_designer_ways_copper_deposition/" data-id="ckjv3w9au000o6sdnb83971wk" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Altium-Designer/" rel="tag">Altium Designer</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Electronic/" rel="tag">Electronic</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-Altium_design_resize" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/Altium_design_resize/" class="article-date">
@@ -329,75 +396,6 @@ finally:
 
 
   
-    <article id="post-Python_library_Urllib2" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/Python_library_Urllib2/" class="article-date">
-  <time datetime="2019-02-26T14:17:17.000Z" itemprop="datePublished">2019-02-26</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Py-Crawler/">Py_Crawler</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/Python_library_Urllib2/">Python3库Urllib2迁移</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-
-        <ul>
-<li><p>​ Python3.x中urllib2被拆分成了urllib.request和urllib.error两个包，因此直接导入urllib2会报错，使用pip或 conda安装urllib2也会出现找不到包的情况。</p>
-</li>
-<li><p>导入相应包使用代码：<code>import urllib.request 和import urllib.error</code></p>
-</li>
-<li><p>代码中使用相应函数代码：<code>urllib2.xxx修改为urllib.request.xxx</code></p>
-</li>
-<li><p>示例代码：</p>
-</li>
-<li><pre><code>##download webpage
-import urllib.request
-import urllib.error
-
-def download(url):
-    print(&#39;Downloading:&#39;,url)
-    try:
-        html=urllib.request.urlopen(url).read()
-    except urllib.error as e:
-        print(&#39;download error:&#39;,e.reason)
-        html=None
-    return html
-download(&#39;http://example.webscraping.com/&#39;)</code></pre>
-</li>
-</ul>
-<hr>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/Python_library_Urllib2/" data-id="ckjv3w9cj007g6sdn8k3k8aen" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Py-Crawler/" rel="tag">Py_Crawler</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Urllib2/" rel="tag">Urllib2</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
@@ -450,7 +448,7 @@ download(&#39;http://example.webscraping.com/&#39;)</code></pre>
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Algorithm/" style="font-size: 11.33px;">Algorithm</a> <a href="/tags/Altium-Designer/" style="font-size: 14.67px;">Altium Designer</a> <a href="/tags/Apache/" style="font-size: 11.33px;">Apache</a> <a href="/tags/BeautifulSoup/" style="font-size: 10px;">BeautifulSoup</a> <a href="/tags/C/" style="font-size: 15.33px;">C</a> <a href="/tags/C/" style="font-size: 18.67px;">C++</a> <a href="/tags/Centos7/" style="font-size: 18.67px;">Centos7</a> <a href="/tags/Cython/" style="font-size: 10px;">Cython</a> <a href="/tags/Database/" style="font-size: 12.67px;">Database</a> <a href="/tags/Electronic/" style="font-size: 13.33px;">Electronic</a> <a href="/tags/English/" style="font-size: 12px;">English</a> <a href="/tags/Geant4/" style="font-size: 10.67px;">Geant4</a> <a href="/tags/Hardware/" style="font-size: 10px;">Hardware</a> <a href="/tags/Hexo/" style="font-size: 14px;">Hexo</a> <a href="/tags/Image/" style="font-size: 12px;">Image</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Jupyter/" style="font-size: 10px;">Jupyter</a> <a href="/tags/Linux/" style="font-size: 19.33px;">Linux</a> <a href="/tags/Markdown/" style="font-size: 16px;">Markdown</a> <a href="/tags/Mongodb/" style="font-size: 10px;">Mongodb</a> <a href="/tags/Nuclear-Physics/" style="font-size: 11.33px;">Nuclear Physics</a> <a href="/tags/Open/" style="font-size: 10px;">Open</a> <a href="/tags/Opencv/" style="font-size: 12px;">Opencv</a> <a href="/tags/Program/" style="font-size: 18px;">Program</a> <a href="/tags/PyPI/" style="font-size: 10px;">PyPI</a> <a href="/tags/Py-Crawler/" style="font-size: 10.67px;">Py_Crawler</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/Random/" style="font-size: 10px;">Random</a> <a href="/tags/Resource/" style="font-size: 10.67px;">Resource</a> <a href="/tags/Root/" style="font-size: 10.67px;">Root</a> <a href="/tags/Scipy/" style="font-size: 10px;">Scipy</a> <a href="/tags/Shell/" style="font-size: 16.67px;">Shell</a> <a href="/tags/Solidwork/" style="font-size: 10.67px;">Solidwork</a> <a href="/tags/TTree/" style="font-size: 10px;">TTree</a> <a href="/tags/Tensorflow/" style="font-size: 15.33px;">Tensorflow</a> <a href="/tags/Thread/" style="font-size: 10px;">Thread</a> <a href="/tags/Urllib2/" style="font-size: 10px;">Urllib2</a> <a href="/tags/Virtual-memory/" style="font-size: 10px;">Virtual memory</a> <a href="/tags/cmake/" style="font-size: 12.67px;">cmake</a> <a href="/tags/cmd/" style="font-size: 10.67px;">cmd</a> <a href="/tags/data-structure/" style="font-size: 10.67px;">data structure</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/hexo/" style="font-size: 11.33px;">hexo</a> <a href="/tags/htop/" style="font-size: 10px;">htop</a> <a href="/tags/keras/" style="font-size: 10.67px;">keras</a> <a href="/tags/latex/" style="font-size: 14.67px;">latex</a> <a href="/tags/os/" style="font-size: 10px;">os</a> <a href="/tags/qt/" style="font-size: 10px;">qt</a> <a href="/tags/requests/" style="font-size: 10px;">requests</a> <a href="/tags/sk-learn/" style="font-size: 10px;">sk-learn</a> <a href="/tags/ssh/" style="font-size: 12.67px;">ssh</a> <a href="/tags/statistic/" style="font-size: 10px;">statistic</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/wiki/" style="font-size: 10.67px;">wiki</a> <a href="/tags/windows/" style="font-size: 17.33px;">windows</a> <a href="/tags/yolo%EF%BC%8CC/" style="font-size: 10px;">yolo，C</a>
+      <a href="/tags/Algorithm/" style="font-size: 11.33px;">Algorithm</a> <a href="/tags/Altium-Designer/" style="font-size: 14.67px;">Altium Designer</a> <a href="/tags/Apache/" style="font-size: 11.33px;">Apache</a> <a href="/tags/BeautifulSoup/" style="font-size: 10px;">BeautifulSoup</a> <a href="/tags/C/" style="font-size: 15.33px;">C</a> <a href="/tags/C/" style="font-size: 18.67px;">C++</a> <a href="/tags/Centos7/" style="font-size: 18.67px;">Centos7</a> <a href="/tags/Cython/" style="font-size: 10px;">Cython</a> <a href="/tags/Database/" style="font-size: 12.67px;">Database</a> <a href="/tags/Electronic/" style="font-size: 13.33px;">Electronic</a> <a href="/tags/English/" style="font-size: 12px;">English</a> <a href="/tags/Geant4/" style="font-size: 10.67px;">Geant4</a> <a href="/tags/Hardware/" style="font-size: 10px;">Hardware</a> <a href="/tags/Hexo/" style="font-size: 14px;">Hexo</a> <a href="/tags/Image/" style="font-size: 12px;">Image</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Jupyter/" style="font-size: 10px;">Jupyter</a> <a href="/tags/Linux/" style="font-size: 19.33px;">Linux</a> <a href="/tags/Markdown/" style="font-size: 16px;">Markdown</a> <a href="/tags/Mongodb/" style="font-size: 10px;">Mongodb</a> <a href="/tags/Nuclear-Physics/" style="font-size: 11.33px;">Nuclear Physics</a> <a href="/tags/Open/" style="font-size: 10px;">Open</a> <a href="/tags/Opencv/" style="font-size: 12px;">Opencv</a> <a href="/tags/Program/" style="font-size: 18px;">Program</a> <a href="/tags/PyPI/" style="font-size: 10px;">PyPI</a> <a href="/tags/Py-Crawler/" style="font-size: 10.67px;">Py_Crawler</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/Random/" style="font-size: 10px;">Random</a> <a href="/tags/Resource/" style="font-size: 10.67px;">Resource</a> <a href="/tags/Root/" style="font-size: 10.67px;">Root</a> <a href="/tags/Scipy/" style="font-size: 10px;">Scipy</a> <a href="/tags/Shell/" style="font-size: 16.67px;">Shell</a> <a href="/tags/Solidwork/" style="font-size: 10.67px;">Solidwork</a> <a href="/tags/TTree/" style="font-size: 10px;">TTree</a> <a href="/tags/Tensorflow/" style="font-size: 15.33px;">Tensorflow</a> <a href="/tags/Thread/" style="font-size: 10px;">Thread</a> <a href="/tags/Urllib2/" style="font-size: 10px;">Urllib2</a> <a href="/tags/Virtual-memory/" style="font-size: 10px;">Virtual memory</a> <a href="/tags/cmake/" style="font-size: 12.67px;">cmake</a> <a href="/tags/cmd/" style="font-size: 10.67px;">cmd</a> <a href="/tags/data-structure/" style="font-size: 10.67px;">data structure</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/hexo/" style="font-size: 11.33px;">hexo</a> <a href="/tags/htop/" style="font-size: 10px;">htop</a> <a href="/tags/keras/" style="font-size: 10.67px;">keras</a> <a href="/tags/latex/" style="font-size: 14.67px;">latex</a> <a href="/tags/os/" style="font-size: 10px;">os</a> <a href="/tags/qt/" style="font-size: 10px;">qt</a> <a href="/tags/requests/" style="font-size: 10px;">requests</a> <a href="/tags/sk-learn/" style="font-size: 10px;">sk-learn</a> <a href="/tags/ssh/" style="font-size: 12.67px;">ssh</a> <a href="/tags/statistic/" style="font-size: 10px;">statistic</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/wiki/" style="font-size: 11.33px;">wiki</a> <a href="/tags/windows/" style="font-size: 17.33px;">windows</a> <a href="/tags/yolo%EF%BC%8CC/" style="font-size: 10px;">yolo，C</a>
     </div>
   </div>
 
@@ -480,15 +478,15 @@ download(&#39;http://example.webscraping.com/&#39;)</code></pre>
           </li>
         
           <li>
+            <a href="/mediawiki_mathjax/">mediawiki安装插件mathjax</a>
+          </li>
+        
+          <li>
             <a href="/yum_remi_error/">Centos7安装remi源错误</a>
           </li>
         
           <li>
             <a href="/yum_epel/">epel源及epel-release安装</a>
-          </li>
-        
-          <li>
-            <a href="/Linux_lsblk/">Linux系统lsblk命令</a>
           </li>
         
       </ul>
