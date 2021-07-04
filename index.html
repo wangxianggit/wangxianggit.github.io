@@ -67,6 +67,101 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-MySql_cluster" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/MySql_cluster/" class="article-date">
+  <time datetime="2021-07-04T09:23:35.000Z" itemprop="datePublished">2021-07-04</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Database/">Database</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/MySql_cluster/">MySQL分布式集群方案</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+
+        <h3 id="MySQL分布式集群方案"><a href="#MySQL分布式集群方案" class="headerlink" title="MySQL分布式集群方案"></a>MySQL分布式集群方案</h3><ul>
+<li>MySQL的分布式集群方案有很多官方和第三方的选择，MySQL数据库满足下三点需求：<ul>
+<li>高可用性：主服务器故障后可自动切换到后备服务器</li>
+<li>可伸缩性：可方便通过脚本增加DB服务器</li>
+<li>负载均衡：支持手动把某公司的数据请求切换到另外的服务器，可配置哪些公司的数据服务访问哪个服务器</li>
+</ul>
+</li>
+<li>常见集群解决方案：MySQL Fabric、MySQL Cluster、Galera Cluster。</li>
+<li><strong>MySQL Cluster</strong><ul>
+<li>MySQL Cluster 是MySQL 官方集群部署方案，它的历史较久。支持通过自动分片支持读写扩展，通过实时备份冗余数据，是可用性最高的方案，声称可做到99.999%的可用性。</li>
+<li>MySQL cluster主要由三种类型的服务组成：<ul>
+<li>NDB Management Server：管理服务器主要用于管理cluster中的其他类型节点（Data Node和SQL Node），通过它可以配置Node信息，启动和停止Node。</li>
+<li> SQL Node：在MySQL Cluster中，一个SQL Node就是一个使用NDB引擎的mysql server进程，用于供外部应用提供集群数据的访问入口。</li>
+<li>Data Node：用于存储集群数据；系统会尽量将数据放在内存中。</li>
+</ul>
+</li>
+<li>缺点及限制：<ul>
+<li>对需要进行分片的表需要修改引擎Innodb为NDB，不需要分片的可以不修改。</li>
+<li>NDB的事务隔离级别只支持Read Committed，即一个事务在提交前，查询不到在事务内所做的修改；而Innodb支持所有的事务隔离级别，默认使用Repeatable Read，不存在这个问题。</li>
+<li>外键支持：虽然最新的Cluster版本已经支持外键，但性能有问题（因为外键所关联的记录可能在别的分片节点中），所以建议去掉所有外键。</li>
+<li>Data Node节点数据会被尽量放在内存中，对内存要求大。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>MySQL Fabric</strong><ul>
+<li>为了实现和方便管理MySQL 分片以及实现高可用部署，Oracle在2014年5月推出了一套为各方寄予厚望的MySQL产品 – MySQL Fabric, 用来管理MySQL 服务，提供扩展性和容易使用的系统，Fabric当前实现了两个特性：高可用和使用数据分片实现可扩展性和负载均衡，这两个特性能单独使用或结合使用。</li>
+<li>MySQL Fabric 使用了一系列的python脚本实现。</li>
+<li>应用案例：由于该方案在去年才推出，目前在网上暂时没搜索到有大公司的应用案例。</li>
+<li>影响比较大的两个限制是：<ul>
+<li>自增长键不能作为分片的键；</li>
+<li>事务及查询只支持在同一个分片内，事务中更新的数据不能跨分片，查询语句返回的数据也不能跨分片。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Galera Cluster</strong><ul>
+<li>Galera Cluster号称是世界上最先进的开源数据库集群方案</li>
+<li>主要优点及特性：<ul>
+<li>真正的多主服务模式：多个服务能同时被读写，不像Fabric那样某些服务只能作备份用</li>
+<li>同步复制：无延迟复制，不会产生数据丢失</li>
+<li>热备用：当某台服务器当机后，备用服务器会自动接管，不会产生任何当机时间</li>
+<li>自动扩展节点：新增服务器时，不需手工复制数据库到新的节点</li>
+<li>支持InnoDB引擎</li>
+<li>对应用程序透明：应用程序不需作修改</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wangxianggit.github.io/MySql_cluster/" data-id="ckqozwcbk0000jcdndjxzgqym" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Database/" rel="tag">Database</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-mediawiki_mathjax" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/mediawiki_mathjax/" class="article-date">
@@ -280,59 +375,6 @@
 
 
   
-    <article id="post-yum_epel" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/yum_epel/" class="article-date">
-  <time datetime="2021-06-23T05:19:11.000Z" itemprop="datePublished">2021-06-23</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/learning/">learning</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/yum_epel/">epel源及epel-release安装</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-
-        <h3 id="epel源及epel-release安装"><a href="#epel源及epel-release安装" class="headerlink" title="epel源及epel-release安装"></a>epel源及epel-release安装</h3><ul>
-<li>RHEL及其衍生发行版如CentOS、SL为了稳定，官方的rpm repository提供的rpm包往往是很滞后的，因为这是服务器版本，安全稳定是重点。</li>
-<li>所以，官方的rpm repository提供的rpm包不够丰富，很多时候需要自己编译很麻烦，而EPEL恰恰可以解决这两方面的问题。</li>
-<li><strong>EPEL全称：Extra Packages for Enterprise Linux</strong> 。EPEL是由 Fedora 社区打造，为 RHEL 及衍生发行版提供高质量软件包的项目。装上了 EPEL之后，就相当于添加了一个第三方源。</li>
-<li>另外还有rpmfusion.org，rpmfusion主要为桌面发行版提供大量rpm包，而<strong>EPEL则为服务器版本提供大量的rpm包，而且大多数rpm包在官方 repository 中是找不到的</strong>。</li>
-<li>另外一个特点是<strong>epel绝大多数rpm包要比官方repository 的rpm包版本要来得新</strong>，如现在(2021.06)CentOS上安装的php，RHEL为了稳定性还在延用5.4版，而php 的最新版本已经到7.4.</li>
-<li>epel源安装：yum install epel-release</li>
-</ul>
-<hr>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/yum_epel/" data-id="ckq91bxun0000i0dndd1pe1vm" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Centos7/" rel="tag">Centos7</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
@@ -385,7 +427,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Algorithm/" style="font-size: 11.33px;">Algorithm</a> <a href="/tags/Altium-Designer/" style="font-size: 14.67px;">Altium Designer</a> <a href="/tags/Apache/" style="font-size: 11.33px;">Apache</a> <a href="/tags/BeautifulSoup/" style="font-size: 10px;">BeautifulSoup</a> <a href="/tags/C/" style="font-size: 15.33px;">C</a> <a href="/tags/C/" style="font-size: 18.67px;">C++</a> <a href="/tags/Centos7/" style="font-size: 18.67px;">Centos7</a> <a href="/tags/Cython/" style="font-size: 10px;">Cython</a> <a href="/tags/Database/" style="font-size: 12.67px;">Database</a> <a href="/tags/Electronic/" style="font-size: 13.33px;">Electronic</a> <a href="/tags/English/" style="font-size: 12px;">English</a> <a href="/tags/Geant4/" style="font-size: 10.67px;">Geant4</a> <a href="/tags/Hardware/" style="font-size: 10px;">Hardware</a> <a href="/tags/Hexo/" style="font-size: 14px;">Hexo</a> <a href="/tags/Image/" style="font-size: 12px;">Image</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Jupyter/" style="font-size: 10px;">Jupyter</a> <a href="/tags/Linux/" style="font-size: 19.33px;">Linux</a> <a href="/tags/Markdown/" style="font-size: 16px;">Markdown</a> <a href="/tags/Mongodb/" style="font-size: 10px;">Mongodb</a> <a href="/tags/Nuclear-Physics/" style="font-size: 11.33px;">Nuclear Physics</a> <a href="/tags/Open/" style="font-size: 10px;">Open</a> <a href="/tags/Opencv/" style="font-size: 12px;">Opencv</a> <a href="/tags/Program/" style="font-size: 18px;">Program</a> <a href="/tags/PyPI/" style="font-size: 10px;">PyPI</a> <a href="/tags/Py-Crawler/" style="font-size: 10.67px;">Py_Crawler</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/Random/" style="font-size: 10px;">Random</a> <a href="/tags/Resource/" style="font-size: 10.67px;">Resource</a> <a href="/tags/Root/" style="font-size: 10.67px;">Root</a> <a href="/tags/Scipy/" style="font-size: 10px;">Scipy</a> <a href="/tags/Shell/" style="font-size: 16.67px;">Shell</a> <a href="/tags/Solidwork/" style="font-size: 10.67px;">Solidwork</a> <a href="/tags/TTree/" style="font-size: 10px;">TTree</a> <a href="/tags/Tensorflow/" style="font-size: 15.33px;">Tensorflow</a> <a href="/tags/Thread/" style="font-size: 10px;">Thread</a> <a href="/tags/Urllib2/" style="font-size: 10px;">Urllib2</a> <a href="/tags/Virtual-memory/" style="font-size: 10px;">Virtual memory</a> <a href="/tags/cmake/" style="font-size: 12.67px;">cmake</a> <a href="/tags/cmd/" style="font-size: 10.67px;">cmd</a> <a href="/tags/data-structure/" style="font-size: 10.67px;">data structure</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/hexo/" style="font-size: 11.33px;">hexo</a> <a href="/tags/htop/" style="font-size: 10px;">htop</a> <a href="/tags/keras/" style="font-size: 10.67px;">keras</a> <a href="/tags/latex/" style="font-size: 14.67px;">latex</a> <a href="/tags/os/" style="font-size: 10px;">os</a> <a href="/tags/qt/" style="font-size: 10px;">qt</a> <a href="/tags/requests/" style="font-size: 10px;">requests</a> <a href="/tags/sk-learn/" style="font-size: 10px;">sk-learn</a> <a href="/tags/ssh/" style="font-size: 12.67px;">ssh</a> <a href="/tags/statistic/" style="font-size: 10px;">statistic</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/wiki/" style="font-size: 11.33px;">wiki</a> <a href="/tags/windows/" style="font-size: 17.33px;">windows</a> <a href="/tags/yolo%EF%BC%8CC/" style="font-size: 10px;">yolo，C</a>
+      <a href="/tags/Algorithm/" style="font-size: 11.33px;">Algorithm</a> <a href="/tags/Altium-Designer/" style="font-size: 14.67px;">Altium Designer</a> <a href="/tags/Apache/" style="font-size: 11.33px;">Apache</a> <a href="/tags/BeautifulSoup/" style="font-size: 10px;">BeautifulSoup</a> <a href="/tags/C/" style="font-size: 15.33px;">C</a> <a href="/tags/C/" style="font-size: 18.67px;">C++</a> <a href="/tags/Centos7/" style="font-size: 18.67px;">Centos7</a> <a href="/tags/Cython/" style="font-size: 10px;">Cython</a> <a href="/tags/Database/" style="font-size: 13.33px;">Database</a> <a href="/tags/Electronic/" style="font-size: 13.33px;">Electronic</a> <a href="/tags/English/" style="font-size: 12px;">English</a> <a href="/tags/Geant4/" style="font-size: 10.67px;">Geant4</a> <a href="/tags/Hardware/" style="font-size: 10px;">Hardware</a> <a href="/tags/Hexo/" style="font-size: 14px;">Hexo</a> <a href="/tags/Image/" style="font-size: 12px;">Image</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Jupyter/" style="font-size: 10px;">Jupyter</a> <a href="/tags/Linux/" style="font-size: 19.33px;">Linux</a> <a href="/tags/Markdown/" style="font-size: 16px;">Markdown</a> <a href="/tags/Mongodb/" style="font-size: 10px;">Mongodb</a> <a href="/tags/Nuclear-Physics/" style="font-size: 11.33px;">Nuclear Physics</a> <a href="/tags/Open/" style="font-size: 10px;">Open</a> <a href="/tags/Opencv/" style="font-size: 12px;">Opencv</a> <a href="/tags/Program/" style="font-size: 18px;">Program</a> <a href="/tags/PyPI/" style="font-size: 10px;">PyPI</a> <a href="/tags/Py-Crawler/" style="font-size: 10.67px;">Py_Crawler</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/Random/" style="font-size: 10px;">Random</a> <a href="/tags/Resource/" style="font-size: 10.67px;">Resource</a> <a href="/tags/Root/" style="font-size: 10.67px;">Root</a> <a href="/tags/Scipy/" style="font-size: 10px;">Scipy</a> <a href="/tags/Shell/" style="font-size: 16.67px;">Shell</a> <a href="/tags/Solidwork/" style="font-size: 10.67px;">Solidwork</a> <a href="/tags/TTree/" style="font-size: 10px;">TTree</a> <a href="/tags/Tensorflow/" style="font-size: 15.33px;">Tensorflow</a> <a href="/tags/Thread/" style="font-size: 10px;">Thread</a> <a href="/tags/Urllib2/" style="font-size: 10px;">Urllib2</a> <a href="/tags/Virtual-memory/" style="font-size: 10px;">Virtual memory</a> <a href="/tags/cmake/" style="font-size: 12.67px;">cmake</a> <a href="/tags/cmd/" style="font-size: 10.67px;">cmd</a> <a href="/tags/data-structure/" style="font-size: 10.67px;">data structure</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/hexo/" style="font-size: 11.33px;">hexo</a> <a href="/tags/htop/" style="font-size: 10px;">htop</a> <a href="/tags/keras/" style="font-size: 10.67px;">keras</a> <a href="/tags/latex/" style="font-size: 14.67px;">latex</a> <a href="/tags/os/" style="font-size: 10px;">os</a> <a href="/tags/qt/" style="font-size: 10px;">qt</a> <a href="/tags/requests/" style="font-size: 10px;">requests</a> <a href="/tags/sk-learn/" style="font-size: 10px;">sk-learn</a> <a href="/tags/ssh/" style="font-size: 12.67px;">ssh</a> <a href="/tags/statistic/" style="font-size: 10px;">statistic</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/wiki/" style="font-size: 11.33px;">wiki</a> <a href="/tags/windows/" style="font-size: 17.33px;">windows</a> <a href="/tags/yolo%EF%BC%8CC/" style="font-size: 10px;">yolo，C</a>
     </div>
   </div>
 
@@ -394,7 +436,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li></ul>
     </div>
   </div>
 
@@ -405,6 +447,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/MySql_cluster/">MySQL分布式集群方案</a>
+          </li>
         
           <li>
             <a href="/mediawiki_mathjax/">mediawiki安装插件mathjax</a>
@@ -420,10 +466,6 @@
         
           <li>
             <a href="/yum_remi_error/">Centos7安装remi源错误</a>
-          </li>
-        
-          <li>
-            <a href="/yum_epel/">epel源及epel-release安装</a>
           </li>
         
       </ul>
