@@ -67,6 +67,104 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Python_keyword_with" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/Python_keyword_with/" class="article-date">
+  <time datetime="2019-03-09T13:08:39.000Z" itemprop="datePublished">2019-03-09</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Python/">Python</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/Python_keyword_with/">Python关键字with</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+
+        <h3 id="关键字with"><a href="#关键字with" class="headerlink" title="关键字with"></a>关键字with</h3><ul>
+<li><p>示例代码：</p>
+<ul>
+<li>~~~<br>with open(“/file.txt”) as fn:<pre><code>infd = fn.read()
+print(infd)</code></pre>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 在上面的程序执行过后，<span class="keyword">with</span>语句会自动关闭文件，即相当在<span class="keyword">with</span>后面的语句执行结束后，会对当前的对象进行清理工作。</span><br><span class="line"></span><br><span class="line">* <span class="keyword">with</span>语句使用格式为：</span><br><span class="line"></span><br><span class="line">  * ~~~</span><br><span class="line">    <span class="keyword">with</span> 表达式[<span class="keyword">as</span> target(s)]:</span><br><span class="line">        执行语句</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>with语句作用和try…except…finally语句类似，可以替代使用。</p>
+</li>
+</ul>
+<h3 id="工作原理"><a href="#工作原理" class="headerlink" title="工作原理"></a>工作原理</h3><ul>
+<li><p>with通过__enter__方法初始化，然后在__exit__中做善后以及处理异常。</p>
+</li>
+<li><p>其中__enter__方法在语句体（with语句包裹起来的代码块）执行之前进入运行，__exit__方法在语句体执行完毕退出后运行。</p>
+</li>
+<li><p>紧跟with后面的语句会被求值，返回对象的__enter__方法被调用，这个方法的返回值将被赋值给as关键字后面的变量，当with后面的代码块全部被执行完之后，将调用前面返回对象的__exit_方法。</p>
+</li>
+<li><p>with语句最关键的地方在于被求值对象必须有__enter__和__exit__这两个方法，那我们就可以通过自己实现这两方法来自定义with语句处理异常。</p>
+</li>
+<li><p>自定义__enter__和__exit__示例：</p>
+<ul>
+<li><pre><code>#encoding=utf-8
+
+class opened(object):
+    def __init__(self,filename):
+        self.handle=open(filename)
+        print &quot;File open:%s&quot;%filename
+    def __enter__(self):
+        print &quot;[enter%s]: Allocate resource.&quot;%self.handle
+        return self.handle #可以返回不同的对象
+    def __exit__(self,exc_type,exc_value,exc_trackback):
+        print &quot;[Exit %s]: Close the file.&quot; %self.handle
+        if exc_trackback is None:
+            print &quot;[Exit %s]:Exited without exception.&quot;%self.handle
+            self.handle.close()
+        else:
+            print &quot;[Exit %s]: Exited with exception raised.&quot;%self.handle
+        return False # 可以省略，缺省的None也是被看做是False
+
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code>with opened(r&#39;./fdata.txt&#39;) as fn:
+    infd = fn.read():
+    print(infd)
+
+with opened(r&#39;./fdata.txt&#39;) as fn:
+    for infd in fn.readlines():
+        print indf
+~~~</code></pre>
+<hr>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wangxianggit.github.io/Python_keyword_with/" data-id="ckjv3w9ci00796sdn7fzlhoii" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-Python_interprete" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/Python_interprete/" class="article-date">
@@ -721,65 +819,6 @@ int main()
 
 
   
-    <article id="post-C++_keyword_const_cast" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/C++_keyword_const_cast/" class="article-date">
-  <time datetime="2019-03-07T04:39:57.000Z" itemprop="datePublished">2019-03-07</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/learning/">learning</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/C++_keyword_const_cast/">C++关键字const_cast</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-
-        <h2 id="const-cast用法"><a href="#const-cast用法" class="headerlink" title="const_cast用法"></a>const_cast用法</h2><ul>
-<li><p>const_cast是一种C++运算符，主要是用来去除复合类型中const和volatile属性（不是真正去除）。</p>
-</li>
-<li><p>若变量声明为const类型，其值本身不能改变，若想改变该变量的值一般是去除指针或引用的const属性，再进行间接修改。</p>
-</li>
-<li><p>使用方法：</p>
-<ul>
-<li><pre><code>const_cast&lt;type&gt;(expression)
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  * 通过<span class="keyword">const_cast</span>运算符，将<span class="keyword">const</span> type转换为type，将<span class="keyword">const</span> type&amp;转换为type&amp;。</span><br><span class="line"></span><br><span class="line">  * 也就是说源类型和目标类型除了<span class="keyword">const</span>属性不同，其他地方完全相同。</span><br><span class="line"></span><br><span class="line">* ~~~</span><br><span class="line">  <span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line">  <span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">ConstTest1</span><span class="params">()</span></span>&#123;</span><br><span class="line">      <span class="keyword">const</span> <span class="keyword">int</span> a = <span class="number">5</span>;</span><br><span class="line">      <span class="keyword">int</span> *p;</span><br><span class="line">      p = <span class="keyword">const_cast</span>&lt;<span class="keyword">int</span>*&gt;(&amp;a);</span><br><span class="line">      (*p)++;</span><br><span class="line">      <span class="built_in">cout</span>&lt;&lt;a&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">      <span class="built_in">cout</span>&lt;&lt;*p&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">      </span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">ConstTest2</span><span class="params">()</span></span>&#123;</span><br><span class="line">      <span class="keyword">int</span> i;</span><br><span class="line">      <span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;please input a integer:&quot;</span>;</span><br><span class="line">      <span class="built_in">cin</span>&gt;&gt;i;</span><br><span class="line">      <span class="keyword">const</span> <span class="keyword">int</span> a = i;</span><br><span class="line">      <span class="keyword">int</span> &amp;r = <span class="keyword">const_cast</span>&lt;<span class="keyword">int</span> &amp;&gt;(a);</span><br><span class="line">      r++;</span><br><span class="line">      <span class="built_in">cout</span>&lt;&lt;a&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">      ConstTest1();</span><br><span class="line">      ConstTest2();</span><br><span class="line">      <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  输出：</span><br><span class="line">  <span class="number">5</span></span><br><span class="line">  <span class="number">6</span></span><br><span class="line">  若输入<span class="number">7</span></span><br><span class="line">  则输出<span class="number">8</span></span><br></pre></td></tr></table></figure>
-</code></pre>
-</li>
-</ul>
-</li>
-</ul>
-<hr>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/C++_keyword_const_cast/" data-id="ckjv3w9az00176sdnfenq44l8" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C++</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
@@ -832,7 +871,7 @@ int main()
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Algorithm/" style="font-size: 11.33px;">Algorithm</a> <a href="/tags/Altium-Designer/" style="font-size: 14.67px;">Altium Designer</a> <a href="/tags/Apache/" style="font-size: 11.33px;">Apache</a> <a href="/tags/BeautifulSoup/" style="font-size: 10px;">BeautifulSoup</a> <a href="/tags/C/" style="font-size: 15.33px;">C</a> <a href="/tags/C/" style="font-size: 18.67px;">C++</a> <a href="/tags/Centos7/" style="font-size: 18.67px;">Centos7</a> <a href="/tags/Cython/" style="font-size: 10px;">Cython</a> <a href="/tags/Database/" style="font-size: 13.33px;">Database</a> <a href="/tags/Electronic/" style="font-size: 13.33px;">Electronic</a> <a href="/tags/English/" style="font-size: 12px;">English</a> <a href="/tags/Geant4/" style="font-size: 10.67px;">Geant4</a> <a href="/tags/Hardware/" style="font-size: 10px;">Hardware</a> <a href="/tags/Hexo/" style="font-size: 14px;">Hexo</a> <a href="/tags/Image/" style="font-size: 12px;">Image</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Jupyter/" style="font-size: 10px;">Jupyter</a> <a href="/tags/Linux/" style="font-size: 19.33px;">Linux</a> <a href="/tags/Markdown/" style="font-size: 16px;">Markdown</a> <a href="/tags/Mongodb/" style="font-size: 10px;">Mongodb</a> <a href="/tags/Nuclear-Physics/" style="font-size: 11.33px;">Nuclear Physics</a> <a href="/tags/Open/" style="font-size: 10px;">Open</a> <a href="/tags/Opencv/" style="font-size: 12px;">Opencv</a> <a href="/tags/Program/" style="font-size: 18px;">Program</a> <a href="/tags/PyPI/" style="font-size: 10px;">PyPI</a> <a href="/tags/Py-Crawler/" style="font-size: 10.67px;">Py_Crawler</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/Random/" style="font-size: 10px;">Random</a> <a href="/tags/Resource/" style="font-size: 10.67px;">Resource</a> <a href="/tags/Root/" style="font-size: 10.67px;">Root</a> <a href="/tags/Scipy/" style="font-size: 10px;">Scipy</a> <a href="/tags/Shell/" style="font-size: 16.67px;">Shell</a> <a href="/tags/Solidwork/" style="font-size: 10.67px;">Solidwork</a> <a href="/tags/TTree/" style="font-size: 10px;">TTree</a> <a href="/tags/Tensorflow/" style="font-size: 15.33px;">Tensorflow</a> <a href="/tags/Thread/" style="font-size: 10px;">Thread</a> <a href="/tags/Urllib2/" style="font-size: 10px;">Urllib2</a> <a href="/tags/Virtual-memory/" style="font-size: 10px;">Virtual memory</a> <a href="/tags/cmake/" style="font-size: 12.67px;">cmake</a> <a href="/tags/cmd/" style="font-size: 10.67px;">cmd</a> <a href="/tags/data-structure/" style="font-size: 10.67px;">data structure</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/hexo/" style="font-size: 11.33px;">hexo</a> <a href="/tags/htop/" style="font-size: 10px;">htop</a> <a href="/tags/keras/" style="font-size: 10.67px;">keras</a> <a href="/tags/latex/" style="font-size: 14.67px;">latex</a> <a href="/tags/os/" style="font-size: 10px;">os</a> <a href="/tags/qt/" style="font-size: 10px;">qt</a> <a href="/tags/requests/" style="font-size: 10px;">requests</a> <a href="/tags/sk-learn/" style="font-size: 10px;">sk-learn</a> <a href="/tags/ssh/" style="font-size: 12.67px;">ssh</a> <a href="/tags/statistic/" style="font-size: 10px;">statistic</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/wiki/" style="font-size: 11.33px;">wiki</a> <a href="/tags/windows/" style="font-size: 17.33px;">windows</a> <a href="/tags/yolo%EF%BC%8CC/" style="font-size: 10px;">yolo，C</a>
+      <a href="/tags/Algorithm/" style="font-size: 11.25px;">Algorithm</a> <a href="/tags/Altium-Designer/" style="font-size: 15px;">Altium Designer</a> <a href="/tags/Apache/" style="font-size: 11.25px;">Apache</a> <a href="/tags/BeautifulSoup/" style="font-size: 10px;">BeautifulSoup</a> <a href="/tags/C/" style="font-size: 15.63px;">C</a> <a href="/tags/C/" style="font-size: 18.75px;">C++</a> <a href="/tags/Centos7/" style="font-size: 18.75px;">Centos7</a> <a href="/tags/Cython/" style="font-size: 10px;">Cython</a> <a href="/tags/Database/" style="font-size: 13.75px;">Database</a> <a href="/tags/Electronic/" style="font-size: 13.13px;">Electronic</a> <a href="/tags/English/" style="font-size: 11.88px;">English</a> <a href="/tags/Geant4/" style="font-size: 10.63px;">Geant4</a> <a href="/tags/Hardware/" style="font-size: 10px;">Hardware</a> <a href="/tags/Hexo/" style="font-size: 14.38px;">Hexo</a> <a href="/tags/Image/" style="font-size: 11.88px;">Image</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Jupyter/" style="font-size: 10px;">Jupyter</a> <a href="/tags/Linux/" style="font-size: 19.38px;">Linux</a> <a href="/tags/Markdown/" style="font-size: 16.25px;">Markdown</a> <a href="/tags/Mongodb/" style="font-size: 10px;">Mongodb</a> <a href="/tags/Nuclear-Physics/" style="font-size: 11.25px;">Nuclear Physics</a> <a href="/tags/Open/" style="font-size: 10px;">Open</a> <a href="/tags/Opencv/" style="font-size: 11.88px;">Opencv</a> <a href="/tags/Program/" style="font-size: 18.13px;">Program</a> <a href="/tags/PyPI/" style="font-size: 10px;">PyPI</a> <a href="/tags/Py-Crawler/" style="font-size: 10.63px;">Py_Crawler</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/Random/" style="font-size: 10px;">Random</a> <a href="/tags/Resource/" style="font-size: 10.63px;">Resource</a> <a href="/tags/Root/" style="font-size: 10.63px;">Root</a> <a href="/tags/Scipy/" style="font-size: 10px;">Scipy</a> <a href="/tags/Shell/" style="font-size: 16.88px;">Shell</a> <a href="/tags/Solidwork/" style="font-size: 10.63px;">Solidwork</a> <a href="/tags/TTree/" style="font-size: 10px;">TTree</a> <a href="/tags/Tensorflow/" style="font-size: 15.63px;">Tensorflow</a> <a href="/tags/Thread/" style="font-size: 10px;">Thread</a> <a href="/tags/Urllib2/" style="font-size: 10px;">Urllib2</a> <a href="/tags/Virtual-memory/" style="font-size: 10px;">Virtual memory</a> <a href="/tags/cmake/" style="font-size: 12.5px;">cmake</a> <a href="/tags/cmd/" style="font-size: 10.63px;">cmd</a> <a href="/tags/data-structure/" style="font-size: 10.63px;">data structure</a> <a href="/tags/git/" style="font-size: 13.13px;">git</a> <a href="/tags/hexo/" style="font-size: 11.25px;">hexo</a> <a href="/tags/htop/" style="font-size: 10px;">htop</a> <a href="/tags/keras/" style="font-size: 10.63px;">keras</a> <a href="/tags/latex/" style="font-size: 15px;">latex</a> <a href="/tags/os/" style="font-size: 10px;">os</a> <a href="/tags/qt/" style="font-size: 10px;">qt</a> <a href="/tags/requests/" style="font-size: 10px;">requests</a> <a href="/tags/sk-learn/" style="font-size: 10px;">sk-learn</a> <a href="/tags/ssh/" style="font-size: 12.5px;">ssh</a> <a href="/tags/statistic/" style="font-size: 10px;">statistic</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/wiki/" style="font-size: 11.25px;">wiki</a> <a href="/tags/windows/" style="font-size: 17.5px;">windows</a> <a href="/tags/yolo%EF%BC%8CC/" style="font-size: 10px;">yolo，C</a>
     </div>
   </div>
 
@@ -854,6 +893,10 @@ int main()
       <ul>
         
           <li>
+            <a href="/navicat12_windows/">windows版Navicat12破解方法</a>
+          </li>
+        
+          <li>
             <a href="/MySql_cluster/">MySQL分布式集群方案</a>
           </li>
         
@@ -867,10 +910,6 @@ int main()
         
           <li>
             <a href="/mediawiki_icon/">mediawiki设置logo和站点图标</a>
-          </li>
-        
-          <li>
-            <a href="/yum_remi_error/">Centos7安装remi源错误</a>
           </li>
         
       </ul>

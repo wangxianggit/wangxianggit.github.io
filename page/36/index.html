@@ -67,6 +67,81 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Python3_grammar_modifier" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/Python3_grammar_modifier/" class="article-date">
+  <time datetime="2019-02-16T16:57:27.000Z" itemprop="datePublished">2019-02-17</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Python/">Python</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/Python3_grammar_modifier/">Python3语法变动</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+
+        <ul>
+<li><p>​ Print由语句变为函数</p>
+<ul>
+<li>~~~<br>print ‘a’,’b’ -&gt; print(‘a’,’b’)<figure class="highlight nim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* xrange被取消，使用<span class="built_in">range</span>实现其功能，返回的数据是一个类</span><br><span class="line"></span><br><span class="line">* 字符串的存储由<span class="number">8</span>bit变为<span class="number">16</span>bit <span class="type">Unicode</span>存储，使用比较操作符时如果比较异常抛出<span class="type">TypeError</span>错误。</span><br><span class="line"></span><br><span class="line">* cmp()，\__cmp__()函数取消</span><br><span class="line"></span><br><span class="line">* long关键字由<span class="built_in">int</span>取代，两者效果相同</span><br><span class="line"></span><br><span class="line">* <span class="keyword">try</span> <span class="keyword">except</span>语句发生变化</span><br><span class="line"></span><br><span class="line">  * ~~~</span><br><span class="line">    由原: <span class="keyword">try</span>:</span><br><span class="line"></span><br><span class="line">              ......</span><br><span class="line"></span><br><span class="line">         <span class="keyword">except</span>    <span class="type">Exception</span>, e :</span><br><span class="line"></span><br><span class="line">             ......</span><br><span class="line"></span><br><span class="line">    变为</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line"></span><br><span class="line">              ......</span><br><span class="line"></span><br><span class="line">         <span class="keyword">except</span>    <span class="type">Exception</span> <span class="keyword">as</span> e :</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>读取文件操作file()取消，统一使用open()；键盘读取函数raw_input(“message”)改为input(“message”)</p>
+</li>
+<li><p>字符串编码是bytes类，bytes类解码为字符串，bytes序列一旦形成内容不可变</p>
+<ul>
+<li>~~~<br>s=”abchd”<br>b=s.encode(编码方式)//常用编码方式为”gbk”,”utf-8”,”ascii”等<br>s1=b.decode(“编码方式”)<figure class="highlight gml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* <span class="built_in">chr</span>(k)和<span class="built_in">ord</span>(c)</span><br><span class="line"></span><br><span class="line">  * ~~~</span><br><span class="line">         python <span class="number">2.4</span><span class="number">.2</span>以前</span><br><span class="line"></span><br><span class="line">          <span class="built_in">chr</span>( K )   将编码K 转为字符，K的范围是 <span class="number">0</span> ~ <span class="number">255</span></span><br><span class="line"></span><br><span class="line">          <span class="built_in">ord</span>( c )   取单个字符的编码, 返回值的范围: <span class="number">0</span> ~ <span class="number">255</span></span><br><span class="line"></span><br><span class="line">       python <span class="number">3.0</span></span><br><span class="line"></span><br><span class="line">          <span class="built_in">chr</span>( K )   将编码K 转为字符，K的范围是 <span class="number">0</span> ~ <span class="number">65535</span></span><br><span class="line"></span><br><span class="line">          <span class="built_in">ord</span>( c )   取单个字符的编码, 返回值的范围: <span class="number">0</span> ~ <span class="number">65535</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>除法运算</p>
+<ul>
+<li><pre><code>python 2.4.2以前
+
+   10/3      结果为 3     
+
+python 3.0
+
+   10 / 3 结果为 3.3333333333333335
+
+   10 // 3 结果为 3
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 字典(<span class="keyword">Dict)函数，keys()，items()，values()，返回的值不再是list，而是类。所以 </span> <span class="keyword">dict.iter.keys </span>(), <span class="keyword">dict.iteritems() </span>和 <span class="keyword">dict.itervalues()函数取消</span></span><br><span class="line"><span class="keyword"></span></span><br><span class="line"><span class="keyword">* </span>新增数组对象</span><br><span class="line"></span><br><span class="line">  * ~~~</span><br><span class="line">    (一） 初始化</span><br><span class="line"></span><br><span class="line">        a = <span class="keyword">bytearray( </span>  <span class="number">10</span> )</span><br><span class="line"></span><br><span class="line">         <span class="comment"># a 是一个由十个字节组成的数组，其每个元素是一个字节，类型借用 int</span></span><br><span class="line"></span><br><span class="line">         <span class="comment"># 此时，每个元素初始值为 0</span></span><br><span class="line"></span><br><span class="line">    （二） 字节数组 是可变的</span><br><span class="line"></span><br><span class="line">        a = <span class="keyword">bytearray( </span>  <span class="number">10</span> )</span><br><span class="line"></span><br><span class="line">         a[<span class="number">0</span>] = <span class="number">25</span></span><br><span class="line"></span><br><span class="line">         <span class="comment"># 可以用赋值语句更改其元素，但所赋的值必须在 0 ~ 255 之间</span></span><br><span class="line"></span><br><span class="line">    (三)   字节数组的切片仍是字节数组</span><br><span class="line"></span><br><span class="line">    (四)   字符串转化为字节数组</span><br><span class="line"></span><br><span class="line">         <span class="comment">#coding=gbk</span></span><br><span class="line"></span><br><span class="line">         s =<span class="string">&quot;你好&quot;</span></span><br><span class="line"></span><br><span class="line">         <span class="keyword">b </span>= s.encode( <span class="string">&quot;gbk&quot;</span>)     <span class="comment"># 先将字符串按某种“GBK”编码方式转化为 bytes</span></span><br><span class="line"></span><br><span class="line">         c = <span class="keyword">bytearray( </span><span class="keyword">b </span>)          <span class="comment">#再将 bytes 转化为 字节数组</span></span><br><span class="line"></span><br><span class="line">         也可以写作</span><br><span class="line"></span><br><span class="line">         c = <span class="keyword">bytearray( </span><span class="string">&quot;你好&quot;</span>, <span class="string">&quot;gbk&quot;</span>)</span><br><span class="line"></span><br><span class="line">    (五)   字节数组转化为字符串</span><br><span class="line"></span><br><span class="line">          c = <span class="keyword">bytearray( </span><span class="number">4</span> )</span><br><span class="line"></span><br><span class="line">           c[<span class="number">0</span>] = <span class="number">65</span> <span class="comment">; c[1]=66; c[2]= 67; c[3]= 68</span></span><br><span class="line"></span><br><span class="line">          s = c.decode( <span class="string">&quot;gbk&quot;</span> )</span><br><span class="line"></span><br><span class="line">           print ( s )</span><br><span class="line"></span><br><span class="line">          <span class="comment"># 应显示： ABCD           </span></span><br><span class="line"></span><br><span class="line">    (六) 字节数组可用于写入文本文件</span><br><span class="line"></span><br><span class="line">    <span class="comment">#coding=gbk</span></span><br><span class="line"></span><br><span class="line">    f = open(<span class="string">&quot;c:\\1234.txt&quot;</span>, <span class="string">&quot;wb&quot;</span>)</span><br><span class="line">    s = <span class="string">&quot;张三李四abcd1234&quot;</span></span><br><span class="line">    <span class="comment"># -------------------------------</span></span><br><span class="line">    <span class="comment"># 在 python2.4 中我们可以这样写：</span></span><br><span class="line">    <span class="comment"># f.write( s )</span></span><br><span class="line">    <span class="comment"># 但在 python 3.0中会引发异常</span></span><br><span class="line">    <span class="comment"># -------------------------------</span></span><br><span class="line">    <span class="keyword">b </span>= s.encode(<span class="string">&quot;gbk&quot;</span>)</span><br><span class="line"></span><br><span class="line">    f.write( <span class="keyword">b </span>)</span><br><span class="line">    c=<span class="keyword">bytearray( </span><span class="string">&quot;王五&quot;</span>,<span class="string">&quot;gbk&quot;</span>)</span><br><span class="line">    f.write( c )</span><br><span class="line">    f.<span class="keyword">close()</span></span><br><span class="line"><span class="keyword"></span></span><br><span class="line"><span class="keyword"> </span>   input(<span class="string">&quot;?&quot;</span>)</span><br></pre></td></tr></table></figure>
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wangxianggit.github.io/Python3_grammar_modifier/" data-id="ckjv3w9c6005u6sdn7mmphsky" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Program/" rel="tag">Program</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-Python_key_word_import" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/Python_key_word_import/" class="article-date">
@@ -318,92 +393,6 @@ git config --global core.autocrlf false//禁用自动换行</code></pre>
 
 
   
-    <article id="post-Python_random_number" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/Python_random_number/" class="article-date">
-  <time datetime="2019-02-10T00:53:11.000Z" itemprop="datePublished">2019-02-10</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Python/">Python</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/Python_random_number/">Python使用随机数</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-
-        <ul>
-<li><p>使用random模块：</p>
-<ul>
-<li><p>random.random: 生成0到1浮点随机数。</p>
-</li>
-<li><p>random.uniform(a,b):产生a到b间的随机浮点数，如果a &gt; b，则生成的随机数n: a &lt;n &lt;b。如果 a &lt;b， 则 b &lt;n &lt;a。</p>
-</li>
-<li><p>random.randint(a,b):生成a到b间的随机整数。</p>
-</li>
-<li><p>random.randrange(start,stop,step):在指定递增的数列中随机生成随机数。例：random.randrange(10, 100, 2)，结果相当于从[10, 12, 14, 16, … 96, 98]序列中获取一个随机数。</p>
-</li>
-<li><p>random.choice(sequence):从序列中获取一个随机元素，参数sequence表示一个有序类型。例：</p>
-<ul>
-<li><p>```<br>print(random.choice(“Learning Python”))</p>
-<p>print(random.choice([“JGood”, “is”, “a”, “handsome”, “boy”])) </p>
-<p>print(random.choice((“Tuple”, “List”, “Dict”)))  </p>
-<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- <span class="built_in">random</span>.shuffle:用于将一个列表中的元素打乱</span><br><span class="line"></span><br><span class="line">  - ```</span><br><span class="line">    p = [<span class="string">&quot;Python&quot;</span>, <span class="string">&quot;is&quot;</span>, <span class="string">&quot;powerful&quot;</span>, <span class="string">&quot;simple&quot;</span>, <span class="string">&quot;and so on...&quot;</span>]  </span><br><span class="line">    <span class="built_in">random</span>.shuffle(p)  </span><br><span class="line">    <span class="built_in">print</span>(p)</span><br><span class="line"></span><br><span class="line">    &gt;&gt;&gt;[<span class="string">&#x27;and so on...&#x27;</span>, <span class="string">&#x27;is&#x27;</span>, <span class="string">&#x27;powerful&#x27;</span>, <span class="string">&#x27;simple&#x27;</span>, <span class="string">&#x27;Python&#x27;</span>]</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-<li><p>random.sample(sequence,k):从指定序列中随机获取指定长度的片断</p>
-<ul>
-<li>```<br>list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]<br>slice = random.sample(list, 5)  #select five elememt<br>print(slice)<br>print(list)#original list<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- ```</span><br><span class="line">  <span class="built_in">random</span> <span class="keyword">integer</span>：</span><br><span class="line">  &gt;&gt;&gt; import <span class="built_in">random</span></span><br><span class="line">  &gt;&gt;&gt; <span class="built_in">random</span>.randint(<span class="number">0</span>,<span class="number">99</span>)</span><br><span class="line">  <span class="number">21</span></span><br><span class="line"></span><br><span class="line">  <span class="built_in">random</span> even <span class="built_in">number</span> below <span class="number">101</span>：</span><br><span class="line">  &gt;&gt;&gt; import <span class="built_in">random</span></span><br><span class="line">  &gt;&gt;&gt; <span class="built_in">random</span>.randrange(<span class="number">0</span>, <span class="number">101</span>, <span class="number">2</span>)</span><br><span class="line">  <span class="number">42</span></span><br><span class="line"></span><br><span class="line">  <span class="built_in">random</span> float：</span><br><span class="line">  &gt;&gt;&gt; import <span class="built_in">random</span></span><br><span class="line">  &gt;&gt;&gt; <span class="built_in">random</span>.<span class="built_in">random</span>() </span><br><span class="line">  <span class="number">0.85415370477785668</span></span><br><span class="line">  &gt;&gt;&gt; <span class="built_in">random</span>.uniform(<span class="number">1</span>, <span class="number">10</span>)</span><br><span class="line">  <span class="number">5.4221167969800881</span></span><br><span class="line"></span><br><span class="line">  <span class="built_in">random</span> <span class="keyword">char</span>：</span><br><span class="line">  &gt;&gt;&gt; import <span class="built_in">random</span></span><br><span class="line">  &gt;&gt;&gt; <span class="built_in">random</span>.choice(<span class="string">&#x27;abcdefg&amp;#%^*f&#x27;</span>)</span><br><span class="line">  <span class="string">&#x27;d&#x27;</span></span><br><span class="line"></span><br><span class="line">  <span class="built_in">random</span> slice <span class="keyword">of</span> <span class="keyword">a</span> sequence</span><br><span class="line">  &gt;&gt;&gt; import <span class="built_in">random</span></span><br><span class="line">  <span class="built_in">random</span>.sample(<span class="string">&#x27;abcdefghij&#x27;</span>,<span class="number">3</span>) </span><br><span class="line">  [<span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;d&#x27;</span>, <span class="string">&#x27;b&#x27;</span>]</span><br><span class="line"></span><br><span class="line">  <span class="built_in">random</span> slice <span class="keyword">of</span> <span class="keyword">a</span> sequence</span><br><span class="line">  &gt;&gt;&gt; import <span class="built_in">random</span></span><br><span class="line">  &gt;&gt;&gt; import <span class="keyword">string</span></span><br><span class="line">  &gt;&gt;&gt; <span class="keyword">string</span>.join(<span class="built_in">random</span>.sample([<span class="string">&#x27;a&#x27;</span>,<span class="string">&#x27;b&#x27;</span>,<span class="string">&#x27;c&#x27;</span>,<span class="string">&#x27;d&#x27;</span>,<span class="string">&#x27;e&#x27;</span>,<span class="string">&#x27;f&#x27;</span>,<span class="string">&#x27;g&#x27;</span>,<span class="string">&#x27;h&#x27;</span>,<span class="string">&#x27;i&#x27;</span>,<span class="string">&#x27;j&#x27;</span>], <span class="number">3</span>)).r</span><br><span class="line">  eplace(<span class="string">&quot; &quot;</span>,<span class="string">&quot;&quot;</span>)</span><br><span class="line">  <span class="string">&#x27;fih&#x27;</span></span><br><span class="line"></span><br><span class="line">  <span class="built_in">random</span> <span class="keyword">string</span>：</span><br><span class="line">  &gt;&gt;&gt; import <span class="built_in">random</span></span><br><span class="line">  &gt;&gt;&gt; <span class="built_in">random</span>.choice ( [<span class="string">&#x27;apple&#x27;</span>, <span class="string">&#x27;pear&#x27;</span>, <span class="string">&#x27;peach&#x27;</span>, <span class="string">&#x27;orange&#x27;</span>, <span class="string">&#x27;lemon&#x27;</span>] )</span><br><span class="line">  <span class="string">&#x27;lemon&#x27;</span></span><br><span class="line"></span><br><span class="line">  disorder <span class="keyword">the</span> sequence：</span><br><span class="line">  &gt;&gt;&gt; import <span class="built_in">random</span></span><br><span class="line">  &gt;&gt;&gt; <span class="keyword">items</span> = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>]</span><br><span class="line">  &gt;&gt;&gt; <span class="built_in">random</span>.shuffle(<span class="keyword">items</span>)</span><br><span class="line">  &gt;&gt;&gt; <span class="keyword">items</span></span><br><span class="line">  [<span class="number">3</span>, <span class="number">2</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">4</span>, <span class="number">1</span>]</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>使用numpy.random</p>
-<ul>
-<li><p>np.random.rand:随机生成0-1之间浮点数，有参数时返回相应长度的一维或多维随机浮点数数组：</p>
-<ul>
-<li><pre><code>import numpy as np
-&gt;&gt;&gt;  np.random.rand(10)
-array([ 0.56911206,  0.99777291,  0.18943144,  0.19387287,  0.75090637,
-        0.18692814,  0.69804514,  0.48808425,  0.79440667,  0.66959075])
-<figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- <span class="built_in">np</span>.<span class="built_in">random</span>.randn:返回正态分布随机数，有参数时返回相应长度一维或多维数组</span><br><span class="line"></span><br><span class="line">- <span class="built_in">np</span>.<span class="built_in">random</span>.randint(low[, high, size]) :返回随机的整数，位于半开区间 [low, high)</span><br><span class="line"></span><br><span class="line">- random_integers(low[, high, size]) :返回随机的整数，位于闭区间 [low, high]</span><br><span class="line"></span><br><span class="line">- <span class="built_in">np</span>.<span class="built_in">random</span>.shuffle(x) 打乱序列顺序；<span class="built_in">np</span>.<span class="built_in">random</span>.<span class="built_in">permutation</span>(x)返回一个随机排列</span><br><span class="line"></span><br><span class="line">  - ```</span><br><span class="line">    &gt;&gt;&gt; arr = <span class="built_in">np</span>.arange(<span class="number">10</span>)</span><br><span class="line">    &gt;&gt;&gt; <span class="built_in">np</span>.<span class="built_in">random</span>.shuffle(arr)</span><br><span class="line">    &gt;&gt;&gt; arr</span><br><span class="line">    [<span class="number">1</span> <span class="number">7</span> <span class="number">5</span> <span class="number">2</span> <span class="number">9</span> <span class="number">4</span> <span class="number">3</span> <span class="number">6</span> <span class="number">0</span> <span class="number">8</span>]</span><br><span class="line"></span><br><span class="line">    &gt;&gt;&gt;&gt; <span class="built_in">np</span>.<span class="built_in">random</span>.<span class="built_in">permutation</span>(<span class="number">10</span>)</span><br><span class="line">    <span class="built_in">array</span>([<span class="number">1</span>, <span class="number">7</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">0</span>, <span class="number">9</span>, <span class="number">2</span>, <span class="number">5</span>, <span class="number">8</span>, <span class="number">6</span>])</span><br></pre></td></tr></table></figure></code></pre>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<hr>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/Python_random_number/" data-id="ckjv3w9co00846sdn9l362t6q" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Program/" rel="tag">Program</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
@@ -456,7 +445,7 @@ array([ 0.56911206,  0.99777291,  0.18943144,  0.19387287,  0.75090637,
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Algorithm/" style="font-size: 11.33px;">Algorithm</a> <a href="/tags/Altium-Designer/" style="font-size: 14.67px;">Altium Designer</a> <a href="/tags/Apache/" style="font-size: 11.33px;">Apache</a> <a href="/tags/BeautifulSoup/" style="font-size: 10px;">BeautifulSoup</a> <a href="/tags/C/" style="font-size: 15.33px;">C</a> <a href="/tags/C/" style="font-size: 18.67px;">C++</a> <a href="/tags/Centos7/" style="font-size: 18.67px;">Centos7</a> <a href="/tags/Cython/" style="font-size: 10px;">Cython</a> <a href="/tags/Database/" style="font-size: 13.33px;">Database</a> <a href="/tags/Electronic/" style="font-size: 13.33px;">Electronic</a> <a href="/tags/English/" style="font-size: 12px;">English</a> <a href="/tags/Geant4/" style="font-size: 10.67px;">Geant4</a> <a href="/tags/Hardware/" style="font-size: 10px;">Hardware</a> <a href="/tags/Hexo/" style="font-size: 14px;">Hexo</a> <a href="/tags/Image/" style="font-size: 12px;">Image</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Jupyter/" style="font-size: 10px;">Jupyter</a> <a href="/tags/Linux/" style="font-size: 19.33px;">Linux</a> <a href="/tags/Markdown/" style="font-size: 16px;">Markdown</a> <a href="/tags/Mongodb/" style="font-size: 10px;">Mongodb</a> <a href="/tags/Nuclear-Physics/" style="font-size: 11.33px;">Nuclear Physics</a> <a href="/tags/Open/" style="font-size: 10px;">Open</a> <a href="/tags/Opencv/" style="font-size: 12px;">Opencv</a> <a href="/tags/Program/" style="font-size: 18px;">Program</a> <a href="/tags/PyPI/" style="font-size: 10px;">PyPI</a> <a href="/tags/Py-Crawler/" style="font-size: 10.67px;">Py_Crawler</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/Random/" style="font-size: 10px;">Random</a> <a href="/tags/Resource/" style="font-size: 10.67px;">Resource</a> <a href="/tags/Root/" style="font-size: 10.67px;">Root</a> <a href="/tags/Scipy/" style="font-size: 10px;">Scipy</a> <a href="/tags/Shell/" style="font-size: 16.67px;">Shell</a> <a href="/tags/Solidwork/" style="font-size: 10.67px;">Solidwork</a> <a href="/tags/TTree/" style="font-size: 10px;">TTree</a> <a href="/tags/Tensorflow/" style="font-size: 15.33px;">Tensorflow</a> <a href="/tags/Thread/" style="font-size: 10px;">Thread</a> <a href="/tags/Urllib2/" style="font-size: 10px;">Urllib2</a> <a href="/tags/Virtual-memory/" style="font-size: 10px;">Virtual memory</a> <a href="/tags/cmake/" style="font-size: 12.67px;">cmake</a> <a href="/tags/cmd/" style="font-size: 10.67px;">cmd</a> <a href="/tags/data-structure/" style="font-size: 10.67px;">data structure</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/hexo/" style="font-size: 11.33px;">hexo</a> <a href="/tags/htop/" style="font-size: 10px;">htop</a> <a href="/tags/keras/" style="font-size: 10.67px;">keras</a> <a href="/tags/latex/" style="font-size: 14.67px;">latex</a> <a href="/tags/os/" style="font-size: 10px;">os</a> <a href="/tags/qt/" style="font-size: 10px;">qt</a> <a href="/tags/requests/" style="font-size: 10px;">requests</a> <a href="/tags/sk-learn/" style="font-size: 10px;">sk-learn</a> <a href="/tags/ssh/" style="font-size: 12.67px;">ssh</a> <a href="/tags/statistic/" style="font-size: 10px;">statistic</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/wiki/" style="font-size: 11.33px;">wiki</a> <a href="/tags/windows/" style="font-size: 17.33px;">windows</a> <a href="/tags/yolo%EF%BC%8CC/" style="font-size: 10px;">yolo，C</a>
+      <a href="/tags/Algorithm/" style="font-size: 11.25px;">Algorithm</a> <a href="/tags/Altium-Designer/" style="font-size: 15px;">Altium Designer</a> <a href="/tags/Apache/" style="font-size: 11.25px;">Apache</a> <a href="/tags/BeautifulSoup/" style="font-size: 10px;">BeautifulSoup</a> <a href="/tags/C/" style="font-size: 15.63px;">C</a> <a href="/tags/C/" style="font-size: 18.75px;">C++</a> <a href="/tags/Centos7/" style="font-size: 18.75px;">Centos7</a> <a href="/tags/Cython/" style="font-size: 10px;">Cython</a> <a href="/tags/Database/" style="font-size: 13.75px;">Database</a> <a href="/tags/Electronic/" style="font-size: 13.13px;">Electronic</a> <a href="/tags/English/" style="font-size: 11.88px;">English</a> <a href="/tags/Geant4/" style="font-size: 10.63px;">Geant4</a> <a href="/tags/Hardware/" style="font-size: 10px;">Hardware</a> <a href="/tags/Hexo/" style="font-size: 14.38px;">Hexo</a> <a href="/tags/Image/" style="font-size: 11.88px;">Image</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Jupyter/" style="font-size: 10px;">Jupyter</a> <a href="/tags/Linux/" style="font-size: 19.38px;">Linux</a> <a href="/tags/Markdown/" style="font-size: 16.25px;">Markdown</a> <a href="/tags/Mongodb/" style="font-size: 10px;">Mongodb</a> <a href="/tags/Nuclear-Physics/" style="font-size: 11.25px;">Nuclear Physics</a> <a href="/tags/Open/" style="font-size: 10px;">Open</a> <a href="/tags/Opencv/" style="font-size: 11.88px;">Opencv</a> <a href="/tags/Program/" style="font-size: 18.13px;">Program</a> <a href="/tags/PyPI/" style="font-size: 10px;">PyPI</a> <a href="/tags/Py-Crawler/" style="font-size: 10.63px;">Py_Crawler</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/Random/" style="font-size: 10px;">Random</a> <a href="/tags/Resource/" style="font-size: 10.63px;">Resource</a> <a href="/tags/Root/" style="font-size: 10.63px;">Root</a> <a href="/tags/Scipy/" style="font-size: 10px;">Scipy</a> <a href="/tags/Shell/" style="font-size: 16.88px;">Shell</a> <a href="/tags/Solidwork/" style="font-size: 10.63px;">Solidwork</a> <a href="/tags/TTree/" style="font-size: 10px;">TTree</a> <a href="/tags/Tensorflow/" style="font-size: 15.63px;">Tensorflow</a> <a href="/tags/Thread/" style="font-size: 10px;">Thread</a> <a href="/tags/Urllib2/" style="font-size: 10px;">Urllib2</a> <a href="/tags/Virtual-memory/" style="font-size: 10px;">Virtual memory</a> <a href="/tags/cmake/" style="font-size: 12.5px;">cmake</a> <a href="/tags/cmd/" style="font-size: 10.63px;">cmd</a> <a href="/tags/data-structure/" style="font-size: 10.63px;">data structure</a> <a href="/tags/git/" style="font-size: 13.13px;">git</a> <a href="/tags/hexo/" style="font-size: 11.25px;">hexo</a> <a href="/tags/htop/" style="font-size: 10px;">htop</a> <a href="/tags/keras/" style="font-size: 10.63px;">keras</a> <a href="/tags/latex/" style="font-size: 15px;">latex</a> <a href="/tags/os/" style="font-size: 10px;">os</a> <a href="/tags/qt/" style="font-size: 10px;">qt</a> <a href="/tags/requests/" style="font-size: 10px;">requests</a> <a href="/tags/sk-learn/" style="font-size: 10px;">sk-learn</a> <a href="/tags/ssh/" style="font-size: 12.5px;">ssh</a> <a href="/tags/statistic/" style="font-size: 10px;">statistic</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/wiki/" style="font-size: 11.25px;">wiki</a> <a href="/tags/windows/" style="font-size: 17.5px;">windows</a> <a href="/tags/yolo%EF%BC%8CC/" style="font-size: 10px;">yolo，C</a>
     </div>
   </div>
 
@@ -478,6 +467,10 @@ array([ 0.56911206,  0.99777291,  0.18943144,  0.19387287,  0.75090637,
       <ul>
         
           <li>
+            <a href="/navicat12_windows/">windows版Navicat12破解方法</a>
+          </li>
+        
+          <li>
             <a href="/MySql_cluster/">MySQL分布式集群方案</a>
           </li>
         
@@ -491,10 +484,6 @@ array([ 0.56911206,  0.99777291,  0.18943144,  0.19387287,  0.75090637,
         
           <li>
             <a href="/mediawiki_icon/">mediawiki设置logo和站点图标</a>
-          </li>
-        
-          <li>
-            <a href="/yum_remi_error/">Centos7安装remi源错误</a>
           </li>
         
       </ul>
