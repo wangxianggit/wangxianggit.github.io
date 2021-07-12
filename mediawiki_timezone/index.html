@@ -15,7 +15,7 @@
 <meta property="og:description" content="mediawiki设置时区 修改php时区设置，配置文件：&#x2F;etc&#x2F;php.ini  12[Date]date.timezone&#x3D;Asia&#x2F;Shanghai #去掉前面封号  修改mediawiki配置文件Localsetting.php，加入：  1234# Time zone setting$wgLocaltimezone&#x3D;&quot;Asia&#x2F;Shanghai&quot;;putenv(&amp;q">
 <meta property="og:locale">
 <meta property="article:published_time" content="2021-07-12T14:47:33.000Z">
-<meta property="article:modified_time" content="2021-07-12T14:51:08.906Z">
+<meta property="article:modified_time" content="2021-07-12T14:53:00.441Z">
 <meta property="article:author" content="wangxiang">
 <meta property="article:tag" content="wiki">
 <meta name="twitter:card" content="summary">
@@ -109,6 +109,9 @@
 <li>修改mediawiki配置文件Localsetting.php，加入：</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Time zone setting</span></span><br><span class="line"><span class="variable">$wgLocaltimezone</span>=<span class="string">&quot;Asia/Shanghai&quot;</span>;</span><br><span class="line">putenv(<span class="string">&quot;TZ=<span class="variable">$wgLocaltimezone</span>&quot;</span>);</span><br><span class="line"><span class="variable">$wgLocalTZoffset</span>=date(<span class="string">&quot;Z&quot;</span>)/60;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>修改后重启httpd。</li>
+</ul>
 <hr>
 
       

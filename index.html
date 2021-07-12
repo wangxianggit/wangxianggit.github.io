@@ -103,6 +103,9 @@
 <li>修改mediawiki配置文件Localsetting.php，加入：</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Time zone setting</span></span><br><span class="line"><span class="variable">$wgLocaltimezone</span>=<span class="string">&quot;Asia/Shanghai&quot;</span>;</span><br><span class="line">putenv(<span class="string">&quot;TZ=<span class="variable">$wgLocaltimezone</span>&quot;</span>);</span><br><span class="line"><span class="variable">$wgLocalTZoffset</span>=date(<span class="string">&quot;Z&quot;</span>)/60;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>修改后重启httpd。</li>
+</ul>
 <hr>
 
       
