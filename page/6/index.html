@@ -219,12 +219,16 @@ cv2.error: OpenCV(3.4.5) error: (-2:Unspecified error) The function is not imple
 </li>
 <li><p>配置conf和目录文件：</p>
 <ul>
-<li><p>进入mongodb目录后创建db目录和日志文件：</p>
-</li>
-<li><p>```<br>mkdir -p ./data/db<br>mkdir -p ./logs<br>touch ./logs/mongodb.log</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 创建mongodb.conf文件：vi mongodb.conf</span><br><span class="line"></span><br><span class="line">* ```</span><br><span class="line">  <span class="comment">#端口号</span></span><br><span class="line">  port=<span class="number">27017</span></span><br><span class="line">  <span class="comment">#db目录</span></span><br><span class="line">  dbpath=<span class="regexp">/opt/m</span>ongodb<span class="regexp">/data/</span>db</span><br><span class="line">  <span class="comment">#日志目录</span></span><br><span class="line">  logpath=<span class="regexp">/opt/m</span>ongodb<span class="regexp">/logs/m</span>ongodb.log</span><br><span class="line">  <span class="comment">#后台</span></span><br><span class="line">  fork=true</span><br><span class="line">  <span class="comment">#日志输出</span></span><br><span class="line">  logappend=true</span><br><span class="line">  <span class="comment">#允许远程IP连接</span></span><br><span class="line">  bind_ip=<span class="number">0.0</span>.<span class="number">0.0</span></span><br></pre></td></tr></table></figure></li>
+<li>进入mongodb目录后创建db目录和日志文件：</li>
 </ul>
 </li>
+</ul>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p .<span class="regexp">/data/</span>db</span><br><span class="line">mkdir -p ./logs</span><br><span class="line">touch .<span class="regexp">/logs/m</span>ongodb.log</span><br></pre></td></tr></table></figure>
+<ul>
+<li>创建mongodb.conf文件：vi mongodb.conf</li>
+</ul>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#端口号</span></span><br><span class="line"><span class="attr">port</span>=<span class="number">27017</span></span><br><span class="line"><span class="comment">#db目录</span></span><br><span class="line"><span class="attr">dbpath</span>=/opt/mongodb/data/db</span><br><span class="line"><span class="comment">#日志目录</span></span><br><span class="line"><span class="attr">logpath</span>=/opt/mongodb/logs/mongodb.log</span><br><span class="line"><span class="comment">#后台</span></span><br><span class="line"><span class="attr">fork</span>=<span class="literal">true</span></span><br><span class="line"><span class="comment">#日志输出</span></span><br><span class="line"><span class="attr">logappend</span>=<span class="literal">true</span></span><br><span class="line"><span class="comment">#允许远程IP连接</span></span><br><span class="line"><span class="attr">bind_ip</span>=<span class="number">0.0</span>.<span class="number">0.0</span></span><br></pre></td></tr></table></figure>
+<ul>
 <li><p>启动测试：</p>
 <ul>
 <li>启动：./bin/mongod –config mongodb.conf</li>
@@ -238,32 +242,12 @@ cv2.error: OpenCV(3.4.5) error: (-2:Unspecified error) The function is not imple
 </li>
 <li><p>vi mongodb.service</p>
 </li>
-<li><pre><code>[Unit] 
-Description=mongodb 
-After=network.target remote-fs.target nss-lookup.target 
-
-[Service] 
-Type=forking 
-ExecStart=/opt/mongodb/bin/mongod --config /usr/local/mongodb/mongodb.conf 
-ExecReload=/bin/kill -s HUP $MAINPID 
-ExecStop=/opt/mongodb/bin/mongod --shutdown --config /opt/mongodb/mongodb.conf 
-PrivateTmp=true 
-
-[Install] 
-WantedBy=multi-user.target
-
-#启动服务
-systemctl start mongodb.service    
-#停止服务
-systemctl stop mongodb.service
-#添加开机自启动
-systemctl enable mongodb.service
-#重启服务
-systemctl restart mongodb.service</code></pre>
-</li>
-<li><p>添加环境变量profile：export PATH=$PATH:/opt/mongodb/bin</p>
+</ul>
 </li>
 </ul>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">[Unit] </span><br><span class="line"><span class="attribute">Description</span>=mongodb </span><br><span class="line"><span class="attribute">After</span>=network.target remote-fs.target nss-lookup.target </span><br><span class="line"></span><br><span class="line">[Service] </span><br><span class="line"><span class="attribute">Type</span>=forking </span><br><span class="line"><span class="attribute">ExecStart</span>=/opt/mongodb/bin/mongod --config /usr/local/mongodb/mongodb.conf </span><br><span class="line"><span class="attribute">ExecReload</span>=/bin/kill -s HUP <span class="variable">$MAINPID</span> </span><br><span class="line"><span class="attribute">ExecStop</span>=/opt/mongodb/bin/mongod --shutdown --config /opt/mongodb/mongodb.conf </span><br><span class="line"><span class="attribute">PrivateTmp</span>=<span class="literal">true</span> </span><br><span class="line"></span><br><span class="line">[Install] </span><br><span class="line"><span class="attribute">WantedBy</span>=multi-user.target</span><br><span class="line"></span><br><span class="line"><span class="comment">#启动服务</span></span><br><span class="line">systemctl start mongodb.service    </span><br><span class="line"><span class="comment">#停止服务</span></span><br><span class="line">systemctl stop mongodb.service</span><br><span class="line"><span class="comment">#添加开机自启动</span></span><br><span class="line">systemctl <span class="builtin-name">enable</span> mongodb.service</span><br><span class="line"><span class="comment">#重启服务</span></span><br><span class="line">systemctl restart mongodb.service</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>添加环境变量profile：export PATH=$PATH:/opt/mongodb/bin</p>
 </li>
 <li><p>mongodb可视化工具：Robo 3T ：<a target="_blank" rel="noopener" href="https://robomongo.org/">https://robomongo.org/</a></p>
 </li>
