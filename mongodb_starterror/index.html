@@ -5,20 +5,19 @@
   
 
   
-  <title>TTree函数Scan使用 | There is no rose without a thorn</title>
+  <title>mongodb启动错误 | There is no rose without a thorn</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="TTree函数Scan 参考链接：https:&#x2F;&#x2F;root.cern&#x2F;root&#x2F;html602&#x2F;TTree.html#TTree:Scan  函数原型：  Long64_t Scan(const char* varexp &#x3D; &quot;&quot;, const char* selection &#x3D; &quot;&quot;, Option_t* option &#x3D; &quot;&quot;, Lo">
+  <meta name="description" content="mongodb启动错误 启动mongodb：systemctl start mongodb.service，出现错误：  1Job for mongodb.service failed because the control process exited with error code. See &quot;systemctl status mongodb.service&quot; and &amp;q">
 <meta property="og:type" content="article">
-<meta property="og:title" content="TTree函数Scan使用">
-<meta property="og:url" content="http://wangxianggit.github.io/TTree_Scan/index.html">
+<meta property="og:title" content="mongodb启动错误">
+<meta property="og:url" content="http://wangxianggit.github.io/mongodb_starterror/index.html">
 <meta property="og:site_name" content="There is no rose without a thorn">
-<meta property="og:description" content="TTree函数Scan 参考链接：https:&#x2F;&#x2F;root.cern&#x2F;root&#x2F;html602&#x2F;TTree.html#TTree:Scan  函数原型：  Long64_t Scan(const char* varexp &#x3D; &quot;&quot;, const char* selection &#x3D; &quot;&quot;, Option_t* option &#x3D; &quot;&quot;, Lo">
+<meta property="og:description" content="mongodb启动错误 启动mongodb：systemctl start mongodb.service，出现错误：  1Job for mongodb.service failed because the control process exited with error code. See &quot;systemctl status mongodb.service&quot; and &amp;q">
 <meta property="og:locale">
-<meta property="article:published_time" content="2019-03-11T04:00:38.000Z">
-<meta property="article:modified_time" content="2021-01-18T13:28:39.169Z">
+<meta property="article:published_time" content="2021-07-20T05:31:22.000Z">
+<meta property="article:modified_time" content="2021-07-20T05:34:48.676Z">
 <meta property="article:author" content="wangxiang">
-<meta property="article:tag" content="Root">
-<meta property="article:tag" content="TTree">
+<meta property="article:tag" content="database">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="There is no rose without a thorn" type="application/atom+xml">
@@ -69,10 +68,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-TTree_Scan" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-mongodb_starterror" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/TTree_Scan/" class="article-date">
-  <time datetime="2019-03-11T04:00:38.000Z" itemprop="datePublished">2019-03-11</time>
+    <a href="/mongodb_starterror/" class="article-date">
+  <time datetime="2021-07-20T05:31:22.000Z" itemprop="datePublished">2021-07-20</time>
 </a>
     
   <div class="article-category">
@@ -87,7 +86,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      TTree函数Scan使用
+      mongodb启动错误
     </h1>
   
 
@@ -99,46 +98,29 @@
 
   <div id="toc" class="toc-article">
     <strong class="toc-title">article content</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#TTree%E5%87%BD%E6%95%B0Scan"><span class="toc-number">1.</span> <span class="toc-text">TTree函数Scan</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%BC%E5%BC%8F%E5%8C%96%E8%BE%93%E5%87%BA"><span class="toc-number">2.</span> <span class="toc-text">格式化输出</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#mongodb%E5%90%AF%E5%8A%A8%E9%94%99%E8%AF%AF"><span class="toc-number">1.</span> <span class="toc-text">mongodb启动错误</span></a></li></ol>
   </div>
 
-        <h2 id="TTree函数Scan"><a href="#TTree函数Scan" class="headerlink" title="TTree函数Scan"></a>TTree函数Scan</h2><ul>
-<li><p>参考链接：<a target="_blank" rel="noopener" href="https://root.cern/root/html602/TTree.html#TTree:Scan">https://root.cern/root/html602/TTree.html#TTree:Scan</a></p>
-</li>
-<li><p>函数原型：</p>
+        <h3 id="mongodb启动错误"><a href="#mongodb启动错误" class="headerlink" title="mongodb启动错误"></a>mongodb启动错误</h3><ul>
+<li>启动mongodb：systemctl start mongodb.service，出现错误：</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Job <span class="keyword">for</span> mongodb.service failed because the control process exited <span class="keyword">with</span> error code. See <span class="string">&quot;systemctl status mongodb.service&quot;</span> and <span class="string">&quot;journalctl -xe&quot;</span> <span class="keyword">for</span> details.</span><br></pre></td></tr></table></figure>
 <ul>
-<li><pre><code>Long64_t Scan(const char* varexp = &quot;&quot;, const char* selection = &quot;&quot;, Option_t* option = &quot;&quot;, Long64_t nentries = 1000000000, Long64_t firstentry = 0)
-
-description：
- Loop over tree entries and print entries passing selection.
- If varexp is 0 (or &quot;&quot;) then print only first 8 columns.
- If varexp = &quot;*&quot; print all columns.
- Otherwise a columns selection can be made using &quot;var1:var2:var3&quot;.
- See TTreePlayer::Scan for more information
-</code></pre>
-</li>
+<li>输入journalctl -xe查看错误：</li>
 </ul>
-</li>
-</ul>
-<h2 id="格式化输出"><a href="#格式化输出" class="headerlink" title="格式化输出"></a>格式化输出</h2><ul>
-<li>示例代码：<code> tree-&gt;Scan(&quot;a:b:&quot;c,&quot;&quot;,&quot;colsize=30 precision=3 col=::20.10:#x:5ld&quot;);</code></li>
-<li>格式化输出控制参数：<ul>
-<li>lenmax=dd，控制每次打印输出最多的元素的个数，默认情况下dd是0，所有的元素都被打印出来。</li>
-<li>colsize=ss，输出的每一列的长度大小，默认是9。</li>
-<li>precision=pp，指定格式化打印输出的精度。</li>
-<li>col=xxx，限定每一列输出格式，格式化字符的格式和printf一致。</li>
-</ul>
-</li>
+<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- Support: http://lists.freedesktop.org/mailman/listinfo/systemd-devel</span></span><br><span class="line"><span class="comment">-- </span></span><br><span class="line"><span class="comment">-- Unit mongodb.service has begun starting up.</span></span><br><span class="line">Jul <span class="number">20</span> <span class="number">13</span>:<span class="number">23</span>:<span class="number">44</span> hadoop0 mongod[<span class="number">130317</span>]: about <span class="built_in">to</span> fork child <span class="built_in">process</span>, waiting <span class="keyword">until</span> server is ready <span class="keyword">for</span> connections.</span><br><span class="line">Jul <span class="number">20</span> <span class="number">13</span>:<span class="number">23</span>:<span class="number">44</span> hadoop0 mongod[<span class="number">130317</span>]: forked <span class="built_in">process</span>: <span class="number">130323</span></span><br><span class="line">Jul <span class="number">20</span> <span class="number">13</span>:<span class="number">23</span>:<span class="number">44</span> hadoop0 mongod[<span class="number">130317</span>]: ERROR: child <span class="built_in">process</span> failed, exited <span class="keyword">with</span> error <span class="built_in">number</span> <span class="number">48</span></span><br><span class="line">Jul <span class="number">20</span> <span class="number">13</span>:<span class="number">23</span>:<span class="number">44</span> hadoop0 mongod[<span class="number">130317</span>]: To see additional information <span class="keyword">in</span> this output, <span class="built_in">start</span> <span class="keyword">without</span> <span class="keyword">the</span> <span class="string">&quot;--fork&quot;</span> option.</span><br><span class="line">Jul <span class="number">20</span> <span class="number">13</span>:<span class="number">23</span>:<span class="number">44</span> hadoop0 systemd[<span class="number">1</span>]: mongodb.service: control <span class="built_in">process</span> exited, code=exited status=<span class="number">48</span></span><br><span class="line">Jul <span class="number">20</span> <span class="number">13</span>:<span class="number">23</span>:<span class="number">44</span> hadoop0 systemd[<span class="number">1</span>]: Failed <span class="built_in">to</span> <span class="built_in">start</span> mongodb.</span><br><span class="line"><span class="comment">-- Subject: Unit mongodb.service has failed</span></span><br><span class="line"><span class="comment">-- Defined-By: systemd</span></span><br><span class="line"><span class="comment">-- Support: http://lists.freedesktop.org/mailman/listinfo/systemd-devel</span></span><br><span class="line"><span class="comment">-- </span></span><br><span class="line"><span class="comment">-- Unit mongodb.service has failed.</span></span><br><span class="line"><span class="comment">-- </span></span><br><span class="line"><span class="comment">-- The result is failed.</span></span><br><span class="line">......</span><br></pre></td></tr></table></figure>
+<ul>
+<li>错误代码48，杀死原进程并删除旧日志：pkill mongo，重启即可。</li>
 </ul>
 <hr>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/TTree_Scan/" data-id="ckjv3w9cv00916sdncytt048w" class="article-share-link">Share</a>
+      <a data-url="http://wangxianggit.github.io/mongodb_starterror/" data-id="ckrbmhp5t00009cdn8jhsaqpo" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Root/" rel="tag">Root</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/TTree/" rel="tag">TTree</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/database/" rel="tag">database</a></li></ul>
 
     </footer>
   </div>
@@ -146,19 +128,10 @@ description：
     
 <nav id="article-nav">
   
-    <a href="/Ctex_install_new_packages/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          Ctex安装新宏包
-        
-      </div>
-    </a>
   
-  
-    <a href="/Python_keyword_with/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/mediawiki_timezone/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Python关键字with</div>
+      <div class="article-nav-title">mediawiki设置时区</div>
     </a>
   
 </nav>

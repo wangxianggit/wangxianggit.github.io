@@ -67,6 +67,81 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-shell_df_du" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/shell_df_du/" class="article-date">
+  <time datetime="2019-05-16T01:31:27.000Z" itemprop="datePublished">2019-05-16</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/learning/">learning</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/shell_df_du/">shell命令df和du</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+
+        <h2 id="df和du区别"><a href="#df和du区别" class="headerlink" title="df和du区别"></a>df和du区别</h2><ul>
+<li>Linux中du命令通过搜索文件并计算出每个文件的大小后累加计算容量，同时du能看到的文件是当前已经存在的，删除后的文件看不到。</li>
+</ul>
+<ul>
+<li>df命令和du命令不同，通过文件系统获取占据空间的大小，同时如果删除一个文件后df也可以看到，因为在系统中当执行删除命令后文件并不会马上消失，而是暂时消失当所有应用不用时才根据系统的规则释放文件。</li>
+<li>若文件系统彻底删除后，du和df的效果是一样。</li>
+</ul>
+<h2 id="df命令"><a href="#df命令" class="headerlink" title="df命令"></a>df命令</h2><ul>
+<li><p>指令df可以显示现有的文件系统的可用空间及使用情况，格式：df [option][file]</p>
+</li>
+<li><p>例如：</p>
+<ul>
+<li><pre><code>df -h
+
+Filesystem            Size  Used Avail Use% Mounted on
+/dev/mapper/VolGroup-lv_root
+                       50G   13G   35G  27% /
+tmpfs                  63G  152K   63G   1% /dev/shm
+/dev/sdb1             477M  190M  262M  42% /boot
+/dev/mapper/VolGroup-lv_home
+                      9.0T  4.3T  4.3T  51% /home
+/dev/sda1              15T   14T   26G 100% /data/d1
+/dev/sda2              15T   13T  874G  94% /data/d2
+/dev/sda3             9.0T  4.3T  4.3T  51% /home
+/dev/sdc1             100T  8.6T   92T   9% /data/d3
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 使用参数：</span><br><span class="line"></span><br><span class="line">  * a：显示全部的档案系统和各分割区的磁盘使用情形</span><br><span class="line">  * i：显示i -nodes的使用量</span><br><span class="line">  * k：大小用k来表示 (默认值)</span><br><span class="line">  * m: 大小用M表示</span><br><span class="line">  * t：显示某一个档案系统的所有分割区磁盘使用量</span><br><span class="line">  * x：显示不是某一个档案系统的所有分割区磁盘使用量</span><br><span class="line">  * T：显示每个分割区所属的档案系统名称</span><br><span class="line">  * H 等于“-h”，但是计算式，<span class="number">1</span>K=<span class="number">1000</span>，而不是<span class="number">1</span>K=<span class="number">1024</span></span><br><span class="line">  * l：只显示本地文件系统</span><br><span class="line">  * --help，显示帮助信息</span><br><span class="line">  * --version 显示版本信息</span><br><span class="line">  * -P：输出格式为POSIX</span><br><span class="line"></span><br><span class="line">## du命令</span><br><span class="line"></span><br><span class="line">* du指令显示指定文件所占空间：du [option][<span class="keyword">file</span>\]</span><br><span class="line"></span><br><span class="line">* 参数：</span><br><span class="line"></span><br><span class="line">  * ```</span><br><span class="line">    -a或-all  显示目录中个别文件的大小。   </span><br><span class="line">    -b或-bytes  显示目录或文件大小时，以<span class="keyword">byte</span>为单位。   </span><br><span class="line">    -c或--total  除了显示个别目录或文件的大小外，同时也显示所有目录或文件的总和。 </span><br><span class="line">    -k或--kilobytes  以KB(<span class="number">1024</span>bytes)为单位输出。</span><br><span class="line">    -m或--megabytes  以MB为单位输出。   </span><br><span class="line">    -s或--summarize  仅显示总计，只列出最后加总的值。</span><br><span class="line">    -h或--human-readable  以K，M，G为单位，提高信息的可读性。</span><br><span class="line">    -x或--one-<span class="keyword">file</span>-xystem  以一开始处理时的文件系统为准，若遇上其它不同的文件系统目录则略过。 </span><br><span class="line">    -L&lt;符号链接&gt;或--dereference&lt;符号链接&gt; 显示选项中所指定符号链接的源文件大小。   </span><br><span class="line">    -S或--separate-dirs   显示个别目录的大小时，并不含其子目录的大小。 </span><br><span class="line">    -X&lt;文件&gt;或--<span class="keyword">exclude</span>-<span class="keyword">from</span>=&lt;文件&gt;  在&lt;文件&gt;指定目录或文件。   </span><br><span class="line">    --<span class="keyword">exclude</span>=&lt;目录或文件&gt;         略过指定的目录或文件。    </span><br><span class="line">    -D或--dereference-args   显示指定符号链接的源文件大小。   </span><br><span class="line">    -H或--si  与-h参数相同，但是K，M，G是以<span class="number">1000</span>为换算单位。   </span><br><span class="line">    -l或--<span class="keyword">count</span>-links   重复计算硬件链接的文件。</span><br><span class="line"></span><br><span class="line">    ```</span><br><span class="line"></span><br><span class="line">* 示例：</span><br><span class="line"></span><br><span class="line">  * ~~~</span><br><span class="line">    du -lh</span><br><span class="line"></span><br><span class="line">    <span class="number">2.4</span>G	./puleLZ</span><br><span class="line">    <span class="number">702</span>G	./spulse</span><br><span class="line">    <span class="number">372</span>M	.<span class="regexp">/40Ar+186W/</span>decaywave/tree</span><br><span class="line">    <span class="number">1.4</span>G	.<span class="regexp">/40Ar+186W/</span>decaywave/tree1</span><br><span class="line">    <span class="number">1.2</span>G	.<span class="regexp">/40Ar+186W/</span>decaywave/data5-<span class="number">25</span></span><br><span class="line">    <span class="number">5.0</span>M	.<span class="regexp">/40Ar+186W/</span>decaywave/pileup</span><br><span class="line">    <span class="number">6.1</span>G	.<span class="regexp">/40Ar+186W/</span>decaywave</span><br><span class="line">    <span class="number">76</span>M	.<span class="regexp">/40Ar+186W/</span>tsortnew</span><br><span class="line">    <span class="number">11</span>G	.<span class="regexp">/40Ar+186W/</span>data20190510</span><br><span class="line">    <span class="number">19</span>G	.<span class="regexp">/40Ar+186W/m</span>apping</span><br><span class="line">    <span class="number">12</span>K	.<span class="regexp">/40Ar+186W/</span>decaynew/infdata</span><br><span class="line">    <span class="number">120</span>K	.<span class="regexp">/40Ar+186W/</span>decaynew/SpecLu175</span><br><span class="line">    <span class="number">108</span>K	.<span class="regexp">/40Ar+186W/</span>decaynew<span class="regexp">/SpecPa222/</span>calc</span><br><span class="line">    <span class="number">492</span>K	.<span class="regexp">/40Ar+186W/</span>decaynew/SpecPa222</span><br><span class="line">    <span class="number">158</span>M	.<span class="regexp">/40Ar+186W/</span>decaynew</span><br><span class="line">    <span class="number">4.6</span>G	.<span class="regexp">/40Ar+186W/</span>tsortwave</span><br><span class="line">    <span class="number">580</span>K	.<span class="regexp">/40Ar+186W/</span>datadecay/infdata</span><br><span class="line">    <span class="number">616</span>K	.<span class="regexp">/40Ar+186W/</span>datadecay</span><br><span class="line">    <span class="number">18</span>G	.<span class="regexp">/40Ar+186W/</span>spulse</span><br><span class="line">    <span class="number">58</span>G	./<span class="number">40</span>Ar+<span class="number">186</span>W</span><br><span class="line">    <span class="number">765</span>G	.</span><br></pre></td></tr></table></figure></code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wangxianggit.github.io/shell_df_du/" data-id="ckjv3w9ed00fj6sdn5jdh06e2" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Shell/" rel="tag">Shell</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-httpd_centos7_basic_operation" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/httpd_centos7_basic_operation/" class="article-date">
@@ -366,75 +441,6 @@ done
 
 
   
-    <article id="post-shell_break_continue" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/shell_break_continue/" class="article-date">
-  <time datetime="2019-05-09T16:06:37.000Z" itemprop="datePublished">2019-05-10</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/learning/">learning</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/shell_break_continue/">shell跳出循环语句</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-
-        <h2 id="shell跳出循环语句"><a href="#shell跳出循环语句" class="headerlink" title="shell跳出循环语句"></a>shell跳出循环语句</h2><ul>
-<li><p>break命令：</p>
-<ul>
-<li><p>break命令允许跳出所有循环（终止执行后面的所有循环）。</p>
-</li>
-<li><p>例子，脚本进入死循环直至用户输入数字大于5。</p>
-</li>
-<li><p>~~~<br>#!/bin/bash<br>while :<br>do</p>
-<pre><code>echo -n &quot;输入 1 到 5 之间的数字:&quot;
-read aNum
-case $aNum in
-    1|2|3|4|5) echo &quot;你输入的数字为 $aNum!&quot;
-    ;;
-    *) echo &quot;你输入的数字不是 1 到 5 之间的! 游戏结束&quot;
-        break
-    ;;
-esac</code></pre>
-<p>done</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* <span class="built_in">continue</span>命令：跳出当前循环</span><br><span class="line">  * 例子，与上面例子类似，但不跳出循环，仅终止当前循环：</span><br><span class="line"></span><br><span class="line">  * ~~~</span><br><span class="line">    <span class="comment">#!/bin/bash</span></span><br><span class="line">    <span class="keyword">while</span> :</span><br><span class="line">    <span class="keyword">do</span></span><br><span class="line">        <span class="built_in">echo</span> -n <span class="string">&quot;输入 1 到 5 之间的数字: &quot;</span></span><br><span class="line">        <span class="built_in">read</span> aNum</span><br><span class="line">        <span class="keyword">case</span> <span class="variable">$aNum</span> <span class="keyword">in</span></span><br><span class="line">            1|2|3|4|5) <span class="built_in">echo</span> <span class="string">&quot;你输入的数字为 <span class="variable">$aNum</span>!&quot;</span></span><br><span class="line">            ;;</span><br><span class="line">            *) <span class="built_in">echo</span> <span class="string">&quot;你输入的数字不是 1 到 5 之间的!&quot;</span></span><br><span class="line">                <span class="built_in">continue</span></span><br><span class="line">                <span class="built_in">echo</span> <span class="string">&quot;游戏结束&quot;</span></span><br><span class="line">            ;;</span><br><span class="line">        <span class="keyword">esac</span></span><br><span class="line">    <span class="keyword">done</span></span><br></pre></td></tr></table></figure></li>
-<li><p>该例子中，不论输入那些数字都不会跳出循环。</p>
-</li>
-</ul>
-</li>
-</ul>
-<hr>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/shell_break_continue/" data-id="ckjv3w9ea00f96sdn3owh6tkl" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Shell/" rel="tag">Shell</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
@@ -487,7 +493,7 @@ esac</code></pre>
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Algorithm/" style="font-size: 11.25px;">Algorithm</a> <a href="/tags/Altium-Designer/" style="font-size: 15px;">Altium Designer</a> <a href="/tags/Apache/" style="font-size: 11.25px;">Apache</a> <a href="/tags/BeautifulSoup/" style="font-size: 10px;">BeautifulSoup</a> <a href="/tags/C/" style="font-size: 15.63px;">C</a> <a href="/tags/C/" style="font-size: 18.75px;">C++</a> <a href="/tags/Centos7/" style="font-size: 18.75px;">Centos7</a> <a href="/tags/Cython/" style="font-size: 10px;">Cython</a> <a href="/tags/Database/" style="font-size: 13.75px;">Database</a> <a href="/tags/Electronic/" style="font-size: 13.13px;">Electronic</a> <a href="/tags/English/" style="font-size: 11.88px;">English</a> <a href="/tags/Geant4/" style="font-size: 10.63px;">Geant4</a> <a href="/tags/Hardware/" style="font-size: 10px;">Hardware</a> <a href="/tags/Hexo/" style="font-size: 14.38px;">Hexo</a> <a href="/tags/Image/" style="font-size: 11.88px;">Image</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Jupyter/" style="font-size: 10px;">Jupyter</a> <a href="/tags/Linux/" style="font-size: 19.38px;">Linux</a> <a href="/tags/Markdown/" style="font-size: 16.25px;">Markdown</a> <a href="/tags/Nuclear-Physics/" style="font-size: 11.25px;">Nuclear Physics</a> <a href="/tags/Open/" style="font-size: 10px;">Open</a> <a href="/tags/Opencv/" style="font-size: 11.88px;">Opencv</a> <a href="/tags/Program/" style="font-size: 18.13px;">Program</a> <a href="/tags/PyPI/" style="font-size: 10px;">PyPI</a> <a href="/tags/Py-Crawler/" style="font-size: 10.63px;">Py_Crawler</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/Random/" style="font-size: 10px;">Random</a> <a href="/tags/Resource/" style="font-size: 10.63px;">Resource</a> <a href="/tags/Root/" style="font-size: 10.63px;">Root</a> <a href="/tags/Scipy/" style="font-size: 10px;">Scipy</a> <a href="/tags/Shell/" style="font-size: 16.88px;">Shell</a> <a href="/tags/Solidwork/" style="font-size: 10.63px;">Solidwork</a> <a href="/tags/TTree/" style="font-size: 10px;">TTree</a> <a href="/tags/Tensorflow/" style="font-size: 15.63px;">Tensorflow</a> <a href="/tags/Thread/" style="font-size: 10px;">Thread</a> <a href="/tags/Urllib2/" style="font-size: 10px;">Urllib2</a> <a href="/tags/Virtual-memory/" style="font-size: 10px;">Virtual memory</a> <a href="/tags/cmake/" style="font-size: 12.5px;">cmake</a> <a href="/tags/cmd/" style="font-size: 10.63px;">cmd</a> <a href="/tags/data-structure/" style="font-size: 10.63px;">data structure</a> <a href="/tags/database/" style="font-size: 10px;">database</a> <a href="/tags/git/" style="font-size: 13.13px;">git</a> <a href="/tags/hexo/" style="font-size: 11.25px;">hexo</a> <a href="/tags/htop/" style="font-size: 10px;">htop</a> <a href="/tags/keras/" style="font-size: 10.63px;">keras</a> <a href="/tags/latex/" style="font-size: 15px;">latex</a> <a href="/tags/os/" style="font-size: 10px;">os</a> <a href="/tags/qt/" style="font-size: 10px;">qt</a> <a href="/tags/requests/" style="font-size: 10px;">requests</a> <a href="/tags/sk-learn/" style="font-size: 10px;">sk-learn</a> <a href="/tags/ssh/" style="font-size: 12.5px;">ssh</a> <a href="/tags/statistic/" style="font-size: 10px;">statistic</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/wiki/" style="font-size: 11.88px;">wiki</a> <a href="/tags/windows/" style="font-size: 17.5px;">windows</a> <a href="/tags/yolo%EF%BC%8CC/" style="font-size: 10px;">yolo，C</a>
+      <a href="/tags/Algorithm/" style="font-size: 11.25px;">Algorithm</a> <a href="/tags/Altium-Designer/" style="font-size: 15px;">Altium Designer</a> <a href="/tags/Apache/" style="font-size: 11.25px;">Apache</a> <a href="/tags/BeautifulSoup/" style="font-size: 10px;">BeautifulSoup</a> <a href="/tags/C/" style="font-size: 15.63px;">C</a> <a href="/tags/C/" style="font-size: 18.75px;">C++</a> <a href="/tags/Centos7/" style="font-size: 18.75px;">Centos7</a> <a href="/tags/Cython/" style="font-size: 10px;">Cython</a> <a href="/tags/Database/" style="font-size: 13.75px;">Database</a> <a href="/tags/Electronic/" style="font-size: 13.13px;">Electronic</a> <a href="/tags/English/" style="font-size: 11.88px;">English</a> <a href="/tags/Geant4/" style="font-size: 10.63px;">Geant4</a> <a href="/tags/Hardware/" style="font-size: 10px;">Hardware</a> <a href="/tags/Hexo/" style="font-size: 14.38px;">Hexo</a> <a href="/tags/Image/" style="font-size: 11.88px;">Image</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Jupyter/" style="font-size: 10px;">Jupyter</a> <a href="/tags/Linux/" style="font-size: 19.38px;">Linux</a> <a href="/tags/Markdown/" style="font-size: 16.25px;">Markdown</a> <a href="/tags/Nuclear-Physics/" style="font-size: 11.25px;">Nuclear Physics</a> <a href="/tags/Open/" style="font-size: 10px;">Open</a> <a href="/tags/Opencv/" style="font-size: 11.88px;">Opencv</a> <a href="/tags/Program/" style="font-size: 18.13px;">Program</a> <a href="/tags/PyPI/" style="font-size: 10px;">PyPI</a> <a href="/tags/Py-Crawler/" style="font-size: 10.63px;">Py_Crawler</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/Random/" style="font-size: 10px;">Random</a> <a href="/tags/Resource/" style="font-size: 10.63px;">Resource</a> <a href="/tags/Root/" style="font-size: 10.63px;">Root</a> <a href="/tags/Scipy/" style="font-size: 10px;">Scipy</a> <a href="/tags/Shell/" style="font-size: 16.88px;">Shell</a> <a href="/tags/Solidwork/" style="font-size: 10.63px;">Solidwork</a> <a href="/tags/TTree/" style="font-size: 10px;">TTree</a> <a href="/tags/Tensorflow/" style="font-size: 15.63px;">Tensorflow</a> <a href="/tags/Thread/" style="font-size: 10px;">Thread</a> <a href="/tags/Urllib2/" style="font-size: 10px;">Urllib2</a> <a href="/tags/Virtual-memory/" style="font-size: 10px;">Virtual memory</a> <a href="/tags/cmake/" style="font-size: 12.5px;">cmake</a> <a href="/tags/cmd/" style="font-size: 10.63px;">cmd</a> <a href="/tags/data-structure/" style="font-size: 10.63px;">data structure</a> <a href="/tags/database/" style="font-size: 10.63px;">database</a> <a href="/tags/git/" style="font-size: 13.13px;">git</a> <a href="/tags/hexo/" style="font-size: 11.25px;">hexo</a> <a href="/tags/htop/" style="font-size: 10px;">htop</a> <a href="/tags/keras/" style="font-size: 10.63px;">keras</a> <a href="/tags/latex/" style="font-size: 15px;">latex</a> <a href="/tags/os/" style="font-size: 10px;">os</a> <a href="/tags/qt/" style="font-size: 10px;">qt</a> <a href="/tags/requests/" style="font-size: 10px;">requests</a> <a href="/tags/sk-learn/" style="font-size: 10px;">sk-learn</a> <a href="/tags/ssh/" style="font-size: 12.5px;">ssh</a> <a href="/tags/statistic/" style="font-size: 10px;">statistic</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/wiki/" style="font-size: 11.88px;">wiki</a> <a href="/tags/windows/" style="font-size: 17.5px;">windows</a> <a href="/tags/yolo%EF%BC%8CC/" style="font-size: 10px;">yolo，C</a>
     </div>
   </div>
 
@@ -509,6 +515,10 @@ esac</code></pre>
       <ul>
         
           <li>
+            <a href="/mongodb_starterror/">mongodb启动错误</a>
+          </li>
+        
+          <li>
             <a href="/mediawiki_timezone/">mediawiki设置时区</a>
           </li>
         
@@ -522,10 +532,6 @@ esac</code></pre>
         
           <li>
             <a href="/mediawiki_mathjax/">mediawiki安装插件mathjax</a>
-          </li>
-        
-          <li>
-            <a href="/mediawiki_file_size/">mediawiki上传文件大小设置</a>
           </li>
         
       </ul>

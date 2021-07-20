@@ -67,6 +67,77 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-C++_keyword_const" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/C++_keyword_const/" class="article-date">
+  <time datetime="2019-03-06T13:12:53.000Z" itemprop="datePublished">2019-03-06</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/learning/">learning</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/C++_keyword_const/">C/C++关键字const</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+
+        <h2 id="C-C-关键字const"><a href="#C-C-关键字const" class="headerlink" title="C/C++ 关键字const"></a>C/C++ 关键字const</h2><ul>
+<li>const关键字用于修饰变量使之具有不能被修改的属性。</li>
+</ul>
+<h3 id="修饰局部变量"><a href="#修饰局部变量" class="headerlink" title="修饰局部变量"></a>修饰局部变量</h3><ul>
+<li><p>修饰局部变量使用方法</p>
+<ul>
+<li>~~~<br>const int a = 10;<br>or<br>int const b = 20;<figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  * 用<span class="keyword">const</span>修饰变量时，一定要给变量初始化，初始化之后不能改变。</span><br><span class="line"></span><br><span class="line">  * C++中经<span class="keyword">const</span>修饰的变量，若没有进行变量初始化，编译报错，C中会出现警告。</span><br><span class="line"></span><br><span class="line"><span class="meta">### 修饰指针</span></span><br><span class="line"></span><br><span class="line">* <span class="keyword">const</span>修饰指针后，指针所指向的内容是常量，不可被修改，例如：</span><br><span class="line"></span><br><span class="line">  * ```</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">int</span> * p　＝　＆c;</span><br><span class="line">    or</span><br><span class="line">    <span class="keyword">int</span> <span class="keyword">const</span> * p　＝　＆c;</span><br><span class="line">    ```</span><br><span class="line"></span><br><span class="line">* 常量指针不能通过这个指针改变变量的值，但是可以通过其他的引用来改变变量的值。例：</span><br><span class="line"></span><br><span class="line">  * ~~~</span><br><span class="line">    <span class="keyword">int</span> a=<span class="number">2</span>;</span><br><span class="line">    <span class="keyword">int</span> c = <span class="number">5</span>;</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">int</span> *n = &amp;a;</span><br><span class="line">    a = <span class="number">100</span>;</span><br><span class="line">    a = c;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>常量指针指向的值不能改变，但是指针本身可以改变，即常量指针可以指向其他的地址。</p>
+</li>
+<li><p>指针常量是指指针本身是个常量，不能在指向其他的地址，即其指向的地址不能改变。</p>
+</li>
+</ul>
+<h3 id="修饰引用"><a href="#修饰引用" class="headerlink" title="修饰引用"></a>修饰引用</h3><ul>
+<li>~~~<br>int a = 1;<br>int const &amp;a = b;<br>const int &amp;a = b;<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 两种定义方式等价</span><br><span class="line"></span><br><span class="line"><span class="meta">### 在函数中的使用</span></span><br><span class="line"></span><br><span class="line">* ~~~</span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">StrCopy</span>(<span class="params"><span class="built_in">char</span> *strdes, <span class="keyword">const</span> <span class="built_in">char</span> *strsrc</span>)</span>;<span class="comment">//防止修改指针指向的内容</span></span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">swap</span> (<span class="params"> <span class="built_in">int</span> * <span class="keyword">const</span> p1 , <span class="built_in">int</span> * <span class="keyword">const</span> p2 </span>)  <span class="comment">//防止修改指针指向的地址</span></span></span><br></pre></td></tr></table></figure></li>
+<li>如果给以“指针传递”方式的函数返回值加 const 修饰，那么函数返回值（即指针）的内容不能被修改，该返回值只能被赋给加const 修饰的同类型指针。</li>
+</ul>
+<h3 id="const常量和宏常量的区别"><a href="#const常量和宏常量的区别" class="headerlink" title="const常量和宏常量的区别"></a>const常量和宏常量的区别</h3><ul>
+<li>const常量有数据类型，而宏常量没有数据类型。编译器可以对前者进行类型安全检查，而对后者只进行字符替换，没有类型安全检查，并且在字符替换时可能会产生意料不到的错误（边际效应）。</li>
+<li>const定义常量从汇编的角度来看，只是给出了对应的内存地址，而不是象#define一样给出的是立即数，所以，const定义的常量在程序运行过程中只有一份拷贝，而#define定义的常量在内存中有若干个拷贝。</li>
+<li>宏定义是一个“编译时”概念，在预处理阶段展开，不能对宏定义进行调试，生命周期结束于编译时期。const常量是一个“运行时”概念，在程序运行时使用，类似于一个只读数据。</li>
+<li>编译器通常不为普通const常量分配存储空间，而是将它们保存在符号表中，这使得它成为一个编译期间的常量，没有了存储与读内存的操作，使得它的效率也很高</li>
+<li>const修饰符可以防止意外的修改，增强程序的健壮性。</li>
+<li>宏定义不能作为参数传递给函数；const常量可以在函数的参数列表中出现。</li>
+</ul>
+<hr>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wangxianggit.github.io/C++_keyword_const/" data-id="ckjv3w9ay00146sdn2qax6k4l" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C++</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-C++_prestatement" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/C++_prestatement/" class="article-date">
@@ -395,71 +466,6 @@
 
 
   
-    <article id="post-Altium_design_resize" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/Altium_design_resize/" class="article-date">
-  <time datetime="2019-03-03T01:56:21.000Z" itemprop="datePublished">2019-03-03</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Altium/">Altium</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/Altium_design_resize/">Altium Designer重新定义pcb板尺寸</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-
-        <h2 id="AD重定义pcb板尺寸"><a href="#AD重定义pcb板尺寸" class="headerlink" title="AD重定义pcb板尺寸"></a>AD重定义pcb板尺寸</h2><ul>
-<li>在开始时定义pcb板尺寸，可以画出想要的形状，然后依次选择：<ul>
-<li>Design-&gt;Board Shape-&gt;Defin from selected objects</li>
-</ul>
-</li>
-<li>在设计过程中可能需要很多相同设置但是不同外观尺寸的pcb板，在这一样的情况下只需要更改pcb板的外观尺寸保留原有设置就可以了，这样涉及到pcb板外观尺寸的重新定义问题。</li>
-<li>例如有这样的pcb板：<ul>
-<li><img src="Altium_design_resize/pcbh1.jpg"></li>
-</ul>
-</li>
-<li>需要重新定义圆形区域的外径，更改外径参数后得到下面的图：<ul>
-<li><img src="Altium_design_resize/pcbh2.jpg"></li>
-</ul>
-</li>
-<li>然后依次选择：Design-&gt;Board Shape-&gt;Defin from selected objects<ul>
-<li><img src="Altium_design_resize/pcbh3.jpg"></li>
-</ul>
-</li>
-<li>得到重新定义好外观尺寸的pcb板。</li>
-</ul>
-<hr>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/Altium_design_resize/" data-id="ckjv3w9ap000a6sdnhb8qbayv" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Altium-Designer/" rel="tag">Altium Designer</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Electronic/" rel="tag">Electronic</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
@@ -512,7 +518,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Algorithm/" style="font-size: 11.25px;">Algorithm</a> <a href="/tags/Altium-Designer/" style="font-size: 15px;">Altium Designer</a> <a href="/tags/Apache/" style="font-size: 11.25px;">Apache</a> <a href="/tags/BeautifulSoup/" style="font-size: 10px;">BeautifulSoup</a> <a href="/tags/C/" style="font-size: 15.63px;">C</a> <a href="/tags/C/" style="font-size: 18.75px;">C++</a> <a href="/tags/Centos7/" style="font-size: 18.75px;">Centos7</a> <a href="/tags/Cython/" style="font-size: 10px;">Cython</a> <a href="/tags/Database/" style="font-size: 13.75px;">Database</a> <a href="/tags/Electronic/" style="font-size: 13.13px;">Electronic</a> <a href="/tags/English/" style="font-size: 11.88px;">English</a> <a href="/tags/Geant4/" style="font-size: 10.63px;">Geant4</a> <a href="/tags/Hardware/" style="font-size: 10px;">Hardware</a> <a href="/tags/Hexo/" style="font-size: 14.38px;">Hexo</a> <a href="/tags/Image/" style="font-size: 11.88px;">Image</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Jupyter/" style="font-size: 10px;">Jupyter</a> <a href="/tags/Linux/" style="font-size: 19.38px;">Linux</a> <a href="/tags/Markdown/" style="font-size: 16.25px;">Markdown</a> <a href="/tags/Nuclear-Physics/" style="font-size: 11.25px;">Nuclear Physics</a> <a href="/tags/Open/" style="font-size: 10px;">Open</a> <a href="/tags/Opencv/" style="font-size: 11.88px;">Opencv</a> <a href="/tags/Program/" style="font-size: 18.13px;">Program</a> <a href="/tags/PyPI/" style="font-size: 10px;">PyPI</a> <a href="/tags/Py-Crawler/" style="font-size: 10.63px;">Py_Crawler</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/Random/" style="font-size: 10px;">Random</a> <a href="/tags/Resource/" style="font-size: 10.63px;">Resource</a> <a href="/tags/Root/" style="font-size: 10.63px;">Root</a> <a href="/tags/Scipy/" style="font-size: 10px;">Scipy</a> <a href="/tags/Shell/" style="font-size: 16.88px;">Shell</a> <a href="/tags/Solidwork/" style="font-size: 10.63px;">Solidwork</a> <a href="/tags/TTree/" style="font-size: 10px;">TTree</a> <a href="/tags/Tensorflow/" style="font-size: 15.63px;">Tensorflow</a> <a href="/tags/Thread/" style="font-size: 10px;">Thread</a> <a href="/tags/Urllib2/" style="font-size: 10px;">Urllib2</a> <a href="/tags/Virtual-memory/" style="font-size: 10px;">Virtual memory</a> <a href="/tags/cmake/" style="font-size: 12.5px;">cmake</a> <a href="/tags/cmd/" style="font-size: 10.63px;">cmd</a> <a href="/tags/data-structure/" style="font-size: 10.63px;">data structure</a> <a href="/tags/database/" style="font-size: 10px;">database</a> <a href="/tags/git/" style="font-size: 13.13px;">git</a> <a href="/tags/hexo/" style="font-size: 11.25px;">hexo</a> <a href="/tags/htop/" style="font-size: 10px;">htop</a> <a href="/tags/keras/" style="font-size: 10.63px;">keras</a> <a href="/tags/latex/" style="font-size: 15px;">latex</a> <a href="/tags/os/" style="font-size: 10px;">os</a> <a href="/tags/qt/" style="font-size: 10px;">qt</a> <a href="/tags/requests/" style="font-size: 10px;">requests</a> <a href="/tags/sk-learn/" style="font-size: 10px;">sk-learn</a> <a href="/tags/ssh/" style="font-size: 12.5px;">ssh</a> <a href="/tags/statistic/" style="font-size: 10px;">statistic</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/wiki/" style="font-size: 11.88px;">wiki</a> <a href="/tags/windows/" style="font-size: 17.5px;">windows</a> <a href="/tags/yolo%EF%BC%8CC/" style="font-size: 10px;">yolo，C</a>
+      <a href="/tags/Algorithm/" style="font-size: 11.25px;">Algorithm</a> <a href="/tags/Altium-Designer/" style="font-size: 15px;">Altium Designer</a> <a href="/tags/Apache/" style="font-size: 11.25px;">Apache</a> <a href="/tags/BeautifulSoup/" style="font-size: 10px;">BeautifulSoup</a> <a href="/tags/C/" style="font-size: 15.63px;">C</a> <a href="/tags/C/" style="font-size: 18.75px;">C++</a> <a href="/tags/Centos7/" style="font-size: 18.75px;">Centos7</a> <a href="/tags/Cython/" style="font-size: 10px;">Cython</a> <a href="/tags/Database/" style="font-size: 13.75px;">Database</a> <a href="/tags/Electronic/" style="font-size: 13.13px;">Electronic</a> <a href="/tags/English/" style="font-size: 11.88px;">English</a> <a href="/tags/Geant4/" style="font-size: 10.63px;">Geant4</a> <a href="/tags/Hardware/" style="font-size: 10px;">Hardware</a> <a href="/tags/Hexo/" style="font-size: 14.38px;">Hexo</a> <a href="/tags/Image/" style="font-size: 11.88px;">Image</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Jupyter/" style="font-size: 10px;">Jupyter</a> <a href="/tags/Linux/" style="font-size: 19.38px;">Linux</a> <a href="/tags/Markdown/" style="font-size: 16.25px;">Markdown</a> <a href="/tags/Nuclear-Physics/" style="font-size: 11.25px;">Nuclear Physics</a> <a href="/tags/Open/" style="font-size: 10px;">Open</a> <a href="/tags/Opencv/" style="font-size: 11.88px;">Opencv</a> <a href="/tags/Program/" style="font-size: 18.13px;">Program</a> <a href="/tags/PyPI/" style="font-size: 10px;">PyPI</a> <a href="/tags/Py-Crawler/" style="font-size: 10.63px;">Py_Crawler</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/Random/" style="font-size: 10px;">Random</a> <a href="/tags/Resource/" style="font-size: 10.63px;">Resource</a> <a href="/tags/Root/" style="font-size: 10.63px;">Root</a> <a href="/tags/Scipy/" style="font-size: 10px;">Scipy</a> <a href="/tags/Shell/" style="font-size: 16.88px;">Shell</a> <a href="/tags/Solidwork/" style="font-size: 10.63px;">Solidwork</a> <a href="/tags/TTree/" style="font-size: 10px;">TTree</a> <a href="/tags/Tensorflow/" style="font-size: 15.63px;">Tensorflow</a> <a href="/tags/Thread/" style="font-size: 10px;">Thread</a> <a href="/tags/Urllib2/" style="font-size: 10px;">Urllib2</a> <a href="/tags/Virtual-memory/" style="font-size: 10px;">Virtual memory</a> <a href="/tags/cmake/" style="font-size: 12.5px;">cmake</a> <a href="/tags/cmd/" style="font-size: 10.63px;">cmd</a> <a href="/tags/data-structure/" style="font-size: 10.63px;">data structure</a> <a href="/tags/database/" style="font-size: 10.63px;">database</a> <a href="/tags/git/" style="font-size: 13.13px;">git</a> <a href="/tags/hexo/" style="font-size: 11.25px;">hexo</a> <a href="/tags/htop/" style="font-size: 10px;">htop</a> <a href="/tags/keras/" style="font-size: 10.63px;">keras</a> <a href="/tags/latex/" style="font-size: 15px;">latex</a> <a href="/tags/os/" style="font-size: 10px;">os</a> <a href="/tags/qt/" style="font-size: 10px;">qt</a> <a href="/tags/requests/" style="font-size: 10px;">requests</a> <a href="/tags/sk-learn/" style="font-size: 10px;">sk-learn</a> <a href="/tags/ssh/" style="font-size: 12.5px;">ssh</a> <a href="/tags/statistic/" style="font-size: 10px;">statistic</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/wiki/" style="font-size: 11.88px;">wiki</a> <a href="/tags/windows/" style="font-size: 17.5px;">windows</a> <a href="/tags/yolo%EF%BC%8CC/" style="font-size: 10px;">yolo，C</a>
     </div>
   </div>
 
@@ -534,6 +540,10 @@
       <ul>
         
           <li>
+            <a href="/mongodb_starterror/">mongodb启动错误</a>
+          </li>
+        
+          <li>
             <a href="/mediawiki_timezone/">mediawiki设置时区</a>
           </li>
         
@@ -547,10 +557,6 @@
         
           <li>
             <a href="/mediawiki_mathjax/">mediawiki安装插件mathjax</a>
-          </li>
-        
-          <li>
-            <a href="/mediawiki_file_size/">mediawiki上传文件大小设置</a>
           </li>
         
       </ul>
