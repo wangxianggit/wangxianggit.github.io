@@ -67,6 +67,70 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-windows_CentOS7_two_system_install" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/windows_CentOS7_two_system_install/" class="article-date">
+  <time datetime="2019-01-29T05:28:33.000Z" itemprop="datePublished">2019-01-29</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/learning/">learning</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/windows_CentOS7_two_system_install/">U盘安装windows和CentOS7双系统</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+
+        <ul>
+<li><p>​ 先安装windows后安装CentOS7</p>
+</li>
+<li><p>进入安装界面后不能直接选择“Install CentOS 7”或“Test this media &amp;  istall CentOS 7”，安装前需要指定U盘的位置</p>
+</li>
+<li><p>安装界面上按下Tab键，屏幕下方出现以下字符串：</p>
+<ul>
+<li><p>~~~</p>
+<blockquote>
+<p>Vmlinuz initrd=initrd.img inst.stage2=hd:LABEL=CentOS\x207\x20x86_64 4d.live.check quiet_</p>
+</blockquote>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="bullet">* </span>修改为 </span><br><span class="line"></span><br><span class="line"><span class="bullet">* </span>~~~</span><br><span class="line"><span class="code">  Vmlinuz initrd=initrd.img linux dd quiet</span></span><br></pre></td></tr></table></figure></li>
+<li><p>看到界面上出现U盘的盘符或位置，接着重启电脑后重复上面操作将安装位置指定,后回车就可以进行安装</p>
+</li>
+<li><pre><code>Vmlinuz initrd=initrd.img inst.stage2=hd:/dev/sdb4</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wangxianggit.github.io/windows_CentOS7_two_system_install/" data-id="ckjv3w9fw00o76sdn622q33pw" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Centos7/" rel="tag">Centos7</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/windows/" rel="tag">windows</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-python3_class_definition" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/python3_class_definition/" class="article-date">
@@ -362,69 +426,6 @@ print(a.ops)</code></pre>
 
 
   
-    <article id="post-copy_massive_file_harddisk" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/copy_massive_file_harddisk/" class="article-date">
-  <time datetime="2019-01-18T03:38:52.000Z" itemprop="datePublished">2019-01-18</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/learning/">learning</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/copy_massive_file_harddisk/">拷贝大文件到硬盘</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-
-        <ul>
-<li><p>​ 一般磁盘文件格式默认为FAT32，这个格式不能移动超过4G的文件。</p>
-</li>
-<li><p>若移动大于4G的文件，修改文件格式为NTFS</p>
-<ul>
-<li><p>windows下进入cmd，输入命令</p>
-<figure class="highlight dos"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">convert</span> C:/<span class="built_in">fs</span>:ntfs C为要修改的磁盘盘符</span><br></pre></td></tr></table></figure></li>
-<li><p>修改后的硬盘文件格式为NTFS</p>
-</li>
-</ul>
-</li>
-<li><p>手动修改中，需要进行格式化，不足的地方是硬盘文件丢失</p>
-<ul>
-<li>在格式化选项中，手动修改文件系统为NTFS，默认为FAT32</li>
-<li>格式化后的文件系统格式为NTFS</li>
-</ul>
-</li>
-</ul>
-<hr>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/copy_massive_file_harddisk/" data-id="ckjv3w9dd00az6sdnekrdalxm" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/data-structure/" rel="tag">data structure</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/windows/" rel="tag">windows</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
@@ -477,7 +478,7 @@ print(a.ops)</code></pre>
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Algorithm/" style="font-size: 11.33px;">Algorithm</a> <a href="/tags/Altium-Designer/" style="font-size: 14.67px;">Altium Designer</a> <a href="/tags/Apache/" style="font-size: 11.33px;">Apache</a> <a href="/tags/BeautifulSoup/" style="font-size: 10px;">BeautifulSoup</a> <a href="/tags/C/" style="font-size: 15.33px;">C</a> <a href="/tags/C/" style="font-size: 18.67px;">C++</a> <a href="/tags/Centos7/" style="font-size: 18.67px;">Centos7</a> <a href="/tags/Cython/" style="font-size: 10px;">Cython</a> <a href="/tags/Database/" style="font-size: 14.67px;">Database</a> <a href="/tags/Electronic/" style="font-size: 13.33px;">Electronic</a> <a href="/tags/English/" style="font-size: 12px;">English</a> <a href="/tags/Geant4/" style="font-size: 10.67px;">Geant4</a> <a href="/tags/Hardware/" style="font-size: 10px;">Hardware</a> <a href="/tags/Hexo/" style="font-size: 14px;">Hexo</a> <a href="/tags/Image/" style="font-size: 12px;">Image</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Jupyter/" style="font-size: 10px;">Jupyter</a> <a href="/tags/Linux/" style="font-size: 19.33px;">Linux</a> <a href="/tags/Markdown/" style="font-size: 16px;">Markdown</a> <a href="/tags/Nuclear-Physics/" style="font-size: 11.33px;">Nuclear Physics</a> <a href="/tags/Open/" style="font-size: 10px;">Open</a> <a href="/tags/Opencv/" style="font-size: 12px;">Opencv</a> <a href="/tags/Program/" style="font-size: 18px;">Program</a> <a href="/tags/PyPI/" style="font-size: 10px;">PyPI</a> <a href="/tags/Py-Crawler/" style="font-size: 10.67px;">Py_Crawler</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/Random/" style="font-size: 10px;">Random</a> <a href="/tags/Resource/" style="font-size: 10.67px;">Resource</a> <a href="/tags/Root/" style="font-size: 10.67px;">Root</a> <a href="/tags/Scipy/" style="font-size: 10px;">Scipy</a> <a href="/tags/Shell/" style="font-size: 16.67px;">Shell</a> <a href="/tags/Solidwork/" style="font-size: 10.67px;">Solidwork</a> <a href="/tags/TTree/" style="font-size: 10px;">TTree</a> <a href="/tags/Tensorflow/" style="font-size: 15.33px;">Tensorflow</a> <a href="/tags/Thread/" style="font-size: 10px;">Thread</a> <a href="/tags/Urllib2/" style="font-size: 10px;">Urllib2</a> <a href="/tags/Virtual-memory/" style="font-size: 10px;">Virtual memory</a> <a href="/tags/cmake/" style="font-size: 12.67px;">cmake</a> <a href="/tags/cmd/" style="font-size: 10.67px;">cmd</a> <a href="/tags/data-structure/" style="font-size: 10.67px;">data structure</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/hexo/" style="font-size: 11.33px;">hexo</a> <a href="/tags/htop/" style="font-size: 10px;">htop</a> <a href="/tags/keras/" style="font-size: 10.67px;">keras</a> <a href="/tags/latex/" style="font-size: 14.67px;">latex</a> <a href="/tags/os/" style="font-size: 10px;">os</a> <a href="/tags/qt/" style="font-size: 10px;">qt</a> <a href="/tags/requests/" style="font-size: 10px;">requests</a> <a href="/tags/sk-learn/" style="font-size: 10px;">sk-learn</a> <a href="/tags/ssh/" style="font-size: 12.67px;">ssh</a> <a href="/tags/statistic/" style="font-size: 10px;">statistic</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/wiki/" style="font-size: 12px;">wiki</a> <a href="/tags/windows/" style="font-size: 17.33px;">windows</a> <a href="/tags/yolo%EF%BC%8CC/" style="font-size: 10px;">yolo，C</a>
+      <a href="/tags/Algorithm/" style="font-size: 11.18px;">Algorithm</a> <a href="/tags/Altium-Designer/" style="font-size: 14.12px;">Altium Designer</a> <a href="/tags/Apache/" style="font-size: 11.18px;">Apache</a> <a href="/tags/BeautifulSoup/" style="font-size: 10px;">BeautifulSoup</a> <a href="/tags/C/" style="font-size: 15.29px;">C</a> <a href="/tags/C/" style="font-size: 18.24px;">C++</a> <a href="/tags/Centos7/" style="font-size: 18.82px;">Centos7</a> <a href="/tags/Cython/" style="font-size: 10px;">Cython</a> <a href="/tags/Database/" style="font-size: 14.71px;">Database</a> <a href="/tags/Electronic/" style="font-size: 12.94px;">Electronic</a> <a href="/tags/English/" style="font-size: 11.76px;">English</a> <a href="/tags/Geant4/" style="font-size: 10.59px;">Geant4</a> <a href="/tags/Hardware/" style="font-size: 10px;">Hardware</a> <a href="/tags/Hexo/" style="font-size: 13.53px;">Hexo</a> <a href="/tags/Image/" style="font-size: 11.76px;">Image</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Jupyter/" style="font-size: 10px;">Jupyter</a> <a href="/tags/Linux/" style="font-size: 19.41px;">Linux</a> <a href="/tags/Markdown/" style="font-size: 15.88px;">Markdown</a> <a href="/tags/Nuclear-Physics/" style="font-size: 11.18px;">Nuclear Physics</a> <a href="/tags/Open/" style="font-size: 10px;">Open</a> <a href="/tags/Opencv/" style="font-size: 11.76px;">Opencv</a> <a href="/tags/Program/" style="font-size: 17.65px;">Program</a> <a href="/tags/PyPI/" style="font-size: 10px;">PyPI</a> <a href="/tags/Py-Crawler/" style="font-size: 10.59px;">Py_Crawler</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/Random/" style="font-size: 10px;">Random</a> <a href="/tags/Resource/" style="font-size: 10.59px;">Resource</a> <a href="/tags/Root/" style="font-size: 10.59px;">Root</a> <a href="/tags/Scipy/" style="font-size: 10px;">Scipy</a> <a href="/tags/Shell/" style="font-size: 16.47px;">Shell</a> <a href="/tags/Solidwork/" style="font-size: 10.59px;">Solidwork</a> <a href="/tags/TTree/" style="font-size: 10px;">TTree</a> <a href="/tags/Tensorflow/" style="font-size: 15.29px;">Tensorflow</a> <a href="/tags/Thread/" style="font-size: 10px;">Thread</a> <a href="/tags/Urllib2/" style="font-size: 10px;">Urllib2</a> <a href="/tags/Virtual-memory/" style="font-size: 10px;">Virtual memory</a> <a href="/tags/cmake/" style="font-size: 12.35px;">cmake</a> <a href="/tags/cmd/" style="font-size: 10.59px;">cmd</a> <a href="/tags/data-structure/" style="font-size: 10.59px;">data structure</a> <a href="/tags/git/" style="font-size: 12.94px;">git</a> <a href="/tags/hexo/" style="font-size: 11.18px;">hexo</a> <a href="/tags/htop/" style="font-size: 10px;">htop</a> <a href="/tags/keras/" style="font-size: 10.59px;">keras</a> <a href="/tags/latex/" style="font-size: 14.12px;">latex</a> <a href="/tags/os/" style="font-size: 10px;">os</a> <a href="/tags/qt/" style="font-size: 10px;">qt</a> <a href="/tags/requests/" style="font-size: 10px;">requests</a> <a href="/tags/sk-learn/" style="font-size: 10px;">sk-learn</a> <a href="/tags/ssh/" style="font-size: 12.35px;">ssh</a> <a href="/tags/statistic/" style="font-size: 10px;">statistic</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/wiki/" style="font-size: 11.76px;">wiki</a> <a href="/tags/windows/" style="font-size: 17.06px;">windows</a> <a href="/tags/yolo%EF%BC%8CC/" style="font-size: 10px;">yolo，C</a>
     </div>
   </div>
 
@@ -499,6 +500,10 @@ print(a.ops)</code></pre>
       <ul>
         
           <li>
+            <a href="/mongodb_cluster/">Centos7 mongodb集群搭建</a>
+          </li>
+        
+          <li>
             <a href="/mongodb_starterror/">mongodb启动错误</a>
           </li>
         
@@ -512,10 +517,6 @@ print(a.ops)</code></pre>
         
           <li>
             <a href="/MySql_cluster/">MySQL分布式集群方案</a>
-          </li>
-        
-          <li>
-            <a href="/mediawiki_mathjax/">mediawiki安装插件mathjax</a>
           </li>
         
       </ul>
