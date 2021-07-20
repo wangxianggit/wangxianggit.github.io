@@ -67,6 +67,73 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Python_talib_install" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/Python_talib_install/" class="article-date">
+  <time datetime="2019-09-09T14:57:23.000Z" itemprop="datePublished">2019-09-09</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Python/">Python</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/Python_talib_install/">Python库talib的安装</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+
+        <ul>
+<li><p>​ TaLib官网：<a target="_blank" rel="noopener" href="https://www.lizenghai.com/goto/?url=http://ta-lib.org/">http://ta-lib.org/</a></p>
+</li>
+<li><p>Python wrapper for TA-Lib：<a target="_blank" rel="noopener" href="https://www.lizenghai.com/goto/?url=http://mrjbq7.github.io/ta-lib/doc_index.html">http://mrjbq7.github.io/ta-lib/doc_index.html</a></p>
+</li>
+<li><p>pip安装talib时常常会出现如下错误：</p>
+<ul>
+<li><pre><code>error: Microsoft Visual C++ 14.0 is required. Get it with “Microsoft Visual C++ Build Tools”: https://visualstudio.microsoft.com/downloads/</code></pre>
+</li>
+</ul>
+</li>
+<li><p>如果安装visual C++14.0往往安装包很大，安装起来很麻烦。</p>
+</li>
+<li><p>因此可以用手动安装的方法：</p>
+<ul>
+<li>手动下载对应的whl文件，下载地址：<a target="_blank" rel="noopener" href="https://www.lizenghai.com/goto/?url=https://www.lfd.uci.edu/~gohlke/pythonlibs/">https://www.lfd.uci.edu/~gohlke/pythonlibs/</a></li>
+<li>进入下载目录使用pip install filename.whl 安装</li>
+</ul>
+</li>
+<li><p>命令行界面出现成功安装的提示就可以使用。</p>
+</li>
+</ul>
+<hr>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wangxianggit.github.io/Python_talib_install/" data-id="ckjv3w9cs008o6sdn583uf2y9" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-hdf5_set_WRITEABLE_flag_True" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/hdf5_set_WRITEABLE_flag_True/" class="article-date">
@@ -324,83 +391,6 @@ ListenAddress [ip]
 
 
   
-    <article id="post-cython_usage1" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/cython_usage1/" class="article-date">
-  <time datetime="2019-06-04T12:57:27.000Z" itemprop="datePublished">2019-06-04</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Python/">Python</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/cython_usage1/">Cython用于编译Python脚本</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-
-        <h2 id="Cython用于编译Python脚本"><a href="#Cython用于编译Python脚本" class="headerlink" title="Cython用于编译Python脚本"></a>Cython用于编译Python脚本</h2><ul>
-<li><p>网站：<a target="_blank" rel="noopener" href="https://cython.org/">https://cython.org</a></p>
-</li>
-<li><p>Python脚本也可以通过编译来加速运行，使用cython可以达到这个效果。</p>
-</li>
-<li><p>Cython安装：</p>
-<ul>
-<li><p><code>pip install Cython</code></p>
-</li>
-<li><p>或在官方网站上下载源码包安装</p>
-</li>
-<li><p>~~~<br>tar -xvzf Cython-xxx.tar.gz<br>cd Cython-xxx<br>python setup.py install</p>
-<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">## Cython编译方法</span><br><span class="line"></span><br><span class="line">* 新建一个.cyx文件，文件内容为: `print <span class="string">&quot;Hello world!&quot;</span>`</span><br><span class="line"></span><br><span class="line">* 然后新建一个setup.py文件，内容如下：</span><br><span class="line"></span><br><span class="line">  * ~~~</span><br><span class="line">    <span class="keyword">from</span> distutils.core <span class="keyword">import</span> setup</span><br><span class="line">    <span class="keyword">from</span> Cython.Build <span class="keyword">import</span> cythonize</span><br><span class="line">         </span><br><span class="line">    setup(</span><br><span class="line">       ext_modules=cythonize(<span class="string">&quot;hello.pyx&quot;</span>)</span><br><span class="line">    )</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-<li><p>在命令行下编译:<code>python setup.py build_ext --inplace</code></p>
-</li>
-<li><p>完成后在目录下多出.c和.so文件，这里，c文件就是cython将我们的pyx文件解析成一个c文件件，不依赖与平台，而后面的so或者pyd文件，则是将c文件进行编译后的一个文件，依赖于平台。</p>
-</li>
-<li><p>so文件或者pyd文件就可以像普通的python文件一样，被import。</p>
-</li>
-<li><p>除了编译，另外一种简单高效的使用方式是在python前加上以下内容：</p>
-<ul>
-<li><pre><code>import pyximport
-pyximport.install()
-import hello</code></pre>
-</li>
-<li><p>这里相当于cython默认帮我们编译好直接调用</p>
-</li>
-</ul>
-</li>
-</ul>
-<hr>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/cython_usage1/" data-id="ckjv3w9dg00bd6sdnfdes1zsu" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Cython/" rel="tag">Cython</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
@@ -453,7 +443,7 @@ import hello</code></pre>
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Algorithm/" style="font-size: 11.18px;">Algorithm</a> <a href="/tags/Altium-Designer/" style="font-size: 14.12px;">Altium Designer</a> <a href="/tags/Apache/" style="font-size: 11.18px;">Apache</a> <a href="/tags/BeautifulSoup/" style="font-size: 10px;">BeautifulSoup</a> <a href="/tags/C/" style="font-size: 15.29px;">C</a> <a href="/tags/C/" style="font-size: 18.24px;">C++</a> <a href="/tags/Centos7/" style="font-size: 18.82px;">Centos7</a> <a href="/tags/Cython/" style="font-size: 10px;">Cython</a> <a href="/tags/Database/" style="font-size: 14.71px;">Database</a> <a href="/tags/Electronic/" style="font-size: 12.94px;">Electronic</a> <a href="/tags/English/" style="font-size: 11.76px;">English</a> <a href="/tags/Geant4/" style="font-size: 10.59px;">Geant4</a> <a href="/tags/Hardware/" style="font-size: 10px;">Hardware</a> <a href="/tags/Hexo/" style="font-size: 13.53px;">Hexo</a> <a href="/tags/Image/" style="font-size: 11.76px;">Image</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Jupyter/" style="font-size: 10px;">Jupyter</a> <a href="/tags/Linux/" style="font-size: 19.41px;">Linux</a> <a href="/tags/Markdown/" style="font-size: 15.88px;">Markdown</a> <a href="/tags/Nuclear-Physics/" style="font-size: 11.18px;">Nuclear Physics</a> <a href="/tags/Open/" style="font-size: 10px;">Open</a> <a href="/tags/Opencv/" style="font-size: 11.76px;">Opencv</a> <a href="/tags/Program/" style="font-size: 17.65px;">Program</a> <a href="/tags/PyPI/" style="font-size: 10px;">PyPI</a> <a href="/tags/Py-Crawler/" style="font-size: 10.59px;">Py_Crawler</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/Random/" style="font-size: 10px;">Random</a> <a href="/tags/Resource/" style="font-size: 10.59px;">Resource</a> <a href="/tags/Root/" style="font-size: 10.59px;">Root</a> <a href="/tags/Scipy/" style="font-size: 10px;">Scipy</a> <a href="/tags/Shell/" style="font-size: 16.47px;">Shell</a> <a href="/tags/Solidwork/" style="font-size: 10.59px;">Solidwork</a> <a href="/tags/TTree/" style="font-size: 10px;">TTree</a> <a href="/tags/Tensorflow/" style="font-size: 15.29px;">Tensorflow</a> <a href="/tags/Thread/" style="font-size: 10px;">Thread</a> <a href="/tags/Urllib2/" style="font-size: 10px;">Urllib2</a> <a href="/tags/Virtual-memory/" style="font-size: 10px;">Virtual memory</a> <a href="/tags/cmake/" style="font-size: 12.35px;">cmake</a> <a href="/tags/cmd/" style="font-size: 10.59px;">cmd</a> <a href="/tags/data-structure/" style="font-size: 10.59px;">data structure</a> <a href="/tags/git/" style="font-size: 12.94px;">git</a> <a href="/tags/hexo/" style="font-size: 11.18px;">hexo</a> <a href="/tags/htop/" style="font-size: 10px;">htop</a> <a href="/tags/keras/" style="font-size: 10.59px;">keras</a> <a href="/tags/latex/" style="font-size: 14.12px;">latex</a> <a href="/tags/os/" style="font-size: 10px;">os</a> <a href="/tags/qt/" style="font-size: 10px;">qt</a> <a href="/tags/requests/" style="font-size: 10px;">requests</a> <a href="/tags/sk-learn/" style="font-size: 10px;">sk-learn</a> <a href="/tags/ssh/" style="font-size: 12.35px;">ssh</a> <a href="/tags/statistic/" style="font-size: 10px;">statistic</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/wiki/" style="font-size: 11.76px;">wiki</a> <a href="/tags/windows/" style="font-size: 17.06px;">windows</a> <a href="/tags/yolo%EF%BC%8CC/" style="font-size: 10px;">yolo，C</a>
+      <a href="/tags/Algorithm/" style="font-size: 11.25px;">Algorithm</a> <a href="/tags/Altium-Designer/" style="font-size: 14.38px;">Altium Designer</a> <a href="/tags/Apache/" style="font-size: 11.25px;">Apache</a> <a href="/tags/BeautifulSoup/" style="font-size: 10px;">BeautifulSoup</a> <a href="/tags/C/" style="font-size: 15px;">C</a> <a href="/tags/C/" style="font-size: 18.13px;">C++</a> <a href="/tags/Centos7/" style="font-size: 18.75px;">Centos7</a> <a href="/tags/Cython/" style="font-size: 10px;">Cython</a> <a href="/tags/Database/" style="font-size: 15px;">Database</a> <a href="/tags/Electronic/" style="font-size: 13.13px;">Electronic</a> <a href="/tags/English/" style="font-size: 11.88px;">English</a> <a href="/tags/Geant4/" style="font-size: 10.63px;">Geant4</a> <a href="/tags/Hardware/" style="font-size: 10px;">Hardware</a> <a href="/tags/Hexo/" style="font-size: 13.75px;">Hexo</a> <a href="/tags/Image/" style="font-size: 11.88px;">Image</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Jupyter/" style="font-size: 10px;">Jupyter</a> <a href="/tags/Linux/" style="font-size: 19.38px;">Linux</a> <a href="/tags/Markdown/" style="font-size: 15.63px;">Markdown</a> <a href="/tags/Nuclear-Physics/" style="font-size: 11.25px;">Nuclear Physics</a> <a href="/tags/Open/" style="font-size: 10px;">Open</a> <a href="/tags/Opencv/" style="font-size: 11.88px;">Opencv</a> <a href="/tags/Program/" style="font-size: 17.5px;">Program</a> <a href="/tags/PyPI/" style="font-size: 10px;">PyPI</a> <a href="/tags/Py-Crawler/" style="font-size: 10.63px;">Py_Crawler</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/Random/" style="font-size: 10px;">Random</a> <a href="/tags/Resource/" style="font-size: 10.63px;">Resource</a> <a href="/tags/Root/" style="font-size: 10.63px;">Root</a> <a href="/tags/Scipy/" style="font-size: 10px;">Scipy</a> <a href="/tags/Shell/" style="font-size: 16.25px;">Shell</a> <a href="/tags/Solidwork/" style="font-size: 10.63px;">Solidwork</a> <a href="/tags/TTree/" style="font-size: 10px;">TTree</a> <a href="/tags/Tensorflow/" style="font-size: 15px;">Tensorflow</a> <a href="/tags/Thread/" style="font-size: 10px;">Thread</a> <a href="/tags/Urllib2/" style="font-size: 10px;">Urllib2</a> <a href="/tags/Virtual-memory/" style="font-size: 10px;">Virtual memory</a> <a href="/tags/cmake/" style="font-size: 12.5px;">cmake</a> <a href="/tags/cmd/" style="font-size: 10.63px;">cmd</a> <a href="/tags/data-structure/" style="font-size: 10.63px;">data structure</a> <a href="/tags/git/" style="font-size: 13.13px;">git</a> <a href="/tags/hexo/" style="font-size: 11.25px;">hexo</a> <a href="/tags/htop/" style="font-size: 10px;">htop</a> <a href="/tags/keras/" style="font-size: 10.63px;">keras</a> <a href="/tags/latex/" style="font-size: 14.38px;">latex</a> <a href="/tags/os/" style="font-size: 10px;">os</a> <a href="/tags/qt/" style="font-size: 10px;">qt</a> <a href="/tags/requests/" style="font-size: 10px;">requests</a> <a href="/tags/sk-learn/" style="font-size: 10px;">sk-learn</a> <a href="/tags/ssh/" style="font-size: 12.5px;">ssh</a> <a href="/tags/statistic/" style="font-size: 10px;">statistic</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/wiki/" style="font-size: 11.88px;">wiki</a> <a href="/tags/windows/" style="font-size: 16.88px;">windows</a> <a href="/tags/yolo%EF%BC%8CC/" style="font-size: 10px;">yolo，C</a>
     </div>
   </div>
 
@@ -475,6 +465,10 @@ import hello</code></pre>
       <ul>
         
           <li>
+            <a href="/mongodb_client_nosqlbooster/">MongoDB的客户端管理工具--nosqlbooster</a>
+          </li>
+        
+          <li>
             <a href="/mongodb_cluster/">Centos7 mongodb集群搭建</a>
           </li>
         
@@ -488,10 +482,6 @@ import hello</code></pre>
         
           <li>
             <a href="/navicat12_windows/">windows版Navicat12破解方法</a>
-          </li>
-        
-          <li>
-            <a href="/MySql_cluster/">MySQL分布式集群方案</a>
           </li>
         
       </ul>

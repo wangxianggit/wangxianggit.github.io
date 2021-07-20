@@ -67,6 +67,97 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Python_iterator" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/Python_iterator/" class="article-date">
+  <time datetime="2019-01-31T15:46:51.000Z" itemprop="datePublished">2019-01-31</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Python/">Python</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/Python_iterator/">Python数据迭代</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+
+        <ul>
+<li><p>​ 简单的循环数据输出，费波拉契数列：</p>
+<ul>
+<li><p>~~~<br>def fab(max):</p>
+<pre><code>n,a,b = 0,0,1
+while n &lt; max:
+    print(b)
+    a ,b = b ,a+b
+    n = n+1</code></pre>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>fab(5)</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 使用列表输出：</span><br><span class="line"></span><br><span class="line">  * ~~~</span><br><span class="line">    def fab(<span class="built_in">max</span>):</span><br><span class="line">    	n, <span class="keyword">a</span>, b = <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span></span><br><span class="line">    	L = []</span><br><span class="line">    	<span class="keyword">while</span> n&lt;<span class="built_in">max</span>:</span><br><span class="line">    		L.append(b)</span><br><span class="line">    		<span class="keyword">a</span>,b = b,<span class="keyword">a</span>+b</span><br><span class="line">    		n = n+<span class="number">1</span></span><br><span class="line">    	<span class="literal">return</span> L</span><br><span class="line">     </span><br><span class="line">    &gt;&gt;&gt;<span class="keyword">for</span> n <span class="keyword">in</span> range(<span class="number">5</span>):</span><br><span class="line">         <span class="keyword">a</span>=fab(n)</span><br><span class="line">    	 print(<span class="keyword">a</span>)</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>使用iterator进行迭代</p>
+<ul>
+<li><p>~~~<br>class Fab(object):</p>
+<pre><code>def __init__(self,max):
+    self.max = max
+    self.n,self.a,self.b = 0,0,1
+def __iter__(self):
+    return self
+def __next__(self):
+    if self.n&lt;self.max:
+        r = self.b
+        self.a ,self.b = self.b ,self.a+self.b
+        self.n = self.n+1
+        return r
+    raise StopIteration</code></pre>
+<p>for i in Fab(5):</p>
+<pre><code>print(i)</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 使用关键字<span class="keyword">yield</span></span><br><span class="line"></span><br><span class="line">  * ~~~</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">fab</span>(<span class="params"><span class="built_in">max</span></span>):</span></span><br><span class="line">    	n,a,b = <span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span></span><br><span class="line">    	<span class="keyword">while</span> n&lt;<span class="built_in">max</span>:</span><br><span class="line">    		<span class="keyword">yield</span> b</span><br><span class="line">    		a,b = b,a+b</span><br><span class="line">    		n = n+<span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> fab(<span class="number">5</span>):</span><br><span class="line">    	print(i)</span><br></pre></td></tr></table></figure></li>
+<li><p>yield 的作用就是把一个函数变成一个 generator</p>
+</li>
+<li><p>带有 yield 的函数不再是一个普通函数，Python 解释器会将其视为一个 generator，调用 fab(5) 不会执行 fab 函数，而是返回一个 iterable 对象</p>
+</li>
+<li><p>在 for 循环执行时，每次循环都会执行 fab 函数内部的代码，执行到 yield b 时，fab 函数就返回一个迭代值，下次迭代时，代码从 yield b 的下一条语句继续执行，而函数的本地变量看起来和上次中断执行前是完全一样的，于是函数继续执行，直到再次遇到 yield。</p>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wangxianggit.github.io/Python_iterator/" data-id="ckjv3w9cf006y6sdnck6eg4a0" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Program/" rel="tag">Program</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-Python_assert" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/Python_assert/" class="article-date">
@@ -349,80 +440,6 @@ AssertionError
 
 
   
-    <article id="post-Python_special_class" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/Python_special_class/" class="article-date">
-  <time datetime="2019-01-31T10:41:03.000Z" itemprop="datePublished">2019-01-31</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Python/">Python</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/Python_special_class/">Python定制类</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-
-        <ul>
-<li><p>python中 __xxx__ 形式的变量或函数名在程序上有特殊用途。</p>
-</li>
-<li><p>__slot__用于指定类可以添加的属性。</p>
-</li>
-<li><p>__len__()用于返回类成员变量的长度。</p>
-</li>
-<li><p>__str__()自定义方式返回类对象的名称，例：</p>
-<ul>
-<li><p>~~~<br>class Student(object):</p>
-<pre><code> def __init__(self, name):
-     self.name = name
- def __str__(self):
-     return &#39;Student object (name: %s)&#39; % self.name</code></pre>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>print(Student(‘Tom’))<br>Student object (name: Tom)</p>
-</blockquote>
-</blockquote>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  * 在<span class="built_in">print</span>函数执行后，python自动调用函数\__str__(),返回自定类的名称</span><br><span class="line"></span><br><span class="line">* 另外一种情况是直接输入变量不用<span class="built_in">print</span>，打印出来的实例名称也可以自己定制，即用函数\__repr__()函数指定，例：</span><br><span class="line"></span><br><span class="line">  * ~~~</span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Student</span>(<span class="params"><span class="built_in">object</span></span>):</span></span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self, name</span>):</span></span><br><span class="line">            self.name = name</span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">__str__</span>(<span class="params">self</span>):</span></span><br><span class="line">            <span class="keyword">return</span> <span class="string">&#x27;Student object (name=%s)&#x27;</span> % self.name</span><br><span class="line">        __repr__ = __str__</span><br><span class="line">        </span><br><span class="line">    &gt;&gt;&gt; s=Student(<span class="string">&#x27;Tom&#x27;</span>)</span><br><span class="line">    Student <span class="built_in">object</span> (name: Tom)</span><br></pre></td></tr></table></figure></li>
-<li><p>这里输入对象名称后python调用函数__repr__，输出实例名称。</p>
-</li>
-</ul>
-</li>
-<li><p>另外python中还有其他定制类如__iter__ , __getitem__等等。</p>
-</li>
-</ul>
-<hr>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/Python_special_class/" data-id="ckjv3w9cq008e6sdncxhq4323" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Program/" rel="tag">Program</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
@@ -475,7 +492,7 @@ AssertionError
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Algorithm/" style="font-size: 11.18px;">Algorithm</a> <a href="/tags/Altium-Designer/" style="font-size: 14.12px;">Altium Designer</a> <a href="/tags/Apache/" style="font-size: 11.18px;">Apache</a> <a href="/tags/BeautifulSoup/" style="font-size: 10px;">BeautifulSoup</a> <a href="/tags/C/" style="font-size: 15.29px;">C</a> <a href="/tags/C/" style="font-size: 18.24px;">C++</a> <a href="/tags/Centos7/" style="font-size: 18.82px;">Centos7</a> <a href="/tags/Cython/" style="font-size: 10px;">Cython</a> <a href="/tags/Database/" style="font-size: 14.71px;">Database</a> <a href="/tags/Electronic/" style="font-size: 12.94px;">Electronic</a> <a href="/tags/English/" style="font-size: 11.76px;">English</a> <a href="/tags/Geant4/" style="font-size: 10.59px;">Geant4</a> <a href="/tags/Hardware/" style="font-size: 10px;">Hardware</a> <a href="/tags/Hexo/" style="font-size: 13.53px;">Hexo</a> <a href="/tags/Image/" style="font-size: 11.76px;">Image</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Jupyter/" style="font-size: 10px;">Jupyter</a> <a href="/tags/Linux/" style="font-size: 19.41px;">Linux</a> <a href="/tags/Markdown/" style="font-size: 15.88px;">Markdown</a> <a href="/tags/Nuclear-Physics/" style="font-size: 11.18px;">Nuclear Physics</a> <a href="/tags/Open/" style="font-size: 10px;">Open</a> <a href="/tags/Opencv/" style="font-size: 11.76px;">Opencv</a> <a href="/tags/Program/" style="font-size: 17.65px;">Program</a> <a href="/tags/PyPI/" style="font-size: 10px;">PyPI</a> <a href="/tags/Py-Crawler/" style="font-size: 10.59px;">Py_Crawler</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/Random/" style="font-size: 10px;">Random</a> <a href="/tags/Resource/" style="font-size: 10.59px;">Resource</a> <a href="/tags/Root/" style="font-size: 10.59px;">Root</a> <a href="/tags/Scipy/" style="font-size: 10px;">Scipy</a> <a href="/tags/Shell/" style="font-size: 16.47px;">Shell</a> <a href="/tags/Solidwork/" style="font-size: 10.59px;">Solidwork</a> <a href="/tags/TTree/" style="font-size: 10px;">TTree</a> <a href="/tags/Tensorflow/" style="font-size: 15.29px;">Tensorflow</a> <a href="/tags/Thread/" style="font-size: 10px;">Thread</a> <a href="/tags/Urllib2/" style="font-size: 10px;">Urllib2</a> <a href="/tags/Virtual-memory/" style="font-size: 10px;">Virtual memory</a> <a href="/tags/cmake/" style="font-size: 12.35px;">cmake</a> <a href="/tags/cmd/" style="font-size: 10.59px;">cmd</a> <a href="/tags/data-structure/" style="font-size: 10.59px;">data structure</a> <a href="/tags/git/" style="font-size: 12.94px;">git</a> <a href="/tags/hexo/" style="font-size: 11.18px;">hexo</a> <a href="/tags/htop/" style="font-size: 10px;">htop</a> <a href="/tags/keras/" style="font-size: 10.59px;">keras</a> <a href="/tags/latex/" style="font-size: 14.12px;">latex</a> <a href="/tags/os/" style="font-size: 10px;">os</a> <a href="/tags/qt/" style="font-size: 10px;">qt</a> <a href="/tags/requests/" style="font-size: 10px;">requests</a> <a href="/tags/sk-learn/" style="font-size: 10px;">sk-learn</a> <a href="/tags/ssh/" style="font-size: 12.35px;">ssh</a> <a href="/tags/statistic/" style="font-size: 10px;">statistic</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/wiki/" style="font-size: 11.76px;">wiki</a> <a href="/tags/windows/" style="font-size: 17.06px;">windows</a> <a href="/tags/yolo%EF%BC%8CC/" style="font-size: 10px;">yolo，C</a>
+      <a href="/tags/Algorithm/" style="font-size: 11.25px;">Algorithm</a> <a href="/tags/Altium-Designer/" style="font-size: 14.38px;">Altium Designer</a> <a href="/tags/Apache/" style="font-size: 11.25px;">Apache</a> <a href="/tags/BeautifulSoup/" style="font-size: 10px;">BeautifulSoup</a> <a href="/tags/C/" style="font-size: 15px;">C</a> <a href="/tags/C/" style="font-size: 18.13px;">C++</a> <a href="/tags/Centos7/" style="font-size: 18.75px;">Centos7</a> <a href="/tags/Cython/" style="font-size: 10px;">Cython</a> <a href="/tags/Database/" style="font-size: 15px;">Database</a> <a href="/tags/Electronic/" style="font-size: 13.13px;">Electronic</a> <a href="/tags/English/" style="font-size: 11.88px;">English</a> <a href="/tags/Geant4/" style="font-size: 10.63px;">Geant4</a> <a href="/tags/Hardware/" style="font-size: 10px;">Hardware</a> <a href="/tags/Hexo/" style="font-size: 13.75px;">Hexo</a> <a href="/tags/Image/" style="font-size: 11.88px;">Image</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Jupyter/" style="font-size: 10px;">Jupyter</a> <a href="/tags/Linux/" style="font-size: 19.38px;">Linux</a> <a href="/tags/Markdown/" style="font-size: 15.63px;">Markdown</a> <a href="/tags/Nuclear-Physics/" style="font-size: 11.25px;">Nuclear Physics</a> <a href="/tags/Open/" style="font-size: 10px;">Open</a> <a href="/tags/Opencv/" style="font-size: 11.88px;">Opencv</a> <a href="/tags/Program/" style="font-size: 17.5px;">Program</a> <a href="/tags/PyPI/" style="font-size: 10px;">PyPI</a> <a href="/tags/Py-Crawler/" style="font-size: 10.63px;">Py_Crawler</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/Random/" style="font-size: 10px;">Random</a> <a href="/tags/Resource/" style="font-size: 10.63px;">Resource</a> <a href="/tags/Root/" style="font-size: 10.63px;">Root</a> <a href="/tags/Scipy/" style="font-size: 10px;">Scipy</a> <a href="/tags/Shell/" style="font-size: 16.25px;">Shell</a> <a href="/tags/Solidwork/" style="font-size: 10.63px;">Solidwork</a> <a href="/tags/TTree/" style="font-size: 10px;">TTree</a> <a href="/tags/Tensorflow/" style="font-size: 15px;">Tensorflow</a> <a href="/tags/Thread/" style="font-size: 10px;">Thread</a> <a href="/tags/Urllib2/" style="font-size: 10px;">Urllib2</a> <a href="/tags/Virtual-memory/" style="font-size: 10px;">Virtual memory</a> <a href="/tags/cmake/" style="font-size: 12.5px;">cmake</a> <a href="/tags/cmd/" style="font-size: 10.63px;">cmd</a> <a href="/tags/data-structure/" style="font-size: 10.63px;">data structure</a> <a href="/tags/git/" style="font-size: 13.13px;">git</a> <a href="/tags/hexo/" style="font-size: 11.25px;">hexo</a> <a href="/tags/htop/" style="font-size: 10px;">htop</a> <a href="/tags/keras/" style="font-size: 10.63px;">keras</a> <a href="/tags/latex/" style="font-size: 14.38px;">latex</a> <a href="/tags/os/" style="font-size: 10px;">os</a> <a href="/tags/qt/" style="font-size: 10px;">qt</a> <a href="/tags/requests/" style="font-size: 10px;">requests</a> <a href="/tags/sk-learn/" style="font-size: 10px;">sk-learn</a> <a href="/tags/ssh/" style="font-size: 12.5px;">ssh</a> <a href="/tags/statistic/" style="font-size: 10px;">statistic</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/wiki/" style="font-size: 11.88px;">wiki</a> <a href="/tags/windows/" style="font-size: 16.88px;">windows</a> <a href="/tags/yolo%EF%BC%8CC/" style="font-size: 10px;">yolo，C</a>
     </div>
   </div>
 
@@ -497,6 +514,10 @@ AssertionError
       <ul>
         
           <li>
+            <a href="/mongodb_client_nosqlbooster/">MongoDB的客户端管理工具--nosqlbooster</a>
+          </li>
+        
+          <li>
             <a href="/mongodb_cluster/">Centos7 mongodb集群搭建</a>
           </li>
         
@@ -510,10 +531,6 @@ AssertionError
         
           <li>
             <a href="/navicat12_windows/">windows版Navicat12破解方法</a>
-          </li>
-        
-          <li>
-            <a href="/MySql_cluster/">MySQL分布式集群方案</a>
           </li>
         
       </ul>

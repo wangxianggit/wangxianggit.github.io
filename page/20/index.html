@@ -67,6 +67,85 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-divide_conquer_algorithm" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/divide_conquer_algorithm/" class="article-date">
+  <time datetime="2019-05-17T06:35:11.000Z" itemprop="datePublished">2019-05-17</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Algorithm/">Algorithm</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/divide_conquer_algorithm/">归并排序算法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+
+        <h2 id="分治思想"><a href="#分治思想" class="headerlink" title="分治思想"></a>分治思想</h2><ul>
+<li>​ 许多有用的算法在结构上是递归的：为了解决一个给定的问题，算法一次或多次递归调用其自身以解决紧密相关的若干子问题。</li>
+</ul>
+<ul>
+<li>这些算法遵循分治法的思想：将原问题分解为几个规模较小的但类似于原问题的子问题，递归地求解这些子问题，然后再合并这些子问题的解来建立原问题的解。</li>
+<li>分治模式在每层递归时都有三个步骤：<ul>
+<li>分解原问题为若干子问题，这些子问题是原问题的规模较小的实例。</li>
+<li>解决这些子问题，递归地求解各子问题，若子问题的规模足够小，直接求解。</li>
+<li>合并这些子问题的解即原问题的解。</li>
+</ul>
+</li>
+</ul>
+<h2 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h2><ul>
+<li><p>归并排序算法遵循分治模式：</p>
+<ul>
+<li>分解：分解待排序的n个元素的序列成n/2个元素的两个子序列。</li>
+<li>解决：使用归并排序递归排序两个子序列。</li>
+<li>合并：合并两个已经排序的子序列已产生已排序的答案。</li>
+</ul>
+</li>
+<li><p>归并排序算法的关键操作是合并步骤中的两个已排序的序列，通过调用一个辅助过程MERGE(A,p,q,r)来完成合并，伪代码如下：</p>
+<ul>
+<li><p>~~~<br>MERGE(A,p,q,r)</p>
+<p>n1=q-p+1<br>n2=r-q<br>let L[1..n1+1] and R[1..n2+1] be new array<br>for i=1 to n1<br>  L[i]=A[p+i-1]<br>for j=1 to n2<br>  R[j]=A[q+j]<br>L[n1+1]=null<br>R[n2+1]=null<br>i=1<br>j=1<br>for k=p to r<br>  if L[i]&lt;=R[j] </p>
+<pre><code>A[k]=L[i]
+i=i+1</code></pre>
+<p>  else A[k]=R[j]</p>
+<pre><code>j=j+1</code></pre>
+<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 现在可以把过程MERGE作为归并排序算法中的一个子程序来使用。下面的过程MERGE-<span class="constructor">SORG(A,<span class="params">p</span>,<span class="params">r</span>)</span>排序子数组A<span class="literal">[<span class="identifier">p</span><span class="operator">...</span><span class="identifier">r</span>]</span>中的元素。若p&gt;=r，则该子数组最多含有一个元素，已经排好序。否则分解步骤简单地计算一个下标q，将A<span class="literal">[<span class="identifier">p</span>..<span class="identifier">r</span>]</span>分成两个子数组，A<span class="literal">[<span class="identifier">p</span>..<span class="identifier">q</span>]</span>,A<span class="literal">[<span class="identifier">q</span>+<span class="number">1</span>,<span class="identifier">r</span>]</span>,各自包含n/<span class="number">2</span>个元素：</span><br><span class="line"></span><br><span class="line"><span class="operator">  * </span>~~~</span><br><span class="line">    MERGE-<span class="constructor">SORT(A,<span class="params">p</span>,<span class="params">r</span>)</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> p&lt;r</span><br><span class="line">    q=<span class="literal">[(<span class="identifier">p</span>+<span class="identifier">r</span>)<span class="operator">/</span><span class="number">2</span>]</span></span><br><span class="line">    MERGE-<span class="constructor">SORT(A,<span class="params">p</span>,<span class="params">q</span>)</span></span><br><span class="line">    MERGE-<span class="constructor">SORT(A,<span class="params">q</span>+1,<span class="params">r</span>)</span></span><br><span class="line">    <span class="constructor">MERGE(A,<span class="params">p</span>,<span class="params">q</span>,<span class="params">r</span>)</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>为此对于任意长度的数组，当长度为2的幂次方时，可以运用自底向上的思想，依次合并长度为1的数组到长度为2的数组，合并长度为2 的数组到长度为4的数组，直到所有元素排序。</p>
+</li>
+</ul>
+<hr>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wangxianggit.github.io/divide_conquer_algorithm/" data-id="ckjv3w9df00b66sdn3hyjh5er" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Algorithm/" rel="tag">Algorithm</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-algorithm_sort_insertion" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/algorithm_sort_insertion/" class="article-date">
@@ -368,80 +447,6 @@ tmpfs                  63G  152K   63G   1% /dev/shm
 
 
   
-    <article id="post-shell_file_exist" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/shell_file_exist/" class="article-date">
-  <time datetime="2019-05-09T16:20:16.000Z" itemprop="datePublished">2019-05-10</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/learning/">learning</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/shell_file_exist/">shell判断文件是否存在</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-
-        <h2 id="shell判断文件的存在​"><a href="#shell判断文件的存在​" class="headerlink" title="shell判断文件的存在​"></a>shell判断文件的存在​</h2><ul>
-<li><p>一般判断使用if语句，格式如下：</p>
-<ul>
-<li><pre><code>if [ -f &quot;~/file/filename&quot; ];then
-echo &quot;file exist&quot;
-else
-echo &quot;file doesn&#39;t exist&quot;
-fi</code></pre>
-</li>
-</ul>
-</li>
-<li><p>改变参数-f可以用于判断不同类型的文件或对象，常用参数：</p>
-<ul>
-<li>-e 判断对象是否存在</li>
-<li>-d 判断对象是否存在，并且为目录</li>
-<li>-f 判断对象是否存在，并且为常规文件</li>
-<li>-L 判断对象是否存在，并且为符号链接</li>
-<li>-h 判断对象是否存在，并且为软链接</li>
-<li>-s 判断对象是否存在，并且长度不为0</li>
-<li>-r 判断对象是否存在，并且可读</li>
-<li>-w 判断对象是否存在，并且可写</li>
-<li>-x 判断对象是否存在，并且可执行</li>
-<li>-O 判断对象是否存在，并且属于当前用户</li>
-<li>-G 判断对象是否存在，并且属于当前用户组</li>
-<li>-nt 判断file1是否比file2新  [ “/file/file1”-nt “/file/file2”]</li>
-<li>-ot 判断file1是否比file2旧  [ “/file/file1” -ot “/file/file2” ]</li>
-</ul>
-</li>
-</ul>
-<hr>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/shell_file_exist/" data-id="ckjv3w9ec00fg6sdnbiibguzr" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Shell/" rel="tag">Shell</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
@@ -494,7 +499,7 @@ fi</code></pre>
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Algorithm/" style="font-size: 11.18px;">Algorithm</a> <a href="/tags/Altium-Designer/" style="font-size: 14.12px;">Altium Designer</a> <a href="/tags/Apache/" style="font-size: 11.18px;">Apache</a> <a href="/tags/BeautifulSoup/" style="font-size: 10px;">BeautifulSoup</a> <a href="/tags/C/" style="font-size: 15.29px;">C</a> <a href="/tags/C/" style="font-size: 18.24px;">C++</a> <a href="/tags/Centos7/" style="font-size: 18.82px;">Centos7</a> <a href="/tags/Cython/" style="font-size: 10px;">Cython</a> <a href="/tags/Database/" style="font-size: 14.71px;">Database</a> <a href="/tags/Electronic/" style="font-size: 12.94px;">Electronic</a> <a href="/tags/English/" style="font-size: 11.76px;">English</a> <a href="/tags/Geant4/" style="font-size: 10.59px;">Geant4</a> <a href="/tags/Hardware/" style="font-size: 10px;">Hardware</a> <a href="/tags/Hexo/" style="font-size: 13.53px;">Hexo</a> <a href="/tags/Image/" style="font-size: 11.76px;">Image</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Jupyter/" style="font-size: 10px;">Jupyter</a> <a href="/tags/Linux/" style="font-size: 19.41px;">Linux</a> <a href="/tags/Markdown/" style="font-size: 15.88px;">Markdown</a> <a href="/tags/Nuclear-Physics/" style="font-size: 11.18px;">Nuclear Physics</a> <a href="/tags/Open/" style="font-size: 10px;">Open</a> <a href="/tags/Opencv/" style="font-size: 11.76px;">Opencv</a> <a href="/tags/Program/" style="font-size: 17.65px;">Program</a> <a href="/tags/PyPI/" style="font-size: 10px;">PyPI</a> <a href="/tags/Py-Crawler/" style="font-size: 10.59px;">Py_Crawler</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/Random/" style="font-size: 10px;">Random</a> <a href="/tags/Resource/" style="font-size: 10.59px;">Resource</a> <a href="/tags/Root/" style="font-size: 10.59px;">Root</a> <a href="/tags/Scipy/" style="font-size: 10px;">Scipy</a> <a href="/tags/Shell/" style="font-size: 16.47px;">Shell</a> <a href="/tags/Solidwork/" style="font-size: 10.59px;">Solidwork</a> <a href="/tags/TTree/" style="font-size: 10px;">TTree</a> <a href="/tags/Tensorflow/" style="font-size: 15.29px;">Tensorflow</a> <a href="/tags/Thread/" style="font-size: 10px;">Thread</a> <a href="/tags/Urllib2/" style="font-size: 10px;">Urllib2</a> <a href="/tags/Virtual-memory/" style="font-size: 10px;">Virtual memory</a> <a href="/tags/cmake/" style="font-size: 12.35px;">cmake</a> <a href="/tags/cmd/" style="font-size: 10.59px;">cmd</a> <a href="/tags/data-structure/" style="font-size: 10.59px;">data structure</a> <a href="/tags/git/" style="font-size: 12.94px;">git</a> <a href="/tags/hexo/" style="font-size: 11.18px;">hexo</a> <a href="/tags/htop/" style="font-size: 10px;">htop</a> <a href="/tags/keras/" style="font-size: 10.59px;">keras</a> <a href="/tags/latex/" style="font-size: 14.12px;">latex</a> <a href="/tags/os/" style="font-size: 10px;">os</a> <a href="/tags/qt/" style="font-size: 10px;">qt</a> <a href="/tags/requests/" style="font-size: 10px;">requests</a> <a href="/tags/sk-learn/" style="font-size: 10px;">sk-learn</a> <a href="/tags/ssh/" style="font-size: 12.35px;">ssh</a> <a href="/tags/statistic/" style="font-size: 10px;">statistic</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/wiki/" style="font-size: 11.76px;">wiki</a> <a href="/tags/windows/" style="font-size: 17.06px;">windows</a> <a href="/tags/yolo%EF%BC%8CC/" style="font-size: 10px;">yolo，C</a>
+      <a href="/tags/Algorithm/" style="font-size: 11.25px;">Algorithm</a> <a href="/tags/Altium-Designer/" style="font-size: 14.38px;">Altium Designer</a> <a href="/tags/Apache/" style="font-size: 11.25px;">Apache</a> <a href="/tags/BeautifulSoup/" style="font-size: 10px;">BeautifulSoup</a> <a href="/tags/C/" style="font-size: 15px;">C</a> <a href="/tags/C/" style="font-size: 18.13px;">C++</a> <a href="/tags/Centos7/" style="font-size: 18.75px;">Centos7</a> <a href="/tags/Cython/" style="font-size: 10px;">Cython</a> <a href="/tags/Database/" style="font-size: 15px;">Database</a> <a href="/tags/Electronic/" style="font-size: 13.13px;">Electronic</a> <a href="/tags/English/" style="font-size: 11.88px;">English</a> <a href="/tags/Geant4/" style="font-size: 10.63px;">Geant4</a> <a href="/tags/Hardware/" style="font-size: 10px;">Hardware</a> <a href="/tags/Hexo/" style="font-size: 13.75px;">Hexo</a> <a href="/tags/Image/" style="font-size: 11.88px;">Image</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Jupyter/" style="font-size: 10px;">Jupyter</a> <a href="/tags/Linux/" style="font-size: 19.38px;">Linux</a> <a href="/tags/Markdown/" style="font-size: 15.63px;">Markdown</a> <a href="/tags/Nuclear-Physics/" style="font-size: 11.25px;">Nuclear Physics</a> <a href="/tags/Open/" style="font-size: 10px;">Open</a> <a href="/tags/Opencv/" style="font-size: 11.88px;">Opencv</a> <a href="/tags/Program/" style="font-size: 17.5px;">Program</a> <a href="/tags/PyPI/" style="font-size: 10px;">PyPI</a> <a href="/tags/Py-Crawler/" style="font-size: 10.63px;">Py_Crawler</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/Random/" style="font-size: 10px;">Random</a> <a href="/tags/Resource/" style="font-size: 10.63px;">Resource</a> <a href="/tags/Root/" style="font-size: 10.63px;">Root</a> <a href="/tags/Scipy/" style="font-size: 10px;">Scipy</a> <a href="/tags/Shell/" style="font-size: 16.25px;">Shell</a> <a href="/tags/Solidwork/" style="font-size: 10.63px;">Solidwork</a> <a href="/tags/TTree/" style="font-size: 10px;">TTree</a> <a href="/tags/Tensorflow/" style="font-size: 15px;">Tensorflow</a> <a href="/tags/Thread/" style="font-size: 10px;">Thread</a> <a href="/tags/Urllib2/" style="font-size: 10px;">Urllib2</a> <a href="/tags/Virtual-memory/" style="font-size: 10px;">Virtual memory</a> <a href="/tags/cmake/" style="font-size: 12.5px;">cmake</a> <a href="/tags/cmd/" style="font-size: 10.63px;">cmd</a> <a href="/tags/data-structure/" style="font-size: 10.63px;">data structure</a> <a href="/tags/git/" style="font-size: 13.13px;">git</a> <a href="/tags/hexo/" style="font-size: 11.25px;">hexo</a> <a href="/tags/htop/" style="font-size: 10px;">htop</a> <a href="/tags/keras/" style="font-size: 10.63px;">keras</a> <a href="/tags/latex/" style="font-size: 14.38px;">latex</a> <a href="/tags/os/" style="font-size: 10px;">os</a> <a href="/tags/qt/" style="font-size: 10px;">qt</a> <a href="/tags/requests/" style="font-size: 10px;">requests</a> <a href="/tags/sk-learn/" style="font-size: 10px;">sk-learn</a> <a href="/tags/ssh/" style="font-size: 12.5px;">ssh</a> <a href="/tags/statistic/" style="font-size: 10px;">statistic</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/wiki/" style="font-size: 11.88px;">wiki</a> <a href="/tags/windows/" style="font-size: 16.88px;">windows</a> <a href="/tags/yolo%EF%BC%8CC/" style="font-size: 10px;">yolo，C</a>
     </div>
   </div>
 
@@ -516,6 +521,10 @@ fi</code></pre>
       <ul>
         
           <li>
+            <a href="/mongodb_client_nosqlbooster/">MongoDB的客户端管理工具--nosqlbooster</a>
+          </li>
+        
+          <li>
             <a href="/mongodb_cluster/">Centos7 mongodb集群搭建</a>
           </li>
         
@@ -529,10 +538,6 @@ fi</code></pre>
         
           <li>
             <a href="/navicat12_windows/">windows版Navicat12破解方法</a>
-          </li>
-        
-          <li>
-            <a href="/MySql_cluster/">MySQL分布式集群方案</a>
           </li>
         
       </ul>
