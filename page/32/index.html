@@ -67,6 +67,65 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-C++_keyword_const_cast" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/C++_keyword_const_cast/" class="article-date">
+  <time datetime="2019-03-07T04:39:57.000Z" itemprop="datePublished">2019-03-07</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/learning/">learning</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/C++_keyword_const_cast/">C++关键字const_cast</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+
+        <h2 id="const-cast用法"><a href="#const-cast用法" class="headerlink" title="const_cast用法"></a>const_cast用法</h2><ul>
+<li><p>const_cast是一种C++运算符，主要是用来去除复合类型中const和volatile属性（不是真正去除）。</p>
+</li>
+<li><p>若变量声明为const类型，其值本身不能改变，若想改变该变量的值一般是去除指针或引用的const属性，再进行间接修改。</p>
+</li>
+<li><p>使用方法：</p>
+<ul>
+<li><pre><code>const_cast&lt;type&gt;(expression)
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  * 通过<span class="keyword">const_cast</span>运算符，将<span class="keyword">const</span> type转换为type，将<span class="keyword">const</span> type&amp;转换为type&amp;。</span><br><span class="line"></span><br><span class="line">  * 也就是说源类型和目标类型除了<span class="keyword">const</span>属性不同，其他地方完全相同。</span><br><span class="line"></span><br><span class="line">* ~~~</span><br><span class="line">  <span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line">  <span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">ConstTest1</span><span class="params">()</span></span>&#123;</span><br><span class="line">      <span class="keyword">const</span> <span class="keyword">int</span> a = <span class="number">5</span>;</span><br><span class="line">      <span class="keyword">int</span> *p;</span><br><span class="line">      p = <span class="keyword">const_cast</span>&lt;<span class="keyword">int</span>*&gt;(&amp;a);</span><br><span class="line">      (*p)++;</span><br><span class="line">      <span class="built_in">cout</span>&lt;&lt;a&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">      <span class="built_in">cout</span>&lt;&lt;*p&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">      </span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">ConstTest2</span><span class="params">()</span></span>&#123;</span><br><span class="line">      <span class="keyword">int</span> i;</span><br><span class="line">      <span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;please input a integer:&quot;</span>;</span><br><span class="line">      <span class="built_in">cin</span>&gt;&gt;i;</span><br><span class="line">      <span class="keyword">const</span> <span class="keyword">int</span> a = i;</span><br><span class="line">      <span class="keyword">int</span> &amp;r = <span class="keyword">const_cast</span>&lt;<span class="keyword">int</span> &amp;&gt;(a);</span><br><span class="line">      r++;</span><br><span class="line">      <span class="built_in">cout</span>&lt;&lt;a&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">      ConstTest1();</span><br><span class="line">      ConstTest2();</span><br><span class="line">      <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  输出：</span><br><span class="line">  <span class="number">5</span></span><br><span class="line">  <span class="number">6</span></span><br><span class="line">  若输入<span class="number">7</span></span><br><span class="line">  则输出<span class="number">8</span></span><br></pre></td></tr></table></figure>
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wangxianggit.github.io/C++_keyword_const_cast/" data-id="ckjv3w9az00176sdnfenq44l8" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C++</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-C++_citation" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/C++_citation/" class="article-date">
@@ -337,154 +396,6 @@ int main()&#123;
 
 
   
-    <article id="post-C++_code_writting_standard" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/C++_code_writting_standard/" class="article-date">
-  <time datetime="2019-03-06T11:05:11.000Z" itemprop="datePublished">2019-03-06</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/learning/">learning</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/C++_code_writting_standard/">c++代码书写规范</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-
-        <h2 id="C-代码书写规范"><a href="#C-代码书写规范" class="headerlink" title="C++代码书写规范"></a>C++代码书写规范</h2><h3 id="头文件保护"><a href="#头文件保护" class="headerlink" title="头文件保护"></a>头文件保护</h3><ul>
-<li><p>使用#define进行头文件保护，为保证唯一性头文件保护的命名可以基于项目代码路径，例如对于头文件Main\Src\File.h，可以设置如下保护：</p>
-<ul>
-<li><pre><code>#ifndefine         MAIN_SRC_FILE_H
-
-#define            MAIN_SRC_FILE_H
-
-…
-
-#endif
-<figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 使用前置声明减少头文件的所要包含的文件数量，也就减少了需要重新编译文件的几率。</span><br><span class="line"></span><br><span class="line">  * 例如如果只在头文件里面使用其他文件中定义的类时，如果只是使用类的声明而不是具体定义，应该是用前置声明代替包含整个文件，使用前置声明class SomeClass;不使用头文件的包含<span class="meta">#<span class="meta-keyword">include</span> <span class="string">&quot;SomeClass&quot;</span></span></span><br><span class="line"></span><br><span class="line">* 头文件的包含顺序：C库、C++库、其他库.h、项目内的.h</span><br><span class="line"></span><br><span class="line">  * 如果次文件是cpp文件，那么要首先包含其对应的头文件，然后再按前述顺序。</span><br><span class="line"></span><br><span class="line">  * 每个层级用[空行](https:<span class="comment">//www.baidu.com/s?wd=%E7%A9%BA%E8%A1%8C&amp;tn=24004469_oem_dg&amp;rsv_dl=gh_pl_sl_csd)分隔，同一层级的文件顺序按英文字母先后顺序排列。</span></span><br><span class="line"></span><br><span class="line">  * 示例代码</span><br><span class="line"></span><br><span class="line">  * ~~~</span><br><span class="line">    <span class="meta">#<span class="meta-keyword">include</span>“MyFile.h”  (如果次文件是cpp文件，首先包含自己的头文件)</span></span><br><span class="line"></span><br><span class="line">    <span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line">    <span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"></span><br><span class="line">    <span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line">    <span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line">    <span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"></span><br><span class="line">    <span class="meta">#<span class="meta-keyword">include</span>“lib/Alpha.h”</span></span><br><span class="line">    <span class="meta">#<span class="meta-keyword">include</span>“lib/Beta.h”</span></span><br><span class="line">    <span class="meta">#<span class="meta-keyword">include</span>“other/zoo.h”</span></span><br><span class="line"></span><br><span class="line">    <span class="meta">#<span class="meta-keyword">include</span>“bar.h”</span></span><br><span class="line">    <span class="meta">#<span class="meta-keyword">include</span>“foo.h”</span></span><br></pre></td></tr></table></figure>
-### 作用域</code></pre>
-</li>
-</ul>
-</li>
-<li><p>尽量不要使用全局变量，全局变量起的作用往往仅是一个静态变量。</p>
-</li>
-<li><p>如果非要使用全局变量，考虑使用单例模式代替。</p>
-</li>
-<li><p>多线程中使用的全局变量，不要使用class类型（包括STL容器），避免class内部的实现非线程安全而导致bug。</p>
-</li>
-</ul>
-<h3 id="类"><a href="#类" class="headerlink" title="类"></a>类</h3><ul>
-<li><p>声明顺序按照以下规则：</p>
-<ul>
-<li><p>成员先后顺序：typedef、enum、常量、构造析构函数、成员函数，成员变量。</p>
-</li>
-<li><p>域先后顺序：public、protected、private。</p>
-</li>
-<li><p>例：</p>
-</li>
-<li><p>~~~<br>Class MyClass<br>{<br>public:</p>
-<pre><code>     voidFoo();</code></pre>
-<p>protected:</p>
-<pre><code>     voidBar();</code></pre>
-<p>private:</p>
-<pre><code>     voidFunc();</code></pre>
-<p>}</p>
-<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 构造函数只负责简单的初始化功能，如果需要进行有意义的初始化，请使用<span class="constructor">Init()</span>函数；严禁在构造函数中调用虚函数。</span><br><span class="line"></span><br><span class="line">* 仅需要拷贝一个对象时才定义拷贝构造函数，否则明确在<span class="keyword">private</span>域中使用声明DISALLOW_COPY_AND_ASSIGN，避免编译器隐式声明的拷贝构造函数导致的不确定行为。如下：</span><br><span class="line"></span><br><span class="line"><span class="operator">  * </span>~~~</span><br><span class="line">    <span class="keyword">private</span>:</span><br><span class="line"></span><br><span class="line">    <span class="constructor">DISALLOW_COPY_AND_ASSIGN(MyClass)</span>;</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-<li><p>只有数据时，使用结构体，否则使用类。</p>
-</li>
-<li><p>尽量使用组合代替继承。</p>
-<ul>
-<li>如果类中有一个virtual函数，则析构函数必须声明为virtual。</li>
-<li>所有继承必须为public，<a target="_blank" rel="noopener" href="https://www.baidu.com/s?wd=%E7%A7%81%E6%9C%89%E7%BB%A7%E6%89%BF&tn=24004469_oem_dg&rsv_dl=gh_pl_sl_csd">私有继承</a>使用其它实现方式替代。</li>
-</ul>
-</li>
-<li><p>尽量避免使用多重继承，除非是COM。</p>
-</li>
-<li><p>尽量使用const修饰变量。    </p>
-</li>
-</ul>
-<h3 id="注释的使用"><a href="#注释的使用" class="headerlink" title="注释的使用"></a>注释的使用</h3><ul>
-<li><p>头文件的注释格式如下：</p>
-<ul>
-<li><p>~~~<br>/<strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>****</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></p>
-<ul>
-<li><p>@description:</p>
-</li>
-<li><p>@author:      name of author</p>
-</li>
-<li><p>@date:        2018.11.10</p>
-</li>
-<li><p>@last modified author: </p>
-</li>
-<li><p>@last modified date:</p>
-</li>
-<li><p>@ copyright “the company” 2018 -</p>
-</li>
-<li><p><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>****</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong>/</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 声明类之前需要使用类注释，说明此类的使用用途及注意事项</span><br><span class="line"></span><br><span class="line">  * ~~~</span><br><span class="line">    <span class="regexp">//</span> description:</span><br><span class="line"></span><br><span class="line">    <span class="regexp">//</span> <span class="keyword">function</span> of class:</span><br><span class="line"></span><br><span class="line">    <span class="regexp">//</span> attention:</span><br><span class="line"></span><br><span class="line">    class Browser&#123;&#125;;</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>函数注释，重要或难理解的函数，需要在函数声明前加上注释。</p>
-</li>
-<li><p>对于很难理解、重要、实现精彩的部分必须加上注释。</p>
-</li>
-<li><p>对于那些来不及实现、暂未实现、需要去实现的地方加上TODO注释。</p>
-</li>
-<li><p>~~~<br>// TODO: Fly to the moon.</p>
-<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 编码风格</span><br><span class="line"></span><br><span class="line">* ~~~</span><br><span class="line">  尽量不要使用缩写，严禁使用不明单词的缩写。</span><br><span class="line"></span><br><span class="line">  类名：大写字母开头，每个单词首字母大写。</span><br><span class="line"></span><br><span class="line">  函数名：大写字母开头，每个单词首字母大写</span><br><span class="line"></span><br><span class="line">  变量名：首字母（通常为前缀）小写</span><br></pre></td></tr></table></figure></li>
-<li><p>变量前缀为小写，根据变量类型加如short/int/size_t..，加n，如int nVal =1;</p>
-</li>
-<li><p>使用空格代替table，在VS里将table设置成4个空格，每个级别进行4个空格的缩进。</p>
-</li>
-<li><p>花括号另起一行使用。</p>
-</li>
-<li><p>条件、循环、开关等语句，关键字后加空格再使用，例如If ();</p>
-</li>
-</ul>
-<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><ul>
-<li>new/delete等堆操作，必须成对出现，尽量遵从谁分配谁释放的原则。</li>
-<li>AddRef()/Release()必须成对出现，尽量遵从谁分配谁释放的原则。</li>
-<li><strong>指针、句柄使用完释放后必须设置成NULL。</strong></li>
-<li><strong>函数功能要单一，避免耦合多功能，严禁CreateAndNavigate这种函数。</strong></li>
-<li><strong>指针的空值比较使用NULL，而不是0。</strong></li>
-<li><strong>浮点数的零值比较严禁使用== 0。</strong></li>
-</ul>
-<hr>
-<p>2019/03/06</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/C++_code_writting_standard/" data-id="ckjv3w9ay00106sdn3vgw8296" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C++</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
@@ -537,7 +448,7 @@ int main()&#123;
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Algorithm/" style="font-size: 11.25px;">Algorithm</a> <a href="/tags/Altium-Designer/" style="font-size: 14.38px;">Altium Designer</a> <a href="/tags/Apache/" style="font-size: 11.25px;">Apache</a> <a href="/tags/BeautifulSoup/" style="font-size: 10px;">BeautifulSoup</a> <a href="/tags/C/" style="font-size: 15px;">C</a> <a href="/tags/C/" style="font-size: 18.13px;">C++</a> <a href="/tags/Centos7/" style="font-size: 18.75px;">Centos7</a> <a href="/tags/Cython/" style="font-size: 10px;">Cython</a> <a href="/tags/Database/" style="font-size: 15px;">Database</a> <a href="/tags/Electronic/" style="font-size: 13.13px;">Electronic</a> <a href="/tags/English/" style="font-size: 11.88px;">English</a> <a href="/tags/Geant4/" style="font-size: 10.63px;">Geant4</a> <a href="/tags/Hardware/" style="font-size: 10px;">Hardware</a> <a href="/tags/Hexo/" style="font-size: 13.75px;">Hexo</a> <a href="/tags/Image/" style="font-size: 11.88px;">Image</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Jupyter/" style="font-size: 10px;">Jupyter</a> <a href="/tags/Linux/" style="font-size: 19.38px;">Linux</a> <a href="/tags/Markdown/" style="font-size: 15.63px;">Markdown</a> <a href="/tags/Nuclear-Physics/" style="font-size: 11.25px;">Nuclear Physics</a> <a href="/tags/Open/" style="font-size: 10px;">Open</a> <a href="/tags/Opencv/" style="font-size: 11.88px;">Opencv</a> <a href="/tags/Program/" style="font-size: 17.5px;">Program</a> <a href="/tags/PyPI/" style="font-size: 10px;">PyPI</a> <a href="/tags/Py-Crawler/" style="font-size: 10.63px;">Py_Crawler</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/Random/" style="font-size: 10px;">Random</a> <a href="/tags/Resource/" style="font-size: 10.63px;">Resource</a> <a href="/tags/Root/" style="font-size: 10.63px;">Root</a> <a href="/tags/Scipy/" style="font-size: 10px;">Scipy</a> <a href="/tags/Shell/" style="font-size: 16.25px;">Shell</a> <a href="/tags/Solidwork/" style="font-size: 10.63px;">Solidwork</a> <a href="/tags/TTree/" style="font-size: 10px;">TTree</a> <a href="/tags/Tensorflow/" style="font-size: 15px;">Tensorflow</a> <a href="/tags/Thread/" style="font-size: 10px;">Thread</a> <a href="/tags/Urllib2/" style="font-size: 10px;">Urllib2</a> <a href="/tags/Virtual-memory/" style="font-size: 10px;">Virtual memory</a> <a href="/tags/cmake/" style="font-size: 12.5px;">cmake</a> <a href="/tags/cmd/" style="font-size: 10.63px;">cmd</a> <a href="/tags/data-structure/" style="font-size: 10.63px;">data structure</a> <a href="/tags/git/" style="font-size: 13.13px;">git</a> <a href="/tags/hexo/" style="font-size: 11.25px;">hexo</a> <a href="/tags/htop/" style="font-size: 10px;">htop</a> <a href="/tags/keras/" style="font-size: 10.63px;">keras</a> <a href="/tags/latex/" style="font-size: 14.38px;">latex</a> <a href="/tags/os/" style="font-size: 10px;">os</a> <a href="/tags/qt/" style="font-size: 10px;">qt</a> <a href="/tags/requests/" style="font-size: 10px;">requests</a> <a href="/tags/sk-learn/" style="font-size: 10px;">sk-learn</a> <a href="/tags/ssh/" style="font-size: 12.5px;">ssh</a> <a href="/tags/statistic/" style="font-size: 10px;">statistic</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/wiki/" style="font-size: 11.88px;">wiki</a> <a href="/tags/windows/" style="font-size: 16.88px;">windows</a> <a href="/tags/yolo%EF%BC%8CC/" style="font-size: 10px;">yolo，C</a>
+      <a href="/tags/Algorithm/" style="font-size: 11.25px;">Algorithm</a> <a href="/tags/Altium-Designer/" style="font-size: 14.38px;">Altium Designer</a> <a href="/tags/Apache/" style="font-size: 11.25px;">Apache</a> <a href="/tags/BeautifulSoup/" style="font-size: 10px;">BeautifulSoup</a> <a href="/tags/C/" style="font-size: 15px;">C</a> <a href="/tags/C/" style="font-size: 18.13px;">C++</a> <a href="/tags/Centos7/" style="font-size: 18.75px;">Centos7</a> <a href="/tags/Cython/" style="font-size: 10px;">Cython</a> <a href="/tags/Database/" style="font-size: 15px;">Database</a> <a href="/tags/Electronic/" style="font-size: 13.13px;">Electronic</a> <a href="/tags/English/" style="font-size: 11.88px;">English</a> <a href="/tags/Geant4/" style="font-size: 10.63px;">Geant4</a> <a href="/tags/Hardware/" style="font-size: 10px;">Hardware</a> <a href="/tags/Hexo/" style="font-size: 13.75px;">Hexo</a> <a href="/tags/Image/" style="font-size: 11.88px;">Image</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Jupyter/" style="font-size: 10px;">Jupyter</a> <a href="/tags/Linux/" style="font-size: 19.38px;">Linux</a> <a href="/tags/Markdown/" style="font-size: 15.63px;">Markdown</a> <a href="/tags/Nuclear-Physics/" style="font-size: 11.25px;">Nuclear Physics</a> <a href="/tags/Open/" style="font-size: 10px;">Open</a> <a href="/tags/Opencv/" style="font-size: 11.88px;">Opencv</a> <a href="/tags/Program/" style="font-size: 17.5px;">Program</a> <a href="/tags/PyPI/" style="font-size: 10px;">PyPI</a> <a href="/tags/Py-Crawler/" style="font-size: 10.63px;">Py_Crawler</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/Random/" style="font-size: 10px;">Random</a> <a href="/tags/Resource/" style="font-size: 10.63px;">Resource</a> <a href="/tags/Root/" style="font-size: 10.63px;">Root</a> <a href="/tags/Scipy/" style="font-size: 10px;">Scipy</a> <a href="/tags/Shell/" style="font-size: 16.25px;">Shell</a> <a href="/tags/Solidwork/" style="font-size: 10.63px;">Solidwork</a> <a href="/tags/TTree/" style="font-size: 10px;">TTree</a> <a href="/tags/Tensorflow/" style="font-size: 15px;">Tensorflow</a> <a href="/tags/Thread/" style="font-size: 10px;">Thread</a> <a href="/tags/Urllib2/" style="font-size: 10px;">Urllib2</a> <a href="/tags/Virtual-memory/" style="font-size: 10px;">Virtual memory</a> <a href="/tags/cmake/" style="font-size: 12.5px;">cmake</a> <a href="/tags/cmd/" style="font-size: 10.63px;">cmd</a> <a href="/tags/data-structure/" style="font-size: 10.63px;">data structure</a> <a href="/tags/git/" style="font-size: 13.13px;">git</a> <a href="/tags/hexo/" style="font-size: 11.25px;">hexo</a> <a href="/tags/htop/" style="font-size: 10px;">htop</a> <a href="/tags/keras/" style="font-size: 10.63px;">keras</a> <a href="/tags/latex/" style="font-size: 14.38px;">latex</a> <a href="/tags/os/" style="font-size: 10px;">os</a> <a href="/tags/qt/" style="font-size: 10px;">qt</a> <a href="/tags/requests/" style="font-size: 10px;">requests</a> <a href="/tags/sk-learn/" style="font-size: 10px;">sk-learn</a> <a href="/tags/ssh/" style="font-size: 12.5px;">ssh</a> <a href="/tags/statistic/" style="font-size: 10px;">statistic</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/wiki/" style="font-size: 12.5px;">wiki</a> <a href="/tags/windows/" style="font-size: 16.88px;">windows</a> <a href="/tags/yolo%EF%BC%8CC/" style="font-size: 10px;">yolo，C</a>
     </div>
   </div>
 
@@ -559,6 +470,10 @@ int main()&#123;
       <ul>
         
           <li>
+            <a href="/mediawiki_upload_office/">mediawiki上传office相关文件</a>
+          </li>
+        
+          <li>
             <a href="/mongodb_client_nosqlbooster/">MongoDB的客户端管理工具--nosqlbooster</a>
           </li>
         
@@ -572,10 +487,6 @@ int main()&#123;
         
           <li>
             <a href="/mediawiki_timezone/">mediawiki设置时区</a>
-          </li>
-        
-          <li>
-            <a href="/navicat12_windows/">windows版Navicat12破解方法</a>
           </li>
         
       </ul>
