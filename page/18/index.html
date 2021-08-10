@@ -365,22 +365,42 @@ array([0, 0, 0, 0, 1, 0, 0, 1], dtype=uint8)&#125;</code></pre>
 <li><p>把默认端口改了，这样就不容易被人扫出来。</p>
 </li>
 <li><p>修改默认端口：</p>
+</li>
+</ul>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Port 22</span></span><br><span class="line"><span class="attribute">Port</span> <span class="number">9527</span></span><br></pre></td></tr></table></figure>
 <ul>
-<li>~~~<br>#Port 22<br>Port 9527<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">  * 我们把默认端口改为9527</span></span><br><span class="line"></span><br><span class="line"><span class="comment">  * 注意改的这个端口一定不能占用别的服务的默认端口，以免别的服务启动不起来</span></span><br><span class="line"></span><br><span class="line"><span class="comment">* 禁止root登陆：</span></span><br><span class="line"></span><br><span class="line"><span class="comment">  * root在我们系统中是一个特殊的存在，他是系统管理员，也就意味着他在系统中可以为所欲为，所以它也是我们要特别关注的对象</span></span><br><span class="line"></span><br><span class="line"><span class="comment">  * ~~~</span></span><br><span class="line">    #PermitRootLogin yes</span><br><span class="line">    PermitRootLogin <span class="keyword">no</span></span><br></pre></td></tr></table></figure></li>
+<li><p>我们把默认端口改为9527</p>
+</li>
+<li><p>注意改的这个端口一定不能占用别的服务的默认端口，以免别的服务启动不起来</p>
+</li>
+<li><p>禁止root登陆：</p>
+<ul>
+<li>root在我们系统中是一个特殊的存在，他是系统管理员，也就意味着他在系统中可以为所欲为，所以它也是我们要特别关注的对象</li>
 </ul>
 </li>
+</ul>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#PermitRootLogin yes</span></span><br><span class="line"><span class="attribute">PermitRootLogin</span> <span class="literal">no</span></span><br></pre></td></tr></table></figure>
+<ul>
 <li><p>限制ssh监听的ip</p>
 <ul>
-<li><p>这个适用于服务器有多个IP，这样我们就可以只监听内网IP，这样就只能用在同一个局域网的机器去连接，而我们只需要让在同一个服务器的另一台机器监听在外网，这样就可以实现在外网也访问服务器了，方法如下</p>
+<li>这个适用于服务器有多个IP，这样我们就可以只监听内网IP，这样就只能用在同一个局域网的机器去连接，而我们只需要让在同一个服务器的另一台机器监听在外网，这样就可以实现在外网也访问服务器了，方法如下</li>
+</ul>
 </li>
-<li><pre><code>#ListenAddress 0.0.0.0
-#ListenAddress ::
-ListenAddress [ip]
-<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">  * 此时只能通过设定的ip连接</span></span><br><span class="line"></span><br><span class="line"><span class="comment">* 禁止使用密码登陆</span></span><br><span class="line"></span><br><span class="line"><span class="comment">  * 使用key认证登录的，这是一种比较安全的登录方式，所以为了提高安全性我们可以通过这种方式来登录服务器。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">  * 修改一下配置文件：</span></span><br><span class="line"></span><br><span class="line"><span class="comment">    * ~~~</span></span><br><span class="line">      #PasswordAuthentication yes</span><br><span class="line">      PasswordAuthentication <span class="keyword">no</span></span><br></pre></td></tr></table></figure></code></pre>
+</ul>
+<figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#ListenAddress 0.0.0.0</span></span><br><span class="line"><span class="meta">#ListenAddress ::</span></span><br><span class="line">ListenAddress [ip]</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>此时只能通过设定的ip连接</p>
+</li>
+<li><p>禁止使用密码登陆</p>
+<ul>
+<li><p>使用key认证登录的，这是一种比较安全的登录方式，所以为了提高安全性我们可以通过这种方式来登录服务器。</p>
+</li>
+<li><p>修改一下配置文件：</p>
 </li>
 </ul>
 </li>
 </ul>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#PasswordAuthentication yes</span></span><br><span class="line"><span class="attribute">PasswordAuthentication</span> <span class="literal">no</span></span><br></pre></td></tr></table></figure>
 <hr>
 
       

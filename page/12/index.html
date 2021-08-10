@@ -418,14 +418,12 @@ modprobe -r ideapad_laptop</code></pre>
 </li>
 <li><p>开启防火墙:</p>
 </li>
-<li><pre><code>firewall-cmd --add-service=ftp/tcp --permanent
-firewall-cmd --add-service=http/tcp --permanent
-firewall-cmd --reload</code></pre>
-</li>
 </ul>
 </li>
-<li><p>启动ssh命令需要在root权限下运行。</p>
-</li>
+</ul>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">firewall-<span class="keyword">cmd</span><span class="bash"> --add-service=ftp/tcp --permanent</span></span><br><span class="line">firewall-<span class="keyword">cmd</span><span class="bash"> --add-service=http/tcp --permanent</span></span><br><span class="line">firewall-<span class="keyword">cmd</span><span class="bash"> --reload</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>启动ssh命令需要在root权限下运行。</li>
 </ul>
 <hr>
 
