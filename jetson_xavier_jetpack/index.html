@@ -5,20 +5,19 @@
   
 
   
-  <title>tf使用方法 | There is no rose without a thorn</title>
+  <title>Jetson Xavier NX Jetpack安装 | There is no rose without a thorn</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="tf基本用法 TensorFlow用数据流图(data flow graphs)进行数值计算，数据流图描述有向图中的数值计算过程。 有向图用节点代表数学运算，边表示节点之间的联系，负责传输多维数据(Tensors)。 节点可以被分配到多个计算设备上，执行异步和并行的操作；只有等到之前的节点的计算状态完成后，当前节点才能执行操作。  tf计算步骤 将计算流程表示成图；   通过Sessions来执行">
+  <meta name="description" content="Jetson Xavier NX Jetpack安装 JetPack SDK包括最新的Jetson Linux驱动程序包（L4T），具有Linux操作系统以及CUDA-X加速库和API。 JetPack SDK还包括用于主机和开发人员套件的示例，文档和开发工具，并支持更高级别的SDK，例如用于流视频分析的DeepStream和用于机器人技术的Isaac。 Jetson开发板安装JetPack 的方">
 <meta property="og:type" content="article">
-<meta property="og:title" content="tf使用方法">
-<meta property="og:url" content="http://wangxianggit.github.io/tf_basic/index.html">
+<meta property="og:title" content="Jetson Xavier NX Jetpack安装">
+<meta property="og:url" content="http://wangxianggit.github.io/jetson_xavier_jetpack/index.html">
 <meta property="og:site_name" content="There is no rose without a thorn">
-<meta property="og:description" content="tf基本用法 TensorFlow用数据流图(data flow graphs)进行数值计算，数据流图描述有向图中的数值计算过程。 有向图用节点代表数学运算，边表示节点之间的联系，负责传输多维数据(Tensors)。 节点可以被分配到多个计算设备上，执行异步和并行的操作；只有等到之前的节点的计算状态完成后，当前节点才能执行操作。  tf计算步骤 将计算流程表示成图；   通过Sessions来执行">
+<meta property="og:description" content="Jetson Xavier NX Jetpack安装 JetPack SDK包括最新的Jetson Linux驱动程序包（L4T），具有Linux操作系统以及CUDA-X加速库和API。 JetPack SDK还包括用于主机和开发人员套件的示例，文档和开发工具，并支持更高级别的SDK，例如用于流视频分析的DeepStream和用于机器人技术的Isaac。 Jetson开发板安装JetPack 的方">
 <meta property="og:locale">
-<meta property="article:published_time" content="2019-09-17T02:22:15.000Z">
-<meta property="article:modified_time" content="2019-09-17T03:00:46.424Z">
+<meta property="article:published_time" content="2021-10-13T01:15:13.000Z">
+<meta property="article:modified_time" content="2021-10-13T02:31:36.334Z">
 <meta property="article:author" content="wangxiang">
-<meta property="article:tag" content="Python">
-<meta property="article:tag" content="Tensorflow">
+<meta property="article:tag" content="NVIDIA Jetson">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="There is no rose without a thorn" type="application/atom+xml">
@@ -69,14 +68,14 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-tf_basic" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-jetson_xavier_jetpack" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/tf_basic/" class="article-date">
-  <time datetime="2019-09-17T02:22:15.000Z" itemprop="datePublished">2019-09-17</time>
+    <a href="/jetson_xavier_jetpack/" class="article-date">
+  <time datetime="2021-10-13T01:15:13.000Z" itemprop="datePublished">2021-10-13</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/Python/">Python</a>
+    <a class="article-category-link" href="/categories/learning/">learning</a>
   </div>
 
   </div>
@@ -87,7 +86,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      tf使用方法
+      Jetson Xavier NX Jetpack安装
     </h1>
   
 
@@ -99,34 +98,33 @@
 
   <div id="toc" class="toc-article">
     <strong class="toc-title">article content</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#tf%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95"><span class="toc-number">1.</span> <span class="toc-text">tf基本用法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#tf%E8%AE%A1%E7%AE%97%E6%AD%A5%E9%AA%A4"><span class="toc-number">1.1.</span> <span class="toc-text">tf计算步骤</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Jetson-Xavier-NX-Jetpack%E5%AE%89%E8%A3%85"><span class="toc-number">1.</span> <span class="toc-text">Jetson Xavier NX Jetpack安装</span></a></li></ol>
   </div>
 
-        <h2 id="tf基本用法"><a href="#tf基本用法" class="headerlink" title="tf基本用法"></a>tf基本用法</h2><ul>
-<li>TensorFlow用数据流图(data flow graphs)进行数值计算，数据流图描述有向图中的数值计算过程。</li>
-<li>有向图用节点代表数学运算，边表示节点之间的联系，负责传输多维数据(Tensors)。</li>
-<li>节点可以被分配到多个计算设备上，执行异步和并行的操作；只有等到之前的节点的计算状态完成后，当前节点才能执行操作。</li>
+        <h3 id="Jetson-Xavier-NX-Jetpack安装"><a href="#Jetson-Xavier-NX-Jetpack安装" class="headerlink" title="Jetson Xavier NX Jetpack安装"></a>Jetson Xavier NX Jetpack安装</h3><ul>
+<li>JetPack SDK包括最新的Jetson Linux驱动程序包（L4T），具有Linux操作系统以及CUDA-X加速库和API。</li>
+<li>JetPack SDK还包括用于主机和开发人员套件的示例，文档和开发工具，并支持更高级别的SDK，例如用于流视频分析的DeepStream和用于机器人技术的Isaac。</li>
+<li>Jetson开发板安装JetPack 的方法总共有两种：1、SD卡镜像安装。2、使用NVIDIA SDK Manager安装，第一种更为简便。</li>
+<li>安装准备：<ul>
+<li>1、格式化后的64G SD卡。</li>
+<li>2、<a target="_blank" rel="noopener" href="https://developer.nvidia.com/jetson-nx-developer-kit-sd-card-image">Jetson Xavier NX Developer Kit SD卡镜像</a></li>
+<li>3、下载<a target="_blank" rel="noopener" href="https://www.balena.io/etcher">Etcher</a>，并安装</li>
 </ul>
-<h3 id="tf计算步骤"><a href="#tf计算步骤" class="headerlink" title="tf计算步骤"></a>tf计算步骤</h3><ul>
-<li><p>将计算流程表示成图； </p>
 </li>
-<li><p>通过Sessions来执行图计算； </p>
+<li>安装镜像：<ul>
+<li>一、将Jetson Xavier NX Developer Kit镜像写入SD卡。</li>
+<li>1、打开balenaEtcher软件，单击“Flash from file”按钮，选择下载的zip文件。</li>
+<li>2、单击“Select target”按钮，选择对应的SD卡。</li>
+<li>3、单击“Flash”按钮，等待传输完成（大概10分钟左右）。</li>
+</ul>
 </li>
-<li><p>将数据表示为tensors； </p>
-</li>
-<li><p>使用Variables来保持状态信息； </p>
-</li>
-<li><p>分别使用feeds和fetches来填充数据和抓取任意的操作结果。</p>
-</li>
-<li><p>在tf中</p>
-<ul>
-<li><pre><code>使用图(graph)来表示任务
-被称之为会话(Session)的上下文(context)中执行图
-使用tensor表示数据
-通过变量(Variable)维护状态
-使用feed和fetch可以为任意操作(arbitrary operation)赋值或者从其中获取数据
-<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 例子：生成三维数据，然后用一个平面拟合它：</span><br><span class="line"></span><br><span class="line">  * ~~~</span><br><span class="line">    import tensorflow as tf</span><br><span class="line">    import numpy as np</span><br><span class="line"></span><br><span class="line">    # 用 NumPy 随机生成 <span class="number">100</span> 个数据</span><br><span class="line">    x_data = np.float32(np.<span class="built_in">random</span>.rand(<span class="number">2</span>, <span class="number">100</span>)) #np的固定变量，在动态图执行时不变</span><br><span class="line">    y_data = np.dot([<span class="number">0.100</span>, <span class="number">0.200</span>], x_data) + <span class="number">0.300</span># 构造一个线性模型</span><br><span class="line">    b = tf.Variable(tf.zeros([<span class="number">1</span>]))</span><br><span class="line">    W = tf.Variable(tf.random_uniform([<span class="number">1</span>, <span class="number">2</span>], <span class="number">-1.0</span>, <span class="number">1.0</span>))</span><br><span class="line">    y = tf.matmul(W, x_data) + b</span><br><span class="line"></span><br><span class="line">    # 最小化方差</span><br><span class="line">    loss = tf.reduce_mean(tf.square(y - y_data))</span><br><span class="line">    optimizer = tf.train.GradientDescentOptimizer(<span class="number">0.5</span>)</span><br><span class="line">    train = optimizer.minimize(loss)</span><br><span class="line"></span><br><span class="line">    # 初始化变量</span><br><span class="line">    init = tf.global_variables_initializer()</span><br><span class="line">    #官网是tf.initialize_all_variables() 该函数将不再使用，在 <span class="number">2017</span>年#<span class="number">3</span>月<span class="number">2</span>号以后；用 tf.global_variables_initializer() 替代 #tf.initialize_all_variables()</span><br><span class="line">    # 启动图 (graph)</span><br><span class="line">    sess = tf.Session()</span><br><span class="line">    sess.run(init)</span><br><span class="line"></span><br><span class="line">    # 拟合平面</span><br><span class="line">    <span class="keyword">for</span> step <span class="keyword">in</span> xrange(<span class="number">0</span>, <span class="number">201</span>):</span><br><span class="line">        sess.run(train)</span><br><span class="line">        <span class="keyword">if</span> step % <span class="number">20</span> == <span class="number">0</span>:        </span><br><span class="line">        	<span class="built_in">print</span>(step, sess.run(W), sess.run(b))</span><br><span class="line">        </span><br><span class="line">    # 输出结果为：</span><br><span class="line">    <span class="number">0</span> <span class="string">[[-0.06302287  0.8480452 ]]</span> [<span class="number">0.02871008</span>]</span><br><span class="line">    <span class="number">20</span> <span class="string">[[0.11223048 0.32942632]]</span> [<span class="number">0.22313249</span>]</span><br><span class="line">    <span class="number">40</span> <span class="string">[[0.11314692 0.22914961]]</span> [<span class="number">0.2776536</span>]</span><br><span class="line">    <span class="number">60</span> <span class="string">[[0.10542101 0.2073079 ]]</span> [<span class="number">0.29336828</span>]</span><br><span class="line">    <span class="number">80</span> <span class="string">[[0.1018621  0.20198399]]</span> [<span class="number">0.2980105</span>]</span><br><span class="line">    <span class="number">100</span> <span class="string">[[0.10059794 0.20056652]]</span> [<span class="number">0.29939982</span>]</span><br><span class="line">    <span class="number">120</span> <span class="string">[[0.10018642 0.20016651]]</span> [<span class="number">0.29981843</span>]</span><br><span class="line">    <span class="number">140</span> <span class="string">[[0.10005732 0.20004971]]</span> [<span class="number">0.299945</span>]</span><br><span class="line">    <span class="number">160</span> <span class="string">[[0.1000175  0.20001495]]</span> [<span class="number">0.29998332</span>]</span><br><span class="line">    <span class="number">180</span> <span class="string">[[0.10000534 0.2000045 ]]</span> [<span class="number">0.29999495</span>]</span><br><span class="line">    <span class="number">200</span> <span class="string">[[0.10000162 0.20000136]]</span> [<span class="number">0.29999846</span>]</span><br></pre></td></tr></table></figure></code></pre>
-</li>
+<li>首次启动及设置：<ul>
+<li>1、将microSD卡（已写入JetPack映像）插入Jetson Xavier NX模块底部的插槽中。</li>
+<li>2、打开计算机显示屏的电源并连接它。</li>
+<li>3、连接USB键盘和鼠标。</li>
+<li>4、连接提供的电源。</li>
+<li>5、Jetson启动，跟随引导程序，一步步完成设置。</li>
+<li>6、登录后，完成安装。</li>
 </ul>
 </li>
 </ul>
@@ -135,10 +133,10 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/tf_basic/" data-id="ckjv3w9er00h66sdnd9ngeyow" class="article-share-link">Share</a>
+      <a data-url="http://wangxianggit.github.io/jetson_xavier_jetpack/" data-id="ckuowdftv00000kdn5hpwfc3v" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Tensorflow/" rel="tag">Tensorflow</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NVIDIA-Jetson/" rel="tag">NVIDIA Jetson</a></li></ul>
 
     </footer>
   </div>
@@ -146,19 +144,10 @@
     
 <nav id="article-nav">
   
-    <a href="/tensorboard/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          tf tensorboard
-        
-      </div>
-    </a>
   
-  
-    <a href="/tf_square/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/Jetson_Xavier_NX_install/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">tf函数tf.square</div>
+      <div class="article-nav-title">Jetson Xavier NX常用组件安装</div>
     </a>
   
 </nav>

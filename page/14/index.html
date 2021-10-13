@@ -67,6 +67,160 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-cmake_basic_gramma" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/cmake_basic_gramma/" class="article-date">
+  <time datetime="2019-12-06T06:07:33.000Z" itemprop="datePublished">2019-12-06</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/learning/">learning</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/cmake_basic_gramma/">cmake基础语法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+
+        <h2 id="cmake基础语法"><a href="#cmake基础语法" class="headerlink" title="cmake基础语法"></a>cmake基础语法</h2><ul>
+<li><p>cmake中的命令：COMMAND()</p>
+<ul>
+<li>CMake 构建过程的操作基本使用各种的命令完成</li>
+<li>示例：project(test),add_executable(hello hello.cpp)</li>
+</ul>
+</li>
+<li><p>条件判断 if()/endif()</p>
+<ul>
+<li><p>~~~<br>if(<condition>) </p>
+<commands> 
+elseif(<condition>) # optional block, can be repeated 
+<commands> 
+else() # optional block 
+<commands> 
+endif()
+<figure class="highlight gauss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  * <span class="keyword">if</span>() 和 <span class="keyword">endif</span>() 配对使用</span><br><span class="line"></span><br><span class="line">* 循环判断  <span class="built_in">foreach</span>()/<span class="keyword">while</span>()</span><br><span class="line"></span><br><span class="line">  * ~~~</span><br><span class="line">    <span class="built_in">foreach</span>(&lt;loop_var&gt; &lt;items&gt;)</span><br><span class="line">      &lt;commands&gt;</span><br><span class="line">    <span class="built_in">endforeach</span>()</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span>(&lt;condition&gt;)</span><br><span class="line">      &lt;commands&gt;</span><br><span class="line">    <span class="built_in">endwhile</span>()</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">break</span>() <span class="meta">#block</span></span><br><span class="line">    <span class="keyword">continue</span>() <span class="meta">#skip</span></span><br><span class="line">    <span class="keyword">return</span>()</span><br></pre></td></tr></table></figure></li>
+<li><p>items 是一个 list，里面的元素用分号 ; 或者空格分割开来</p>
+</li>
+<li><p>例如：<code>foreach(index A B C D)</code>或<code>foreach(index RANGE 9)</code></p>
+</li>
+</ul>
+<h3 id="设置变量-set-unset"><a href="#设置变量-set-unset" class="headerlink" title="设置变量 set()/unset()"></a>设置变量 set()/unset()</h3><ul>
+<li>CMake 的变量可以分为 普通变量、系统环境变量。</li>
+<li>set() 命令可以设置普通变量、系统环境变量、和缓存。</li>
+<li>设置普通的变量，将 value 的值赋值给 variable，后面的参数是可选的，代表有效域:<code>set(&lt;variable&gt; &lt;value&gt;... [PARENT_SCOPE])</code></li>
+<li>设置系统环境变量:<code>set(&lt;variable&gt; &lt;value&gt;... CACHE &lt;type&gt; &lt;docstring&gt; [FORCE])</code></li>
+<li>访问变量<code>$&#123;variable&#125;</code></li>
+</ul>
+<h3 id="cmake的list结构"><a href="#cmake的list结构" class="headerlink" title="cmake的list结构"></a>cmake的list结构</h3><ul>
+<li><pre><code>Reading 
+list(LENGTH &lt;list&gt; &lt;out-var&gt;) 
+list(GET &lt;list&gt; &lt;element index&gt; [&lt;index&gt; ...] &lt;out-var&gt;) 
+list(JOIN &lt;list&gt; &lt;glue&gt; &lt;out-var&gt;) 
+list(SUBLIST &lt;list&gt; &lt;begin&gt; &lt;length&gt; &lt;out-var&gt;) 
+
+Search 
+list(FIND &lt;list&gt; &lt;value&gt; &lt;out-var&gt;) 
+
+Modification 
+list(APPEND &lt;list&gt; [&lt;element&gt;...]) 
+list(FILTER &lt;list&gt; &#123;INCLUDE | EXCLUDE&#125; REGEX &lt;regex&gt;) 
+list(INSERT &lt;list&gt; &lt;index&gt; [&lt;element&gt;...]) 
+list(REMOVE_ITEM &lt;list&gt; &lt;value&gt;...) 
+list(REMOVE_AT &lt;list&gt; &lt;index&gt;...) 
+list(REMOVE_DUPLICATES &lt;list&gt;) 
+list(TRANSFORM &lt;list&gt; &lt;ACTION&gt; [...]) 
+
+Ordering 
+list(REVERSE &lt;list&gt;) 
+list(SORT &lt;list&gt; [...])
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### cmake读写文件：</span><br><span class="line"></span><br><span class="line">* ~~~</span><br><span class="line">  Reading </span><br><span class="line">  <span class="keyword">file</span>(READ <span class="symbol">&lt;filename&gt;</span> <span class="symbol">&lt;out-var&gt;</span> [...]) </span><br><span class="line">  <span class="keyword">file</span>(STRINGS <span class="symbol">&lt;filename&gt;</span> <span class="symbol">&lt;out-var&gt;</span> [...]) </span><br><span class="line">  <span class="keyword">file</span>(<span class="symbol">&lt;HASH&gt;</span> <span class="symbol">&lt;filename&gt;</span> <span class="symbol">&lt;out-var&gt;</span>) </span><br><span class="line">  <span class="keyword">file</span>(TIMESTAMP <span class="symbol">&lt;filename&gt;</span> <span class="symbol">&lt;out-var&gt;</span> [...]) </span><br><span class="line">  </span><br><span class="line">  Writing </span><br><span class="line">  <span class="keyword">file</span>(&#123;WRITE | APPEND&#125; <span class="symbol">&lt;filename&gt;</span> <span class="symbol">&lt;content&gt;</span>...) </span><br><span class="line">  <span class="keyword">file</span>(&#123;TOUCH | TOUCH_NOCREATE&#125; [<span class="symbol">&lt;file&gt;</span>...]) </span><br><span class="line">  <span class="keyword">file</span>(GENERATE OUTPUT <span class="symbol">&lt;output-file&gt;</span> [...]) Filesystem </span><br><span class="line">  <span class="keyword">file</span>(&#123;GLOB | GLOB_RECURSE&#125; <span class="symbol">&lt;out-var&gt;</span> [...] [<span class="symbol">&lt;globbing-expr&gt;</span>...]) <span class="keyword">file</span>(RENAME <span class="symbol">&lt;oldname&gt;</span> <span class="symbol">&lt;newname&gt;</span>) </span><br><span class="line">  <span class="keyword">file</span>(&#123;REMOVE | REMOVE_RECURSE &#125; [<span class="symbol">&lt;files&gt;</span>...]) </span><br><span class="line">  <span class="keyword">file</span>(MAKE_DIRECTORY [<span class="symbol">&lt;dir&gt;</span>...]) </span><br><span class="line">  <span class="keyword">file</span>(&#123;COPY | INSTALL&#125; <span class="symbol">&lt;file&gt;</span>... DESTINATION <span class="symbol">&lt;dir&gt;</span> [...]) </span><br><span class="line">  <span class="keyword">file</span>(SIZE <span class="symbol">&lt;filename&gt;</span> <span class="symbol">&lt;out-var&gt;</span>) </span><br><span class="line">  <span class="keyword">file</span>(READ_SYMLINK <span class="symbol">&lt;linkname&gt;</span> <span class="symbol">&lt;out-var&gt;</span>) </span><br><span class="line">  <span class="keyword">file</span>(CREATE_LINK <span class="symbol">&lt;original&gt;</span> <span class="symbol">&lt;linkname&gt;</span> [...]) </span><br><span class="line">  </span><br><span class="line">  Path Conversion </span><br><span class="line">  <span class="keyword">file</span>(RELATIVE_PATH <span class="symbol">&lt;out-var&gt;</span> <span class="symbol">&lt;directory&gt;</span> <span class="symbol">&lt;file&gt;</span>) </span><br><span class="line">  <span class="keyword">file</span>(&#123;TO_CMAKE_PATH | TO_NATIVE_PATH&#125; <span class="symbol">&lt;path&gt;</span> <span class="symbol">&lt;out-var&gt;</span>) </span><br><span class="line">  </span><br><span class="line">  Transfer </span><br><span class="line">  <span class="keyword">file</span>(DOWNLOAD <span class="symbol">&lt;url&gt;</span> <span class="symbol">&lt;file&gt;</span> [...]) </span><br><span class="line">  <span class="keyword">file</span>(UPLOAD <span class="symbol">&lt;file&gt;</span> <span class="symbol">&lt;url&gt;</span> [...]) </span><br><span class="line">  </span><br><span class="line">  Locking </span><br><span class="line">  <span class="keyword">file</span>(LOCK <span class="symbol">&lt;path&gt;</span> [...])</span><br></pre></td></tr></table></figure>
+### 字符串操作</code></pre>
+</li>
+<li><pre><code>Search and Replace 
+string(FIND &lt;string&gt; &lt;substring&gt; &lt;out-var&gt; [...]) 
+string(REPLACE &lt;match-string&gt; &lt;replace-string&gt; &lt;out-var&gt; &lt;input&gt;...) 
+
+Regular Expressions 
+string(REGEX MATCH &lt;match-regex&gt; &lt;out-var&gt; &lt;input&gt;...) 
+string(REGEX MATCHALL &lt;match-regex&gt; &lt;out-var&gt; &lt;input&gt;...) 
+string(REGEX REPLACE &lt;match-regex&gt; &lt;replace-expr&gt; &lt;out-var&gt; &lt;input&gt;...) 
+
+Manipulation 
+string(APPEND &lt;string-var&gt; [&lt;input&gt;...]) 
+string(PREPEND &lt;string-var&gt; [&lt;input&gt;...]) 
+string(CONCAT &lt;out-var&gt; [&lt;input&gt;...]) 
+string(JOIN &lt;glue&gt; &lt;out-var&gt; [&lt;input&gt;...]) 
+string(TOLOWER &lt;string1&gt; &lt;out-var&gt;) 
+string(TOUPPER &lt;string1&gt; &lt;out-var&gt;) 
+string(LENGTH &lt;string&gt; &lt;out-var&gt;) 
+string(SUBSTRING &lt;string&gt; &lt;begin&gt; &lt;length&gt; &lt;out-var&gt;) 
+string(STRIP &lt;string&gt; &lt;out-var&gt;) 
+string(GENEX_STRIP &lt;string&gt; &lt;out-var&gt;) 
+
+Comparison 
+string(COMPARE &lt;op&gt; &lt;string1&gt; &lt;string2&gt; &lt;out-var&gt;) 
+
+Hashing 
+string(&lt;HASH&gt; &lt;out-var&gt; &lt;input&gt;) 
+
+Generation 
+string(ASCII &lt;number&gt;... &lt;out-var&gt;) 
+string(CONFIGURE &lt;string1&gt; &lt;out-var&gt; [...]) 
+string(MAKE_C_IDENTIFIER &lt;string&gt; &lt;out-var&gt;) 
+string(RANDOM [&lt;option&gt;...] &lt;out-var&gt;) 
+string(TIMESTAMP &lt;out-var&gt; [&lt;format string&gt;] [UTC]) 
+string(UUID &lt;out-var&gt; ...)</code></pre>
+</li>
+</ul>
+<h3 id="终端打印信息"><a href="#终端打印信息" class="headerlink" title="终端打印信息"></a>终端打印信息</h3><ul>
+<li><code>message([&lt;mode&gt;] &quot;message to display&quot; ...)</code></li>
+<li>支持的类型有：<ul>
+<li>none</li>
+<li>STATUS</li>
+<li>WARNING</li>
+<li>AUTHOR_WARNING</li>
+<li>SEND_ERROR</li>
+<li>FATAL_ERROR</li>
+<li>DEPRECATION</li>
+</ul>
+</li>
+</ul>
+<h3 id="数学运算"><a href="#数学运算" class="headerlink" title="数学运算"></a>数学运算</h3><ul>
+<li><code>math(EXPR &lt;variable&gt; &quot;&lt;expression&gt;&quot; [OUTPUT_FORMAT &lt;format&gt;])</code></li>
+<li>计算数学表达是 experssion，然后将结果保存在 variable 中，后面是指定的格式为 10 进制还是 16 进制。</li>
+</ul>
+</li>
+</ul>
+<hr>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wangxianggit.github.io/cmake_basic_gramma/" data-id="ckjv3w9d800ae6sdnh5gw7v7a" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cmake/" rel="tag">cmake</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-cmake_order" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/cmake_order/" class="article-date">
@@ -351,61 +505,6 @@ df.fillna(method=&#39;bfill&#39;,axis=1)</code></pre>
 
 
   
-    <article id="post-keras_epoch_batch" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/keras_epoch_batch/" class="article-date">
-  <time datetime="2019-10-02T10:09:34.000Z" itemprop="datePublished">2019-10-02</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Python/">Python</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/keras_epoch_batch/">keras框架参数epoch,batch_size</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-
-        <h2 id="keras框架参数epoch-batch-size"><a href="#keras框架参数epoch-batch-size" class="headerlink" title="keras框架参数epoch,batch_size"></a>keras框架参数epoch,batch_size</h2><ul>
-<li>epochs指的就是训练过程中数据将被“轮”多少次，即所有训练数据仅仅参与一次不够，需要多次参与训练达到loss下降的要求。</li>
-<li>batch，梯度下降每次的参数更新有两种方式：<ul>
-<li>第一种，遍历全部数据集算一次损失函数，然后算函数对各个参数的梯度，更新梯度。这种方法每更新一次参数都要把数据集里的所有样本都看一遍，计算量开销大，计算速度慢，不支持在线学习，这称为Batch gradient descent，批梯度下降。</li>
-<li>另一种，每看一个数据就算一下损失函数，然后求梯度更新参数，这个称为随机梯度下降，stochastic gradient descent。这个方法速度比较快，但是收敛性能不太好，可能在最优点附近晃来晃去，hit不到最优点。两次参数的更新也有可能互相抵消掉，造成目标函数震荡的比较剧烈。</li>
-</ul>
-</li>
-<li>为了克服两种方法的缺点，现在一般采用的是一种折中手段，mini-batch gradient decent，小批的梯度下降，这种方法把数据分为若干个批，按批来更新参数，这样，一个批中的一组数据共同决定了本次梯度的方向，下降起来就不容易跑偏，减少了随机性。另一方面因为批的样本数与整个数据集相比小了很多，计算量也不是很大。</li>
-<li>基本上现在的梯度下降都是基于mini-batch的，所以Keras的模块中经常会出现batch_size，就是指计算一次梯度下降所用到的样本数。</li>
-</ul>
-<hr>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/keras_epoch_batch/" data-id="ckjv3w9dt00d46sdn2d6of2ra" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/keras/" rel="tag">keras</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
@@ -458,7 +557,7 @@ df.fillna(method=&#39;bfill&#39;,axis=1)</code></pre>
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Algorithm/" style="font-size: 11.18px;">Algorithm</a> <a href="/tags/Altium-Designer/" style="font-size: 14.12px;">Altium Designer</a> <a href="/tags/Apache/" style="font-size: 11.18px;">Apache</a> <a href="/tags/BeautifulSoup/" style="font-size: 10px;">BeautifulSoup</a> <a href="/tags/C/" style="font-size: 15.29px;">C</a> <a href="/tags/C/" style="font-size: 18.24px;">C++</a> <a href="/tags/Centos7/" style="font-size: 18.82px;">Centos7</a> <a href="/tags/Cython/" style="font-size: 10px;">Cython</a> <a href="/tags/Database/" style="font-size: 15.29px;">Database</a> <a href="/tags/Electronic/" style="font-size: 12.94px;">Electronic</a> <a href="/tags/English/" style="font-size: 11.76px;">English</a> <a href="/tags/Geant4/" style="font-size: 10.59px;">Geant4</a> <a href="/tags/Hardware/" style="font-size: 10px;">Hardware</a> <a href="/tags/Hexo/" style="font-size: 13.53px;">Hexo</a> <a href="/tags/Image/" style="font-size: 11.76px;">Image</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Jupyter/" style="font-size: 10px;">Jupyter</a> <a href="/tags/Linux/" style="font-size: 19.41px;">Linux</a> <a href="/tags/Markdown/" style="font-size: 15.88px;">Markdown</a> <a href="/tags/NVIDIA-Jetson/" style="font-size: 10.59px;">NVIDIA Jetson</a> <a href="/tags/Nuclear-Physics/" style="font-size: 11.18px;">Nuclear Physics</a> <a href="/tags/Open/" style="font-size: 10px;">Open</a> <a href="/tags/Opencv/" style="font-size: 11.76px;">Opencv</a> <a href="/tags/Program/" style="font-size: 17.65px;">Program</a> <a href="/tags/PyPI/" style="font-size: 10px;">PyPI</a> <a href="/tags/Py-Crawler/" style="font-size: 10.59px;">Py_Crawler</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/Random/" style="font-size: 10px;">Random</a> <a href="/tags/Resource/" style="font-size: 10.59px;">Resource</a> <a href="/tags/Root/" style="font-size: 10.59px;">Root</a> <a href="/tags/Scipy/" style="font-size: 10px;">Scipy</a> <a href="/tags/Shell/" style="font-size: 16.47px;">Shell</a> <a href="/tags/Solidwork/" style="font-size: 10.59px;">Solidwork</a> <a href="/tags/TTree/" style="font-size: 10px;">TTree</a> <a href="/tags/Tensorflow/" style="font-size: 15.29px;">Tensorflow</a> <a href="/tags/Thread/" style="font-size: 10px;">Thread</a> <a href="/tags/Urllib2/" style="font-size: 10px;">Urllib2</a> <a href="/tags/Virtual-memory/" style="font-size: 10px;">Virtual memory</a> <a href="/tags/cmake/" style="font-size: 12.35px;">cmake</a> <a href="/tags/cmd/" style="font-size: 10.59px;">cmd</a> <a href="/tags/data-structure/" style="font-size: 10.59px;">data structure</a> <a href="/tags/git/" style="font-size: 12.94px;">git</a> <a href="/tags/hexo/" style="font-size: 11.18px;">hexo</a> <a href="/tags/htop/" style="font-size: 10px;">htop</a> <a href="/tags/keras/" style="font-size: 10.59px;">keras</a> <a href="/tags/latex/" style="font-size: 14.71px;">latex</a> <a href="/tags/os/" style="font-size: 10px;">os</a> <a href="/tags/qt/" style="font-size: 10px;">qt</a> <a href="/tags/requests/" style="font-size: 10px;">requests</a> <a href="/tags/sk-learn/" style="font-size: 10px;">sk-learn</a> <a href="/tags/ssh/" style="font-size: 12.35px;">ssh</a> <a href="/tags/statistic/" style="font-size: 10px;">statistic</a> <a href="/tags/ubuntu/" style="font-size: 10px;">ubuntu</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/wiki/" style="font-size: 12.35px;">wiki</a> <a href="/tags/windows/" style="font-size: 17.06px;">windows</a> <a href="/tags/yolo%EF%BC%8CC/" style="font-size: 10px;">yolo，C</a>
+      <a href="/tags/Algorithm/" style="font-size: 11.18px;">Algorithm</a> <a href="/tags/Altium-Designer/" style="font-size: 14.12px;">Altium Designer</a> <a href="/tags/Apache/" style="font-size: 11.18px;">Apache</a> <a href="/tags/BeautifulSoup/" style="font-size: 10px;">BeautifulSoup</a> <a href="/tags/C/" style="font-size: 15.29px;">C</a> <a href="/tags/C/" style="font-size: 18.24px;">C++</a> <a href="/tags/Centos7/" style="font-size: 18.82px;">Centos7</a> <a href="/tags/Cython/" style="font-size: 10px;">Cython</a> <a href="/tags/Database/" style="font-size: 15.29px;">Database</a> <a href="/tags/Electronic/" style="font-size: 12.94px;">Electronic</a> <a href="/tags/English/" style="font-size: 11.76px;">English</a> <a href="/tags/Geant4/" style="font-size: 10.59px;">Geant4</a> <a href="/tags/Hardware/" style="font-size: 10px;">Hardware</a> <a href="/tags/Hexo/" style="font-size: 13.53px;">Hexo</a> <a href="/tags/Image/" style="font-size: 11.76px;">Image</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Jupyter/" style="font-size: 10px;">Jupyter</a> <a href="/tags/Linux/" style="font-size: 19.41px;">Linux</a> <a href="/tags/Markdown/" style="font-size: 15.88px;">Markdown</a> <a href="/tags/NVIDIA-Jetson/" style="font-size: 11.18px;">NVIDIA Jetson</a> <a href="/tags/Nuclear-Physics/" style="font-size: 11.18px;">Nuclear Physics</a> <a href="/tags/Open/" style="font-size: 10px;">Open</a> <a href="/tags/Opencv/" style="font-size: 11.76px;">Opencv</a> <a href="/tags/Program/" style="font-size: 17.65px;">Program</a> <a href="/tags/PyPI/" style="font-size: 10px;">PyPI</a> <a href="/tags/Py-Crawler/" style="font-size: 10.59px;">Py_Crawler</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/Random/" style="font-size: 10px;">Random</a> <a href="/tags/Resource/" style="font-size: 10.59px;">Resource</a> <a href="/tags/Root/" style="font-size: 10.59px;">Root</a> <a href="/tags/Scipy/" style="font-size: 10px;">Scipy</a> <a href="/tags/Shell/" style="font-size: 16.47px;">Shell</a> <a href="/tags/Solidwork/" style="font-size: 10.59px;">Solidwork</a> <a href="/tags/TTree/" style="font-size: 10px;">TTree</a> <a href="/tags/Tensorflow/" style="font-size: 15.29px;">Tensorflow</a> <a href="/tags/Thread/" style="font-size: 10px;">Thread</a> <a href="/tags/Urllib2/" style="font-size: 10px;">Urllib2</a> <a href="/tags/Virtual-memory/" style="font-size: 10px;">Virtual memory</a> <a href="/tags/cmake/" style="font-size: 12.35px;">cmake</a> <a href="/tags/cmd/" style="font-size: 10.59px;">cmd</a> <a href="/tags/data-structure/" style="font-size: 10.59px;">data structure</a> <a href="/tags/git/" style="font-size: 12.94px;">git</a> <a href="/tags/hexo/" style="font-size: 11.18px;">hexo</a> <a href="/tags/htop/" style="font-size: 10px;">htop</a> <a href="/tags/keras/" style="font-size: 10.59px;">keras</a> <a href="/tags/latex/" style="font-size: 14.71px;">latex</a> <a href="/tags/os/" style="font-size: 10px;">os</a> <a href="/tags/qt/" style="font-size: 10px;">qt</a> <a href="/tags/requests/" style="font-size: 10px;">requests</a> <a href="/tags/sk-learn/" style="font-size: 10px;">sk-learn</a> <a href="/tags/ssh/" style="font-size: 12.35px;">ssh</a> <a href="/tags/statistic/" style="font-size: 10px;">statistic</a> <a href="/tags/ubuntu/" style="font-size: 10px;">ubuntu</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/wiki/" style="font-size: 12.35px;">wiki</a> <a href="/tags/windows/" style="font-size: 17.06px;">windows</a> <a href="/tags/yolo%EF%BC%8CC/" style="font-size: 10px;">yolo，C</a>
     </div>
   </div>
 
@@ -480,6 +579,10 @@ df.fillna(method=&#39;bfill&#39;,axis=1)</code></pre>
       <ul>
         
           <li>
+            <a href="/jetson_xavier_jetpack/">Jetson Xavier NX Jetpack安装</a>
+          </li>
+        
+          <li>
             <a href="/Jetson_Xavier_NX_install/">Jetson Xavier NX常用组件安装</a>
           </li>
         
@@ -493,10 +596,6 @@ df.fillna(method=&#39;bfill&#39;,axis=1)</code></pre>
         
           <li>
             <a href="/latex_upcite/">latex在右上角引用参考文献</a>
-          </li>
-        
-          <li>
-            <a href="/mediawiki_upload_office/">mediawiki上传office相关文件</a>
           </li>
         
       </ul>

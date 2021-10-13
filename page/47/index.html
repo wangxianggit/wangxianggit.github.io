@@ -67,6 +67,55 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Centos7_modified_add_yum_variables" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/Centos7_modified_add_yum_variables/" class="article-date">
+  <time datetime="2018-07-23T13:41:07.000Z" itemprop="datePublished">2018-07-23</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/learning/">learning</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/Centos7_modified_add_yum_variables/">Centos7修改添加yum变量</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+
+        <ul>
+<li>Centos yum变量保存目录路径：/etc/yum/vars</li>
+<li>其中文件名是变量名，文件内容是变量的值</li>
+<li>例如在目录下建立一个文件，文件名为basearch，文件内容为x86_64,则yum文件在自动搜索域名时能够将变量名转换为设定字符。</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wangxianggit.github.io/Centos7_modified_add_yum_variables/" data-id="ckjv3w9b5001s6sdnbvc108jh" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Centos7/" rel="tag">Centos7</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-C_C++_mixed_compile" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/C_C++_mixed_compile/" class="article-date">
@@ -461,148 +510,6 @@ SYMBOL TABLE:
 
 
   
-    <article id="post-Jupyter_notebook_tutorial" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/Jupyter_notebook_tutorial/" class="article-date">
-  <time datetime="2018-04-25T23:28:54.000Z" itemprop="datePublished">2018-04-26</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/learning/">learning</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/Jupyter_notebook_tutorial/">Jupyter notebook tutorial</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-
-        <hr>
-<ul>
-<li>参考链接：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/nxld/p/6566380.html">https://www.cnblogs.com/nxld/p/6566380.html</a></li>
-</ul>
-<ul>
-<li><p>Jupyter Notebook（此前被称为 IPython notebook）是一个交互式笔记本，支持运行 40 多种编程语言。在本文中，将介绍 Jupyter notebook 的主要特性，以及为什么对于希望编写漂亮的交互式文档的人来说是一个强大工具。</p>
-</li>
-<li><p>安装Jupyter notebook 可以安装anaconda或者在python终端下完成命令pip install jupyter notebook 或 easy_install jupyter notebook。启动Jupyter后可以看到相应主界面。</p>
-<p><img src="Jupyter_notebook_tutorial/py1.JPG"></p>
-<p>​</p>
-</li>
-<li><p>如果想新建一个notebook，只需要点击New，并选择希望启动的类型即可。因为有一个 Python 内核，所以可以运行一个 Python notebook。在新打开的标签页中，会看到 notebook 界面。</p>
-<p><img src="Jupyter_notebook_tutorial/py2.JPG"></p>
-</li>
-<li><p>notebook 界面由以下部分组成：</p>
-<ol>
-<li>notebook 的名称</li>
-<li>主工具栏，提供了保存、导出、重载 notebook，以及重启内核等选项</li>
-<li>快捷键</li>
-<li>notebook 主要区域，包含了 notebook 的内容编辑区</li>
-</ol>
-</li>
-<li><p>下方截图中看到的是一个代码单元格（code cell），以<code>[ ]</code>开头。在这种类型的单元格中，可以输入任意代码并执行。例如，输入<code>1 + 2</code>并按下<code>Shift + Enter</code>。之后，单元格中的代码就会被计算，光标也会被移动动一个新的单元格中。你会得到如下结果：</p>
-<p><img src="Jupyter_notebook_tutorial/py3.JPG"></p>
-</li>
-<li><p>根据绿色边框线，我们可以轻松地识别出当前工作的单元格。接下来，我们在第二个单元格中输入些其他代码，例如：</p>
-<figure class="highlight isbl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">for</span> <span class="variable">i</span> <span class="variable"><span class="keyword">in</span></span> <span class="function"><span class="title">range</span>(<span class="number">5</span>):</span></span><br><span class="line"><span class="function">    <span class="title">print</span>(<span class="variable">i</span>)</span></span><br></pre></td></tr></table></figure>
-<p><img src="Jupyter_notebook_tutorial/py4.JPG"></p>
-<ul>
-<li>和前一个示例一样，代码被计算之后，马上就会显示结果。你应该注意到了，这次没有出现类似<code>Out[2]</code>这样的文字。这是因为我们将结果打印出来了，没有返回任何的值。</li>
-</ul>
-</li>
-<li><p>notebook 有一个非常有趣的特性，就是可以修改之前的单元格，对其重新计算，这样就可以更新整个文档了。试着把光标移回第一个单元格，并将<code>1 + 2</code>修改成<code>2 + 3</code>，然后按下<code>Shift + Enter</code>重新计算该单元格。你会发现结果马上就更新成了 5。如果你不想重新运行整个脚本，只想用不同的参数测试某个程式的话，这个特性显得尤其强大。不过，你也可以重新计算整个 notebook，只要点击<code>Cell</code> -&gt; <code>Run all</code>即可。</p>
-</li>
-<li><p>现在我们已经知道了如何输入代码，为什么不尝试着让这个 notebook 更加漂亮、内容更丰富？为此，我们需要使用其他类型的单元格，即 Header单元格和 Markdown单元格。</p>
-</li>
-<li><p>首先，我们在顶部添加一个 notebook 的标题。选中第一个单元格，然后点击<code>Insert</code> -&gt; <code>Insert单元格above</code>（在上方插入单元格）。你会发现，文档的顶部马上就出现了一个新的单元格。点击在快捷键栏中的单元格类型，将其变成一个标题单元格（heading cell）：</p>
-<p><img src="Jupyter_notebook_tutorial/py5.JPG"></p>
-<p>这个单元格以<code>#</code>标记开头，意味着这是一个一级标题。如果需要子标题，可以使用以下标记表示（改变单元格类型时弹出消息中有解释）：</p>
-<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># : 一级标题</span><br><span class="line">## : 二级标题</span><br><span class="line">### : 三级标题</span><br><span class="line">...</span><br></pre></td></tr></table></figure></li>
-<li><p>在<code>#</code>之后写下文档的标题，然后计算该单元格。你会发现一个样式非常好看的标题。作为示例和练习，添加了其他几个标题单元格：</p>
-<p><img src="Jupyter_notebook_tutorial/py6.JPG"></p>
-<p>​</p>
-</li>
-<li><p>添加好标题之后，我们在编写一些解释，介绍每个代码单元格中的情况。为此，我们要在相应的地方插入单元格，然后将其类型变成 Markdown。然后，计算新的单元格。就这样，你的解释文本就漂亮地渲染出来了！</p>
-<p><img src="Jupyter_notebook_tutorial/py7.JPG"></p>
-</li>
-<li><p>最后，你可以重命名该 notebook，点击<code>File</code> -&gt; <code>Rename</code>，然后输入新的名称。这样，新的名称将会出现在窗口的左上角，在 Jupyter 的标志旁边。</p>
-</li>
-</ul>
-<h3 id="单元格操作"><a href="#单元格操作" class="headerlink" title="单元格操作"></a>单元格操作</h3><p>高级单元格操作，将让编写 notebook 变得更加方便。举例如下：</p>
-<ul>
-<li>如果想删除某个单元格，可以选择该单元格，然后依次点击<code>Edit</code> -&gt; <code>Delete Cell</code>；</li>
-<li>如果想移动某个单元格，只需要依次点击<code>Edit</code> -&gt; <code>Move cell [up | down]</code>；</li>
-<li>如果想剪贴某个单元测，可以先点击<code>Edit</code> -&gt; <code>Cut Cell</code>，然后在点击<code>Edit</code> -&gt; <code>Paste Cell [Above | Below]</code>；</li>
-<li>如果你的 notebook 中有很多单元格只需要执行一次，或者想一次性执行大段代码，那么可以选择合并这些单元格。点击<code>Edit</code> -&gt; <code>Merge Cell [Above | below]</code>。</li>
-</ul>
-<p>记住这些操作，它们可以帮助你节省许多时间。</p>
-<h3 id="Markdown-单元格高级用法"><a href="#Markdown-单元格高级用法" class="headerlink" title="Markdown 单元格高级用法"></a>Markdown 单元格高级用法</h3><ul>
-<li><p>我们再来看看 Markdown 单元格。虽然它的类型是 markdown，但是这类单元格也接受 HTML 代码。这样，你就可以在单元格类实现更加丰富的样式，添加图片，等等。例如，如果想在 notebook 中添加 Jupyter 的 logo，将其大小设置为 100px x 100px，并且放置在单元格左侧，可以这样编写：</p>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;img <span class="attribute">src</span>=<span class="string">&quot;http://blog.jupyter.org/content/images/2015/02/jupyter-sq-text.png&quot;</span></span><br><span class="line"><span class="attribute">style</span>=<span class="string">&quot;width:100px;height:100px;float:left&quot;</span>&gt;</span><br></pre></td></tr></table></figure></li>
-<li><p>计算该单元格之后，会出现这样的结果：</p>
-<p><img src="Jupyter_notebook_tutorial/py8.JPG"></p>
-</li>
-<li><p>另外，markdown 单元格还支持 LaTex 语法。例如：</p>
-<figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">$</span><span class="symbol">$</span>\int_0^&#123;+\infty&#125; x^<span class="number">2</span> dx<span class="symbol">$</span><span class="symbol">$</span></span><br></pre></td></tr></table></figure>
-<h3 id="导出功能"><a href="#导出功能" class="headerlink" title="导出功能"></a>导出功能</h3></li>
-</ul>
-<p>notebook 还有一个强大的特性，就是其导出功能。可以将 notebook 导出为多种格式：</p>
-<ul>
-<li>HTML</li>
-<li>Markdown</li>
-<li>ReST</li>
-<li>PDF（通过 LaTeX）</li>
-<li>Raw Python</li>
-</ul>
-<p>导出 PDF 功能，可以让你不用写 LaTex 即可创建漂亮的 PDF 文档。你还可以将 notebook 作为网页发布在你的网站上。甚至，你可以导出为 ReST 格式，作为软件库的文档。</p>
-<h3 id="Matplotlib集成"><a href="#Matplotlib集成" class="headerlink" title="Matplotlib集成"></a>Matplotlib集成</h3><ul>
-<li>如果你用 Python 绘制过图形，那你肯定知道 matplotlib。Matplotlib 是一个用于创建漂亮图形的 Python 库，结合 Jupyter notebook 使用时体验更佳。要想在 Jupyter notebook 中使用 matplotlib，需要告诉 Jupyter 获取 matplotlib 生成的所有图形，并将其嵌入 notebook 中。为此，需要计算：</li>
-</ul>
-<figure class="highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">%<span class="selector-tag">matplotlib</span></span> inline</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>译注：要想执行成功，需要先<code>pip install matplotlib</code>。</p>
-</blockquote>
-<ul>
-<li>运行这个指令可能要花个几秒钟，但是在 notebook 中需要执行一次即可。接下来，我们来绘制一个图形，看看具体的集成效果：</li>
-</ul>
-<figure class="highlight elm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="title">x</span> = np.arange(<span class="number">20</span>)</span><br><span class="line"><span class="title">y</span> = x**<span class="number">2</span></span><br><span class="line"></span><br><span class="line"><span class="title">plt</span>.plot(x, y)</span><br></pre></td></tr></table></figure>
-<p><img src="Jupyter_notebook_tutorial/py9.JPG"></p>
-<ul>
-<li>我们看到，绘制出的图形直接添加在了 notebook 中，就在代码的下面。我们可以之后修改代码，重新计算，这时图形也会动态更新。这是每个数据科学家都想要的一个特性：将代码和图片放在同一个文件中，清楚地看出每段代码的效果。</li>
-</ul>
-<h2 id="非本地内核"><a href="#非本地内核" class="headerlink" title="非本地内核"></a>非本地内核</h2><p>我们可以非常容易地在一台电脑上启动 Jupyter，而且支持多人通过网络连接同一个 Jupyter 实例。在上一篇文章中，你有没有注意启动 Jupyter 时出现过这样一段话：</p>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">The IPython Notebook is running <span class="attr">at:</span> <span class="attr">http:</span><span class="comment">//localhost:8888/</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>这意味着，你的 notebook 是本地运行的，可以在浏览器上打开 <a target="_blank" rel="noopener" href="http://localhost:8888/">http://localhost:8888/</a> ，从而访问 notebook。你也可以修改下配置，让该 notebook 可以被公开访问。这样，任何知道 notebook 地址的人都可以连接到 notebook 进行远程修改。</p>
-<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>从这两篇快速入门介绍中，我们可以看到：Jupyter notebook 是一个非常强大的工具，可以创建漂亮的交互式文档，制作教学材料，等等。建议你马上开始使用 Jupyter notebook，探索更多 notebook 的强大功能。</p>
-<p> 链接来自：<a target="_blank" rel="noopener" href="https://www.packtpub.com/books/content/getting-started-jupyter-notebook-part-1">https://www.packtpub.com/books/content/getting-started-jupyter-notebook-part-1</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.packtpub.com/books/content/getting-started-jupyter-notebook-part-2">https://www.packtpub.com/books/content/getting-started-jupyter-notebook-part-2</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/Jupyter_notebook_tutorial/" data-id="ckjv3w9bo00406sdn9vvm8h96" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
@@ -655,7 +562,7 @@ SYMBOL TABLE:
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Algorithm/" style="font-size: 11.18px;">Algorithm</a> <a href="/tags/Altium-Designer/" style="font-size: 14.12px;">Altium Designer</a> <a href="/tags/Apache/" style="font-size: 11.18px;">Apache</a> <a href="/tags/BeautifulSoup/" style="font-size: 10px;">BeautifulSoup</a> <a href="/tags/C/" style="font-size: 15.29px;">C</a> <a href="/tags/C/" style="font-size: 18.24px;">C++</a> <a href="/tags/Centos7/" style="font-size: 18.82px;">Centos7</a> <a href="/tags/Cython/" style="font-size: 10px;">Cython</a> <a href="/tags/Database/" style="font-size: 15.29px;">Database</a> <a href="/tags/Electronic/" style="font-size: 12.94px;">Electronic</a> <a href="/tags/English/" style="font-size: 11.76px;">English</a> <a href="/tags/Geant4/" style="font-size: 10.59px;">Geant4</a> <a href="/tags/Hardware/" style="font-size: 10px;">Hardware</a> <a href="/tags/Hexo/" style="font-size: 13.53px;">Hexo</a> <a href="/tags/Image/" style="font-size: 11.76px;">Image</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Jupyter/" style="font-size: 10px;">Jupyter</a> <a href="/tags/Linux/" style="font-size: 19.41px;">Linux</a> <a href="/tags/Markdown/" style="font-size: 15.88px;">Markdown</a> <a href="/tags/NVIDIA-Jetson/" style="font-size: 10.59px;">NVIDIA Jetson</a> <a href="/tags/Nuclear-Physics/" style="font-size: 11.18px;">Nuclear Physics</a> <a href="/tags/Open/" style="font-size: 10px;">Open</a> <a href="/tags/Opencv/" style="font-size: 11.76px;">Opencv</a> <a href="/tags/Program/" style="font-size: 17.65px;">Program</a> <a href="/tags/PyPI/" style="font-size: 10px;">PyPI</a> <a href="/tags/Py-Crawler/" style="font-size: 10.59px;">Py_Crawler</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/Random/" style="font-size: 10px;">Random</a> <a href="/tags/Resource/" style="font-size: 10.59px;">Resource</a> <a href="/tags/Root/" style="font-size: 10.59px;">Root</a> <a href="/tags/Scipy/" style="font-size: 10px;">Scipy</a> <a href="/tags/Shell/" style="font-size: 16.47px;">Shell</a> <a href="/tags/Solidwork/" style="font-size: 10.59px;">Solidwork</a> <a href="/tags/TTree/" style="font-size: 10px;">TTree</a> <a href="/tags/Tensorflow/" style="font-size: 15.29px;">Tensorflow</a> <a href="/tags/Thread/" style="font-size: 10px;">Thread</a> <a href="/tags/Urllib2/" style="font-size: 10px;">Urllib2</a> <a href="/tags/Virtual-memory/" style="font-size: 10px;">Virtual memory</a> <a href="/tags/cmake/" style="font-size: 12.35px;">cmake</a> <a href="/tags/cmd/" style="font-size: 10.59px;">cmd</a> <a href="/tags/data-structure/" style="font-size: 10.59px;">data structure</a> <a href="/tags/git/" style="font-size: 12.94px;">git</a> <a href="/tags/hexo/" style="font-size: 11.18px;">hexo</a> <a href="/tags/htop/" style="font-size: 10px;">htop</a> <a href="/tags/keras/" style="font-size: 10.59px;">keras</a> <a href="/tags/latex/" style="font-size: 14.71px;">latex</a> <a href="/tags/os/" style="font-size: 10px;">os</a> <a href="/tags/qt/" style="font-size: 10px;">qt</a> <a href="/tags/requests/" style="font-size: 10px;">requests</a> <a href="/tags/sk-learn/" style="font-size: 10px;">sk-learn</a> <a href="/tags/ssh/" style="font-size: 12.35px;">ssh</a> <a href="/tags/statistic/" style="font-size: 10px;">statistic</a> <a href="/tags/ubuntu/" style="font-size: 10px;">ubuntu</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/wiki/" style="font-size: 12.35px;">wiki</a> <a href="/tags/windows/" style="font-size: 17.06px;">windows</a> <a href="/tags/yolo%EF%BC%8CC/" style="font-size: 10px;">yolo，C</a>
+      <a href="/tags/Algorithm/" style="font-size: 11.18px;">Algorithm</a> <a href="/tags/Altium-Designer/" style="font-size: 14.12px;">Altium Designer</a> <a href="/tags/Apache/" style="font-size: 11.18px;">Apache</a> <a href="/tags/BeautifulSoup/" style="font-size: 10px;">BeautifulSoup</a> <a href="/tags/C/" style="font-size: 15.29px;">C</a> <a href="/tags/C/" style="font-size: 18.24px;">C++</a> <a href="/tags/Centos7/" style="font-size: 18.82px;">Centos7</a> <a href="/tags/Cython/" style="font-size: 10px;">Cython</a> <a href="/tags/Database/" style="font-size: 15.29px;">Database</a> <a href="/tags/Electronic/" style="font-size: 12.94px;">Electronic</a> <a href="/tags/English/" style="font-size: 11.76px;">English</a> <a href="/tags/Geant4/" style="font-size: 10.59px;">Geant4</a> <a href="/tags/Hardware/" style="font-size: 10px;">Hardware</a> <a href="/tags/Hexo/" style="font-size: 13.53px;">Hexo</a> <a href="/tags/Image/" style="font-size: 11.76px;">Image</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Jupyter/" style="font-size: 10px;">Jupyter</a> <a href="/tags/Linux/" style="font-size: 19.41px;">Linux</a> <a href="/tags/Markdown/" style="font-size: 15.88px;">Markdown</a> <a href="/tags/NVIDIA-Jetson/" style="font-size: 11.18px;">NVIDIA Jetson</a> <a href="/tags/Nuclear-Physics/" style="font-size: 11.18px;">Nuclear Physics</a> <a href="/tags/Open/" style="font-size: 10px;">Open</a> <a href="/tags/Opencv/" style="font-size: 11.76px;">Opencv</a> <a href="/tags/Program/" style="font-size: 17.65px;">Program</a> <a href="/tags/PyPI/" style="font-size: 10px;">PyPI</a> <a href="/tags/Py-Crawler/" style="font-size: 10.59px;">Py_Crawler</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/Random/" style="font-size: 10px;">Random</a> <a href="/tags/Resource/" style="font-size: 10.59px;">Resource</a> <a href="/tags/Root/" style="font-size: 10.59px;">Root</a> <a href="/tags/Scipy/" style="font-size: 10px;">Scipy</a> <a href="/tags/Shell/" style="font-size: 16.47px;">Shell</a> <a href="/tags/Solidwork/" style="font-size: 10.59px;">Solidwork</a> <a href="/tags/TTree/" style="font-size: 10px;">TTree</a> <a href="/tags/Tensorflow/" style="font-size: 15.29px;">Tensorflow</a> <a href="/tags/Thread/" style="font-size: 10px;">Thread</a> <a href="/tags/Urllib2/" style="font-size: 10px;">Urllib2</a> <a href="/tags/Virtual-memory/" style="font-size: 10px;">Virtual memory</a> <a href="/tags/cmake/" style="font-size: 12.35px;">cmake</a> <a href="/tags/cmd/" style="font-size: 10.59px;">cmd</a> <a href="/tags/data-structure/" style="font-size: 10.59px;">data structure</a> <a href="/tags/git/" style="font-size: 12.94px;">git</a> <a href="/tags/hexo/" style="font-size: 11.18px;">hexo</a> <a href="/tags/htop/" style="font-size: 10px;">htop</a> <a href="/tags/keras/" style="font-size: 10.59px;">keras</a> <a href="/tags/latex/" style="font-size: 14.71px;">latex</a> <a href="/tags/os/" style="font-size: 10px;">os</a> <a href="/tags/qt/" style="font-size: 10px;">qt</a> <a href="/tags/requests/" style="font-size: 10px;">requests</a> <a href="/tags/sk-learn/" style="font-size: 10px;">sk-learn</a> <a href="/tags/ssh/" style="font-size: 12.35px;">ssh</a> <a href="/tags/statistic/" style="font-size: 10px;">statistic</a> <a href="/tags/ubuntu/" style="font-size: 10px;">ubuntu</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/wiki/" style="font-size: 12.35px;">wiki</a> <a href="/tags/windows/" style="font-size: 17.06px;">windows</a> <a href="/tags/yolo%EF%BC%8CC/" style="font-size: 10px;">yolo，C</a>
     </div>
   </div>
 
@@ -677,6 +584,10 @@ SYMBOL TABLE:
       <ul>
         
           <li>
+            <a href="/jetson_xavier_jetpack/">Jetson Xavier NX Jetpack安装</a>
+          </li>
+        
+          <li>
             <a href="/Jetson_Xavier_NX_install/">Jetson Xavier NX常用组件安装</a>
           </li>
         
@@ -690,10 +601,6 @@ SYMBOL TABLE:
         
           <li>
             <a href="/latex_upcite/">latex在右上角引用参考文献</a>
-          </li>
-        
-          <li>
-            <a href="/mediawiki_upload_office/">mediawiki上传office相关文件</a>
           </li>
         
       </ul>
