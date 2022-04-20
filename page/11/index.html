@@ -67,6 +67,83 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Opencv_lib_zhong" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/Opencv_lib_zhong/" class="article-date">
+  <time datetime="2020-07-15T14:29:33.000Z" itemprop="datePublished">2020-07-15</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/learning/">learning</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/Opencv_lib_zhong/">Opencv库添加中文支持</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+
+        <ul>
+<li><p>操作环境：windows 10，opencv3.40</p>
+</li>
+<li><p>opencv默认不支持中文输入，需要添加以下代码并调用：</p>
+</li>
+<li><p>putText.h:</p>
+<ul>
+<li><p>~~~<br>#ifndef PUTTEXT_H_<br>#define PUTTEXT_H_</p>
+<p>#include &lt;windows.h&gt;<br>#include <string><br>#include &lt;opencv2/opencv.hpp&gt;</p>
+<p>using namespace cv;</p>
+<p>void GetStringSize(HDC hDC, const char* str, int* w, int* h);<br>void putTextZH(Mat &amp;dst, const char* str, Point org, Scalar color, int fontSize,</p>
+<pre><code>const char *fn = &quot;Arial&quot;, bool italic = false, bool underline = false);</code></pre>
+<p>#endif // PUTTEXT_H_</p>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  * ​</span><br><span class="line"></span><br><span class="line">* putText.cpp:</span><br><span class="line"></span><br><span class="line">  * ~~~</span><br><span class="line">    <span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&quot;putText.h&quot;</span></span></span><br><span class="line">     </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">GetStringSize</span><span class="params">(HDC hDC, <span class="keyword">const</span> <span class="keyword">char</span>* str, <span class="keyword">int</span>* w, <span class="keyword">int</span>* h)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        SIZE <span class="built_in">size</span>;</span><br><span class="line">        GetTextExtentPoint32A(hDC, str, <span class="built_in">strlen</span>(str), &amp;<span class="built_in">size</span>);</span><br><span class="line">        <span class="keyword">if</span> (w != <span class="number">0</span>) *w = <span class="built_in">size</span>.cx;</span><br><span class="line">        <span class="keyword">if</span> (h != <span class="number">0</span>) *h = <span class="built_in">size</span>.cy;</span><br><span class="line">    &#125;</span><br><span class="line">     </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">putTextZH</span><span class="params">(Mat &amp;dst, <span class="keyword">const</span> <span class="keyword">char</span>* str, Point org, Scalar color, <span class="keyword">int</span> fontSize, <span class="keyword">const</span> <span class="keyword">char</span>* fn, <span class="keyword">bool</span> italic, <span class="keyword">bool</span> underline)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        CV_Assert(dst.data != <span class="number">0</span> &amp;&amp; (dst.channels() == <span class="number">1</span> || dst.channels() == <span class="number">3</span>));</span><br><span class="line">     </span><br><span class="line">        <span class="keyword">int</span> x, y, r, b;</span><br><span class="line">        <span class="keyword">if</span> (org.x &gt; dst.cols || org.y &gt; dst.rows) <span class="keyword">return</span>;</span><br><span class="line">        x = org.x &lt; <span class="number">0</span> ? -org.x : <span class="number">0</span>;</span><br><span class="line">        y = org.y &lt; <span class="number">0</span> ? -org.y : <span class="number">0</span>;</span><br><span class="line">     </span><br><span class="line">        LOGFONTA lf;</span><br><span class="line">        lf.lfHeight = -fontSize;</span><br><span class="line">        lf.lfWidth = <span class="number">0</span>;</span><br><span class="line">        lf.lfEscapement = <span class="number">0</span>;</span><br><span class="line">        lf.lfOrientation = <span class="number">0</span>;</span><br><span class="line">        lf.lfWeight = <span class="number">5</span>;</span><br><span class="line">        lf.lfItalic = italic;   <span class="comment">//斜体</span></span><br><span class="line">        lf.lfUnderline = underline; <span class="comment">//下划线</span></span><br><span class="line">        lf.lfStrikeOut = <span class="number">0</span>;</span><br><span class="line">        lf.lfCharSet = DEFAULT_CHARSET;</span><br><span class="line">        lf.lfOutPrecision = <span class="number">0</span>;</span><br><span class="line">        lf.lfClipPrecision = <span class="number">0</span>;</span><br><span class="line">        lf.lfQuality = PROOF_QUALITY;</span><br><span class="line">        lf.lfPitchAndFamily = <span class="number">0</span>;</span><br><span class="line">        strcpy_s(lf.lfFaceName, fn);</span><br><span class="line">     </span><br><span class="line">        HFONT hf = CreateFontIndirectA(&amp;lf);</span><br><span class="line">        HDC hDC = CreateCompatibleDC(<span class="number">0</span>);</span><br><span class="line">        HFONT hOldFont = (HFONT)SelectObject(hDC, hf);</span><br><span class="line">     </span><br><span class="line">        <span class="keyword">int</span> strBaseW = <span class="number">0</span>, strBaseH = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> singleRow = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">char</span> buf[<span class="number">1</span> &lt;&lt; <span class="number">12</span>];</span><br><span class="line">        strcpy_s(buf, str);</span><br><span class="line">        <span class="keyword">char</span> *bufT[<span class="number">1</span> &lt;&lt; <span class="number">12</span>];  <span class="comment">// 这个用于分隔字符串后剩余的字符，可能会超出。</span></span><br><span class="line">        <span class="comment">//处理多行</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> nnh = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">int</span> cw, ch;</span><br><span class="line">     </span><br><span class="line">            <span class="keyword">const</span> <span class="keyword">char</span>* ln = strtok_s(buf, <span class="string">&quot;\n&quot;</span>,bufT);</span><br><span class="line">            <span class="keyword">while</span> (ln != <span class="number">0</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                GetStringSize(hDC, ln, &amp;cw, &amp;ch);</span><br><span class="line">                strBaseW = <span class="built_in">max</span>(strBaseW, cw);</span><br><span class="line">                strBaseH = <span class="built_in">max</span>(strBaseH, ch);</span><br><span class="line">     </span><br><span class="line">                ln = strtok_s(<span class="number">0</span>, <span class="string">&quot;\n&quot;</span>,bufT);</span><br><span class="line">                nnh++;</span><br><span class="line">            &#125;</span><br><span class="line">            singleRow = strBaseH;</span><br><span class="line">            strBaseH *= nnh;</span><br><span class="line">        &#125;</span><br><span class="line">     </span><br><span class="line">        <span class="keyword">if</span> (org.x + strBaseW &lt; <span class="number">0</span> || org.y + strBaseH &lt; <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            SelectObject(hDC, hOldFont);</span><br><span class="line">            DeleteObject(hf);</span><br><span class="line">            DeleteObject(hDC);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">     </span><br><span class="line">        r = org.x + strBaseW &gt; dst.cols ? dst.cols - org.x - <span class="number">1</span> : strBaseW - <span class="number">1</span>;</span><br><span class="line">        b = org.y + strBaseH &gt; dst.rows ? dst.rows - org.y - <span class="number">1</span> : strBaseH - <span class="number">1</span>;</span><br><span class="line">        org.x = org.x &lt; <span class="number">0</span> ? <span class="number">0</span> : org.x;</span><br><span class="line">        org.y = org.y &lt; <span class="number">0</span> ? <span class="number">0</span> : org.y;</span><br><span class="line">     </span><br><span class="line">        BITMAPINFO bmp = &#123; <span class="number">0</span> &#125;;</span><br><span class="line">        BITMAPINFOHEADER&amp; bih = bmp.bmiHeader;</span><br><span class="line">        <span class="keyword">int</span> strDrawLineStep = strBaseW * <span class="number">3</span> % <span class="number">4</span> == <span class="number">0</span> ? strBaseW * <span class="number">3</span> : (strBaseW * <span class="number">3</span> + <span class="number">4</span> - ((strBaseW * <span class="number">3</span>) % <span class="number">4</span>));</span><br><span class="line">     </span><br><span class="line">        bih.biSize = <span class="keyword">sizeof</span>(BITMAPINFOHEADER);</span><br><span class="line">        bih.biWidth = strBaseW;</span><br><span class="line">        bih.biHeight = strBaseH;</span><br><span class="line">        bih.biPlanes = <span class="number">1</span>;</span><br><span class="line">        bih.biBitCount = <span class="number">24</span>;</span><br><span class="line">        bih.biCompression = BI_RGB;</span><br><span class="line">        bih.biSizeImage = strBaseH * strDrawLineStep;</span><br><span class="line">        bih.biClrUsed = <span class="number">0</span>;</span><br><span class="line">        bih.biClrImportant = <span class="number">0</span>;</span><br><span class="line">     </span><br><span class="line">        <span class="keyword">void</span>* pDibData = <span class="number">0</span>;</span><br><span class="line">        HBITMAP hBmp = CreateDIBSection(hDC, &amp;bmp, DIB_RGB_COLORS, &amp;pDibData, <span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">     </span><br><span class="line">        CV_Assert(pDibData != <span class="number">0</span>);</span><br><span class="line">        HBITMAP hOldBmp = (HBITMAP)SelectObject(hDC, hBmp);</span><br><span class="line">     </span><br><span class="line">        <span class="comment">//color.val[2], color.val[1], color.val[0]</span></span><br><span class="line">        SetTextColor(hDC, RGB(<span class="number">255</span>, <span class="number">255</span>, <span class="number">255</span>));</span><br><span class="line">        SetBkColor(hDC, <span class="number">0</span>);</span><br><span class="line">        <span class="comment">//SetStretchBltMode(hDC, COLORONCOLOR);</span></span><br><span class="line">     </span><br><span class="line">        strcpy_s(buf, str);</span><br><span class="line">        <span class="keyword">const</span> <span class="keyword">char</span>* ln = strtok_s(buf, <span class="string">&quot;\n&quot;</span>,bufT);</span><br><span class="line">        <span class="keyword">int</span> outTextY = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (ln != <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            TextOutA(hDC, <span class="number">0</span>, outTextY, ln, <span class="built_in">strlen</span>(ln));</span><br><span class="line">            outTextY += singleRow;</span><br><span class="line">            ln = strtok_s(<span class="number">0</span>, <span class="string">&quot;\n&quot;</span>,bufT);</span><br><span class="line">        &#125;</span><br><span class="line">        uchar* dstData = (uchar*)dst.data;</span><br><span class="line">        <span class="keyword">int</span> dstStep = dst.<span class="built_in">step</span> / <span class="keyword">sizeof</span>(dstData[<span class="number">0</span>]);</span><br><span class="line">        <span class="keyword">unsigned</span> <span class="keyword">char</span>* pImg = (<span class="keyword">unsigned</span> <span class="keyword">char</span>*)dst.data + org.x * dst.channels() + org.y * dstStep;</span><br><span class="line">        <span class="keyword">unsigned</span> <span class="keyword">char</span>* pStr = (<span class="keyword">unsigned</span> <span class="keyword">char</span>*)pDibData + x * <span class="number">3</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> tty = y; tty &lt;= b; ++tty)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">unsigned</span> <span class="keyword">char</span>* subImg = pImg + (tty - y) * dstStep;</span><br><span class="line">            <span class="keyword">unsigned</span> <span class="keyword">char</span>* subStr = pStr + (strBaseH - tty - <span class="number">1</span>) * strDrawLineStep;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> ttx = x; ttx &lt;= r; ++ttx)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> n = <span class="number">0</span>; n &lt; dst.channels(); ++n)&#123;</span><br><span class="line">                    <span class="keyword">double</span> vtxt = subStr[n] / <span class="number">255.0</span>;</span><br><span class="line">                    <span class="keyword">int</span> cvv = vtxt * color.val[n] + (<span class="number">1</span> - vtxt) * subImg[n];</span><br><span class="line">                    subImg[n] = cvv &gt; <span class="number">255</span> ? <span class="number">255</span> : (cvv &lt; <span class="number">0</span> ? <span class="number">0</span> : cvv);</span><br><span class="line">                &#125;</span><br><span class="line">     </span><br><span class="line">                subStr += <span class="number">3</span>;</span><br><span class="line">                subImg += dst.channels();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">     </span><br><span class="line">        SelectObject(hDC, hOldBmp);</span><br><span class="line">        SelectObject(hDC, hOldFont);</span><br><span class="line">        DeleteObject(hf);</span><br><span class="line">        DeleteObject(hBmp);</span><br><span class="line">        DeleteDC(hDC);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>调用：</p>
+<ul>
+<li><pre><code>#include &quot;putText.h&quot;
+
+void main()
+&#123;
+    Mat img(150,600,CV_8UC3,Scalar(255,255,255));//初始化图像
+    putTextZH(img, &quot;测试&quot;, Point(30, 30), Scalar(0, 0, 0), 50, &quot;宋体&quot;);
+    imwrite(&quot;test.png&quot;, img);
+    imshow(&quot;&quot;, img);
+    waitKey(0);
+&#125;</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wangxianggit.github.io/Opencv_lib_zhong/" data-id="ckjv3w9c2005d6sdnd976a0vp" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Image/" rel="tag">Image</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-ImageMagick_create_font_image" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/ImageMagick_create_font_image/" class="article-date">
@@ -363,65 +440,6 @@ output
 
 
   
-    <article id="post-Opencv_three_channel_image" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/Opencv_three_channel_image/" class="article-date">
-  <time datetime="2020-07-13T06:00:32.000Z" itemprop="datePublished">2020-07-13</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Python/">Python</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/Opencv_three_channel_image/">Opencv处理三通道图像</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-
-        <ul>
-<li><p>单通道图，即灰度图，每个像素点只有一个值代表颜色，像素值在0到255之间，0是黑色，255是白色，中间值是一些不同等级的灰色。3通道灰度图其实只有一个通道有值，其他两个通道的值是零。</p>
-</li>
-<li><p>一般每个像素点都有三个值，即三通道图。例如RGB图片即为三通道图片，RGB色彩模式是工业界的一种颜色标准，是通过对红(R)、绿(G)、蓝(B)三个颜色通道的变化以及它们相互之间的叠加来得到各式各样的颜色的，RGB即是代表红、绿、蓝三个通道的颜色，这个标准几乎包括了人类视力所能感知的所有颜色，是目前运用最广的颜色系统之一。</p>
-</li>
-<li><p>使用opencv库可以对图像的三通道分别进行处理，处理中需要用到cv2模块，在anaconda环境中安装：</p>
-<ul>
-<li><pre><code>conda install --channel https://conda.anaconda.org/menpo opencv
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  * 需要提前安装好nodejs，以及npm。</span><br><span class="line"></span><br><span class="line">* 示例代码：</span><br><span class="line"></span><br><span class="line">  * ```</span><br><span class="line">    import cv2</span><br><span class="line">     </span><br><span class="line">    <span class="attribute">img</span>=cv2.imread(&quot;pic.jpg&quot;)</span><br><span class="line">    <span class="builtin-name">print</span>(img.shape)</span><br><span class="line">    <span class="attribute">b</span>=img[:,:,0]</span><br><span class="line">    <span class="attribute">g</span>=img[:,:,1]</span><br><span class="line">    <span class="attribute">r</span>=img[:,:,2]</span><br><span class="line">    <span class="builtin-name">print</span>(b)</span><br><span class="line">     </span><br><span class="line">    b,g,<span class="attribute">r</span>=cv2.split(img)           #拆分三个通道</span><br><span class="line">    cv2.imshow(<span class="string">&#x27;original&#x27;</span>,img)        </span><br><span class="line">    cv2.imshow(<span class="string">&#x27;B&#x27;</span>,b)               </span><br><span class="line">    cv2.imshow(<span class="string">&#x27;G&#x27;</span>,g)</span><br><span class="line">    cv2.imshow(<span class="string">&#x27;R&#x27;</span>,r)</span><br><span class="line">    <span class="attribute">m1</span>=cv2.merge([b,g,r])          #按照bgr合并通道</span><br><span class="line">    <span class="attribute">m2</span>=cv2.merge([r,g,b])          #按照rgb合并通道</span><br><span class="line">    cv2.imshow(<span class="string">&#x27;BGR&#x27;</span>,m1)</span><br><span class="line">    cv2.imshow(<span class="string">&#x27;RGB&#x27;</span>,m2)</span><br><span class="line">    cv2.waitKey()            #等待键盘输入，不调用此方法则显示的图像将会一闪而逝</span><br><span class="line">    cv2.destroyAllWindows()  #销毁所有窗口</span><br><span class="line">    <span class="builtin-name">print</span>(b)</span><br><span class="line">    <span class="builtin-name">print</span>(b.shape)</span><br></pre></td></tr></table></figure>
-</code></pre>
-</li>
-</ul>
-</li>
-</ul>
-<hr>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/Opencv_three_channel_image/" data-id="ckjv3w9c1005a6sdna4wudv2r" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Opencv/" rel="tag">Opencv</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
@@ -483,7 +501,7 @@ output
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">February 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">October 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">February 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">October 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li></ul>
     </div>
   </div>
 
@@ -494,6 +512,10 @@ output
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/Linux_glance/">Linux性能监控命令glances</a>
+          </li>
         
           <li>
             <a href="/metapost/">MetaPost制作矢量图的语言</a>
@@ -509,10 +531,6 @@ output
         
           <li>
             <a href="/Jetson_Xavier_NX_install/">Jetson Xavier NX常用组件安装</a>
-          </li>
-        
-          <li>
-            <a href="/ubuntu_unable_to_fetch/">ubuntu更新源出现unable to fetch错误</a>
           </li>
         
       </ul>
