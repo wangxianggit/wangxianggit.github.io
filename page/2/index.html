@@ -67,6 +67,88 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Jetson_Xavier_NX_install" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/Jetson_Xavier_NX_install/" class="article-date">
+  <time datetime="2021-10-12T16:01:32.000Z" itemprop="datePublished">2021-10-13</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/learning/">learning</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/Jetson_Xavier_NX_install/">Jetson Xavier NX常用组件安装</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+
+        <h3 id="Jetson-Xavier-NX常用组件安装"><a href="#Jetson-Xavier-NX常用组件安装" class="headerlink" title="Jetson Xavier NX常用组件安装"></a>Jetson Xavier NX常用组件安装</h3><ul>
+<li>镜像安装版本为4.6.0</li>
+<li>驱动版本：<code>head -n 1 /etc/nv_tegra_release</code></li>
+</ul>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># <span class="selector-tag">R32</span> (release), <span class="selector-tag">REVISION</span>: <span class="selector-tag">6</span><span class="selector-class">.1</span>, <span class="selector-tag">GCID</span>: <span class="selector-tag">27863751</span>, <span class="selector-tag">BOARD</span>: <span class="selector-tag">t186ref</span>, <span class="selector-tag">EABI</span>: <span class="selector-tag">aarch64</span>, <span class="selector-tag">DATE</span>: <span class="selector-tag">Mon</span> <span class="selector-tag">Jul</span> <span class="selector-tag">26</span> <span class="selector-tag">19</span><span class="selector-pseudo">:36</span><span class="selector-pseudo">:31</span> <span class="selector-tag">UTC</span> <span class="selector-tag">2021</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>内核版本：<code>uname -r</code></li>
+</ul>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">4</span>.<span class="number">9</span>.<span class="number">253</span>-tegra</span><br></pre></td></tr></table></figure>
+<ul>
+<li>操作系统：<code>lsb_release -i -r</code></li>
+</ul>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">Distributor</span> ID:	Ubuntu</span><br><span class="line"><span class="attribute">Release</span>:	<span class="number">18</span>.<span class="number">04</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>cuda版本：<code>nvcc -V</code></li>
+</ul>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">nvcc</span>: NVIDIA (R) Cuda compiler driver</span><br><span class="line"><span class="attribute">Copyright</span> (c) <span class="number">2005</span>-<span class="number">2021</span> NVIDIA Corporation</span><br><span class="line"><span class="attribute">Built</span> <span class="literal">on</span> Sun_Feb_<span class="number">28</span>_<span class="number">22</span>:<span class="number">34</span>:<span class="number">44</span>_PST_<span class="number">2021</span></span><br><span class="line"><span class="attribute">Cuda</span> compilation tools, release <span class="number">10</span>.<span class="number">2</span>, V<span class="number">10</span>.<span class="number">2</span>.<span class="number">300</span></span><br><span class="line"><span class="attribute">Build</span> cuda_<span class="number">10</span>.<span class="number">2</span>_r<span class="number">440</span>.TC<span class="number">440</span>_<span class="number">70</span>.<span class="number">29663091</span>_<span class="number">0</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>cuDNN版本：<code>dpkg -l libcudnn8</code></li>
+</ul>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Desired=Unknown<span class="regexp">/Install/</span>Remove<span class="regexp">/Purge/</span>Hold</span><br><span class="line">| Status=Not<span class="regexp">/Inst/</span>Conf-files<span class="regexp">/Unpacked/</span>halF-conf<span class="regexp">/Half-inst/</span>trig-aWait/Trig-pend</span><br><span class="line">|<span class="regexp">/ Err?=(none)/</span>Reinst-required (Status,Err: uppercase=bad)</span><br><span class="line">||/ Name                 Version         Architecture    <span class="keyword">Description</span></span><br><span class="line">+++-====================-===============-===============-==============================================</span><br><span class="line">ii  libcudnn8            <span class="number">8.2</span>.<span class="number">1.32</span>-<span class="number">1</span>+cuda arm64           cuDNN <span class="keyword">runtime</span> libraries</span><br></pre></td></tr></table></figure>
+<ul>
+<li>opencv版本：<code>dpkg -l libopencv</code></li>
+<li>Tensorrt版本：<code>dpkg -l tensorrt</code></li>
+</ul>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Desired=Unknown<span class="regexp">/Install/</span>Remove<span class="regexp">/Purge/</span>Hold</span><br><span class="line">| Status=Not<span class="regexp">/Inst/</span>Conf-files<span class="regexp">/Unpacked/</span>halF-conf<span class="regexp">/Half-inst/</span>trig-aWait/Trig-pend</span><br><span class="line">|<span class="regexp">/ Err?=(none)/</span>Reinst-required (Status,Err: uppercase=bad)</span><br><span class="line">||/ Name                 Version         Architecture    <span class="keyword">Description</span></span><br><span class="line">+++-====================-===============-===============-==============================================</span><br><span class="line">ii  tensorrt             <span class="number">8.0</span>.<span class="number">1.6</span>-<span class="number">1</span>+cuda1 arm64           Meta <span class="keyword">package</span> of TensorRT</span><br></pre></td></tr></table></figure>
+<ul>
+<li>NX开发套件中预装的python版本为2.7，但由于用到更多的版本为python3，</li>
+</ul>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-<span class="built_in">get</span> install <span class="keyword">python3</span>-pip <span class="keyword">python3</span>-dev</span><br></pre></td></tr></table></figure>
+<ul>
+<li>pip升级为最新版本：</li>
+</ul>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python3 -m pip <span class="keyword">install</span> --upgrade pip  <span class="comment">#升级pip</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>安装Jetson-stats管理工具：pip3 install jetson-stats，安装好后输入jtop可以查看各项资源使用情况。</li>
+</ul>
+<hr>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wangxianggit.github.io/Jetson_Xavier_NX_install/" data-id="ckuoa6n9t00006kdn2fju4w9x" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NVIDIA-Jetson/" rel="tag">NVIDIA Jetson</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-ubuntu_unable_to_fetch" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/ubuntu_unable_to_fetch/" class="article-date">
@@ -288,56 +370,6 @@
 
 
   
-    <article id="post-mongodb_client_nosqlbooster" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/mongodb_client_nosqlbooster/" class="article-date">
-  <time datetime="2021-07-20T08:15:54.000Z" itemprop="datePublished">2021-07-20</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/learning/">learning</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/mongodb_client_nosqlbooster/">MongoDB的客户端管理工具--nosqlbooster</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	  <!-- Table of Contents -->
-
-        <h3 id="MongoDB的客户端管理工具–nosqlbooster"><a href="#MongoDB的客户端管理工具–nosqlbooster" class="headerlink" title="MongoDB的客户端管理工具–nosqlbooster"></a>MongoDB的客户端管理工具–nosqlbooster</h3><ul>
-<li>nosqlbooster立志做“The Smartest IDE for MongoDB”，支持 MongoDB v2.6-4.0所有版本，并且更新升级及时。它既有免费版，也有加强升级的付费版。</li>
-<li>nosqlbooster的官网地址为<a target="_blank" rel="noopener" href="https://nosqlbooster.com.直接下载,登入下载网址https//nosqlbooster.com/downloads%E3%80%82">https://nosqlbooster.com。直接下载，登入下载网址https://nosqlbooster.com/downloads。</a></li>
-<li>工具支持Windows、Linux 和 Mac OS。</li>
-</ul>
-<hr>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://wangxianggit.github.io/mongodb_client_nosqlbooster/" data-id="ckrbsenxm0000w0dn1z20750m" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Database/" rel="tag">Database</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
@@ -399,7 +431,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">February 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">October 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">May 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">February 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">October 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li></ul>
     </div>
   </div>
 
@@ -410,6 +442,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/Linux_dmidecode/">Linux系统使用dmidecode查看系统的硬件信息</a>
+          </li>
         
           <li>
             <a href="/Linux_glance/">Linux性能监控命令glances</a>
@@ -425,10 +461,6 @@
         
           <li>
             <a href="/jetson_xavier_jetpack/">Jetson Xavier NX Jetpack安装</a>
-          </li>
-        
-          <li>
-            <a href="/Jetson_Xavier_NX_install/">Jetson Xavier NX常用组件安装</a>
           </li>
         
       </ul>
