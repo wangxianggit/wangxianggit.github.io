@@ -48,6 +48,11 @@
   
 
   
+
+  
+
+
+  
 </head>
 
 <body>
@@ -68,7 +73,7 @@
 
 <div class="widgets">
 
-<div class="widget-wrap single" id="toc"><div class="widget-header cap dis-select"><span class="name">本文目录</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%A4%E7%A7%8D%E6%8B%B7%E8%B4%9D%E6%96%B9%E6%B3%95"><span class="toc-text">两种拷贝方法</span></a></li></ol></div></div></div>
+<div class="widget-wrap single" id="toc"><div class="widget-header cap dis-select"><span class="name">TOC</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%A4%E7%A7%8D%E6%8B%B7%E8%B4%9D%E6%96%B9%E6%B3%95"><span class="toc-text">两种拷贝方法</span></a></li></ol></div></div></div>
 
 
 </div>
@@ -80,7 +85,11 @@
 
       
 
-<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a><span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/Python/">Python</a></div><div id="post-meta">发布于&nbsp;<time datetime="2019-09-14T02:19:17.000Z">2019-09-14</time></div></div>
+    
+
+
+
+<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/">Home</a><span class="sep"></span><a class="cap breadcrumb" href="/">Blog</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/Python/">Python</a></div><div id="post-meta">Posted on&nbsp;<time datetime="2019-09-14T02:19:17.000Z">2019-09-14</time></div></div>
 
 <article class='content md post'>
 <h1 class="article-title"><span>Python中shallowcopy和deepcopy区别</span></h1>
@@ -118,12 +127,12 @@ print(ls1,ls2) #[1, 2, 3, 4, 5] [1, 2, 3, 4, 5] 因为两个变量的内存指�
 </ul>
 
 
-<div class="article-footer reveal fs14"><section id="license"><div class="header"><span>许可协议</span></div><div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+<div class="article-footer reveal fs14"><section id="license"><div class="header"><span>License</span></div><div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
 </div></section></div>
 
 </article>
 
-<div class="related-wrap reveal" id="read-next"><section class="header cap theme"><span>接下来阅读</span></section><section class="body fs14"><a id="next" href="/numpy_unpackbits/">numpy函数unpackbits<span class="note">较早</span></a><div class="line"></div><a id="prev" href="/Python_tf_unstack/">tf.unstack && tf.stack<span class="note">较新</span></a></section></div>
+<div class="related-wrap reveal" id="read-next"><section class="header cap theme"><span>READ NEXT</span></section><section class="body fs14"><a id="next" href="/numpy_unpackbits/">numpy函数unpackbits<span class="note">Older</span></a><div class="line"></div><a id="prev" href="/Python_tf_unstack/">tf.unstack && tf.stack<span class="note">Newer</span></a></section></div>
 
 
 
@@ -133,8 +142,8 @@ print(ls1,ls2) #[1, 2, 3, 4, 5] [1, 2, 3, 4, 5] 因为两个变量的内存指�
 
 
       
-<footer class="page-footer reveal fs12"><hr><div class="text"><p>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
-<p>本站由 <a href="http://wangxianggit.github.io/">@wangxiang</a> 创建，使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.8.0" title="v1.8.0">Stellar</a> 作为主题。</p>
+<footer class="page-footer reveal fs12"><hr><div class="text"><p>All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</p>
+<p>This site was deployed by <a href="http://wangxianggit.github.io/">@wangxiang</a> using <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.8.0" title="v1.8.0">Stellar</a>.</p>
 </div></footer>
 
       <div class='float-panel mobile-only blur' style='display:none'>
@@ -241,11 +250,11 @@ print(ls1,ls2) #[1, 2, 3, 4, 5] [1, 2, 3, 4, 5] 因为两个变量的内存指�
   stellar.github = 'https://github.com/xaoxuu/hexo-theme-stellar/tree/1.8.0';
   stellar.config = {
     date_suffix: {
-      just: '刚刚',
-      min: '分钟前',
-      hour: '小时前',
-      day: '天前',
-      month: '个月前',
+      just: 'Just',
+      min: 'minutes ago',
+      hour: 'hours ago',
+      day: 'days ago',
+      month: 'months ago',
     },
   };
 

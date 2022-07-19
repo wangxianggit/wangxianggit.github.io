@@ -75,6 +75,17 @@ a {
 a:hover {
   color: #ff5722;
 }
+p >a:not([class]),
+li >a:not([class]) {
+  margin: 0 1px;
+  padding: 4px;
+  border-radius: 4px;
+}
+p >a:not([class]):hover,
+li >a:not([class]):hover {
+  color: #ee3900;
+  background: rgba(255,87,34,0.08);
+}
 hr {
   color: var(--text-meta);
   opacity: 0.1;
@@ -342,6 +353,16 @@ article.md .highlight .gutter+.code pre {
 }
 table:not([class]) {
   border-collapse: collapse;
+}
+article.md pre >.caption {
+  color: var(--text-p3);
+}
+article.md pre >.hljs {
+  padding: 1rem;
+  border-radius: 6px;
+  border: 1px solid var(--block-border);
+  line-height: 1.5;
+  box-sizing: border-box;
 }
 article.md .highlight .code {
   vertical-align: top;
@@ -793,9 +814,6 @@ div.toast {
 .md .article-footer .body ul {
   margin: 0;
   overflow: hidden;
-}
-.md .article-footer .body ul a:hover {
-  text-decoration: underline;
 }
 .md .article-footer .body .post-title {
   margin: 0.5rem 0;
@@ -1738,6 +1756,8 @@ details.folding[open] >summary:hover:after {
   content: '-';
 }
 details.folding[open] >div.body {
+  display: flex;
+  flex-direction: column;
   padding: 1rem;
   margin: -1rem;
   margin-top: 0;
@@ -3143,9 +3163,6 @@ nav.menu a.nav-item:hover {
   margin-bottom: 0.5em;
   line-height: 1.5;
 }
-.l_left .widgets .widget-wrap .widget-body p >a:hover {
-  text-decoration: underline;
-}
 .l_left .widgets .widget-wrap .widget-header+.widget-body {
   margin-top: 0;
 }
@@ -3871,24 +3888,16 @@ article.md.content h1+h2 {
   margin-top: -0.5rem;
 }
 article.md.content h2+h3 {
-  margin-top: -1rem;
+  margin-top: -0.5rem;
 }
 article.md.content h3+h4 {
-  margin-top: -1rem;
+  margin-top: -0.5rem;
 }
 article.md.content h4+h5 {
-  margin-top: -1rem;
+  margin-top: -0.5rem;
 }
 article.md.content h5+h6 {
-  margin-top: -1rem;
-}
-article.md p >a:not([class]),
-article.md li:not([class]) >a:not([class]) {
-  font-weight: 500;
-}
-article.md p >a:not([class]):hover,
-article.md li:not([class]) >a:not([class]):hover {
-  text-decoration: underline;
+  margin-top: -0.5rem;
 }
 article.md p {
   font-size: 0.9375rem;

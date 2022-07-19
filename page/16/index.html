@@ -45,6 +45,11 @@
   
 
   
+
+  
+
+
+  
 </head>
 
 <body>
@@ -65,7 +70,7 @@
 <div class="widget-wrap" id="markdown"><div class="widget-header cap dis-select"><span class="name">Stellar 入门指南</span></div><div class="widget-body fs14"><p>欢迎使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/">Stellar</a> 主题，下面是您的入门指南，祝您使用愉快！<br><br><br><strong>第一步</strong><br>创建 <code>blog/_config.stellar.yml</code> 文件，在此文件中填写需要自定义的主题配置。<br><br><br><strong>第二步</strong><br>创建 <code>blog/source/_data/widgets.yml</code> 文件，此文件中填写需要自定义的侧边栏组件，例如 <code>welcome</code> 组件。<br><br><br>如果有任何疑问，请先查阅<a target="_blank" rel="noopener" href="https://xaoxuu.com/wiki/stellar/">文档</a>，如果文档中没有提供，请提 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/issues/">issue</a> 向开发中询问。</p>
 </div></div>
 
-<div class="widget-wrap" id="recent"><div class="widget-header cap dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><div class="more-item"><a class="title" href="/torch_scatter_sparse_install/">torch_sparse系列安装方法</a></div><div class="more-item"><a class="title" href="/git_upload_remote_from_localization/">git将本地目录提交至远程仓库</a></div><div class="more-item"><a class="title" href="/Linux_dmidecode/">Linux系统使用dmidecode查看系统的硬件信息</a></div><div class="more-item"><a class="title" href="/Linux_glance/">Linux性能监控命令glances</a></div><div class="more-item"><a class="title" href="/metapost/">MetaPost制作矢量图的语言</a></div></div></div>
+<div class="widget-wrap" id="recent"><div class="widget-header cap dis-select"><span class="name">Recent Update</span></div><div class="widget-body fs14"><div class="more-item"><a class="title" href="/torch_scatter_sparse_install/">torch_sparse系列安装方法</a></div><div class="more-item"><a class="title" href="/git_upload_remote_from_localization/">git将本地目录提交至远程仓库</a></div><div class="more-item"><a class="title" href="/Linux_dmidecode/">Linux系统使用dmidecode查看系统的硬件信息</a></div><div class="more-item"><a class="title" href="/Linux_glance/">Linux性能监控命令glances</a></div><div class="more-item"><a class="title" href="/metapost/">MetaPost制作矢量图的语言</a></div></div></div>
 </div>
 
 
@@ -87,21 +92,21 @@
   <div class='nav-wrap'>
   <nav class='sub post cap'>
     
-      <a class='active' href='/'>近期发布</a>
+      <a class='active' href='/'>Recent</a>
     
     
       
-        <a href='/categories'>分类</a>
-      
-    
-    
-      
-        <a href='/tags'>标签</a>
+        <a href='/categories'>Categories</a>
       
     
     
       
-        <a href='/archives'>归档</a>
+        <a href='/tags'>Tags</a>
+      
+    
+    
+      
+        <a href='/archives'>Archives</a>
       
     
   </nav>
@@ -111,7 +116,7 @@
 <article class="md"><h2 class="post-title">keras框架参数epoch,batch_size</h2><div class="excerpt"><p>keras框架参数epoch,batch_size
 epochs指的就是训练过程中数据将被“轮”多少次，即所有训练数据仅仅参与一次不够，需要多次参与训练达到loss下降的要求。
 batch，梯度下降每次的参数更新有两种方式：
-第一种，遍历全部数据集算一次损失函数，然后算函数对各个参数的梯度，更新梯度。这种方法每更新一次参数都要把数据集里的所有样本都看一遍，计算量开销大，计算速度慢，不支持在线...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2019-10-02T10:09:34.000Z">2019-10-02</time></span><span class="cap breadcrumb">Python</span></div></article>
+第一种，遍历全部数据集算一次损失函数，然后算函数对各个参数的梯度，更新梯度。这种方法每更新一次参数都要把数据集里的所有样本都看一遍，计算量开销大，计算速度慢，不支持在线...</p></div><div class="meta cap"><span class="cap" id="post-meta">Posted on&nbsp;<time datetime="2019-10-02T10:09:34.000Z">2019-10-02</time></span><span class="cap breadcrumb">Python</span></div></article>
 </a><a class="post-card post " href="/sk-learn_minmaxscaler/">
 <article class="md"><h2 class="post-title">sk-learn MinMaxScaler方法</h2><div class="excerpt"><p>sk-learn MinMaxScaler方法
 MinMaxScaler将 features 缩放到[0,1]之间
@@ -126,7 +131,7 @@ val = (X - X.min(axis=0)) / (X.max(axis=0) - X.min(axis=0))
 scaler = MinMaxScaler()
 dataset = scaler.fit_transform(dataset)
 
-...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2019-10-02T09:18:22.000Z">2019-10-02</time></span><span class="cap breadcrumb">Python</span></div></article>
+...</p></div><div class="meta cap"><span class="cap" id="post-meta">Posted on&nbsp;<time datetime="2019-10-02T09:18:22.000Z">2019-10-02</time></span><span class="cap breadcrumb">Python</span></div></article>
 </a><a class="post-card post " href="/keras_dense/">
 <article class="md"><h2 class="post-title">keras.layers dense方法</h2><div class="excerpt"><p>keras.layers dense方法
 函数原型：
@@ -135,7 +140,7 @@ keras.layers.Dense(units,
                   activation=None, 
                   use_bias=True, 
                   kernel_initializer=&#39;glorot_uniform&#39;, 
-        ...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2019-10-02T09:05:11.000Z">2019-10-02</time></span><span class="cap breadcrumb">Python</span></div></article>
+        ...</p></div><div class="meta cap"><span class="cap" id="post-meta">Posted on&nbsp;<time datetime="2019-10-02T09:05:11.000Z">2019-10-02</time></span><span class="cap breadcrumb">Python</span></div></article>
 </a><a class="post-card post " href="/new_alloc/">
 <article class="md"><h2 class="post-title">C++动态分配内存new</h2><div class="excerpt"><p>new动态内存分配
 作用：动态分配内存并调用相应类的构造函数
@@ -145,7 +150,7 @@ keras.layers.Dense(units,
 数组申请：Type* pointer = new Type[N];
 
 ~~~int * var;var = new int [10];
-12345678910111213141516171819202122* 动态分配内存示例：  * ~~~    #include...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2019-10-01T09:28:11.000Z">2019-10-01</time></span><span class="cap breadcrumb">learning</span></div></article>
+12345678910111213141516171819202122* 动态分配内存示例：  * ~~~    #include...</p></div><div class="meta cap"><span class="cap" id="post-meta">Posted on&nbsp;<time datetime="2019-10-01T09:28:11.000Z">2019-10-01</time></span><span class="cap breadcrumb">learning</span></div></article>
 </a><a class="post-card post " href="/tf.initialize_all_variables()andtf.global_variables_initializer()/">
 <article class="md"><h2 class="post-title">tf.initialize_all_variables()和tf.global_variables_initializer()</h2><div class="excerpt"><p>tf.initialize_all_variables()和tf.global_variables_initializer()
 tf.global_variables_initializer() 是 tf.initialize_all_variables()的升级版
@@ -156,7 +161,7 @@ tf.global_variables_initializer() 是 tf.initialize_all_variables()的升级版
 
 init = tf.global_variables_initializer()
 
-...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2019-09-28T06:43:40.000Z">2019-09-28</time></span><span class="cap breadcrumb">Python</span></div></article>
+...</p></div><div class="meta cap"><span class="cap" id="post-meta">Posted on&nbsp;<time datetime="2019-09-28T06:43:40.000Z">2019-09-28</time></span><span class="cap breadcrumb">Python</span></div></article>
 </a></div>
   
   <div class='paginator-wrap dis-select'>
@@ -175,8 +180,8 @@ init = tf.global_variables_initializer()
 
 
       
-<footer class="page-footer reveal fs12"><hr><div class="text"><p>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
-<p>本站由 <a href="http://wangxianggit.github.io/">@wangxiang</a> 创建，使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.8.0" title="v1.8.0">Stellar</a> 作为主题。</p>
+<footer class="page-footer reveal fs12"><hr><div class="text"><p>All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</p>
+<p>This site was deployed by <a href="http://wangxianggit.github.io/">@wangxiang</a> using <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.8.0" title="v1.8.0">Stellar</a>.</p>
 </div></footer>
 
       <div class='float-panel mobile-only blur' style='display:none'>
@@ -283,11 +288,11 @@ init = tf.global_variables_initializer()
   stellar.github = 'https://github.com/xaoxuu/hexo-theme-stellar/tree/1.8.0';
   stellar.config = {
     date_suffix: {
-      just: '刚刚',
-      min: '分钟前',
-      hour: '小时前',
-      day: '天前',
-      month: '个月前',
+      just: 'Just',
+      min: 'minutes ago',
+      hour: 'hours ago',
+      day: 'days ago',
+      month: 'months ago',
     },
   };
 

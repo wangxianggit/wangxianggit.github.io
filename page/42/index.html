@@ -45,6 +45,11 @@
   
 
   
+
+  
+
+
+  
 </head>
 
 <body>
@@ -65,7 +70,7 @@
 <div class="widget-wrap" id="markdown"><div class="widget-header cap dis-select"><span class="name">Stellar 入门指南</span></div><div class="widget-body fs14"><p>欢迎使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/">Stellar</a> 主题，下面是您的入门指南，祝您使用愉快！<br><br><br><strong>第一步</strong><br>创建 <code>blog/_config.stellar.yml</code> 文件，在此文件中填写需要自定义的主题配置。<br><br><br><strong>第二步</strong><br>创建 <code>blog/source/_data/widgets.yml</code> 文件，此文件中填写需要自定义的侧边栏组件，例如 <code>welcome</code> 组件。<br><br><br>如果有任何疑问，请先查阅<a target="_blank" rel="noopener" href="https://xaoxuu.com/wiki/stellar/">文档</a>，如果文档中没有提供，请提 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/issues/">issue</a> 向开发中询问。</p>
 </div></div>
 
-<div class="widget-wrap" id="recent"><div class="widget-header cap dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><div class="more-item"><a class="title" href="/torch_scatter_sparse_install/">torch_sparse系列安装方法</a></div><div class="more-item"><a class="title" href="/git_upload_remote_from_localization/">git将本地目录提交至远程仓库</a></div><div class="more-item"><a class="title" href="/Linux_dmidecode/">Linux系统使用dmidecode查看系统的硬件信息</a></div><div class="more-item"><a class="title" href="/Linux_glance/">Linux性能监控命令glances</a></div><div class="more-item"><a class="title" href="/metapost/">MetaPost制作矢量图的语言</a></div></div></div>
+<div class="widget-wrap" id="recent"><div class="widget-header cap dis-select"><span class="name">Recent Update</span></div><div class="widget-body fs14"><div class="more-item"><a class="title" href="/torch_scatter_sparse_install/">torch_sparse系列安装方法</a></div><div class="more-item"><a class="title" href="/git_upload_remote_from_localization/">git将本地目录提交至远程仓库</a></div><div class="more-item"><a class="title" href="/Linux_dmidecode/">Linux系统使用dmidecode查看系统的硬件信息</a></div><div class="more-item"><a class="title" href="/Linux_glance/">Linux性能监控命令glances</a></div><div class="more-item"><a class="title" href="/metapost/">MetaPost制作矢量图的语言</a></div></div></div>
 </div>
 
 
@@ -87,21 +92,21 @@
   <div class='nav-wrap'>
   <nav class='sub post cap'>
     
-      <a class='active' href='/'>近期发布</a>
+      <a class='active' href='/'>Recent</a>
     
     
       
-        <a href='/categories'>分类</a>
-      
-    
-    
-      
-        <a href='/tags'>标签</a>
+        <a href='/categories'>Categories</a>
       
     
     
       
-        <a href='/archives'>归档</a>
+        <a href='/tags'>Tags</a>
+      
+    
+    
+      
+        <a href='/archives'>Archives</a>
       
     
   </nav>
@@ -117,7 +122,7 @@
 
 StopIteration是一个类，抛出异常时，会自动有一个中间环节，就是生成StopIteration的一个对象。
 
-~~~raise StopIteration()...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2019-01-31T11:28:12.000Z">2019-01-31</time></span><span class="cap breadcrumb">Python</span></div></article>
+~~~raise StopIteration()...</p></div><div class="meta cap"><span class="cap" id="post-meta">Posted on&nbsp;<time datetime="2019-01-31T11:28:12.000Z">2019-01-31</time></span><span class="cap breadcrumb">Python</span></div></article>
 </a><a class="post-card post " href="/Python_special_class/">
 <article class="md"><h2 class="post-title">Python定制类</h2><div class="excerpt"><p>
 python中 __xxx__ 形式的变量或函数名在程序上有特殊用途。
@@ -131,7 +136,7 @@ __str__()自定义方式返回类对象的名称，例：
 ~~~class Student(object):
  def __init__(self, name):
      self.name = name
- def __str...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2019-01-31T10:41:03.000Z">2019-01-31</time></span><span class="cap breadcrumb">Python</span></div></article>
+ def __str...</p></div><div class="meta cap"><span class="cap" id="post-meta">Posted on&nbsp;<time datetime="2019-01-31T10:41:03.000Z">2019-01-31</time></span><span class="cap breadcrumb">Python</span></div></article>
 </a><a class="post-card post " href="/Python_len/">
 <article class="md"><h2 class="post-title">Python特殊函数__len__</h2><div class="excerpt"><p>
 ​ Python特殊函数__len()__使函数len()能够作用于类中的变量，例：
@@ -144,21 +149,21 @@ class Namespace(object):
     def __len__(self):
         return len(self.names)
 
-s = Namespace...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2019-01-31T10:32:51.000Z">2019-01-31</time></span><span class="cap breadcrumb">Python</span></div></article>
+s = Namespace...</p></div><div class="meta cap"><span class="cap" id="post-meta">Posted on&nbsp;<time datetime="2019-01-31T10:32:51.000Z">2019-01-31</time></span><span class="cap breadcrumb">Python</span></div></article>
 </a><a class="post-card post " href="/Python_slot/">
 <article class="md"><h2 class="post-title">Python __slot__变量</h2><div class="excerpt"><p>
 ​ Python可以在定义类中添加特殊变量 __slot__ 来限制该类可以添加的属性，例：
 
 ~~~class Student(object):
  __slots__ = (&#39;name&#39;, &#39;age&#39;) # 定义允许绑定的属性名称
-1234567891011* 类中绑定两个变量name和age，其他额外定义的变量则不起作用。* ~~~  s = Stude...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2019-01-31T09:30:22.000Z">2019-01-31</time></span><span class="cap breadcrumb">Python</span></div></article>
+1234567891011* 类中绑定两个变量name和age，其他额外定义的变量则不起作用。* ~~~  s = Stude...</p></div><div class="meta cap"><span class="cap" id="post-meta">Posted on&nbsp;<time datetime="2019-01-31T09:30:22.000Z">2019-01-31</time></span><span class="cap breadcrumb">Python</span></div></article>
 </a><a class="post-card post " href="/git_pull_upload_problem/">
 <article class="md"><h2 class="post-title">git pull上传问题</h2><div class="excerpt"><p>
 windows下使用git终端上传文件，执行命令git push -u origin master后出现如下错误：
 
 To https://github.com/wangxianggit/PythonDSP.git
  ! [rejected]        master -&gt; master (non-fast-forward)
-error: failed to push some r...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2019-01-29T12:46:05.000Z">2019-01-29</time></span><span class="cap breadcrumb">git</span></div></article>
+error: failed to push some r...</p></div><div class="meta cap"><span class="cap" id="post-meta">Posted on&nbsp;<time datetime="2019-01-29T12:46:05.000Z">2019-01-29</time></span><span class="cap breadcrumb">git</span></div></article>
 </a></div>
   
   <div class='paginator-wrap dis-select'>
@@ -177,8 +182,8 @@ error: failed to push some r...</p></div><div class="meta cap"><span class="cap"
 
 
       
-<footer class="page-footer reveal fs12"><hr><div class="text"><p>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
-<p>本站由 <a href="http://wangxianggit.github.io/">@wangxiang</a> 创建，使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.8.0" title="v1.8.0">Stellar</a> 作为主题。</p>
+<footer class="page-footer reveal fs12"><hr><div class="text"><p>All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</p>
+<p>This site was deployed by <a href="http://wangxianggit.github.io/">@wangxiang</a> using <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.8.0" title="v1.8.0">Stellar</a>.</p>
 </div></footer>
 
       <div class='float-panel mobile-only blur' style='display:none'>
@@ -285,11 +290,11 @@ error: failed to push some r...</p></div><div class="meta cap"><span class="cap"
   stellar.github = 'https://github.com/xaoxuu/hexo-theme-stellar/tree/1.8.0';
   stellar.config = {
     date_suffix: {
-      just: '刚刚',
-      min: '分钟前',
-      hour: '小时前',
-      day: '天前',
-      month: '个月前',
+      just: 'Just',
+      min: 'minutes ago',
+      hour: 'hours ago',
+      day: 'days ago',
+      month: 'months ago',
     },
   };
 

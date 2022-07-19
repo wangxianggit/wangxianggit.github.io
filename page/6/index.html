@@ -45,6 +45,11 @@
   
 
   
+
+  
+
+
+  
 </head>
 
 <body>
@@ -65,7 +70,7 @@
 <div class="widget-wrap" id="markdown"><div class="widget-header cap dis-select"><span class="name">Stellar 入门指南</span></div><div class="widget-body fs14"><p>欢迎使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/">Stellar</a> 主题，下面是您的入门指南，祝您使用愉快！<br><br><br><strong>第一步</strong><br>创建 <code>blog/_config.stellar.yml</code> 文件，在此文件中填写需要自定义的主题配置。<br><br><br><strong>第二步</strong><br>创建 <code>blog/source/_data/widgets.yml</code> 文件，此文件中填写需要自定义的侧边栏组件，例如 <code>welcome</code> 组件。<br><br><br>如果有任何疑问，请先查阅<a target="_blank" rel="noopener" href="https://xaoxuu.com/wiki/stellar/">文档</a>，如果文档中没有提供，请提 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/issues/">issue</a> 向开发中询问。</p>
 </div></div>
 
-<div class="widget-wrap" id="recent"><div class="widget-header cap dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><div class="more-item"><a class="title" href="/torch_scatter_sparse_install/">torch_sparse系列安装方法</a></div><div class="more-item"><a class="title" href="/git_upload_remote_from_localization/">git将本地目录提交至远程仓库</a></div><div class="more-item"><a class="title" href="/Linux_dmidecode/">Linux系统使用dmidecode查看系统的硬件信息</a></div><div class="more-item"><a class="title" href="/Linux_glance/">Linux性能监控命令glances</a></div><div class="more-item"><a class="title" href="/metapost/">MetaPost制作矢量图的语言</a></div></div></div>
+<div class="widget-wrap" id="recent"><div class="widget-header cap dis-select"><span class="name">Recent Update</span></div><div class="widget-body fs14"><div class="more-item"><a class="title" href="/torch_scatter_sparse_install/">torch_sparse系列安装方法</a></div><div class="more-item"><a class="title" href="/git_upload_remote_from_localization/">git将本地目录提交至远程仓库</a></div><div class="more-item"><a class="title" href="/Linux_dmidecode/">Linux系统使用dmidecode查看系统的硬件信息</a></div><div class="more-item"><a class="title" href="/Linux_glance/">Linux性能监控命令glances</a></div><div class="more-item"><a class="title" href="/metapost/">MetaPost制作矢量图的语言</a></div></div></div>
 </div>
 
 
@@ -87,21 +92,21 @@
   <div class='nav-wrap'>
   <nav class='sub post cap'>
     
-      <a class='active' href='/'>近期发布</a>
+      <a class='active' href='/'>Recent</a>
     
     
       
-        <a href='/categories'>分类</a>
-      
-    
-    
-      
-        <a href='/tags'>标签</a>
+        <a href='/categories'>Categories</a>
       
     
     
       
-        <a href='/archives'>归档</a>
+        <a href='/tags'>Tags</a>
+      
+    
+    
+      
+        <a href='/archives'>Archives</a>
       
     
   </nav>
@@ -115,7 +120,7 @@ ps -ef | grep user | cut -c 10-15 | xargs kill -9
 
 找出与user相关的进程，然后 grep -v 过滤掉 PID 只剩下进程信息逐行 kill 掉：
 
-123ps -u username | grep -v PID | cut -c 0-5 | xargs kill -...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2021-04-15T05:30:11.000Z">2021-04-15</time></span><span class="cap breadcrumb">learning</span></div></article>
+123ps -u username | grep -v PID | cut -c 0-5 | xargs kill -...</p></div><div class="meta cap"><span class="cap" id="post-meta">Posted on&nbsp;<time datetime="2021-04-15T05:30:11.000Z">2021-04-15</time></span><span class="cap breadcrumb">learning</span></div></article>
 </a><a class="post-card post " href="/Linux_ps_zombie_process/">
 <article class="md"><h2 class="post-title">Linux系统查看僵尸进程</h2><div class="excerpt"><p>Linux系统查看僵尸进程
 ps 命令可以查看有哪些进程正在运行和运行地状态、 进程 是否结束、进程有没有僵死、哪些进程占用了过多地资源等。
@@ -123,18 +128,18 @@ ps 命令最经常使用于监控后台进程工作情况,因为后台进程不�
 语法格式：ps [选项参数]
 可用参数：
 
-12345678-e 显示所有进程,环境变量-f 全格式-h 不...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2021-04-05T14:28:37.000Z">2021-04-05</time></span><span class="cap breadcrumb">learning</span></div></article>
+12345678-e 显示所有进程,环境变量-f 全格式-h 不...</p></div><div class="meta cap"><span class="cap" id="post-meta">Posted on&nbsp;<time datetime="2021-04-05T14:28:37.000Z">2021-04-05</time></span><span class="cap breadcrumb">learning</span></div></article>
 </a><a class="post-card post " href="/hive_connection_block/">
 <article class="md"><h2 class="post-title">hive初始化many connection error</h2><div class="excerpt"><p>hive初始化many connection error
 hive中输入初始化命令：schematool -dbType mysql -initSchema
 出现连接过多错误：
 
-123org.apache.hadoop.hive.metastore.HiveMetaException: Failed to get schema version. Underlying cause: java...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2021-04-02T11:43:11.000Z">2021-04-02</time></span><span class="cap breadcrumb">Database</span></div></article>
+123org.apache.hadoop.hive.metastore.HiveMetaException: Failed to get schema version. Underlying cause: java...</p></div><div class="meta cap"><span class="cap" id="post-meta">Posted on&nbsp;<time datetime="2021-04-02T11:43:11.000Z">2021-04-02</time></span><span class="cap breadcrumb">Database</span></div></article>
 </a><a class="post-card post " href="/hive_warn_ssl/">
 <article class="md"><h2 class="post-title">启动hive出现ssl警告</h2><div class="excerpt"><p>启动hive出现ssl警告
 shell启动hive后出现警告：
 
-123456Fri Apr 02 19:00:51 CST 2021 WARN: Establishing SSL connection without server&#x27;s identityverification is not recommended. According to MySQL 5.5.45+, 5.6....</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2021-04-02T11:04:47.000Z">2021-04-02</time></span><span class="cap breadcrumb">Database</span></div></article>
+123456Fri Apr 02 19:00:51 CST 2021 WARN: Establishing SSL connection without server&#x27;s identityverification is not recommended. According to MySQL 5.5.45+, 5.6....</p></div><div class="meta cap"><span class="cap" id="post-meta">Posted on&nbsp;<time datetime="2021-04-02T11:04:47.000Z">2021-04-02</time></span><span class="cap breadcrumb">Database</span></div></article>
 </a><a class="post-card post " href="/Linux_netstat/">
 <article class="md"><h2 class="post-title">netstat显示网络状态</h2><div class="excerpt"><p>netstat显示网络状态
 Linux netstat 命令用于显示网络状态。
@@ -142,7 +147,7 @@ Linux netstat 命令用于显示网络状态。
 语法：netstat [-acCeFghilMnNoprstuvVwx][-A&lt;网络类型&gt;][--ip]
 实例：
 
-12345678910查看端口或者查看进程netstat -anpt显示详细的网络状况netstat -a显示当前...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2021-03-31T07:42:21.000Z">2021-03-31</time></span><span class="cap breadcrumb">learning</span></div></article>
+12345678910查看端口或者查看进程netstat -anpt显示详细的网络状况netstat -a显示当前...</p></div><div class="meta cap"><span class="cap" id="post-meta">Posted on&nbsp;<time datetime="2021-03-31T07:42:21.000Z">2021-03-31</time></span><span class="cap breadcrumb">learning</span></div></article>
 </a></div>
   
   <div class='paginator-wrap dis-select'>
@@ -161,8 +166,8 @@ Linux netstat 命令用于显示网络状态。
 
 
       
-<footer class="page-footer reveal fs12"><hr><div class="text"><p>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
-<p>本站由 <a href="http://wangxianggit.github.io/">@wangxiang</a> 创建，使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.8.0" title="v1.8.0">Stellar</a> 作为主题。</p>
+<footer class="page-footer reveal fs12"><hr><div class="text"><p>All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</p>
+<p>This site was deployed by <a href="http://wangxianggit.github.io/">@wangxiang</a> using <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.8.0" title="v1.8.0">Stellar</a>.</p>
 </div></footer>
 
       <div class='float-panel mobile-only blur' style='display:none'>
@@ -269,11 +274,11 @@ Linux netstat 命令用于显示网络状态。
   stellar.github = 'https://github.com/xaoxuu/hexo-theme-stellar/tree/1.8.0';
   stellar.config = {
     date_suffix: {
-      just: '刚刚',
-      min: '分钟前',
-      hour: '小时前',
-      day: '天前',
-      month: '个月前',
+      just: 'Just',
+      min: 'minutes ago',
+      hour: 'hours ago',
+      day: 'days ago',
+      month: 'months ago',
     },
   };
 

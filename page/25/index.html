@@ -45,6 +45,11 @@
   
 
   
+
+  
+
+
+  
 </head>
 
 <body>
@@ -65,7 +70,7 @@
 <div class="widget-wrap" id="markdown"><div class="widget-header cap dis-select"><span class="name">Stellar 入门指南</span></div><div class="widget-body fs14"><p>欢迎使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/">Stellar</a> 主题，下面是您的入门指南，祝您使用愉快！<br><br><br><strong>第一步</strong><br>创建 <code>blog/_config.stellar.yml</code> 文件，在此文件中填写需要自定义的主题配置。<br><br><br><strong>第二步</strong><br>创建 <code>blog/source/_data/widgets.yml</code> 文件，此文件中填写需要自定义的侧边栏组件，例如 <code>welcome</code> 组件。<br><br><br>如果有任何疑问，请先查阅<a target="_blank" rel="noopener" href="https://xaoxuu.com/wiki/stellar/">文档</a>，如果文档中没有提供，请提 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/issues/">issue</a> 向开发中询问。</p>
 </div></div>
 
-<div class="widget-wrap" id="recent"><div class="widget-header cap dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><div class="more-item"><a class="title" href="/torch_scatter_sparse_install/">torch_sparse系列安装方法</a></div><div class="more-item"><a class="title" href="/git_upload_remote_from_localization/">git将本地目录提交至远程仓库</a></div><div class="more-item"><a class="title" href="/Linux_dmidecode/">Linux系统使用dmidecode查看系统的硬件信息</a></div><div class="more-item"><a class="title" href="/Linux_glance/">Linux性能监控命令glances</a></div><div class="more-item"><a class="title" href="/metapost/">MetaPost制作矢量图的语言</a></div></div></div>
+<div class="widget-wrap" id="recent"><div class="widget-header cap dis-select"><span class="name">Recent Update</span></div><div class="widget-body fs14"><div class="more-item"><a class="title" href="/torch_scatter_sparse_install/">torch_sparse系列安装方法</a></div><div class="more-item"><a class="title" href="/git_upload_remote_from_localization/">git将本地目录提交至远程仓库</a></div><div class="more-item"><a class="title" href="/Linux_dmidecode/">Linux系统使用dmidecode查看系统的硬件信息</a></div><div class="more-item"><a class="title" href="/Linux_glance/">Linux性能监控命令glances</a></div><div class="more-item"><a class="title" href="/metapost/">MetaPost制作矢量图的语言</a></div></div></div>
 </div>
 
 
@@ -87,21 +92,21 @@
   <div class='nav-wrap'>
   <nav class='sub post cap'>
     
-      <a class='active' href='/'>近期发布</a>
+      <a class='active' href='/'>Recent</a>
     
     
       
-        <a href='/categories'>分类</a>
-      
-    
-    
-      
-        <a href='/tags'>标签</a>
+        <a href='/categories'>Categories</a>
       
     
     
       
-        <a href='/archives'>归档</a>
+        <a href='/tags'>Tags</a>
+      
+    
+    
+      
+        <a href='/archives'>Archives</a>
       
     
   </nav>
@@ -116,7 +121,7 @@ source命令使当前的shell读入文件，并执行其中的shell命令，通�
 source命令不需要文件具有可执行权限，即对文件的权限没有限制。
 
 和./、sh的区别
-./命令需要文件具有可执行权限，才可执行，./命令在进行脚本执行时会查找脚本第一行是...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2019-05-04T11:39:26.000Z">2019-05-04</time></span><span class="cap breadcrumb">learning</span></div></article>
+./命令需要文件具有可执行权限，才可执行，./命令在进行脚本执行时会查找脚本第一行是...</p></div><div class="meta cap"><span class="cap" id="post-meta">Posted on&nbsp;<time datetime="2019-05-04T11:39:26.000Z">2019-05-04</time></span><span class="cap breadcrumb">learning</span></div></article>
 </a><a class="post-card post " href="/Linux_find/">
 <article class="md"><h2 class="post-title">Linux find命令</h2><div class="excerpt"><p>Linux find命令
 ​find命令可以搜索指定目录下的文件。 
@@ -130,7 +135,7 @@ source命令不需要文件具有可执行权限，即对文件的权限没有�
 
 find //查找当前目录下的所有文件
 find ./ -name &quot;a.txt&quot; //查找当前目录下名称为a.txt的文件
-find ./ -max...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2019-05-04T08:54:03.000Z">2019-05-04</time></span><span class="cap breadcrumb">learning</span></div></article>
+find ./ -max...</p></div><div class="meta cap"><span class="cap" id="post-meta">Posted on&nbsp;<time datetime="2019-05-04T08:54:03.000Z">2019-05-04</time></span><span class="cap breadcrumb">learning</span></div></article>
 </a><a class="post-card post " href="/Linux_grep/">
 <article class="md"><h2 class="post-title">Linux grep命令</h2><div class="excerpt"><p>Linux grep命令
 当前目录，搜索preamp字段的所有文件，并打印出所在行：
@@ -140,21 +145,21 @@ grep preamp *
 output:
 preamp.cpp:double preamp(double *x,double *par)
 preamp.cpp:void preamp()
-preamp.cpp:  TF1 *fp=new TF1(&quot;fp&quot;,preamp,0,200,...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2019-05-04T08:22:35.000Z">2019-05-04</time></span><span class="cap breadcrumb">learning</span></div></article>
+preamp.cpp:  TF1 *fp=new TF1(&quot;fp&quot;,preamp,0,200,...</p></div><div class="meta cap"><span class="cap" id="post-meta">Posted on&nbsp;<time datetime="2019-05-04T08:22:35.000Z">2019-05-04</time></span><span class="cap breadcrumb">learning</span></div></article>
 </a><a class="post-card post " href="/Python_gui_tkinter/">
 <article class="md"><h2 class="post-title">Python gui库Tkinter</h2><div class="excerpt"><p>Python 库Tkinter​
 Python库Tkinter(Tk接口)是一个标准的GUI工具包接口，可以运行在大多数平台上。
 
 创建简单gui窗口：
 
-~~~from tkinter import *window = Tk()window.title(“Welcome to LikeGeeks app”)window.mainloop()12345678910  * 最后一行代码调用窗口...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2019-05-04T01:54:42.000Z">2019-05-04</time></span><span class="cap breadcrumb">Python</span></div></article>
+~~~from tkinter import *window = Tk()window.title(“Welcome to LikeGeeks app”)window.mainloop()12345678910  * 最后一行代码调用窗口...</p></div><div class="meta cap"><span class="cap" id="post-meta">Posted on&nbsp;<time datetime="2019-05-04T01:54:42.000Z">2019-05-04</time></span><span class="cap breadcrumb">Python</span></div></article>
 </a><a class="post-card post " href="/Latex_reference_bib/">
 <article class="md"><h2 class="post-title">Latex使用BibTex添加参考文献</h2><div class="excerpt"><p>Latex使用BibTex添加参考文献
 创建bib文件，命令生成空白文件，后缀名是.bib即可。
 
 打开bib文件，添加内容，示例：
 
-~~~@article{Liddick,author={S.N.Liddick et al.},journal = {PHYSICAL REVIEW LETTERS},volume = {97},number = {082501},year = {2006}...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2019-05-01T02:17:29.000Z">2019-05-01</time></span><span class="cap breadcrumb">learning</span></div></article>
+~~~@article{Liddick,author={S.N.Liddick et al.},journal = {PHYSICAL REVIEW LETTERS},volume = {97},number = {082501},year = {2006}...</p></div><div class="meta cap"><span class="cap" id="post-meta">Posted on&nbsp;<time datetime="2019-05-01T02:17:29.000Z">2019-05-01</time></span><span class="cap breadcrumb">learning</span></div></article>
 </a></div>
   
   <div class='paginator-wrap dis-select'>
@@ -173,8 +178,8 @@ Python库Tkinter(Tk接口)是一个标准的GUI工具包接口，可以运行在
 
 
       
-<footer class="page-footer reveal fs12"><hr><div class="text"><p>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
-<p>本站由 <a href="http://wangxianggit.github.io/">@wangxiang</a> 创建，使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.8.0" title="v1.8.0">Stellar</a> 作为主题。</p>
+<footer class="page-footer reveal fs12"><hr><div class="text"><p>All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</p>
+<p>This site was deployed by <a href="http://wangxianggit.github.io/">@wangxiang</a> using <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.8.0" title="v1.8.0">Stellar</a>.</p>
 </div></footer>
 
       <div class='float-panel mobile-only blur' style='display:none'>
@@ -281,11 +286,11 @@ Python库Tkinter(Tk接口)是一个标准的GUI工具包接口，可以运行在
   stellar.github = 'https://github.com/xaoxuu/hexo-theme-stellar/tree/1.8.0';
   stellar.config = {
     date_suffix: {
-      just: '刚刚',
-      min: '分钟前',
-      hour: '小时前',
-      day: '天前',
-      month: '个月前',
+      just: 'Just',
+      min: 'minutes ago',
+      hour: 'hours ago',
+      day: 'days ago',
+      month: 'months ago',
     },
   };
 
