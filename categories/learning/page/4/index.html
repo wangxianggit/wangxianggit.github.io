@@ -1,38 +1,365 @@
-{% extends '_layout.swig' %}
-{% import '_macro/post-collapse.swig' as post_template %}
-{% import '_macro/sidebar.swig' as sidebar_template %}
+<!DOCTYPE html>
+<html lang='zh-Hans'>
 
-{% block title %}{{ __('title.category') }}: {{ page.category }} | {{ config.title }}{% endblock %}
+<head>
+  <meta name="generator" content="Hexo 5.3.0">
+  <meta charset="utf-8">
+  <meta name="robots" content="noindex,follow">
 
-{% block content %}
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel='dns-prefetch' href='https://fastly.jsdelivr.net'>
+  <link rel="preconnect" href="https://fastly.jsdelivr.net" crossorigin>
+  <link rel='dns-prefetch' href='//unpkg.com'>
 
-  {######################}
-  {### CATEGORY BLOCK ###}
-  {######################}
-  <div class="post-block category">
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#f8f8f8">
+  <title>分类：learning - Sharp tools make good work</title>
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <{% if theme.seo %}h2{% else %}h1{% endif %}>{#
-        #}{{ page.category }}{#
-        #}<small>{{  __('title.category')  }}</small>
-        </{% if theme.seo %}h2{% else %}h1{% endif %}>
-      </div>
+  
+    <meta name="description" content="There is no rose without a thorn">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Sharp tools make good work">
+<meta property="og:url" content="http://wangxianggit.github.io/categories/learning/page/4/index.html">
+<meta property="og:site_name" content="Sharp tools make good work">
+<meta property="og:description" content="There is no rose without a thorn">
+<meta property="og:locale">
+<meta property="article:author" content="wangxiang">
+<meta name="twitter:card" content="summary">
+  
+  
 
-      {% for post in page.posts %}
-        {{ post_template.render(post) }}
-      {% endfor %}
+  <!-- feed -->
+  
+
+  
+    
+<link rel="stylesheet" href="/css/main.css">
+
+  
+
+  
+
+  
+</head>
+
+<body>
+  
+
+
+  <div class='l_body' id='start'>
+    <aside class='l_left' layout=''>
+    
+
+
+<header class="header">
+
+<div class="logo-wrap"><a class="title" href="/"><div class="main">Sharp tools make good work</div><div class="sub cap">Open your minds</div></a></div>
+<nav class="menu dis-select"></nav></header>
+
+<div class="widgets">
+<div class="widget-wrap" id="markdown"><div class="widget-header cap dis-select"><span class="name">Stellar 入门指南</span></div><div class="widget-body fs14"><p>欢迎使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/">Stellar</a> 主题，下面是您的入门指南，祝您使用愉快！<br><br><br><strong>第一步</strong><br>创建 <code>blog/_config.stellar.yml</code> 文件，在此文件中填写需要自定义的主题配置。<br><br><br><strong>第二步</strong><br>创建 <code>blog/source/_data/widgets.yml</code> 文件，此文件中填写需要自定义的侧边栏组件，例如 <code>welcome</code> 组件。<br><br><br>如果有任何疑问，请先查阅<a target="_blank" rel="noopener" href="https://xaoxuu.com/wiki/stellar/">文档</a>，如果文档中没有提供，请提 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/issues/">issue</a> 向开发中询问。</p>
+</div></div>
+
+<div class="widget-wrap" id="recent"><div class="widget-header cap dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><div class="more-item"><a class="title" href="/torch_scatter_sparse_install/">torch_sparse系列安装方法</a></div><div class="more-item"><a class="title" href="/git_upload_remote_from_localization/">git将本地目录提交至远程仓库</a></div><div class="more-item"><a class="title" href="/Linux_dmidecode/">Linux系统使用dmidecode查看系统的硬件信息</a></div><div class="more-item"><a class="title" href="/Linux_glance/">Linux性能监控命令glances</a></div><div class="more-item"><a class="title" href="/metapost/">MetaPost制作矢量图的语言</a></div></div></div>
+</div>
+
+
+    </aside>
+    <div class='l_main list'>
+      
+  
+
+<header class="header mobile-only">
+
+<div class="logo-wrap"><a class="title" href="/"><div class="main">Sharp tools make good work</div><div class="sub cap">Open your minds</div></a></div>
+</header>
+
+
+
+      
+
+  
+
+
+  <div class='nav-wrap'>
+  <nav class='sub post cap'>
+    
+      <a href='/'>近期发布</a>
+    
+    
+      
+        <a class='active' href='/categories'>分类：learning</a>
+      
+    
+    
+      
+        <a href='/tags'>标签</a>
+      
+    
+    
+      
+        <a href='/archives'>归档</a>
+      
+    
+  </nav>
+</div>
+
+  <div class="post-list post"><a class="post-card post " href="/nodejs_windows_install/">
+<article class="md"><h2 class="post-title">windows下安装nodejs及环境变量设置</h2><div class="excerpt"><p>
+ 安装包下载：https://nodejs.org/zh-cn/download/
+
+安装包.msi和.zip格式区别：
+
+.msi是Windows installer开发出来的程序安装文件，它可以让你安装，修改，卸载你所安装的程序。说白了.msi就是Windows installer的数据包，把所有和安装文件相关的内容封装在一个包里。
+.zip是一个压缩包，解压之后即可，不需要安装，需要...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2021-01-13T06:03:12.000Z">2021-01-13</time></span><span class="cap breadcrumb">learning</span></div></article>
+</a><a class="post-card post " href="/Endnote_download_tutorial/">
+<article class="md"><h2 class="post-title">EndnoteX9下载及新手教程</h2><div class="excerpt"><p>
+​ Endnote的主要功能：在线搜索，管理文献。
+
+下载链接：
+
+链接: https://pan.baidu.com/s/1zQIinDwA_qGtO6ciS3mxZw 提取码: 1wpx 
+
+
+
+EndnoteX9官方教程：https://clarivate.libguides.com/endnote_training/home或在B站搜索EndnoteX9教程
+
+
+
+</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2020-10-09T05:06:41.000Z">2020-10-09</time></span><span class="cap breadcrumb">learning</span></div></article>
+</a><a class="post-card post " href="/centos7_opencv_install/">
+<article class="md"><h2 class="post-title">Centso7下安装opencv</h2><div class="excerpt"><p>Centso7下安装opencv
+配置epel源：
+  1yum -y install epel-release
+安装相关依赖
+  123yum install -y gcc gcc-c++  yum install -y cmake  yum install -y python-devel numpy 
+安装opencv
+  1234567891011121314cd /usr/local...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2020-10-06T02:28:21.000Z">2020-10-06</time></span><span class="cap breadcrumb">learning</span></div></article>
+</a><a class="post-card post " href="/windows_cmd_string_match/">
+<article class="md"><h2 class="post-title">windows cmd命令匹配文本中的字符串</h2><div class="excerpt"><p>
+findstr是Window系统自带的命令，用于匹配文本中的字符串，其用途和用法类似Linux下的grep命令。
+
+使用方法：
+
+findstr [/b] [/e][/l][/r][/s][/i][/x][/v][/n][/m][/o][/p][/offline][/g:file][/f:file][/c:string][/d:dirlist][/a:ColorAttribute][str...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2020-07-16T15:32:41.000Z">2020-07-16</time></span><span class="cap breadcrumb">learning</span></div></article>
+</a><a class="post-card post " href="/yolov4_tag_chinese/">
+<article class="md"><h2 class="post-title">yolov4标签中文显示</h2><div class="excerpt"><p>
+yolov2标签中文显示参考链接：https://github.com/PaulChongPeng/darknet/commit/798fe7cc4176d452a83d63eb261d6129e397a521#diff-d63433b66e54cd65ded01be20041119cR238
+代码入口解析参考链接：https://blog.csdn.net/hrsstudy/articl...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2020-07-15T14:36:53.000Z">2020-07-15</time></span><span class="cap breadcrumb">learning</span></div></article>
+</a><a class="post-card post " href="/Opencv_lib_zhong/">
+<article class="md"><h2 class="post-title">Opencv库添加中文支持</h2><div class="excerpt"><p>
+操作环境：windows 10，opencv3.40
+
+opencv默认不支持中文输入，需要添加以下代码并调用：
+
+putText.h:
+
+~~~#ifndef PUTTEXT_H_#define PUTTEXT_H_
+#include &lt;windows.h&gt;#include #include &lt;opencv2/opencv.hpp&gt;
+using namespace...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2020-07-15T14:29:33.000Z">2020-07-15</time></span><span class="cap breadcrumb">learning</span></div></article>
+</a><a class="post-card post " href="/ImageMagick_create_font_image/">
+<article class="md"><h2 class="post-title">使用ImageMagick生成字体图像</h2><div class="excerpt"><p>
+首先安装ImageMagick，安装的时候需要勾选”Install legacy utilities(e.g. convert)”，否则后续相关的命令不可用。
+
+找出想转换的字体文件的路径，或者直接拷贝到相应目录下。
+
+使用python脚本生成字体图像，代码如下：
+
+# -*- coding: utf-8 -*-   
+import os
+
+l=[&quot;贝类&quot;,&quot;...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2020-07-14T03:03:27.000Z">2020-07-14</time></span><span class="cap breadcrumb">learning</span></div></article>
+</a><a class="post-card post " href="/ImageMagick_install_use/">
+<article class="md"><h2 class="post-title">ImageMagick安装和使用</h2><div class="excerpt"><p>
+ImageMagick是一款免费开源的图片编辑软件。既可以通过命令行使用，也可以通过C/C++、Perl、Java、PHP、Python或Ruby调用库编程来完成。ImageMagic的主要精力集中在性能，减少bug以及提供稳定的API和ABI上。
+
+官网上一般有16 bit和8 bit两个版本软件可以选择，16 bit处理图像精度更高，但是使用16-bit在处理图片时比8-bit慢15%...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2020-07-14T02:50:31.000Z">2020-07-14</time></span><span class="cap breadcrumb">learning</span></div></article>
+</a><a class="post-card post " href="/winedt_break/">
+<article class="md"><h2 class="post-title">Winedt注册表破解</h2><div class="excerpt"><p>Winedt10注册表破解
+在windet每次退出时运行一段代码，修改注册表信息，使试用天数一直设为1，可以一直免费试用。
+
+打开winedt软件：
+
+~~~option 》option interface》Advanced Configuration》Event Handlers》Exit 123456789* 找到Exit子项，并双击，看到在右边弹出一个名为Exit.edt的配置文件。*...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2020-01-04T07:33:11.000Z">2020-01-04</time></span><span class="cap breadcrumb">learning</span></div></article>
+</a><a class="post-card post " href="/latex_content_dot/">
+<article class="md"><h2 class="post-title">latex生成目录条目加点</h2><div class="excerpt"><p>latex生成目录条目加点
+引导区中加入一下代码，目录条目和页码生成点连接
+
+\usepackage&#123;tocloft&#125;
+
+\renewcommand&#123;\cftchapleader&#125;&#123;\cftdotfill&#123;\cftdotsep&#125;&#125;
+123456789* 点间距和大小的设置：  * ~~~    \newcomma...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2020-01-04T06:35:22.000Z">2020-01-04</time></span><span class="cap breadcrumb">learning</span></div></article>
+</a></div>
+  
+
+
+
+
+
+      
+<footer class="page-footer reveal fs12"><hr><div class="text"><p>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+<p>本站由 <a href="http://wangxianggit.github.io/">@wangxiang</a> 创建，使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.8.0" title="v1.8.0">Stellar</a> 作为主题。</p>
+</div></footer>
+
+      <div class='float-panel mobile-only blur' style='display:none'>
+  <button type='button' class='sidebar-toggle mobile' onclick='sidebar.toggle()'>
+    <svg class="icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="15301"><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 2.3 26.8 24.6 47.5 51.6 47.6h416.5v4z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15302"></path><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 1.9 27.7 23.9 49.7 51.6 51.6h416.5z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15303"></path></svg>
+  </button>
+</div>
+
     </div>
+  </div>
+  <div class='scripts'>
+    <script type="text/javascript">
+  stellar = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    loadCSS: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    // 从 butterfly 和 volantis 获得灵感
+    loadScript: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    // https://github.com/jerryc127/hexo-theme-butterfly
+    jQuery: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        stellar.loadScript(stellar.plugins.jQuery).then(fn)
+      } else {
+        fn()
+      }
+    }
+  };
+  stellar.github = 'https://github.com/xaoxuu/hexo-theme-stellar/tree/1.8.0';
+  stellar.config = {
+    date_suffix: {
+      just: '刚刚',
+      min: '分钟前',
+      hour: '小时前',
+      day: '天前',
+      month: '个月前',
+    },
+  };
+
+  // required plugins (only load if needs)
+  stellar.plugins = {
+    jQuery: 'https://fastly.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js',
+    sitesjs: '/js/plugins/sites.js',
+    friendsjs: '/js/plugins/friends.js',
+  };
+
+  // optional plugins
+  if ('true' == 'true') {
+    stellar.plugins.lazyload = Object.assign({"enable":true,"js":"https://fastly.jsdelivr.net/npm/vanilla-lazyload@17.3.1/dist/lazyload.min.js","transition":"blur"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.swiper = Object.assign({"enable":true,"css":"https://unpkg.com/swiper@6/swiper-bundle.min.css","js":"https://unpkg.com/swiper@6/swiper-bundle.min.js"});
+  }
+  if ('' == 'true') {
+    stellar.plugins.scrollreveal = Object.assign({"enable":null,"js":"https://fastly.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js","distance":"8px","duration":500,"interval":100,"scale":1});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.preload = Object.assign({"enable":true,"service":"flying_pages","instant_page":"https://fastly.jsdelivr.net/gh/volantis-x/cdn-volantis@4.1.2/js/instant_page.js","flying_pages":"https://fastly.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.fancybox = Object.assign({"enable":true,"js":"https://fastly.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js","css":"https://fastly.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css","selector":".swiper-slide img"});
+  }
+  if ('false' == 'true') {
+    stellar.plugins.heti = Object.assign({"enable":false,"css":"https://unpkg.com/heti/umd/heti.min.css","js":"https://unpkg.com/heti/umd/heti-addon.min.js"});
+  }
+</script>
+
+<!-- required -->
+
+  
+<script src="/js/main.js" async></script>
+
+
+
+<!-- optional -->
+
+
+
+<!-- inject -->
+
 
   </div>
-  {##########################}
-  {### END CATEGORY BLOCK ###}
-  {##########################}
-
-  {% include '_partials/pagination.swig' %}
-
-{% endblock %}
-
-{% block sidebar %}
-  {{ sidebar_template.render(false) }}
-{% endblock %}
+</body>
+</html>

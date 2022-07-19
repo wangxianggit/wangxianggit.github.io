@@ -1,35 +1,412 @@
-{% extends '_layout.swig' %}
-{% import '_macro/post.swig' as post_template %}
-{% import '_macro/sidebar.swig' as sidebar_template %}
+<!DOCTYPE html>
+<html lang='zh-Hans'>
+
+<head>
+  <meta name="generator" content="Hexo 5.3.0">
+  <meta charset="utf-8">
+  
+
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel='dns-prefetch' href='https://fastly.jsdelivr.net'>
+  <link rel="preconnect" href="https://fastly.jsdelivr.net" crossorigin>
+  <link rel='dns-prefetch' href='//unpkg.com'>
+
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#f8f8f8">
+  <title>vi简明使用方法 - Sharp tools make good work</title>
+
+  
+    <meta name="description" content="vi工作模式 ​ 正常模式：可以使用快捷键命令，或按:输入命令行。 插入模式：可以输入文本，在正常模式下，按i、a、o等都可以进入插入模式。 可视模式：正常模式下按v可以进入可视模式， 在可视模式下，移动光标可以选择文本。按V进入可视行模式， 总是整行整行的选中。ctrl+v进入可视块模式，可以整列整列的选中。 替换模式：正常模式下，按R进入。  内建文档说明 在终端中输入一下命令可以阅读内建文档">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vi简明使用方法">
+<meta property="og:url" content="http://wangxianggit.github.io/vi_usuage/index.html">
+<meta property="og:site_name" content="Sharp tools make good work">
+<meta property="og:description" content="vi工作模式 ​ 正常模式：可以使用快捷键命令，或按:输入命令行。 插入模式：可以输入文本，在正常模式下，按i、a、o等都可以进入插入模式。 可视模式：正常模式下按v可以进入可视模式， 在可视模式下，移动光标可以选择文本。按V进入可视行模式， 总是整行整行的选中。ctrl+v进入可视块模式，可以整列整列的选中。 替换模式：正常模式下，按R进入。  内建文档说明 在终端中输入一下命令可以阅读内建文档">
+<meta property="og:locale">
+<meta property="article:published_time" content="2019-03-15T12:15:12.000Z">
+<meta property="article:modified_time" content="2019-03-15T12:50:37.912Z">
+<meta property="article:author" content="wangxiang">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="vi">
+<meta name="twitter:card" content="summary">
+  
+  
+
+  <!-- feed -->
+  
+
+  
+    
+<link rel="stylesheet" href="/css/main.css">
+
+  
+
+  
+
+  
+</head>
+
+<body>
+  
 
 
-{% block title %}{{ page.title }} | {{ config.title }}{% endblock %}
-
-{% block page_class %}page-post-detail{% endblock %}
 
 
-{% block content %}
+  <div class='l_body' id='start'>
+    <aside class='l_left' layout='post'>
+    
 
-  <div id="posts" class="posts-expand">
-    {{ post_template.render(page) }}
 
-    <div class="post-spread">
-      {% if theme.jiathis %}
-        {% include '_partials/share/jiathis.swig' %}
-      {% elseif theme.baidushare %}
-        {% include '_partials/share/baidushare.swig' %}
-      {% elseif theme.add_this_id %}
-        {% include '_partials/share/add-this.swig' %}
-      {% endif %}
+<header class="header">
+
+<div class="logo-wrap"><a class="title" href="/"><div class="main">Sharp tools make good work</div><div class="sub cap">Open your minds</div></a></div>
+<nav class="menu dis-select"></nav></header>
+
+<div class="widgets">
+
+<div class="widget-wrap single" id="toc"><div class="widget-header cap dis-select"><span class="name">本文目录</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#vi%E5%B7%A5%E4%BD%9C%E6%A8%A1%E5%BC%8F"><span class="toc-text">vi工作模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%85%E5%BB%BA%E6%96%87%E6%A1%A3%E8%AF%B4%E6%98%8E"><span class="toc-text">内建文档说明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vi%E5%90%AF%E5%8A%A8%E6%96%B9%E5%BC%8F"><span class="toc-text">vi启动方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E6%A1%A3%E6%93%8D%E4%BD%9C"><span class="toc-text">文档操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%89%E6%A0%87%E7%A7%BB%E5%8A%A8-normal%E6%A8%A1%E5%BC%8F%E4%B8%8B"><span class="toc-text">光标移动(normal模式下)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E5%90%88n%E4%BD%BF%E7%94%A8%E7%9A%84%E5%85%89%E6%A0%87%E7%A7%BB%E5%8A%A8-normal%E6%A8%A1%E5%BC%8F%E4%B8%8B"><span class="toc-text">配合n使用的光标移动(normal模式下)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BF%BB%E5%B1%8F"><span class="toc-text">翻屏</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%8D%E5%88%B6%E5%92%8C%E7%B2%98%E8%B4%B4"><span class="toc-text">复制和粘贴</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9F%A5%E6%89%BE%E4%B8%8E%E6%9B%BF%E6%8D%A2"><span class="toc-text">查找与替换</span></a></li></ol></div></div></div>
+
+
+</div>
+
+
+    </aside>
+    <div class='l_main'>
+      
+
+      
+
+<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a><span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/learning/">learning</a></div><div id="post-meta">发布于&nbsp;<time datetime="2019-03-15T12:15:12.000Z">2019-03-15</time></div></div>
+
+<article class='content md post'>
+<h1 class="article-title"><span>vi简明使用方法</span></h1>
+<h2 id="vi工作模式"><a href="#vi工作模式" class="headerlink" title="vi工作模式"></a>vi工作模式</h2><ul>
+<li>​ 正常模式：可以使用快捷键命令，或按:输入命令行。</li>
+<li>插入模式：可以输入文本，在正常模式下，按i、a、o等都可以进入插入模式。</li>
+<li>可视模式：正常模式下按v可以进入可视模式， 在可视模式下，移动光标可以选择文本。按V进入可视行模式， 总是整行整行的选中。ctrl+v进入可视块模式，可以整列整列的选中。</li>
+<li>替换模式：正常模式下，按R进入。</li>
+</ul>
+<h2 id="内建文档说明"><a href="#内建文档说明" class="headerlink" title="内建文档说明"></a>内建文档说明</h2><ul>
+<li><p>在终端中输入一下命令可以阅读内建文档说明：</p>
+<ul>
+<li><pre><code>vimtutor:英文说明
+vimtutor zh:中文说明</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="vi启动方式"><a href="#vi启动方式" class="headerlink" title="vi启动方式"></a>vi启动方式</h2><ul>
+<li>vim -c cmd file: 在打开文件前，先执行指定的命令；</li>
+<li>vim -r file: 恢复上次异常退出的文件；</li>
+<li>vim -R file: 以只读的方式打开文件，但可以强制保存；</li>
+<li>vim -M file: 以只读的方式打开文件，不可以强制保存；</li>
+<li>vim -y num file: 将编辑窗口的大小设为num行；</li>
+<li>vim + file: 从文件的末尾开始；</li>
+<li>vim +num file: 从第num行开始；</li>
+<li>vim +/string file: 打开file，并将光标停留在第一个找到的string上。</li>
+<li>vim –remote file: 用已有的vim进程打开指定的文件。 如果你不想启用多个vim会话，这个很有用。但要注意， 如果你用vim，会寻找名叫VIM的服务器；如果你已经有一个gvim在运行了， 你可以用gvim –remote file在已有的gvim中打开文件。</li>
+</ul>
+<h2 id="文档操作"><a href="#文档操作" class="headerlink" title="文档操作"></a>文档操作</h2><ul>
+<li>:f filename – 改变编辑的文件名，这时再保存相当于另存为。</li>
+<li>gf – 打开以光标所在字符串为文件名的文件。</li>
+<li>:w – 保存修改。</li>
+<li>:n1,n2w filename – 选择性保存从某n1行到另n2行的内容。</li>
+<li>:wq – 保存并退出。</li>
+<li>ZZ – 保存并退出。</li>
+<li>:x – 保存并退出。</li>
+<li>:q[uit] ——退出当前窗口。(CTRL-W q或CTRL-W CTRL-Q)</li>
+<li>:saveas newfilename – 另存为</li>
+<li>:e file –关闭当前编辑的文件，并开启新的文件。 如果对当前文件的修改未保存，vi会警告。</li>
+<li>:e! file –放弃对当前文件的修改，编辑新的文件。</li>
+<li>:e+file – 开始新的文件，并从文件尾开始编辑。</li>
+<li>:e+n file – 开始新的文件，并从第n行开始编辑。</li>
+<li>:enew –编译一个未命名的新文档。(CTRL-W n)</li>
+<li>:e – 重新加载当前文档。</li>
+<li>:e! – 重新加载当前文档，并丢弃已做的改动。</li>
+<li>:e#或ctrl+^ – 回到刚才编辑的文件，很实用。</li>
+<li>:f或ctrl+g – 显示文档名，是否修改，和光标位置。</li>
+<li>:Sex – 水平分割一个窗口，浏览文件系统；</li>
+<li>:Vex – 垂直分割一个窗口，浏览文件系统；</li>
+</ul>
+<h2 id="光标移动-normal模式下"><a href="#光标移动-normal模式下" class="headerlink" title="光标移动(normal模式下)"></a>光标移动(normal模式下)</h2><ul>
+<li>0: 移动到行首。</li>
+<li>g0: 移到光标所在屏幕行行首。</li>
+<li>^: 移动到本行第一个非空白字符。</li>
+<li>g^: 同 ^ ，但是移动到当前屏幕行第一个非空字符处。</li>
+<li>$: 移动到行尾。</li>
+<li>g$: 移动光标所在屏幕行行尾。</li>
+<li>n|: 把光标移到递n列上。</li>
+<li>nG: 到文件第n行。</li>
+<li>:n<cr> 移动到第n行。</li>
+<li>:$<cr> 移动到最后一行。</li>
+<li>H: 把光标移到屏幕最顶端一行。</li>
+<li>M: 把光标移到屏幕中间一行。</li>
+<li>L: 把光标移到屏幕最底端一行。</li>
+<li>gg: 到文件头部。</li>
+<li>G: 到文件尾部。</li>
+</ul>
+<h2 id="配合n使用的光标移动-normal模式下"><a href="#配合n使用的光标移动-normal模式下" class="headerlink" title="配合n使用的光标移动(normal模式下)"></a>配合n使用的光标移动(normal模式下)</h2><ul>
+<li><code>配合n使用时在命令前键入n，则该命令的效果翻n倍</code></li>
+<li>h或退格: 左移一个字符；</li>
+<li>l或空格: 右移一个字符；</li>
+<li>j: 下移一行；</li>
+<li>k: 上移一行；</li>
+<li>gj: 移动到一段内的下一行；</li>
+<li>gk: 移动到一段内的上一行；</li>
+<li>+或Enter: 把光标移至下一行第一个非空白字符。</li>
+<li>-: 把光标移至上一行第一个非空白字符。</li>
+<li>w: 前移一个单词，光标停在下一个单词开头；</li>
+<li>W: 移动下一个单词开头，但忽略一些标点；</li>
+<li>e: 前移一个单词，光标停在下一个单词末尾；</li>
+<li>E: 移动到下一个单词末尾，如果词尾有标点，则移动到标点；</li>
+<li>b: 后移一个单词，光标停在上一个单词开头；</li>
+<li>B: 移动到上一个单词开头，忽略一些标点；</li>
+<li>ge: 后移一个单词，光标停在上一个单词末尾；</li>
+<li>gE: 同 ge ，不过‘单词’包含单词相邻的标点。</li>
+<li>(: 前移1句。</li>
+<li>): 后移1句。</li>
+<li>{: 前移1段。</li>
+<li>}: 后移1段。</li>
+<li>fc: 把光标移到同一行的下一个c字符处</li>
+<li>Fc: 把光标移到同一行的上一个c字符处</li>
+<li>tc: 把光标移到同一行的下一个c字符前</li>
+<li>Tc: 把光标移到同一行的上一个c字符后</li>
+<li>;: 配合f &amp; t使用，重复一次</li>
+<li>,: 配合f &amp; t使用，反向重复一次</li>
+</ul>
+<h2 id="翻屏"><a href="#翻屏" class="headerlink" title="翻屏"></a>翻屏</h2><ul>
+<li>ctrl+f: 下翻一屏。</li>
+<li>ctrl+b: 上翻一屏。</li>
+<li>ctrl+d: 下翻半屏。</li>
+<li>ctrl+u: 上翻半屏。</li>
+<li>ctrl+e: 向下滚动一行。</li>
+<li>ctrl+y: 向上滚动一行。</li>
+<li>n%: 到文件n%的位置。</li>
+</ul>
+<h2 id="复制和粘贴"><a href="#复制和粘贴" class="headerlink" title="复制和粘贴"></a>复制和粘贴</h2><ul>
+<li>[n]x: 剪切光标右边n个字符，相当于d[n]l。</li>
+<li>[n]X: 剪切光标左边n个字符，相当于d[n]h。</li>
+<li>y: 复制在可视模式下选中的文本。</li>
+<li>yy or Y: 复制整行文本。</li>
+<li>y[n]w: 复制一(n)个词。</li>
+<li>y[n]l: 复制光标右边1(n)个字符。</li>
+<li>y[n]h: 复制光标左边1(n)个字符。</li>
+<li>y$: 从光标当前位置复制到行尾。</li>
+<li>y0: 从光标当前位置复制到行首。</li>
+<li>:m,ny<cr> 复制m行到n行的内容。</li>
+<li>y1G或ygg: 复制光标以上的所有行。</li>
+<li>yG: 复制光标以下的所有行。</li>
+<li>yaw和yas：复制一个词和复制一个句子，即使光标不在词首和句首也没关系。</li>
+<li>d: 删除（剪切）在可视模式下选中的文本。</li>
+<li>d$ or D: 删除（剪切）当前位置到行尾的内容。</li>
+<li>d[n]w: 删除（剪切）1(n)个单词</li>
+<li>d[n]l: 删除（剪切）光标右边1(n)个字符。</li>
+<li>d[n]h: 删除（剪切）光标左边1(n)个字符。</li>
+<li>d0: 删除（剪切）当前位置到行首的内容</li>
+<li>[n] dd: 删除（剪切）1(n)行。</li>
+<li>:m,nd<cr> 剪切m行到n行的内容。</li>
+<li>d1G或dgg: 剪切光标以上的所有行。</li>
+<li>dG: 剪切光标以下的所有行。</li>
+<li>daw和das：剪切一个词和剪切一个句子，即使光标不在词首和句首也没关系。</li>
+<li>d/f<cr>：这是一个比较高级的组合命令，它将删除当前位置 到下一个f之间的内容。</li>
+<li>p: 在光标之后粘贴。</li>
+<li>P: 在光标之前粘贴。</li>
+</ul>
+<h2 id="查找与替换"><a href="#查找与替换" class="headerlink" title="查找与替换"></a>查找与替换</h2><ul>
+<li>/something: 在后面的文本中查找something。</li>
+<li>?something: 在前面的文本中查找something。</li>
+<li>/pattern/+number: 将光标停在包含pattern的行后面第number行上。</li>
+<li>/pattern/-number: 将光标停在包含pattern的行前面第number行上。</li>
+<li>n: 向后查找下一个。</li>
+<li>N: 向前查找下一个。</li>
+<li>:s/old/new - 用new替换当前行第一个old。</li>
+<li>:s/old/new/g - 用new替换当前行所有的old。</li>
+<li>:n1,n2s/old/new/g - 用new替换文件n1行到n2行所有的old。</li>
+<li>:%s/old/new/g - 用new替换文件中所有的old。</li>
+<li>:%s/^/xxx/g - 在每一行的行首插入xxx，^表示行首。</li>
+<li>:%s/$/xxx/g - 在每一行的行尾插入xxx，$表示行尾。</li>
+</ul>
+<hr>
+
+
+<div class="article-footer reveal fs14"><section id="license"><div class="header"><span>许可协议</span></div><div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div></section></div>
+
+</article>
+
+<div class="related-wrap reveal" id="read-next"><section class="header cap theme"><span>接下来阅读</span></section><section class="body fs14"><a id="next" href="/windows_ctex_insert_eps_problem/">windows下使用ctex不能插入eps图片问题<span class="note">较早</span></a><div class="line"></div><a id="prev" href="/latex_blank_space/">latex中的空格<span class="note">较新</span></a></section></div>
+
+
+
+
+
+
+
+
+      
+<footer class="page-footer reveal fs12"><hr><div class="text"><p>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+<p>本站由 <a href="http://wangxianggit.github.io/">@wangxiang</a> 创建，使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.8.0" title="v1.8.0">Stellar</a> 作为主题。</p>
+</div></footer>
+
+      <div class='float-panel mobile-only blur' style='display:none'>
+  <button type='button' class='sidebar-toggle mobile' onclick='sidebar.toggle()'>
+    <svg class="icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="15301"><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 2.3 26.8 24.6 47.5 51.6 47.6h416.5v4z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15302"></path><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 1.9 27.7 23.9 49.7 51.6 51.6h416.5z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15303"></path></svg>
+  </button>
+</div>
+
     </div>
   </div>
+  <div class='scripts'>
+    <script type="text/javascript">
+  stellar = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    loadCSS: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
 
-{% endblock %}
+    // 从 butterfly 和 volantis 获得灵感
+    loadScript: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
 
-{% block sidebar %}
-  {{ sidebar_template.render(true) }}
-{% endblock %}
+    // https://github.com/jerryc127/hexo-theme-butterfly
+    jQuery: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        stellar.loadScript(stellar.plugins.jQuery).then(fn)
+      } else {
+        fn()
+      }
+    }
+  };
+  stellar.github = 'https://github.com/xaoxuu/hexo-theme-stellar/tree/1.8.0';
+  stellar.config = {
+    date_suffix: {
+      just: '刚刚',
+      min: '分钟前',
+      hour: '小时前',
+      day: '天前',
+      month: '个月前',
+    },
+  };
 
-{% block script_extra %}
-  {% include '_scripts/pages/post-details.swig' %}
-{% endblock %}
+  // required plugins (only load if needs)
+  stellar.plugins = {
+    jQuery: 'https://fastly.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js',
+    sitesjs: '/js/plugins/sites.js',
+    friendsjs: '/js/plugins/friends.js',
+  };
+
+  // optional plugins
+  if ('true' == 'true') {
+    stellar.plugins.lazyload = Object.assign({"enable":true,"js":"https://fastly.jsdelivr.net/npm/vanilla-lazyload@17.3.1/dist/lazyload.min.js","transition":"blur"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.swiper = Object.assign({"enable":true,"css":"https://unpkg.com/swiper@6/swiper-bundle.min.css","js":"https://unpkg.com/swiper@6/swiper-bundle.min.js"});
+  }
+  if ('' == 'true') {
+    stellar.plugins.scrollreveal = Object.assign({"enable":null,"js":"https://fastly.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js","distance":"8px","duration":500,"interval":100,"scale":1});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.preload = Object.assign({"enable":true,"service":"flying_pages","instant_page":"https://fastly.jsdelivr.net/gh/volantis-x/cdn-volantis@4.1.2/js/instant_page.js","flying_pages":"https://fastly.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.fancybox = Object.assign({"enable":true,"js":"https://fastly.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js","css":"https://fastly.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css","selector":".swiper-slide img"});
+  }
+  if ('false' == 'true') {
+    stellar.plugins.heti = Object.assign({"enable":false,"css":"https://unpkg.com/heti/umd/heti.min.css","js":"https://unpkg.com/heti/umd/heti-addon.min.js"});
+  }
+</script>
+
+<!-- required -->
+
+  
+<script src="/js/main.js" async></script>
+
+
+
+<!-- optional -->
+
+
+
+<!-- inject -->
+
+
+  </div>
+</body>
+</html>

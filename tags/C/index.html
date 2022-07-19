@@ -1,37 +1,405 @@
-{% extends '_layout.swig' %}
-{% import '_macro/post-collapse.swig' as post_template %}
-{% import '_macro/sidebar.swig' as sidebar_template %}
+<!DOCTYPE html>
+<html lang='zh-Hans'>
 
-{% block title %}{{ __('title.tag') }}: {{ page.tag }} | {{ config.title }}{% endblock %}
+<head>
+  <meta name="generator" content="Hexo 5.3.0">
+  <meta charset="utf-8">
+  <meta name="robots" content="noindex,follow">
 
-{% block content %}
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel='dns-prefetch' href='https://fastly.jsdelivr.net'>
+  <link rel="preconnect" href="https://fastly.jsdelivr.net" crossorigin>
+  <link rel='dns-prefetch' href='//unpkg.com'>
 
-  {#################}
-  {### TAG BLOCK ###}
-  {#################}
-  <div class="post-block tag">
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#f8f8f8">
+  <title>标签：C++ - Sharp tools make good work</title>
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <{% if theme.seo %}h2{% else %}h1{% endif %}>{#
-        #}{{ page.tag }}{#
-        #}<small>{{  __('title.tag')  }}</small>
-        </{% if theme.seo %}h2{% else %}h1{% endif %}>
-      </div>
+  
+    <meta name="description" content="There is no rose without a thorn">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Sharp tools make good work">
+<meta property="og:url" content="http://wangxianggit.github.io/tags/C/index.html">
+<meta property="og:site_name" content="Sharp tools make good work">
+<meta property="og:description" content="There is no rose without a thorn">
+<meta property="og:locale">
+<meta property="article:author" content="wangxiang">
+<meta name="twitter:card" content="summary">
+  
+  
 
-      {% for post in page.posts %}
-        {{ post_template.render(post) }}
-      {% endfor %}
+  <!-- feed -->
+  
+
+  
+    
+<link rel="stylesheet" href="/css/main.css">
+
+  
+
+  
+
+  
+</head>
+
+<body>
+  
+
+
+  <div class='l_body' id='start'>
+    <aside class='l_left' layout=''>
+    
+
+
+<header class="header">
+
+<div class="logo-wrap"><a class="title" href="/"><div class="main">Sharp tools make good work</div><div class="sub cap">Open your minds</div></a></div>
+<nav class="menu dis-select"></nav></header>
+
+<div class="widgets">
+<div class="widget-wrap" id="markdown"><div class="widget-header cap dis-select"><span class="name">Stellar 入门指南</span></div><div class="widget-body fs14"><p>欢迎使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/">Stellar</a> 主题，下面是您的入门指南，祝您使用愉快！<br><br><br><strong>第一步</strong><br>创建 <code>blog/_config.stellar.yml</code> 文件，在此文件中填写需要自定义的主题配置。<br><br><br><strong>第二步</strong><br>创建 <code>blog/source/_data/widgets.yml</code> 文件，此文件中填写需要自定义的侧边栏组件，例如 <code>welcome</code> 组件。<br><br><br>如果有任何疑问，请先查阅<a target="_blank" rel="noopener" href="https://xaoxuu.com/wiki/stellar/">文档</a>，如果文档中没有提供，请提 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/issues/">issue</a> 向开发中询问。</p>
+</div></div>
+
+<div class="widget-wrap" id="recent"><div class="widget-header cap dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><div class="more-item"><a class="title" href="/torch_scatter_sparse_install/">torch_sparse系列安装方法</a></div><div class="more-item"><a class="title" href="/git_upload_remote_from_localization/">git将本地目录提交至远程仓库</a></div><div class="more-item"><a class="title" href="/Linux_dmidecode/">Linux系统使用dmidecode查看系统的硬件信息</a></div><div class="more-item"><a class="title" href="/Linux_glance/">Linux性能监控命令glances</a></div><div class="more-item"><a class="title" href="/metapost/">MetaPost制作矢量图的语言</a></div></div></div>
+</div>
+
+
+    </aside>
+    <div class='l_main list'>
+      
+  
+
+<header class="header mobile-only">
+
+<div class="logo-wrap"><a class="title" href="/"><div class="main">Sharp tools make good work</div><div class="sub cap">Open your minds</div></a></div>
+</header>
+
+
+
+      
+
+  
+
+
+  <div class='nav-wrap'>
+  <nav class='sub post cap'>
+    
+      <a href='/'>近期发布</a>
+    
+    
+      
+        <a href='/categories'>分类</a>
+      
+    
+    
+      
+        <a class='active' href='/tags'>标签：C++</a>
+      
+    
+    
+      
+        <a href='/archives'>归档</a>
+      
+    
+  </nav>
+</div>
+
+  <div class="post-list post"><a class="post-card post " href="/root_notebook/">
+<article class="md"><h2 class="post-title">root install notebook</h2><div class="excerpt"><p>root install notebook
+link：https://root.cern.ch/how/how-create-rootbook
+
+ROOT 6.07 Onwards：
+
+~~~
+Install dependenciessudo pip install jupyter metakernel zmq
+Launch ROOT notebookroot –notebook
+12345...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2019-12-21T09:44:32.000Z">2019-12-21</time></span><span class="cap breadcrumb">learning</span></div></article>
+</a><a class="post-card post " href="/cmake_print/">
+<article class="md"><h2 class="post-title">cmake打印乘法表</h2><div class="excerpt"><p>cmake打印乘法表
+CMakeLists.txt 文件代码：
+
+cmake_minimum_required(VERSION 2.8.11) 
+project(test) 
+foreach(i RANGE 1 9) 
+    set(exp &quot;&quot;) 
+    foreach(j RANGE 1 $&#123;i&#125;) 
+        math(EXPR val...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2019-12-06T06:34:27.000Z">2019-12-06</time></span><span class="cap breadcrumb">learning</span></div></article>
+</a><a class="post-card post " href="/cmake_basic_gramma/">
+<article class="md"><h2 class="post-title">cmake基础语法</h2><div class="excerpt"><p>cmake基础语法
+cmake中的命令：COMMAND()
+
+CMake 构建过程的操作基本使用各种的命令完成
+示例：project(test),add_executable(hello hello.cpp)
+
+
+条件判断 if()/endif()
+
+~~~if() 
+ 
+elseif() # optional block, can be repeated 
+ 
+else() # optio...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2019-12-06T06:07:33.000Z">2019-12-06</time></span><span class="cap breadcrumb">learning</span></div></article>
+</a><a class="post-card post " href="/cmake_order/">
+<article class="md"><h2 class="post-title">cmake常见概念</h2><div class="excerpt"><p>cmake常见概念target
+target:cmake 的主要工作大多是为了操作各种各样的 target
+
+cmake 把二进制可执行文件和库都称为 target。
+
+target 就是指 cmake 要编译的目标
+
+可执行文件：add_executable()指定了可执行文件，它是 unix 上 a.out 之类的文件和 windows 平台 .exe 文件
+
+
+库
+动态库和静态库都使用...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2019-12-06T05:44:45.000Z">2019-12-06</time></span><span class="cap breadcrumb">learning</span></div></article>
+</a><a class="post-card post " href="/cmake_compile_static/">
+<article class="md"><h2 class="post-title">cmake编译静态链接库</h2><div class="excerpt"><p>cmake编译静态链接库
+例如 hello.cpp 需要调用一个 so 中的 接口api，so 库是由 源文件world.cpp 编译生成。
+
+各个文件内容如下：
+
+world.h 的代码，它位于工程中 ./include文件夹：
+
+~~~#ifndef WORLD_H__#define __WORLD_H
+void say_hello();
+#endif
+123456789* world....</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2019-12-06T05:34:27.000Z">2019-12-06</time></span><span class="cap breadcrumb">learning</span></div></article>
+</a><a class="post-card post " href="/cmake_makefile/">
+<article class="md"><h2 class="post-title">cmake生成简单makefile</h2><div class="excerpt"><p>cmake生成简单makefile
+cmake是跨平台编译工具，自动化生成Makefile等编译文件。
+
+简单例子：
+
+现有源文件只包含一个文件hello.cpp:
+
+~~~#include using namespace std;
+int main(int argc,char** argv){
+cout &lt;&lt; &quot;Hello for cmake!&quot; &lt;&...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2019-12-06T05:25:12.000Z">2019-12-06</time></span><span class="cap breadcrumb">learning</span></div></article>
+</a><a class="post-card post " href="/new_alloc/">
+<article class="md"><h2 class="post-title">C++动态分配内存new</h2><div class="excerpt"><p>new动态内存分配
+作用：动态分配内存并调用相应类的构造函数
+
+变量申请：Type* pointer = new Type;
+
+数组申请：Type* pointer = new Type[N];
+
+~~~int * var;var = new int [10];
+12345678910111213141516171819202122* 动态分配内存示例：  * ~~~    #include...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2019-10-01T09:28:11.000Z">2019-10-01</time></span><span class="cap breadcrumb">learning</span></div></article>
+</a><a class="post-card post " href="/algorithm_sort_insertion/">
+<article class="md"><h2 class="post-title">插入排序</h2><div class="excerpt"><p>插入排序
+​ 伪代码：
+
+INSERTION-SORT(A)
+
+for j=2 to A.length
+  key=A[j]
+  //Insert A[j] into the sorted sequence A[1..j-1]
+  i=j-1
+  while i&gt; and A[i]&gt;key
+    A[i+1]=A[i]
+    i=i-1
+  A[i+1]=key
+123456...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2019-05-16T04:03:32.000Z">2019-05-16</time></span><span class="cap breadcrumb">Algorithm</span></div></article>
+</a><a class="post-card post " href="/randomdata_Integer_norepeat/">
+<article class="md"><h2 class="post-title">用c++产生不重复整数随机数</h2><div class="excerpt"><p>C++产生不重复随机整数
+​ 方法1：
+
+先产生一段连续的整数，比如0-500，存储到数组。
+然后产生一个随机整数，把数组的位置随机调换。
+
+
+代码：
+
+#include &lt;algorithm&gt; //swap function
+#include &lt;iostream&gt; //std io
+
+using namespace std;
+int main()&#123;
+   ...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2019-05-05T01:43:31.000Z">2019-05-05</time></span><span class="cap breadcrumb">learning</span></div></article>
+</a><a class="post-card post " href="/Compiler_g++_usuage/">
+<article class="md"><h2 class="post-title">编译器g++使用</h2><div class="excerpt"><p>编译器g++
+g++  是GNU组织开发出的编译器软件集合（GCC）下的一个C++编译器。
+g++ 是Unix 和 Linux  系统下标配的 基于命令行的 C++编译器。
+C/C++代码的编译过程：
+
+
+
+
+g++ 的参数
+**–version **显示g++ 的版本 。
+
+–target-help 显示特定平台环境的参数支持。比如嵌入式领域使用的avr-g++会对MCU 支持一些优化参数...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2019-03-07T07:10:33.000Z">2019-03-07</time></span><span class="cap breadcrumb">learning</span></div></article>
+</a></div>
+  
+
+
+
+
+
+      
+<footer class="page-footer reveal fs12"><hr><div class="text"><p>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+<p>本站由 <a href="http://wangxianggit.github.io/">@wangxiang</a> 创建，使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.8.0" title="v1.8.0">Stellar</a> 作为主题。</p>
+</div></footer>
+
+      <div class='float-panel mobile-only blur' style='display:none'>
+  <button type='button' class='sidebar-toggle mobile' onclick='sidebar.toggle()'>
+    <svg class="icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="15301"><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 2.3 26.8 24.6 47.5 51.6 47.6h416.5v4z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15302"></path><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 1.9 27.7 23.9 49.7 51.6 51.6h416.5z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15303"></path></svg>
+  </button>
+</div>
+
     </div>
+  </div>
+  <div class='scripts'>
+    <script type="text/javascript">
+  stellar = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    loadCSS: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    // 从 butterfly 和 volantis 获得灵感
+    loadScript: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    // https://github.com/jerryc127/hexo-theme-butterfly
+    jQuery: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        stellar.loadScript(stellar.plugins.jQuery).then(fn)
+      } else {
+        fn()
+      }
+    }
+  };
+  stellar.github = 'https://github.com/xaoxuu/hexo-theme-stellar/tree/1.8.0';
+  stellar.config = {
+    date_suffix: {
+      just: '刚刚',
+      min: '分钟前',
+      hour: '小时前',
+      day: '天前',
+      month: '个月前',
+    },
+  };
+
+  // required plugins (only load if needs)
+  stellar.plugins = {
+    jQuery: 'https://fastly.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js',
+    sitesjs: '/js/plugins/sites.js',
+    friendsjs: '/js/plugins/friends.js',
+  };
+
+  // optional plugins
+  if ('true' == 'true') {
+    stellar.plugins.lazyload = Object.assign({"enable":true,"js":"https://fastly.jsdelivr.net/npm/vanilla-lazyload@17.3.1/dist/lazyload.min.js","transition":"blur"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.swiper = Object.assign({"enable":true,"css":"https://unpkg.com/swiper@6/swiper-bundle.min.css","js":"https://unpkg.com/swiper@6/swiper-bundle.min.js"});
+  }
+  if ('' == 'true') {
+    stellar.plugins.scrollreveal = Object.assign({"enable":null,"js":"https://fastly.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js","distance":"8px","duration":500,"interval":100,"scale":1});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.preload = Object.assign({"enable":true,"service":"flying_pages","instant_page":"https://fastly.jsdelivr.net/gh/volantis-x/cdn-volantis@4.1.2/js/instant_page.js","flying_pages":"https://fastly.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.fancybox = Object.assign({"enable":true,"js":"https://fastly.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js","css":"https://fastly.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css","selector":".swiper-slide img"});
+  }
+  if ('false' == 'true') {
+    stellar.plugins.heti = Object.assign({"enable":false,"css":"https://unpkg.com/heti/umd/heti.min.css","js":"https://unpkg.com/heti/umd/heti-addon.min.js"});
+  }
+</script>
+
+<!-- required -->
+
+  
+<script src="/js/main.js" async></script>
+
+
+
+<!-- optional -->
+
+
+
+<!-- inject -->
+
 
   </div>
-  {#####################}
-  {### END TAG BLOCK ###}
-  {#####################}
-
-  {% include '_partials/pagination.swig' %}
-{% endblock %}
-
-{% block sidebar %}
-  {{ sidebar_template.render(false) }}
-{% endblock %}
+</body>
+</html>

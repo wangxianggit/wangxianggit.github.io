@@ -1,38 +1,384 @@
-{% extends '_layout.swig' %}
-{% import '_macro/post-collapse.swig' as post_template %}
-{% import '_macro/sidebar.swig' as sidebar_template %}
+<!DOCTYPE html>
+<html lang='zh-Hans'>
 
-{% block title %}{{ __('title.category') }}: {{ page.category }} | {{ config.title }}{% endblock %}
+<head>
+  <meta name="generator" content="Hexo 5.3.0">
+  <meta charset="utf-8">
+  <meta name="robots" content="noindex,follow">
 
-{% block content %}
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel='dns-prefetch' href='https://fastly.jsdelivr.net'>
+  <link rel="preconnect" href="https://fastly.jsdelivr.net" crossorigin>
+  <link rel='dns-prefetch' href='//unpkg.com'>
 
-  {######################}
-  {### CATEGORY BLOCK ###}
-  {######################}
-  <div class="post-block category">
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#f8f8f8">
+  <title>分类：learning - Sharp tools make good work</title>
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <{% if theme.seo %}h2{% else %}h1{% endif %}>{#
-        #}{{ page.category }}{#
-        #}<small>{{  __('title.category')  }}</small>
-        </{% if theme.seo %}h2{% else %}h1{% endif %}>
-      </div>
+  
+    <meta name="description" content="There is no rose without a thorn">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Sharp tools make good work">
+<meta property="og:url" content="http://wangxianggit.github.io/categories/learning/page/5/index.html">
+<meta property="og:site_name" content="Sharp tools make good work">
+<meta property="og:description" content="There is no rose without a thorn">
+<meta property="og:locale">
+<meta property="article:author" content="wangxiang">
+<meta name="twitter:card" content="summary">
+  
+  
 
-      {% for post in page.posts %}
-        {{ post_template.render(post) }}
-      {% endfor %}
+  <!-- feed -->
+  
+
+  
+    
+<link rel="stylesheet" href="/css/main.css">
+
+  
+
+  
+
+  
+</head>
+
+<body>
+  
+
+
+  <div class='l_body' id='start'>
+    <aside class='l_left' layout=''>
+    
+
+
+<header class="header">
+
+<div class="logo-wrap"><a class="title" href="/"><div class="main">Sharp tools make good work</div><div class="sub cap">Open your minds</div></a></div>
+<nav class="menu dis-select"></nav></header>
+
+<div class="widgets">
+<div class="widget-wrap" id="markdown"><div class="widget-header cap dis-select"><span class="name">Stellar 入门指南</span></div><div class="widget-body fs14"><p>欢迎使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/">Stellar</a> 主题，下面是您的入门指南，祝您使用愉快！<br><br><br><strong>第一步</strong><br>创建 <code>blog/_config.stellar.yml</code> 文件，在此文件中填写需要自定义的主题配置。<br><br><br><strong>第二步</strong><br>创建 <code>blog/source/_data/widgets.yml</code> 文件，此文件中填写需要自定义的侧边栏组件，例如 <code>welcome</code> 组件。<br><br><br>如果有任何疑问，请先查阅<a target="_blank" rel="noopener" href="https://xaoxuu.com/wiki/stellar/">文档</a>，如果文档中没有提供，请提 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/issues/">issue</a> 向开发中询问。</p>
+</div></div>
+
+<div class="widget-wrap" id="recent"><div class="widget-header cap dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><div class="more-item"><a class="title" href="/torch_scatter_sparse_install/">torch_sparse系列安装方法</a></div><div class="more-item"><a class="title" href="/git_upload_remote_from_localization/">git将本地目录提交至远程仓库</a></div><div class="more-item"><a class="title" href="/Linux_dmidecode/">Linux系统使用dmidecode查看系统的硬件信息</a></div><div class="more-item"><a class="title" href="/Linux_glance/">Linux性能监控命令glances</a></div><div class="more-item"><a class="title" href="/metapost/">MetaPost制作矢量图的语言</a></div></div></div>
+</div>
+
+
+    </aside>
+    <div class='l_main list'>
+      
+  
+
+<header class="header mobile-only">
+
+<div class="logo-wrap"><a class="title" href="/"><div class="main">Sharp tools make good work</div><div class="sub cap">Open your minds</div></a></div>
+</header>
+
+
+
+      
+
+  
+
+
+  <div class='nav-wrap'>
+  <nav class='sub post cap'>
+    
+      <a href='/'>近期发布</a>
+    
+    
+      
+        <a class='active' href='/categories'>分类：learning</a>
+      
+    
+    
+      
+        <a href='/tags'>标签</a>
+      
+    
+    
+      
+        <a href='/archives'>归档</a>
+      
+    
+  </nav>
+</div>
+
+  <div class="post-list post"><a class="post-card post " href="/latex_figure_prefix/">
+<article class="md"><h2 class="post-title">latex论文用图修改前缀</h2><div class="excerpt"><p>latex论文用图修改前缀
+Figure改为Fig.，可以在导言区定义以下命令：
+
+~~~\renewcommand{\figurename}{Fig.}123456* 修改分隔符如Figure1:改成Figure.可以用caption2宏包：  * ~~~    \usepackage[]&#123;caption2&#125;     \renewcommand&#123;\captio...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2019-12-25T06:12:23.000Z">2019-12-25</time></span><span class="cap breadcrumb">learning</span></div></article>
+</a><a class="post-card post " href="/yum_unblock/">
+<article class="md"><h2 class="post-title">linux yum进程占用问题</h2><div class="excerpt"><p>linux yum进程占用问题
+一个yum进程非正常关闭后打开另一个进程出现yum被占用的警告
+
+~~~Another app is currently holding the yum lock; waiting for it to exit…The other application is: yum12345* 即yum进程被占用，清除缓存中的进程重启yum即可：  * ~~~    rm...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2019-12-22T03:14:23.000Z">2019-12-22</time></span><span class="cap breadcrumb">learning</span></div></article>
+</a><a class="post-card post " href="/linux_googlechrome/">
+<article class="md"><h2 class="post-title">linux安装谷歌浏览器</h2><div class="excerpt"><p>linux安装谷歌浏览器
+下载rpm安装包：
+
+~~~https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm12345678* 安装相关依赖：  * ~~~    yum install -y lsb    yum install -y libXScrnSaver    yum install -y...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2019-12-21T14:20:18.000Z">2019-12-21</time></span><span class="cap breadcrumb">learning</span></div></article>
+</a><a class="post-card post " href="/root_notebook/">
+<article class="md"><h2 class="post-title">root install notebook</h2><div class="excerpt"><p>root install notebook
+link：https://root.cern.ch/how/how-create-rootbook
+
+ROOT 6.07 Onwards：
+
+~~~
+Install dependenciessudo pip install jupyter metakernel zmq
+Launch ROOT notebookroot –notebook
+12345...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2019-12-21T09:44:32.000Z">2019-12-21</time></span><span class="cap breadcrumb">learning</span></div></article>
+</a><a class="post-card post " href="/centos7_wifiadapter_not_found/">
+<article class="md"><h2 class="post-title">Centos7 error：no wifi-adapter found</h2><div class="excerpt"><p>
+新安装的centos7和window10双系统，开机打开无线网络出现错误：
+
+no wifi-adapter found
+
+
+解决方法,管理员权限下输入以下命令：
+
+rfkill unblock all
+rfkill list
+modprobe -r ideapad_laptop
+
+
+
+
+
+</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2019-12-13T10:47:08.000Z">2019-12-13</time></span><span class="cap breadcrumb">learning</span></div></article>
+</a><a class="post-card post " href="/Centos_imagesite/">
+<article class="md"><h2 class="post-title">centos镜像下载地址</h2><div class="excerpt"><p>开源网站镜像搜狐开源镜像站：http:``//mirrors``.sohu.com/
+网易开源镜像站：http:``//mirrors``.163.com/
+开源中国：http:``//mirrors``.oschina.net/
+首都在线科技股份有限公司：http:``//mirrors``.yun-idc.com/
+阿里云开源镜像：http:``//mirrors``.aliyun.co...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2019-12-13T01:43:41.000Z">2019-12-13</time></span><span class="cap breadcrumb">learning</span></div></article>
+</a><a class="post-card post " href="/sshd%20no%20hostkeys%20available/">
+<article class="md"><h2 class="post-title">ssh启动错误：no hostkeys available— exiting</h2><div class="excerpt"><p>
+ssh服务启动不了，查看出现错误原因：
+
+ /usr/sbin/sshd -T
+ 若输出错误存在问题：no hostkeys available— exiting，则错误原因是ssh密钥出现问题。
+
+
+root权限下，重新生成密钥：
+
+ssh-keygen -t dsa -f /etc/ssh/ssh_host_dsa_key
+ssh-keygen -t rsa -f /etc/ssh/s...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2019-12-06T10:24:37.000Z">2019-12-06</time></span><span class="cap breadcrumb">learning</span></div></article>
+</a><a class="post-card post " href="/centos7_ssh/">
+<article class="md"><h2 class="post-title">Centos7 ssh常用命令</h2><div class="excerpt"><p>Centos7 ssh常用命令
+安装程序包：yum install -y openssh-server
+
+启动ssh服务：
+
+启动：systemctl start sshd
+
+重启：systemctl restart sshd
+
+开机启动: systemctl enable sshd
+
+开启防火墙:
+
+
+
+
+123firewall-cmd --add-service=ftp/tcp --pe...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2019-12-06T10:11:35.000Z">2019-12-06</time></span><span class="cap breadcrumb">learning</span></div></article>
+</a><a class="post-card post " href="/cmake_print/">
+<article class="md"><h2 class="post-title">cmake打印乘法表</h2><div class="excerpt"><p>cmake打印乘法表
+CMakeLists.txt 文件代码：
+
+cmake_minimum_required(VERSION 2.8.11) 
+project(test) 
+foreach(i RANGE 1 9) 
+    set(exp &quot;&quot;) 
+    foreach(j RANGE 1 $&#123;i&#125;) 
+        math(EXPR val...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2019-12-06T06:34:27.000Z">2019-12-06</time></span><span class="cap breadcrumb">learning</span></div></article>
+</a><a class="post-card post " href="/cmake_basic_gramma/">
+<article class="md"><h2 class="post-title">cmake基础语法</h2><div class="excerpt"><p>cmake基础语法
+cmake中的命令：COMMAND()
+
+CMake 构建过程的操作基本使用各种的命令完成
+示例：project(test),add_executable(hello hello.cpp)
+
+
+条件判断 if()/endif()
+
+~~~if() 
+ 
+elseif() # optional block, can be repeated 
+ 
+else() # optio...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2019-12-06T06:07:33.000Z">2019-12-06</time></span><span class="cap breadcrumb">learning</span></div></article>
+</a></div>
+  
+
+
+
+
+
+      
+<footer class="page-footer reveal fs12"><hr><div class="text"><p>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+<p>本站由 <a href="http://wangxianggit.github.io/">@wangxiang</a> 创建，使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.8.0" title="v1.8.0">Stellar</a> 作为主题。</p>
+</div></footer>
+
+      <div class='float-panel mobile-only blur' style='display:none'>
+  <button type='button' class='sidebar-toggle mobile' onclick='sidebar.toggle()'>
+    <svg class="icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="15301"><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 2.3 26.8 24.6 47.5 51.6 47.6h416.5v4z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15302"></path><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 1.9 27.7 23.9 49.7 51.6 51.6h416.5z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15303"></path></svg>
+  </button>
+</div>
+
     </div>
+  </div>
+  <div class='scripts'>
+    <script type="text/javascript">
+  stellar = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    loadCSS: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    // 从 butterfly 和 volantis 获得灵感
+    loadScript: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    // https://github.com/jerryc127/hexo-theme-butterfly
+    jQuery: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        stellar.loadScript(stellar.plugins.jQuery).then(fn)
+      } else {
+        fn()
+      }
+    }
+  };
+  stellar.github = 'https://github.com/xaoxuu/hexo-theme-stellar/tree/1.8.0';
+  stellar.config = {
+    date_suffix: {
+      just: '刚刚',
+      min: '分钟前',
+      hour: '小时前',
+      day: '天前',
+      month: '个月前',
+    },
+  };
+
+  // required plugins (only load if needs)
+  stellar.plugins = {
+    jQuery: 'https://fastly.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js',
+    sitesjs: '/js/plugins/sites.js',
+    friendsjs: '/js/plugins/friends.js',
+  };
+
+  // optional plugins
+  if ('true' == 'true') {
+    stellar.plugins.lazyload = Object.assign({"enable":true,"js":"https://fastly.jsdelivr.net/npm/vanilla-lazyload@17.3.1/dist/lazyload.min.js","transition":"blur"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.swiper = Object.assign({"enable":true,"css":"https://unpkg.com/swiper@6/swiper-bundle.min.css","js":"https://unpkg.com/swiper@6/swiper-bundle.min.js"});
+  }
+  if ('' == 'true') {
+    stellar.plugins.scrollreveal = Object.assign({"enable":null,"js":"https://fastly.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js","distance":"8px","duration":500,"interval":100,"scale":1});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.preload = Object.assign({"enable":true,"service":"flying_pages","instant_page":"https://fastly.jsdelivr.net/gh/volantis-x/cdn-volantis@4.1.2/js/instant_page.js","flying_pages":"https://fastly.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.fancybox = Object.assign({"enable":true,"js":"https://fastly.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js","css":"https://fastly.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css","selector":".swiper-slide img"});
+  }
+  if ('false' == 'true') {
+    stellar.plugins.heti = Object.assign({"enable":false,"css":"https://unpkg.com/heti/umd/heti.min.css","js":"https://unpkg.com/heti/umd/heti-addon.min.js"});
+  }
+</script>
+
+<!-- required -->
+
+  
+<script src="/js/main.js" async></script>
+
+
+
+<!-- optional -->
+
+
+
+<!-- inject -->
+
 
   </div>
-  {##########################}
-  {### END CATEGORY BLOCK ###}
-  {##########################}
-
-  {% include '_partials/pagination.swig' %}
-
-{% endblock %}
-
-{% block sidebar %}
-  {{ sidebar_template.render(false) }}
-{% endblock %}
+</body>
+</html>

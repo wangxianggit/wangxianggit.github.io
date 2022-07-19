@@ -1,35 +1,277 @@
-{% extends '_layout.swig' %}
-{% import '_macro/post.swig' as post_template %}
-{% import '_macro/sidebar.swig' as sidebar_template %}
+<!DOCTYPE html>
+<html lang='zh-Hans'>
+
+<head>
+  <meta name="generator" content="Hexo 5.3.0">
+  <meta charset="utf-8">
+  
+
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel='dns-prefetch' href='https://fastly.jsdelivr.net'>
+  <link rel="preconnect" href="https://fastly.jsdelivr.net" crossorigin>
+  <link rel='dns-prefetch' href='//unpkg.com'>
+
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#f8f8f8">
+  <title>netstat显示网络状态 - Sharp tools make good work</title>
+
+  
+    <meta name="description" content="netstat显示网络状态 Linux netstat 命令用于显示网络状态。 利用 netstat 指令可让你得知整个 Linux 系统的网络情况。 语法：netstat [-acCeFghilMnNoprstuvVwx][-A&lt;网络类型&gt;][--ip] 实例：  12345678910查看端口或者查看进程netstat -anpt显示详细的网络状况netstat -a显示当前户籍U">
+<meta property="og:type" content="article">
+<meta property="og:title" content="netstat显示网络状态">
+<meta property="og:url" content="http://wangxianggit.github.io/Linux_netstat/index.html">
+<meta property="og:site_name" content="Sharp tools make good work">
+<meta property="og:description" content="netstat显示网络状态 Linux netstat 命令用于显示网络状态。 利用 netstat 指令可让你得知整个 Linux 系统的网络情况。 语法：netstat [-acCeFghilMnNoprstuvVwx][-A&lt;网络类型&gt;][--ip] 实例：  12345678910查看端口或者查看进程netstat -anpt显示详细的网络状况netstat -a显示当前户籍U">
+<meta property="og:locale">
+<meta property="article:published_time" content="2021-03-31T07:42:21.000Z">
+<meta property="article:modified_time" content="2021-03-31T07:48:29.402Z">
+<meta property="article:author" content="wangxiang">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="Shell">
+<meta name="twitter:card" content="summary">
+  
+  
+
+  <!-- feed -->
+  
+
+  
+    
+<link rel="stylesheet" href="/css/main.css">
+
+  
+
+  
+
+  
+</head>
+
+<body>
+  
 
 
-{% block title %}{{ page.title }} | {{ config.title }}{% endblock %}
-
-{% block page_class %}page-post-detail{% endblock %}
 
 
-{% block content %}
+  <div class='l_body' id='start'>
+    <aside class='l_left' layout='post'>
+    
 
-  <div id="posts" class="posts-expand">
-    {{ post_template.render(page) }}
 
-    <div class="post-spread">
-      {% if theme.jiathis %}
-        {% include '_partials/share/jiathis.swig' %}
-      {% elseif theme.baidushare %}
-        {% include '_partials/share/baidushare.swig' %}
-      {% elseif theme.add_this_id %}
-        {% include '_partials/share/add-this.swig' %}
-      {% endif %}
+<header class="header">
+
+<div class="logo-wrap"><a class="title" href="/"><div class="main">Sharp tools make good work</div><div class="sub cap">Open your minds</div></a></div>
+<nav class="menu dis-select"></nav></header>
+
+<div class="widgets">
+
+<div class="widget-wrap single" id="toc"><div class="widget-header cap dis-select"><span class="name">本文目录</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#netstat%E6%98%BE%E7%A4%BA%E7%BD%91%E7%BB%9C%E7%8A%B6%E6%80%81"><span class="toc-text">netstat显示网络状态</span></a></li></ol></div></div></div>
+
+
+</div>
+
+
+    </aside>
+    <div class='l_main'>
+      
+
+      
+
+<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a><span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/learning/">learning</a></div><div id="post-meta">发布于&nbsp;<time datetime="2021-03-31T07:42:21.000Z">2021-03-31</time></div></div>
+
+<article class='content md post'>
+<h1 class="article-title"><span>netstat显示网络状态</span></h1>
+<h3 id="netstat显示网络状态"><a href="#netstat显示网络状态" class="headerlink" title="netstat显示网络状态"></a>netstat显示网络状态</h3><ul>
+<li>Linux netstat 命令用于显示网络状态。</li>
+<li>利用 netstat 指令可让你得知整个 Linux 系统的网络情况。</li>
+<li>语法：<code>netstat [-acCeFghilMnNoprstuvVwx][-A&lt;网络类型&gt;][--ip]</code></li>
+<li>实例：</li>
+</ul>
+<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">查看端口或者查看进程</span><br><span class="line">netstat -anpt</span><br><span class="line">显示详细的网络状况</span><br><span class="line">netstat -<span class="keyword">a</span></span><br><span class="line">显示当前户籍UDP连接状况</span><br><span class="line">netstat -nu</span><br><span class="line">显示UDP端口号的使用情况</span><br><span class="line">netstat -apu</span><br><span class="line">显示网卡列表</span><br><span class="line">netstat -i</span><br></pre></td></tr></table></figure>
+<ul>
+<li>可用参数：</li>
+</ul>
+<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">-a或<span class="params">--all</span> 显示所有连线中的Socket。</span><br><span class="line">-A&lt;网络类型&gt;或--&lt;网络类型&gt; 列出该网络类型连线中的相关地址。</span><br><span class="line">-c或<span class="params">--continuous</span> 持续列出网络状态。</span><br><span class="line">-C或<span class="params">--cache</span> 显示路由器配置的快取信息。</span><br><span class="line">-e或<span class="params">--extend</span> 显示网络其他相关信息。</span><br><span class="line">-F或<span class="params">--fib</span> 显示路由缓存。</span><br><span class="line">-g或<span class="params">--groups</span> 显示多重广播功能群组组员名单。</span><br><span class="line">-h或<span class="params">--help</span> 在线帮助。</span><br><span class="line">-i或<span class="params">--interfaces</span> 显示网络界面信息表单。</span><br><span class="line">-l或<span class="params">--listening</span> 显示监控中的服务器的Socket。</span><br><span class="line">-M或<span class="params">--masquerade</span> 显示伪装的网络连线。</span><br><span class="line">-n或<span class="params">--numeric</span> 直接使用IP地址，而不通过域名服务器。</span><br><span class="line">-N或<span class="params">--netlink</span>或<span class="params">--symbolic</span> 显示网络硬件外围设备的符号连接名称。</span><br><span class="line">-o或<span class="params">--timers</span> 显示计时器。</span><br><span class="line">-p或<span class="params">--programs</span> 显示正在使用Socket的程序识别码和程序名称。</span><br><span class="line">-r或<span class="params">--route</span> 显示Routing Table。</span><br><span class="line">-s或<span class="params">--statistics</span> 显示网络工作信息统计表。</span><br><span class="line">-t或<span class="params">--tcp</span> 显示TCP传输协议的连线状况。</span><br><span class="line">-u或<span class="params">--udp</span> 显示UDP传输协议的连线状况。</span><br><span class="line">-v或<span class="params">--verbose</span> 显示指令执行过程。</span><br><span class="line">-V或<span class="params">--version</span> 显示版本信息。</span><br><span class="line">-w或<span class="params">--raw</span> 显示RAW传输协议的连线状况。</span><br><span class="line">-x或<span class="params">--unix</span> 此参数的效果和指定<span class="string">&quot;-A unix&quot;</span>参数相同。</span><br><span class="line"><span class="params">--ip</span>或<span class="params">--inet</span> 此参数的效果和指定<span class="string">&quot;-A inet&quot;</span>参数相同。</span><br></pre></td></tr></table></figure>
+<hr>
+
+
+<div class="article-footer reveal fs14"><section id="license"><div class="header"><span>许可协议</span></div><div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div></section></div>
+
+</article>
+
+<div class="related-wrap reveal" id="read-next"><section class="header cap theme"><span>接下来阅读</span></section><section class="body fs14"><a id="next" href="/Python_tqdm/">Python 使用tqdm模块添加进度条<span class="note">较早</span></a><div class="line"></div><a id="prev" href="/hive_warn_ssl/">启动hive出现ssl警告<span class="note">较新</span></a></section></div>
+
+
+
+
+
+
+
+
+      
+<footer class="page-footer reveal fs12"><hr><div class="text"><p>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+<p>本站由 <a href="http://wangxianggit.github.io/">@wangxiang</a> 创建，使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.8.0" title="v1.8.0">Stellar</a> 作为主题。</p>
+</div></footer>
+
+      <div class='float-panel mobile-only blur' style='display:none'>
+  <button type='button' class='sidebar-toggle mobile' onclick='sidebar.toggle()'>
+    <svg class="icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="15301"><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 2.3 26.8 24.6 47.5 51.6 47.6h416.5v4z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15302"></path><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 1.9 27.7 23.9 49.7 51.6 51.6h416.5z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15303"></path></svg>
+  </button>
+</div>
+
     </div>
   </div>
+  <div class='scripts'>
+    <script type="text/javascript">
+  stellar = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    loadCSS: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
 
-{% endblock %}
+    // 从 butterfly 和 volantis 获得灵感
+    loadScript: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
 
-{% block sidebar %}
-  {{ sidebar_template.render(true) }}
-{% endblock %}
+    // https://github.com/jerryc127/hexo-theme-butterfly
+    jQuery: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        stellar.loadScript(stellar.plugins.jQuery).then(fn)
+      } else {
+        fn()
+      }
+    }
+  };
+  stellar.github = 'https://github.com/xaoxuu/hexo-theme-stellar/tree/1.8.0';
+  stellar.config = {
+    date_suffix: {
+      just: '刚刚',
+      min: '分钟前',
+      hour: '小时前',
+      day: '天前',
+      month: '个月前',
+    },
+  };
 
-{% block script_extra %}
-  {% include '_scripts/pages/post-details.swig' %}
-{% endblock %}
+  // required plugins (only load if needs)
+  stellar.plugins = {
+    jQuery: 'https://fastly.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js',
+    sitesjs: '/js/plugins/sites.js',
+    friendsjs: '/js/plugins/friends.js',
+  };
+
+  // optional plugins
+  if ('true' == 'true') {
+    stellar.plugins.lazyload = Object.assign({"enable":true,"js":"https://fastly.jsdelivr.net/npm/vanilla-lazyload@17.3.1/dist/lazyload.min.js","transition":"blur"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.swiper = Object.assign({"enable":true,"css":"https://unpkg.com/swiper@6/swiper-bundle.min.css","js":"https://unpkg.com/swiper@6/swiper-bundle.min.js"});
+  }
+  if ('' == 'true') {
+    stellar.plugins.scrollreveal = Object.assign({"enable":null,"js":"https://fastly.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js","distance":"8px","duration":500,"interval":100,"scale":1});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.preload = Object.assign({"enable":true,"service":"flying_pages","instant_page":"https://fastly.jsdelivr.net/gh/volantis-x/cdn-volantis@4.1.2/js/instant_page.js","flying_pages":"https://fastly.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.fancybox = Object.assign({"enable":true,"js":"https://fastly.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js","css":"https://fastly.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css","selector":".swiper-slide img"});
+  }
+  if ('false' == 'true') {
+    stellar.plugins.heti = Object.assign({"enable":false,"css":"https://unpkg.com/heti/umd/heti.min.css","js":"https://unpkg.com/heti/umd/heti-addon.min.js"});
+  }
+</script>
+
+<!-- required -->
+
+  
+<script src="/js/main.js" async></script>
+
+
+
+<!-- optional -->
+
+
+
+<!-- inject -->
+
+
+  </div>
+</body>
+</html>

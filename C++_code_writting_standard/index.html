@@ -1,35 +1,369 @@
-{% extends '_layout.swig' %}
-{% import '_macro/post.swig' as post_template %}
-{% import '_macro/sidebar.swig' as sidebar_template %}
+<!DOCTYPE html>
+<html lang='zh-Hans'>
+
+<head>
+  <meta name="generator" content="Hexo 5.3.0">
+  <meta charset="utf-8">
+  
+
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel='dns-prefetch' href='https://fastly.jsdelivr.net'>
+  <link rel="preconnect" href="https://fastly.jsdelivr.net" crossorigin>
+  <link rel='dns-prefetch' href='//unpkg.com'>
+
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#f8f8f8">
+  <title>c++代码书写规范 - Sharp tools make good work</title>
+
+  
+    <meta name="description" content="C++代码书写规范头文件保护 使用#define进行头文件保护，为保证唯一性头文件保护的命名可以基于项目代码路径，例如对于头文件Main\Src\File.h，可以设置如下保护：  #ifndefine         MAIN_SRC_FILE_H  #define            MAIN_SRC_FILE_H  …  #endif 123456789101112131415161718">
+<meta property="og:type" content="article">
+<meta property="og:title" content="c++代码书写规范">
+<meta property="og:url" content="http://wangxianggit.github.io/C++_code_writting_standard/index.html">
+<meta property="og:site_name" content="Sharp tools make good work">
+<meta property="og:description" content="C++代码书写规范头文件保护 使用#define进行头文件保护，为保证唯一性头文件保护的命名可以基于项目代码路径，例如对于头文件Main\Src\File.h，可以设置如下保护：  #ifndefine         MAIN_SRC_FILE_H  #define            MAIN_SRC_FILE_H  …  #endif 123456789101112131415161718">
+<meta property="og:locale">
+<meta property="article:published_time" content="2019-03-06T11:05:11.000Z">
+<meta property="article:modified_time" content="2019-03-07T04:54:08.654Z">
+<meta property="article:author" content="wangxiang">
+<meta property="article:tag" content="C">
+<meta property="article:tag" content="C++">
+<meta name="twitter:card" content="summary">
+  
+  
+
+  <!-- feed -->
+  
+
+  
+    
+<link rel="stylesheet" href="/css/main.css">
+
+  
+
+  
+
+  
+</head>
+
+<body>
+  
 
 
-{% block title %}{{ page.title }} | {{ config.title }}{% endblock %}
-
-{% block page_class %}page-post-detail{% endblock %}
 
 
-{% block content %}
+  <div class='l_body' id='start'>
+    <aside class='l_left' layout='post'>
+    
 
-  <div id="posts" class="posts-expand">
-    {{ post_template.render(page) }}
 
-    <div class="post-spread">
-      {% if theme.jiathis %}
-        {% include '_partials/share/jiathis.swig' %}
-      {% elseif theme.baidushare %}
-        {% include '_partials/share/baidushare.swig' %}
-      {% elseif theme.add_this_id %}
-        {% include '_partials/share/add-this.swig' %}
-      {% endif %}
+<header class="header">
+
+<div class="logo-wrap"><a class="title" href="/"><div class="main">Sharp tools make good work</div><div class="sub cap">Open your minds</div></a></div>
+<nav class="menu dis-select"></nav></header>
+
+<div class="widgets">
+
+<div class="widget-wrap single" id="toc"><div class="widget-header cap dis-select"><span class="name">本文目录</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#C-%E4%BB%A3%E7%A0%81%E4%B9%A6%E5%86%99%E8%A7%84%E8%8C%83"><span class="toc-text">C++代码书写规范</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%B4%E6%96%87%E4%BB%B6%E4%BF%9D%E6%8A%A4"><span class="toc-text">头文件保护</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B1%BB"><span class="toc-text">类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B3%A8%E9%87%8A%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-text">注释的使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B6%E4%BB%96"><span class="toc-text">其他</span></a></li></ol></li></ol></div></div></div>
+
+
+</div>
+
+
+    </aside>
+    <div class='l_main'>
+      
+
+      
+
+<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a><span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/learning/">learning</a></div><div id="post-meta">发布于&nbsp;<time datetime="2019-03-06T11:05:11.000Z">2019-03-06</time></div></div>
+
+<article class='content md post'>
+<h1 class="article-title"><span>c++代码书写规范</span></h1>
+<h2 id="C-代码书写规范"><a href="#C-代码书写规范" class="headerlink" title="C++代码书写规范"></a>C++代码书写规范</h2><h3 id="头文件保护"><a href="#头文件保护" class="headerlink" title="头文件保护"></a>头文件保护</h3><ul>
+<li><p>使用#define进行头文件保护，为保证唯一性头文件保护的命名可以基于项目代码路径，例如对于头文件Main\Src\File.h，可以设置如下保护：</p>
+<ul>
+<li><pre><code>#ifndefine         MAIN_SRC_FILE_H
+
+#define            MAIN_SRC_FILE_H
+
+…
+
+#endif
+<figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 使用前置声明减少头文件的所要包含的文件数量，也就减少了需要重新编译文件的几率。</span><br><span class="line"></span><br><span class="line">  * 例如如果只在头文件里面使用其他文件中定义的类时，如果只是使用类的声明而不是具体定义，应该是用前置声明代替包含整个文件，使用前置声明class SomeClass;不使用头文件的包含<span class="meta">#<span class="meta-keyword">include</span> <span class="string">&quot;SomeClass&quot;</span></span></span><br><span class="line"></span><br><span class="line">* 头文件的包含顺序：C库、C++库、其他库.h、项目内的.h</span><br><span class="line"></span><br><span class="line">  * 如果次文件是cpp文件，那么要首先包含其对应的头文件，然后再按前述顺序。</span><br><span class="line"></span><br><span class="line">  * 每个层级用[空行](https:<span class="comment">//www.baidu.com/s?wd=%E7%A9%BA%E8%A1%8C&amp;tn=24004469_oem_dg&amp;rsv_dl=gh_pl_sl_csd)分隔，同一层级的文件顺序按英文字母先后顺序排列。</span></span><br><span class="line"></span><br><span class="line">  * 示例代码</span><br><span class="line"></span><br><span class="line">  * ~~~</span><br><span class="line">    <span class="meta">#<span class="meta-keyword">include</span>“MyFile.h”  (如果次文件是cpp文件，首先包含自己的头文件)</span></span><br><span class="line"></span><br><span class="line">    <span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line">    <span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"></span><br><span class="line">    <span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line">    <span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line">    <span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"></span><br><span class="line">    <span class="meta">#<span class="meta-keyword">include</span>“lib/Alpha.h”</span></span><br><span class="line">    <span class="meta">#<span class="meta-keyword">include</span>“lib/Beta.h”</span></span><br><span class="line">    <span class="meta">#<span class="meta-keyword">include</span>“other/zoo.h”</span></span><br><span class="line"></span><br><span class="line">    <span class="meta">#<span class="meta-keyword">include</span>“bar.h”</span></span><br><span class="line">    <span class="meta">#<span class="meta-keyword">include</span>“foo.h”</span></span><br></pre></td></tr></table></figure>
+### 作用域</code></pre>
+</li>
+</ul>
+</li>
+<li><p>尽量不要使用全局变量，全局变量起的作用往往仅是一个静态变量。</p>
+</li>
+<li><p>如果非要使用全局变量，考虑使用单例模式代替。</p>
+</li>
+<li><p>多线程中使用的全局变量，不要使用class类型（包括STL容器），避免class内部的实现非线程安全而导致bug。</p>
+</li>
+</ul>
+<h3 id="类"><a href="#类" class="headerlink" title="类"></a>类</h3><ul>
+<li><p>声明顺序按照以下规则：</p>
+<ul>
+<li><p>成员先后顺序：typedef、enum、常量、构造析构函数、成员函数，成员变量。</p>
+</li>
+<li><p>域先后顺序：public、protected、private。</p>
+</li>
+<li><p>例：</p>
+</li>
+<li><p>~~~<br>Class MyClass<br>{<br>public:</p>
+<pre><code>     voidFoo();</code></pre>
+<p>protected:</p>
+<pre><code>     voidBar();</code></pre>
+<p>private:</p>
+<pre><code>     voidFunc();</code></pre>
+<p>}</p>
+<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 构造函数只负责简单的初始化功能，如果需要进行有意义的初始化，请使用<span class="constructor">Init()</span>函数；严禁在构造函数中调用虚函数。</span><br><span class="line"></span><br><span class="line">* 仅需要拷贝一个对象时才定义拷贝构造函数，否则明确在<span class="keyword">private</span>域中使用声明DISALLOW_COPY_AND_ASSIGN，避免编译器隐式声明的拷贝构造函数导致的不确定行为。如下：</span><br><span class="line"></span><br><span class="line"><span class="operator">  * </span>~~~</span><br><span class="line">    <span class="keyword">private</span>:</span><br><span class="line"></span><br><span class="line">    <span class="constructor">DISALLOW_COPY_AND_ASSIGN(MyClass)</span>;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>只有数据时，使用结构体，否则使用类。</p>
+</li>
+<li><p>尽量使用组合代替继承。</p>
+<ul>
+<li>如果类中有一个virtual函数，则析构函数必须声明为virtual。</li>
+<li>所有继承必须为public，<a target="_blank" rel="noopener" href="https://www.baidu.com/s?wd=%E7%A7%81%E6%9C%89%E7%BB%A7%E6%89%BF&tn=24004469_oem_dg&rsv_dl=gh_pl_sl_csd">私有继承</a>使用其它实现方式替代。</li>
+</ul>
+</li>
+<li><p>尽量避免使用多重继承，除非是COM。</p>
+</li>
+<li><p>尽量使用const修饰变量。    </p>
+</li>
+</ul>
+<h3 id="注释的使用"><a href="#注释的使用" class="headerlink" title="注释的使用"></a>注释的使用</h3><ul>
+<li><p>头文件的注释格式如下：</p>
+<ul>
+<li><p>~~~<br>/<strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>****</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></p>
+<ul>
+<li><p>@description:</p>
+</li>
+<li><p>@author:      name of author</p>
+</li>
+<li><p>@date:        2018.11.10</p>
+</li>
+<li><p>@last modified author: </p>
+</li>
+<li><p>@last modified date:</p>
+</li>
+<li><p>@ copyright “the company” 2018 -</p>
+</li>
+<li><p><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>****</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong>/</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 声明类之前需要使用类注释，说明此类的使用用途及注意事项</span><br><span class="line"></span><br><span class="line">  * ~~~</span><br><span class="line">    <span class="regexp">//</span> description:</span><br><span class="line"></span><br><span class="line">    <span class="regexp">//</span> <span class="keyword">function</span> of class:</span><br><span class="line"></span><br><span class="line">    <span class="regexp">//</span> attention:</span><br><span class="line"></span><br><span class="line">    class Browser&#123;&#125;;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>函数注释，重要或难理解的函数，需要在函数声明前加上注释。</p>
+</li>
+<li><p>对于很难理解、重要、实现精彩的部分必须加上注释。</p>
+</li>
+<li><p>对于那些来不及实现、暂未实现、需要去实现的地方加上TODO注释。</p>
+</li>
+<li><p>~~~<br>// TODO: Fly to the moon.</p>
+<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 编码风格</span><br><span class="line"></span><br><span class="line">* ~~~</span><br><span class="line">  尽量不要使用缩写，严禁使用不明单词的缩写。</span><br><span class="line"></span><br><span class="line">  类名：大写字母开头，每个单词首字母大写。</span><br><span class="line"></span><br><span class="line">  函数名：大写字母开头，每个单词首字母大写</span><br><span class="line"></span><br><span class="line">  变量名：首字母（通常为前缀）小写</span><br></pre></td></tr></table></figure></li>
+<li><p>变量前缀为小写，根据变量类型加如short/int/size_t..，加n，如int nVal =1;</p>
+</li>
+<li><p>使用空格代替table，在VS里将table设置成4个空格，每个级别进行4个空格的缩进。</p>
+</li>
+<li><p>花括号另起一行使用。</p>
+</li>
+<li><p>条件、循环、开关等语句，关键字后加空格再使用，例如If ();</p>
+</li>
+</ul>
+<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><ul>
+<li>new/delete等堆操作，必须成对出现，尽量遵从谁分配谁释放的原则。</li>
+<li>AddRef()/Release()必须成对出现，尽量遵从谁分配谁释放的原则。</li>
+<li><strong>指针、句柄使用完释放后必须设置成NULL。</strong></li>
+<li><strong>函数功能要单一，避免耦合多功能，严禁CreateAndNavigate这种函数。</strong></li>
+<li><strong>指针的空值比较使用NULL，而不是0。</strong></li>
+<li><strong>浮点数的零值比较严禁使用== 0。</strong></li>
+</ul>
+<hr>
+<p>2019/03/06</p>
+
+
+<div class="article-footer reveal fs14"><section id="license"><div class="header"><span>许可协议</span></div><div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div></section></div>
+
+</article>
+
+<div class="related-wrap reveal" id="read-next"><section class="header cap theme"><span>接下来阅读</span></section><section class="body fs14"><a id="next" href="/Altium_pad_via/">Altium焊盘pad和过孔via区别<span class="note">较早</span></a><div class="line"></div><a id="prev" href="/C++_prestatement/">C++使用前置声明<span class="note">较新</span></a></section></div>
+
+
+
+
+
+
+
+
+      
+<footer class="page-footer reveal fs12"><hr><div class="text"><p>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+<p>本站由 <a href="http://wangxianggit.github.io/">@wangxiang</a> 创建，使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.8.0" title="v1.8.0">Stellar</a> 作为主题。</p>
+</div></footer>
+
+      <div class='float-panel mobile-only blur' style='display:none'>
+  <button type='button' class='sidebar-toggle mobile' onclick='sidebar.toggle()'>
+    <svg class="icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="15301"><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 2.3 26.8 24.6 47.5 51.6 47.6h416.5v4z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15302"></path><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 1.9 27.7 23.9 49.7 51.6 51.6h416.5z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15303"></path></svg>
+  </button>
+</div>
+
     </div>
   </div>
+  <div class='scripts'>
+    <script type="text/javascript">
+  stellar = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    loadCSS: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
 
-{% endblock %}
+    // 从 butterfly 和 volantis 获得灵感
+    loadScript: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
 
-{% block sidebar %}
-  {{ sidebar_template.render(true) }}
-{% endblock %}
+    // https://github.com/jerryc127/hexo-theme-butterfly
+    jQuery: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        stellar.loadScript(stellar.plugins.jQuery).then(fn)
+      } else {
+        fn()
+      }
+    }
+  };
+  stellar.github = 'https://github.com/xaoxuu/hexo-theme-stellar/tree/1.8.0';
+  stellar.config = {
+    date_suffix: {
+      just: '刚刚',
+      min: '分钟前',
+      hour: '小时前',
+      day: '天前',
+      month: '个月前',
+    },
+  };
 
-{% block script_extra %}
-  {% include '_scripts/pages/post-details.swig' %}
-{% endblock %}
+  // required plugins (only load if needs)
+  stellar.plugins = {
+    jQuery: 'https://fastly.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js',
+    sitesjs: '/js/plugins/sites.js',
+    friendsjs: '/js/plugins/friends.js',
+  };
+
+  // optional plugins
+  if ('true' == 'true') {
+    stellar.plugins.lazyload = Object.assign({"enable":true,"js":"https://fastly.jsdelivr.net/npm/vanilla-lazyload@17.3.1/dist/lazyload.min.js","transition":"blur"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.swiper = Object.assign({"enable":true,"css":"https://unpkg.com/swiper@6/swiper-bundle.min.css","js":"https://unpkg.com/swiper@6/swiper-bundle.min.js"});
+  }
+  if ('' == 'true') {
+    stellar.plugins.scrollreveal = Object.assign({"enable":null,"js":"https://fastly.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js","distance":"8px","duration":500,"interval":100,"scale":1});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.preload = Object.assign({"enable":true,"service":"flying_pages","instant_page":"https://fastly.jsdelivr.net/gh/volantis-x/cdn-volantis@4.1.2/js/instant_page.js","flying_pages":"https://fastly.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.fancybox = Object.assign({"enable":true,"js":"https://fastly.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js","css":"https://fastly.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css","selector":".swiper-slide img"});
+  }
+  if ('false' == 'true') {
+    stellar.plugins.heti = Object.assign({"enable":false,"css":"https://unpkg.com/heti/umd/heti.min.css","js":"https://unpkg.com/heti/umd/heti-addon.min.js"});
+  }
+</script>
+
+<!-- required -->
+
+  
+<script src="/js/main.js" async></script>
+
+
+
+<!-- optional -->
+
+
+
+<!-- inject -->
+
+
+  </div>
+</body>
+</html>

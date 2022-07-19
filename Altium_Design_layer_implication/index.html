@@ -1,35 +1,295 @@
-{% extends '_layout.swig' %}
-{% import '_macro/post.swig' as post_template %}
-{% import '_macro/sidebar.swig' as sidebar_template %}
+<!DOCTYPE html>
+<html lang='zh-Hans'>
+
+<head>
+  <meta name="generator" content="Hexo 5.3.0">
+  <meta charset="utf-8">
+  
+
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel='dns-prefetch' href='https://fastly.jsdelivr.net'>
+  <link rel="preconnect" href="https://fastly.jsdelivr.net" crossorigin>
+  <link rel='dns-prefetch' href='//unpkg.com'>
+
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#f8f8f8">
+  <title>Altium Design各层含义 - Sharp tools make good work</title>
+
+  
+    <meta name="description" content="顶层信号层(Top Layer)： 也称元件层，主要用来放置元器件，对于双层板和多层板可以用来布线。 中间信号层(Mid Layer)： 最多可有30层，在多层板中用于布信号线。 底层信号层(Bottom Layer)： 也称焊接层，主要用于布线及焊接，有时也可放置元器件。 顶部丝印层(Top Overlayer)： 用于标注元器件的投影轮廓、元器件的标号、标称值或型号及各种注释字符。 底部丝印层">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Altium Design各层含义">
+<meta property="og:url" content="http://wangxianggit.github.io/Altium_Design_layer_implication/index.html">
+<meta property="og:site_name" content="Sharp tools make good work">
+<meta property="og:description" content="顶层信号层(Top Layer)： 也称元件层，主要用来放置元器件，对于双层板和多层板可以用来布线。 中间信号层(Mid Layer)： 最多可有30层，在多层板中用于布信号线。 底层信号层(Bottom Layer)： 也称焊接层，主要用于布线及焊接，有时也可放置元器件。 顶部丝印层(Top Overlayer)： 用于标注元器件的投影轮廓、元器件的标号、标称值或型号及各种注释字符。 底部丝印层">
+<meta property="og:locale">
+<meta property="article:published_time" content="2018-11-16T10:11:56.000Z">
+<meta property="article:modified_time" content="2019-03-03T01:33:40.222Z">
+<meta property="article:author" content="wangxiang">
+<meta property="article:tag" content="Altium Designer">
+<meta property="article:tag" content="Electronic">
+<meta name="twitter:card" content="summary">
+  
+  
+
+  <!-- feed -->
+  
+
+  
+    
+<link rel="stylesheet" href="/css/main.css">
+
+  
+
+  
+
+  
+</head>
+
+<body>
+  
 
 
-{% block title %}{{ page.title }} | {{ config.title }}{% endblock %}
-
-{% block page_class %}page-post-detail{% endblock %}
 
 
-{% block content %}
+  <div class='l_body' id='start'>
+    <aside class='l_left' layout='post'>
+    
 
-  <div id="posts" class="posts-expand">
-    {{ post_template.render(page) }}
 
-    <div class="post-spread">
-      {% if theme.jiathis %}
-        {% include '_partials/share/jiathis.swig' %}
-      {% elseif theme.baidushare %}
-        {% include '_partials/share/baidushare.swig' %}
-      {% elseif theme.add_this_id %}
-        {% include '_partials/share/add-this.swig' %}
-      {% endif %}
+<header class="header">
+
+<div class="logo-wrap"><a class="title" href="/"><div class="main">Sharp tools make good work</div><div class="sub cap">Open your minds</div></a></div>
+<nav class="menu dis-select"></nav></header>
+
+<div class="widgets">
+
+
+<div class="widget-wrap" id="recent"><div class="widget-header cap dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><div class="more-item"><a class="title" href="/torch_scatter_sparse_install/">torch_sparse系列安装方法</a></div><div class="more-item"><a class="title" href="/git_upload_remote_from_localization/">git将本地目录提交至远程仓库</a></div><div class="more-item"><a class="title" href="/Linux_dmidecode/">Linux系统使用dmidecode查看系统的硬件信息</a></div><div class="more-item"><a class="title" href="/Linux_glance/">Linux性能监控命令glances</a></div><div class="more-item"><a class="title" href="/metapost/">MetaPost制作矢量图的语言</a></div></div></div>
+
+
+
+</div>
+
+
+    </aside>
+    <div class='l_main'>
+      
+
+      
+
+<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a><span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/Altium/">Altium</a></div><div id="post-meta">发布于&nbsp;<time datetime="2018-11-16T10:11:56.000Z">2018-11-16</time></div></div>
+
+<article class='content md post'>
+<h1 class="article-title"><span>Altium Design各层含义</span></h1>
+<p>顶层信号层(Top Layer)：</p>
+<p>也称元件层，主要用来放置元器件，对于双层板和多层板可以用来布线。</p>
+<p><strong>中间信号层(Mid Layer)：</strong></p>
+<p>最多可有30层，在多层板中用于布信号线。</p>
+<p><strong>底层信号层(Bottom Layer)：</strong></p>
+<p>也称焊接层，主要用于布线及焊接，有时也可放置元器件。</p>
+<p><strong>顶部丝印层(Top Overlayer)：</strong></p>
+<p>用于标注元器件的投影轮廓、元器件的标号、标称值或型号及各种注释字符。</p>
+<p><strong>底部丝印层(Bottom Overlayer)：</strong></p>
+<p>与顶部丝印层作用相同，如果各种标注在顶部丝印层都含有，那么在底部丝印层就不需要了。</p>
+<p><strong>内部电源层(Internal Plane)：</strong></p>
+<p>通常称为内电层，包括供电电源层、参考电源层和地平面信号层。内部电源层为负片形式输出。</p>
+<p><strong>机械层(Mechanical Layer)：</strong></p>
+<p>机械层是定义整个PCB板的外观的，它一般用于设置电路板的外形尺寸，数据标记，对齐标记，装配说明以及其它的机械信息。</p>
+<p><strong>阻焊层(Solder Mask-焊接面)：</strong></p>
+<p>有顶部阻焊层(Top solder Mask)和底部阻焊层(Bottom Solder Mask)两层，是Protel PCB对应于电路板文件中的焊盘和过孔数据自动生成的板层，主要用于铺设阻焊漆。本板层采用负片输出，所以板层上显示的焊盘和过孔部分代表电路板上不铺阻焊漆的区域，也就是可以进行焊接的部分。</p>
+<p>因为它是负片输出，所以实际上有Solder Mask的部分实际效果并不上绿油，而是镀锡，呈银白色！在焊盘以外的各部位涂覆一层涂料，如防焊漆，用于阻止这些部位上锡。阻焊层用于在设计过程中匹配焊盘，是自动产生的。</p>
+<p>阻焊盘就是solder mask，是指板子上要上绿油的部分。实际上这阻焊层使用的是负片输出，所以在阻焊层的形状映射到板子上以后，并不是上了绿油阻焊，反而是露出了铜皮。通常为了增大铜皮的厚度，采用阻焊层上划线去绿油，然后加锡达到增加铜线厚度的效果。</p>
+<p><strong>锡膏层(Past Mask-面焊面)：</strong></p>
+<p>有顶部锡膏层(Top Past Mask)和底部锡膏层(Bottom Past Mask)两层，它就是指我们可以看到的露在外面的铜铂，（比如我们在顶层布线层画了一根导线，这根导线我们在PCB上所看到的只是一根线而已，它是被整个绿油盖住的，但是我们在这根线的位置上的Top Paste层上画一个方形，或一个点，所打出来的板上这个方形和这个点就没有绿油了，而是铜铂。 </p>
+<p>它和阻焊层的作用相似，不同的是在机器焊接时对应的表面粘贴式元件的焊盘。</p>
+<p><strong>禁止布线层(Keep Out Layer)：</strong></p>
+<p>用于绘制印制板外边界及定位孔等镂空部分，也就是说我们先定义了禁止布线层后，我们在以后的布线过程中，所布的具有电气特性的线是不可能超出禁止布线层的边界。用于定义在电路板上能够有效放置元件和布线的区域。作用是绘制禁止布线区域，如果印制板中没有绘制机械层的情况下，印制板厂家的人会以此层来做为PCB外形来处理。如果KEEPOUT LAYER层和机械层都有的情况下，默认是以机械层为PCB外形，但印制板厂家的技术人员会自己去区分，但是区分不出来的情况下他们会默认以机械层当外形层。</p>
+<p><strong>多层(Multi Layer)：</strong></p>
+<p>通常与过孔或通孔焊盘设计组合出现，用于描述空洞的层特性。电路板上焊盘和穿透式过孔要穿透整个电路板，与不同的导电图形层建立电气连接关系，因此系统专门设置了一个抽象的层——多层。一般，焊盘与过孔都要设置在多层上，如果关闭此层，焊盘与过孔就无法显示出来。</p>
+<p><strong>钻孔数据层（Drill）：</strong></p>
+<p>钻孔层提供电路板制造过程中的钻孔信息(如焊盘，过孔就需要钻孔)。Altium Designer提供了Drill guide(钻孔指示图)和Drill drawing(钻孔图)两个钻孔层。</p>
+<hr>
+
+
+<div class="article-footer reveal fs14"><section id="license"><div class="header"><span>许可协议</span></div><div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div></section></div>
+
+</article>
+
+<div class="related-wrap reveal" id="read-next"><section class="header cap theme"><span>接下来阅读</span></section><section class="body fs14"><a id="next" href="/c++_multithread/">c++多线程<span class="note">较早</span></a><div class="line"></div><a id="prev" href="/Nuclear%20mass%20excess/">Nuclear mass excess and decay Q value<span class="note">较新</span></a></section></div>
+
+
+
+
+
+
+
+
+      
+<footer class="page-footer reveal fs12"><hr><div class="text"><p>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+<p>本站由 <a href="http://wangxianggit.github.io/">@wangxiang</a> 创建，使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.8.0" title="v1.8.0">Stellar</a> 作为主题。</p>
+</div></footer>
+
+      <div class='float-panel mobile-only blur' style='display:none'>
+  <button type='button' class='sidebar-toggle mobile' onclick='sidebar.toggle()'>
+    <svg class="icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="15301"><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 2.3 26.8 24.6 47.5 51.6 47.6h416.5v4z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15302"></path><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 1.9 27.7 23.9 49.7 51.6 51.6h416.5z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15303"></path></svg>
+  </button>
+</div>
+
     </div>
   </div>
+  <div class='scripts'>
+    <script type="text/javascript">
+  stellar = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    loadCSS: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
 
-{% endblock %}
+    // 从 butterfly 和 volantis 获得灵感
+    loadScript: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
 
-{% block sidebar %}
-  {{ sidebar_template.render(true) }}
-{% endblock %}
+    // https://github.com/jerryc127/hexo-theme-butterfly
+    jQuery: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        stellar.loadScript(stellar.plugins.jQuery).then(fn)
+      } else {
+        fn()
+      }
+    }
+  };
+  stellar.github = 'https://github.com/xaoxuu/hexo-theme-stellar/tree/1.8.0';
+  stellar.config = {
+    date_suffix: {
+      just: '刚刚',
+      min: '分钟前',
+      hour: '小时前',
+      day: '天前',
+      month: '个月前',
+    },
+  };
 
-{% block script_extra %}
-  {% include '_scripts/pages/post-details.swig' %}
-{% endblock %}
+  // required plugins (only load if needs)
+  stellar.plugins = {
+    jQuery: 'https://fastly.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js',
+    sitesjs: '/js/plugins/sites.js',
+    friendsjs: '/js/plugins/friends.js',
+  };
+
+  // optional plugins
+  if ('true' == 'true') {
+    stellar.plugins.lazyload = Object.assign({"enable":true,"js":"https://fastly.jsdelivr.net/npm/vanilla-lazyload@17.3.1/dist/lazyload.min.js","transition":"blur"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.swiper = Object.assign({"enable":true,"css":"https://unpkg.com/swiper@6/swiper-bundle.min.css","js":"https://unpkg.com/swiper@6/swiper-bundle.min.js"});
+  }
+  if ('' == 'true') {
+    stellar.plugins.scrollreveal = Object.assign({"enable":null,"js":"https://fastly.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js","distance":"8px","duration":500,"interval":100,"scale":1});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.preload = Object.assign({"enable":true,"service":"flying_pages","instant_page":"https://fastly.jsdelivr.net/gh/volantis-x/cdn-volantis@4.1.2/js/instant_page.js","flying_pages":"https://fastly.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.fancybox = Object.assign({"enable":true,"js":"https://fastly.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js","css":"https://fastly.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css","selector":".swiper-slide img"});
+  }
+  if ('false' == 'true') {
+    stellar.plugins.heti = Object.assign({"enable":false,"css":"https://unpkg.com/heti/umd/heti.min.css","js":"https://unpkg.com/heti/umd/heti-addon.min.js"});
+  }
+</script>
+
+<!-- required -->
+
+  
+<script src="/js/main.js" async></script>
+
+
+
+<!-- optional -->
+
+
+
+<!-- inject -->
+
+
+  </div>
+</body>
+</html>

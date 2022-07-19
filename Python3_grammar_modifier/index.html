@@ -1,35 +1,298 @@
-{% extends '_layout.swig' %}
-{% import '_macro/post.swig' as post_template %}
-{% import '_macro/sidebar.swig' as sidebar_template %}
+<!DOCTYPE html>
+<html lang='zh-Hans'>
+
+<head>
+  <meta name="generator" content="Hexo 5.3.0">
+  <meta charset="utf-8">
+  
+
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel='dns-prefetch' href='https://fastly.jsdelivr.net'>
+  <link rel="preconnect" href="https://fastly.jsdelivr.net" crossorigin>
+  <link rel='dns-prefetch' href='//unpkg.com'>
+
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#f8f8f8">
+  <title>Python3语法变动 - Sharp tools make good work</title>
+
+  
+    <meta name="description" content="​ Print由语句变为函数  ~~~print ‘a’,’b’ -&gt; print(‘a’,’b’)123456789101112131415161718192021222324252627* xrange被取消，使用range实现其功能，返回的数据是一个类* 字符串的存储由8bit变为16bit Unicode存储，使用比较操作符时如果比较异常抛出TypeError错误。* cmp()，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python3语法变动">
+<meta property="og:url" content="http://wangxianggit.github.io/Python3_grammar_modifier/index.html">
+<meta property="og:site_name" content="Sharp tools make good work">
+<meta property="og:description" content="​ Print由语句变为函数  ~~~print ‘a’,’b’ -&gt; print(‘a’,’b’)123456789101112131415161718192021222324252627* xrange被取消，使用range实现其功能，返回的数据是一个类* 字符串的存储由8bit变为16bit Unicode存储，使用比较操作符时如果比较异常抛出TypeError错误。* cmp()，">
+<meta property="og:locale">
+<meta property="article:published_time" content="2019-02-16T16:57:27.000Z">
+<meta property="article:modified_time" content="2019-02-17T03:23:27.397Z">
+<meta property="article:author" content="wangxiang">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="Program">
+<meta name="twitter:card" content="summary">
+  
+  
+
+  <!-- feed -->
+  
+
+  
+    
+<link rel="stylesheet" href="/css/main.css">
+
+  
+
+  
+
+  
+</head>
+
+<body>
+  
 
 
-{% block title %}{{ page.title }} | {{ config.title }}{% endblock %}
-
-{% block page_class %}page-post-detail{% endblock %}
 
 
-{% block content %}
+  <div class='l_body' id='start'>
+    <aside class='l_left' layout='post'>
+    
 
-  <div id="posts" class="posts-expand">
-    {{ post_template.render(page) }}
 
-    <div class="post-spread">
-      {% if theme.jiathis %}
-        {% include '_partials/share/jiathis.swig' %}
-      {% elseif theme.baidushare %}
-        {% include '_partials/share/baidushare.swig' %}
-      {% elseif theme.add_this_id %}
-        {% include '_partials/share/add-this.swig' %}
-      {% endif %}
+<header class="header">
+
+<div class="logo-wrap"><a class="title" href="/"><div class="main">Sharp tools make good work</div><div class="sub cap">Open your minds</div></a></div>
+<nav class="menu dis-select"></nav></header>
+
+<div class="widgets">
+
+
+<div class="widget-wrap" id="recent"><div class="widget-header cap dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><div class="more-item"><a class="title" href="/torch_scatter_sparse_install/">torch_sparse系列安装方法</a></div><div class="more-item"><a class="title" href="/git_upload_remote_from_localization/">git将本地目录提交至远程仓库</a></div><div class="more-item"><a class="title" href="/Linux_dmidecode/">Linux系统使用dmidecode查看系统的硬件信息</a></div><div class="more-item"><a class="title" href="/Linux_glance/">Linux性能监控命令glances</a></div><div class="more-item"><a class="title" href="/metapost/">MetaPost制作矢量图的语言</a></div></div></div>
+
+
+
+</div>
+
+
+    </aside>
+    <div class='l_main'>
+      
+
+      
+
+<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a><span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/Python/">Python</a></div><div id="post-meta">发布于&nbsp;<time datetime="2019-02-16T16:57:27.000Z">2019-02-17</time></div></div>
+
+<article class='content md post'>
+<h1 class="article-title"><span>Python3语法变动</span></h1>
+<ul>
+<li><p>​ Print由语句变为函数</p>
+<ul>
+<li>~~~<br>print ‘a’,’b’ -&gt; print(‘a’,’b’)<figure class="highlight nim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* xrange被取消，使用<span class="built_in">range</span>实现其功能，返回的数据是一个类</span><br><span class="line"></span><br><span class="line">* 字符串的存储由<span class="number">8</span>bit变为<span class="number">16</span>bit <span class="type">Unicode</span>存储，使用比较操作符时如果比较异常抛出<span class="type">TypeError</span>错误。</span><br><span class="line"></span><br><span class="line">* cmp()，\__cmp__()函数取消</span><br><span class="line"></span><br><span class="line">* long关键字由<span class="built_in">int</span>取代，两者效果相同</span><br><span class="line"></span><br><span class="line">* <span class="keyword">try</span> <span class="keyword">except</span>语句发生变化</span><br><span class="line"></span><br><span class="line">  * ~~~</span><br><span class="line">    由原: <span class="keyword">try</span>:</span><br><span class="line"></span><br><span class="line">              ......</span><br><span class="line"></span><br><span class="line">         <span class="keyword">except</span>    <span class="type">Exception</span>, e :</span><br><span class="line"></span><br><span class="line">             ......</span><br><span class="line"></span><br><span class="line">    变为</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line"></span><br><span class="line">              ......</span><br><span class="line"></span><br><span class="line">         <span class="keyword">except</span>    <span class="type">Exception</span> <span class="keyword">as</span> e :</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>读取文件操作file()取消，统一使用open()；键盘读取函数raw_input(“message”)改为input(“message”)</p>
+</li>
+<li><p>字符串编码是bytes类，bytes类解码为字符串，bytes序列一旦形成内容不可变</p>
+<ul>
+<li>~~~<br>s=”abchd”<br>b=s.encode(编码方式)//常用编码方式为”gbk”,”utf-8”,”ascii”等<br>s1=b.decode(“编码方式”)<figure class="highlight gml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* <span class="built_in">chr</span>(k)和<span class="built_in">ord</span>(c)</span><br><span class="line"></span><br><span class="line">  * ~~~</span><br><span class="line">         python <span class="number">2.4</span><span class="number">.2</span>以前</span><br><span class="line"></span><br><span class="line">          <span class="built_in">chr</span>( K )   将编码K 转为字符，K的范围是 <span class="number">0</span> ~ <span class="number">255</span></span><br><span class="line"></span><br><span class="line">          <span class="built_in">ord</span>( c )   取单个字符的编码, 返回值的范围: <span class="number">0</span> ~ <span class="number">255</span></span><br><span class="line"></span><br><span class="line">       python <span class="number">3.0</span></span><br><span class="line"></span><br><span class="line">          <span class="built_in">chr</span>( K )   将编码K 转为字符，K的范围是 <span class="number">0</span> ~ <span class="number">65535</span></span><br><span class="line"></span><br><span class="line">          <span class="built_in">ord</span>( c )   取单个字符的编码, 返回值的范围: <span class="number">0</span> ~ <span class="number">65535</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>除法运算</p>
+<ul>
+<li><pre><code>python 2.4.2以前
+
+   10/3      结果为 3     
+
+python 3.0
+
+   10 / 3 结果为 3.3333333333333335
+
+   10 // 3 结果为 3
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 字典(<span class="keyword">Dict)函数，keys()，items()，values()，返回的值不再是list，而是类。所以 </span> <span class="keyword">dict.iter.keys </span>(), <span class="keyword">dict.iteritems() </span>和 <span class="keyword">dict.itervalues()函数取消</span></span><br><span class="line"><span class="keyword"></span></span><br><span class="line"><span class="keyword">* </span>新增数组对象</span><br><span class="line"></span><br><span class="line">  * ~~~</span><br><span class="line">    (一） 初始化</span><br><span class="line"></span><br><span class="line">        a = <span class="keyword">bytearray( </span>  <span class="number">10</span> )</span><br><span class="line"></span><br><span class="line">         <span class="comment"># a 是一个由十个字节组成的数组，其每个元素是一个字节，类型借用 int</span></span><br><span class="line"></span><br><span class="line">         <span class="comment"># 此时，每个元素初始值为 0</span></span><br><span class="line"></span><br><span class="line">    （二） 字节数组 是可变的</span><br><span class="line"></span><br><span class="line">        a = <span class="keyword">bytearray( </span>  <span class="number">10</span> )</span><br><span class="line"></span><br><span class="line">         a[<span class="number">0</span>] = <span class="number">25</span></span><br><span class="line"></span><br><span class="line">         <span class="comment"># 可以用赋值语句更改其元素，但所赋的值必须在 0 ~ 255 之间</span></span><br><span class="line"></span><br><span class="line">    (三)   字节数组的切片仍是字节数组</span><br><span class="line"></span><br><span class="line">    (四)   字符串转化为字节数组</span><br><span class="line"></span><br><span class="line">         <span class="comment">#coding=gbk</span></span><br><span class="line"></span><br><span class="line">         s =<span class="string">&quot;你好&quot;</span></span><br><span class="line"></span><br><span class="line">         <span class="keyword">b </span>= s.encode( <span class="string">&quot;gbk&quot;</span>)     <span class="comment"># 先将字符串按某种“GBK”编码方式转化为 bytes</span></span><br><span class="line"></span><br><span class="line">         c = <span class="keyword">bytearray( </span><span class="keyword">b </span>)          <span class="comment">#再将 bytes 转化为 字节数组</span></span><br><span class="line"></span><br><span class="line">         也可以写作</span><br><span class="line"></span><br><span class="line">         c = <span class="keyword">bytearray( </span><span class="string">&quot;你好&quot;</span>, <span class="string">&quot;gbk&quot;</span>)</span><br><span class="line"></span><br><span class="line">    (五)   字节数组转化为字符串</span><br><span class="line"></span><br><span class="line">          c = <span class="keyword">bytearray( </span><span class="number">4</span> )</span><br><span class="line"></span><br><span class="line">           c[<span class="number">0</span>] = <span class="number">65</span> <span class="comment">; c[1]=66; c[2]= 67; c[3]= 68</span></span><br><span class="line"></span><br><span class="line">          s = c.decode( <span class="string">&quot;gbk&quot;</span> )</span><br><span class="line"></span><br><span class="line">           print ( s )</span><br><span class="line"></span><br><span class="line">          <span class="comment"># 应显示： ABCD           </span></span><br><span class="line"></span><br><span class="line">    (六) 字节数组可用于写入文本文件</span><br><span class="line"></span><br><span class="line">    <span class="comment">#coding=gbk</span></span><br><span class="line"></span><br><span class="line">    f = open(<span class="string">&quot;c:\\1234.txt&quot;</span>, <span class="string">&quot;wb&quot;</span>)</span><br><span class="line">    s = <span class="string">&quot;张三李四abcd1234&quot;</span></span><br><span class="line">    <span class="comment"># -------------------------------</span></span><br><span class="line">    <span class="comment"># 在 python2.4 中我们可以这样写：</span></span><br><span class="line">    <span class="comment"># f.write( s )</span></span><br><span class="line">    <span class="comment"># 但在 python 3.0中会引发异常</span></span><br><span class="line">    <span class="comment"># -------------------------------</span></span><br><span class="line">    <span class="keyword">b </span>= s.encode(<span class="string">&quot;gbk&quot;</span>)</span><br><span class="line"></span><br><span class="line">    f.write( <span class="keyword">b </span>)</span><br><span class="line">    c=<span class="keyword">bytearray( </span><span class="string">&quot;王五&quot;</span>,<span class="string">&quot;gbk&quot;</span>)</span><br><span class="line">    f.write( c )</span><br><span class="line">    f.<span class="keyword">close()</span></span><br><span class="line"><span class="keyword"></span></span><br><span class="line"><span class="keyword"> </span>   input(<span class="string">&quot;?&quot;</span>)</span><br></pre></td></tr></table></figure>
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+
+
+<div class="article-footer reveal fs14"><section id="license"><div class="header"><span>许可协议</span></div><div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div></section></div>
+
+</article>
+
+<div class="related-wrap reveal" id="read-next"><section class="header cap theme"><span>接下来阅读</span></section><section class="body fs14"><a id="next" href="/Python_key_word_import/">Python关键字import基本用法<span class="note">较早</span></a><div class="line"></div><a id="prev" href="/Hexo_blog_add_visit_statistics/">Hexo博客添加访问统计<span class="note">较新</span></a></section></div>
+
+
+
+
+
+
+
+
+      
+<footer class="page-footer reveal fs12"><hr><div class="text"><p>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+<p>本站由 <a href="http://wangxianggit.github.io/">@wangxiang</a> 创建，使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.8.0" title="v1.8.0">Stellar</a> 作为主题。</p>
+</div></footer>
+
+      <div class='float-panel mobile-only blur' style='display:none'>
+  <button type='button' class='sidebar-toggle mobile' onclick='sidebar.toggle()'>
+    <svg class="icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="15301"><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 2.3 26.8 24.6 47.5 51.6 47.6h416.5v4z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15302"></path><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 1.9 27.7 23.9 49.7 51.6 51.6h416.5z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15303"></path></svg>
+  </button>
+</div>
+
     </div>
   </div>
+  <div class='scripts'>
+    <script type="text/javascript">
+  stellar = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    loadCSS: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
 
-{% endblock %}
+    // 从 butterfly 和 volantis 获得灵感
+    loadScript: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
 
-{% block sidebar %}
-  {{ sidebar_template.render(true) }}
-{% endblock %}
+    // https://github.com/jerryc127/hexo-theme-butterfly
+    jQuery: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        stellar.loadScript(stellar.plugins.jQuery).then(fn)
+      } else {
+        fn()
+      }
+    }
+  };
+  stellar.github = 'https://github.com/xaoxuu/hexo-theme-stellar/tree/1.8.0';
+  stellar.config = {
+    date_suffix: {
+      just: '刚刚',
+      min: '分钟前',
+      hour: '小时前',
+      day: '天前',
+      month: '个月前',
+    },
+  };
 
-{% block script_extra %}
-  {% include '_scripts/pages/post-details.swig' %}
-{% endblock %}
+  // required plugins (only load if needs)
+  stellar.plugins = {
+    jQuery: 'https://fastly.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js',
+    sitesjs: '/js/plugins/sites.js',
+    friendsjs: '/js/plugins/friends.js',
+  };
+
+  // optional plugins
+  if ('true' == 'true') {
+    stellar.plugins.lazyload = Object.assign({"enable":true,"js":"https://fastly.jsdelivr.net/npm/vanilla-lazyload@17.3.1/dist/lazyload.min.js","transition":"blur"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.swiper = Object.assign({"enable":true,"css":"https://unpkg.com/swiper@6/swiper-bundle.min.css","js":"https://unpkg.com/swiper@6/swiper-bundle.min.js"});
+  }
+  if ('' == 'true') {
+    stellar.plugins.scrollreveal = Object.assign({"enable":null,"js":"https://fastly.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js","distance":"8px","duration":500,"interval":100,"scale":1});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.preload = Object.assign({"enable":true,"service":"flying_pages","instant_page":"https://fastly.jsdelivr.net/gh/volantis-x/cdn-volantis@4.1.2/js/instant_page.js","flying_pages":"https://fastly.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.fancybox = Object.assign({"enable":true,"js":"https://fastly.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js","css":"https://fastly.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css","selector":".swiper-slide img"});
+  }
+  if ('false' == 'true') {
+    stellar.plugins.heti = Object.assign({"enable":false,"css":"https://unpkg.com/heti/umd/heti.min.css","js":"https://unpkg.com/heti/umd/heti-addon.min.js"});
+  }
+</script>
+
+<!-- required -->
+
+  
+<script src="/js/main.js" async></script>
+
+
+
+<!-- optional -->
+
+
+
+<!-- inject -->
+
+
+  </div>
+</body>
+</html>

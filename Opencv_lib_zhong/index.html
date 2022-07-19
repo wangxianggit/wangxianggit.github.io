@@ -1,35 +1,299 @@
-{% extends '_layout.swig' %}
-{% import '_macro/post.swig' as post_template %}
-{% import '_macro/sidebar.swig' as sidebar_template %}
+<!DOCTYPE html>
+<html lang='zh-Hans'>
+
+<head>
+  <meta name="generator" content="Hexo 5.3.0">
+  <meta charset="utf-8">
+  
+
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel='dns-prefetch' href='https://fastly.jsdelivr.net'>
+  <link rel="preconnect" href="https://fastly.jsdelivr.net" crossorigin>
+  <link rel='dns-prefetch' href='//unpkg.com'>
+
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#f8f8f8">
+  <title>Opencv库添加中文支持 - Sharp tools make good work</title>
+
+  
+    <meta name="description" content="操作环境：windows 10，opencv3.40  opencv默认不支持中文输入，需要添加以下代码并调用：  putText.h:  ~~~#ifndef PUTTEXT_H_#define PUTTEXT_H_ #include &lt;windows.h&gt;#include #include &lt;opencv2&#x2F;opencv.hpp&gt; using namespace cv">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Opencv库添加中文支持">
+<meta property="og:url" content="http://wangxianggit.github.io/Opencv_lib_zhong/index.html">
+<meta property="og:site_name" content="Sharp tools make good work">
+<meta property="og:description" content="操作环境：windows 10，opencv3.40  opencv默认不支持中文输入，需要添加以下代码并调用：  putText.h:  ~~~#ifndef PUTTEXT_H_#define PUTTEXT_H_ #include &lt;windows.h&gt;#include #include &lt;opencv2&#x2F;opencv.hpp&gt; using namespace cv">
+<meta property="og:locale">
+<meta property="article:published_time" content="2020-07-15T14:29:33.000Z">
+<meta property="article:modified_time" content="2020-07-15T14:34:49.336Z">
+<meta property="article:author" content="wangxiang">
+<meta property="article:tag" content="Image">
+<meta name="twitter:card" content="summary">
+  
+  
+
+  <!-- feed -->
+  
+
+  
+    
+<link rel="stylesheet" href="/css/main.css">
+
+  
+
+  
+
+  
+</head>
+
+<body>
+  
 
 
-{% block title %}{{ page.title }} | {{ config.title }}{% endblock %}
-
-{% block page_class %}page-post-detail{% endblock %}
 
 
-{% block content %}
+  <div class='l_body' id='start'>
+    <aside class='l_left' layout='post'>
+    
 
-  <div id="posts" class="posts-expand">
-    {{ post_template.render(page) }}
 
-    <div class="post-spread">
-      {% if theme.jiathis %}
-        {% include '_partials/share/jiathis.swig' %}
-      {% elseif theme.baidushare %}
-        {% include '_partials/share/baidushare.swig' %}
-      {% elseif theme.add_this_id %}
-        {% include '_partials/share/add-this.swig' %}
-      {% endif %}
+<header class="header">
+
+<div class="logo-wrap"><a class="title" href="/"><div class="main">Sharp tools make good work</div><div class="sub cap">Open your minds</div></a></div>
+<nav class="menu dis-select"></nav></header>
+
+<div class="widgets">
+
+
+<div class="widget-wrap" id="recent"><div class="widget-header cap dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><div class="more-item"><a class="title" href="/torch_scatter_sparse_install/">torch_sparse系列安装方法</a></div><div class="more-item"><a class="title" href="/git_upload_remote_from_localization/">git将本地目录提交至远程仓库</a></div><div class="more-item"><a class="title" href="/Linux_dmidecode/">Linux系统使用dmidecode查看系统的硬件信息</a></div><div class="more-item"><a class="title" href="/Linux_glance/">Linux性能监控命令glances</a></div><div class="more-item"><a class="title" href="/metapost/">MetaPost制作矢量图的语言</a></div></div></div>
+
+
+
+</div>
+
+
+    </aside>
+    <div class='l_main'>
+      
+
+      
+
+<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a><span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/learning/">learning</a></div><div id="post-meta">发布于&nbsp;<time datetime="2020-07-15T14:29:33.000Z">2020-07-15</time></div></div>
+
+<article class='content md post'>
+<h1 class="article-title"><span>Opencv库添加中文支持</span></h1>
+<ul>
+<li><p>操作环境：windows 10，opencv3.40</p>
+</li>
+<li><p>opencv默认不支持中文输入，需要添加以下代码并调用：</p>
+</li>
+<li><p>putText.h:</p>
+<ul>
+<li><p>~~~<br>#ifndef PUTTEXT_H_<br>#define PUTTEXT_H_</p>
+<p>#include &lt;windows.h&gt;<br>#include <string><br>#include &lt;opencv2/opencv.hpp&gt;</p>
+<p>using namespace cv;</p>
+<p>void GetStringSize(HDC hDC, const char* str, int* w, int* h);<br>void putTextZH(Mat &amp;dst, const char* str, Point org, Scalar color, int fontSize,</p>
+<pre><code>const char *fn = &quot;Arial&quot;, bool italic = false, bool underline = false);</code></pre>
+<p>#endif // PUTTEXT_H_</p>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  * ​</span><br><span class="line"></span><br><span class="line">* putText.cpp:</span><br><span class="line"></span><br><span class="line">  * ~~~</span><br><span class="line">    <span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&quot;putText.h&quot;</span></span></span><br><span class="line">     </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">GetStringSize</span><span class="params">(HDC hDC, <span class="keyword">const</span> <span class="keyword">char</span>* str, <span class="keyword">int</span>* w, <span class="keyword">int</span>* h)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        SIZE <span class="built_in">size</span>;</span><br><span class="line">        GetTextExtentPoint32A(hDC, str, <span class="built_in">strlen</span>(str), &amp;<span class="built_in">size</span>);</span><br><span class="line">        <span class="keyword">if</span> (w != <span class="number">0</span>) *w = <span class="built_in">size</span>.cx;</span><br><span class="line">        <span class="keyword">if</span> (h != <span class="number">0</span>) *h = <span class="built_in">size</span>.cy;</span><br><span class="line">    &#125;</span><br><span class="line">     </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">putTextZH</span><span class="params">(Mat &amp;dst, <span class="keyword">const</span> <span class="keyword">char</span>* str, Point org, Scalar color, <span class="keyword">int</span> fontSize, <span class="keyword">const</span> <span class="keyword">char</span>* fn, <span class="keyword">bool</span> italic, <span class="keyword">bool</span> underline)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        CV_Assert(dst.data != <span class="number">0</span> &amp;&amp; (dst.channels() == <span class="number">1</span> || dst.channels() == <span class="number">3</span>));</span><br><span class="line">     </span><br><span class="line">        <span class="keyword">int</span> x, y, r, b;</span><br><span class="line">        <span class="keyword">if</span> (org.x &gt; dst.cols || org.y &gt; dst.rows) <span class="keyword">return</span>;</span><br><span class="line">        x = org.x &lt; <span class="number">0</span> ? -org.x : <span class="number">0</span>;</span><br><span class="line">        y = org.y &lt; <span class="number">0</span> ? -org.y : <span class="number">0</span>;</span><br><span class="line">     </span><br><span class="line">        LOGFONTA lf;</span><br><span class="line">        lf.lfHeight = -fontSize;</span><br><span class="line">        lf.lfWidth = <span class="number">0</span>;</span><br><span class="line">        lf.lfEscapement = <span class="number">0</span>;</span><br><span class="line">        lf.lfOrientation = <span class="number">0</span>;</span><br><span class="line">        lf.lfWeight = <span class="number">5</span>;</span><br><span class="line">        lf.lfItalic = italic;   <span class="comment">//斜体</span></span><br><span class="line">        lf.lfUnderline = underline; <span class="comment">//下划线</span></span><br><span class="line">        lf.lfStrikeOut = <span class="number">0</span>;</span><br><span class="line">        lf.lfCharSet = DEFAULT_CHARSET;</span><br><span class="line">        lf.lfOutPrecision = <span class="number">0</span>;</span><br><span class="line">        lf.lfClipPrecision = <span class="number">0</span>;</span><br><span class="line">        lf.lfQuality = PROOF_QUALITY;</span><br><span class="line">        lf.lfPitchAndFamily = <span class="number">0</span>;</span><br><span class="line">        strcpy_s(lf.lfFaceName, fn);</span><br><span class="line">     </span><br><span class="line">        HFONT hf = CreateFontIndirectA(&amp;lf);</span><br><span class="line">        HDC hDC = CreateCompatibleDC(<span class="number">0</span>);</span><br><span class="line">        HFONT hOldFont = (HFONT)SelectObject(hDC, hf);</span><br><span class="line">     </span><br><span class="line">        <span class="keyword">int</span> strBaseW = <span class="number">0</span>, strBaseH = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> singleRow = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">char</span> buf[<span class="number">1</span> &lt;&lt; <span class="number">12</span>];</span><br><span class="line">        strcpy_s(buf, str);</span><br><span class="line">        <span class="keyword">char</span> *bufT[<span class="number">1</span> &lt;&lt; <span class="number">12</span>];  <span class="comment">// 这个用于分隔字符串后剩余的字符，可能会超出。</span></span><br><span class="line">        <span class="comment">//处理多行</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> nnh = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">int</span> cw, ch;</span><br><span class="line">     </span><br><span class="line">            <span class="keyword">const</span> <span class="keyword">char</span>* ln = strtok_s(buf, <span class="string">&quot;\n&quot;</span>,bufT);</span><br><span class="line">            <span class="keyword">while</span> (ln != <span class="number">0</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                GetStringSize(hDC, ln, &amp;cw, &amp;ch);</span><br><span class="line">                strBaseW = <span class="built_in">max</span>(strBaseW, cw);</span><br><span class="line">                strBaseH = <span class="built_in">max</span>(strBaseH, ch);</span><br><span class="line">     </span><br><span class="line">                ln = strtok_s(<span class="number">0</span>, <span class="string">&quot;\n&quot;</span>,bufT);</span><br><span class="line">                nnh++;</span><br><span class="line">            &#125;</span><br><span class="line">            singleRow = strBaseH;</span><br><span class="line">            strBaseH *= nnh;</span><br><span class="line">        &#125;</span><br><span class="line">     </span><br><span class="line">        <span class="keyword">if</span> (org.x + strBaseW &lt; <span class="number">0</span> || org.y + strBaseH &lt; <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            SelectObject(hDC, hOldFont);</span><br><span class="line">            DeleteObject(hf);</span><br><span class="line">            DeleteObject(hDC);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">     </span><br><span class="line">        r = org.x + strBaseW &gt; dst.cols ? dst.cols - org.x - <span class="number">1</span> : strBaseW - <span class="number">1</span>;</span><br><span class="line">        b = org.y + strBaseH &gt; dst.rows ? dst.rows - org.y - <span class="number">1</span> : strBaseH - <span class="number">1</span>;</span><br><span class="line">        org.x = org.x &lt; <span class="number">0</span> ? <span class="number">0</span> : org.x;</span><br><span class="line">        org.y = org.y &lt; <span class="number">0</span> ? <span class="number">0</span> : org.y;</span><br><span class="line">     </span><br><span class="line">        BITMAPINFO bmp = &#123; <span class="number">0</span> &#125;;</span><br><span class="line">        BITMAPINFOHEADER&amp; bih = bmp.bmiHeader;</span><br><span class="line">        <span class="keyword">int</span> strDrawLineStep = strBaseW * <span class="number">3</span> % <span class="number">4</span> == <span class="number">0</span> ? strBaseW * <span class="number">3</span> : (strBaseW * <span class="number">3</span> + <span class="number">4</span> - ((strBaseW * <span class="number">3</span>) % <span class="number">4</span>));</span><br><span class="line">     </span><br><span class="line">        bih.biSize = <span class="keyword">sizeof</span>(BITMAPINFOHEADER);</span><br><span class="line">        bih.biWidth = strBaseW;</span><br><span class="line">        bih.biHeight = strBaseH;</span><br><span class="line">        bih.biPlanes = <span class="number">1</span>;</span><br><span class="line">        bih.biBitCount = <span class="number">24</span>;</span><br><span class="line">        bih.biCompression = BI_RGB;</span><br><span class="line">        bih.biSizeImage = strBaseH * strDrawLineStep;</span><br><span class="line">        bih.biClrUsed = <span class="number">0</span>;</span><br><span class="line">        bih.biClrImportant = <span class="number">0</span>;</span><br><span class="line">     </span><br><span class="line">        <span class="keyword">void</span>* pDibData = <span class="number">0</span>;</span><br><span class="line">        HBITMAP hBmp = CreateDIBSection(hDC, &amp;bmp, DIB_RGB_COLORS, &amp;pDibData, <span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">     </span><br><span class="line">        CV_Assert(pDibData != <span class="number">0</span>);</span><br><span class="line">        HBITMAP hOldBmp = (HBITMAP)SelectObject(hDC, hBmp);</span><br><span class="line">     </span><br><span class="line">        <span class="comment">//color.val[2], color.val[1], color.val[0]</span></span><br><span class="line">        SetTextColor(hDC, RGB(<span class="number">255</span>, <span class="number">255</span>, <span class="number">255</span>));</span><br><span class="line">        SetBkColor(hDC, <span class="number">0</span>);</span><br><span class="line">        <span class="comment">//SetStretchBltMode(hDC, COLORONCOLOR);</span></span><br><span class="line">     </span><br><span class="line">        strcpy_s(buf, str);</span><br><span class="line">        <span class="keyword">const</span> <span class="keyword">char</span>* ln = strtok_s(buf, <span class="string">&quot;\n&quot;</span>,bufT);</span><br><span class="line">        <span class="keyword">int</span> outTextY = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (ln != <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            TextOutA(hDC, <span class="number">0</span>, outTextY, ln, <span class="built_in">strlen</span>(ln));</span><br><span class="line">            outTextY += singleRow;</span><br><span class="line">            ln = strtok_s(<span class="number">0</span>, <span class="string">&quot;\n&quot;</span>,bufT);</span><br><span class="line">        &#125;</span><br><span class="line">        uchar* dstData = (uchar*)dst.data;</span><br><span class="line">        <span class="keyword">int</span> dstStep = dst.<span class="built_in">step</span> / <span class="keyword">sizeof</span>(dstData[<span class="number">0</span>]);</span><br><span class="line">        <span class="keyword">unsigned</span> <span class="keyword">char</span>* pImg = (<span class="keyword">unsigned</span> <span class="keyword">char</span>*)dst.data + org.x * dst.channels() + org.y * dstStep;</span><br><span class="line">        <span class="keyword">unsigned</span> <span class="keyword">char</span>* pStr = (<span class="keyword">unsigned</span> <span class="keyword">char</span>*)pDibData + x * <span class="number">3</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> tty = y; tty &lt;= b; ++tty)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">unsigned</span> <span class="keyword">char</span>* subImg = pImg + (tty - y) * dstStep;</span><br><span class="line">            <span class="keyword">unsigned</span> <span class="keyword">char</span>* subStr = pStr + (strBaseH - tty - <span class="number">1</span>) * strDrawLineStep;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> ttx = x; ttx &lt;= r; ++ttx)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> n = <span class="number">0</span>; n &lt; dst.channels(); ++n)&#123;</span><br><span class="line">                    <span class="keyword">double</span> vtxt = subStr[n] / <span class="number">255.0</span>;</span><br><span class="line">                    <span class="keyword">int</span> cvv = vtxt * color.val[n] + (<span class="number">1</span> - vtxt) * subImg[n];</span><br><span class="line">                    subImg[n] = cvv &gt; <span class="number">255</span> ? <span class="number">255</span> : (cvv &lt; <span class="number">0</span> ? <span class="number">0</span> : cvv);</span><br><span class="line">                &#125;</span><br><span class="line">     </span><br><span class="line">                subStr += <span class="number">3</span>;</span><br><span class="line">                subImg += dst.channels();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">     </span><br><span class="line">        SelectObject(hDC, hOldBmp);</span><br><span class="line">        SelectObject(hDC, hOldFont);</span><br><span class="line">        DeleteObject(hf);</span><br><span class="line">        DeleteObject(hBmp);</span><br><span class="line">        DeleteDC(hDC);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>调用：</p>
+<ul>
+<li><pre><code>#include &quot;putText.h&quot;
+
+void main()
+&#123;
+    Mat img(150,600,CV_8UC3,Scalar(255,255,255));//初始化图像
+    putTextZH(img, &quot;测试&quot;, Point(30, 30), Scalar(0, 0, 0), 50, &quot;宋体&quot;);
+    imwrite(&quot;test.png&quot;, img);
+    imshow(&quot;&quot;, img);
+    waitKey(0);
+&#125;</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+
+
+<div class="article-footer reveal fs14"><section id="license"><div class="header"><span>许可协议</span></div><div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div></section></div>
+
+</article>
+
+<div class="related-wrap reveal" id="read-next"><section class="header cap theme"><span>接下来阅读</span></section><section class="body fs14"><a id="next" href="/ImageMagick_create_font_image/">使用ImageMagick生成字体图像<span class="note">较早</span></a><div class="line"></div><a id="prev" href="/yolov4_tag_chinese/">yolov4标签中文显示<span class="note">较新</span></a></section></div>
+
+
+
+
+
+
+
+
+      
+<footer class="page-footer reveal fs12"><hr><div class="text"><p>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+<p>本站由 <a href="http://wangxianggit.github.io/">@wangxiang</a> 创建，使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.8.0" title="v1.8.0">Stellar</a> 作为主题。</p>
+</div></footer>
+
+      <div class='float-panel mobile-only blur' style='display:none'>
+  <button type='button' class='sidebar-toggle mobile' onclick='sidebar.toggle()'>
+    <svg class="icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="15301"><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 2.3 26.8 24.6 47.5 51.6 47.6h416.5v4z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15302"></path><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 1.9 27.7 23.9 49.7 51.6 51.6h416.5z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15303"></path></svg>
+  </button>
+</div>
+
     </div>
   </div>
+  <div class='scripts'>
+    <script type="text/javascript">
+  stellar = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    loadCSS: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
 
-{% endblock %}
+    // 从 butterfly 和 volantis 获得灵感
+    loadScript: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
 
-{% block sidebar %}
-  {{ sidebar_template.render(true) }}
-{% endblock %}
+    // https://github.com/jerryc127/hexo-theme-butterfly
+    jQuery: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        stellar.loadScript(stellar.plugins.jQuery).then(fn)
+      } else {
+        fn()
+      }
+    }
+  };
+  stellar.github = 'https://github.com/xaoxuu/hexo-theme-stellar/tree/1.8.0';
+  stellar.config = {
+    date_suffix: {
+      just: '刚刚',
+      min: '分钟前',
+      hour: '小时前',
+      day: '天前',
+      month: '个月前',
+    },
+  };
 
-{% block script_extra %}
-  {% include '_scripts/pages/post-details.swig' %}
-{% endblock %}
+  // required plugins (only load if needs)
+  stellar.plugins = {
+    jQuery: 'https://fastly.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js',
+    sitesjs: '/js/plugins/sites.js',
+    friendsjs: '/js/plugins/friends.js',
+  };
+
+  // optional plugins
+  if ('true' == 'true') {
+    stellar.plugins.lazyload = Object.assign({"enable":true,"js":"https://fastly.jsdelivr.net/npm/vanilla-lazyload@17.3.1/dist/lazyload.min.js","transition":"blur"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.swiper = Object.assign({"enable":true,"css":"https://unpkg.com/swiper@6/swiper-bundle.min.css","js":"https://unpkg.com/swiper@6/swiper-bundle.min.js"});
+  }
+  if ('' == 'true') {
+    stellar.plugins.scrollreveal = Object.assign({"enable":null,"js":"https://fastly.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js","distance":"8px","duration":500,"interval":100,"scale":1});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.preload = Object.assign({"enable":true,"service":"flying_pages","instant_page":"https://fastly.jsdelivr.net/gh/volantis-x/cdn-volantis@4.1.2/js/instant_page.js","flying_pages":"https://fastly.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.fancybox = Object.assign({"enable":true,"js":"https://fastly.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js","css":"https://fastly.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css","selector":".swiper-slide img"});
+  }
+  if ('false' == 'true') {
+    stellar.plugins.heti = Object.assign({"enable":false,"css":"https://unpkg.com/heti/umd/heti.min.css","js":"https://unpkg.com/heti/umd/heti-addon.min.js"});
+  }
+</script>
+
+<!-- required -->
+
+  
+<script src="/js/main.js" async></script>
+
+
+
+<!-- optional -->
+
+
+
+<!-- inject -->
+
+
+  </div>
+</body>
+</html>

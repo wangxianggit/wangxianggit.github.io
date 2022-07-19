@@ -1,35 +1,266 @@
-{% extends '_layout.swig' %}
-{% import '_macro/post.swig' as post_template %}
-{% import '_macro/sidebar.swig' as sidebar_template %}
+<!DOCTYPE html>
+<html lang='zh-Hans'>
+
+<head>
+  <meta name="generator" content="Hexo 5.3.0">
+  <meta charset="utf-8">
+  
+
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel='dns-prefetch' href='https://fastly.jsdelivr.net'>
+  <link rel="preconnect" href="https://fastly.jsdelivr.net" crossorigin>
+  <link rel='dns-prefetch' href='//unpkg.com'>
+
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#f8f8f8">
+  <title>cmd常用命令 - Sharp tools make good work</title>
+
+  
+    <meta name="description" content="cmd常用命令​AT 计划在计算机上运行的命令和程序。ATTRIB 显示或更改文件属性。BREAK 设置或清除扩展式 CTRL+C 检查。CACLS 显示或修改文件的访问控制列表(ACLs)。CALL 从另一个批处理程序调用这一个。CD 显示当前目录的名称或将其更改。CHCP 显示或设置活动代码页数。CHDIR 显示当前目录的名称或将其更改。CHKDSK 检查磁盘并显示状态报告。CHKNTFS 显">
+<meta property="og:type" content="article">
+<meta property="og:title" content="cmd常用命令">
+<meta property="og:url" content="http://wangxianggit.github.io/cmd_commands/index.html">
+<meta property="og:site_name" content="Sharp tools make good work">
+<meta property="og:description" content="cmd常用命令​AT 计划在计算机上运行的命令和程序。ATTRIB 显示或更改文件属性。BREAK 设置或清除扩展式 CTRL+C 检查。CACLS 显示或修改文件的访问控制列表(ACLs)。CALL 从另一个批处理程序调用这一个。CD 显示当前目录的名称或将其更改。CHCP 显示或设置活动代码页数。CHDIR 显示当前目录的名称或将其更改。CHKDSK 检查磁盘并显示状态报告。CHKNTFS 显">
+<meta property="og:locale">
+<meta property="article:published_time" content="2018-12-02T02:34:08.000Z">
+<meta property="article:modified_time" content="2018-12-02T02:44:01.116Z">
+<meta property="article:author" content="wangxiang">
+<meta property="article:tag" content="windows">
+<meta property="article:tag" content="cmd">
+<meta name="twitter:card" content="summary">
+  
+  
+
+  <!-- feed -->
+  
+
+  
+    
+<link rel="stylesheet" href="/css/main.css">
+
+  
+
+  
+
+  
+</head>
+
+<body>
+  
 
 
-{% block title %}{{ page.title }} | {{ config.title }}{% endblock %}
-
-{% block page_class %}page-post-detail{% endblock %}
 
 
-{% block content %}
+  <div class='l_body' id='start'>
+    <aside class='l_left' layout='post'>
+    
 
-  <div id="posts" class="posts-expand">
-    {{ post_template.render(page) }}
 
-    <div class="post-spread">
-      {% if theme.jiathis %}
-        {% include '_partials/share/jiathis.swig' %}
-      {% elseif theme.baidushare %}
-        {% include '_partials/share/baidushare.swig' %}
-      {% elseif theme.add_this_id %}
-        {% include '_partials/share/add-this.swig' %}
-      {% endif %}
+<header class="header">
+
+<div class="logo-wrap"><a class="title" href="/"><div class="main">Sharp tools make good work</div><div class="sub cap">Open your minds</div></a></div>
+<nav class="menu dis-select"></nav></header>
+
+<div class="widgets">
+
+<div class="widget-wrap single" id="toc"><div class="widget-header cap dis-select"><span class="name">本文目录</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#cmd%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E2%80%8B"><span class="toc-text">cmd常用命令​</span></a></li></ol></div></div></div>
+
+
+</div>
+
+
+    </aside>
+    <div class='l_main'>
+      
+
+      
+
+<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a><span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/learning/">learning</a></div><div id="post-meta">发布于&nbsp;<time datetime="2018-12-02T02:34:08.000Z">2018-12-02</time></div></div>
+
+<article class='content md post'>
+<h1 class="article-title"><span>cmd常用命令</span></h1>
+<h3 id="cmd常用命令​"><a href="#cmd常用命令​" class="headerlink" title="cmd常用命令​"></a>cmd常用命令​</h3><p>AT 计划在计算机上运行的命令和程序。<br>ATTRIB 显示或更改文件属性。<br>BREAK 设置或清除扩展式 CTRL+C 检查。<br>CACLS 显示或修改文件的访问控制列表(ACLs)。<br>CALL 从另一个批处理程序调用这一个。<br>CD 显示当前目录的名称或将其更改。<br>CHCP 显示或设置活动代码页数。<br>CHDIR 显示当前目录的名称或将其更改。<br>CHKDSK 检查磁盘并显示状态报告。<br>CHKNTFS 显示或修改启动时间磁盘检查。<br>CLS 清除屏幕。<br>CMD 打开另一个 Windows 命令解释程序窗口。<br>COLOR 设置默认控制台前景和背景颜色。<br>COMP 比较两个或两套文件的内容。<br>COMPACT 显示或更改 NTFS 分区上文件的压缩。<br>CONVERT 将 FAT 卷转换成 NTFS。您不能转换当前驱动器。<br>COPY 将至少一个文件复制到另一个位置。<br>DATE 显示或设置日期。<br>DEL 删除至少一个文件。<br>DIR 显示一个目录中的文件和子目录。<br>DISKCOMP 比较两个软盘的内容。<br>DISKCOPY 将一个软盘的内容复制到另一个软盘。<br>DOSKEY 编辑命令行、调用 Windows 命令并创建宏。<br>ECHO 显示消息，或将命令回显打开或关上。<br>ENDLOCAL 结束批文件中环境更改的本地化。<br>ERASE 删除至少一个文件。<br>EXIT 退出 CMD.EXE 程序(命令解释程序)。<br>FC 比较两个或两套文件，并显示不同处。<br>FIND 在文件中搜索文字字符串。<br>FINDSTR 在文件中搜索字符串。<br>FOR 为一套文件中的每个文件运行一个指定的命令。<br>FORMAT 格式化磁盘，以便跟 Windows 使用。<br>FTYPE 显示或修改用于文件扩展名关联的文件类型。<br>GOTO 将 Windows 命令解释程序指向批处理程序中某个标明的行。<br>GRAFTABL 启用 Windows 来以图像模式显示扩展字符集。<br>HELP 提供 Windows 命令的帮助信息。<br>IF 执行批处理程序中的条件性处理。<br>LABEL 创建、更改或删除磁盘的卷标。<br>MD 创建目录。<br>MKDIR 创建目录。<br>MODE 配置系统设备。<br>MORE 一次显示一个结果屏幕。<br>MOVE 将文件从一个目录移到另一个目录。<br>PATH 显示或设置可执行文件的搜索路径。<br>PAUSE 暂停批文件的处理并显示消息。<br>POPD 还原 PUSHD 保存的当前目录的上一个值。<br>PRINT 打印文本文件。<br>PROMPT 更改 Windows 命令提示符。<br>PUSHD 保存当前目录，然后对其进行更改。<br>RD 删除目录。<br>RECOVER 从有问题的磁盘恢复可读信息。<br>REM 记录批文件或 CONFIG.SYS 中的注释。<br>REN 重命名文件。<br>RENAME 重命名文件。<br>REPLACE 替换文件。<br>RMDIR 删除目录。<br>SET 显示、设置或删除 Windows 环境变量。<br>SETLOCAL 开始批文件中环境更改的本地化。<br>SHIFT 更换批文件中可替换参数的位置。<br>SORT 对输入进行分类。<br>START 启动另一个窗口来运行指定的程序或命令。<br>SUBST 将路径跟一个驱动器号关联。<br>TIME 显示或设置系统时间。<br>TITLE 设置 CMD.EXE 会话的窗口标题。<br>TREE 以图形模式显示驱动器或路径的目录结构。<br>TYPE 显示文本文件的内容。<br>VER 显示 Windows 版本。<br>VERIFY 告诉 Windows 是否验证文件是否已正确写入磁盘。<br>VOL 显示磁盘卷标和序列号。<br>XCOPY 复制文件和目录树。<br>appwiz.cpl————添加删除程序<br>control userpasswords2——–用户帐户设置<br>cleanmgr——-垃圾整理<br>CMD————–命令提示符可以当作是 Windows 的一个附件，Ping，Convert 这些不能在图形环境下 使用的功能要借助它来完成。<br>cmd——jview察看Java虚拟机版本。<br>command.com——调用的则是系统内置的 NTVDM，一个 DOS虚拟机。它完全是一个类似 Virtual PC 的 虚拟环境，和系统本身联系不大。当我们在命令提示符下运行 DOS 程序时，实际上也 是自动转移到 NTVDM虚拟机下，和 CMD 本身没什么关系。<br>calc———–启动计算器<br>chkdsk.exe—–Chkdsk磁盘检查<br>compmgmt.msc—计算机管理<br>conf———–启动 netmeeting<br>control userpasswords2—–User Account 权限设置<br>devmgmt.msc— 设备管理器<br>diskmgmt.msc—磁盘管理实用程序<br>dfrg.msc——-磁盘碎片整理程序<br>drwtsn32—— 系统医生<br>dvdplay——–启动Media Player<br>dxdiag———–DirectX Diagnostic Tool<br>gpedit.msc——-组策略编辑器<br>gpupdate /target:computer /force 强制刷新组策略<br>eventvwr.exe—–事件查看器<br>explorer——-打开资源管理器<br>logoff———注销命令<br>lusrmgr.msc—-本机用户和组<br>msinfo32———系统信息<br>msconfig———系统配置实用程序<br>net start (servicename)—-启动该服务<br>net stop (servicename)—–停止该服务<br>notepad——–打开记事本<br>nusrmgr.cpl——-同control userpasswords，打开用户帐户控制面板<br>Nslookup——-IP地址侦测器<br>oobe/msoobe /a—-检查XP是否激活<br>perfmon.msc—-计算机性能监测程序<br>progman——–程序管理器<br>regedit———-注册表编辑器<br>regedt32——-注册表编辑器<br>regsvr32 /u *.dll—-停止dll文件运行<br>route print——查看路由表<br>rononce -p —-15秒关机<br>rsop.msc——-组策略结果集<br>rundll32.exe rundll32.exe %Systemroot%System32shimgvw.dll,ImageView_Fullscreen—-启动一个空白的Windows 图片和传真查看器<br>secpol.msc——–本地安全策略<br>services.msc—本地服务设置<br>sfc /scannow—–启动系统文件检查器<br>sndrec32——-录音机<br>taskmgr—–任务管理器（适用于2000／xp／2003）<br>tsshutdn——-60秒倒计时关机命令<br>winchat——–XP自带局域网聊天<br>winmsd———系统信息<br>winver—–显示About Windows 窗口<br>wupdmgr———–Windows Update</p>
+
+
+<div class="article-footer reveal fs14"><section id="license"><div class="header"><span>许可协议</span></div><div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div></section></div>
+
+</article>
+
+<div class="related-wrap reveal" id="read-next"><section class="header cap theme"><span>接下来阅读</span></section><section class="body fs14"><a id="next" href="/Nuclear%20mass%20excess/">Nuclear mass excess and decay Q value<span class="note">较早</span></a><div class="line"></div><a id="prev" href="/hexo_editor_formula/">hexo公式编辑<span class="note">较新</span></a></section></div>
+
+
+
+
+
+
+
+
+      
+<footer class="page-footer reveal fs12"><hr><div class="text"><p>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+<p>本站由 <a href="http://wangxianggit.github.io/">@wangxiang</a> 创建，使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.8.0" title="v1.8.0">Stellar</a> 作为主题。</p>
+</div></footer>
+
+      <div class='float-panel mobile-only blur' style='display:none'>
+  <button type='button' class='sidebar-toggle mobile' onclick='sidebar.toggle()'>
+    <svg class="icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="15301"><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 2.3 26.8 24.6 47.5 51.6 47.6h416.5v4z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15302"></path><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 1.9 27.7 23.9 49.7 51.6 51.6h416.5z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15303"></path></svg>
+  </button>
+</div>
+
     </div>
   </div>
+  <div class='scripts'>
+    <script type="text/javascript">
+  stellar = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    loadCSS: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
 
-{% endblock %}
+    // 从 butterfly 和 volantis 获得灵感
+    loadScript: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
 
-{% block sidebar %}
-  {{ sidebar_template.render(true) }}
-{% endblock %}
+    // https://github.com/jerryc127/hexo-theme-butterfly
+    jQuery: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        stellar.loadScript(stellar.plugins.jQuery).then(fn)
+      } else {
+        fn()
+      }
+    }
+  };
+  stellar.github = 'https://github.com/xaoxuu/hexo-theme-stellar/tree/1.8.0';
+  stellar.config = {
+    date_suffix: {
+      just: '刚刚',
+      min: '分钟前',
+      hour: '小时前',
+      day: '天前',
+      month: '个月前',
+    },
+  };
 
-{% block script_extra %}
-  {% include '_scripts/pages/post-details.swig' %}
-{% endblock %}
+  // required plugins (only load if needs)
+  stellar.plugins = {
+    jQuery: 'https://fastly.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js',
+    sitesjs: '/js/plugins/sites.js',
+    friendsjs: '/js/plugins/friends.js',
+  };
+
+  // optional plugins
+  if ('true' == 'true') {
+    stellar.plugins.lazyload = Object.assign({"enable":true,"js":"https://fastly.jsdelivr.net/npm/vanilla-lazyload@17.3.1/dist/lazyload.min.js","transition":"blur"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.swiper = Object.assign({"enable":true,"css":"https://unpkg.com/swiper@6/swiper-bundle.min.css","js":"https://unpkg.com/swiper@6/swiper-bundle.min.js"});
+  }
+  if ('' == 'true') {
+    stellar.plugins.scrollreveal = Object.assign({"enable":null,"js":"https://fastly.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js","distance":"8px","duration":500,"interval":100,"scale":1});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.preload = Object.assign({"enable":true,"service":"flying_pages","instant_page":"https://fastly.jsdelivr.net/gh/volantis-x/cdn-volantis@4.1.2/js/instant_page.js","flying_pages":"https://fastly.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.fancybox = Object.assign({"enable":true,"js":"https://fastly.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js","css":"https://fastly.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css","selector":".swiper-slide img"});
+  }
+  if ('false' == 'true') {
+    stellar.plugins.heti = Object.assign({"enable":false,"css":"https://unpkg.com/heti/umd/heti.min.css","js":"https://unpkg.com/heti/umd/heti-addon.min.js"});
+  }
+</script>
+
+<!-- required -->
+
+  
+<script src="/js/main.js" async></script>
+
+
+
+<!-- optional -->
+
+
+
+<!-- inject -->
+
+
+  </div>
+</body>
+</html>

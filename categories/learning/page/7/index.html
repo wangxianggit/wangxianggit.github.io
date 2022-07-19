@@ -1,38 +1,397 @@
-{% extends '_layout.swig' %}
-{% import '_macro/post-collapse.swig' as post_template %}
-{% import '_macro/sidebar.swig' as sidebar_template %}
+<!DOCTYPE html>
+<html lang='zh-Hans'>
 
-{% block title %}{{ __('title.category') }}: {{ page.category }} | {{ config.title }}{% endblock %}
+<head>
+  <meta name="generator" content="Hexo 5.3.0">
+  <meta charset="utf-8">
+  <meta name="robots" content="noindex,follow">
 
-{% block content %}
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel='dns-prefetch' href='https://fastly.jsdelivr.net'>
+  <link rel="preconnect" href="https://fastly.jsdelivr.net" crossorigin>
+  <link rel='dns-prefetch' href='//unpkg.com'>
 
-  {######################}
-  {### CATEGORY BLOCK ###}
-  {######################}
-  <div class="post-block category">
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#f8f8f8">
+  <title>分类：learning - Sharp tools make good work</title>
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <{% if theme.seo %}h2{% else %}h1{% endif %}>{#
-        #}{{ page.category }}{#
-        #}<small>{{  __('title.category')  }}</small>
-        </{% if theme.seo %}h2{% else %}h1{% endif %}>
-      </div>
+  
+    <meta name="description" content="There is no rose without a thorn">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Sharp tools make good work">
+<meta property="og:url" content="http://wangxianggit.github.io/categories/learning/page/7/index.html">
+<meta property="og:site_name" content="Sharp tools make good work">
+<meta property="og:description" content="There is no rose without a thorn">
+<meta property="og:locale">
+<meta property="article:author" content="wangxiang">
+<meta name="twitter:card" content="summary">
+  
+  
 
-      {% for post in page.posts %}
-        {{ post_template.render(post) }}
-      {% endfor %}
+  <!-- feed -->
+  
+
+  
+    
+<link rel="stylesheet" href="/css/main.css">
+
+  
+
+  
+
+  
+</head>
+
+<body>
+  
+
+
+  <div class='l_body' id='start'>
+    <aside class='l_left' layout=''>
+    
+
+
+<header class="header">
+
+<div class="logo-wrap"><a class="title" href="/"><div class="main">Sharp tools make good work</div><div class="sub cap">Open your minds</div></a></div>
+<nav class="menu dis-select"></nav></header>
+
+<div class="widgets">
+<div class="widget-wrap" id="markdown"><div class="widget-header cap dis-select"><span class="name">Stellar 入门指南</span></div><div class="widget-body fs14"><p>欢迎使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/">Stellar</a> 主题，下面是您的入门指南，祝您使用愉快！<br><br><br><strong>第一步</strong><br>创建 <code>blog/_config.stellar.yml</code> 文件，在此文件中填写需要自定义的主题配置。<br><br><br><strong>第二步</strong><br>创建 <code>blog/source/_data/widgets.yml</code> 文件，此文件中填写需要自定义的侧边栏组件，例如 <code>welcome</code> 组件。<br><br><br>如果有任何疑问，请先查阅<a target="_blank" rel="noopener" href="https://xaoxuu.com/wiki/stellar/">文档</a>，如果文档中没有提供，请提 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/issues/">issue</a> 向开发中询问。</p>
+</div></div>
+
+<div class="widget-wrap" id="recent"><div class="widget-header cap dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><div class="more-item"><a class="title" href="/torch_scatter_sparse_install/">torch_sparse系列安装方法</a></div><div class="more-item"><a class="title" href="/git_upload_remote_from_localization/">git将本地目录提交至远程仓库</a></div><div class="more-item"><a class="title" href="/Linux_dmidecode/">Linux系统使用dmidecode查看系统的硬件信息</a></div><div class="more-item"><a class="title" href="/Linux_glance/">Linux性能监控命令glances</a></div><div class="more-item"><a class="title" href="/metapost/">MetaPost制作矢量图的语言</a></div></div></div>
+</div>
+
+
+    </aside>
+    <div class='l_main list'>
+      
+  
+
+<header class="header mobile-only">
+
+<div class="logo-wrap"><a class="title" href="/"><div class="main">Sharp tools make good work</div><div class="sub cap">Open your minds</div></a></div>
+</header>
+
+
+
+      
+
+  
+
+
+  <div class='nav-wrap'>
+  <nav class='sub post cap'>
+    
+      <a href='/'>近期发布</a>
+    
+    
+      
+        <a class='active' href='/categories'>分类：learning</a>
+      
+    
+    
+      
+        <a href='/tags'>标签</a>
+      
+    
+    
+      
+        <a href='/archives'>归档</a>
+      
+    
+  </nav>
+</div>
+
+  <div class="post-list post"><a class="post-card post " href="/virtual_memory/">
+<article class="md"><h2 class="post-title">虚拟内存探究</h2><div class="excerpt"><p>
+​ 通过实验的方式，介绍虚拟内存的相关概念和实现
+中文版：http://blog.coderhuo.tech/2017/10/19/Virtual_Memory_summary/
+英文原版：https://blog.holbertonschool.com/hack-the-virtual-memory-c-strings-proc/
+
+
+</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2019-05-27T07:51:33.000Z">2019-05-27</time></span><span class="cap breadcrumb">learning</span></div></article>
+</a><a class="post-card post " href="/shell_df_du/">
+<article class="md"><h2 class="post-title">shell命令df和du</h2><div class="excerpt"><p>df和du区别
+Linux中du命令通过搜索文件并计算出每个文件的大小后累加计算容量，同时du能看到的文件是当前已经存在的，删除后的文件看不到。
+
+
+df命令和du命令不同，通过文件系统获取占据空间的大小，同时如果删除一个文件后df也可以看到，因为在系统中当执行删除命令后文件并不会马上消失，而是暂时消失当所有应用不用时才根据系统的规则释放文件。
+若文件系统彻底删除后，du和df的效果是一样。...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2019-05-16T01:31:27.000Z">2019-05-16</time></span><span class="cap breadcrumb">learning</span></div></article>
+</a><a class="post-card post " href="/httpd_centos7_basic_operation/">
+<article class="md"><h2 class="post-title">Centos7 httpd基本操作</h2><div class="excerpt"><p>httpd基本操作目录文件
+基本配置文件：
+ /etc/httpd/conf/httpd.conf
+ /etc/httpd/conf.d/*.conf
+
+
+
+
+模块配置文件：
+/etc/httpd/conf.modules.d/
+ /usr/lib/systemd/system/httpd.service  //service start
+
+
+程序启动：/usr/sbin/httpd
+日志文...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2019-05-14T04:38:27.000Z">2019-05-14</time></span><span class="cap breadcrumb">learning</span></div></article>
+</a><a class="post-card post " href="/shell_special_symbol/">
+<article class="md"><h2 class="post-title">shell特殊符号</h2><div class="excerpt"><p>shell特殊符号
+；分号，连续运行命令：echo &quot;hello&quot;;echo &quot;world&quot;
+
+
+| 管道，前面命令的标准输出作为后面命令的标准输入：ps -e | grep &quot;ssh&quot;
+&amp; 将命令放到后台执行
+&amp;&amp; 前面命令返回值为0才执行后面的命令:ls &amp;&amp; echo &quot;ok&...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2019-05-09T16:28:36.000Z">2019-05-10</time></span><span class="cap breadcrumb">learning</span></div></article>
+</a><a class="post-card post " href="/shell_file_exist/">
+<article class="md"><h2 class="post-title">shell判断文件是否存在</h2><div class="excerpt"><p>shell判断文件的存在​
+一般判断使用if语句，格式如下：
+
+if [ -f &quot;~/file/filename&quot; ];then
+echo &quot;file exist&quot;
+else
+echo &quot;file doesn&#39;t exist&quot;
+fi
+
+
+
+改变参数-f可以用于判断不同类型的文件或对象，常用参数：
+
+-e 判断对象是否存在
+-...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2019-05-09T16:20:16.000Z">2019-05-10</time></span><span class="cap breadcrumb">learning</span></div></article>
+</a><a class="post-card post " href="/shell_read_line/">
+<article class="md"><h2 class="post-title">shell逐行读取文件内容</h2><div class="excerpt"><p>shell逐行读取文件内容
+使用for循环
+
+for read_line in `cat filename`
+do
+    echo $read_line
+done
+或
+for read_line in $(cat filename)
+do
+    echo $read_line
+done
+12345678* 如果文件中，行里面有空格，那么会把原本的一行分割成多行，使用while可以避免这一...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2019-05-09T16:14:32.000Z">2019-05-10</time></span><span class="cap breadcrumb">learning</span></div></article>
+</a><a class="post-card post " href="/shell_break_continue/">
+<article class="md"><h2 class="post-title">shell跳出循环语句</h2><div class="excerpt"><p>shell跳出循环语句
+break命令：
+
+break命令允许跳出所有循环（终止执行后面的所有循环）。
+
+例子，脚本进入死循环直至用户输入数字大于5。
+
+~~~#!/bin/bashwhile :do
+echo -n &quot;输入 1 到 5 之间的数字:&quot;
+read aNum
+case $aNum in
+    1|2|3|4|5) echo &quot;你输入的数字为 $a...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2019-05-09T16:06:37.000Z">2019-05-10</time></span><span class="cap breadcrumb">learning</span></div></article>
+</a><a class="post-card post " href="/shell_control_loop/">
+<article class="md"><h2 class="post-title">shell流程控制</h2><div class="excerpt"><p>shell流程控制
+参考链接：https://www.runoob.com/
+
+if语句
+示例：if [ $(ps -ef | grep -c &quot;ssh&quot;) -gt 1 ]; then echo &quot;true&quot;; fi
+
+语法格式if语句：
+
+~~~if conditionthencommand1 
+command2
+...
+commandN 
+fi12...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2019-05-09T15:37:03.000Z">2019-05-09</time></span><span class="cap breadcrumb">learning</span></div></article>
+</a><a class="post-card post " href="/shell_string/">
+<article class="md"><h2 class="post-title">shell字符串</h2><div class="excerpt"><p>shell字符串​
+单引号和双引号字符串：
+
+单引号里的任何字符都会原样输出，单引号字符串中的变量是无效的；
+
+单引号字串中不能出现单独一个的单引号（对单引号使用转义符后也不行），但可成对出现，作为字符串拼接使用。
+
+双引号里可以有变量，双引号里可以出现转义字符
+
+~~~name=’runoob’str=”My name is &quot;$name&quot;! \n”echo -e $s...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2019-05-09T08:47:21.000Z">2019-05-09</time></span><span class="cap breadcrumb">learning</span></div></article>
+</a><a class="post-card post " href="/shell_variable_substitution/">
+<article class="md"><h2 class="post-title">shell变量删除替换</h2><div class="excerpt"><p>shell变量定义规则
+命名只能使用英文字母，数字和下划线，首个字符不能以数字开头。
+中间不能有空格，可以使用下划线（_）。
+不能使用标点符号。
+不能使用bash里的关键字（可用help命令查看保留关键字）。​ 
+
+
+变量与变量内容以一个等号=来连结，等号两边不能直接接空格符
+变量内容若有空格符可使用双引号”或单引号’将变量内容结合起来，但双引号内的特殊字符如 $ 等，可以保有原本的特性，单...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2019-05-09T08:01:32.000Z">2019-05-09</time></span><span class="cap breadcrumb">learning</span></div></article>
+</a></div>
+  
+
+
+
+
+
+      
+<footer class="page-footer reveal fs12"><hr><div class="text"><p>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+<p>本站由 <a href="http://wangxianggit.github.io/">@wangxiang</a> 创建，使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.8.0" title="v1.8.0">Stellar</a> 作为主题。</p>
+</div></footer>
+
+      <div class='float-panel mobile-only blur' style='display:none'>
+  <button type='button' class='sidebar-toggle mobile' onclick='sidebar.toggle()'>
+    <svg class="icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="15301"><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 2.3 26.8 24.6 47.5 51.6 47.6h416.5v4z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15302"></path><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 1.9 27.7 23.9 49.7 51.6 51.6h416.5z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15303"></path></svg>
+  </button>
+</div>
+
     </div>
+  </div>
+  <div class='scripts'>
+    <script type="text/javascript">
+  stellar = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    loadCSS: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    // 从 butterfly 和 volantis 获得灵感
+    loadScript: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    // https://github.com/jerryc127/hexo-theme-butterfly
+    jQuery: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        stellar.loadScript(stellar.plugins.jQuery).then(fn)
+      } else {
+        fn()
+      }
+    }
+  };
+  stellar.github = 'https://github.com/xaoxuu/hexo-theme-stellar/tree/1.8.0';
+  stellar.config = {
+    date_suffix: {
+      just: '刚刚',
+      min: '分钟前',
+      hour: '小时前',
+      day: '天前',
+      month: '个月前',
+    },
+  };
+
+  // required plugins (only load if needs)
+  stellar.plugins = {
+    jQuery: 'https://fastly.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js',
+    sitesjs: '/js/plugins/sites.js',
+    friendsjs: '/js/plugins/friends.js',
+  };
+
+  // optional plugins
+  if ('true' == 'true') {
+    stellar.plugins.lazyload = Object.assign({"enable":true,"js":"https://fastly.jsdelivr.net/npm/vanilla-lazyload@17.3.1/dist/lazyload.min.js","transition":"blur"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.swiper = Object.assign({"enable":true,"css":"https://unpkg.com/swiper@6/swiper-bundle.min.css","js":"https://unpkg.com/swiper@6/swiper-bundle.min.js"});
+  }
+  if ('' == 'true') {
+    stellar.plugins.scrollreveal = Object.assign({"enable":null,"js":"https://fastly.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js","distance":"8px","duration":500,"interval":100,"scale":1});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.preload = Object.assign({"enable":true,"service":"flying_pages","instant_page":"https://fastly.jsdelivr.net/gh/volantis-x/cdn-volantis@4.1.2/js/instant_page.js","flying_pages":"https://fastly.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.fancybox = Object.assign({"enable":true,"js":"https://fastly.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js","css":"https://fastly.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css","selector":".swiper-slide img"});
+  }
+  if ('false' == 'true') {
+    stellar.plugins.heti = Object.assign({"enable":false,"css":"https://unpkg.com/heti/umd/heti.min.css","js":"https://unpkg.com/heti/umd/heti-addon.min.js"});
+  }
+</script>
+
+<!-- required -->
+
+  
+<script src="/js/main.js" async></script>
+
+
+
+<!-- optional -->
+
+
+
+<!-- inject -->
+
 
   </div>
-  {##########################}
-  {### END CATEGORY BLOCK ###}
-  {##########################}
-
-  {% include '_partials/pagination.swig' %}
-
-{% endblock %}
-
-{% block sidebar %}
-  {{ sidebar_template.render(false) }}
-{% endblock %}
+</body>
+</html>

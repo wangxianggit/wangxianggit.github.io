@@ -1,35 +1,296 @@
-{% extends '_layout.swig' %}
-{% import '_macro/post.swig' as post_template %}
-{% import '_macro/sidebar.swig' as sidebar_template %}
+<!DOCTYPE html>
+<html lang='zh-Hans'>
+
+<head>
+  <meta name="generator" content="Hexo 5.3.0">
+  <meta charset="utf-8">
+  
+
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel='dns-prefetch' href='https://fastly.jsdelivr.net'>
+  <link rel="preconnect" href="https://fastly.jsdelivr.net" crossorigin>
+  <link rel='dns-prefetch' href='//unpkg.com'>
+
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#f8f8f8">
+  <title>用Opencv生成漫画图 - Sharp tools make good work</title>
+
+  
+    <meta name="description" content="相比于图片，漫画更注重轮廓的细节，边界轮廓比较清晰，其次就是漫画的色彩数量比真实的图片要少。  首先要对图片减少色彩处理：  先要需要减少色彩的数量，我们利用的是oepncv库实现。我们首先利用金字塔下采样降低图片的分辨率，提高原图片的模糊程度；  然后再利用双边滤波来不断的对图片进行滤波操作，进一步提高图片的模糊程度，这就达到了我们模糊的目的。  使用金字塔而不是插值来减少图片分辨率的目的是为">
+<meta property="og:type" content="article">
+<meta property="og:title" content="用Opencv生成漫画图">
+<meta property="og:url" content="http://wangxianggit.github.io/Opencv_create_comic/index.html">
+<meta property="og:site_name" content="Sharp tools make good work">
+<meta property="og:description" content="相比于图片，漫画更注重轮廓的细节，边界轮廓比较清晰，其次就是漫画的色彩数量比真实的图片要少。  首先要对图片减少色彩处理：  先要需要减少色彩的数量，我们利用的是oepncv库实现。我们首先利用金字塔下采样降低图片的分辨率，提高原图片的模糊程度；  然后再利用双边滤波来不断的对图片进行滤波操作，进一步提高图片的模糊程度，这就达到了我们模糊的目的。  使用金字塔而不是插值来减少图片分辨率的目的是为">
+<meta property="og:locale">
+<meta property="article:published_time" content="2020-07-13T12:17:52.000Z">
+<meta property="article:modified_time" content="2020-07-13T12:37:11.983Z">
+<meta property="article:author" content="wangxiang">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="Opencv">
+<meta name="twitter:card" content="summary">
+  
+  
+
+  <!-- feed -->
+  
+
+  
+    
+<link rel="stylesheet" href="/css/main.css">
+
+  
+
+  
+
+  
+</head>
+
+<body>
+  
 
 
-{% block title %}{{ page.title }} | {{ config.title }}{% endblock %}
-
-{% block page_class %}page-post-detail{% endblock %}
 
 
-{% block content %}
+  <div class='l_body' id='start'>
+    <aside class='l_left' layout='post'>
+    
 
-  <div id="posts" class="posts-expand">
-    {{ post_template.render(page) }}
 
-    <div class="post-spread">
-      {% if theme.jiathis %}
-        {% include '_partials/share/jiathis.swig' %}
-      {% elseif theme.baidushare %}
-        {% include '_partials/share/baidushare.swig' %}
-      {% elseif theme.add_this_id %}
-        {% include '_partials/share/add-this.swig' %}
-      {% endif %}
+<header class="header">
+
+<div class="logo-wrap"><a class="title" href="/"><div class="main">Sharp tools make good work</div><div class="sub cap">Open your minds</div></a></div>
+<nav class="menu dis-select"></nav></header>
+
+<div class="widgets">
+
+
+<div class="widget-wrap" id="recent"><div class="widget-header cap dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><div class="more-item"><a class="title" href="/torch_scatter_sparse_install/">torch_sparse系列安装方法</a></div><div class="more-item"><a class="title" href="/git_upload_remote_from_localization/">git将本地目录提交至远程仓库</a></div><div class="more-item"><a class="title" href="/Linux_dmidecode/">Linux系统使用dmidecode查看系统的硬件信息</a></div><div class="more-item"><a class="title" href="/Linux_glance/">Linux性能监控命令glances</a></div><div class="more-item"><a class="title" href="/metapost/">MetaPost制作矢量图的语言</a></div></div></div>
+
+
+
+</div>
+
+
+    </aside>
+    <div class='l_main'>
+      
+
+      
+
+<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a><span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/Python/">Python</a></div><div id="post-meta">发布于&nbsp;<time datetime="2020-07-13T12:17:52.000Z">2020-07-13</time></div></div>
+
+<article class='content md post'>
+<h1 class="article-title"><span>用Opencv生成漫画图</span></h1>
+<ul>
+<li><p>相比于图片，漫画更注重轮廓的细节，边界轮廓比较清晰，其次就是漫画的色彩数量比真实的图片要少。</p>
+</li>
+<li><p>首先要对图片减少色彩处理：</p>
+<ul>
+<li><p>先要需要减少色彩的数量，我们利用的是oepncv库实现。我们首先利用金字塔下采样降低图片的分辨率，提高原图片的模糊程度；</p>
+</li>
+<li><p>然后再利用双边滤波来不断的对图片进行滤波操作，进一步提高图片的模糊程度，这就达到了我们模糊的目的。</p>
+</li>
+<li><p>使用金字塔而不是插值来减少图片分辨率的目的是为了达到模糊的目的，因为金字塔下采样会产生失真;</p>
+</li>
+<li><p>用双边滤波能很好的保存边缘信息，对于我们上面提到的强化边缘很友好。</p>
+</li>
+<li><p>代码如下：</p>
+</li>
+<li><p>~~~<br>import cv2</p>
+<p>img = cv2.imread(path) #读取图片<br>shape = tuple(list(((i//4)*4 for i in img.shape))[:2])[::-1]<br>img = cv2.resize(img, dsize=shape)<br>imgColor = img<br>#通过不断的双边滤波来降低色彩的数量<br>for i in range(dowmsampleNum): #进行金字塔下采样降低分辨率</p>
+<pre><code>imgColor = cv2.pyrDown(imgColor)</code></pre>
+<p>for i in range(bilateralNum): #利用较小的核不断进行双边滤波，减少图片颜色</p>
+<pre><code>imgColor = cv2.bilateralFilter(imgColor,d=9,sigmaColor=5,sigmaSpace=7)</code></pre>
+<p>for i in range(dowmsampleNum): #将图片进行上采样，到原始的图片大小</p>
+<pre><code>imgColor = cv2.pyrUp(imgColor)</code></pre>
+<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 上述程序中，我们需要注意的一点就是对于输入的图片我们必须要调整图片尺寸为<span class="number">4</span>的整数倍，因为在金字塔下采样的过程中，图片会默认降到原先尺寸的<span class="number">1</span>/<span class="number">4</span>大小，如果无法除尽的话，程序会自动向上取整，这样的话，我们上采样之后，模糊的图片和最初输入的图片在分辨率上会有些许的差别。</span><br><span class="line"></span><br><span class="line">* 然后进行轮廓增强：</span><br><span class="line"></span><br><span class="line"><span class="operator">  * </span>代码如下：</span><br><span class="line"></span><br><span class="line"><span class="operator">  * </span>~~~</span><br><span class="line">    #开始寻找轮廓</span><br><span class="line">    imgBinary = cv2.cvt<span class="constructor">Color(<span class="params">img</span>,<span class="params">cv2</span>.COLOR_RGB2GRAY)</span> #将图像转化为灰度图，用于后面的自适应阈值</span><br><span class="line">    imgMedianBlur = cv2.median<span class="constructor">Blur(<span class="params">imgBinary</span>,7)</span> #中值滤波来去除噪声点</span><br><span class="line">    imgContour = cv2.adaptive<span class="constructor">Threshold(<span class="params">imgMedianBlur</span>,255,<span class="params">cv2</span>.ADAPTIVE_THRESH_GAUSSIAN_C,<span class="params">cv2_THRESH_BINARY</span>,<span class="params">blockSize</span>=9,C=2)</span></span><br><span class="line">    imgContour=cv2.cvt<span class="constructor">Color(<span class="params">imgContour</span>,<span class="params">cv2</span>.COLOR_GRAY2RGB)</span> #转换回三通道，方便与img_color进行与操作</span><br><span class="line">    img_cartoon = cv2.bitwise<span class="constructor">_and(<span class="params">imgColor</span>,<span class="params">imgContour</span>)</span>#采用与操作，边缘保留黑色，其他位置保留img_color颜色</span><br><span class="line">    filename = &#x27;./static/out/&#123;&#125;&#x27;.format(picture_name)</span><br><span class="line">    cv2.imshow(<span class="string">&quot;img&quot;</span>,img_cartoon)</span><br><span class="line">    cv2.wait<span class="constructor">Key()</span></span><br><span class="line">    cv2.imwrite(<span class="string">&quot;pic/l_result.jpg&quot;</span>,img_cartoon)</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>上述的程序中，我们利用opencv的自适应阈值函数来分割轮廓，然后将我们的轮廓图片和模糊后的图片按照轮廓图片的数值进行与操作，最终得到我们的漫画图片。</p>
+</li>
+</ul>
+<hr>
+
+
+<div class="article-footer reveal fs14"><section id="license"><div class="header"><span>许可协议</span></div><div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div></section></div>
+
+</article>
+
+<div class="related-wrap reveal" id="read-next"><section class="header cap theme"><span>接下来阅读</span></section><section class="body fs14"><a id="next" href="/Python%20os.path.splitext/">Python os.path.splitext函数<span class="note">较早</span></a><div class="line"></div><a id="prev" href="/ImageMagick_install_use/">ImageMagick安装和使用<span class="note">较新</span></a></section></div>
+
+
+
+
+
+
+
+
+      
+<footer class="page-footer reveal fs12"><hr><div class="text"><p>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+<p>本站由 <a href="http://wangxianggit.github.io/">@wangxiang</a> 创建，使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.8.0" title="v1.8.0">Stellar</a> 作为主题。</p>
+</div></footer>
+
+      <div class='float-panel mobile-only blur' style='display:none'>
+  <button type='button' class='sidebar-toggle mobile' onclick='sidebar.toggle()'>
+    <svg class="icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="15301"><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 2.3 26.8 24.6 47.5 51.6 47.6h416.5v4z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15302"></path><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 1.9 27.7 23.9 49.7 51.6 51.6h416.5z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15303"></path></svg>
+  </button>
+</div>
+
     </div>
   </div>
+  <div class='scripts'>
+    <script type="text/javascript">
+  stellar = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    loadCSS: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
 
-{% endblock %}
+    // 从 butterfly 和 volantis 获得灵感
+    loadScript: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
 
-{% block sidebar %}
-  {{ sidebar_template.render(true) }}
-{% endblock %}
+    // https://github.com/jerryc127/hexo-theme-butterfly
+    jQuery: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        stellar.loadScript(stellar.plugins.jQuery).then(fn)
+      } else {
+        fn()
+      }
+    }
+  };
+  stellar.github = 'https://github.com/xaoxuu/hexo-theme-stellar/tree/1.8.0';
+  stellar.config = {
+    date_suffix: {
+      just: '刚刚',
+      min: '分钟前',
+      hour: '小时前',
+      day: '天前',
+      month: '个月前',
+    },
+  };
 
-{% block script_extra %}
-  {% include '_scripts/pages/post-details.swig' %}
-{% endblock %}
+  // required plugins (only load if needs)
+  stellar.plugins = {
+    jQuery: 'https://fastly.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js',
+    sitesjs: '/js/plugins/sites.js',
+    friendsjs: '/js/plugins/friends.js',
+  };
+
+  // optional plugins
+  if ('true' == 'true') {
+    stellar.plugins.lazyload = Object.assign({"enable":true,"js":"https://fastly.jsdelivr.net/npm/vanilla-lazyload@17.3.1/dist/lazyload.min.js","transition":"blur"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.swiper = Object.assign({"enable":true,"css":"https://unpkg.com/swiper@6/swiper-bundle.min.css","js":"https://unpkg.com/swiper@6/swiper-bundle.min.js"});
+  }
+  if ('' == 'true') {
+    stellar.plugins.scrollreveal = Object.assign({"enable":null,"js":"https://fastly.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js","distance":"8px","duration":500,"interval":100,"scale":1});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.preload = Object.assign({"enable":true,"service":"flying_pages","instant_page":"https://fastly.jsdelivr.net/gh/volantis-x/cdn-volantis@4.1.2/js/instant_page.js","flying_pages":"https://fastly.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.fancybox = Object.assign({"enable":true,"js":"https://fastly.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js","css":"https://fastly.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css","selector":".swiper-slide img"});
+  }
+  if ('false' == 'true') {
+    stellar.plugins.heti = Object.assign({"enable":false,"css":"https://unpkg.com/heti/umd/heti.min.css","js":"https://unpkg.com/heti/umd/heti-addon.min.js"});
+  }
+</script>
+
+<!-- required -->
+
+  
+<script src="/js/main.js" async></script>
+
+
+
+<!-- optional -->
+
+
+
+<!-- inject -->
+
+
+  </div>
+</body>
+</html>

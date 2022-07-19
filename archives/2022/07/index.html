@@ -1,64 +1,6690 @@
-{% extends '_layout.swig' %}
-{% import '_macro/post-collapse.swig' as post_template %}
-{% import '_macro/sidebar.swig' as sidebar_template %}
+<!DOCTYPE html>
+<html lang='zh-Hans'>
 
-{% block title %}{{ __('title.archive') }} | {{ config.title }}{% endblock %}
+<head>
+  <meta name="generator" content="Hexo 5.3.0">
+  <meta charset="utf-8">
+  <meta name="robots" content="noindex,follow">
 
-{% block page_class %}page-archive{% endblock %}
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel='dns-prefetch' href='https://fastly.jsdelivr.net'>
+  <link rel="preconnect" href="https://fastly.jsdelivr.net" crossorigin>
+  <link rel='dns-prefetch' href='//unpkg.com'>
 
-{% block content %}
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#f8f8f8">
+  <title>归档 - Sharp tools make good work</title>
 
-  {#####################}
-  {### ARCHIVE BLOCK ###}
-  {#####################}
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
+  
+    <meta name="description" content="There is no rose without a thorn">
+<meta property="og:type" content="website">
+<meta property="og:title" content="归档">
+<meta property="og:url" content="http://wangxianggit.github.io/archives/2022/07/index.html">
+<meta property="og:site_name" content="Sharp tools make good work">
+<meta property="og:description" content="There is no rose without a thorn">
+<meta property="og:locale">
+<meta property="article:author" content="wangxiang">
+<meta name="twitter:card" content="summary">
+  
+  
 
-      {% if theme.cheers_enabled %}
-      <span class="archive-page-counter">
-        {% set cheers %}
-        {% set posts_length = site.posts.length %}
-        {% if posts_length > 210 %} {% set cheers = 'excellent' %}
-          {% elif posts_length > 130 %} {% set cheers = 'great' %}
-          {% elif posts_length > 80 %} {% set cheers = 'good' %}
-          {% elif posts_length > 50 %} {% set cheers = 'nice' %}
-          {% elif posts_length > 30 %} {% set cheers = 'ok' %}
-        {% else %}
-          {% set cheers = 'um' %}
-        {% endif %}
-        {{ __('cheers.' + cheers) }}! {{ _p("counter.archive_posts", site.posts.length) }} {{ __('keep_on') }}
-      </span>
-      {% endif %}
+  <!-- feed -->
+  
 
-      {% for post in page.posts %}
+  
+    
+<link rel="stylesheet" href="/css/main.css">
 
-        {# Show year #}
-        {% set year %}
-        {% set post.year = date(post.date, 'YYYY') %}
+  
 
-        {% if post.year !== year %}
-          {% set year = post.year %}
-          <div class="collection-title">
-            <{% if theme.seo %}h2{% else %}h1{% endif %} class="archive-year" id="archive-year-{{ year }}">{{ year }}</{% if theme.seo %}h2{% else %}h1{% endif %}>
+  
+
+  
+</head>
+
+<body>
+  
+
+
+  <div class='l_body' id='start'>
+    <aside class='l_left' layout=''>
+    
+
+
+<header class="header">
+
+<div class="logo-wrap"><a class="title" href="/"><div class="main">Sharp tools make good work</div><div class="sub cap">Open your minds</div></a></div>
+<nav class="menu dis-select"></nav></header>
+
+<div class="widgets">
+<div class="widget-wrap" id="markdown"><div class="widget-header cap dis-select"><span class="name">Stellar 入门指南</span></div><div class="widget-body fs14"><p>欢迎使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/">Stellar</a> 主题，下面是您的入门指南，祝您使用愉快！<br><br><br><strong>第一步</strong><br>创建 <code>blog/_config.stellar.yml</code> 文件，在此文件中填写需要自定义的主题配置。<br><br><br><strong>第二步</strong><br>创建 <code>blog/source/_data/widgets.yml</code> 文件，此文件中填写需要自定义的侧边栏组件，例如 <code>welcome</code> 组件。<br><br><br>如果有任何疑问，请先查阅<a target="_blank" rel="noopener" href="https://xaoxuu.com/wiki/stellar/">文档</a>，如果文档中没有提供，请提 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/issues/">issue</a> 向开发中询问。</p>
+</div></div>
+
+<div class="widget-wrap" id="recent"><div class="widget-header cap dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><div class="more-item"><a class="title" href="/torch_scatter_sparse_install/">torch_sparse系列安装方法</a></div><div class="more-item"><a class="title" href="/git_upload_remote_from_localization/">git将本地目录提交至远程仓库</a></div><div class="more-item"><a class="title" href="/Linux_dmidecode/">Linux系统使用dmidecode查看系统的硬件信息</a></div><div class="more-item"><a class="title" href="/Linux_glance/">Linux性能监控命令glances</a></div><div class="more-item"><a class="title" href="/metapost/">MetaPost制作矢量图的语言</a></div></div></div>
+</div>
+
+
+    </aside>
+    <div class='l_main list'>
+      
+  
+
+<header class="header mobile-only">
+
+<div class="logo-wrap"><a class="title" href="/"><div class="main">Sharp tools make good work</div><div class="sub cap">Open your minds</div></a></div>
+</header>
+
+
+
+      
+
+  
+  <div class='nav-wrap'>
+  <nav class='sub post cap'>
+    
+      <a href='/'>近期发布</a>
+    
+    
+      
+        <a href='/categories'>分类</a>
+      
+    
+    
+      
+        <a href='/tags'>标签</a>
+      
+    
+    
+      
+        <a class='active' href='/archives'>归档</a>
+      
+    
+  </nav>
+</div>
+
+  <div class='post-list'>
+  	
+  	
+  		
+  		
+  			
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  			
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  			
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  			
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  			
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  	
+  		
+  		
+  			
+  		
+  	
+  	
+  		<article class='' id='archive'>
+  			<div class='archive-header h4'>2022</div>
+  			
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				<div class='archive-list'>
+            <a class='post fs14' href="/torch_scatter_sparse_install/">
+    					<time>07-06</time>
+    					<span>
+                
+      						torch_sparse系列安装方法
+      					
+              </span>
+    				</a>
           </div>
-        {% endif %}
-        {# endshow #}
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/Linux_dmidecode/">
+    					<time>05-19</time>
+    					<span>
+                
+      						Linux系统使用dmidecode查看系统的硬件信息
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/Linux_glance/">
+    					<time>04-20</time>
+    					<span>
+                
+      						Linux性能监控命令glances
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/metapost/">
+    					<time>02-23</time>
+    					<span>
+                
+      						MetaPost制作矢量图的语言
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  		</article>
+  	
+  		<article class='' id='archive'>
+  			<div class='archive-header h4'>2021</div>
+  			
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				<div class='archive-list'>
+            <a class='post fs14' href="/latex_table_return/">
+    					<time>11-16</time>
+    					<span>
+                
+      						latex表格内换行
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/jetson_xavier_jetpack/">
+    					<time>10-13</time>
+    					<span>
+                
+      						Jetson Xavier NX Jetpack安装
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/Jetson_Xavier_NX_install/">
+    					<time>10-13</time>
+    					<span>
+                
+      						Jetson Xavier NX常用组件安装
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/ubuntu_unable_to_fetch/">
+    					<time>10-12</time>
+    					<span>
+                
+      						ubuntu更新源出现unable to fetch错误
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/jetson_xavier_fan/">
+    					<time>10-09</time>
+    					<span>
+                
+      						NVIDIA Jetson AGX Xavier打开关闭风扇，解决风扇突然不转问题
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/latex_upcite/">
+    					<time>08-03</time>
+    					<span>
+                
+      						latex在右上角引用参考文献
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/mediawiki_upload_office/">
+    					<time>07-22</time>
+    					<span>
+                
+      						mediawiki上传office相关文件
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/mongodb_client_nosqlbooster/">
+    					<time>07-20</time>
+    					<span>
+                
+      						MongoDB的客户端管理工具--nosqlbooster
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/mongodb_cluster/">
+    					<time>07-20</time>
+    					<span>
+                
+      						Centos7 mongodb集群搭建
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/mongodb_starterror/">
+    					<time>07-20</time>
+    					<span>
+                
+      						mongodb启动错误
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/mediawiki_timezone/">
+    					<time>07-12</time>
+    					<span>
+                
+      						mediawiki设置时区
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/navicat12_windows/">
+    					<time>07-04</time>
+    					<span>
+                
+      						windows版Navicat12破解方法
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/MySql_cluster/">
+    					<time>07-04</time>
+    					<span>
+                
+      						MySQL分布式集群方案
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/mediawiki_mathjax/">
+    					<time>06-26</time>
+    					<span>
+                
+      						mediawiki安装插件mathjax
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/mediawiki_file_size/">
+    					<time>06-26</time>
+    					<span>
+                
+      						mediawiki上传文件大小设置
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/mediawiki_icon/">
+    					<time>06-25</time>
+    					<span>
+                
+      						mediawiki设置logo和站点图标
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/yum_remi_error/">
+    					<time>06-23</time>
+    					<span>
+                
+      						Centos7安装remi源错误
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/yum_epel/">
+    					<time>06-23</time>
+    					<span>
+                
+      						epel源及epel-release安装
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/Linux_lsblk/">
+    					<time>06-21</time>
+    					<span>
+                
+      						Linux系统lsblk命令
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/mysql_root_password/">
+    					<time>05-31</time>
+    					<span>
+                
+      						MySQL忘记root密码后重置
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/Linux_crontab/">
+    					<time>05-26</time>
+    					<span>
+                
+      						linux定时任务crontab
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/linux_killall/">
+    					<time>04-15</time>
+    					<span>
+                
+      						linux下杀死用户进程
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/Linux_ps_zombie_process/">
+    					<time>04-05</time>
+    					<span>
+                
+      						Linux系统查看僵尸进程
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/hive_connection_block/">
+    					<time>04-02</time>
+    					<span>
+                
+      						hive初始化many connection error
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/hive_warn_ssl/">
+    					<time>04-02</time>
+    					<span>
+                
+      						启动hive出现ssl警告
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/Linux_netstat/">
+    					<time>03-31</time>
+    					<span>
+                
+      						netstat显示网络状态
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/Python_tqdm/">
+    					<time>03-30</time>
+    					<span>
+                
+      						Python 使用tqdm模块添加进度条
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/python_error_validate_lengths/">
+    					<time>03-29</time>
+    					<span>
+                
+      						Python ImportError cannot import name '_validate_lengths'
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/python_cprint/">
+    					<time>03-27</time>
+    					<span>
+                
+      						Python使用cprint模块打印带颜色字符
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/Hbase_noHRegionServer/">
+    					<time>03-25</time>
+    					<span>
+                
+      						Hbase启动集群有些节点没有HRegionServer
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/ntp_date/">
+    					<time>03-25</time>
+    					<span>
+                
+      						Centos7使用npt设置时间同步
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/OLAP_OLTP/">
+    					<time>03-25</time>
+    					<span>
+                
+      						联机分析处理和联机事务处理
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/cv2_python_problem/">
+    					<time>03-24</time>
+    					<span>
+                
+      						python opencv problem:cv2 has no attribute CV_LOAD_IMAGE_GRAYSCALE
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/python_pprint/">
+    					<time>03-22</time>
+    					<span>
+                
+      						python--pprint模块
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/python_function_return_type/">
+    					<time>03-21</time>
+    					<span>
+                
+      						python定义函数指定返回值类型
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/opencv%20_error_The%20function%20is%20not%20implemented/">
+    					<time>01-28</time>
+    					<span>
+                
+      						opencv error “The function is not implemented“
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/Java_override/">
+    					<time>01-24</time>
+    					<span>
+                
+      						Java的@override使用方法
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/Centos7_mongodb_install/">
+    					<time>01-13</time>
+    					<span>
+                
+      						Centos7安装Mongodb
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/hexo_error_access_right/">
+    					<time>01-13</time>
+    					<span>
+                
+      						hexo部署权限问题
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/hexo_ERROR_Deployer_not_found_git/">
+    					<time>01-13</time>
+    					<span>
+                
+      						hexo部署错误Deployer not found git
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/nodejs_windows_install/">
+    					<time>01-13</time>
+    					<span>
+                
+      						windows下安装nodejs及环境变量设置
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  		</article>
+  	
+  		<article class='' id='archive'>
+  			<div class='archive-header h4'>2020</div>
+  			
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				<div class='archive-list'>
+            <a class='post fs14' href="/Endnote_download_tutorial/">
+    					<time>10-09</time>
+    					<span>
+                
+      						EndnoteX9下载及新手教程
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/centos7_opencv_install/">
+    					<time>10-06</time>
+    					<span>
+                
+      						Centso7下安装opencv
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/anaconda_democrate_source/">
+    					<time>07-30</time>
+    					<span>
+                
+      						anaconda安装库使用国内源
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/windows_install_tensorflow/">
+    					<time>07-29</time>
+    					<span>
+                
+      						windows下安装tensorflow
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/Python_pdb_debug/">
+    					<time>07-26</time>
+    					<span>
+                
+      						Python pdb调试命令
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/windows_cmd_string_match/">
+    					<time>07-16</time>
+    					<span>
+                
+      						windows cmd命令匹配文本中的字符串
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/yolov4_tag_chinese/">
+    					<time>07-15</time>
+    					<span>
+                
+      						yolov4标签中文显示
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/Opencv_lib_zhong/">
+    					<time>07-15</time>
+    					<span>
+                
+      						Opencv库添加中文支持
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/ImageMagick_create_font_image/">
+    					<time>07-14</time>
+    					<span>
+                
+      						使用ImageMagick生成字体图像
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/ImageMagick_install_use/">
+    					<time>07-14</time>
+    					<span>
+                
+      						ImageMagick安装和使用
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/Opencv_create_comic/">
+    					<time>07-13</time>
+    					<span>
+                
+      						用Opencv生成漫画图
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/Python%20os.path.splitext/">
+    					<time>07-13</time>
+    					<span>
+                
+      						Python os.path.splitext函数
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/Opencv_three_channel_image/">
+    					<time>07-13</time>
+    					<span>
+                
+      						Opencv处理三通道图像
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/winedt_break/">
+    					<time>01-04</time>
+    					<span>
+                
+      						Winedt注册表破解
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/latex_content_dot/">
+    					<time>01-04</time>
+    					<span>
+                
+      						latex生成目录条目加点
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  		</article>
+  	
+  		<article class='' id='archive'>
+  			<div class='archive-header h4'>2019</div>
+  			
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				<div class='archive-list'>
+            <a class='post fs14' href="/latex_figure_prefix/">
+    					<time>12-25</time>
+    					<span>
+                
+      						latex论文用图修改前缀
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/yum_unblock/">
+    					<time>12-22</time>
+    					<span>
+                
+      						linux yum进程占用问题
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/linux_googlechrome/">
+    					<time>12-21</time>
+    					<span>
+                
+      						linux安装谷歌浏览器
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/root_notebook/">
+    					<time>12-21</time>
+    					<span>
+                
+      						root install notebook
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/np_cnp_r/">
+    					<time>12-15</time>
+    					<span>
+                
+      						numpy函数np._c和np._r
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/centos7_wifiadapter_not_found/">
+    					<time>12-13</time>
+    					<span>
+                
+      						Centos7 error：no wifi-adapter found
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/Centos_imagesite/">
+    					<time>12-13</time>
+    					<span>
+                
+      						centos镜像下载地址
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/sshd%20no%20hostkeys%20available/">
+    					<time>12-06</time>
+    					<span>
+                
+      						ssh启动错误：no hostkeys available— exiting
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/centos7_ssh/">
+    					<time>12-06</time>
+    					<span>
+                
+      						Centos7 ssh常用命令
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/cmake_print/">
+    					<time>12-06</time>
+    					<span>
+                
+      						cmake打印乘法表
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/cmake_basic_gramma/">
+    					<time>12-06</time>
+    					<span>
+                
+      						cmake基础语法
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/cmake_order/">
+    					<time>12-06</time>
+    					<span>
+                
+      						cmake常见概念
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/cmake_compile_static/">
+    					<time>12-06</time>
+    					<span>
+                
+      						cmake编译静态链接库
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/cmake_makefile/">
+    					<time>12-06</time>
+    					<span>
+                
+      						cmake生成简单makefile
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/python_nan_inf/">
+    					<time>10-12</time>
+    					<span>
+                
+      						Python 缺失值inf、nan处理
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/keras_epoch_batch/">
+    					<time>10-02</time>
+    					<span>
+                
+      						keras框架参数epoch,batch_size
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/sk-learn_minmaxscaler/">
+    					<time>10-02</time>
+    					<span>
+                
+      						sk-learn MinMaxScaler方法
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/keras_dense/">
+    					<time>10-02</time>
+    					<span>
+                
+      						keras.layers dense方法
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/new_alloc/">
+    					<time>10-01</time>
+    					<span>
+                
+      						C++动态分配内存new
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/tf.initialize_all_variables()andtf.global_variables_initializer()/">
+    					<time>09-28</time>
+    					<span>
+                
+      						tf.initialize_all_variables()和tf.global_variables_initializer()
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/tf.nn.rnn_cell.MultiRNNCell/">
+    					<time>09-23</time>
+    					<span>
+                
+      						tf.nn.rnn_cell.MultiRNNCell
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/tf.nn.rnn_cell.BasicLSTMCell/">
+    					<time>09-23</time>
+    					<span>
+                
+      						tf.nn.rnn_cell.BasicLSTMCell
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/tf.nn.rnn_cell.DropoutWrapper/">
+    					<time>09-23</time>
+    					<span>
+                
+      						tf.nn.rnn_cell.DropoutWrapper
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/list_dif/">
+    					<time>09-22</time>
+    					<span>
+                
+      						两个list间的比较
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/np_array_asarray/">
+    					<time>09-22</time>
+    					<span>
+                
+      						np.array&np.asarray
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/array_reshape/">
+    					<time>09-20</time>
+    					<span>
+                
+      						array.reshape(-1)
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/tf_eval/">
+    					<time>09-18</time>
+    					<span>
+                
+      						tf.eval函数
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/tf.global_variables_initializer/">
+    					<time>09-18</time>
+    					<span>
+                
+      						tf.global_variables_initializer
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/tensorboard/">
+    					<time>09-17</time>
+    					<span>
+                
+      						tf tensorboard
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/tf_basic/">
+    					<time>09-17</time>
+    					<span>
+                
+      						tf使用方法
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/tf_square/">
+    					<time>09-16</time>
+    					<span>
+                
+      						tf函数tf.square
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/Python_reduce/">
+    					<time>09-16</time>
+    					<span>
+                
+      						Python函数reduce
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/Python_locals/">
+    					<time>09-15</time>
+    					<span>
+                
+      						Python函数locals
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/Python_tf_unstack/">
+    					<time>09-14</time>
+    					<span>
+                
+      						tf.unstack && tf.stack
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/python_copy_deepcopy/">
+    					<time>09-14</time>
+    					<span>
+                
+      						Python中shallowcopy和deepcopy区别
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/numpy_unpackbits/">
+    					<time>09-14</time>
+    					<span>
+                
+      						numpy函数unpackbits
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/Python_talib_install/">
+    					<time>09-09</time>
+    					<span>
+                
+      						Python库talib的安装
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/hdf5_set_WRITEABLE_flag_True/">
+    					<time>06-20</time>
+    					<span>
+                
+      						Hdf数据读取错误：cannot set WRITEABLE flag to True
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/ssh_config/">
+    					<time>06-06</time>
+    					<span>
+                
+      						ssh服务配置
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/ssh_service_introduction/">
+    					<time>06-06</time>
+    					<span>
+                
+      						SSH服务详解
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/ssh_show_image/">
+    					<time>06-06</time>
+    					<span>
+                
+      						Linux ssh显示图形界面
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/cython_usage1/">
+    					<time>06-04</time>
+    					<span>
+                
+      						Cython用于编译Python脚本
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/Collection_interests/">
+    					<time>06-03</time>
+    					<span>
+                
+      						新趣集
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/open_source_book_website/">
+    					<time>05-27</time>
+    					<span>
+                
+      						一个收集开源书籍的网站
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/Markov_chains/">
+    					<time>05-27</time>
+    					<span>
+                
+      						简单马尔科夫链图解
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/virtual_memory/">
+    					<time>05-27</time>
+    					<span>
+                
+      						虚拟内存探究
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/divide_conquer_algorithm/">
+    					<time>05-17</time>
+    					<span>
+                
+      						归并排序算法
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/algorithm_sort_insertion/">
+    					<time>05-16</time>
+    					<span>
+                
+      						插入排序
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/shell_df_du/">
+    					<time>05-16</time>
+    					<span>
+                
+      						shell命令df和du
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/httpd_centos7_basic_operation/">
+    					<time>05-14</time>
+    					<span>
+                
+      						Centos7 httpd基本操作
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/shell_special_symbol/">
+    					<time>05-10</time>
+    					<span>
+                
+      						shell特殊符号
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/shell_file_exist/">
+    					<time>05-10</time>
+    					<span>
+                
+      						shell判断文件是否存在
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/shell_read_line/">
+    					<time>05-10</time>
+    					<span>
+                
+      						shell逐行读取文件内容
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/shell_break_continue/">
+    					<time>05-10</time>
+    					<span>
+                
+      						shell跳出循环语句
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/shell_control_loop/">
+    					<time>05-09</time>
+    					<span>
+                
+      						shell流程控制
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/shell_string/">
+    					<time>05-09</time>
+    					<span>
+                
+      						shell字符串
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/shell_variable_substitution/">
+    					<time>05-09</time>
+    					<span>
+                
+      						shell变量删除替换
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/Linux_dmesg/">
+    					<time>05-09</time>
+    					<span>
+                
+      						Linux命令dmesg
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/jupyter_notebook_config/">
+    					<time>05-07</time>
+    					<span>
+                
+      						jupyter notebook服务器配置
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/randomdata_Integer_norepeat/">
+    					<time>05-05</time>
+    					<span>
+                
+      						用c++产生不重复整数随机数
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/Linux_source/">
+    					<time>05-04</time>
+    					<span>
+                
+      						Linux命令source
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/Linux_find/">
+    					<time>05-04</time>
+    					<span>
+                
+      						Linux find命令
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/Linux_grep/">
+    					<time>05-04</time>
+    					<span>
+                
+      						Linux grep命令
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/Python_gui_tkinter/">
+    					<time>05-04</time>
+    					<span>
+                
+      						Python gui库Tkinter
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/Latex_reference_bib/">
+    					<time>05-01</time>
+    					<span>
+                
+      						Latex使用BibTex添加参考文献
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/centos7_apache_install/">
+    					<time>04-27</time>
+    					<span>
+                
+      						centos7上安装apache服务器
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/httpd_error_library/">
+    					<time>04-27</time>
+    					<span>
+                
+      						Centos7安装apache错误
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/win8_anaconda_env_configuration/">
+    					<time>04-27</time>
+    					<span>
+                
+      						win8.1下anaconda环境变量配置
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/anaconda_python2_python3_install/">
+    					<time>04-27</time>
+    					<span>
+                
+      						anaconda管理python版本
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/Python_Library_Scipy/">
+    					<time>04-26</time>
+    					<span>
+                
+      						Python库Scipy
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/centos7_hexo_install/">
+    					<time>04-26</time>
+    					<span>
+                
+      						Centos7下hexo博客安装
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/nvidia_picture_repair/">
+    					<time>04-22</time>
+    					<span>
+                
+      						恩伟达在线自动图像修复工具
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/Python_module_calendar/">
+    					<time>04-21</time>
+    					<span>
+                
+      						python模块calendar
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/About_thread/">
+    					<time>04-21</time>
+    					<span>
+                
+      						一篇关于线程的知识文章
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/Git_usuage_Centos7/">
+    					<time>04-21</time>
+    					<span>
+                
+      						Linux中git使用
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/Linux_baidu_skydrive/">
+    					<time>04-20</time>
+    					<span>
+                
+      						Linux使用百度网盘
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/English_sci_Present_tense/">
+    					<time>04-20</time>
+    					<span>
+                
+      						英文SCI论文中时态一般现在时
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/windows_install_hexo/">
+    					<time>04-20</time>
+    					<span>
+                
+      						windows下安装hexo博客
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/linux_decompression_rar_files/">
+    					<time>04-19</time>
+    					<span>
+                
+      						linux下解压rar文件
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/Centos7_autoinstall_typora_script/">
+    					<time>04-19</time>
+    					<span>
+                
+      						Centos7自动安装typora脚本
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/typora_install_linux/">
+    					<time>04-19</time>
+    					<span>
+                
+      						Linux下安装Typora
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/AD_web_webmarker/">
+    					<time>04-01</time>
+    					<span>
+                
+      						网络和网络标号
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/Markdown_indent/">
+    					<time>04-01</time>
+    					<span>
+                
+      						Markdown缩进
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/Why%20is%20a%20neutron%20slightly%20heavier%20than%20a%20proton/">
+    					<time>04-01</time>
+    					<span>
+                
+      						Why is a neutron slightly heavier than a proton?
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/AD_Scheme_add_component/">
+    					<time>03-31</time>
+    					<span>
+                
+      						AD原理图放置元件
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/AD_Add_via_layer/">
+    					<time>03-31</time>
+    					<span>
+                
+      						AD布线中添加过孔和板层
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/Binding_energy_mass_excess/">
+    					<time>03-30</time>
+    					<span>
+                
+      						原子核结合能和质量过剩
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/plt_ion_ioff/">
+    					<time>03-23</time>
+    					<span>
+                
+      						matplotlib动态画图
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/Harddisk_interface/">
+    					<time>03-22</time>
+    					<span>
+                
+      						硬盘接口比较
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/English_sci_caution/">
+    					<time>03-21</time>
+    					<span>
+                
+      						英文论文注意事项
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/English_examples/">
+    					<time>03-21</time>
+    					<span>
+                
+      						英语关于举例词语
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/English_Conjunction_therefore_soetc/">
+    					<time>03-21</time>
+    					<span>
+                
+      						英语几个连词"因此所以"用法
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/latex_blank_space/">
+    					<time>03-19</time>
+    					<span>
+                
+      						latex中的空格
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/vi_usuage/">
+    					<time>03-15</time>
+    					<span>
+                
+      						vi简明使用方法
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/windows_ctex_insert_eps_problem/">
+    					<time>03-12</time>
+    					<span>
+                
+      						windows下使用ctex不能插入eps图片问题
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/Python_file_operation_open/">
+    					<time>03-12</time>
+    					<span>
+                
+      						python文件操作open
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/Python_module_os/">
+    					<time>03-12</time>
+    					<span>
+                
+      						Python模块os
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/Python_internal_function/">
+    					<time>03-12</time>
+    					<span>
+                
+      						Python内置函数
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/Ctex_install_new_packages/">
+    					<time>03-11</time>
+    					<span>
+                
+      						Ctex安装新宏包
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/TTree_Scan/">
+    					<time>03-11</time>
+    					<span>
+                
+      						TTree函数Scan使用
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/Python_keyword_with/">
+    					<time>03-09</time>
+    					<span>
+                
+      						Python关键字with
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/Python_interprete/">
+    					<time>03-08</time>
+    					<span>
+                
+      						Python解释器
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/Python_data_type/">
+    					<time>03-08</time>
+    					<span>
+                
+      						Python基本数据类型
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/Compiler_g++_usuage/">
+    					<time>03-07</time>
+    					<span>
+                
+      						编译器g++使用
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/C++_array_cite_and_cited_array/">
+    					<time>03-07</time>
+    					<span>
+                
+      						C++数组的引用和引用的数组
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/C++_keyword_const_cast/">
+    					<time>03-07</time>
+    					<span>
+                
+      						C++关键字const_cast
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/C++_citation/">
+    					<time>03-07</time>
+    					<span>
+                
+      						C/C++中的引用
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/Compiler_cc%E3%80%81gcc%E3%80%81g++_CC_difference/">
+    					<time>03-07</time>
+    					<span>
+                
+      						编译器cc、gcc、g++和CC区别
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/C++_keyword_const/">
+    					<time>03-06</time>
+    					<span>
+                
+      						C/C++关键字const
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/C++_prestatement/">
+    					<time>03-06</time>
+    					<span>
+                
+      						C++使用前置声明
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/C++_code_writting_standard/">
+    					<time>03-06</time>
+    					<span>
+                
+      						c++代码书写规范
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/Altium_pad_via/">
+    					<time>03-04</time>
+    					<span>
+                
+      						Altium焊盘pad和过孔via区别
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/Altium_designer_ways_copper_deposition/">
+    					<time>03-04</time>
+    					<span>
+                
+      						Altium_designer中三种不同覆铜方式
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/Altium_design_resize/">
+    					<time>03-03</time>
+    					<span>
+                
+      						Altium Designer重新定义pcb板尺寸
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/Altium_design_two_three_dimension_change/">
+    					<time>03-03</time>
+    					<span>
+                
+      						Altium Designer二维三维视图切换
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/Solidwork_project_plot_color_change/">
+    					<time>03-01</time>
+    					<span>
+                
+      						Solidworks更改工程图注释颜色
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/Python_statement_try_except/">
+    					<time>02-26</time>
+    					<span>
+                
+      						Python异常处理语句try和except
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/Python_library_Urllib2/">
+    					<time>02-26</time>
+    					<span>
+                
+      						Python3库Urllib2迁移
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/python_crawler/">
+    					<time>02-26</time>
+    					<span>
+                
+      						python爬虫综述
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/Python_library_BeautifulSoup/">
+    					<time>02-23</time>
+    					<span>
+                
+      						Python库BeautifulSoup使用
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/Markdown_add_table/">
+    					<time>02-23</time>
+    					<span>
+                
+      						Markdown插入表格
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/Markdown_grammer/">
+    					<time>02-23</time>
+    					<span>
+                
+      						Markdown grammar
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/Python_library_requests/">
+    					<time>02-20</time>
+    					<span>
+                
+      						Python库requests使用方法
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/cmd_new_files/">
+    					<time>02-18</time>
+    					<span>
+                
+      						cmd新建文件
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/Python_special_variable__name__/">
+    					<time>02-18</time>
+    					<span>
+                
+      						Python特殊变量__name__
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/Hexo_error_LF%20will%20be%20replaced%20by%20CRLF/">
+    					<time>02-18</time>
+    					<span>
+                
+      						Hexo错误提示LF will be replaced by CRLF解决方法
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/Hexo_blog_add_links/">
+    					<time>02-17</time>
+    					<span>
+                
+      						Hexo侧边栏添加外链
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/Python3_standard_data_type_bytes/">
+    					<time>02-17</time>
+    					<span>
+                
+      						Python3标准数据类型bytes
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/Python_code_organization/">
+    					<time>02-17</time>
+    					<span>
+                
+      						Python代码组织方式
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/Hexo_blog_add_visit_statistics/">
+    					<time>02-17</time>
+    					<span>
+                
+      						Hexo博客添加访问统计
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/Python3_grammar_modifier/">
+    					<time>02-17</time>
+    					<span>
+                
+      						Python3语法变动
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/Python_key_word_import/">
+    					<time>02-16</time>
+    					<span>
+                
+      						Python关键字import基本用法
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/git_error_warning%20LF%20will%20be%20replaced%20by%20CRLF/">
+    					<time>02-16</time>
+    					<span>
+                
+      						git提示warning LF will be replaced by CRLF解决方法
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/git_upload_remote_from_localization/">
+    					<time>02-16</time>
+    					<span>
+                
+      						git将本地目录提交至远程仓库
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/git_error_remote%20origin%20already%20exists/">
+    					<time>02-16</time>
+    					<span>
+                
+      						git提示remote origin already exists错误解决方法
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/Python_random_number/">
+    					<time>02-10</time>
+    					<span>
+                
+      						Python使用随机数
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/Python_pandas.io.data_modified/">
+    					<time>02-10</time>
+    					<span>
+                
+      						Python中pandas.io.data模块迁移
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/Python_code_indent/">
+    					<time>02-10</time>
+    					<span>
+                
+      						Python代码缩进
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/Python3_cancell_xrange/">
+    					<time>02-10</time>
+    					<span>
+                
+      						Python3取消了xrange
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/Python%20property_modifier/">
+    					<time>02-10</time>
+    					<span>
+                
+      						Python property修饰符
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/Python%20classmethod_modifier/">
+    					<time>02-10</time>
+    					<span>
+                
+      						Python classmethod 修饰符
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/Python_iterator/">
+    					<time>01-31</time>
+    					<span>
+                
+      						Python数据迭代
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/Python_assert/">
+    					<time>01-31</time>
+    					<span>
+                
+      						Python关键字assert
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/Python_getitem_slice/">
+    					<time>01-31</time>
+    					<span>
+                
+      						Python特殊函数__getitem__切片功能
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/Python_getitem/">
+    					<time>01-31</time>
+    					<span>
+                
+      						Python特殊函数__getitem__()
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/Python_iter/">
+    					<time>01-31</time>
+    					<span>
+                
+      						Python特殊函数__iter__()
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/Python_special_class/">
+    					<time>01-31</time>
+    					<span>
+                
+      						Python定制类
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/Python_len/">
+    					<time>01-31</time>
+    					<span>
+                
+      						Python特殊函数__len__
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/Python_slot/">
+    					<time>01-31</time>
+    					<span>
+                
+      						Python __slot__变量
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/git_pull_upload_problem/">
+    					<time>01-29</time>
+    					<span>
+                
+      						git pull上传问题
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/python3.6_autoinstall_script/">
+    					<time>01-29</time>
+    					<span>
+                
+      						python3.6自动安装脚本
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/PyPI_source_domestic/">
+    					<time>01-29</time>
+    					<span>
+                
+      						PyPI使用国内源
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/windows_CentOS7_two_system_install/">
+    					<time>01-29</time>
+    					<span>
+                
+      						U盘安装windows和CentOS7双系统
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/python3_class_definition/">
+    					<time>01-28</time>
+    					<span>
+                
+      						python3类对象的定义
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/python_script_run/">
+    					<time>01-28</time>
+    					<span>
+                
+      						python脚本运行
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/Centos7_install_anaconda/">
+    					<time>01-19</time>
+    					<span>
+                
+      						Centos7安装anaconda
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/Centos7_start_intelligent_pinyin/">
+    					<time>01-19</time>
+    					<span>
+                
+      						Centos7启动智能拼音输入法
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/copy_massive_file_harddisk/">
+    					<time>01-18</time>
+    					<span>
+                
+      						拷贝大文件到硬盘
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/Centos_windows_twosystem_boot_repaire/">
+    					<time>01-18</time>
+    					<span>
+                
+      						Centos和windows双系统引导修复
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/Centos_version/">
+    					<time>01-18</time>
+    					<span>
+                
+      						查看CentOS版本信息
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  		</article>
+  	
+  		<article class='' id='archive'>
+  			<div class='archive-header h4'>2018</div>
+  			
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				<div class='archive-list'>
+            <a class='post fs14' href="/solidwork_project_plot_show_annotation/">
+    					<time>12-16</time>
+    					<span>
+                
+      						solidwork工程图显示和隐藏注解
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/hexo_editor_formula/">
+    					<time>12-02</time>
+    					<span>
+                
+      						hexo公式编辑
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/cmd_commands/">
+    					<time>12-02</time>
+    					<span>
+                
+      						cmd常用命令
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/Nuclear%20mass%20excess/">
+    					<time>12-01</time>
+    					<span>
+                
+      						Nuclear mass excess and decay Q value
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/Altium_Design_layer_implication/">
+    					<time>11-16</time>
+    					<span>
+                
+      						Altium Design各层含义
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/c++_multithread/">
+    					<time>11-09</time>
+    					<span>
+                
+      						c++多线程
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/c++_inline_function/">
+    					<time>11-09</time>
+    					<span>
+                
+      						c++内联函数
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/Geant4/">
+    					<time>10-15</time>
+    					<span>
+                
+      						Geant4
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/Typora_hotkey/">
+    					<time>10-12</time>
+    					<span>
+                
+      						Typora快捷键
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/htop_hotkey/">
+    					<time>10-12</time>
+    					<span>
+                
+      						htop常用快捷键
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/Altium_Design_PCB_reverse/">
+    					<time>10-11</time>
+    					<span>
+                
+      						Altium Design PCB板反向
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/latex_table_slating_column/">
+    					<time>10-07</time>
+    					<span>
+                
+      						latex表格斜向分栏
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/ifstream_frequently_read_txtfile/">
+    					<time>09-18</time>
+    					<span>
+                
+      						ifstream重复读取文本文件
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/c++_read_integrate/">
+    					<time>09-18</time>
+    					<span>
+                
+      						c++读取整数
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/Centos7_install_Qt5.9/">
+    					<time>07-23</time>
+    					<span>
+                
+      						Centos7安装Qt5.9
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/Centos7_modified_add_yum_variables/">
+    					<time>07-23</time>
+    					<span>
+                
+      						Centos7修改添加yum变量
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/C_C++_mixed_compile/">
+    					<time>05-22</time>
+    					<span>
+                
+      						C和C＋＋混合编译
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/hexo_file_upload/">
+    					<time>05-04</time>
+    					<span>
+                
+      						hexo上传文件
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/Geant4_visualization/">
+    					<time>05-03</time>
+    					<span>
+                
+      						Geant4 可视化
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/hexo_image/">
+    					<time>04-26</time>
+    					<span>
+                
+      						hexo windows下上传图片
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/Jupyter_notebook_tutorial/">
+    					<time>04-26</time>
+    					<span>
+                
+      						Jupyter notebook tutorial
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/windows_configure_jupyter%20notebook_remote/">
+    					<time>04-24</time>
+    					<span>
+                
+      						windows下配置jupyter notebook远程连接
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/windows_git_configuration/">
+    					<time>04-23</time>
+    					<span>
+                
+      						windows git配置环境变量
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  				<div class='archive-list'>
+            <a class='post fs14' href="/Hexo_error_error%20deployer%20not%20found/">
+    					<time>04-23</time>
+    					<span>
+                
+      						Hexo提示error deployer not found:git错误处理
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  		</article>
+  	
+  		<article class='' id='archive'>
+  			<div class='archive-header h4'>2017</div>
+  			
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				
+  		    
+  				<div class='archive-list'>
+            <a class='post fs14' href="/About%20me/">
+    					<time>02-18</time>
+    					<span>
+                
+      						2017-02-18
+      					
+              </span>
+    				</a>
+          </div>
+  			
+  		</article>
+  	
+  </div>
 
-        {{ post_template.render(post) }}
 
-      {% endfor %}
+      
+<footer class="page-footer reveal fs12"><hr><div class="text"><p>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+<p>本站由 <a href="http://wangxianggit.github.io/">@wangxiang</a> 创建，使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.8.0" title="v1.8.0">Stellar</a> 作为主题。</p>
+</div></footer>
+
+      <div class='float-panel mobile-only blur' style='display:none'>
+  <button type='button' class='sidebar-toggle mobile' onclick='sidebar.toggle()'>
+    <svg class="icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="15301"><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 2.3 26.8 24.6 47.5 51.6 47.6h416.5v4z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15302"></path><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 1.9 27.7 23.9 49.7 51.6 51.6h416.5z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15303"></path></svg>
+  </button>
+</div>
 
     </div>
   </div>
-  {#########################}
-  {### END ARCHIVE BLOCK ###}
-  {#########################}
+  <div class='scripts'>
+    <script type="text/javascript">
+  stellar = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    loadCSS: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
 
-  {% include '_partials/pagination.swig' %}
+    // 从 butterfly 和 volantis 获得灵感
+    loadScript: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
 
-{% endblock %}
+    // https://github.com/jerryc127/hexo-theme-butterfly
+    jQuery: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        stellar.loadScript(stellar.plugins.jQuery).then(fn)
+      } else {
+        fn()
+      }
+    }
+  };
+  stellar.github = 'https://github.com/xaoxuu/hexo-theme-stellar/tree/1.8.0';
+  stellar.config = {
+    date_suffix: {
+      just: '刚刚',
+      min: '分钟前',
+      hour: '小时前',
+      day: '天前',
+      month: '个月前',
+    },
+  };
 
-{% block sidebar %}
-  {{ sidebar_template.render(false) }}
-{% endblock %}
+  // required plugins (only load if needs)
+  stellar.plugins = {
+    jQuery: 'https://fastly.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js',
+    sitesjs: '/js/plugins/sites.js',
+    friendsjs: '/js/plugins/friends.js',
+  };
+
+  // optional plugins
+  if ('true' == 'true') {
+    stellar.plugins.lazyload = Object.assign({"enable":true,"js":"https://fastly.jsdelivr.net/npm/vanilla-lazyload@17.3.1/dist/lazyload.min.js","transition":"blur"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.swiper = Object.assign({"enable":true,"css":"https://unpkg.com/swiper@6/swiper-bundle.min.css","js":"https://unpkg.com/swiper@6/swiper-bundle.min.js"});
+  }
+  if ('' == 'true') {
+    stellar.plugins.scrollreveal = Object.assign({"enable":null,"js":"https://fastly.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js","distance":"8px","duration":500,"interval":100,"scale":1});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.preload = Object.assign({"enable":true,"service":"flying_pages","instant_page":"https://fastly.jsdelivr.net/gh/volantis-x/cdn-volantis@4.1.2/js/instant_page.js","flying_pages":"https://fastly.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.fancybox = Object.assign({"enable":true,"js":"https://fastly.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js","css":"https://fastly.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css","selector":".swiper-slide img"});
+  }
+  if ('false' == 'true') {
+    stellar.plugins.heti = Object.assign({"enable":false,"css":"https://unpkg.com/heti/umd/heti.min.css","js":"https://unpkg.com/heti/umd/heti-addon.min.js"});
+  }
+</script>
+
+<!-- required -->
+
+  
+<script src="/js/main.js" async></script>
+
+
+
+<!-- optional -->
+
+
+
+<!-- inject -->
+
+
+  </div>
+</body>
+</html>
